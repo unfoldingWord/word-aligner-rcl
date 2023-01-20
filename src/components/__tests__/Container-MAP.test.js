@@ -1,4 +1,4 @@
-import {generateMAP, getPredictions} from '../Container';
+import {generateMAP, getPredictions} from '../WordAligner';
 
 describe('word MAP integration', () => {
   const targetBook = {

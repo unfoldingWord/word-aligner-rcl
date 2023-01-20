@@ -106,62 +106,9 @@ const styles = {
 };
 
 /**
- * Generates an indexed word map
- * @param targetBook
- * @param state
- * @param {number} currentChapter
- * @param {number|string} currentVerse
- * @return {Promise<WordMap>}
- */
-export const generateMAP = (
-  targetBook, state, currentChapter, currentVerse) => new Promise(resolve => {
-  setTimeout(() => {
-    // TODO: determine the maximum require target ngram length from the alignment memory before creating the map
-    const map = new WordMap({ targetNgramLength: 5, warnings: false });
-
-    for (const chapter of Object.keys(targetBook)) {
-      const chapterAlignments = getChapterAlignments(state, chapter);
-
-      for (const verse of Object.keys(chapterAlignments)) {
-        if (verse === currentVerse && parseInt(chapter) ===
-            currentChapter) {
-          // exclude current verse from saved alignments
-          continue;
-        }
-
-        for (const a of chapterAlignments[verse]) {
-          if (a.sourceNgram.length && a.targetNgram.length) {
-            map.appendAlignmentMemory(new Alignment(new Ngram(a.sourceNgram), new Ngram(a.targetNgram)));
-          }
-        }
-      }
-    }
-    resolve(map);
-  }, 0);
-});
-
-/**
- * Returns predictions based on the word map
- * @param {WordMap} map
- * @param sourceVerseText
- * @param targetVerseText
- * @return {Promise<*>}
- */
-export const getPredictions = (map, sourceVerseText, targetVerseText) => new Promise(resolve => {
-  setTimeout(() => {
-    const suggestions = map.predict(sourceVerseText, targetVerseText);
-
-    if (suggestions[0]) {
-      resolve(suggestions[0].predictions);
-    }
-    resolve();
-  }, 0);
-});
-
-/**
  * The base container for this tool
  */
-export class Container extends Component {
+export class WordAligner extends Component {
   constructor(props) {
     super(props);
     this.globalWordAlignmentMemory = null;
@@ -249,7 +196,7 @@ export class Container extends Component {
       resetWordList,
     } = this.state;
 
-    if (!Container.contextDidChange(this.props, prevProps)) {
+    if (!WordAligner.contextDidChange(this.props, prevProps)) {
       // auto complete the verse
       if (verseIsAligned && canAutoComplete && !verseIsComplete) {
         this.handleToggleComplete(null, true);
@@ -277,7 +224,7 @@ export class Container extends Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.contextId && Container.contextDidChange(nextProps, this.props)) {
+    if (nextProps.contextId && WordAligner.contextDidChange(nextProps, this.props)) {
       // scroll alignments to top when context changes
       let page = document.getElementById('AlignmentGrid');
 
@@ -852,9 +799,9 @@ export class Container extends Component {
   }
 }
 
-Container.contextTypes = { store: PropTypes.any.isRequired };
+WordAligner.contextTypes = { store: PropTypes.any.isRequired };
 
-Container.propTypes = {
+WordAligner.propTypes = {
   tc: PropTypes.shape({
     appLanguage: PropTypes.string.isRequired,
     sourceBook: PropTypes.object.isRequired,
@@ -919,104 +866,6 @@ Container.propTypes = {
   settingsReducer: PropTypes.shape({ toolsSettings: PropTypes.object.isRequired }).isRequired,
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  const methods = {
-    alignTargetToken,
-    unalignTargetToken,
-    moveSourceToken,
-    resetVerse,
-    clearState,
-    acceptTokenSuggestion,
-    removeTokenSuggestion,
-    acceptAlignmentSuggestions,
-    setAlignmentPredictions,
-    clearAlignmentSuggestions,
-    addComment,
-    addBookmark,
-  };
-
-  const dispatchedMethods = {};
-
-  // eslint-disable-next-line array-callback-return
-  Object.keys(methods).map(key => {
-    dispatchedMethods[key] = (...args) => dispatch(methods[key](...args));
-  });
-
-  const {
-    tc: {
-      showAlert,
-      closeAlert,
-      updateTargetVerse,
-      showIgnorableAlert,
-      gatewayLanguageCode,
-    },
-    toolApi,
-    translate,
-    gatewayLanguageQuote,
-  } = ownProps;
-  const username = getUsername(ownProps);
-  const currentToolName = getCurrentToolName(ownProps);
-  const projectSaveLocation = getProjectPath(ownProps);
-
-  dispatchedMethods.editTargetVerse = (chapter, verse, before, after, tags) => {
-    dispatch(editTargetVerse(chapter, verse, before, after, tags, username, gatewayLanguageCode, gatewayLanguageQuote, projectSaveLocation, currentToolName, translate, showAlert, closeAlert, showIgnorableAlert, updateTargetVerse, toolApi));
-  };
-
-  return dispatchedMethods;
-};
-
-const mapStateToProps = (state, props) => {
-  const { tool: { api } } = props;
-  const targetVerseText = getSelectedTargetVerse(state, props);
-  const sourceVerse = getSelectedSourceVerse(state, props);
-  const contextId = getContextId(state);
-  const { reference: { chapter, verse } } = contextId || { reference: { chapter: 1, verse: 1 } };
-  let verseState = {};
-
-  if (contextId) {
-    verseState = api.getVerseData(chapter, verse, contextId);
-  }
-
-  const isFinished = !!verseState[GroupMenu.FINISHED_KEY];
-  // TRICKY: the target verse contains punctuation we need to remove
-  let targetTokens = [];
-  let sourceTokens = [];
-
-  if (targetVerseText) {
-    targetTokens = Lexer.tokenize(removeUsfmMarkers(targetVerseText));
-  }
-
-  if (sourceVerse) {
-    sourceTokens = tokenizeVerseObjects(sourceVerse.verseObjects);
-  }
-
-  const normalizedSourceVerseText = sourceTokens.map(t => t.toString()).join(' ');
-  const normalizedTargetVerseText = targetTokens.map(t => t.toString()).join(' ');
-  const gatewayLanguageCode = getGatewayLanguageCode(props);
-
-  return {
-    sourceChapter: getSourceChapter(state, props),
-    targetChapter: getTargetChapter(state, props),
-    contextId,
-    gatewayLanguageCode,
-    hasRenderedSuggestions: getVerseHasRenderedSuggestions(state, chapter, verse),
-    verseIsComplete: isFinished,
-    verseIsAligned: getIsVerseAligned(state, chapter, verse),
-    hasSourceText: normalizedSourceVerseText !== '',
-    hasTargetText: normalizedTargetVerseText !== '',
-    targetTokens,
-    sourceTokens,
-    alignedTokens: getRenderedVerseAlignedTargetTokens(state, chapter, verse),
-    verseAlignments: getRenderedVerseAlignments(state, chapter, verse),
-    verseIsValid: getIsVerseAlignmentsValid(state, chapter, verse,
-      normalizedSourceVerseText, normalizedTargetVerseText),
-    normalizedTargetVerseText,
-    normalizedSourceVerseText,
-    currentBookmarks: !!getCurrentBookmarks(state),
-    currentComments: getCurrentComments(state) || '',
-  };
-};
-
 export default DragDropContext(HTML5Backend)(
-  connect(mapStateToProps, mapDispatchToProps)(Container),
+  connect(mapStateToProps, mapDispatchToProps)(WordAligner),
 );

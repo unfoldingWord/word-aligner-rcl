@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import {shallow} from 'enzyme';
-import {Container} from '../Container';
+import {WordAligner} from '../WordAligner';
 import * as reducers from '../../state/reducers';
 import Api from '../../Api';
 
@@ -41,7 +41,7 @@ describe('Container', () => {
 
     // when
     const wrapper = shallow(
-        <Container {...myProps} />,
+        <WordAligner {...myProps} />,
         { context: { store }}
     );
 
@@ -247,7 +247,7 @@ function getContainerInstance(props, verseText = 'Dummy Text') {
 
   const myProps = setupReducersAndProps(props, verseState, verseText);
   const wrapper = shallow(
-    <Container {...myProps} />,
+    <WordAligner {...myProps} />,
     { context: { store }}
   );
   const instance = wrapper.instance();
