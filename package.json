@@ -26,8 +26,7 @@
     "markdown-translatable": "^1.x",
     "prop-types": "^15.x",
     "react": "^17.x || ^18.x ",
-    "react-dom": "^17.x || ^18.x",
-    "scripture-resources-rcl": "^5.x"
+    "react-dom": "^17.x || ^18.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.6",
@@ -52,7 +51,6 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-styleguidist": "^11.1.1",
-    "scripture-resources-rcl": "^5.2.2",
     "tc-ui-toolkit": "^5.3.3",
     "webpack": "4.44.0",
     "word-aligner": "^1.0.0"
@@ -63,8 +61,8 @@
     "deep-equal": "^2.0.5",
     "react-draggable": "^4.4.3",
     "styled-components": "^5.2.1",
-    "tsv": "^0.2.0",
-    "use-deep-compare-effect": "^1.6.1"
+    "use-deep-compare-effect": "^1.6.1",
+    "usfm-js": "3.4.2"
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
