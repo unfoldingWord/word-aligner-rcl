@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot has no words 1`] = `
+<div
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "flex-end",
+        "padding": "0px 5px 5px",
+      }
+    }
+  >
+    <span
+      className="glyphicon glyphicon-option-vertical"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "fontSize": "18px",
+          "margin": "0 0 0 10px",
+          "padding": 0,
+        }
+      }
+      title={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`snapshot has words 1`] = `
+<div
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "flex-end",
+        "padding": "0px 5px 5px",
+      }
+    }
+  >
+    <span
+      className="glyphicon glyphicon-option-vertical"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "fontSize": "18px",
+          "margin": "0 0 0 10px",
+          "padding": 0,
+        }
+      }
+      title={undefined}
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "padding": "5px 10px",
+      }
+    }
+  >
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <div
+        aria-describedby={null}
+        className=""
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+        title={null}
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderLeft": "5px solid #44C6FF",
+              "boxShadow": "0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset",
+              "cursor": "pointer",
+              "display": "flex",
+              "flexDirection": "row",
+              "opacity": 1,
+              "padding": "9px",
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <span
+              className=""
+              onClick={[Function]}
+              style={
+                Object {
+                  "flexGrow": 2,
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "width": "max-content",
+                }
+              }
+            >
+              w1
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "padding": "5px 10px",
+      }
+    }
+  >
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <div
+        aria-describedby={null}
+        className=""
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+        title={null}
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderLeft": "5px solid #44C6FF",
+              "boxShadow": "0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset",
+              "cursor": "pointer",
+              "display": "flex",
+              "flexDirection": "row",
+              "opacity": 1,
+              "padding": "9px",
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <span
+              className=""
+              onClick={[Function]}
+              style={
+                Object {
+                  "flexGrow": 2,
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "width": "max-content",
+                }
+              }
+            >
+              w2
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "padding": "5px 10px",
+      }
+    }
+  >
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <div
+        aria-describedby={null}
+        className=""
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+        title={null}
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "borderLeft": "5px solid #868686",
+              "boxShadow": "0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset",
+              "cursor": "not-allowed",
+              "display": "flex",
+              "flexDirection": "row",
+              "opacity": 0.3,
+              "padding": "9px",
+              "userSelect": "none",
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "display": "flex",
+                "flex": 1,
+                "overflow": "hidden",
+              }
+            }
+          >
+            <span
+              className=""
+              onClick={[Function]}
+              style={
+                Object {
+                  "flexGrow": 2,
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "width": "max-content",
+                }
+              }
+            >
+              w3
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

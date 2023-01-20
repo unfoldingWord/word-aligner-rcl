@@ -1,0 +1,72 @@
+{
+  "name": "word-aligner-rcl",
+  "version": "0.0.1",
+  "main": "dist",
+  "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "styleguidist server",
+    "build": "styleguidist build",
+    "test": "jest",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "prepublishOnly": "rm -rf ./dist && babel ./src --out-dir ./dist -s inline",
+    "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.x",
+    "@material-ui/lab": "^4.x",
+    "@mui/icons-material": "^5.x",
+    "@mui/lab": "^5.x",
+    "@mui/material": "^5.x",
+    "@mui/styles": "^5.x",
+    "gitea-react-toolkit": "^1.10.0",
+    "markdown-translatable": "^1.x",
+    "prop-types": "^15.x",
+    "react": "^17.x || ^18.x ",
+    "react-dom": "^17.x || ^18.x",
+    "scripture-resources-rcl": "^5.x"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.89",
+    "@mui/material": "^5.8.7",
+    "@mui/styles": "^5.8.7",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.2.2",
+    "gitea-react-toolkit": "^2.1.2",
+    "jest": "^27.3.1",
+    "markdown-translatable": "^2.1.1",
+    "prettier": "^2.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-styleguidist": "^11.1.1",
+    "scripture-resources-rcl": "^5.2.2",
+    "tc-ui-toolkit": "^5.3.3",
+    "webpack": "4.44.0",
+    "word-aligner": "^1.0.0"
+  },
+  "dependencies": {
+    "@gwdevs/extensible-rcl": "^1.0.0",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
+    "deep-equal": "^2.0.5",
+    "react-draggable": "^4.4.3",
+    "styled-components": "^5.2.1",
+    "tsv": "^0.2.0",
+    "use-deep-compare-effect": "^1.6.1"
+  },
+  "resolutions": {
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+  }
+}
