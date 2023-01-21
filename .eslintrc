@@ -1,0 +1,38 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": [
+    "react",
+    "jest"
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "15.0"
+    }
+  },
+  "rules": {
+    "react/display-name": "off",
+    "no-undef": "warn",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/no-unescaped-entities": "warn",
+    "react/no-find-dom-node": "warn",
+    "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
+    "no-console": "off",
+    "no-async-promise-executor":"off"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest/globals": true
+  }
+}
