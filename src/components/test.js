@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import WordAligner from './WordAligner';
+// import WordAligner from './WordAligner';
+import WordList from './WordList/index';
 
 const verseAlignments = require('../data/alignments.json');
 
 /**
  * The base container for this tool
  */
-export class Test extends Component {
+export class WordAlignerDemo extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <WordAligner
+      <WordList
         verseAlignments={verseAlignments}
       />
     );
   }
 }
 
-WordAligner.contextTypes = { store: PropTypes.any.isRequired };
+WordAlignerDemo.contextTypes = { store: PropTypes.any.isRequired };
 
-WordAligner.propTypes = {
+WordAlignerDemo.propTypes = {
   contextId: PropTypes.object,
   sourceVerse: PropTypes.object,
   sourceChapter: PropTypes.object,
@@ -81,3 +82,5 @@ WordAligner.propTypes = {
   resourcesReducer: PropTypes.object.isRequired,
   settingsReducer: PropTypes.shape({ toolsSettings: PropTypes.object.isRequired }).isRequired,
 };
+
+export default WordAlignerDemo;

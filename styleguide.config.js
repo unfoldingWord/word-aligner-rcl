@@ -10,6 +10,7 @@ module.exports = {
   styles,
   theme,
   components: 'src/components/**/[A-Z]*.js',
+  assetsDir: 'src/assets',
   webpackConfig: {
     module: {
       rules: [
@@ -18,6 +19,14 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: ["style-loader", "css-loader", "sass-loader"]
+        },
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          loader: "file-loader?name=/public/icons/[name].[ext]"
+        }
       ],
     },
   },

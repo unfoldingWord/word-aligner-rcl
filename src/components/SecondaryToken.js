@@ -17,7 +17,7 @@ import multi_drag_preview_12 from '../assets/multi_drag_preview_12.png';
 import multi_drag_preview_13 from '../assets/multi_drag_preview_13.png';
 import multi_drag_preview_14 from '../assets/multi_drag_preview_14.png';
 import multi_drag_preview_15 from '../assets/multi_drag_preview_15.png';
-import * as types from './WordCard/Types';
+import * as types from '../common/WordCardTypes';
 import Word from './WordCard';
 
 /**

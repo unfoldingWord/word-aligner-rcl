@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // constants
 import { getLexiconData } from '../utils/lexiconHelpers';
 import { getFontClassName } from '../common/fontUtils';
-import * as types from './WordCard/Types';
+import * as types from '../common/WordCardTypes';
 // components
 import AlignmentCard from './AlignmentCard';
 // helpers

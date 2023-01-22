@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import { WordLexiconDetails, lexiconHelpers } from 'tc-ui-toolkit';
 import { Token } from 'wordmap-lexer';
-import * as types from './WordCard/Types';
+import * as types from '../common/WordCardTypes';
 // components
 import Word from './WordCard';
 

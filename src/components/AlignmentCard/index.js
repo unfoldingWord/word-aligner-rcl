@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
 import { Token } from 'wordmap-lexer';
-import * as types from '../WordCard/Types';
+import * as types from '../../common/WordCardTypes';
 import SecondaryToken from '../SecondaryToken';
 import PrimaryToken from '../PrimaryToken';
 import AlignmentCard from './AlignmentCard';
