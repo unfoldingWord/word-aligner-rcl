@@ -16,3 +16,6 @@ trim_trailing_whitespace = false
 
 [*.txt]
 trim_trailing_whitespace = false
+
+[*.snap]
+trim_trailing_whitespace = false

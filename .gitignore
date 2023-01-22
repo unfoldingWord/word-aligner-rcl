@@ -1,15 +1,12 @@
-lib
-dist
-styleguide/
-.yalc/
-yalc.lock
-
+# other
 # Logs
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/dist
+/lib
 
 # Runtime data
 pids
@@ -57,20 +54,11 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variable files
-.env*
-
-# gatsby files
-.cache/
-public
-
-# Mac files
-.DS_Store
-
-# Yarn
-yarn-error.log
-.pnp/
-.pnp.js
 # Yarn Integrity file
 .yarn-integrity
-/.idea/
+
+# dotenv environment variables file
+.env
+
+# intelliJ environment settings
+.idea
