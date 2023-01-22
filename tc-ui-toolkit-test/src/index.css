@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: stretch;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.column-container {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-container { 
+  height: 30px;
+  background-color: #333;
+  color: #ddd;
+}
+
+.column1, .column2, .column3 {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  border: thin solid red; 
+}
+
+.column1 {
+  background-color: #333;
+  color: #DDD;
+  width: 20%; 
+}
+
+.column2 {
+  width: 57%;
+  flex-flow: column nowrap;
+  flex-grow: 6;
+}
+
+.column3 {
+  width: 23%;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.scripture-item {
+  margin: 0;
+  padding: 0; 
+}
+ 
+.help-sash {
+  width: 30px;
+}
+
+.helps-item {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0;
+  margin: 0;
+}
+/*
+.info-item {
+  flex-grow: 2;
+}
+*/
