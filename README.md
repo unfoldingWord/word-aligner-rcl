@@ -20,7 +20,7 @@ Word alignment tool for [translationCore].
 First, install the package using npm:
 
 ```js
-  npm install tc-ui-toolkit --save
+  npm install word-aligner-rcl --save
 ```
 
 Then, require the package and use it like so:
@@ -48,30 +48,30 @@ class App extends Component {
 - `npm i`
 - `npm run build`
 - `npm link` or `sudo npm link`
-- `cd tc-ui-toolkit-test`
+- `cd word-aligner-rcl-test`
 - `npm i`
-- `npm link tc-ui-toolkit`
+- `npm link word-aligner-rcl`
 
 ## Git Branch Management
 
 Note:
 
-- I am using the feature branch named `my-feature-branch` which is a branch you would have created on the `unfoldingWord/tc-ui-toolkit` repo for your feature implementation.
+- I am using the feature branch named `my-feature-branch` which is a branch you would have created on the `unfoldingWord/word-aligner-rcl` repo for your feature implementation.
 - You do not have to do anything different if your changes are reflected in a translationCore tool. Because the tool will get its `node_modules` from translationCore during runtime.
 
-1. Checkout the master branch for `tc-ui-toolkit`(pull latest), create/checkout your branch called `my-feature-branch`.
-2. Implement your feature on `my-feature-branch` and test it in the `tc-ui-toolkit-test` app (That workflow is outlined below)
-3. Push your changes from `my-feature-branch` to the `tc-ui-toolkit` origin
-4. Once you are ready to test your app on the translationCore repo run `npm i unfoldingWord/tc-ui-toolkit#my-feature-branch` in your translationCore root directory
-    - This will give you the changes you made on `tc-ui-toolkit/my-feature-branch` without having to do a premature `npm publish`
+1. Checkout the master branch for `word-aligner-rcl`(pull latest), create/checkout your branch called `my-feature-branch`.
+2. Implement your feature on `my-feature-branch` and test it in the `word-aligner-rcl-test` app (That workflow is outlined below)
+3. Push your changes from `my-feature-branch` to the `word-aligner-rcl` origin
+4. Once you are ready to test your app on the translationCore repo run `npm i unfoldingWord/word-aligner-rcl#my-feature-branch` in your translationCore root directory
+    - This will give you the changes you made on `word-aligner-rcl/my-feature-branch` without having to do a premature `npm publish`
 5. Ensure all changes work as expected on translationCore branch.
-    - Note the workflow to make more changes from your `my-feature-branch` and test them on translationCore is to simply repeat step 3, and then run `rm -rf node_modules/tc-ui-toolkit; npm i tc-ui-toolkit;` in the translationCore root directory. This will give you the pushed changes without having to re-install all the `node_modules`
+    - Note the workflow to make more changes from your `my-feature-branch` and test them on translationCore is to simply repeat step 3, and then run `rm -rf node_modules/word-aligner-rcl; npm i word-aligner-rcl;` in the translationCore root directory. This will give you the pushed changes without having to re-install all the `node_modules`
 6. When the feature you implemented is ready and all tests are passing then you are ready for PRs.
-7. **run `npm uninstall tc-ui-toolkit; npm i tc-ui-toolkit;`** in the translationCore root directory
-   - This will ensure that you do not have the tc-ui-toolkit branch as a npm version. That was merely for testing, not production.
-8. Make a PR on the `unfoldingWord/tc-ui-toolkit` repo with your feature implementation `my-feature-branch`
-9. After the feature branch on tc-ui-toolkit gets merged make a PR on the `translationCore` repo with a new branch that includes the latest `tc-ui-toolkit` version
-    - Note: up until now you did not have to push any changes to a branch for the `tc-ui-toolkit` feature implementation. At this point you will have to do so in order to see changes you made in `my-feature-branch`, reflected in translationCore.
+7. **run `npm uninstall word-aligner-rcl; npm i word-aligner-rcl;`** in the translationCore root directory
+   - This will ensure that you do not have the word-aligner-rcl branch as a npm version. That was merely for testing, not production.
+8. Make a PR on the `unfoldingWord/word-aligner-rcl` repo with your feature implementation `my-feature-branch`
+9. After the feature branch on word-aligner-rcl gets merged make a PR on the `translationCore` repo with a new branch that includes the latest `word-aligner-rcl` version
+    - Note: up until now you did not have to push any changes to a branch for the `word-aligner-rcl` feature implementation. At this point you will have to do so in order to see changes you made in `my-feature-branch`, reflected in translationCore.
 10. Once the PR has been merged, verify the fix from `my-feature-branch` is still working.
 
 ## Publish Workflow
@@ -88,24 +88,24 @@ Note:
 
 ## Component Development
 
-`tc-ui-toolkit` components should be developed inside their own folder in the `src` folder.
+`word-aligner-rcl` components should be developed inside their own folder in the `src` folder.
 
 Use the `CheckInfoCard` component as a guide to develop your own `tc-ui-toolkit` components.
 
 #### Commands to get your development rolling
 
 - Terminal 1
-  - In the root directory of `tc-ui-toolkit`
+  - In the root directory of `word-aligner-rcl`
     - `npm start` so that webpack watches your changes and reloads (Live hot reloading).
       or
     - `npm build src` to build your components code without watching for changes.
 - Terminal 2
-  - In the `tc-ui-toolkit-test` directory (To render the component in the browser)
-    - cd to `tc-ui-toolkit-test`
+  - In the `word-aligner-rcl-test` directory (To render the component in the browser)
+    - cd to `word-aligner-rcl-test`
     - run `npm start`
-    - Then the `tc-ui-toolkit-test` app should open in your default browser.
+    - Then the `word-aligner-rcl-test` app should open in your default browser.
 
-#### Directory & file structure (Root directory of components within `tc-ui-toolkit`)
+#### Directory & file structure (Root directory of components within `word-aligner-rcl`)
 
 ```js
 src
@@ -146,7 +146,7 @@ src
 
 #### Rendering your Component UI in the browser
 
-- To render your Component UI in the browser edit the `App.js` file inside the `src` folder in `tc-ui-toolkit-test` by including/importing the component as follow:
+- To render your Component UI in the browser edit the `App.js` file inside the `src` folder in `word-aligner-rcl-test` by including/importing the component as follow:
 
 ```js
 import { CheckInfoCard } from 'tc-ui-toolkit';

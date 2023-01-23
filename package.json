@@ -11,8 +11,8 @@
     "test": "eslint ./src && jest",
     "prestart": "npm run webpack:d",
     "start": "npm run render-ui",
-    "render-ui": "webpack && cd tc-ui-toolkit-test && npm start",
-    "setup": "npm ci && webpack && npm link && cd tc-ui-toolkit-test && npm ci && npm link tc-ui-toolkit",
+    "render-ui": "webpack && cd word-aligner-rcl-test && npm start",
+    "setup": "npm ci && webpack && npm link && cd word-aligner-rcl-test && npm ci && npm link word-aligner-rcl",
     "prebuild": "rm -rf ./lib",
     "webpack:w": "webpack --watch",
     "webpack:d": "webpack -d",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unfoldingWord/tc-ui-toolkit.git"
+    "url": "git+https://github.com/unfoldingWord/word-aligner-rcl.git"
   },
   "keywords": [
     "translationCore",
@@ -33,9 +33,9 @@
   "author": "unfoldingWorld",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unfoldingWord/tc-ui-toolkit/issues"
+    "url": "https://github.com/unfoldingWord/word-aligner-rcl/issues"
   },
-  "homepage": "https://github.com/unfoldingWord/tc-ui-toolkit#readme",
+  "homepage": "https://github.com/unfoldingWord/word-aligner-rcl#readme",
   "engines": {
     "node": ">=6.11.0"
   },
@@ -50,7 +50,7 @@
     ],
     "coverageDirectory": "coverage",
     "testPathIgnorePatterns": [
-      "tc-ui-toolkit-test/*",
+      "word-aligner-rcl-test/*",
       "dist/*",
       "lib/*"
     ],
@@ -59,7 +59,7 @@
       "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
     },
     "modulePathIgnorePatterns": [
-      "tc-ui-toolkit-test/"
+      "word-aligner-rcl-test/"
     ]
   },
   "peerDependencies": {
