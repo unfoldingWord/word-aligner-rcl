@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
@@ -159,6 +160,9 @@ const alignmentComparator = (a, b) => indexForAlignment(a) - indexForAlignment(b
 
 const indexComparator = (a, b) => a.index - b.index;
 
+/**
+ * Aligns Words
+ */
 const WordAligner = ({
     verseAlignments,
     wordListWords,
@@ -373,5 +377,30 @@ const WordAligner = ({
 
   );
 };
+
+WordAligner.PropTypes = {
+  /**  Array of Objects like {bottomWords, topWords, sourceNgram, targetNgram} */
+  verseAlignments: PropTypes.arrayOf(PropTypes.object),
+  /**  Array of Tokens representing each word in the alignment word list */
+  wordListWords: PropTypes.arrayOf(PropTypes.object),
+  /**  Funciton used to ???? */
+  translate: PropTypes.func,
+  /**  Object like {groupId: string, tool: string, reference: {bookId, chapter, verse}} */
+  contextId: PropTypes.object,
+  /**  String representing font for target langauge */
+  targetLanguageFont: PropTypes.string,
+  /**  String representing alignment source language */
+  sourceLanguage: PropTypes.string,
+  /**  Funciton used to ??? */
+  showPopover: PropTypes.func,
+  /**  Object ??? */
+  lexicons: PropTypes.object,
+  /**  Function used to ??? */
+  loadLexiconEntry: PropTypes.func,
+  /**  Function to call in the application using WordAligner. Parameter is the results of alignment */
+  onChange: PropTypes.func,
+  /**  Function to get lexicon data given a lexiconId and entryId */
+  getLexiconData: PropTypes.func,
+}
 
 export default WordAligner;

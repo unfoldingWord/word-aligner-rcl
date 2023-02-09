@@ -1,5 +1,7 @@
 Word Aligner Example:
 
+I don't know is this where I talk about stuff?
+
 ```js
 import {
   addAlignmentsToVerseUSFM, areAlgnmentsComplete,
