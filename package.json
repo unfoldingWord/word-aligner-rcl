@@ -13,21 +13,18 @@
     "lint:fix": "eslint ./src --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "prepublishOnly": "rm -rf ./dist && babel ./src --out-dir ./dist -s inline",
-    "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
+    "xpostpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
   },
   "peerDependencies": {
     "prop-types": "^15.x",
-    "react": "^18.x",
-    "react-dom": "^18.x"
+    "react": "^16.x",
+    "react-dom": "^16.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "babel-loader": "^9.1.2",
     "fs-extra": "4.0.3",
     "jest": "^27.3.1",
@@ -35,16 +32,14 @@
     "path-extra": "3.0.0",
     "prettier": "^2.1.2",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-styleguidist": "^13.0.0",
     "webpack": "^5.75.0"
   },
   "dependencies": {
     "bible-reference-range": "^1.1.0",
     "file-loader": "^6.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "string-punctuation-tokenizer": "2.2.0",
     "tc-ui-toolkit": "6.2.6",
     "usfm-js": "3.4.2",
