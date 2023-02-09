@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DropTarget } from 'react-dnd';
+// import { DropTarget } from 'react-dnd';
 import { Token } from 'wordmap-lexer';
 import * as types from '../../common/WordCardTypes';
 import WordList from './WordList';
@@ -19,6 +19,8 @@ class DroppableWordList extends React.Component {
     this.handleWordSelection = this.handleWordSelection.bind(this);
     this.clearWordSelections = this.clearWordSelections.bind(this);
     this.onEscapeKeyPressed = this.onEscapeKeyPressed.bind(this);
+    this.onWordDropped = this.onWordDropped.bind(this);
+    this.onDrag = this.onDrag.bind(this);
   }
 
   setScrollState(wordList, nextProps) {
@@ -76,6 +78,25 @@ class DroppableWordList extends React.Component {
     this.setWordListScroll(wordList);
   }
 
+  onDrag(token) {
+    const words = [...this.state.selectedWords];
+    let dragging = token;
+    const index = words.findIndex(item => (
+      token.text === item.text &&
+      token.tokenOccurrence === item.tokenOccurrence
+    ));
+
+    if (index === -1) {
+      words.push(token);
+    }
+    
+    if (words.length > 1) {
+      dragging = words
+    }
+
+    this.props.setDragToken(dragging);
+  }
+  
   /**
    * maintains the list of selected words
    * @param token
@@ -111,6 +132,10 @@ class DroppableWordList extends React.Component {
     });
   }
 
+  onWordDropped() {
+    this.props.onDropTargetToken(this.props.dragToken);
+  }
+
   render() {
     const {
       words,
@@ -120,8 +145,8 @@ class DroppableWordList extends React.Component {
       direction,
       toolsSettings,
       setToolSettings,
-      connectDropTarget,
       targetLanguageFont,
+      dragToken,
     } = this.props;
     const { selectedWords, selectedWordPositions } = this.state;
     const { fontSize } = toolsSettings['WordList'] || {};
@@ -138,7 +163,7 @@ class DroppableWordList extends React.Component {
       wordListStyle.fontSize = `${fontSize}%`;
     }
 
-    return connectDropTarget(
+    return (
       <div id='wordList' style={wordListStyle}>
         <WordList
           toolSettings={toolsSettings['WordList']}
@@ -152,10 +177,12 @@ class DroppableWordList extends React.Component {
           setToolSettings={setToolSettings}
           onWordClick={this.handleWordSelection}
           targetLanguageFont={targetLanguageFont}
-          onWordDragged={this.clearWordSelections}
+          onWordDropped={this.onWordDropped}
           selectedWordPositions={selectedWordPositions}
+          dragToken={dragToken}
+          setDragToken={this.onDrag}
         />
-      </div>,
+      </div>
     );
   }
 }
@@ -169,8 +196,9 @@ DroppableWordList.propTypes = {
   targetLanguageFont: PropTypes.string,
   toolsSettings: PropTypes.object.isRequired,
   setToolSettings: PropTypes.func.isRequired,
+  dragToken: PropTypes.object.isRequired,
+  setDragToken: PropTypes.func.isRequired,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
-  connectDropTarget: PropTypes.func.isRequired,
   onDropTargetToken: PropTypes.func.isRequired,
   words: PropTypes.arrayOf(PropTypes.instanceOf(Token)),
 };
@@ -193,14 +221,4 @@ const dragHandler = {
   },
 };
 
-const collect = (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-  canDrop: monitor.canDrop(),
-});
-
-export default DropTarget(
-  types.SECONDARY_WORD,
-  dragHandler,
-  collect,
-)(DroppableWordList);
+export default DroppableWordList;

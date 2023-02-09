@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CancelIcon from 'material-ui/svg-icons/navigation/cancel';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const makeStyles = state => {
   const {hover} = state;
@@ -51,12 +50,10 @@ class Controls extends React.Component {
     const {onCancel} = this.props;
     const styles = makeStyles(this.state);
     return (
-      <MuiThemeProvider>
         <CancelIcon onClick={onCancel}
                     onMouseOver={this._handleOver}
                     onMouseOut={this._handleOut}
                     style={styles.icon}/>
-      </MuiThemeProvider>
     );
   }
 }

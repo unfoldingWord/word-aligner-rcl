@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
-import { WordLexiconDetails, lexiconHelpers } from 'tc-ui-toolkit';
+import { default as WordLexiconDetails } from 'tc-ui-toolkit/lib/WordLexiconDetails/index';
+import * as lexiconHelpers from 'tc-ui-toolkit/lib/ScripturePane/helpers/lexiconHelpers';
 import { Token } from 'wordmap-lexer';
 import * as types from '../common/WordCardTypes';
 // components
@@ -30,10 +30,63 @@ class PrimaryToken extends Component {
     this._handleClick = this._handleClick.bind(this);
     this._handleOut = this._handleOut.bind(this);
     this._handleOver = this._handleOver.bind(this);
+    this.onDragStart = this.onDragStart.bind(this);
     this.state = {
       hover: false,
       anchorEl: null,
     };
+  }
+
+  /**
+   * called when drag is initialized
+   */
+  onDragStart(e) {
+    const {
+      selectedTokens,
+      token,
+      setDragToken,
+      onClick,
+      // connectDragPreview,
+    } = this.props;
+
+    // const hasSelections = selectedTokens && selectedTokens.length > 0;
+
+    const token_ = {
+      ...token,
+      type: types.PRIMARY_WORD
+    };
+    setDragToken && setDragToken(token_);
+
+    // let tokens = [];
+
+    // if (selectedTokens) {
+    //   tokens = [...selectedTokens];
+    //
+    //   // TRICKY: include the dragged token in the selection
+    //   if (!containsToken(tokens, token)) {
+    //     tokens.push(token);
+    //
+    //     // select the token so it's renders with the selections
+    //     if (onClick && selectedTokens.length > 0) {
+    //       onClick(token);
+    //     }
+    //   }
+    // } else {
+    //   // TRICKY: always populate tokens.
+    //   tokens.push(token);
+    // }
+
+
+    // const numSelections = tokens.length;
+    //
+    // if (numSelections > 1 && connectDragPreview) {
+    //   const img = new Image();
+    //   img.onload = () => connectDragPreview(img);
+    //   img.src = this.getDragPreviewImage(numSelections);
+    // } else if (connectDragPreview) {
+    //   // use default preview
+    //   connectDragPreview(null);
+    // }
   }
 
   /**
@@ -67,13 +120,13 @@ class PrimaryToken extends Component {
       isHebrew,
       direction,
       isDragging,
-      dragPreview,
+      setDragToken,
       connectDragSource,
     } = this.props;
     const { hover } = this.state;
 
     const disabled = (isDragging || hover) && !canDrag;
-    const word = dragPreview(
+    const word = (
       <div>
         <Word
           word={token.text}
@@ -84,10 +137,11 @@ class PrimaryToken extends Component {
           occurrence={token.occurrence}
           occurrences={token.occurrences}
           style={{ ...internalStyle.word, ...style }}
+          onDragStart={this.onDragStart}
         />
       </div>
     );
-    return connectDragSource(
+    return (
       <div style={{ flex: 1, position: 'relative' }}
         onClick={this._handleClick}
         onMouseOver={this._handleOver}
@@ -134,6 +188,7 @@ PrimaryToken.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   isDragging: PropTypes.bool.isRequired,
+  setDragToken: PropTypes.bool.isRequired,
   isHebrew: PropTypes.bool.isRequired,
   showPopover: PropTypes.func.isRequired,
   getLexiconData: PropTypes.func.isRequired,
@@ -148,43 +203,4 @@ PrimaryToken.defaultProps = {
   style: {},
 };
 
-const dragHandler = {
-  beginDrag(props) {
-    // Return the data describing the dragged item
-    return {
-      token: props.token,
-      // text: props.token.text,
-      // lemma: props.token.lemma,
-      // morph: props.token.morph,
-      // strong: props.token.strong,
-      // occurrence: props.token.occurrence,
-      // occurrences: props.token.occurrences,
-      alignmentIndex: props.alignmentIndex,
-      alignmentLength: props.alignmentLength,
-
-      wordIndex: props.wordIndex,
-      type: types.PRIMARY_WORD,
-    };
-  },
-  canDrag() {
-    const canDrag_ = true; // for now at least, this is always true that we can drag from anywhere
-    return canDrag_;
-  },
-  isDragging(props, monitor) {
-    let item = monitor.getItem();
-    const isDragging_ = item.alignmentIndex === props.alignmentIndex; // if we are dragging this item
-    return isDragging_;
-  },
-};
-
-const collect = (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  dragPreview: connect.dragPreview({ captureDraggingState: false }),
-  isDragging: monitor.isDragging(),
-});
-
-export default DragSource(
-  types.PRIMARY_WORD,
-  dragHandler,
-  collect
-)(PrimaryToken);
+export default PrimaryToken;

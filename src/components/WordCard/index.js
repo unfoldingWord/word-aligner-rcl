@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ThemedTooltip from "../ThemedTooltip";
+// import ThemedTooltip from "../ThemedTooltip";
 import WordOccurrence from './WordOccurrence';
-import Controls from './Controls';
+// import Controls from './Controls';
 
 /**
  * Generates the component styles
@@ -92,9 +92,9 @@ class WordCard extends React.Component {
   constructor(props) {
     super(props);
     this._handleClick = this._handleClick.bind(this);
-    this._handleCancelClick = this._handleCancelClick.bind(this);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    // this._handleCancelClick = this._handleCancelClick.bind(this);
+    // this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    // this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.wordRef = React.createRef();
     this.state = { tooltip: false };
   }
@@ -114,50 +114,57 @@ class WordCard extends React.Component {
     }
   }
 
-  /**
-   * Handles clicking the cancel button on suggestions
-   * @param e
-   * @private
-   */
-  _handleCancelClick(e) {
-    const { onCancel } = this.props;
+  // /**
+  //  * Handles clicking the cancel button on suggestions
+  //  * @param e
+  //  * @private
+  //  */
+  // _handleCancelClick(e) {
+  //   const { onCancel } = this.props;
+  //
+  //   if (typeof onCancel === 'function') {
+  //     e.stopPropagation();
+  //     onCancel(e);
+  //   }
+  // }
 
-    if (typeof onCancel === 'function') {
-      e.stopPropagation();
-      onCancel(e);
-    }
-  }
-
-  handleMouseEnter() {
-    if (isOverflown(this.wordRef.current)) {
-      this.setState({ tooltip: true });
-    }
-  }
-
-  handleMouseLeave() {
-    if (this.state.tooltip) {
-      this.setState({ tooltip: false });
-    }
-  }
+  // handleMouseEnter() {
+  //   if (isOverflown(this.wordRef.current)) {
+  //     this.setState({ tooltip: true });
+  //   }
+  // }
+  //
+  // handleMouseLeave() {
+  //   if (this.state.tooltip) {
+  //     this.setState({ tooltip: false });
+  //   }
+  // }
 
   render() {
     const {
       word,
       fontSize,
       isHebrew,
-      fontScale,
+      // fontScale,
       occurrence,
       occurrences,
-      isSuggestion,
-      disableTooltip,
+      // isSuggestion,
+      // disableTooltip,
       targetLanguageFontClassName,
+      disabled,
+      onDragStart,
     } = this.props;
     const styles = makeStyles(this.props);
-    const { tooltip } = this.state;
+    // const { tooltip } = this.state;
     return (
       <React.Fragment>
-        <ThemedTooltip message={word} disabled={!tooltip || disableTooltip} fontScale={fontScale} targetLanguageFontClassName={targetLanguageFontClassName}>
-          <div style={{ flex: 1 }} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+        {/*<ThemedTooltip message={word} disabled={!tooltip || disableTooltip} fontScale={fontScale} targetLanguageFontClassName={targetLanguageFontClassName}>*/}
+          <div style={{ flex: 1 }} 
+            onMouseEnter={this.handleMouseEnter} 
+            onMouseLeave={this.handleMouseLeave}
+            draggable={!disabled}
+            onDragStart={onDragStart}
+          >
             <div style={styles.root}>
               <span style={{
                 flex: 1, display: 'flex', overflow: 'hidden',
@@ -170,9 +177,9 @@ class WordCard extends React.Component {
                 >
                   {word}
                 </span>
-                {isSuggestion ? (
-                  <Controls onCancel={this._handleCancelClick}/>
-                ) : null}
+                {/*{isSuggestion ? (*/}
+                {/*  <Controls onCancel={this._handleCancelClick}/>*/}
+                {/*) : null}*/}
 
               </span>
               <WordOccurrence
@@ -183,7 +190,7 @@ class WordCard extends React.Component {
               />
             </div>
           </div>
-        </ThemedTooltip>
+        {/*</ThemedTooltip>*/}
       </React.Fragment>
     );
   }
@@ -197,6 +204,7 @@ WordCard.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   onCancel: PropTypes.func,
+  onDragStart: PropTypes.func,
   style: PropTypes.object,
   occurrence: PropTypes.number,
   occurrences: PropTypes.number,

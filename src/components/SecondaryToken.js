@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
 import { Token } from 'wordmap-lexer';
 // load drag preview images
 import multi_drag_preview_2 from '../assets/multi_drag_preview_2.png';
@@ -48,7 +47,7 @@ class SecondaryToken extends React.Component {
     super(props);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.initDragPreview = this.initDragPreview.bind(this);
+    this.onDragStart = this.onDragStart.bind(this);
   }
 
   handleCancel() {
@@ -62,12 +61,10 @@ class SecondaryToken extends React.Component {
   handleClick(e) {
     e.stopPropagation();
     const {
-      token, onAccept, onClick,
+      token, onClick,
     } = this.props;
 
-    if (token.meta.suggestion) {
-      onAccept(token);
-    } else if (!token.disabled && onClick) {
+    if (!token.disabled && onClick) {
       const buttonDiv = e.currentTarget.getElementsByTagName('DIV')[0].getElementsByTagName('DIV')[0];
       buttonDiv.style.cursor = 'wait';
       setTimeout(() => {
@@ -80,38 +77,40 @@ class SecondaryToken extends React.Component {
   }
 
   /**
-   * Sets the correct drag preview to use.
-   * TRICKY: react-dnd's custom drag layer has very poor performance so we
-   * are using static images instead of custom rendering.
+   * called when drag is initialized
    */
-  initDragPreview() {
+  onDragStart(e) {
     const {
       selectedTokens,
       token,
-      connectDragPreview,
+      setDragToken,
+      onClick,
+      // connectDragPreview,
     } = this.props;
-    const hasSelections = selectedTokens && selectedTokens.length > 0;
 
-    // build token list
+    const token_ = {
+      ...token,
+      type: types.SECONDARY_WORD
+    };
+    setDragToken && setDragToken(token_);
+    
     let tokens = [];
 
-    if (hasSelections) {
+    if (selectedTokens) {
       tokens = [...selectedTokens];
-    }
 
-    if (!containsToken(tokens, token)) {
+      // TRICKY: include the dragged token in the selection
+      if (!containsToken(tokens, token)) {
+        tokens.push(token);
+
+        // select the token so it's renders with the selections
+        if (onClick && selectedTokens.length > 0) {
+          onClick(token);
+        }
+      }
+    } else {
+      // TRICKY: always populate tokens.
       tokens.push(token);
-    }
-
-    const numSelections = tokens.length;
-
-    if (numSelections > 1 && connectDragPreview) {
-      const img = new Image();
-      img.onload = () => connectDragPreview(img);
-      img.src = this.getDragPreviewImage(numSelections);
-    } else if (connectDragPreview) {
-      // use default preview
-      connectDragPreview(null);
     }
   }
 
@@ -145,13 +144,10 @@ class SecondaryToken extends React.Component {
       selected,
       direction,
       isDragging,
-      connectDragSource,
       targetLanguageFontClassName,
       fontScale
     } = this.props;
     const opacity = isDragging ? 0.4 : 1;
-
-    this.initDragPreview();
 
     const wordComponent = (
       <div
@@ -169,8 +165,8 @@ class SecondaryToken extends React.Component {
           onCancel={this.handleCancel}
           occurrence={token.occurrence}
           occurrences={token.occurrences}
-          isSuggestion={token.meta.suggestion}
           targetLanguageFontClassName={targetLanguageFontClassName}
+          onDragStart={this.onDragStart}
         />
       </div>
     );
@@ -178,7 +174,8 @@ class SecondaryToken extends React.Component {
     if (disabled) {
       return wordComponent;
     } else {
-      return connectDragSource(wordComponent);
+      // return connectDragSource(wordComponent);
+      return wordComponent;
     }
   }
 }
@@ -193,7 +190,8 @@ SecondaryToken.propTypes = {
   token: PropTypes.instanceOf(Token).isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired,
+  dragToken: PropTypes.object.isRequired,
+  setDragToken: PropTypes.func.isRequired,
   alignmentIndex: PropTypes.number,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   disabled: PropTypes.bool,
@@ -262,19 +260,15 @@ const dragHandler = {
   },
 };
 
-/**
- * Specifies which props to inject into the component
- * @param connect
- * @param monitor
- */
-const collect = (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging(),
-  connectDragPreview: connect.dragPreview(),
-});
+// /**
+//  * Specifies which props to inject into the component
+//  * @param connect
+//  * @param monitor
+//  */
+// const collect = (connect, monitor) => ({
+//   connectDragSource: connect.dragSource(),
+//   isDragging: monitor.isDragging(),
+//   connectDragPreview: connect.dragPreview(),
+// });
 
-export default DragSource(
-  types.SECONDARY_WORD,
-  dragHandler,
-  collect,
-)(SecondaryToken);
+export default SecondaryToken;

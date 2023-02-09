@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // constants
-import { getLexiconData } from '../utils/lexiconHelpers';
 import { getFontClassName } from '../common/fontUtils';
 import * as types from '../common/WordCardTypes';
 // components
@@ -31,6 +30,32 @@ const makeStyles = props => ({
  * Renders a grid of word/phrase alignments
  */
 class AlignmentGrid extends Component {
+  constructor(props) {
+    super(props);
+    this.onDrag = this.onDrag.bind(this);
+    this.state = {
+      draggedAlignment: -1,
+      draggedPrimaryAlignment: -1,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.reset) {
+      this.setState({
+        draggedAlignment: -1,
+        draggedPrimaryAlignment: -1,
+      });
+    }
+  }
+
+  onDrag(token, alignmentIndex, isPrimary) {
+    this.setState({
+      draggedAlignment: alignmentIndex,
+      draggedPrimaryAlignment: isPrimary ? alignmentIndex : -1,
+    });
+    this.props.setDragToken(token);
+  }
+
   render() {
     const {
       translate,
@@ -47,6 +72,8 @@ class AlignmentGrid extends Component {
       toolsSettings,
       loadLexiconEntry,
       targetLanguageFont,
+      dragToken,
+      getLexiconData,
     } = this.props;
 
     if (!contextId) {
@@ -54,6 +81,7 @@ class AlignmentGrid extends Component {
     }
 
     const styles = makeStyles(this.props);
+    const draggedAlignment = dragToken ? this.state.draggedAlignment : -1;
     const targetLanguageFontClassName = getFontClassName(targetLanguageFont);
     const { fontSize } = toolsSettings['AlignmentGrid'] || {};
 
@@ -90,7 +118,7 @@ class AlignmentGrid extends Component {
                 isSuggestion={alignment.isSuggestion}
                 targetNgram={alignment.targetNgram}
                 sourceNgram={alignment.sourceNgram}
-                onDrop={item => this.handleDrop(alignment.index, item)}
+                onDrop={(item) => this.handleDrop(key, item, this.state.draggedAlignment)}
                 lexicons={lexicons}
                 isHebrew={isHebrew}
                 showPopover={showPopover}
@@ -98,6 +126,8 @@ class AlignmentGrid extends Component {
                 loadLexiconEntry={loadLexiconEntry}
                 fontSize={fontSize}
                 targetLanguageFontClassName={targetLanguageFontClassName}
+                dragToken={dragToken}
+                setDragToken={(token, isPrimary) => this.onDrag(token, key, isPrimary)}
               />
               {/* placeholder for un-merging primary words */}
               <AlignmentCard
@@ -109,7 +139,7 @@ class AlignmentGrid extends Component {
                 placeholderPosition="right"
                 targetNgram={[]}
                 sourceNgram={[]}
-                onDrop={item => this.handleDrop(alignment.index, item)}
+                onDrop={(item) => this.handleDrop(key, item, this.state.draggedAlignment, true)}
                 showPopover={showPopover}
                 getLexiconData={getLexiconData}
                 loadLexiconEntry={loadLexiconEntry}
@@ -117,6 +147,9 @@ class AlignmentGrid extends Component {
                 isHebrew={isHebrew}
                 fontSize={fontSize}
                 targetLanguageFontClassName={targetLanguageFontClassName}
+                dragToken={dragToken}
+                setDragToken={(token, isPrimary) => this.onDrag(token, key, isPrimary)}
+                showAsDrop={this.getShowAsDrop(key, alignment)}
               />
             </React.Fragment>
           ))
@@ -125,28 +158,37 @@ class AlignmentGrid extends Component {
     );
   }
 
-  handleDrop(alignmentIndex, item) {
+  getShowAsDrop(key, alignment) {
+    const isCurrentKey = this.state.draggedPrimaryAlignment === key;
+    const moreTheOneItem = alignment.targetNgram.length > 1;
+    const showDrop = isCurrentKey && moreTheOneItem;
+    return showDrop;
+  }
+
+  handleDrop(alignmentIndex, item, srcAlignmentIndex, startNew) {
     const { onDropTargetToken, onDropSourceToken } = this.props;
 
-    if (item.type === types.SECONDARY_WORD) {
-      if (item.tokens) {
-        // drop selected tokens
-        for (let i = 0; i < item.tokens.length; i++) {
-          onDropTargetToken(item.tokens[i], alignmentIndex, item.alignmentIndex);
-        }
-      } else {
-        // drop single token
-        onDropTargetToken(item.token, alignmentIndex, item.alignmentIndex);
+    if (Array.isArray(item)) {
+      // drop selected tokens
+      for (let i = 0; i < item.length; i++) {
+        onDropTargetToken(item[i], alignmentIndex, -1);
       }
+    } else if (item.type === types.SECONDARY_WORD) {
+      // drop single token
+      onDropTargetToken(item, alignmentIndex, srcAlignmentIndex);
+    } else if (item.type === types.PRIMARY_WORD) {
+      onDropSourceToken(item, alignmentIndex, srcAlignmentIndex, startNew);
     }
 
-    if (item.type === types.PRIMARY_WORD) {
-      onDropSourceToken(item.token, alignmentIndex, item.alignmentIndex);
-    }
+    this.setState({
+      draggedAlignment: -1,
+      draggedPrimaryAlignment: -1,
+    });
   }
 }
 
 AlignmentGrid.propTypes = {
+  reset: PropTypes.bool,
   onDropTargetToken: PropTypes.func.isRequired,
   onDropSourceToken: PropTypes.func.isRequired,
   onCancelSuggestion: PropTypes.func.isRequired,
@@ -163,12 +205,16 @@ AlignmentGrid.propTypes = {
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
   targetLanguageFont: PropTypes.string,
+  dragToken: PropTypes.object.isRequired,
+  setDragToken: PropTypes.func.isRequired,
+  getLexiconData: PropTypes.func.isRequired,
 };
 
 AlignmentGrid.defaultProps = {
   sourceDirection: 'ltr',
   targetDirection: 'ltr',
   sourceStyle: { fontSize: '100%' },
+  reset: false,
 };
 
 export default AlignmentGrid;

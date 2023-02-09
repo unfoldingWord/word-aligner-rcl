@@ -64,7 +64,6 @@ WordAlignerDemo.propTypes = {
 
   // drag props
   isOver: PropTypes.bool,
-  connectDropTarget: PropTypes.func,
 
   // tc actions
   showPopover: PropTypes.func.isRequired,

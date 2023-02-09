@@ -9,7 +9,7 @@ module.exports = {
   },
   styles,
   theme,
-  components: 'src/components/**/[A-Z]*.js',
+  components: 'src/components/WordAligner.js',
   assetsDir: 'src/assets',
   webpackConfig: {
     module: {
@@ -25,7 +25,14 @@ module.exports = {
         },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
-          loader: "file-loader?name=/public/icons/[name].[ext]"
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "/public/icons/[name].[ext]"
+              }
+            }
+          ]
         }
       ],
     },

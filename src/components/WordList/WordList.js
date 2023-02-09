@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Token } from 'wordmap-lexer';
+import {Token} from 'wordmap-lexer';
 import SecondaryToken from '../SecondaryToken';
-import { getFontClassName } from '../../common/fontUtils';
-import ThreeDotMenu from '../ThreeDotMenu';
+import {getFontClassName} from '../../common/fontUtils';
+
+// import ThreeDotMenu from '../ThreeDotMenu';
 
 /**
  * Renders a list of words that need to be aligned.
@@ -22,6 +23,8 @@ class WordList extends React.Component {
     super(props);
     this.listRef = React.createRef();
     this.isSelected = this.isSelected.bind(this);
+    this.allowDrop = this.allowDrop.bind(this);
+    this.drop = this.drop.bind(this);
     this.state = {
       width: 0,
       height: 0,
@@ -63,19 +66,34 @@ class WordList extends React.Component {
       this.setState(snapshot);
     }
   }
-
+  
+  allowDrop(ev) {
+    ev.preventDefault();
+  }
+  
+  drop(ev) {
+    const {
+      dragToken,
+      onWordDropped,
+    } = this.props;
+    
+    ev.preventDefault();
+    onWordDropped(dragToken);
+    // var data = ev.dataTransfer.getData("text");
+    // ev.target.appendChild(document.getElementById(data));
+  }
+  
   render() {
     const {
       words,
       isOver,
       direction,
       onWordClick,
-      onWordDragged,
       selectedWords,
-      toolsSettings,
-      setToolSettings,
       toolSettings,
       targetLanguageFont,
+      dragToken,
+      setDragToken,
     } = this.props;
     const { width, height } = this.state;
 
@@ -94,24 +112,28 @@ class WordList extends React.Component {
 
       return (
         <React.Fragment>
-          <div ref={this.listRef} style={{ height: '100%' }}>
+          <div ref={this.listRef}
+               style={{ height: '100%' }}
+               onDrop={this.drop}
+               onDragOver={this.allowDrop}
+          >
             <div style={{
               display: 'flex', justifyContent: 'flex-end', padding: '0px 5px 5px',
             }}>
-              <ThreeDotMenu
-                isRtl={isRtl}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: isRtl ? 'right' : 'left',
-                }}
-                namespace='WordList'
-                toolsSettings={toolsSettings}
-                setToolSettings={setToolSettings}
-              />
+              {/*<ThreeDotMenu*/}
+              {/*  isRtl={isRtl}*/}
+              {/*  anchorOrigin={{*/}
+              {/*    vertical: 'bottom',*/}
+              {/*    horizontal: 'left',*/}
+              {/*  }}*/}
+              {/*  transformOrigin={{*/}
+              {/*    vertical: 'top',*/}
+              {/*    horizontal: isRtl ? 'right' : 'left',*/}
+              {/*  }}*/}
+              {/*  namespace='WordList'*/}
+              {/*  toolsSettings={toolsSettings}*/}
+              {/*  setToolSettings={setToolSettings}*/}
+              {/*/>*/}
             </div>
             {words.map((token, index) => (
               <div
@@ -122,11 +144,12 @@ class WordList extends React.Component {
                   fontScale={toolSettings.fontSize}
                   onClick={onWordClick}
                   direction={direction}
-                  onEndDrag={onWordDragged}
                   selectedTokens={selectedWords}
                   selected={this.isSelected(token)}
                   disabled={token.disabled === true}
                   targetLanguageFontClassName={targetLanguageFontClassName}
+                  dragToken={dragToken}
+                  setDragToken={setDragToken}
                 />
               </div>
             ))}
@@ -139,13 +162,15 @@ class WordList extends React.Component {
 
 WordList.propTypes = {
   onWordClick: PropTypes.func,
-  onWordDragged: PropTypes.func,
+  onWordDropped: PropTypes.func,
   selectedWords: PropTypes.array,
   isOver: PropTypes.bool.isRequired,
   targetLanguageFont: PropTypes.string,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   toolsSettings: PropTypes.object.isRequired,
   setToolSettings: PropTypes.func.isRequired,
+  dragToken: PropTypes.object.isRequired,
+  setDragToken: PropTypes.func.isRequired,
   toolSettings: PropTypes.object.isRequired,
   selectedWordPositions: PropTypes.arrayOf(PropTypes.number),
   words: PropTypes.arrayOf(PropTypes.instanceOf(Token)).isRequired,

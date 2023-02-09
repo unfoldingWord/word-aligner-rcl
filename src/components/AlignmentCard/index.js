@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DropTarget } from 'react-dnd';
 import { Token } from 'wordmap-lexer';
 import * as types from '../../common/WordCardTypes';
 import SecondaryToken from '../SecondaryToken';
@@ -84,6 +83,9 @@ class DroppableAlignmentCard extends Component {
     super(props);
     this._handleCancelSuggestion = this._handleCancelSuggestion.bind(this);
     this._handleAcceptSuggestion = this._handleAcceptSuggestion.bind(this);
+    this.drop = this.drop.bind(this);
+    this.onDrag = this.onDrag.bind(this);
+    this.allowDrop = this.allowDrop.bind(this);
   }
 
   _handleCancelSuggestion(token) {
@@ -102,6 +104,24 @@ class DroppableAlignmentCard extends Component {
     }
   }
 
+  drop(ev) {
+    ev.preventDefault();
+    const token = this.props.dragToken;
+    const alignmentIndex = this.props.alignmentIndex;
+    this.props.onDrop(token, alignmentIndex);
+    // this.props.onWordDragged(this.state.dragToken);
+    // var data = ev.dataTransfer.getData("text");
+    // ev.target.appendChild(document.getElementById(data));
+  }
+
+  allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  onDrag(token, isPrimary) {
+    this.props.setDragToken(token, isPrimary)
+  }
+
   render() {
     const {
       translate,
@@ -116,13 +136,13 @@ class DroppableAlignmentCard extends Component {
       sourceDirection,
       targetDirection,
       isSuggestion,
-      connectDropTarget,
       isHebrew,
       showPopover,
       getLexiconData,
       loadLexiconEntry,
       fontSize,
       targetLanguageFontClassName,
+      showAsDrop,
     } = this.props;
     const acceptsTop = canDrop && dragItemType === types.PRIMARY_WORD;
     const acceptsBottom = canDrop && dragItemType === types.SECONDARY_WORD;
@@ -148,6 +168,7 @@ class DroppableAlignmentCard extends Component {
         showPopover={showPopover}
         getLexiconData={getLexiconData}
         loadLexiconEntry={loadLexiconEntry}
+        setDragToken={(token) => this.onDrag(token, true)}
       />
     ));
     const bottomWordCards = targetNgram.map((token, index) => (
@@ -159,14 +180,18 @@ class DroppableAlignmentCard extends Component {
         onCancel={this._handleCancelSuggestion}
         onAccept={this._handleAcceptSuggestion}
         targetLanguageFontClassName={targetLanguageFontClassName}
+        setDragToken={(token) => this.onDrag(token, false)}
       />
     ));
 
-    if (emptyAlignment && !canDrop) {
+    if (emptyAlignment && !showAsDrop) {
       return <div style={styles.root.closed}/>;
     } else {
-      return connectDropTarget(
-        <div>
+      return (
+        <div
+          onDragOver={this.allowDrop}
+          onDrop={this.drop}
+        >
           <AlignmentCard targetTokenCards={bottomWordCards}
             targetDirection={targetDirection}
             hoverBottom={hoverBottom}
@@ -175,7 +200,7 @@ class DroppableAlignmentCard extends Component {
             acceptsTargetTokens={acceptsBottom}
             acceptsSourceTokens={acceptsTop}
             sourceTokenCards={topWordCards}/>
-        </div>,
+        </div>
       );
     }
   }
@@ -191,7 +216,6 @@ DroppableAlignmentCard.propTypes = {
   dragItemType: PropTypes.string,
   isOver: PropTypes.bool.isRequired,
   canDrop: PropTypes.bool.isRequired,
-  connectDropTarget: PropTypes.func.isRequired,
   sourceNgram: PropTypes.arrayOf(PropTypes.instanceOf(Token)).isRequired,
   targetNgram: PropTypes.arrayOf(PropTypes.instanceOf(Token)).isRequired,
   alignmentIndex: PropTypes.number.isRequired,
@@ -205,6 +229,9 @@ DroppableAlignmentCard.propTypes = {
   showPopover: PropTypes.func.isRequired,
   getLexiconData: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
+  dragToken: PropTypes.object.isRequired,
+  setDragToken: PropTypes.func.isRequired,
+  showAsDrop: PropTypes.bool,
 };
 
 DroppableAlignmentCard.defaultProps = {
@@ -240,18 +267,4 @@ const dragHandler = {
   },
 };
 
-const collect = (connect, monitor) => {
-  const item = monitor.getItem();
-  return {
-    connectDropTarget: connect.dropTarget(),
-    dragItemType: item ? item.type : null,
-    isOver: monitor.isOver(),
-    canDrop: monitor.canDrop(),
-  };
-};
-
-export default DropTarget(
-  [types.SECONDARY_WORD, types.PRIMARY_WORD],
-  dragHandler,
-  collect,
-)(DroppableAlignmentCard);
+export default DroppableAlignmentCard;
