@@ -1,6 +1,3 @@
-import React from 'react';
-import ReactDOM from "react-dom";
-import './index.css';
-import App from './App';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+import WordAligner from './components/WordAligner'
+import * as AlignmentHelpers from './utils/alignmentHelpers'
+export {AlignmentHelpers, WordAligner}
