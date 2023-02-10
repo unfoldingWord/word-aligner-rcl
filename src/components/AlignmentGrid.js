@@ -73,7 +73,6 @@ class AlignmentGrid extends Component {
       loadLexiconEntry,
       targetLanguageFont,
       dragToken,
-      getLexiconData,
     } = this.props;
 
     if (!contextId) {
@@ -122,7 +121,6 @@ class AlignmentGrid extends Component {
                 lexicons={lexicons}
                 isHebrew={isHebrew}
                 showPopover={showPopover}
-                getLexiconData={getLexiconData}
                 loadLexiconEntry={loadLexiconEntry}
                 fontSize={fontSize}
                 targetLanguageFontClassName={targetLanguageFontClassName}
@@ -141,7 +139,6 @@ class AlignmentGrid extends Component {
                 sourceNgram={[]}
                 onDrop={(item) => this.handleDrop(key, item, this.state.draggedAlignment, true)}
                 showPopover={showPopover}
-                getLexiconData={getLexiconData}
                 loadLexiconEntry={loadLexiconEntry}
                 lexicons={lexicons}
                 isHebrew={isHebrew}
@@ -207,7 +204,6 @@ AlignmentGrid.propTypes = {
   targetLanguageFont: PropTypes.string,
   dragToken: PropTypes.object.isRequired,
   setDragToken: PropTypes.func.isRequired,
-  getLexiconData: PropTypes.func.isRequired,
 };
 
 AlignmentGrid.defaultProps = {

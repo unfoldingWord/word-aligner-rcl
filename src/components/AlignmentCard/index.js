@@ -138,7 +138,6 @@ class DroppableAlignmentCard extends Component {
       isSuggestion,
       isHebrew,
       showPopover,
-      getLexiconData,
       loadLexiconEntry,
       fontSize,
       targetLanguageFontClassName,
@@ -166,7 +165,6 @@ class DroppableAlignmentCard extends Component {
         alignmentLength={sourceNgram.length}
         alignmentIndex={alignmentIndex}
         showPopover={showPopover}
-        getLexiconData={getLexiconData}
         loadLexiconEntry={loadLexiconEntry}
         setDragToken={(token) => this.onDrag(token, true)}
       />
@@ -227,7 +225,6 @@ DroppableAlignmentCard.propTypes = {
   isHebrew: PropTypes.bool.isRequired,
   targetLanguageFontClassName: PropTypes.string,
   showPopover: PropTypes.func.isRequired,
-  getLexiconData: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
   dragToken: PropTypes.object.isRequired,
   setDragToken: PropTypes.func.isRequired,

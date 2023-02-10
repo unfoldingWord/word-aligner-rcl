@@ -102,7 +102,7 @@ export function getOrigLangWordListForVerse(chapterJson, verseRef) {
 }
 
 /**
- * get the word list fram alignments
+ * get the word list from alignments
  * @param alignments
  * @return {array}
  */

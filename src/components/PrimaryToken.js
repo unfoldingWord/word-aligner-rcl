@@ -160,7 +160,7 @@ class PrimaryToken extends Component {
     const {
       translate, token, isHebrew, showPopover,
     } = this.props;
-    const lexiconData = lexiconHelpers.lookupStrongsNumbers(token.strong, this.props.getLexiconData);
+    const lexiconData = lexiconHelpers.lookupStrongsNumbers(token.strong, this.props.loadLexiconEntry);
     const positionCoord = e.target;
     const fontSize = isHebrew ? '1.7em' : '1.2em';
     const PopoverTitle = (
@@ -191,7 +191,6 @@ PrimaryToken.propTypes = {
   setDragToken: PropTypes.bool.isRequired,
   isHebrew: PropTypes.bool.isRequired,
   showPopover: PropTypes.func.isRequired,
-  getLexiconData: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
 };
 

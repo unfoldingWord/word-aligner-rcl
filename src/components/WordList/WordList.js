@@ -66,23 +66,23 @@ class WordList extends React.Component {
       this.setState(snapshot);
     }
   }
-  
+
   allowDrop(ev) {
     ev.preventDefault();
   }
-  
+
   drop(ev) {
     const {
       dragToken,
       onWordDropped,
     } = this.props;
-    
+
     ev.preventDefault();
     onWordDropped(dragToken);
     // var data = ev.dataTransfer.getData("text");
     // ev.target.appendChild(document.getElementById(data));
   }
-  
+
   render() {
     const {
       words,
@@ -108,7 +108,7 @@ class WordList extends React.Component {
       );
     } else {
       const targetLanguageFontClassName = getFontClassName(targetLanguageFont);
-      const isRtl = direction === 'rtl';
+      // const isRtl = direction === 'rtl';
 
       return (
         <React.Fragment>

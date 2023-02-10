@@ -159,6 +159,21 @@ const alignmentComparator = (a, b) => indexForAlignment(a) - indexForAlignment(b
 
 const indexComparator = (a, b) => a.index - b.index;
 
+/**
+ * stand-alone component for aligning words
+ * @param {array} verseAlignments - initial verse alignment
+ * @param {array} wordListWords- initial list of target words in wordbank
+ * @param {function} translate - callback to look up localized text
+ * @param {object} contextId - current verse context (book, chapter, vers)
+ * @param {string} targetLanguageFont - font to use for target
+ * @param {string} sourceLanguage - source language (e.g. hbo)
+ * @param {function} showPopover - callback function to display a popover
+ * @param {object} lexicons - cache for lexicon data
+ * @param {function} loadLexiconEntry - callback to load lexicon for language and strong number
+ * @param {function} onChange - callback for whenever alignment changed
+ * @return {JSX.Element}
+ * @constructor
+ */
 const WordAligner = ({
     verseAlignments,
     wordListWords,
@@ -170,7 +185,6 @@ const WordAligner = ({
     lexicons,
     loadLexiconEntry,
     onChange,
-    getLexiconData
   }) => {
   const [dragToken, setDragToken] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
@@ -366,7 +380,6 @@ const WordAligner = ({
         targetLanguageFont={targetLanguageFont}
         dragToken={dragToken}
         setDragToken={setDragToken}
-        getLexiconData={getLexiconData}
       />
 
     </div>
