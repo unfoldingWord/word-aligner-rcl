@@ -160,9 +160,6 @@ const alignmentComparator = (a, b) => indexForAlignment(a) - indexForAlignment(b
 
 const indexComparator = (a, b) => a.index - b.index;
 
-/**
- * Aligns Words
- */
 const WordAligner = ({
     verseAlignments,
     wordListWords,
@@ -378,7 +375,7 @@ const WordAligner = ({
   );
 };
 
-WordAligner.PropTypes = {
+WordAligner.propTypes = {
   /**  Array of Objects like {bottomWords, topWords, sourceNgram, targetNgram} */
   verseAlignments: PropTypes.arrayOf(PropTypes.object),
   /**  Array of Tokens representing each word in the alignment word list */
