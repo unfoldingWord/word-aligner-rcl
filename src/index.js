@@ -1,3 +1,8 @@
 import WordAligner from './components/WordAligner'
 import * as AlignmentHelpers from './utils/alignmentHelpers'
-export {AlignmentHelpers, WordAligner}
+import * as UsfmFileConversionHelpers from './utils/UsfmFileConversionHelpers'
+export {
+  AlignmentHelpers,
+  UsfmFileConversionHelpers,
+  WordAligner,
+}
