@@ -107,7 +107,7 @@ export function getWordListFromVerseObjects(verseObjects) {
 /**
  * extract alignments from target verse USFM using sourceVerse for word ordering
  * @param {string} alignedTargetVerse
- * @param {object} sourceVerse - in verseObject format
+ * @param {object|null} sourceVerse - optional source verse in verseObject format to maintain source language word order
  * @return {array} list of alignments in target text
  */
 export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse) {
