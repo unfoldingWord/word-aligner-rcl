@@ -140,7 +140,10 @@ export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse
               text: topWord.text || topWord.word,
             }
           }
-          return topWord;
+          return {
+            ...topWord,
+            text: topWord.text || topWord.word,
+          };
         }),
         targetNgram: bottomWords.map(bottomWord => {
           const word = bottomWord.text || bottomWord.word;
