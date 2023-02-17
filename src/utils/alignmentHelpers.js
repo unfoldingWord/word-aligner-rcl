@@ -8,6 +8,7 @@ import {
   updateAlignedWordsFromOriginalWordList
 } from "./migrateOriginalLanguageHelpers";
 import Lexer from "wordmap-lexer";
+import * as verseHelpers from "tc-ui-toolkit/lib/ScripturePane/helpers/verseHelpers";
 
 /**
  * get all the alignments for verse from nested array (finds zaln objects)
@@ -381,4 +382,60 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
     targetVerseObjects: alignedVerseObjects,
     targetVerseText,
   };
+}
+
+/**
+ * generate blank alignments for all the verses in a verse span
+ * @param {string} verseSpan
+ * @param {object} origLangChapterJson
+ * @param {object} blankVerseAlignments - object to return verse alignments
+ * @return {{low, hi}} get range of verses in verse span
+ */
+export function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, blankVerseAlignments) {
+  const { low, high } = verseHelpers.getVerseSpanRange(verseSpan);
+
+  // generate raw alignment data for each verse in range
+  for (let verse = low; verse <= high; verse++) {
+    const originalVerse = origLangChapterJson[verse];
+
+    if (originalVerse) {
+      const blankAlignments = wordaligner.generateBlankAlignments(originalVerse);
+      blankVerseAlignments[verse] = blankAlignments;
+    }
+  }
+
+  return { low, hi: high };
+}
+
+/**
+ * business logic for convertAlignmentsFromVerseSpansToVerse:
+ *    for each alignment determines the original language verse it references, adds reference, and updates occurrence(s)
+ * @param {object} verseSpanData - aligned output data - will be modified with verse span fixes
+ * @param {number} low - low verse number of span
+ * @param {number} hi - high verse number of span
+ * @param {object} blankVerseAlignments - raw verse alignments for extracting word counts for each verse
+ * @param {number} chapterNumber
+ */
+export function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapterNumber) {
+  const verseSpanAlignments = verseSpanData && verseSpanData.verseObjects;
+  const alignments = getVerseAlignments(verseSpanAlignments);
+
+  for (let alignment of alignments) {
+    const word = alignment.content;
+    let occurrence = alignment.occurrence;
+
+    // transform occurrence(s) from verse span based to verse reference
+    for (let verse = low; verse <= hi; verse++) {
+      const wordCount = getWordCountInVerse(blankVerseAlignments, verse, word);
+
+      if (occurrence <= wordCount) { // if inside this verse, add reference
+        alignment.ref = `${chapterNumber}:${verse}`;
+        alignment.occurrences = wordCount;
+        alignment.occurrence = occurrence;
+        break;
+      } else {
+        occurrence -= wordCount; // subtract counts for this verse
+      }
+    }
+  }
 }
