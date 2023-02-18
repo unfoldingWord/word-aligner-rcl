@@ -1,7 +1,12 @@
+import _ from "lodash";
 import {removeUsfmMarkers, usfmVerseToJson} from "./usfmHelpers";
 import wordaligner from "word-aligner";
 import * as UsfmFileConversionHelpers from "./UsfmFileConversionHelpers";
-import {convertVerseDataToUSFM, getUsfmForVerseContent} from "./UsfmFileConversionHelpers";
+import {
+  convertAlignmentFromVerseToVerseSpanSub,
+  convertVerseDataToUSFM,
+  getUsfmForVerseContent
+} from "./UsfmFileConversionHelpers";
 import {
   getAlignedWordListFromAlignments,
   getOriginalLanguageListForVerseData,
@@ -414,7 +419,7 @@ export function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, bla
  * @param {number} low - low verse number of span
  * @param {number} hi - high verse number of span
  * @param {object} blankVerseAlignments - raw verse alignments for extracting word counts for each verse
- * @param {number} chapterNumber
+ * @param {number|string} chapterNumber
  */
 export function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapterNumber) {
   const verseSpanAlignments = verseSpanData && verseSpanData.verseObjects;
@@ -439,3 +444,25 @@ export function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi
     }
   }
 }
+
+/**
+ * Create an original language verse span to match target verse span.  Then Fix alignment occurrences in target verse span to match merged original language
+ * @param {object} targetLanguageVerse - in verseObjects format
+ * @param {object} originalLanguageChapterData - verseObjects for the current chapter
+ * @param {string} chapter - current chapter (used for sanity checking refs for original language alignments)
+ * @param {string} verseSpan - range of verses (e.g. '11-13')
+ * @return {{alignedTargetVerseObjects: *, originalLanguageVerseObjects: {verseObjects}}}
+ */
+export function fixAlignmentsInVerseSpan(targetLanguageVerse, originalLanguageChapterData, chapter, verseSpan) {
+  const blankVerseAlignments = {};
+  const alignedTargetVerseObjects = _.cloneDeep(targetLanguageVerse)
+  const {low, hi} = getRawAlignmentsForVerseSpan(verseSpan, originalLanguageChapterData, blankVerseAlignments);
+  let mergedUgntData = [];
+  for (let verse = low; verse <= hi; verse++) {
+    const verseObjectsForVerse = originalLanguageChapterData?.[verse]?.verseObjects;
+    mergedUgntData = mergedUgntData.concat(verseObjectsForVerse || [])
+  }
+  const originalLanguageVerseObjects = convertAlignmentFromVerseToVerseSpanSub(mergedUgntData, alignedTargetVerseObjects, chapter, low, hi, blankVerseAlignments)
+  return {alignedTargetVerseObjects, originalLanguageVerseObjects};
+}
+

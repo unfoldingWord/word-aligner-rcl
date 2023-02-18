@@ -27,12 +27,12 @@ export function invalidateAlignment(alignment) {
  * business logic for convertAlignmentFromVerseToVerseSpan:
  *     convert aligned data from mapped to verse to mapped to verse span
  * @param {object} originalVerseSpanData - original bible merged to verse span
- * @param {object} alignedVerseObjects - aligned verse objects for current verse
+ * @param {object} alignedVerseObjects - aligned verse objects for current verse (modified)
  * @param {number|string} chapter
  * @param {number} low - low verse number of span
  * @param {number} hi - high verse number of span
  * @param blankVerseAlignments - raw verse alignments for extracting word counts for each verse
- * @return {{verseObjects}}
+ * @return {{verseObjects}} - original verse span data
  */
 export function convertAlignmentFromVerseToVerseSpanSub(originalVerseSpanData, alignedVerseObjects, chapter, low, hi, blankVerseAlignments) {
   const bibleVerse = { verseObjects: originalVerseSpanData };

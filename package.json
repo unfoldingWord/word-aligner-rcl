@@ -40,6 +40,7 @@
   "dependencies": {
     "bible-reference-range": "^1.1.0",
     "file-loader": "^6.2.0",
+    "lodash": "^4.17.21",
     "string-punctuation-tokenizer": "2.2.0",
     "tc-ui-toolkit": "6.2.6",
     "usfm-js": "3.4.2",

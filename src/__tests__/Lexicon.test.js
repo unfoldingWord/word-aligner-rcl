@@ -8,13 +8,13 @@ jest.unmock('fs-extra');
 const resourcesFolder = path.join(ospath.home(), 'translationCore', 'resources');
 const greekLexicon = path.join(resourcesFolder, `en/lexicons/ugl/v0_Door43-Catalog/content`);
 const hebrewLexicon = path.join(resourcesFolder, `en/lexicons/uhl/v0.1_Door43-Catalog/content`);
-  
+
 const lexicons = {};
 let destFile = path.join(__dirname, './fixtures/lexicon/lexicons.json');
 
 describe.skip('lexicons', () => {
-  
-  it('get greek', () => {
+
+  it('get lexicons', () => {
     readLexiconData(greekLexicon, 'ugl');
     readLexiconData(hebrewLexicon, 'uhl');
     console.log(lexicons);
