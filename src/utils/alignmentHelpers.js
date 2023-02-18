@@ -414,7 +414,7 @@ export function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, bla
 
 /**
  * business logic for convertAlignmentsFromVerseSpansToVerse:
- *    for each alignment determines the original language verse it references, adds reference, and updates occurrence(s)
+ *    for each alignment converts mapping to original language verse span to be mapped to original language verse by adding ref and updating occurrence(s)
  * @param {object} verseSpanData - aligned output data - will be modified with verse span fixes
  * @param {number} low - low verse number of span
  * @param {number} hi - high verse number of span
@@ -446,14 +446,14 @@ export function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi
 }
 
 /**
- * Create an original language verse span to match target verse span.  Then Fix alignment occurrences in target verse span to match merged original language
+ * for each alignment converts mapping to original verse by ref to be mapped to original language verse span by removing ref and updating occurrence(s)
  * @param {object} targetLanguageVerse - in verseObjects format
  * @param {object} originalLanguageChapterData - verseObjects for the current chapter
  * @param {string} chapter - current chapter (used for sanity checking refs for original language alignments)
  * @param {string} verseSpan - range of verses (e.g. '11-13')
  * @return {{alignedTargetVerseObjects: *, originalLanguageVerseObjects: {verseObjects}}}
  */
-export function fixAlignmentsInVerseSpan(targetLanguageVerse, originalLanguageChapterData, chapter, verseSpan) {
+export function convertAlignmentFromVerseToVerseSpan(targetLanguageVerse, originalLanguageChapterData, chapter, verseSpan) {
   const blankVerseAlignments = {};
   const alignedTargetVerseObjects = _.cloneDeep(targetLanguageVerse)
   const {low, hi} = getRawAlignmentsForVerseSpan(verseSpan, originalLanguageChapterData, blankVerseAlignments);
@@ -466,3 +466,19 @@ export function fixAlignmentsInVerseSpan(targetLanguageVerse, originalLanguageCh
   return {alignedTargetVerseObjects, originalLanguageVerseObjects};
 }
 
+/**
+ *  for each alignment converts mapping to original language verse span to be mapped to original language verse by adding ref and updating occurrence(s)
+ * @param originalLanguageChapterData
+ * @param alignedTargetVerseObjects
+ * @param {string} chapter
+ * @param {string} verseSpan
+ * @return {string}
+ */
+export function convertAlignmentsFromVerseSpansToVerse(originalLanguageChapterData, alignedTargetVerseObjects, chapter, verseSpan) {
+  const blankVerseAlignments = {};
+  const {low, hi} = getRawAlignmentsForVerseSpan(verseSpan, originalLanguageChapterData, blankVerseAlignments);
+  const verseSpanData = _.cloneDeep(alignedTargetVerseObjects)
+  convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapter)
+  const finalUSFM = convertVerseDataToUSFM(verseSpanData)
+  return finalUSFM;
+}

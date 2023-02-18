@@ -25,7 +25,7 @@ export function invalidateAlignment(alignment) {
 
 /**
  * business logic for convertAlignmentFromVerseToVerseSpan:
- *     convert aligned data from mapped to verse to mapped to verse span
+ *      for each alignment converts mapping to original verse by ref to be mapped to original language verse span by removing ref and updating occurrence(s)
  * @param {object} originalVerseSpanData - original bible merged to verse span
  * @param {object} alignedVerseObjects - aligned verse objects for current verse (modified)
  * @param {number|string} chapter
