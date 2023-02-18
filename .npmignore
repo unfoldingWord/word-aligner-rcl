@@ -7,3 +7,5 @@ src/
 styleguide.config.js
 styleguide.styles.js
 yalc.lock
+coverage/
+node_modules/
