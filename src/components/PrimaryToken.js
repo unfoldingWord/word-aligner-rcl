@@ -56,37 +56,6 @@ class PrimaryToken extends Component {
       type: types.PRIMARY_WORD
     };
     setDragToken && setDragToken(token_);
-
-    // let tokens = [];
-
-    // if (selectedTokens) {
-    //   tokens = [...selectedTokens];
-    //
-    //   // TRICKY: include the dragged token in the selection
-    //   if (!containsToken(tokens, token)) {
-    //     tokens.push(token);
-    //
-    //     // select the token so it's renders with the selections
-    //     if (onClick && selectedTokens.length > 0) {
-    //       onClick(token);
-    //     }
-    //   }
-    // } else {
-    //   // TRICKY: always populate tokens.
-    //   tokens.push(token);
-    // }
-
-
-    // const numSelections = tokens.length;
-    //
-    // if (numSelections > 1 && connectDragPreview) {
-    //   const img = new Image();
-    //   img.onload = () => connectDragPreview(img);
-    //   img.src = this.getDragPreviewImage(numSelections);
-    // } else if (connectDragPreview) {
-    //   // use default preview
-    //   connectDragPreview(null);
-    // }
   }
 
   /**

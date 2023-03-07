@@ -34,11 +34,7 @@ export const canDropPrimaryToken = (dropTargetProps, dragSourceProps) => {
   const singleSource = dragSourceProps.alignmentLength === 1;
   const mergedSource = dragSourceProps.alignmentLength > 1;
   const alignmentDelta = dropTargetProps.alignmentIndex - dragSourceProps.alignmentIndex;
-  // const leftPlaceholder = dropTargetProps.placeholderPosition === 'left';  //alignmentDelta < 0;
-  // const rightPlaceholder = dropTargetProps.placeholderPosition === 'right'; //alignmentDelta > 0;
   const different = alignmentDelta !== 0;
-  // const leftWord = mergedSource && dragSourceProps.wordIndex === 0;
-  // const rightWord = mergedSource && dragSourceProps.wordIndex === dragSourceProps.alignmentLength - 1;
 
   // moving single word to another single (new merge)
   // TRICKY: make sure this is to a different word
@@ -61,14 +57,6 @@ export const canDropPrimaryToken = (dropTargetProps, dragSourceProps) => {
     } else if (mergedTarget && different) { //  moving word from merged group to a different merged group
       return true;
     }
-
-    // TODO: need a workaround for this bug before supporting left vs right un-merging https://github.com/react-dnd/react-dnd/issues/735
-    // see components/AlignmentGrid.js
-    // we could potentially use the touch backend https://github.com/yahoo/react-dnd-touch-backend
-    // however that would require us to render a custom drag preview and the drag performance may
-    // not be as good.
-    // if(!moved && leftPlaceholder && leftWord) return true;
-    // if(!moved && rightPlaceholder && rightWord) return true;
   }
 
   return false; // any other destinations are not allowed
@@ -109,9 +97,6 @@ class DroppableAlignmentCard extends Component {
     const token = this.props.dragToken;
     const alignmentIndex = this.props.alignmentIndex;
     this.props.onDrop(token, alignmentIndex);
-    // this.props.onWordDragged(this.state.dragToken);
-    // var data = ev.dataTransfer.getData("text");
-    // ev.target.appendChild(document.getElementById(data));
   }
 
   allowDrop(ev) {

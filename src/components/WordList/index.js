@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { DropTarget } from 'react-dnd';
 import { Token } from 'wordmap-lexer';
 import * as types from '../../common/WordCardTypes';
 import WordList from './WordList';
@@ -89,14 +88,14 @@ class DroppableWordList extends React.Component {
     if (index === -1) {
       words.push(token);
     }
-    
+
     if (words.length > 1) {
       dragging = words
     }
 
     this.props.setDragToken(dragging);
   }
-  
+
   /**
    * maintains the list of selected words
    * @param token

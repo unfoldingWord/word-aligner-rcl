@@ -13,8 +13,6 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'row',
-    // width: '100vw',
-    // height: '100%',
     width: '100%',
     height: '100%',
     fontSize: '14px',
@@ -327,7 +325,7 @@ const WordAligner = ({
       });
     }
   };
-  
+
   // TRICKY: make hebrew text larger
   let sourceStyle = { fontSize: '100%' };
   const isHebrew = sourceLanguage === OT_ORIG_LANG;

@@ -2,34 +2,29 @@ Word Aligner Example:
 
 ```js
 import {
-  addAlignmentsToVerseUSFM, areAlgnmentsComplete,
+  addAlignmentsToVerseUSFM,
+  areAlgnmentsComplete,
   parseUsfmToWordAlignerData
 } from "../utils/alignmentHelpers";
+import {convertVerseDataToUSFM } from "../utils/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
 
-// const alignedVerseUSFM = require('./data/en_ult_tit_1_1.json');
-const alignedVerseUSFM = require('../data/en_ult_tit_1_1_partial.json');
-const originalVerseUSFM = require('../data/grk_tit_1_1.json');
-// grk_tit_1_1.json
-const LexiconData = require("../data/lexicons.json");
+// var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1.json');
+var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1_partial.json');
+var originalVerseJson = require('../__tests__/fixtures/alignments/grk_tit_1_1.json');
+const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 
-const translate = (key) => {console.log(`translate(${key})`)};
+const translate = (key) => {
+  console.log(`translate(${key})`)
+};
 
-const targetVerseUSFM = alignedVerseUSFM[1];
-const sourceVerseUSFM = originalVerseUSFM[1];
+const targetVerseUSFM = alignedVerseJson.usfm;
+const sourceVerseUSFM = originalVerseJson.usfm;
 
 const {wordListWords, verseAlignments} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
 
 const alignmentComplete = areAlgnmentsComplete(wordListWords, verseAlignments);
 console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
-
-// TODO - round trip test
-// extract alignments from target verse USFM
-// const alignedVerseText = alignedVerseUSFM[1];
-// const alignments_ = extractAlignmentsFromTargetVerse(alignedVerseText, sourceVerseObjects);
-// // merge alignments into target verse and convert to USFM
-// const verseUsfm = addAlignmentsToTargetVerseUsingUnmerge(alignedVerseText, alignments_);
-// console.log(`verseUsfm`, verseUsfm);
 
 const App = () => {
   const targetLanguageFont = '';
@@ -44,12 +39,16 @@ const App = () => {
     "tool": "wordAlignment",
     "groupId": "chapter_1"
   };
-  const showPopover = (key) => {console.log(`showPopover(${key})`)};
-  const loadLexiconEntry = (key) => {console.log(`loadLexiconEntry(${key})`)};
+  const showPopover = (key) => {
+    console.log(`showPopover(${key})`)
+  };
+  const loadLexiconEntry = (key) => {
+    console.log(`loadLexiconEntry(${key})`)
+  };
   const getLexiconData_ = (lexiconId, entryId) => {
     console.log(`loadLexiconEntry(${lexiconId}, ${entryId})`)
     const entryData = (LexiconData && LexiconData[lexiconId]) ? LexiconData[lexiconId][entryId] : null;
-    return { [lexiconId]: { [entryId]: entryData } };
+    return {[lexiconId]: {[entryId]: entryData}};
   };
 
   function onChange(results) {
@@ -62,7 +61,7 @@ const App = () => {
   }
 
   return (
-    <div style={{height:'650px', width:'800px'}}>
+    <div style={{height: '650px', width: '800px'}}>
       <WordAligner
         verseAlignments={verseAlignments}
         wordListWords={wordListWords}

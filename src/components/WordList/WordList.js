@@ -4,8 +4,6 @@ import {Token} from 'wordmap-lexer';
 import SecondaryToken from '../SecondaryToken';
 import {getFontClassName} from '../../common/fontUtils';
 
-// import ThreeDotMenu from '../ThreeDotMenu';
-
 /**
  * Renders a list of words that need to be aligned.
  * Previously known as the "WordBank".
@@ -79,8 +77,7 @@ class WordList extends React.Component {
 
     ev.preventDefault();
     onWordDropped(dragToken);
-    // var data = ev.dataTransfer.getData("text");
-    // ev.target.appendChild(document.getElementById(data));
+
   }
 
   render() {
@@ -120,20 +117,6 @@ class WordList extends React.Component {
             <div style={{
               display: 'flex', justifyContent: 'flex-end', padding: '0px 5px 5px',
             }}>
-              {/*<ThreeDotMenu*/}
-              {/*  isRtl={isRtl}*/}
-              {/*  anchorOrigin={{*/}
-              {/*    vertical: 'bottom',*/}
-              {/*    horizontal: 'left',*/}
-              {/*  }}*/}
-              {/*  transformOrigin={{*/}
-              {/*    vertical: 'top',*/}
-              {/*    horizontal: isRtl ? 'right' : 'left',*/}
-              {/*  }}*/}
-              {/*  namespace='WordList'*/}
-              {/*  toolsSettings={toolsSettings}*/}
-              {/*  setToolSettings={setToolSettings}*/}
-              {/*/>*/}
             </div>
             {words.map((token, index) => (
               <div

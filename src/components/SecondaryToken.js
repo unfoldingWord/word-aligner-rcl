@@ -71,7 +71,6 @@ class SecondaryToken extends React.Component {
       token,
       setDragToken,
       onClick,
-      // connectDragPreview,
     } = this.props;
 
     const token_ = {
@@ -99,29 +98,6 @@ class SecondaryToken extends React.Component {
       tokens.push(token);
     }
   }
-
-  // /**
-  //  * get the image to use for drag preview for number of selection items.  Sanity checking will return minimum of 2 and maximum of 15
-  //  * @param {number} selectionCount
-  //  * @return {Image}
-  //  */
-  // getDragPreviewImage(selectionCount) {
-  //   const images = [ multi_drag_preview_2, multi_drag_preview_3, multi_drag_preview_4, multi_drag_preview_5,
-  //     multi_drag_preview_6, multi_drag_preview_7, multi_drag_preview_8, multi_drag_preview_9, multi_drag_preview_10,
-  //     multi_drag_preview_11, multi_drag_preview_12, multi_drag_preview_13, multi_drag_preview_14, multi_drag_preview_15,
-  //   ];
-  //
-  //   // calculate offset of image with sanity checking
-  //   let offset = selectionCount - 2;
-  //
-  //   if (offset < 0) {
-  //     offset = 0;
-  //   } else if (offset >= images.length) {
-  //     offset = images.length - 1;
-  //   }
-  //
-  //   return images[offset];
-  // }
 
   render() {
     const {
@@ -245,16 +221,5 @@ const dragHandler = {
     return item.token.tokenPos === props.token.tokenPos;
   },
 };
-
-// /**
-//  * Specifies which props to inject into the component
-//  * @param connect
-//  * @param monitor
-//  */
-// const collect = (connect, monitor) => ({
-//   connectDragSource: connect.dragSource(),
-//   isDragging: monitor.isDragging(),
-//   connectDragPreview: connect.dragPreview(),
-// });
 
 export default SecondaryToken;

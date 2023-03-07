@@ -10,7 +10,6 @@ module.exports = {
   styles,
   theme,
   components: 'src/components/WordAligner.js',
-  assetsDir: 'src/assets',
   webpackConfig: {
     module: {
       rules: [

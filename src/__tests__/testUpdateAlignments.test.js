@@ -30,8 +30,6 @@ describe('testing alignment updates', () => {
     const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
     const newText = initialText + ' to';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    // const expectedFinalAlign = alignedInitialVerseText + '\\w to|x-occurrence="6" x-occurrences="6"\\w*';
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 
@@ -40,7 +38,6 @@ describe('testing alignment updates', () => {
     const newText = 'I am writing to you, Titus; you have become like a real son me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = alignedInitialVerseText;
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 
@@ -49,7 +46,6 @@ describe('testing alignment updates', () => {
     const newText = 'I am writing to you, Titus; you have become like a real son me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n to';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = alignedInitialVerseText;
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 
@@ -58,7 +54,6 @@ describe('testing alignment updates', () => {
     const newText = 'I am writing to you, Titus; you have become like a real son too me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = alignedInitialVerseText;
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 
@@ -67,7 +62,6 @@ describe('testing alignment updates', () => {
     const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah.';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = alignedInitialVerseText;
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 
@@ -76,17 +70,15 @@ describe('testing alignment updates', () => {
     const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah.  How are you doing man? Wish I could come see you';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = alignedInitialVerseText;
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 
-  test('should pass alignment with text removed', () => {
+  test('should pass alignment with all text removed', () => {
     const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
     const newText = '';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = '';
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
-    // expect(results.targetVerseText).toMatchSnapshot()
   });
 
   test('should pass alignment with unaligned initial verse', () => {
@@ -96,7 +88,6 @@ describe('testing alignment updates', () => {
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = '\\w unaligned|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w verse|x-occurrence=\"1\" x-occurrences=\"1\"\\w*';
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
-    // expect(results.targetVerseText).toMatchSnapshot()
   });
 
   test('should pass alignment with unaligned initial verse and changed', () => {
@@ -105,15 +96,12 @@ describe('testing alignment updates', () => {
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = '\\w furby|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w furry|x-occurrence=\"1\" x-occurrences=\"1\"\\w*';
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
-    // expect(results.targetVerseText).toMatchSnapshot()
   });
 
   test('should pass alignment with "/p" removed', () => {
     const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
     const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\n';
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    // const expectedFinalAlign = alignedInitialVerseText;
-    // expect(results.targetVerseText).toEqual(expectedFinalAlign)
     expect(results.targetVerseText).toMatchSnapshot()
   });
 });

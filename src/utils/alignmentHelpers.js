@@ -229,13 +229,13 @@ export function  markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetWordL
 
 /**
  * create wordbank of unused target words, transform alignments, and then merge alignments into target verse
- * @param {array} wordListWords - list of all target words - the disabled flag indicates word is aligned
+ * @param {array} wordBankWords - list of all target words in word bank - the disabled flag indicates word is aligned
  * @param {array} verseAlignments
  * @param {string} targetVerseText - target verse to receive alignments
  * @return {string|null} target verse in USFM format
  */
-export function addAlignmentsToVerseUSFM(wordListWords, verseAlignments, targetVerseText) {
-  let wordBank = wordListWords.filter(item => (!item.disabled))
+export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetVerseText) {
+  let wordBank = wordBankWords.filter(item => (!item.disabled))
   wordBank = wordBank.map(item => ({
     ...item,
     word: item.word || item.text,
@@ -313,9 +313,16 @@ export function areAlgnmentsComplete(targetWords, verseAlignments) {
   return alignmentComplete;
 }
 
-function handleAddedWordsInNewText(targetTokens, wordListWords, verseAlignments) {
-  for (const targetToken of targetTokens) {
-    const pos = wordListWords.findIndex(word => (
+/**
+ * iterates through target words looking for words not in wordBankList.  If an added word is found, it is added to
+ *   wordbank.  And if there are other instances are found, then occurrence counts are updated.
+ * @param {array} targetWordList - list of target words
+ * @param {array} wordBankList - list of target words in the word bank
+ * @param {array} verseAlignments - list of verse alignments that may need updating
+ */
+function handleAddedWordsInNewText(targetWordList, wordBankList, verseAlignments) {
+  for (const targetToken of targetWordList) {
+    const pos = wordBankList.findIndex(word => (
       word.text === targetToken.text &&
       word.tokenOccurrence === targetToken.tokenOccurrence
     ))
@@ -330,19 +337,25 @@ function handleAddedWordsInNewText(targetTokens, wordListWords, verseAlignments)
           }
         }
       }
-      wordListWords.push(targetToken);
+      wordBankList.push(targetToken);
     }
   }
 }
 
-function handleDeletedWords(verseAlignments, targetTokens) {
+/**
+ * iterates through verse alignments looking for target words not in target word list.  If an extra word is found, it
+ * is removed from the verse alignments and occurrence(s) are updated.
+ * @param {array} verseAlignments - list of verse alignments that may need updating
+ * @param {array} targetWordList - list of target words
+ */
+function handleDeletedWords(verseAlignments, targetWordList) {
   for (const alignment of verseAlignments) {
     let delete_ = [];
     for (let i = 0, l = alignment.targetNgram.length; i < l; i++) {
       let wordFound = false;
       const targetWord = alignment.targetNgram[i];
       const word = targetWord.text;
-      for (const targetToken of targetTokens) {
+      for (const targetToken of targetWordList) {
         if (targetToken.text === word) {
           if (targetWord.occurrence > targetToken.tokenOccurrences) {
             delete_.push(i); // extra aligned word
@@ -396,7 +409,7 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
  * @param {object} blankVerseAlignments - object to return verse alignments
  * @return {{low, hi}} get range of verses in verse span
  */
-export function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, blankVerseAlignments) {
+function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, blankVerseAlignments) {
   const { low, high } = verseHelpers.getVerseSpanRange(verseSpan);
 
   // generate raw alignment data for each verse in range
@@ -421,7 +434,7 @@ export function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, bla
  * @param {object} blankVerseAlignments - raw verse alignments for extracting word counts for each verse
  * @param {number|string} chapterNumber
  */
-export function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapterNumber) {
+function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapterNumber) {
   const verseSpanAlignments = verseSpanData && verseSpanData.verseObjects;
   const alignments = getVerseAlignments(verseSpanAlignments);
 
