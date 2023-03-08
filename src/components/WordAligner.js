@@ -259,6 +259,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {LoadLexiconEntryCB} loadLexiconEntry - callback to load lexicon for language and strong number
  * @param {OnChangeCB} onChange - optional callback for whenever alignment changed
  * @param {ShowPopOverCB} showPopover - callback function to display a popover
+ * @param {string} sourceLanguage - ID of source language
  * @param {string} sourceLanguageFont - font to use for source
  * @param {string} sourceFontSizePercent - percentage size for font
  * @param {string} targetLanguageFont - font to use for target
@@ -276,6 +277,7 @@ const WordAligner = ({
   loadLexiconEntry,
   onChange,
   showPopover = null,
+  sourceLanguage,
   sourceLanguageFont = '',
   sourceFontSizePercent = 100,
   targetLanguageFont = '',
@@ -455,9 +457,13 @@ const WordAligner = ({
     }
   };
 
-  let sourceStyle = { fontSize: `${sourceFontSizePercent}%` };
-
-  if (sourceFontSizePercent > 120) {
+  let sourceFontSizePercent_ = sourceFontSizePercent;
+  const isHebrew = sourceLanguage === OT_ORIG_LANG;
+  if (isHebrew && (sourceFontSizePercent < 175)) {
+    sourceFontSizePercent_ = 175
+  }
+  let sourceStyle = { fontSize: `${sourceFontSizePercent_}%` };
+  if (sourceFontSizePercent_ > 120) {
     sourceStyle = {
       ...sourceStyle, paddingTop: '2px', paddingBottom: '2px', lineHeight: 'normal', WebkitFontSmoothing: 'antialiased',
     };
@@ -493,7 +499,7 @@ const WordAligner = ({
         targetDirection={targetDirection}
         alignments={verseAlignments_}
         translate={translate}
-        lexicons={lexicons}
+        lexicons={lexiconCache}
         reset={resetDrag}
         toolsSettings={toolsSettings}
         onDropTargetToken={handleAlignTargetToken}
@@ -518,6 +524,7 @@ WordAligner.propTypes = {
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
   showPopover: PropTypes.func.isRequired,
+  sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,
   sourceFontSizePercent: PropTypes.number,
   targetLanguageFont: PropTypes.string,
