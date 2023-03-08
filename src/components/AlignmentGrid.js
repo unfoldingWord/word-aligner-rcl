@@ -94,17 +94,6 @@ class AlignmentGrid extends Component {
         {
           alignments.map((alignment, key) => (
             <React.Fragment key={key}>
-              {/* placeholder for un-merging primary words */}
-              {/* TODO: cannot place this here due to this bug https://github.com/react-dnd/react-dnd/issues/735*/}
-              {/*<AlignmentCard*/}
-              {/*translate={translate}*/}
-              {/*alignmentIndex={index}*/}
-              {/*placeholderPosition="left"*/}
-              {/*bottomWords={[]}*/}
-              {/*topWords={[]}*/}
-              {/*onDrop={item => this.handleDrop(index, item)}*/}
-              {/*lexicons={lexicons}*/}
-              {/*/>*/}
 
               <AlignmentCard
                 translate={translate}
