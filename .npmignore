@@ -1,7 +1,11 @@
 .yalc/
 .vscode/
 .idea/
+__tests__/
+src/
 .editorconfig
 styleguide.config.js
 styleguide.styles.js
 yalc.lock
+coverage/
+node_modules/
