@@ -139,7 +139,11 @@ class PrimaryToken extends Component {
       <WordLexiconDetails lexiconData={lexiconData} wordObject={token} translate={translate}
         isHebrew={isHebrew}/>
     );
-    showPopover(PopoverTitle, wordDetails, positionCoord);
+    const rawData = {
+      token,
+      lexiconData,
+    }
+    showPopover(PopoverTitle, wordDetails, positionCoord, rawData);
   }
 }
 
