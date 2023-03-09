@@ -5,15 +5,18 @@ import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
 
+// on alignment changes, identifies posible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
 const GRID=`Alignment Grid`;
-const MERGE_ALIGNMENTS=`Alignment Grid - merge alignments`;
-const NEW_ALIGNMENT=`Alignment Grid - new alignment`;
-const UNALIGN_TARGET_WORD = `Unalign Target Word`;
-const ALIGN_BOTTOM_WORD = `Align Bottom Word`;
-const ALIGN_TOP_WORDS = `Align Top Word`;
-const lexiconCache_ = {};
 
+// On alignment change identifies event type
+const MERGE_ALIGNMENT_CARDS=`Alignment Grid - merge alignments`;
+const CREATE_NEW_ALIGNMENT_CARD=`Alignment Grid - new alignment`;
+const UNALIGN_TARGET_WORD = `Unalign Target Word`;
+const ALIGN_TARGET_WORD = `Align Target Word`;
+const ALIGN_SOURCE_WORD = `Align Source Word`;
+
+const lexiconCache_ = {};
 const styles = {
   container: {
     display: 'flex',
@@ -72,7 +75,7 @@ function findInWordList(wordList, token) {
   for (let i = 0, l = wordList.length; i < l; i++) {
     const item = wordList[i];
     if (item.text === token.text &&
-      item.tokenOccurrence === token.tokenOccurrence) {
+      item.occurrence === token.occurrence) {
       found = i;
       break;
     }
@@ -122,32 +125,23 @@ function findAlignment(alignments, token) {
 /**
  * convert from token format to format used by word alignment
  * @param {object} token
- * @return {*&{occurrences: *, suggestion: boolean, index: *, occurrence: *, position: *, text}}
+ * @return {*&{occurrences: *, suggestion: boolean, index: *, occurrence: *, text}}
  */
 function tokenToAlignment(token) {
   return {
     ...token,
-    index: token.tokenPos,
-    occurrence: token.tokenOccurrence,
-    occurrences: token.tokenOccurrences,
-    position: token.tokenPos,
     suggestion: false,
-    text: token.text,
   }
 }
 
 /**
  * const from word alignment fromat to token format
  * @param {object} alignment
- * @return {*&{tokenOccurrence, tokenOccurrences, text, tokenPos}}
+ * @return {*&{occurrence, occurrences, text, index}}
  */
 function alignmentToToken(alignment) {
-  return {
+  return { // make shallow copy
     ...alignment,
-    tokenPos: alignment.index,
-    tokenOccurrence: alignment.occurrence,
-    tokenOccurrences: alignment.occurrences,
-    text: alignment.text,
   }
 }
 
@@ -230,6 +224,40 @@ const indexComparator = (a, b) => a.index - b.index;
  */
 
 /**
+ * @typedef TargetWordType
+ * @param {number} index - position in the list of words for the verse
+ * @property {number} occurrence - the specific occurrence of the word in verse
+ * @property {number} occurrences - total occurrences of the word in verse
+ * @property {string} text - text of the word itself
+ */
+
+/**
+ * @typedef TargetWordBankType
+ * @param {number} index - position in the list of words for the verse
+ * @property {number} occurrence - the specific occurrence of the word in verse
+ * @property {number} occurrences - total occurrences of the word in verse
+ * @property {string} text - text of the word itself
+ * @property {boolean} disabled - if true then word is already used in alignment
+ */
+
+/**
+ * @typedef SourceWordType
+ * @param {number} index - position in the list of words for the verse
+ * @property {number} occurrence - the specific occurrence of the word in verse
+ * @property {number} occurrences - total occurrences of the word in verse
+ * @property {string} text - text of the word itself
+ * @property {string} lemma - lemma for the word
+ * @property {string} morph - morph for the word
+ * @property {string} strong - strong for the word
+ */
+
+/**
+ * @typedef AlignmentType
+ * @param {array[SourceWordType]} sourceNgram - list of the source words for an alignment
+ * @param {array[TargetWordType]} targetNgram - list of the target words for an alignment
+ */
+
+/**
  * @callback OnChangeCB
  * @param {object} details
  * @param {string} details.type is type of alignment change
@@ -265,8 +293,8 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {string} targetLanguageFont - font to use for target
  * @param {string} targetFontSizePercent - percentage size f
  * @param {TranslateCB} translate - callback to look up localized text
- * @param {array} verseAlignments - initial verse alignment
- * @param {array} wordListWords - initial list of target words in wordbank
+ * @param {array[AlignmentType]} verseAlignments - initial verse alignment
+ * @param {array[TargetWordBankType]} targetWords - list of target words for use in wordbank
  * @return {JSX.Element}
  * @constructor
  */
@@ -284,11 +312,11 @@ const WordAligner = ({
   targetFontSizePercent = 100,
   translate,
   verseAlignments,
-  wordListWords,
+  targetWords,
   }) => {
   const [dragToken, setDragToken] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
-  const [wordListWords_, setWordListWords] = useState(wordListWords);
+  const [targetwords, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
 
   const over = false;
@@ -310,7 +338,7 @@ const WordAligner = ({
     onChange && onChange({
       ...results,
       verseAlignments: verseAlignments_,
-      wordListWords: wordListWords_,
+      wordListWords: targetwords,
       contextId,
     });
   }
@@ -332,18 +360,18 @@ const WordAligner = ({
     console.log('handleUnalignTargetToken')
     const source=GRID
     const destination=TARGET_WORD_BANK
-    const { found, alignment } = findAlignment(verseAlignments_, targetToken);
-    if (alignment >= 0) {
+    const { tokenIndex, alignmentIndex } = findAlignment(verseAlignments_, targetToken);
+    if (alignmentIndex >= 0) {
       const verseAlignments = [...verseAlignments_]
-      verseAlignments[alignment].targetNgram.splice(found, 1);
+      verseAlignments[alignmentIndex].targetNgram.splice(tokenIndex, 1);
       updateVerseAlignments(verseAlignments);
     }
 
-    const found_ = findInWordList(wordListWords_, alignmentToToken(targetToken));
+    const found_ = findInWordList(targetwords, alignmentToToken(targetToken));
     if (found_ >= 0) {
-      const wordListWords = [...wordListWords_]
+      const wordListWords = [...targetwords]
       wordListWords[found_].disabled = false;
-      setWordListWords(wordListWords);
+      setTargetWords(wordListWords);
     }
     setResetDrag(true) // clear the selected words
     doChangeCallback({
@@ -376,11 +404,11 @@ const WordAligner = ({
         }
       } else { // coming from word list
         source=TARGET_WORD_BANK
-        const found = findInWordList(wordListWords_, targetToken);
+        const found = findInWordList(targetwords, targetToken);
         if (found >= 0) {
-          const wordListWords = [...wordListWords_]
+          const wordListWords = [...targetwords]
           wordListWords[found].disabled = true;
-          setWordListWords(wordListWords);
+          setTargetWords(wordListWords);
           targetToken = tokenToAlignment(targetToken);
         }
         setResetDrag(true)
@@ -389,7 +417,7 @@ const WordAligner = ({
       dest.targetNgram.push(targetToken);
       updateVerseAlignments(verseAlignments);
       doChangeCallback({
-        type: ALIGN_BOTTOM_WORD,
+        type: ALIGN_TARGET_WORD,
         source,
         destination,
       });
@@ -400,17 +428,17 @@ const WordAligner = ({
    * moves the primary token to a different alignment or split off as new alignment.
    *    if the source alignment is now empty of primary words, then move all the target words as well.
    * @param {object} primaryToken
-   * @param alignmentIndex
+   * @param destAlignmentIndex
    * @param srcAlignmentIndex
    * @param startNew
    */
-  const handleAlignPrimaryToken = (primaryToken, alignmentIndex, srcAlignmentIndex, startNew) => {
-    console.log('handleAlignPrimaryToken', {alignmentIndex, srcAlignmentIndex, startNew})
-    if ((alignmentIndex !== srcAlignmentIndex) || startNew) {
-      let destination=MERGE_ALIGNMENTS
+  const handleAlignSourceToken = (primaryToken, destAlignmentIndex, srcAlignmentIndex, startNew) => {
+    console.log('handleAlignSourceToken', {alignmentIndex: destAlignmentIndex, srcAlignmentIndex, startNew})
+    if ((destAlignmentIndex !== srcAlignmentIndex) || startNew) {
+      let destination=MERGE_ALIGNMENT_CARDS
       const source=GRID
       let verseAlignments = [...verseAlignments_]
-      let dest = verseAlignments[alignmentIndex];
+      let dest = verseAlignments[destAlignmentIndex];
       let src = null;
       let found = -1;
       let emptySource = false;
@@ -424,8 +452,8 @@ const WordAligner = ({
       }
 
       if (startNew) { // insert word into a new alignment
-        destination = NEW_ALIGNMENT;
-        const newPosition = alignmentIndex + 1;
+        destination = CREATE_NEW_ALIGNMENT_CARD;
+        const newPosition = destAlignmentIndex + 1;
         dest = {
           index: newPosition,
           isSuggestion: false,
@@ -450,7 +478,7 @@ const WordAligner = ({
       }
       updateVerseAlignments(verseAlignments);
       doChangeCallback({
-        type: ALIGN_TOP_WORDS,
+        type: ALIGN_SOURCE_WORD,
         source,
         destination,
       });
@@ -479,7 +507,7 @@ const WordAligner = ({
     <div style={styles.container}>
       <div style={styles.wordListContainer}>
         <WordList
-          words={wordListWords_}
+          words={targetwords}
           verse={contextId.reference.verse}
           isOver={over}
           chapter={contextId.reference.chapter}
@@ -503,7 +531,7 @@ const WordAligner = ({
         reset={resetDrag}
         toolsSettings={toolsSettings}
         onDropTargetToken={handleAlignTargetToken}
-        onDropSourceToken={handleAlignPrimaryToken}
+        onDropSourceToken={handleAlignSourceToken}
         contextId={contextId}
         isHebrew={isHebrew}
         showPopover={showPopover}
@@ -531,6 +559,6 @@ WordAligner.propTypes = {
   targetFontSizePercent: PropTypes.number,
   translate: PropTypes.func.isRequired,
   verseAlignments: PropTypes.array.isRequired,
-  wordListWords: PropTypes.array.isRequired,
+  targetWords: PropTypes.array.isRequired,
 };
 export default WordAligner;

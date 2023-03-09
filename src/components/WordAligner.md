@@ -6,7 +6,7 @@ import {
   areAlgnmentsComplete,
   parseUsfmToWordAlignerData
 } from "../utils/alignmentHelpers";
-import {convertVerseDataToUSFM } from "../utils/UsfmFileConversionHelpers";
+import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
 
 // var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1.json');
@@ -64,7 +64,7 @@ const App = () => {
     <div style={{height: '650px', width: '800px'}}>
       <WordAligner
         verseAlignments={verseAlignments}
-        wordListWords={wordListWords}
+        targetWords={wordListWords}
         translate={translate}
         contextId={contextId}
         targetLanguageFont={targetLanguageFont}

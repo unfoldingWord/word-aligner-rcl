@@ -38,7 +38,7 @@ class WordList extends React.Component {
     const { selectedWordPositions } = this.props;
 
     return selectedWordPositions &&
-      selectedWordPositions.indexOf(token.tokenPos) !== -1;
+      selectedWordPositions.indexOf(token.index) !== -1;
   }
 
   // eslint-disable-next-line no-unused-vars

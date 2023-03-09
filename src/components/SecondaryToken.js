@@ -13,7 +13,7 @@ import Word from './WordCard';
  */
 function containsToken(list, token) {
   for (let i = 0; i < list.length; i++) {
-    if (list[i].tokenPos === token.tokenPos) {
+    if (list[i].index === token.index) {
       return true;
     }
   }
@@ -218,7 +218,7 @@ const dragHandler = {
   },
   isDragging(props, monitor) {
     const item = monitor.getItem();
-    return item.token.tokenPos === props.token.tokenPos;
+    return item.token.index === props.token.index;
   },
 };
 
