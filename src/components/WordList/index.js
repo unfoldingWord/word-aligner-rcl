@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Token } from 'wordmap-lexer';
-import * as types from '../../common/WordCardTypes';
 import WordList from './WordList';
 
 /**
@@ -195,11 +193,11 @@ DroppableWordList.propTypes = {
   targetLanguageFont: PropTypes.string,
   toolsSettings: PropTypes.object.isRequired,
   setToolSettings: PropTypes.func.isRequired,
-  dragToken: PropTypes.object.isRequired,
-  setDragToken: PropTypes.func.isRequired,
+  dragToken: PropTypes.object,
+  setDragToken: PropTypes.func,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   onDropTargetToken: PropTypes.func.isRequired,
-  words: PropTypes.arrayOf(PropTypes.instanceOf(Token)),
+  words: PropTypes.arrayOf(PropTypes.object),
 };
 
 DroppableWordList.defaultProps = {

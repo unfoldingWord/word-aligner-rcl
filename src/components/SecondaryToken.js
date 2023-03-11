@@ -150,8 +150,6 @@ SecondaryToken.propTypes = {
   onCancel: PropTypes.func,
   onAccept: PropTypes.func,
   token: PropTypes.instanceOf(Token).isRequired,
-  connectDragPreview: PropTypes.func.isRequired,
-  connectDragSource: PropTypes.func.isRequired,
   dragToken: PropTypes.object.isRequired,
   setDragToken: PropTypes.func.isRequired,
   alignmentIndex: PropTypes.number,

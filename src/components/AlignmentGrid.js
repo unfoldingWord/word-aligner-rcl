@@ -63,7 +63,6 @@ class AlignmentGrid extends Component {
       onCancelSuggestion,
       sourceDirection,
       targetDirection,
-      onAcceptTokenSuggestion,
       sourceStyle,
       alignments,
       contextId,
@@ -100,8 +99,6 @@ class AlignmentGrid extends Component {
                 sourceStyle={sourceStyle}
                 sourceDirection={sourceDirection}
                 targetDirection={targetDirection}
-                onCancelTokenSuggestion={onCancelSuggestion}
-                onAcceptTokenSuggestion={onAcceptTokenSuggestion}
                 alignmentIndex={alignment.index}
                 isSuggestion={alignment.isSuggestion}
                 targetNgram={alignment.targetNgram}
@@ -178,7 +175,6 @@ AlignmentGrid.propTypes = {
   onDropTargetToken: PropTypes.func.isRequired,
   onDropSourceToken: PropTypes.func.isRequired,
   onCancelSuggestion: PropTypes.func.isRequired,
-  onAcceptTokenSuggestion: PropTypes.func.isRequired,
   sourceStyle: PropTypes.object.isRequired,
   alignments: PropTypes.array.isRequired,
   contextId: PropTypes.object,

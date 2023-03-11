@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Token } from 'wordmap-lexer';
 import * as types from '../../common/WordCardTypes';
 import SecondaryToken from '../SecondaryToken';
 import PrimaryToken from '../PrimaryToken';
@@ -20,48 +19,6 @@ const styles = {
     },
   },
 };
-
-/**
- * Determines if a word can be dropped
- * @param dropTargetProps
- * @param dragSourceProps
- * @return {boolean}
- */
-export const canDropPrimaryToken = (dropTargetProps, dragSourceProps) => {
-  const emptyTarget = dropTargetProps.sourceNgram.length === 0;
-  const singleTarget = dropTargetProps.sourceNgram.length === 1;
-  const mergedTarget = dropTargetProps.sourceNgram.length > 1;
-  const singleSource = dragSourceProps.alignmentLength === 1;
-  const mergedSource = dragSourceProps.alignmentLength > 1;
-  const alignmentDelta = dropTargetProps.alignmentIndex - dragSourceProps.alignmentIndex;
-  const different = alignmentDelta !== 0;
-
-  // moving single word to another single (new merge)
-  // TRICKY: make sure this is to a different word
-  if (singleSource && singleTarget && different) {
-    return true;
-  }
-
-  // moving single word to merged group
-  if (singleSource && mergedTarget) {
-    return true;
-  }
-
-  if (mergedSource) { // removing a word from a merged group
-    if (emptyTarget) { // moving word from merged group to empty (unmerge)
-      if (!different) { // if unmerge target for this group
-        return true;
-      }
-    } else if (singleTarget) { // moving word from merged group to a single word (new merge)
-      return true;
-    } else if (mergedTarget && different) { //  moving word from merged group to a different merged group
-      return true;
-    }
-  }
-
-  return false; // any other destinations are not allowed
-};
-
 
 /**
  * Renders the alignment of primary and secondary words/phrases
@@ -113,7 +70,7 @@ class DroppableAlignmentCard extends Component {
       lexicons,
       canDrop,
       dragItemType,
-      isOver,
+      isOver, //TODO: need to fix logic in alignment card determine droppable target
       targetNgram,
       sourceNgram,
       alignmentIndex,
@@ -197,12 +154,11 @@ DroppableAlignmentCard.propTypes = {
   placeholderPosition: PropTypes.string,
   sourceStyle: PropTypes.object.isRequired,
   dragItemType: PropTypes.string,
-  isOver: PropTypes.bool.isRequired,
-  canDrop: PropTypes.bool.isRequired,
-  sourceNgram: PropTypes.arrayOf(PropTypes.instanceOf(Token)).isRequired,
-  targetNgram: PropTypes.arrayOf(PropTypes.instanceOf(Token)).isRequired,
+  isOver: PropTypes.bool,
+  sourceNgram: PropTypes.arrayOf(PropTypes.object).isRequired,
+  targetNgram: PropTypes.arrayOf(PropTypes.object).isRequired,
   alignmentIndex: PropTypes.number.isRequired,
-  isSuggestion: PropTypes.bool.isRequired,
+  isSuggestion: PropTypes.bool,
   onDrop: PropTypes.func.isRequired,
   lexicons: PropTypes.object.isRequired,
   sourceDirection: PropTypes.oneOf(['ltr', 'rtl']),
@@ -211,7 +167,7 @@ DroppableAlignmentCard.propTypes = {
   targetLanguageFontClassName: PropTypes.string,
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
-  dragToken: PropTypes.object.isRequired,
+  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
   setDragToken: PropTypes.func.isRequired,
   showAsDrop: PropTypes.bool,
 };
