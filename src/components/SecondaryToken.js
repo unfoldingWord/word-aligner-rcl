@@ -74,7 +74,8 @@ class SecondaryToken extends React.Component {
 
     const token_ = {
       ...token,
-      type: types.SECONDARY_WORD
+      type: types.SECONDARY_WORD,
+      alignmentIndex: this.props.alignmentIndex,
     };
     setDragToken && setDragToken(token_);
 
@@ -150,7 +151,7 @@ SecondaryToken.propTypes = {
   onAccept: PropTypes.func,
   token: PropTypes.object.isRequired,
   dragToken: PropTypes.object,
-  setDragToken: PropTypes.func,
+  setDragToken: PropTypes.func.isRequired,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   disabled: PropTypes.bool,
   targetLanguageFontClassName: PropTypes.string,

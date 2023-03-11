@@ -71,6 +71,7 @@ class AlignmentGrid extends Component {
       loadLexiconEntry,
       targetLanguageFont,
       dragToken,
+      dragItemType,
     } = this.props;
 
     if (!contextId) {
@@ -110,6 +111,7 @@ class AlignmentGrid extends Component {
                 fontSize={fontSize}
                 targetLanguageFontClassName={targetLanguageFontClassName}
                 dragToken={dragToken}
+                dragItemType={dragItemType}
                 setDragToken={(token, isPrimary) => this.onDrag(token, key, isPrimary)}
               />
               {/* placeholder for un-merging primary words */}
@@ -185,7 +187,8 @@ AlignmentGrid.propTypes = {
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
   targetLanguageFont: PropTypes.string,
-  dragToken: PropTypes.object,
+  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  dragItemType: PropTypes.string,
   setDragToken: PropTypes.func.isRequired,
 };
 

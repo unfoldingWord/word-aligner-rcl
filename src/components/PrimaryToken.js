@@ -51,7 +51,9 @@ class PrimaryToken extends Component {
 
     const token_ = {
       ...token,
-      type: types.PRIMARY_WORD
+      type: types.PRIMARY_WORD,
+      alignmentIndex: this.props.alignmentIndex,
+      alignmentLength: this.props.alignmentLength,
     };
     setDragToken && setDragToken(token_);
   }
@@ -164,7 +166,7 @@ PrimaryToken.propTypes = {
   lexicons: PropTypes.object.isRequired,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   isDragging: PropTypes.bool.isRequired,
-  setDragToken: PropTypes.bool,
+  setDragToken: PropTypes.func.isRequired,
   isHebrew: PropTypes.bool.isRequired,
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,

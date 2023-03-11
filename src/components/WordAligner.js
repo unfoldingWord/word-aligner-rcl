@@ -4,6 +4,7 @@ import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
+import * as types from '../common/WordCardTypes';
 
 // on alignment changes, identifies posible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
@@ -314,7 +315,8 @@ const WordAligner = ({
   verseAlignments,
   targetWords,
   }) => {
-  const [dragToken, setDragToken] = useState(null);
+  const [dragToken, setDragToken_] = useState(null);
+  const [dragItemType, setDragItemType] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
   const [targetWords_, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
@@ -326,6 +328,15 @@ const WordAligner = ({
   const setToolSettings = () => {
     console.log('setToolSettings')
   };
+
+  /**
+   * on start of token drag, save drag token and drag item type
+   * @param {object} token
+   */
+  function setDragToken(token) {
+   setDragToken_(token)
+   setDragItemType(token.type || types.SECONDARY_WORD)
+  }
 
   /**
    * callback for each alignment change so that app can keep track of last change or update valid alignment badge
@@ -538,6 +549,7 @@ const WordAligner = ({
         loadLexiconEntry={loadLexiconEntry}
         targetLanguageFont={targetLanguageFont}
         dragToken={dragToken}
+        dragItemType={dragItemType}
         setDragToken={setDragToken}
       />
 

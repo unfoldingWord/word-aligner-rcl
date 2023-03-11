@@ -151,7 +151,7 @@ WordList.propTypes = {
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   toolsSettings: PropTypes.object.isRequired,
   setToolSettings: PropTypes.func.isRequired,
-  dragToken: PropTypes.object,
+  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
   setDragToken: PropTypes.func.isRequired,
   toolSettings: PropTypes.object.isRequired,
   selectedWordPositions: PropTypes.arrayOf(PropTypes.number),
