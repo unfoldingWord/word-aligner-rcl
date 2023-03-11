@@ -60,7 +60,6 @@ class AlignmentGrid extends Component {
     const {
       translate,
       lexicons,
-      onCancelSuggestion,
       sourceDirection,
       targetDirection,
       sourceStyle,
@@ -174,7 +173,6 @@ AlignmentGrid.propTypes = {
   reset: PropTypes.bool,
   onDropTargetToken: PropTypes.func.isRequired,
   onDropSourceToken: PropTypes.func.isRequired,
-  onCancelSuggestion: PropTypes.func.isRequired,
   sourceStyle: PropTypes.object.isRequired,
   alignments: PropTypes.array.isRequired,
   contextId: PropTypes.object,
@@ -187,7 +185,7 @@ AlignmentGrid.propTypes = {
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
   targetLanguageFont: PropTypes.string,
-  dragToken: PropTypes.object.isRequired,
+  dragToken: PropTypes.object,
   setDragToken: PropTypes.func.isRequired,
 };
 

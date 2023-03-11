@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Token} from 'wordmap-lexer';
 import SecondaryToken from '../SecondaryToken';
 import {getFontClassName} from '../../common/fontUtils';
 
@@ -152,11 +151,11 @@ WordList.propTypes = {
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   toolsSettings: PropTypes.object.isRequired,
   setToolSettings: PropTypes.func.isRequired,
-  dragToken: PropTypes.object.isRequired,
+  dragToken: PropTypes.object,
   setDragToken: PropTypes.func.isRequired,
   toolSettings: PropTypes.object.isRequired,
   selectedWordPositions: PropTypes.arrayOf(PropTypes.number),
-  words: PropTypes.arrayOf(PropTypes.instanceOf(Token)).isRequired,
+  words: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 WordList.defaultProps = {

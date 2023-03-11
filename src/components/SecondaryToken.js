@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Token } from 'wordmap-lexer';
 // load drag preview images
 import * as types from '../common/WordCardTypes';
 import Word from './WordCard';
@@ -149,10 +148,9 @@ SecondaryToken.propTypes = {
   onClick: PropTypes.func,
   onCancel: PropTypes.func,
   onAccept: PropTypes.func,
-  token: PropTypes.instanceOf(Token).isRequired,
-  dragToken: PropTypes.object.isRequired,
-  setDragToken: PropTypes.func.isRequired,
-  alignmentIndex: PropTypes.number,
+  token: PropTypes.object.isRequired,
+  dragToken: PropTypes.object,
+  setDragToken: PropTypes.func,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   disabled: PropTypes.bool,
   targetLanguageFontClassName: PropTypes.string,
@@ -165,7 +163,6 @@ SecondaryToken.defaultProps = {
   },
   onAccept: () => {
   },
-  alignmentIndex: undefined,
   disabled: false,
   fontScale: 100,
   selectedTokens: [],

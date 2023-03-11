@@ -168,7 +168,7 @@ DroppableAlignmentCard.propTypes = {
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
   dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
-  setDragToken: PropTypes.func.isRequired,
+  setDragToken: PropTypes.func,
   showAsDrop: PropTypes.bool,
 };
 
