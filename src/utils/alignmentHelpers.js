@@ -280,7 +280,7 @@ export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetV
  * parse target language and original language USFM text into the structures needed by the word-aligner
  * @param {string} targetVerseUSFM
  * @param {string|null} sourceVerseUSFM
- * @returns {{wordListWords: *[], verseAlignments: *}}
+ * @returns {{targetWords: *[], verseAlignments: *}}
  */
 export function parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM) {
   let targetTokens = [];
@@ -289,11 +289,11 @@ export function parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM) {
   }
 
   const sourceVerseObjects = sourceVerseUSFM && usfmVerseToJson(sourceVerseUSFM);
-  let wordListWords = [];
+  let targetWords = [];
   const targetVerseAlignments = extractAlignmentsFromTargetVerse(targetVerseUSFM, sourceVerseObjects);
   const verseAlignments = targetVerseAlignments.alignments;
-  wordListWords = markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetTokens, verseAlignments);
-  return {wordListWords, verseAlignments};
+  targetWords = markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetTokens, verseAlignments);
+  return {targetWords, verseAlignments};
 }
 
 /**
@@ -396,11 +396,11 @@ function handleDeletedWords(verseAlignments, targetWordList) {
  */
 export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse) {
   let targetVerseText = convertVerseDataToUSFM(targetVerseObjects);
-  let { wordListWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseText, null);
+  let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseText, null);
   const targetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
-  handleAddedWordsInNewText(targetTokens, wordListWords, verseAlignments);
+  handleAddedWordsInNewText(targetTokens, targetWords, verseAlignments);
   handleDeletedWords(verseAlignments, targetTokens);
-  targetVerseText = addAlignmentsToVerseUSFM(wordListWords, verseAlignments, newTargetVerse);
+  targetVerseText = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
   if (targetVerseText === null) {
     console.log(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
     targetVerseText = newTargetVerse;

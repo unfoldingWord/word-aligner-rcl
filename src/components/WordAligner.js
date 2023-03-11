@@ -259,12 +259,12 @@ const indexComparator = (a, b) => a.index - b.index;
 
 /**
  * @callback OnChangeCB
- * @param {object} details
+ * @param {object} details - a change details object with the following fields:
  * @param {string} details.type is type of alignment change
  * @param {string} details.source - source(s) of the word being changed
  * @param {string} details.destination - destination of the word being changed
- * @param {array} details.verseAlignments - array of current verse alignments
- * @param {array} details.wordListWords - array of current target words
+ * @param {array[AlignmentType]} details.verseAlignments - array of the latest verse alignments
+ * @param {array[TargetWordBankType]} details.targetWords - array of the latest target words
  * @param {ContextID} details.contextId - context of current verse
  */
 
@@ -285,7 +285,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {(book, chapter, verse)} contextId - current verse context
  * @param {object|null} lexiconCache - cache for lexicon data
  * @param {LoadLexiconEntryCB} loadLexiconEntry - callback to load lexicon for language and strong number
- * @param {OnChangeCB} onChange - optional callback for whenever alignment changed
+ * @param {OnChangeCB} onChange - optional callback for whenever alignment changed.  Contains the specific operation performed as well as the latest state of the verse alignments and target words usage
  * @param {ShowPopOverCB} showPopover - callback function to display a popover
  * @param {string} sourceLanguage - ID of source language
  * @param {string} sourceLanguageFont - font to use for source
@@ -316,7 +316,7 @@ const WordAligner = ({
   }) => {
   const [dragToken, setDragToken] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
-  const [targetwords, setTargetWords] = useState(targetWords);
+  const [targetWords_, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
 
   const over = false;
@@ -338,7 +338,7 @@ const WordAligner = ({
     onChange && onChange({
       ...results,
       verseAlignments: verseAlignments_,
-      wordListWords: targetwords,
+      targetWords: targetWords_,
       contextId,
     });
   }
@@ -367,9 +367,9 @@ const WordAligner = ({
       updateVerseAlignments(verseAlignments);
     }
 
-    const found_ = findInWordList(targetwords, alignmentToToken(targetToken));
+    const found_ = findInWordList(targetWords_, alignmentToToken(targetToken));
     if (found_ >= 0) {
-      const wordListWords = [...targetwords]
+      const wordListWords = [...targetWords_]
       wordListWords[found_].disabled = false;
       setTargetWords(wordListWords);
     }
@@ -404,9 +404,9 @@ const WordAligner = ({
         }
       } else { // coming from word list
         source=TARGET_WORD_BANK
-        const found = findInWordList(targetwords, targetToken);
+        const found = findInWordList(targetWords_, targetToken);
         if (found >= 0) {
-          const wordListWords = [...targetwords]
+          const wordListWords = [...targetWords_]
           wordListWords[found].disabled = true;
           setTargetWords(wordListWords);
           targetToken = tokenToAlignment(targetToken);
@@ -507,7 +507,7 @@ const WordAligner = ({
     <div style={styles.container}>
       <div style={styles.wordListContainer}>
         <WordList
-          words={targetwords}
+          words={targetWords_}
           verse={contextId.reference.verse}
           isOver={over}
           chapter={contextId.reference.chapter}

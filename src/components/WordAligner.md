@@ -21,9 +21,9 @@ const translate = (key) => {
 const targetVerseUSFM = alignedVerseJson.usfm;
 const sourceVerseUSFM = originalVerseJson.usfm;
 
-const {wordListWords, verseAlignments} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
+const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
 
-const alignmentComplete = areAlgnmentsComplete(wordListWords, verseAlignments);
+const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
 console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
 
 const App = () => {
@@ -53,10 +53,10 @@ const App = () => {
 
   function onChange(results) {
     console.log(`WordAligner() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
-    const {wordListWords, verseAlignments} = results;
-    const verseUsfm = addAlignmentsToVerseUSFM(wordListWords, verseAlignments, targetVerseUSFM);
+    const {targetWords, verseAlignments} = results;
+    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
     console.log(verseUsfm);
-    const alignmentComplete = areAlgnmentsComplete(wordListWords, verseAlignments);
+    const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
   }
 
@@ -64,7 +64,7 @@ const App = () => {
     <div style={{height: '650px', width: '800px'}}>
       <WordAligner
         verseAlignments={verseAlignments}
-        targetWords={wordListWords}
+        targetWords={targetWords}
         translate={translate}
         contextId={contextId}
         targetLanguageFont={targetLanguageFont}
