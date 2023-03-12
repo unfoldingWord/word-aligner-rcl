@@ -73,7 +73,10 @@ class DroppableAlignmentCard extends Component {
     this.onDrag = this.onDrag.bind(this);
     this.onDragOver = this.onDragOver.bind(this);
     this.onDragLeave = this.onDragLeave.bind(this);
-    this.state = { isOver: false };
+    this.state = {
+      isOver: false,
+      canDrop: false,
+    };
   }
 
   _handleCancelSuggestion(token) {
@@ -221,7 +224,6 @@ DroppableAlignmentCard.propTypes = {
   placeholderPosition: PropTypes.string,
   sourceStyle: PropTypes.object.isRequired,
   dragItemType: PropTypes.string,
-  isOver: PropTypes.bool,
   sourceNgram: PropTypes.arrayOf(PropTypes.object).isRequired,
   targetNgram: PropTypes.arrayOf(PropTypes.object).isRequired,
   alignmentIndex: PropTypes.number.isRequired,
