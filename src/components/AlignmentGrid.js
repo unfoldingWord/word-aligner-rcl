@@ -93,7 +93,6 @@ class AlignmentGrid extends Component {
         {
           alignments.map((alignment, key) => (
             <React.Fragment key={key}>
-
               <AlignmentCard
                 translate={translate}
                 sourceStyle={sourceStyle}

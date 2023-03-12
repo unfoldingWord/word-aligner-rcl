@@ -72,6 +72,7 @@ class DroppableAlignmentCard extends Component {
     this.drop = this.drop.bind(this);
     this.onDrag = this.onDrag.bind(this);
     this.onDragOver = this.onDragOver.bind(this);
+    this.onDragLeave = this.onDragLeave.bind(this);
     this.state = { isOver: false };
   }
 
@@ -96,30 +97,35 @@ class DroppableAlignmentCard extends Component {
     const token = this.props.dragToken;
     const alignmentIndex = this.props.alignmentIndex;
     this.props.onDrop(token, alignmentIndex);
+    this.setState({ isOver: false, canDrop: false })
+  }
+
+  onDragLeave(ev) {
+    this.setState({ isOver: false, canDrop: false })
   }
 
   onDragOver(ev) {
     const item = this.props.dragToken;
-    const alignmentEmpty = (props.sourceNgram.length === 0 &&
-      props.targetNgram.length === 0);
+    const alignmentEmpty = (this.props.sourceNgram.length === 0 &&
+      this.props.targetNgram.length === 0);
     let canDrop = false;
+    const fromWordBank = (Array.isArray(item)) || !item.type;
 
-    if (item.type === types.SECONDARY_WORD) {
-      if (item.alignmentIndex === undefined) {
-        // TRICKY: tokens from the word list will not have an alignment index
+    if (fromWordBank || (item.type === types.SECONDARY_WORD)) {
+      if (fromWordBank) {
         canDrop = !alignmentEmpty;
       } else {
-        const alignmentPositionDelta = props.alignmentIndex - item.alignmentIndex;
+        const alignmentPositionDelta = this.props.alignmentIndex - item.alignmentIndex;
         canDrop = alignmentPositionDelta !== 0 && !alignmentEmpty;
       }
     } else if (item.type === types.PRIMARY_WORD) {
-      canDrop = canDropPrimaryToken(props, item);
+      canDrop = canDropPrimaryToken(this.props, item);
     }
 
     if (canDrop) {
       ev.preventDefault();
     }
-    this.setState({ isOver: canDrop })
+    this.setState({ isOver: true, canDrop })
   }
 
   onDrag(token, isPrimary) {
@@ -130,7 +136,6 @@ class DroppableAlignmentCard extends Component {
     const {
       translate,
       lexicons,
-      canDrop,
       dragItemType,
       targetNgram,
       sourceNgram,
@@ -146,8 +151,8 @@ class DroppableAlignmentCard extends Component {
       targetLanguageFontClassName,
       showAsDrop,
     } = this.props;
-    const acceptsTop = canDrop && dragItemType === types.PRIMARY_WORD;
-    const acceptsBottom = canDrop && dragItemType === types.SECONDARY_WORD;
+    const acceptsTop = this.state.canDrop && dragItemType === types.PRIMARY_WORD;
+    const acceptsBottom = this.state.canDrop && dragItemType === types.SECONDARY_WORD;
 
     const hoverTop = this.state.isOver && acceptsTop;
     const hoverBottom = this.state.isOver && acceptsBottom;
@@ -192,6 +197,7 @@ class DroppableAlignmentCard extends Component {
         <div
           onDragOver={this.onDragOver}
           onDrop={this.drop}
+          onDragLeave={this.onDragLeave}
         >
           <AlignmentCard targetTokenCards={bottomWordCards}
             targetDirection={targetDirection}
