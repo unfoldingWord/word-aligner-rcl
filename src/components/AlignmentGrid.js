@@ -48,12 +48,19 @@ class AlignmentGrid extends Component {
     }
   }
 
-  onDrag(token, alignmentIndex, isPrimary) {
-    this.setState({
-      draggedAlignment: alignmentIndex,
-      draggedPrimaryAlignment: isPrimary ? alignmentIndex : -1,
-    });
-    this.props.setDragToken(token);
+  onDrag(token, alignmentIndex, dragFinished, isPrimary) {
+    if (dragFinished) {
+      this.setState({
+        draggedAlignment: -1,
+        draggedPrimaryAlignment: -1,
+      });
+    } else {
+      this.setState({
+        draggedAlignment: alignmentIndex,
+        draggedPrimaryAlignment: isPrimary ? alignmentIndex : -1,
+      });
+      this.props.setDragToken(token);
+    }
   }
 
   render() {
@@ -111,7 +118,7 @@ class AlignmentGrid extends Component {
                 targetLanguageFontClassName={targetLanguageFontClassName}
                 dragToken={dragToken}
                 dragItemType={dragItemType}
-                setDragToken={(token, isPrimary) => this.onDrag(token, key, isPrimary)}
+                setDragToken={(token, dragFinished, isPrimary) => this.onDrag(token, key, dragFinished, isPrimary)}
               />
               {/* placeholder for un-merging primary words */}
               <AlignmentCard
@@ -131,7 +138,7 @@ class AlignmentGrid extends Component {
                 fontSize={fontSize}
                 targetLanguageFontClassName={targetLanguageFontClassName}
                 dragToken={dragToken}
-                setDragToken={(token, isPrimary) => this.onDrag(token, key, isPrimary)}
+                setDragToken={(token, dragFinished, isPrimary) => this.onDrag(token, key, dragFinished, isPrimary)}
                 showAsDrop={this.getShowAsDrop(key, alignment)}
               />
             </React.Fragment>
@@ -143,7 +150,7 @@ class AlignmentGrid extends Component {
 
   getShowAsDrop(key, alignment) {
     const isCurrentKey = this.state.draggedPrimaryAlignment === key;
-    const moreTheOneItem = alignment.targetNgram.length > 1;
+    const moreTheOneItem = alignment.sourceNgram.length > 1;
     const showDrop = isCurrentKey && moreTheOneItem;
     return showDrop;
   }
@@ -156,11 +163,11 @@ class AlignmentGrid extends Component {
       for (let i = 0; i < item.length; i++) {
         onDropTargetToken(item[i], alignmentIndex, -1);
       }
-    } else if (item.type === types.SECONDARY_WORD) {
-      // drop single token
-      onDropTargetToken(item, alignmentIndex, srcAlignmentIndex);
     } else if (item.type === types.PRIMARY_WORD) {
       onDropSourceToken(item, alignmentIndex, srcAlignmentIndex, startNew);
+    } else {
+      // drop single token
+      onDropTargetToken(item, alignmentIndex, srcAlignmentIndex);
     }
 
     this.setState({

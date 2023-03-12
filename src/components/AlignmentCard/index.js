@@ -131,8 +131,8 @@ class DroppableAlignmentCard extends Component {
     this.setState({ isOver: true, canDrop })
   }
 
-  onDrag(token, isPrimary) {
-    this.props.setDragToken(token, isPrimary)
+  onDrag(token, dragFinished, isPrimary) {
+    this.props.setDragToken(token, dragFinished, isPrimary)
   }
 
   render() {
@@ -177,7 +177,7 @@ class DroppableAlignmentCard extends Component {
         alignmentIndex={alignmentIndex}
         showPopover={showPopover}
         loadLexiconEntry={loadLexiconEntry}
-        setDragToken={(token) => this.onDrag(token, true)}
+        setDragToken={(token, dragFinished) => this.onDrag(token, dragFinished, true)}
       />
     ));
     const bottomWordCards = targetNgram.map((token, index) => (
@@ -189,7 +189,7 @@ class DroppableAlignmentCard extends Component {
         onCancel={this._handleCancelSuggestion}
         onAccept={this._handleAcceptSuggestion}
         targetLanguageFontClassName={targetLanguageFontClassName}
-        setDragToken={(token) => this.onDrag(token, false)}
+        setDragToken={(token, dragFinished) => this.onDrag(token, dragFinished, false)}
       />
     ));
 

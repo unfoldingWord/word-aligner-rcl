@@ -118,23 +118,31 @@ class DroppableWordList extends React.Component {
   }
 
   onDrag(token) {
-    const words = [...this.state.selectedWords];
-    let dragging = token;
-    const index = words.findIndex(item => (
-      token.text === item.text &&
-      token.occurrence === item.occurrence
-    ));
+    if (token) {
+      const words = [...this.state.selectedWords];
+      let dragging = {
+        ...token,
+        type: null,
+      };
+      const index = words.findIndex(item => (
+        token.text === item.text &&
+        token.occurrence === item.occurrence
+      ));
 
-    if (index === -1) {
-      words.push(token);
+      if (index === -1) {
+        words.push(dragging);
+      }
+
+      if (words.length > 1) {
+        dragging = words
+      }
+
+      this.props.setDragToken(dragging);
+      // console.log(`WordList.onDrag()`, dragging);
+    } else {
+      // drag stopped
+      this.setState({ isOver: false })
     }
-
-    if (words.length > 1) {
-      dragging = words
-    }
-
-    this.props.setDragToken(dragging);
-    // console.log(`WordList.onDrag()`, dragging);
   }
 
   /**
@@ -145,6 +153,10 @@ class DroppableWordList extends React.Component {
     const { selectedWordPositions, selectedWords } = this.state;
     let positions = [...selectedWordPositions];
     let words = [...selectedWords];
+    token = {
+      ...token,
+      type: null,
+    }
 
     const index = positions.indexOf(token.index);
 

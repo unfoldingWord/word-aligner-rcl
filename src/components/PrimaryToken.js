@@ -29,6 +29,7 @@ class PrimaryToken extends Component {
     this._handleOut = this._handleOut.bind(this);
     this._handleOver = this._handleOver.bind(this);
     this.onDragStart = this.onDragStart.bind(this);
+    this.onDragEnd = this.onDragEnd.bind(this);
     this.state = {
       hover: false,
       anchorEl: null,
@@ -55,7 +56,15 @@ class PrimaryToken extends Component {
       alignmentIndex: this.props.alignmentIndex,
       alignmentLength: this.props.alignmentLength,
     };
-    setDragToken && setDragToken(token_);
+    setDragToken && setDragToken(token_, false);
+  }
+
+  /**
+   * called when drag is finished
+   * @param e
+   */
+  onDragEnd(e) {
+    this.props.setDragToken && this.props.setDragToken(null, true);
   }
 
   /**
@@ -106,6 +115,7 @@ class PrimaryToken extends Component {
           occurrences={token.occurrences}
           style={{ ...internalStyle.word, ...style }}
           onDragStart={this.onDragStart}
+          onDragEnd={this.onDragEnd}
         />
       </div>
     );

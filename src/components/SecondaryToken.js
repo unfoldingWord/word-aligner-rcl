@@ -33,6 +33,7 @@ class SecondaryToken extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.onDragStart = this.onDragStart.bind(this);
+    this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   handleCancel() {
@@ -77,7 +78,7 @@ class SecondaryToken extends React.Component {
       type: types.SECONDARY_WORD,
       alignmentIndex: this.props.alignmentIndex,
     };
-    setDragToken && setDragToken(token_);
+    setDragToken && setDragToken(token_, false);
 
     let tokens = [];
 
@@ -97,6 +98,14 @@ class SecondaryToken extends React.Component {
       // TRICKY: always populate tokens.
       tokens.push(token);
     }
+  }
+
+  /**
+   * called when drag is finished
+   * @param e
+   */
+  onDragEnd(e) {
+    this.props.setDragToken && this.props.setDragToken(null, true);
   }
 
   render() {
@@ -129,6 +138,7 @@ class SecondaryToken extends React.Component {
           occurrences={token.occurrences}
           targetLanguageFontClassName={targetLanguageFontClassName}
           onDragStart={this.onDragStart}
+          onDragEnd={this.onDragEnd}
         />
       </div>
     );
