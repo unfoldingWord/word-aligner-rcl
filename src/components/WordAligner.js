@@ -249,7 +249,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @property {string} text - text of the word itself
  * @property {string} lemma - lemma for the word
  * @property {string} morph - morph for the word
- * @property {string} strong - strong for the word
+ * @property {string} strong - strong for the word.  Could be multipart separated by colons such as `c:H4191`
  */
 
 /**
