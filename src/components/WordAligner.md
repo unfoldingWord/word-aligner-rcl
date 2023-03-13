@@ -39,8 +39,9 @@ const App = () => {
     "tool": "wordAlignment",
     "groupId": "chapter_1"
   };
-  const showPopover = (key) => {
-    console.log(`showPopover(${key})`)
+  const showPopover = (PopoverTitle, wordDetails, positionCoord, rawData) => {
+    console.log(`showPopover()`, rawData)
+    window.prompt(`User clicked on ${JSON.stringify(rawData.token)}`)
   };
   const loadLexiconEntry = (key) => {
     console.log(`loadLexiconEntry(${key})`)
