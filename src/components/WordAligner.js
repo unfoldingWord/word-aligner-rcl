@@ -6,7 +6,7 @@ import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
 import * as types from '../common/WordCardTypes';
 
-// on alignment changes, identifies posible source and destination
+// on alignment changes, identifies possible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
 const GRID=`Alignment Grid`;
 
@@ -271,13 +271,32 @@ const indexComparator = (a, b) => a.index - b.index;
  */
 
 /**
+ * @typedef StrongNumsType
+ * @param {object} [strongNums] - key is the strong's number
+ * @param {string} [strongNums].brief - short note about strongs number
+ * @param {string} [strongNums].long - long version of note about strongs number
+ * @param {string} [strongNums].repo - source repo for the lexicon such as `en_uhl`
+ */
+
+/**
+ * @typedef StrongsType
+ * @param {StrongNumsType} [strongNums] - optional Hebrew lexicon
+ */
+
+/**
+ * @typedef LexiconType
+ * @param {StrongsType} uhl - optional Hebrew lexicon
+ * @param {StrongsType} ugl - optional Greek lexicon
+ */
+
+/**
  * @callback ShowPopOverCB
  * @param {object} PopoverTitle - JSX to show on title of popover
  * @param {object} wordDetails - JSX to show on body of popover
  * @param {object} positionCoord - where to position to popover
  * @param {object} rawData - where to position to popover
  * @param {SourceWordType} rawData.token - where to position to popover
- * @param {object} rawData.lexiconData - current lexicon data cache
+ * @param {LexiconType} rawData.lexiconData - current lexicon data cache
  */
 
 /**
