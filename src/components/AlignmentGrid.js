@@ -165,8 +165,7 @@ class AlignmentGrid extends Component {
       }
     } else if (item.type === types.PRIMARY_WORD) {
       onDropSourceToken(item, alignmentIndex, srcAlignmentIndex, startNew);
-    } else {
-      // drop single token
+    } else { // drop single secondary token
       onDropTargetToken(item, alignmentIndex, srcAlignmentIndex);
     }
 

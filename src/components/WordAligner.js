@@ -261,9 +261,10 @@ const indexComparator = (a, b) => a.index - b.index;
 /**
  * @callback OnChangeCB
  * @param {object} details - a change details object with the following fields:
- * @param {string} details.type is type of alignment change
- * @param {string} details.source - source(s) of the word being changed
- * @param {string} details.destination - destination of the word being changed
+ * @param {string} details.type is type of alignment change (MERGE_ALIGNMENT_CARDS,
+ *      CREATE_NEW_ALIGNMENT_CARD, UNALIGN_TARGET_WORD, ALIGN_TARGET_WORD, or ALIGN_SOURCE_WORD)
+ * @param {string} details.source - source(s) of the word being changed (TARGET_WORD_BANK or GRID)
+ * @param {string} details.destination - destination of the word being changed  (TARGET_WORD_BANK or GRID)
  * @param {array[AlignmentType]} details.verseAlignments - array of the latest verse alignments
  * @param {array[TargetWordBankType]} details.targetWords - array of the latest target words
  * @param {ContextID} details.contextId - context of current verse
@@ -274,6 +275,9 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {object} PopoverTitle - JSX to show on title of popover
  * @param {object} wordDetails - JSX to show on body of popover
  * @param {object} positionCoord - where to position to popover
+ * @param {object} rawData - where to position to popover
+ * @param {SourceWordType} rawData.token - where to position to popover
+ * @param {object} rawData.lexiconData - current lexicon data cache
  */
 
 /**
