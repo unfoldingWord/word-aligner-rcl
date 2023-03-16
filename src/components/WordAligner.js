@@ -337,6 +337,7 @@ const WordAligner = ({
   translate,
   verseAlignments,
   targetWords,
+  style: styles_ = {},
   }) => {
   const [dragToken, setDragToken_] = useState(null);
   const [dragItemType, setDragItemType] = useState(null);
@@ -541,6 +542,7 @@ const WordAligner = ({
     <div style={styles.container}>
       <div style={styles.wordListContainer}>
         <WordList
+          styles={styles_}
           words={targetWords_}
           verse={contextId.reference.verse}
           isOver={over}
@@ -556,6 +558,7 @@ const WordAligner = ({
         />
       </div>
       <AlignmentGrid
+        styles={styles_}
         sourceStyle={sourceStyle}
         sourceDirection={sourceDirection}
         targetDirection={targetDirection}

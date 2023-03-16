@@ -64,6 +64,7 @@ const App = () => {
   return (
     <div style={{height: '650px', width: '800px'}}>
       <WordAligner
+        styles={{ maxHeight: '450px', overflowY: 'auto' }}
         verseAlignments={verseAlignments}
         targetWords={targetWords}
         translate={translate}

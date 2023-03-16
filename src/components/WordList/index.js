@@ -193,6 +193,7 @@ class DroppableWordList extends React.Component {
       targetLanguageFont,
       dragToken,
       reset,
+      styles,
     } = this.props;
     const { selectedWords, selectedWordPositions } = this.state;
     const { fontSize } = toolsSettings['WordList'] || {};
@@ -211,7 +212,7 @@ class DroppableWordList extends React.Component {
 
     return (
       <div id='wordList'
-       style={wordListStyle}
+       style={{ ...wordListStyle, ...styles }}
        onDrop={this.drop}
        onDragOver={this.onDragOver}
        onDragLeave={this.onDragLeave}
@@ -237,6 +238,7 @@ class DroppableWordList extends React.Component {
 }
 
 DroppableWordList.propTypes = {
+  styles: PropTypes.object,
   reset: PropTypes.bool,
   verse: PropTypes.oneOf(PropTypes.number, PropTypes.string),
   chapter: PropTypes.number,
@@ -254,6 +256,7 @@ DroppableWordList.propTypes = {
 DroppableWordList.defaultProps = {
   direction: 'ltr',
   reset: false,
+  styles: {}
 };
 
 export default DroppableWordList;

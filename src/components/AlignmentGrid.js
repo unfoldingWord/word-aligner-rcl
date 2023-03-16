@@ -79,6 +79,7 @@ class AlignmentGrid extends Component {
       targetLanguageFont,
       dragToken,
       dragItemType,
+      styles: styles_,
     } = this.props;
 
     if (!contextId) {
@@ -96,7 +97,7 @@ class AlignmentGrid extends Component {
 
     // TODO: add support for dragging to left of card. See utils/dragDrop.js
     return (
-      <div id='AlignmentGrid' style={styles.root}>
+      <div id='AlignmentGrid' style={{ ...styles.root, ...styles_ }}>
         {
           alignments.map((alignment, key) => (
             <React.Fragment key={key}>
@@ -177,6 +178,7 @@ class AlignmentGrid extends Component {
 }
 
 AlignmentGrid.propTypes = {
+  styles: PropTypes.object,
   reset: PropTypes.bool,
   onDropTargetToken: PropTypes.func.isRequired,
   onDropSourceToken: PropTypes.func.isRequired,
@@ -202,6 +204,7 @@ AlignmentGrid.defaultProps = {
   targetDirection: 'ltr',
   sourceStyle: { fontSize: '100%' },
   reset: false,
+  styles: {}
 };
 
 export default AlignmentGrid;
