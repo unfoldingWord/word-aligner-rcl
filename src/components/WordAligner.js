@@ -314,6 +314,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {string} sourceLanguage - ID of source language
  * @param {string} sourceLanguageFont - font to use for source
  * @param {string} sourceFontSizePercent - percentage size for font
+ * @param {object} targetLanguage - details about the language
  * @param {string} targetLanguageFont - font to use for target
  * @param {string} targetFontSizePercent - percentage size f
  * @param {TranslateCB} translate - callback to look up localized text
@@ -332,6 +333,7 @@ const WordAligner = ({
   sourceLanguage,
   sourceLanguageFont = '',
   sourceFontSizePercent = 100,
+  targetLanguage= {},
   targetLanguageFont = '',
   targetFontSizePercent = 100,
   translate,
@@ -346,8 +348,8 @@ const WordAligner = ({
   const [resetDrag, setResetDrag] = useState(false);
 
   const over = false;
-  const targetDirection = 'ltr';
-  const sourceDirection = 'ltr';
+  const targetDirection = targetLanguage?.direction || 'ltr';
+  let sourceDirection = 'ltr';
   const toolsSettings = {};
   const setToolSettings = () => {
     console.log('setToolSettings')
@@ -522,8 +524,11 @@ const WordAligner = ({
 
   let sourceFontSizePercent_ = sourceFontSizePercent;
   const isHebrew = sourceLanguage === OT_ORIG_LANG;
-  if (isHebrew && (sourceFontSizePercent < 175)) {
-    sourceFontSizePercent_ = 175
+  if (isHebrew) {
+    sourceDirection = 'rtl'
+    if (sourceFontSizePercent < 175) {
+      sourceFontSizePercent_ = 175
+    }
   }
   let sourceStyle = { fontSize: `${sourceFontSizePercent_}%` };
   if (sourceFontSizePercent_ > 120) {

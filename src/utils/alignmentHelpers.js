@@ -106,7 +106,14 @@ function convertOccurrences(wordlist) {
  */
 export function getWordListFromVerseObjects(verseObjects) {
   const targetVerseUSFM = getUsfmForVerseContent({verseObjects})
-  const targetTokens = Lexer.tokenize(removeUsfmMarkers(targetVerseUSFM));
+  let targetTokens = Lexer.tokenize(removeUsfmMarkers(targetVerseUSFM));
+  targetTokens = targetTokens.map(token => (
+  { // exclude unneeded data
+    text: token.text || token.word,
+    occurrence: token.tokenOccurrence,
+    occurrences: token.tokenOccurrences,
+    index: token.tokenPos,
+  }))
   return targetTokens;
 }
 
@@ -342,7 +349,8 @@ function handleAddedWordsInNewText(targetWordList, wordBankList, verseAlignments
       // update occurrence count for all aligned instances of this word
       for (const alignment of verseAlignments) {
         for (const targetWord of alignment.targetNgram) {
-          if (targetWord.word === tokenWord) {
+          var word_ = targetWord.word || targetWord.text;
+          if (word_ === tokenWord) {
             targetWord.occurrences = occurrences
           }
         }
@@ -356,9 +364,10 @@ function handleAddedWordsInNewText(targetWordList, wordBankList, verseAlignments
  * iterates through verse alignments looking for target words not in target word list.  If an extra word is found, it
  * is removed from the verse alignments and occurrence(s) are updated.
  * @param {array} verseAlignments - list of verse alignments that may need updating
- * @param {array} targetWordList - list of target words
- */
-function handleDeletedWords(verseAlignments, targetWordList) {
+ * @param {array} targetWordList - list of target words in new verse text
+ * @param {array} targetWords - list of target words in alignments
+ * */
+function handleDeletedWords(verseAlignments, targetWordList, targetWords) {
   for (const alignment of verseAlignments) {
     let delete_ = [];
     for (let i = 0, l = alignment.targetNgram.length; i < l; i++) {
@@ -386,6 +395,22 @@ function handleDeletedWords(verseAlignments, targetWordList) {
       alignment.targetNgram.splice(remove, 1);
     }
   }
+
+  // remove extra target words that are not in targetWordList
+  for (let i = 0; i < targetWords.length; i++) {
+    const wordBankWord = targetWords[i]
+    const found = targetWordList.findIndex(word => {
+      if ((word.text === wordBankWord.text )
+        && (word.occurrence === wordBankWord.occurrence)) {
+        return true
+      }
+      return false;
+    })
+    if (found < 0) {
+      targetWords.splice(i, 1)
+      i--
+    }
+  }
 }
 
 /**
@@ -399,7 +424,7 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
   let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseText, null);
   const targetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   handleAddedWordsInNewText(targetTokens, targetWords, verseAlignments);
-  handleDeletedWords(verseAlignments, targetTokens);
+  handleDeletedWords(verseAlignments, targetTokens, targetWords);
   targetVerseText = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
   if (targetVerseText === null) {
     console.log(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
