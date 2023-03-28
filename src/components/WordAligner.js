@@ -271,21 +271,21 @@ const indexComparator = (a, b) => a.index - b.index;
  * @constructor
  */
 
-const WordAligner = ({
-  contextId,
-  lexiconCache = lexiconCache_,
-  loadLexiconEntry,
-  onChange,
-  showPopover = null,
-  sourceLanguage,
-  sourceLanguageFont = '',
-  sourceFontSizePercent = 100,
-  targetLanguageFont = '',
-  targetFontSizePercent = 100,
-  translate,
-  verseAlignments,
-  wordListWords,
-  }) => {
+function WordAligner({
+    contextId,
+    lexiconCache = lexiconCache_,
+    loadLexiconEntry,
+    onChange,
+    showPopover = null,
+    sourceLanguage,
+    sourceLanguageFont = '',
+    sourceFontSizePercent = 100,
+    targetLanguageFont = '',
+    targetFontSizePercent = 100,
+    translate,
+    verseAlignments,
+    wordListWords,
+  }) {
   const [dragToken, setDragToken] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
   const [wordListWords_, setWordListWords] = useState(wordListWords);
@@ -329,27 +329,31 @@ const WordAligner = ({
    * @param {object} targetToken - target word to unalign
    */
   const handleUnalignTargetToken = (targetToken) => {
-    console.log('handleUnalignTargetToken')
-    const source=GRID
-    const destination=TARGET_WORD_BANK
+    console.log('handleUnalignTargetToken');
+    const source=GRID;
+    const destination=TARGET_WORD_BANK;
+    const sourceToken = {};
     const { found, alignment } = findAlignment(verseAlignments_, targetToken);
     if (alignment >= 0) {
-      const verseAlignments = [...verseAlignments_]
+      const verseAlignments = [...verseAlignments_];
       verseAlignments[alignment].targetNgram.splice(found, 1);
+      sourceToken = verseAlignments[alignment].sourceNgram;
       updateVerseAlignments(verseAlignments);
     }
 
     const found_ = findInWordList(wordListWords_, alignmentToToken(targetToken));
     if (found_ >= 0) {
-      const wordListWords = [...wordListWords_]
+      const wordListWords = [...wordListWords_];
       wordListWords[found_].disabled = false;
       setWordListWords(wordListWords);
     }
-    setResetDrag(true) // clear the selected words
+    setResetDrag(true); // clear the selected words
     doChangeCallback({
       type: UNALIGN_TARGET_WORD,
       source,
       destination,
+      sourceToken: sourceToken,
+      targetToken: targetToken
     });
   };
 
@@ -392,6 +396,10 @@ const WordAligner = ({
         type: ALIGN_BOTTOM_WORD,
         source,
         destination,
+        srcSourceToken: src?.sourceNgram,
+        destSourceToken: dest?.sourceNgram,
+        srcTargetToken: src?.targetNgram,
+        destTargetToken: dest?.targetNgram
       });
     }
   };
@@ -453,6 +461,10 @@ const WordAligner = ({
         type: ALIGN_TOP_WORDS,
         source,
         destination,
+        srcSourceToken: src?.sourceNgram,
+        destSourceToken: dest?.sourceNgram,
+        srcTargetToken: src?.targetNgram,
+        destTargetToken: dest?.targetNgram
       });
     }
   };
@@ -471,7 +483,7 @@ const WordAligner = ({
 
   if (resetDrag) {
     delay(100).then(() => { // wait a moment for reset to happen before clearing
-      setResetDrag(false)
+      setResetDrag(false);
     });
   }
 
