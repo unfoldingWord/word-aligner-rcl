@@ -219,7 +219,7 @@ export function convertVerseDataToUSFM(verseData) {
     'headers': [],
     'verses': { '1': verseData },
   };
-  const USFM = usfmjs.toUSFM(outputData, { chunk: true });
+  const USFM = usfmjs.toUSFM(outputData, { chunk: true, forcedNewLines: true });
   const split = USFM.split('\\v 1');
 
   if (split.length > 1) {
