@@ -320,8 +320,9 @@ export function areAlgnmentsComplete(targetWords, verseAlignments) {
 
   if (alignmentComplete) {
     for (const alignment of verseAlignments) {
+      const sourceWordCount = alignment.sourceNgram?.length || 0;
       const targetWordCount = alignment.targetNgram?.length || 0;
-      if (!targetWordCount) {
+      if (!targetWordCount && sourceWordCount) { // if no target words, but we have source words, then incomplete alignment
         alignmentComplete = false;
         break;
       }
