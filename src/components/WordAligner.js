@@ -465,7 +465,8 @@ const WordAligner = ({
         destSourceToken: dest?.sourceNgram,
         srcTargetToken: src?.targetNgram,
         destTargetToken: dest?.targetNgram,
-        sourceIndex: srcAlignmentIndex
+        sourceIndex: srcAlignmentIndex,
+        destIndex: ""
       });
     }
   };
