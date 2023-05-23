@@ -394,27 +394,31 @@ const WordAligner = ({
    * @param {object} targetToken - target word to unalign
    */
   const handleUnalignTargetToken = (targetToken) => {
-    console.log('handleUnalignTargetToken')
-    const source=GRID
-    const destination=TARGET_WORD_BANK
+    console.log('handleUnalignTargetToken');
+    const source=GRID;
+    const destination=TARGET_WORD_BANK;
+    let sourceToken = {};
     const { tokenIndex, alignmentIndex } = findAlignment(verseAlignments_, targetToken);
     if (alignmentIndex >= 0) {
-      const verseAlignments = [...verseAlignments_]
+      let verseAlignments = [...verseAlignments_];
       verseAlignments[alignmentIndex].targetNgram.splice(tokenIndex, 1);
+      sourceToken = verseAlignments[alignmentIndex].sourceNgram;
       updateVerseAlignments(verseAlignments);
     }
 
     const found_ = findInWordList(targetWords_, alignmentToToken(targetToken));
     if (found_ >= 0) {
-      const wordListWords = [...targetWords_]
-      wordListWords[found_].disabled = false;
-      setTargetWords(wordListWords);
+      const words = [...targetWords_]
+      words[found_].disabled = false;
+      setTargetWords(words);
     }
-    setResetDrag(true) // clear the selected words
+    setResetDrag(true); // clear the selected words
     doChangeCallback({
       type: UNALIGN_TARGET_WORD,
       source,
       destination,
+      sourceToken: sourceToken,
+      targetToken: targetToken
     });
   };
 
@@ -429,7 +433,7 @@ const WordAligner = ({
     if (alignmentIndex !== srcAlignmentIndex) {
       const destination=GRID
       let source=GRID
-      const verseAlignments = [...verseAlignments_]
+      let verseAlignments = [...verseAlignments_]
       const dest = verseAlignments[alignmentIndex];
       let src = null;
       let found = -1;
@@ -443,12 +447,12 @@ const WordAligner = ({
         source=TARGET_WORD_BANK
         const found = findInWordList(targetWords_, targetToken);
         if (found >= 0) {
-          const wordListWords = [...targetWords_]
-          wordListWords[found].disabled = true;
-          setTargetWords(wordListWords);
+          const words = [...targetWords_]
+          words[found].disabled = true;
+          setTargetWords(words);
           targetToken = tokenToAlignment(targetToken);
         }
-        setResetDrag(true)
+        setResetDrag(true);
       }
 
       dest.targetNgram.push(targetToken);
@@ -457,6 +461,12 @@ const WordAligner = ({
         type: ALIGN_TARGET_WORD,
         source,
         destination,
+        srcSourceToken: src?.sourceNgram,
+        destSourceToken: dest?.sourceNgram,
+        srcTargetToken: src?.targetNgram,
+        destTargetToken: dest?.targetNgram,
+        sourceIndex: srcAlignmentIndex,
+        destIndex: ""
       });
     }
   };
@@ -470,11 +480,11 @@ const WordAligner = ({
    * @param startNew
    */
   const handleAlignSourceToken = (primaryToken, destAlignmentIndex, srcAlignmentIndex, startNew) => {
-    console.log('handleAlignSourceToken', {alignmentIndex: destAlignmentIndex, srcAlignmentIndex, startNew})
+    console.log('handleAlignSourceToken', {alignmentIndex: destAlignmentIndex, srcAlignmentIndex, startNew});
     if ((destAlignmentIndex !== srcAlignmentIndex) || startNew) {
       let destination=MERGE_ALIGNMENT_CARDS
       const source=GRID
-      let verseAlignments = [...verseAlignments_]
+      let verseAlignments = [...verseAlignments_];
       let dest = verseAlignments[destAlignmentIndex];
       let src = null;
       let found = -1;
@@ -518,6 +528,12 @@ const WordAligner = ({
         type: ALIGN_SOURCE_WORD,
         source,
         destination,
+        srcSourceToken: src?.sourceNgram,
+        destSourceToken: dest?.sourceNgram,
+        srcTargetToken: src?.targetNgram,
+        destTargetToken: dest?.targetNgram,
+        sourceIndex: srcAlignmentIndex,
+        destIndex: destAlignmentIndex
       });
     }
   };
@@ -539,7 +555,7 @@ const WordAligner = ({
 
   if (resetDrag) {
     delay(100).then(() => { // wait a moment for reset to happen before clearing
-      setResetDrag(false)
+      setResetDrag(false);
     });
   }
 

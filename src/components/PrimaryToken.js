@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { default as WordLexiconDetails } from 'tc-ui-toolkit/lib/WordLexiconDetails/index';
-import * as lexiconHelpers from 'tc-ui-toolkit/lib/ScripturePane/helpers/lexiconHelpers';
+import { default as WordLexiconDetails } from './WordLexiconDetails';
+import { lookupStrongsNumbers } from '../utils/lexiconHelpers';
 import * as types from '../common/WordCardTypes';
 // components
 import Word from './WordCard';
@@ -138,7 +138,7 @@ class PrimaryToken extends Component {
     const {
       translate, token, isHebrew, showPopover,
     } = this.props;
-    const lexiconData = lexiconHelpers.lookupStrongsNumbers(token.strong, this.props.loadLexiconEntry);
+    const lexiconData = lookupStrongsNumbers(token.strong, this.props.loadLexiconEntry);
     const positionCoord = e.target;
     const fontSize = isHebrew ? '1.7em' : '1.2em';
     const PopoverTitle = (

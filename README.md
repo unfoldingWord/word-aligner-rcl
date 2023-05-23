@@ -10,6 +10,10 @@
 
 A React Component Library for rendering and editing scripture translation resources.
 
+## Updates
+
+- In version 1.0.0 converted to react 18
+
 ## Peer Dependencies
 
 - [Material-UI Versions](https://material-ui.com/versions/)

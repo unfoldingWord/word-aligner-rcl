@@ -13,7 +13,7 @@ import {
   updateAlignedWordsFromOriginalWordList
 } from "./migrateOriginalLanguageHelpers";
 import Lexer from "wordmap-lexer";
-import * as verseHelpers from "tc-ui-toolkit/lib/ScripturePane/helpers/verseHelpers";
+import { getVerseSpanRange } from './verseObjects';
 
 /**
  * get all the alignments for verse from nested array (finds zaln objects)
@@ -446,7 +446,7 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
  * @return {{low, hi}} get range of verses in verse span
  */
 function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, blankVerseAlignments) {
-  const { low, high } = verseHelpers.getVerseSpanRange(verseSpan);
+  const { low, high } = getVerseSpanRange(verseSpan);
 
   // generate raw alignment data for each verse in range
   for (let verse = low; verse <= high; verse++) {
