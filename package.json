@@ -1,6 +1,6 @@
 {
   "name": "word-aligner-rcl",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",

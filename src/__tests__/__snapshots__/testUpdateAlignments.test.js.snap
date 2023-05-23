@@ -1,66 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`testing alignment updates should pass alignment with "/p" removed 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -69,7 +69,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -78,68 +78,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -148,7 +148,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -157,35 +157,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "son",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -194,7 +194,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -203,13 +203,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -218,7 +218,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -227,35 +227,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -264,7 +264,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -273,57 +273,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -332,7 +332,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -341,26 +341,26 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ". ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
+    {
+      "children": [
+        {
+          "children": [
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "May",
               "type": "word",
             },
-            Object {
+            {
               "text": " ",
               "type": "text",
             },
-            Object {
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -369,7 +369,7 @@ Object {
             },
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e\\\\*",
+          "endTag": "zaln-e\\*",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": "1",
@@ -380,7 +380,7 @@ Object {
         },
       ],
       "content": "ἀπὸ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἀπό",
       "morph": "Gr,P,,,,,G,,,",
       "occurrence": "1",
@@ -389,24 +389,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -415,7 +415,7 @@ Object {
         },
       ],
       "content": "Πατρὸς",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πατήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -424,13 +424,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -439,7 +439,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "1",
@@ -448,24 +448,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "3",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -474,7 +474,7 @@ Object {
         },
       ],
       "content": "Χριστοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χριστός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -483,13 +483,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -498,7 +498,7 @@ Object {
         },
       ],
       "content": "Ἰησοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Ἰησοῦς",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -507,13 +507,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -522,7 +522,7 @@ Object {
         },
       ],
       "content": "τοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ὁ",
       "morph": "Gr,EA,,,,GMS,",
       "occurrence": "1",
@@ -531,13 +531,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -546,7 +546,7 @@ Object {
         },
       ],
       "content": "Σωτῆρος",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "σωτήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -555,13 +555,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -570,7 +570,7 @@ Object {
         },
       ],
       "content": "ἡμῶν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἐγώ",
       "morph": "Gr,RP,,,1G,P,",
       "occurrence": "1",
@@ -579,68 +579,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "continue",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "be",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "kind",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
@@ -649,7 +649,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -658,13 +658,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -673,7 +673,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "2",
@@ -682,68 +682,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "5",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "give",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "peaceful",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -752,7 +752,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -761,127 +761,127 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ".
 
 ",
       "type": "text",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\zaln-s |x-strong=\\"G05750\\" x-lemma=\\"ἀπό\\" x-morph=\\"Gr,P,,,,,G,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἀπὸ\\"\\\\*\\\\zaln-s |x-strong=\\"G23160\\" x-lemma=\\"θεός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Θεοῦ\\"\\\\*\\\\w May|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w God|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G39620\\" x-lemma=\\"πατήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Πατρὸς\\"\\\\*\\\\w the|x-occurrence=\\"2\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Father|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G55470\\" x-lemma=\\"χριστός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Χριστοῦ\\"\\\\*\\\\w the|x-occurrence=\\"3\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G24240\\" x-lemma=\\"Ἰησοῦς\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Ἰησοῦ\\"\\\\*\\\\w Jesus|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G35880\\" x-lemma=\\"ὁ\\" x-morph=\\"Gr,EA,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τοῦ\\"\\\\*\\\\w who|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G49900\\" x-lemma=\\"σωτήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Σωτῆρος\\"\\\\*\\\\w saves|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G14730\\" x-lemma=\\"ἐγώ\\" x-morph=\\"Gr,RP,,,1G,P,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἡμῶν\\"\\\\*\\\\w us|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w continue|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"3\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w be|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w kind|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"4\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w you|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"2\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w to|x-occurrence=\\"5\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w give|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w you|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w a|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w peaceful|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w spirit|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*.
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="5"\\w*
+\\w you|x-occurrence="1" x-occurrences="4"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="4"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="2"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="2" x-occurrences="5"\\w*
+\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="2"\\w*
+\\w the|x-occurrence="1" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*.
+\\zaln-s |x-strong="G05750" x-lemma="ἀπό" x-morph="Gr,P,,,,,G,,," x-occurrence="1" x-occurrences="1" x-content="ἀπὸ"\\*\\zaln-s |x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Θεοῦ"\\*\\w May|x-occurrence="1" x-occurrences="1"\\w*
+\\w God|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\\zaln-e\\*
+\\zaln-s |x-strong="G39620" x-lemma="πατήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Πατρὸς"\\*\\w the|x-occurrence="2" x-occurrences="3"\\w*
+\\w Father|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"\\*\\w the|x-occurrence="3" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"\\*\\w Jesus|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G35880" x-lemma="ὁ" x-morph="Gr,EA,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="τοῦ"\\*\\w who|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G49900" x-lemma="σωτήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Σωτῆρος"\\*\\w saves|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,P," x-occurrence="1" x-occurrences="1" x-content="ἡμῶν"\\*\\w us|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w continue|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="3" x-occurrences="5"\\w*
+\\w be|x-occurrence="1" x-occurrences="1"\\w*
+\\w kind|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="4" x-occurrences="5"\\w*
+\\w you|x-occurrence="3" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="2" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w to|x-occurrence="5" x-occurrences="5"\\w*
+\\w give|x-occurrence="1" x-occurrences="1"\\w*
+\\w you|x-occurrence="4" x-occurrences="4"\\w*
+\\w a|x-occurrence="2" x-occurrences="2"\\w*
+\\w peaceful|x-occurrence="1" x-occurrences="1"\\w*
+\\w spirit|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*.
 
 ",
 }
 `;
 
 exports[`testing alignment updates should pass alignment with "spirit" changed to "heart" 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -890,7 +890,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -899,68 +899,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -969,7 +969,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -978,35 +978,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "son",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1015,7 +1015,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -1024,13 +1024,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1039,7 +1039,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -1048,35 +1048,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1085,7 +1085,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -1094,57 +1094,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -1153,7 +1153,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -1162,26 +1162,26 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ". ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
+    {
+      "children": [
+        {
+          "children": [
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "May",
               "type": "word",
             },
-            Object {
+            {
               "text": " ",
               "type": "text",
             },
-            Object {
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -1190,7 +1190,7 @@ Object {
             },
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e\\\\*",
+          "endTag": "zaln-e\\*",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": "1",
@@ -1201,7 +1201,7 @@ Object {
         },
       ],
       "content": "ἀπὸ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἀπό",
       "morph": "Gr,P,,,,,G,,,",
       "occurrence": "1",
@@ -1210,24 +1210,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1236,7 +1236,7 @@ Object {
         },
       ],
       "content": "Πατρὸς",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πατήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -1245,13 +1245,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -1260,7 +1260,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "1",
@@ -1269,24 +1269,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "3",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -1295,7 +1295,7 @@ Object {
         },
       ],
       "content": "Χριστοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χριστός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -1304,13 +1304,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -1319,7 +1319,7 @@ Object {
         },
       ],
       "content": "Ἰησοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Ἰησοῦς",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -1328,13 +1328,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1343,7 +1343,7 @@ Object {
         },
       ],
       "content": "τοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ὁ",
       "morph": "Gr,EA,,,,GMS,",
       "occurrence": "1",
@@ -1352,13 +1352,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1367,7 +1367,7 @@ Object {
         },
       ],
       "content": "Σωτῆρος",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "σωτήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -1376,13 +1376,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1391,7 +1391,7 @@ Object {
         },
       ],
       "content": "ἡμῶν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἐγώ",
       "morph": "Gr,RP,,,1G,P,",
       "occurrence": "1",
@@ -1400,68 +1400,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "continue",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "be",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "kind",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
@@ -1470,7 +1470,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -1479,13 +1479,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -1494,7 +1494,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "2",
@@ -1503,57 +1503,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "5",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "give",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1562,7 +1562,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -1571,143 +1571,143 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "heart",
       "type": "word",
     },
-    Object {
+    {
       "text": ".
 ",
       "type": "text",
     },
-    Object {
+    {
       "nextChar": "
 ",
       "tag": "p",
       "type": "paragraph",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\zaln-s |x-strong=\\"G05750\\" x-lemma=\\"ἀπό\\" x-morph=\\"Gr,P,,,,,G,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἀπὸ\\"\\\\*\\\\zaln-s |x-strong=\\"G23160\\" x-lemma=\\"θεός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Θεοῦ\\"\\\\*\\\\w May|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w God|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G39620\\" x-lemma=\\"πατήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Πατρὸς\\"\\\\*\\\\w the|x-occurrence=\\"2\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Father|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G55470\\" x-lemma=\\"χριστός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Χριστοῦ\\"\\\\*\\\\w the|x-occurrence=\\"3\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G24240\\" x-lemma=\\"Ἰησοῦς\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Ἰησοῦ\\"\\\\*\\\\w Jesus|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G35880\\" x-lemma=\\"ὁ\\" x-morph=\\"Gr,EA,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τοῦ\\"\\\\*\\\\w who|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G49900\\" x-lemma=\\"σωτήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Σωτῆρος\\"\\\\*\\\\w saves|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G14730\\" x-lemma=\\"ἐγώ\\" x-morph=\\"Gr,RP,,,1G,P,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἡμῶν\\"\\\\*\\\\w us|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w continue|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"3\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w be|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w kind|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"4\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w you|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"2\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w to|x-occurrence=\\"5\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w give|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w you|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w a|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w peaceful|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\w heart|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*.
-\\\\p
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="5"\\w*
+\\w you|x-occurrence="1" x-occurrences="4"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="4"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="2"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="2" x-occurrences="5"\\w*
+\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="2"\\w*
+\\w the|x-occurrence="1" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*.
+\\zaln-s |x-strong="G05750" x-lemma="ἀπό" x-morph="Gr,P,,,,,G,,," x-occurrence="1" x-occurrences="1" x-content="ἀπὸ"\\*\\zaln-s |x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Θεοῦ"\\*\\w May|x-occurrence="1" x-occurrences="1"\\w*
+\\w God|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\\zaln-e\\*
+\\zaln-s |x-strong="G39620" x-lemma="πατήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Πατρὸς"\\*\\w the|x-occurrence="2" x-occurrences="3"\\w*
+\\w Father|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"\\*\\w the|x-occurrence="3" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"\\*\\w Jesus|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G35880" x-lemma="ὁ" x-morph="Gr,EA,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="τοῦ"\\*\\w who|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G49900" x-lemma="σωτήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Σωτῆρος"\\*\\w saves|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,P," x-occurrence="1" x-occurrences="1" x-content="ἡμῶν"\\*\\w us|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w continue|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="3" x-occurrences="5"\\w*
+\\w be|x-occurrence="1" x-occurrences="1"\\w*
+\\w kind|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="4" x-occurrences="5"\\w*
+\\w you|x-occurrence="3" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="2" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w to|x-occurrence="5" x-occurrences="5"\\w*
+\\w give|x-occurrence="1" x-occurrences="1"\\w*
+\\w you|x-occurrence="4" x-occurrences="4"\\w*
+\\w a|x-occurrence="2" x-occurrences="2"\\w*
+\\w peaceful|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\w heart|x-occurrence="1" x-occurrences="1"\\w*.
+\\p
 ",
 }
 `;
 
 exports[`testing alignment updates should pass alignment with "to" added 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "6",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1716,7 +1716,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -1725,68 +1725,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1795,7 +1795,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -1804,35 +1804,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "son",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "6",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1841,7 +1841,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -1850,13 +1850,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1865,7 +1865,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -1874,35 +1874,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -1911,7 +1911,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -1920,57 +1920,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -1979,7 +1979,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -1988,26 +1988,26 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ". ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
+    {
+      "children": [
+        {
+          "children": [
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "May",
               "type": "word",
             },
-            Object {
+            {
               "text": " ",
               "type": "text",
             },
-            Object {
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -2016,7 +2016,7 @@ Object {
             },
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e\\\\*",
+          "endTag": "zaln-e\\*",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": "1",
@@ -2027,7 +2027,7 @@ Object {
         },
       ],
       "content": "ἀπὸ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἀπό",
       "morph": "Gr,P,,,,,G,,,",
       "occurrence": "1",
@@ -2036,24 +2036,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2062,7 +2062,7 @@ Object {
         },
       ],
       "content": "Πατρὸς",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πατήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2071,13 +2071,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -2086,7 +2086,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "1",
@@ -2095,24 +2095,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "3",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -2121,7 +2121,7 @@ Object {
         },
       ],
       "content": "Χριστοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χριστός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2130,13 +2130,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -2145,7 +2145,7 @@ Object {
         },
       ],
       "content": "Ἰησοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Ἰησοῦς",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2154,13 +2154,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2169,7 +2169,7 @@ Object {
         },
       ],
       "content": "τοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ὁ",
       "morph": "Gr,EA,,,,GMS,",
       "occurrence": "1",
@@ -2178,13 +2178,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2193,7 +2193,7 @@ Object {
         },
       ],
       "content": "Σωτῆρος",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "σωτήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2202,13 +2202,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2217,7 +2217,7 @@ Object {
         },
       ],
       "content": "ἡμῶν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἐγώ",
       "morph": "Gr,RP,,,1G,P,",
       "occurrence": "1",
@@ -2226,68 +2226,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "continue",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "6",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "be",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "kind",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "6",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
@@ -2296,7 +2296,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -2305,13 +2305,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -2320,7 +2320,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "2",
@@ -2329,68 +2329,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "5",
           "occurrences": "6",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "give",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "peaceful",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2399,7 +2399,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -2408,22 +2408,22 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ".
 ",
       "type": "text",
     },
-    Object {
+    {
       "nextChar": "
 ",
       "tag": "p",
       "type": "paragraph",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "6",
       "occurrences": "6",
       "tag": "w",
@@ -2431,121 +2431,121 @@ Object {
       "type": "word",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"6\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"6\\"\\\\w*
-\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\zaln-s |x-strong=\\"G05750\\" x-lemma=\\"ἀπό\\" x-morph=\\"Gr,P,,,,,G,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἀπὸ\\"\\\\*\\\\zaln-s |x-strong=\\"G23160\\" x-lemma=\\"θεός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Θεοῦ\\"\\\\*\\\\w May|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w God|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G39620\\" x-lemma=\\"πατήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Πατρὸς\\"\\\\*\\\\w the|x-occurrence=\\"2\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Father|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G55470\\" x-lemma=\\"χριστός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Χριστοῦ\\"\\\\*\\\\w the|x-occurrence=\\"3\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G24240\\" x-lemma=\\"Ἰησοῦς\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Ἰησοῦ\\"\\\\*\\\\w Jesus|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G35880\\" x-lemma=\\"ὁ\\" x-morph=\\"Gr,EA,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τοῦ\\"\\\\*\\\\w who|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G49900\\" x-lemma=\\"σωτήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Σωτῆρος\\"\\\\*\\\\w saves|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G14730\\" x-lemma=\\"ἐγώ\\" x-morph=\\"Gr,RP,,,1G,P,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἡμῶν\\"\\\\*\\\\w us|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w continue|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"3\\" x-occurrences=\\"6\\"\\\\w*
-\\\\w be|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w kind|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"4\\" x-occurrences=\\"6\\"\\\\w*
-\\\\w you|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"2\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w to|x-occurrence=\\"5\\" x-occurrences=\\"6\\"\\\\w*
-\\\\w give|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w you|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w a|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w peaceful|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w spirit|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\p
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="6"\\w*
+\\w you|x-occurrence="1" x-occurrences="4"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="4"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="2"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="2" x-occurrences="6"\\w*
+\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="2"\\w*
+\\w the|x-occurrence="1" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*.
+\\zaln-s |x-strong="G05750" x-lemma="ἀπό" x-morph="Gr,P,,,,,G,,," x-occurrence="1" x-occurrences="1" x-content="ἀπὸ"\\*\\zaln-s |x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Θεοῦ"\\*\\w May|x-occurrence="1" x-occurrences="1"\\w*
+\\w God|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\\zaln-e\\*
+\\zaln-s |x-strong="G39620" x-lemma="πατήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Πατρὸς"\\*\\w the|x-occurrence="2" x-occurrences="3"\\w*
+\\w Father|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"\\*\\w the|x-occurrence="3" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"\\*\\w Jesus|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G35880" x-lemma="ὁ" x-morph="Gr,EA,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="τοῦ"\\*\\w who|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G49900" x-lemma="σωτήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Σωτῆρος"\\*\\w saves|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,P," x-occurrence="1" x-occurrences="1" x-content="ἡμῶν"\\*\\w us|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w continue|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="3" x-occurrences="6"\\w*
+\\w be|x-occurrence="1" x-occurrences="1"\\w*
+\\w kind|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="4" x-occurrences="6"\\w*
+\\w you|x-occurrence="3" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="2" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w to|x-occurrence="5" x-occurrences="6"\\w*
+\\w give|x-occurrence="1" x-occurrences="1"\\w*
+\\w you|x-occurrence="4" x-occurrences="4"\\w*
+\\w a|x-occurrence="2" x-occurrences="2"\\w*
+\\w peaceful|x-occurrence="1" x-occurrences="1"\\w*
+\\w spirit|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*.
+\\p
 
-\\\\w to|x-occurrence=\\"6\\" x-occurrences=\\"6\\"\\\\w*",
+\\w to|x-occurrence="6" x-occurrences="6"\\w*",
 }
 `;
 
 exports[`testing alignment updates should pass alignment with "to" moved 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2554,7 +2554,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -2563,68 +2563,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2633,7 +2633,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -2642,24 +2642,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "son",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2668,7 +2668,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -2677,13 +2677,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2692,7 +2692,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -2701,35 +2701,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2738,7 +2738,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -2747,57 +2747,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -2806,7 +2806,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -2815,26 +2815,26 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ". ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
+    {
+      "children": [
+        {
+          "children": [
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "May",
               "type": "word",
             },
-            Object {
+            {
               "text": " ",
               "type": "text",
             },
-            Object {
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -2843,7 +2843,7 @@ Object {
             },
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e\\\\*",
+          "endTag": "zaln-e\\*",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": "1",
@@ -2854,7 +2854,7 @@ Object {
         },
       ],
       "content": "ἀπὸ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἀπό",
       "morph": "Gr,P,,,,,G,,,",
       "occurrence": "1",
@@ -2863,24 +2863,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2889,7 +2889,7 @@ Object {
         },
       ],
       "content": "Πατρὸς",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πατήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2898,13 +2898,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -2913,7 +2913,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "1",
@@ -2922,24 +2922,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "3",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -2948,7 +2948,7 @@ Object {
         },
       ],
       "content": "Χριστοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χριστός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2957,13 +2957,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -2972,7 +2972,7 @@ Object {
         },
       ],
       "content": "Ἰησοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Ἰησοῦς",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -2981,13 +2981,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -2996,7 +2996,7 @@ Object {
         },
       ],
       "content": "τοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ὁ",
       "morph": "Gr,EA,,,,GMS,",
       "occurrence": "1",
@@ -3005,13 +3005,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3020,7 +3020,7 @@ Object {
         },
       ],
       "content": "Σωτῆρος",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "σωτήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -3029,13 +3029,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3044,7 +3044,7 @@ Object {
         },
       ],
       "content": "ἡμῶν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἐγώ",
       "morph": "Gr,RP,,,1G,P,",
       "occurrence": "1",
@@ -3053,13 +3053,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3068,7 +3068,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -3077,13 +3077,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "5",
           "tag": "w",
@@ -3092,7 +3092,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -3101,46 +3101,46 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "be",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "kind",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "5",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
@@ -3149,7 +3149,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -3158,13 +3158,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -3173,7 +3173,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "2",
@@ -3182,13 +3182,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "4",
           "occurrences": "5",
           "tag": "w",
@@ -3197,7 +3197,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -3206,57 +3206,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "give",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "peaceful",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3265,7 +3265,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -3274,24 +3274,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ".
 ",
       "type": "text",
     },
-    Object {
+    {
       "nextChar": "
 ",
       "tag": "p",
       "type": "paragraph",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "5",
           "occurrences": "5",
           "tag": "w",
@@ -3300,7 +3300,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -3310,120 +3310,120 @@ Object {
       "type": "milestone",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\zaln-s |x-strong=\\"G05750\\" x-lemma=\\"ἀπό\\" x-morph=\\"Gr,P,,,,,G,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἀπὸ\\"\\\\*\\\\zaln-s |x-strong=\\"G23160\\" x-lemma=\\"θεός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Θεοῦ\\"\\\\*\\\\w May|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w God|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G39620\\" x-lemma=\\"πατήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Πατρὸς\\"\\\\*\\\\w the|x-occurrence=\\"2\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Father|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G55470\\" x-lemma=\\"χριστός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Χριστοῦ\\"\\\\*\\\\w the|x-occurrence=\\"3\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G24240\\" x-lemma=\\"Ἰησοῦς\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Ἰησοῦ\\"\\\\*\\\\w Jesus|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G35880\\" x-lemma=\\"ὁ\\" x-morph=\\"Gr,EA,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τοῦ\\"\\\\*\\\\w who|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G49900\\" x-lemma=\\"σωτήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Σωτῆρος\\"\\\\*\\\\w saves|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G14730\\" x-lemma=\\"ἐγώ\\" x-morph=\\"Gr,RP,,,1G,P,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἡμῶν\\"\\\\*\\\\w us|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w continue|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"5\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w be|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w kind|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"3\\" x-occurrences=\\"5\\"\\\\w*
-\\\\w you|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"2\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w to|x-occurrence=\\"4\\" x-occurrences=\\"5\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w give|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w you|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w a|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w peaceful|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w spirit|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\p
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="5"\\w*
+\\w you|x-occurrence="1" x-occurrences="4"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="4"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="2"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*
+\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="2"\\w*
+\\w the|x-occurrence="1" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*.
+\\zaln-s |x-strong="G05750" x-lemma="ἀπό" x-morph="Gr,P,,,,,G,,," x-occurrence="1" x-occurrences="1" x-content="ἀπὸ"\\*\\zaln-s |x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Θεοῦ"\\*\\w May|x-occurrence="1" x-occurrences="1"\\w*
+\\w God|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\\zaln-e\\*
+\\zaln-s |x-strong="G39620" x-lemma="πατήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Πατρὸς"\\*\\w the|x-occurrence="2" x-occurrences="3"\\w*
+\\w Father|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"\\*\\w the|x-occurrence="3" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"\\*\\w Jesus|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G35880" x-lemma="ὁ" x-morph="Gr,EA,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="τοῦ"\\*\\w who|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G49900" x-lemma="σωτήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Σωτῆρος"\\*\\w saves|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,P," x-occurrence="1" x-occurrences="1" x-content="ἡμῶν"\\*\\w us|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w continue|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w to|x-occurrence="2" x-occurrences="5"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w be|x-occurrence="1" x-occurrences="1"\\w*
+\\w kind|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="3" x-occurrences="5"\\w*
+\\w you|x-occurrence="3" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="2" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w to|x-occurrence="4" x-occurrences="5"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w give|x-occurrence="1" x-occurrences="1"\\w*
+\\w you|x-occurrence="4" x-occurrences="4"\\w*
+\\w a|x-occurrence="2" x-occurrences="2"\\w*
+\\w peaceful|x-occurrence="1" x-occurrences="1"\\w*
+\\w spirit|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*.
+\\p
 
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w to|x-occurrence=\\"5\\" x-occurrences=\\"5\\"\\\\w*\\\\zaln-e\\\\*",
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w to|x-occurrence="5" x-occurrences="5"\\w*\\zaln-e\\*",
 }
 `;
 
 exports[`testing alignment updates should pass alignment with "to" renamed to "too" 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3432,7 +3432,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -3441,68 +3441,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3511,7 +3511,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -3520,13 +3520,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3535,7 +3535,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -3544,24 +3544,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "too",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3570,7 +3570,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -3579,13 +3579,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3594,7 +3594,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -3603,35 +3603,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3640,7 +3640,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -3649,57 +3649,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -3708,7 +3708,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -3717,26 +3717,26 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ". ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
+    {
+      "children": [
+        {
+          "children": [
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
               "text": "May",
               "type": "word",
             },
-            Object {
+            {
               "text": " ",
               "type": "text",
             },
-            Object {
+            {
               "occurrence": "1",
               "occurrences": "1",
               "tag": "w",
@@ -3745,7 +3745,7 @@ Object {
             },
           ],
           "content": "Θεοῦ",
-          "endTag": "zaln-e\\\\*",
+          "endTag": "zaln-e\\*",
           "lemma": "θεός",
           "morph": "Gr,N,,,,,GMS,",
           "occurrence": "1",
@@ -3756,7 +3756,7 @@ Object {
         },
       ],
       "content": "ἀπὸ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἀπό",
       "morph": "Gr,P,,,,,G,,,",
       "occurrence": "1",
@@ -3765,24 +3765,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3791,7 +3791,7 @@ Object {
         },
       ],
       "content": "Πατρὸς",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πατήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -3800,13 +3800,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
@@ -3815,7 +3815,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "1",
@@ -3824,24 +3824,24 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "3",
           "occurrences": "3",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -3850,7 +3850,7 @@ Object {
         },
       ],
       "content": "Χριστοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χριστός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -3859,13 +3859,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -3874,7 +3874,7 @@ Object {
         },
       ],
       "content": "Ἰησοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Ἰησοῦς",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -3883,13 +3883,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3898,7 +3898,7 @@ Object {
         },
       ],
       "content": "τοῦ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ὁ",
       "morph": "Gr,EA,,,,GMS,",
       "occurrence": "1",
@@ -3907,13 +3907,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3922,7 +3922,7 @@ Object {
         },
       ],
       "content": "Σωτῆρος",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "σωτήρ",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": "1",
@@ -3931,13 +3931,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3946,7 +3946,7 @@ Object {
         },
       ],
       "content": "ἡμῶν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "ἐγώ",
       "morph": "Gr,RP,,,1G,P,",
       "occurrence": "1",
@@ -3955,13 +3955,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -3970,7 +3970,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -3979,13 +3979,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
@@ -3994,7 +3994,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -4003,46 +4003,46 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "be",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "kind",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
@@ -4051,7 +4051,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -4060,13 +4060,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
@@ -4075,7 +4075,7 @@ Object {
         },
       ],
       "content": "καὶ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": "2",
@@ -4084,13 +4084,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
@@ -4099,7 +4099,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -4108,57 +4108,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "give",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "peaceful",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4167,7 +4167,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -4176,132 +4176,132 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ".
 ",
       "type": "text",
     },
-    Object {
+    {
       "nextChar": "
 ",
       "tag": "p",
       "type": "paragraph",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\w too|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\zaln-s |x-strong=\\"G05750\\" x-lemma=\\"ἀπό\\" x-morph=\\"Gr,P,,,,,G,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἀπὸ\\"\\\\*\\\\zaln-s |x-strong=\\"G23160\\" x-lemma=\\"θεός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Θεοῦ\\"\\\\*\\\\w May|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w God|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G39620\\" x-lemma=\\"πατήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Πατρὸς\\"\\\\*\\\\w the|x-occurrence=\\"2\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Father|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G55470\\" x-lemma=\\"χριστός\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Χριστοῦ\\"\\\\*\\\\w the|x-occurrence=\\"3\\" x-occurrences=\\"3\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G24240\\" x-lemma=\\"Ἰησοῦς\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Ἰησοῦ\\"\\\\*\\\\w Jesus|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G35880\\" x-lemma=\\"ὁ\\" x-morph=\\"Gr,EA,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τοῦ\\"\\\\*\\\\w who|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G49900\\" x-lemma=\\"σωτήρ\\" x-morph=\\"Gr,N,,,,,GMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Σωτῆρος\\"\\\\*\\\\w saves|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G14730\\" x-lemma=\\"ἐγώ\\" x-morph=\\"Gr,RP,,,1G,P,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"ἡμῶν\\"\\\\*\\\\w us|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w continue|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w be|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w kind|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w you|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25320\\" x-lemma=\\"καί\\" x-morph=\\"Gr,CC,,,,,,,,\\" x-occurrence=\\"2\\" x-occurrences=\\"2\\" x-content=\\"καὶ\\"\\\\*\\\\w and|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w to|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w give|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w you|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w a|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w peaceful|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w spirit|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*.
-\\\\p
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="4"\\w*
+\\w you|x-occurrence="1" x-occurrences="4"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="4"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="2"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\w too|x-occurrence="1" x-occurrences="1"\\w*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="2"\\w*
+\\w the|x-occurrence="1" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*.
+\\zaln-s |x-strong="G05750" x-lemma="ἀπό" x-morph="Gr,P,,,,,G,,," x-occurrence="1" x-occurrences="1" x-content="ἀπὸ"\\*\\zaln-s |x-strong="G23160" x-lemma="θεός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Θεοῦ"\\*\\w May|x-occurrence="1" x-occurrences="1"\\w*
+\\w God|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\\zaln-e\\*
+\\zaln-s |x-strong="G39620" x-lemma="πατήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Πατρὸς"\\*\\w the|x-occurrence="2" x-occurrences="3"\\w*
+\\w Father|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="1" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G55470" x-lemma="χριστός" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Χριστοῦ"\\*\\w the|x-occurrence="3" x-occurrences="3"\\w*
+\\w Messiah|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G24240" x-lemma="Ἰησοῦς" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Ἰησοῦ"\\*\\w Jesus|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G35880" x-lemma="ὁ" x-morph="Gr,EA,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="τοῦ"\\*\\w who|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G49900" x-lemma="σωτήρ" x-morph="Gr,N,,,,,GMS," x-occurrence="1" x-occurrences="1" x-content="Σωτῆρος"\\*\\w saves|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G14730" x-lemma="ἐγώ" x-morph="Gr,RP,,,1G,P," x-occurrence="1" x-occurrences="1" x-content="ἡμῶν"\\*\\w us|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w continue|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w to|x-occurrence="2" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w be|x-occurrence="1" x-occurrences="1"\\w*
+\\w kind|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="3" x-occurrences="4"\\w*
+\\w you|x-occurrence="3" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25320" x-lemma="καί" x-morph="Gr,CC,,,,,,,," x-occurrence="2" x-occurrences="2" x-content="καὶ"\\*\\w and|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w to|x-occurrence="4" x-occurrences="4"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w give|x-occurrence="1" x-occurrences="1"\\w*
+\\w you|x-occurrence="4" x-occurrences="4"\\w*
+\\w a|x-occurrence="2" x-occurrences="2"\\w*
+\\w peaceful|x-occurrence="1" x-occurrences="1"\\w*
+\\w spirit|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*.
+\\p
 ",
 }
 `;
 
 exports[`testing alignment updates should pass alignment with half of verse deleted 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4310,7 +4310,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -4319,68 +4319,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4389,7 +4389,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -4398,35 +4398,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "son",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4435,7 +4435,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -4444,13 +4444,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4459,7 +4459,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -4468,35 +4468,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4505,7 +4505,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -4514,57 +4514,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4573,7 +4573,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -4582,99 +4582,99 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ".",
       "type": "text",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*.",
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="2"\\w*
+\\w you|x-occurrence="1" x-occurrences="2"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="2"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="1"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="2" x-occurrences="2"\\w*
+\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="1"\\w*
+\\w the|x-occurrence="1" x-occurrences="1"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*.",
 }
 `;
 
 exports[`testing alignment updates should pass alignment with half of verse replaced 1`] = `
-Object {
-  "targetVerseObjects": Array [
-    Object {
-      "children": Array [
-        Object {
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "I",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "am",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "writing",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "2",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": ", ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4683,7 +4683,7 @@ Object {
         },
       ],
       "content": "Τίτῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "Τίτος",
       "morph": "Gr,N,,,,,DMS,",
       "occurrence": "1",
@@ -4692,68 +4692,68 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": "; ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "2",
           "occurrences": "4",
           "tag": "w",
           "text": "you",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "have",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "become",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "like",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "a",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4762,7 +4762,7 @@ Object {
         },
       ],
       "content": "γνησίῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "γνήσιος",
       "morph": "Gr,AA,,,,DNS,",
       "occurrence": "1",
@@ -4771,35 +4771,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "son",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "2",
           "occurrences": "2",
           "tag": "w",
           "text": "to",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4808,7 +4808,7 @@ Object {
         },
       ],
       "content": "τέκνῳ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "τέκνον",
       "morph": "Gr,N,,,,,DNS,",
       "occurrence": "1",
@@ -4817,13 +4817,13 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4832,7 +4832,7 @@ Object {
         },
       ],
       "content": "κατὰ",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": "1",
@@ -4841,35 +4841,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "we",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "both",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4878,7 +4878,7 @@ Object {
         },
       ],
       "content": "κοινὴν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "κοινός",
       "morph": "Gr,AA,,,,AFS,",
       "occurrence": "1",
@@ -4887,57 +4887,57 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "believe",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "in",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "Jesus",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
           "text": "the",
           "type": "word",
         },
-        Object {
+        {
           "text": " ",
           "type": "text",
         },
-        Object {
+        {
           "occurrence": "1",
           "occurrences": "1",
           "tag": "w",
@@ -4946,7 +4946,7 @@ Object {
         },
       ],
       "content": "πίστιν",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": "1",
@@ -4955,35 +4955,35 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": ".  ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "How",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "are",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "3",
           "occurrences": "4",
           "tag": "w",
@@ -4992,7 +4992,7 @@ Object {
         },
       ],
       "content": "χάρις",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "χάρις",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -5001,90 +5001,90 @@ Object {
       "tag": "zaln",
       "type": "milestone",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "doing",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "man",
       "type": "word",
     },
-    Object {
+    {
       "text": "? ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "Wish",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "2",
       "occurrences": "2",
       "tag": "w",
       "text": "I",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "could",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "come",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
+    {
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "text": "see",
       "type": "word",
     },
-    Object {
+    {
       "text": " ",
       "type": "text",
     },
-    Object {
-      "children": Array [
-        Object {
+    {
+      "children": [
+        {
           "occurrence": "4",
           "occurrences": "4",
           "tag": "w",
@@ -5093,7 +5093,7 @@ Object {
         },
       ],
       "content": "εἰρήνη",
-      "endTag": "zaln-e\\\\*",
+      "endTag": "zaln-e\\*",
       "lemma": "εἰρήνη",
       "morph": "Gr,N,,,,,NFS,",
       "occurrence": "1",
@@ -5103,40 +5103,40 @@ Object {
       "type": "milestone",
     },
   ],
-  "targetVerseText": "\\\\zaln-s |x-strong=\\"G51030\\" x-lemma=\\"Τίτος\\" x-morph=\\"Gr,N,,,,,DMS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"Τίτῳ\\"\\\\*\\\\w I|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w am|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w writing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"1\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w you|x-occurrence=\\"1\\" x-occurrences=\\"4\\"\\\\w*,
-\\\\w Titus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*;
-\\\\zaln-s |x-strong=\\"G11030\\" x-lemma=\\"γνήσιος\\" x-morph=\\"Gr,AA,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"γνησίῳ\\"\\\\*\\\\w you|x-occurrence=\\"2\\" x-occurrences=\\"4\\"\\\\w*
-\\\\w have|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w become|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w like|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w a|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w real|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G50430\\" x-lemma=\\"τέκνον\\" x-morph=\\"Gr,N,,,,,DNS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"τέκνῳ\\"\\\\*\\\\w son|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w to|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w me|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G25960\\" x-lemma=\\"κατά\\" x-morph=\\"Gr,P,,,,,A,,,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κατὰ\\"\\\\*\\\\w because|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G28390\\" x-lemma=\\"κοινός\\" x-morph=\\"Gr,AA,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"κοινὴν\\"\\\\*\\\\w we|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w both|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w now|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*
-\\\\zaln-s |x-strong=\\"G41020\\" x-lemma=\\"πίστις\\" x-morph=\\"Gr,N,,,,,AFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"πίστιν\\"\\\\*\\\\w believe|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w in|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Jesus|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w the|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w Messiah|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*\\\\zaln-e\\\\*. 
-\\\\w How|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w are|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\zaln-s |x-strong=\\"G54850\\" x-lemma=\\"χάρις\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"χάρις\\"\\\\*\\\\w you|x-occurrence=\\"3\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*
-\\\\w doing|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w man|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*?
-\\\\w Wish|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w I|x-occurrence=\\"2\\" x-occurrences=\\"2\\"\\\\w*
-\\\\w could|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w come|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\w see|x-occurrence=\\"1\\" x-occurrences=\\"1\\"\\\\w*
-\\\\zaln-s |x-strong=\\"G15150\\" x-lemma=\\"εἰρήνη\\" x-morph=\\"Gr,N,,,,,NFS,\\" x-occurrence=\\"1\\" x-occurrences=\\"1\\" x-content=\\"εἰρήνη\\"\\\\*\\\\w you|x-occurrence=\\"4\\" x-occurrences=\\"4\\"\\\\w*\\\\zaln-e\\\\*",
+  "targetVerseText": "\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="2"\\w*
+\\w am|x-occurrence="1" x-occurrences="1"\\w*
+\\w writing|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="1" x-occurrences="2"\\w*
+\\w you|x-occurrence="1" x-occurrences="4"\\w*,
+\\w Titus|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*;
+\\zaln-s |x-strong="G11030" x-lemma="γνήσιος" x-morph="Gr,AA,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="γνησίῳ"\\*\\w you|x-occurrence="2" x-occurrences="4"\\w*
+\\w have|x-occurrence="1" x-occurrences="1"\\w*
+\\w become|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w a|x-occurrence="1" x-occurrences="1"\\w*
+\\w real|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G50430" x-lemma="τέκνον" x-morph="Gr,N,,,,,DNS," x-occurrence="1" x-occurrences="1" x-content="τέκνῳ"\\*\\w son|x-occurrence="1" x-occurrences="1"\\w*
+\\w to|x-occurrence="2" x-occurrences="2"\\w*
+\\w me|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G25960" x-lemma="κατά" x-morph="Gr,P,,,,,A,,," x-occurrence="1" x-occurrences="1" x-content="κατὰ"\\*\\w because|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G28390" x-lemma="κοινός" x-morph="Gr,AA,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="κοινὴν"\\*\\w we|x-occurrence="1" x-occurrences="1"\\w*
+\\w both|x-occurrence="1" x-occurrences="1"\\w*
+\\w now|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="G41020" x-lemma="πίστις" x-morph="Gr,N,,,,,AFS," x-occurrence="1" x-occurrences="1" x-content="πίστιν"\\*\\w believe|x-occurrence="1" x-occurrences="1"\\w*
+\\w in|x-occurrence="1" x-occurrences="1"\\w*
+\\w Jesus|x-occurrence="1" x-occurrences="1"\\w*
+\\w the|x-occurrence="1" x-occurrences="1"\\w*
+\\w Messiah|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*. 
+\\w How|x-occurrence="1" x-occurrences="1"\\w*
+\\w are|x-occurrence="1" x-occurrences="1"\\w*
+\\zaln-s |x-strong="G54850" x-lemma="χάρις" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="χάρις"\\*\\w you|x-occurrence="3" x-occurrences="4"\\w*\\zaln-e\\*
+\\w doing|x-occurrence="1" x-occurrences="1"\\w*
+\\w man|x-occurrence="1" x-occurrences="1"\\w*?
+\\w Wish|x-occurrence="1" x-occurrences="1"\\w*
+\\w I|x-occurrence="2" x-occurrences="2"\\w*
+\\w could|x-occurrence="1" x-occurrences="1"\\w*
+\\w come|x-occurrence="1" x-occurrences="1"\\w*
+\\w see|x-occurrence="1" x-occurrences="1"\\w*
+\\zaln-s |x-strong="G15150" x-lemma="εἰρήνη" x-morph="Gr,N,,,,,NFS," x-occurrence="1" x-occurrences="1" x-content="εἰρήνη"\\*\\w you|x-occurrence="4" x-occurrences="4"\\w*\\zaln-e\\*",
 }
 `;
