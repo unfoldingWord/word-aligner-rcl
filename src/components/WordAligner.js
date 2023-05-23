@@ -376,8 +376,8 @@ const WordAligner = ({
   function doChangeCallback(results = {}, verseAlignments = verseAlignments_, targetWords = targetWords_) {
     onChange && onChange({
       ...results,
-      verseAlignments: verseAlignments,
-      targetWords: targetWords,
+      verseAlignments,
+      targetWords,
       contextId,
     });
   }

@@ -46,23 +46,23 @@ export const canDropPrimaryToken = (dropTargetProps, dragSourceProps) => {
   const singleTarget = dropTargetProps.sourceNgram.length === 1;
   const mergedTarget = dropTargetProps.sourceNgram.length > 1;
   const different = !doesListIncludeIndex(dropTargetProps.sourceNgram, getAlignmentIndex(dragSourceProps));
-  console.log(`AlignmentCard.canDropPrimaryToken()`, { emptyTarget, singleTarget, mergedTarget, different, dragSourceProps, dropTargetProps })
+  // console.log(`AlignmentCard.canDropPrimaryToken()`, { emptyTarget, singleTarget, mergedTarget, different, dragSourceProps, dropTargetProps })
 
   // moving single word to group alignment
   // TRICKY: make sure this is to a different alignment
   if ((mergedTarget || singleTarget) && different) {
-    console.log(`AlignmentCard.canDropPrimaryToken() - single source to different group`)
+    // console.log(`AlignmentCard.canDropPrimaryToken() - single source to different group`)
     return true;
   }
 
   // moving single word to new alignment
   // TRICKY: make sure this is to a different alignment
   if (emptyTarget && different) {
-    console.log(`AlignmentCard.canDropPrimaryToken() - new alignment`)
+    // console.log(`AlignmentCard.canDropPrimaryToken() - new alignment`)
     return true;
   }
 
-  console.log(`AlignmentCard.canDropPrimaryToken() - illegal drop`)
+  // console.log(`AlignmentCard.canDropPrimaryToken() - illegal drop`)
   return false; // any other destinations are not allowed
 };
 
@@ -118,21 +118,20 @@ class DroppableAlignmentCard extends Component {
       this.props.targetNgram.length === 0);
     let canDrop = false;
     const fromWordBank = (Array.isArray(item)) || !item.type;
-    console.log(`DraggableAlignmentCard.onDragOver()`,  item)
+    // console.log(`DraggableAlignmentCard.onDragOver()`,  item)
 
     if (fromWordBank || (item.type === types.SECONDARY_WORD)) {
       if (fromWordBank) {
         canDrop = !alignmentEmpty;
-        console.log(`DraggableAlignmentCard.onDragOver() - fromWordBank`, { canDrop, fromWordBank})
+        // console.log(`DraggableAlignmentCard.onDragOver() - fromWordBank`, { canDrop, fromWordBank})
       } else {
         const alignmentPositionDelta = this.props.alignmentIndex - item.alignmentIndex;
         canDrop = alignmentPositionDelta !== 0 && !alignmentEmpty;
-        console.log(`DraggableAlignmentCard.onDragOver() - not fromWordBank`, { canDrop, alignmentPositionDelta, alignmentEmpty})
+        // console.log(`DraggableAlignmentCard.onDragOver() - not fromWordBank`, { canDrop, alignmentPositionDelta, alignmentEmpty})
       }
     } else if (item.type === types.PRIMARY_WORD) {
-      const alignmentPositionDelta = this.props.alignmentIndex - item.alignmentIndex;
       canDrop = canDropPrimaryToken(this.props, item);
-      console.log(`DraggableAlignmentCard.onDragOver() - primary word`, { canDrop, alignmentPositionDelta, alignmentEmpty})
+      // console.log(`DraggableAlignmentCard.onDragOver() - primary word`, { canDrop, alignmentEmpty})
     }
 
     if (canDrop) {
