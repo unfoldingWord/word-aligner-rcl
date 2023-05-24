@@ -20,6 +20,21 @@ const styles = {
   },
 };
 
+function getAlignmentIndex(dropProps) {
+  let index = dropProps && (dropProps.index !== undefined) ? dropProps.index : dropProps.alignmentIndex;
+  return index;
+}
+
+function doesListIncludeIndex(targetList, index) {
+  for (const item of (targetList || [])) {
+    let listIndex = getAlignmentIndex(item);
+    if (listIndex === index) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /**
  * Determines if a word can be dropped
  * @param dropTargetProps
@@ -30,34 +45,24 @@ export const canDropPrimaryToken = (dropTargetProps, dragSourceProps) => {
   const emptyTarget = dropTargetProps.sourceNgram.length === 0;
   const singleTarget = dropTargetProps.sourceNgram.length === 1;
   const mergedTarget = dropTargetProps.sourceNgram.length > 1;
-  const singleSource = dragSourceProps.alignmentLength === 1;
-  const mergedSource = dragSourceProps.alignmentLength > 1;
-  const alignmentDelta = dropTargetProps.alignmentIndex - dragSourceProps.alignmentIndex;
-  const different = alignmentDelta !== 0;
+  const different = !doesListIncludeIndex(dropTargetProps.sourceNgram, getAlignmentIndex(dragSourceProps));
+  // console.log(`AlignmentCard.canDropPrimaryToken()`, { emptyTarget, singleTarget, mergedTarget, different, dragSourceProps, dropTargetProps })
 
-  // moving single word to another single (new merge)
-  // TRICKY: make sure this is to a different word
-  if (singleSource && singleTarget && different) {
+  // moving single word to group alignment
+  // TRICKY: make sure this is to a different alignment
+  if ((mergedTarget || singleTarget) && different) {
+    // console.log(`AlignmentCard.canDropPrimaryToken() - single source to different group`)
     return true;
   }
 
-  // moving single word to merged group
-  if (singleSource && mergedTarget) {
+  // moving single word to new alignment
+  // TRICKY: make sure this is to a different alignment
+  if (emptyTarget && different) {
+    // console.log(`AlignmentCard.canDropPrimaryToken() - new alignment`)
     return true;
   }
 
-  if (mergedSource) { // removing a word from a merged group
-    if (emptyTarget) { // moving word from merged group to empty (unmerge)
-      if (!different) { // if unmerge target for this group
-        return true;
-      }
-    } else if (singleTarget) { // moving word from merged group to a single word (new merge)
-      return true;
-    } else if (mergedTarget && different) { //  moving word from merged group to a different merged group
-      return true;
-    }
-  }
-
+  // console.log(`AlignmentCard.canDropPrimaryToken() - illegal drop`)
   return false; // any other destinations are not allowed
 };
 
@@ -113,16 +118,20 @@ class DroppableAlignmentCard extends Component {
       this.props.targetNgram.length === 0);
     let canDrop = false;
     const fromWordBank = (Array.isArray(item)) || !item.type;
+    // console.log(`DraggableAlignmentCard.onDragOver()`,  item)
 
     if (fromWordBank || (item.type === types.SECONDARY_WORD)) {
       if (fromWordBank) {
         canDrop = !alignmentEmpty;
+        // console.log(`DraggableAlignmentCard.onDragOver() - fromWordBank`, { canDrop, fromWordBank})
       } else {
         const alignmentPositionDelta = this.props.alignmentIndex - item.alignmentIndex;
         canDrop = alignmentPositionDelta !== 0 && !alignmentEmpty;
+        // console.log(`DraggableAlignmentCard.onDragOver() - not fromWordBank`, { canDrop, alignmentPositionDelta, alignmentEmpty})
       }
     } else if (item.type === types.PRIMARY_WORD) {
       canDrop = canDropPrimaryToken(this.props, item);
+      // console.log(`DraggableAlignmentCard.onDragOver() - primary word`, { canDrop, alignmentEmpty})
     }
 
     if (canDrop) {

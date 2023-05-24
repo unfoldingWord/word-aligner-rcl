@@ -370,12 +370,14 @@ const WordAligner = ({
    * @param {string} results.type is type of alignment change
    * @param {string} results.source - source(s) of the word being changed
    * @param {string} results.destination - destination of the word being changed
+   * @param {array} verseAlignments - optional new value for verseAlignments
+   * @param {array} targetWords - optional new value for verseAlignments
    */
-  function doChangeCallback(results = {}) {
+  function doChangeCallback(results = {}, verseAlignments = verseAlignments_, targetWords = targetWords_) {
     onChange && onChange({
       ...results,
-      verseAlignments: verseAlignments_,
-      targetWords: targetWords_,
+      verseAlignments,
+      targetWords,
       contextId,
     });
   }
@@ -383,10 +385,12 @@ const WordAligner = ({
   /**
    * does cleanup for new verse alignments before saving to state
    * @param {array} verseAlignments
+   * @return cleaned up verseAlignments
    */
   function updateVerseAlignments(verseAlignments) {
-    verseAlignments = alignmentCleanup(verseAlignments);
-    setVerseAlignments(verseAlignments);
+    const _verseAlignments = alignmentCleanup(verseAlignments);
+    setVerseAlignments(_verseAlignments);
+    return _verseAlignments;
   }
 
   /**
@@ -456,7 +460,7 @@ const WordAligner = ({
       }
 
       dest.targetNgram.push(targetToken);
-      updateVerseAlignments(verseAlignments);
+      const _verseAlignments = updateVerseAlignments(verseAlignments);
       doChangeCallback({
         type: ALIGN_TARGET_WORD,
         source,
@@ -467,7 +471,7 @@ const WordAligner = ({
         destTargetToken: dest?.targetNgram,
         sourceIndex: srcAlignmentIndex,
         destIndex: ""
-      });
+      }, _verseAlignments);
     }
   };
 
@@ -523,7 +527,7 @@ const WordAligner = ({
         dest.targetNgram = dest.targetNgram.concat(targets);
         dest.targetNgram = dest.targetNgram.sort(indexComparator)
       }
-      updateVerseAlignments(verseAlignments);
+      const _verseAlignments = updateVerseAlignments(verseAlignments);
       doChangeCallback({
         type: ALIGN_SOURCE_WORD,
         source,
@@ -534,7 +538,7 @@ const WordAligner = ({
         destTargetToken: dest?.targetNgram,
         sourceIndex: srcAlignmentIndex,
         destIndex: destAlignmentIndex
-      });
+      }, _verseAlignments);
     }
   };
 
