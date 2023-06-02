@@ -341,6 +341,7 @@ const SuggestingWordAligner = ({
   verseAlignments,
   targetWords,
   style: styles_ = {},
+  hasRenderedSuggestions = true,
   }) => {
   const [dragToken, setDragToken_] = useState(null);
   const [dragItemType, setDragItemType] = useState(null);
@@ -543,6 +544,53 @@ const SuggestingWordAligner = ({
     }
   };
 
+  const handleAcceptSuggestions = () => {
+    //TODO: wire this up.
+
+    // const {
+    //   acceptAlignmentSuggestions,
+    //   contextId: { reference: { chapter, verse } },
+    // } = this.props;
+    // // accepting all suggestions can auto-complete the verse
+    // this.enableAutoComplete();
+    // acceptAlignmentSuggestions(chapter, verse);
+    // this.handleResetWordList();
+  }
+
+  const handleRefreshSuggestions = () => {
+    //TODO: wire this up
+
+    // const {
+    //   tool: { translate },
+    //   contextId: { reference: { chapter, verse } },
+    // } = this.props;
+    // const { store } = this.context;
+
+    // this.runMAP(this.props).catch(() => {
+    //   this.setState({ snackText: translate('suggestions.none') });
+    // }).then(() => {
+    //   // TRICKY: suggestions may not be rendered
+    //   const hasSuggestions = getVerseHasRenderedSuggestions(store.getState(),
+    //     chapter, verse);
+
+    //   if (!hasSuggestions) {
+    //     this.setState({ snackText: translate('suggestions.none') });
+    //   }
+    // });
+    // this.handleResetWordList();
+  }
+
+  const handleRejectSuggestions = () => {
+    //TODO: wire this up
+
+    // const {
+    //   clearAlignmentSuggestions,
+    //   contextId: { reference: { chapter, verse } },
+    // } = this.props;
+    // clearAlignmentSuggestions(chapter, verse);
+    // this.handleResetWordList();
+  }
+
   let sourceFontSizePercent_ = sourceFontSizePercent;
   const isHebrew = sourceLanguage === OT_ORIG_LANG;
   if (isHebrew) {
@@ -583,37 +631,37 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
       </div>
-      <AlignmentGrid
-        styles={styles_}
-        sourceStyle={sourceStyle}
-        sourceDirection={sourceDirection}
-        targetDirection={targetDirection}
-        alignments={verseAlignments_}
-        translate={translate}
-        lexicons={lexiconCache}
-        reset={resetDrag}
-        toolsSettings={toolsSettings}
-        onDropTargetToken={handleAlignTargetToken}
-        onDropSourceToken={handleAlignSourceToken}
-        contextId={contextId}
-        isHebrew={isHebrew}
-        showPopover={showPopover}
-        loadLexiconEntry={loadLexiconEntry}
-        targetLanguageFont={targetLanguageFont}
-        dragToken={dragToken}
-        dragItemType={dragItemType}
-        setDragToken={setDragToken}
-      />
-      <MAPControls
-        onAccept={this.handleAcceptSuggestions}
-        hasSuggestions={hasRenderedSuggestions}
-        complete={isComplete}
-        onToggleComplete={this.handleToggleComplete}
-        showPopover={showPopover}
-        onRefresh={this.handleRefreshSuggestions}
-        onReject={this.handleRejectSuggestions}
-        translate={translate}
-      />
+      <div style={styles.alignmentGridWrapper}>
+        <AlignmentGrid
+          styles={styles_}
+          sourceStyle={sourceStyle}
+          sourceDirection={sourceDirection}
+          targetDirection={targetDirection}
+          alignments={verseAlignments_}
+          translate={translate}
+          lexicons={lexiconCache}
+          reset={resetDrag}
+          toolsSettings={toolsSettings}
+          onDropTargetToken={handleAlignTargetToken}
+          onDropSourceToken={handleAlignSourceToken}
+          contextId={contextId}
+          isHebrew={isHebrew}
+          showPopover={showPopover}
+          loadLexiconEntry={loadLexiconEntry}
+          targetLanguageFont={targetLanguageFont}
+          dragToken={dragToken}
+          dragItemType={dragItemType}
+          setDragToken={setDragToken}
+        />
+        <MAPControls
+          onAccept={handleAcceptSuggestions}
+          hasSuggestions={hasRenderedSuggestions}
+          showPopover={showPopover}
+          onRefresh={handleRefreshSuggestions}
+          onReject={handleRejectSuggestions}
+          translate={translate}
+        />
+      </div>
     </div>
 
   );
@@ -633,5 +681,8 @@ SuggestingWordAligner.propTypes = {
   translate: PropTypes.func.isRequired,
   verseAlignments: PropTypes.array.isRequired,
   targetWords: PropTypes.array.isRequired,
+  hasRenderedSuggestions: PropTypes.bool,
 };
+
+SuggestingWordAligner.defaultProps = { hasRenderedSuggestions: true };
 export default SuggestingWordAligner;

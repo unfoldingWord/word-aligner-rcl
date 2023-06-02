@@ -240,7 +240,7 @@ class DroppableWordList extends React.Component {
 DroppableWordList.propTypes = {
   styles: PropTypes.object,
   reset: PropTypes.bool,
-  verse: PropTypes.oneOf(PropTypes.number, PropTypes.string),
+  verse: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
   chapter: PropTypes.number,
   wordList: PropTypes.object,
   targetLanguageFont: PropTypes.string,
