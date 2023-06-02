@@ -53,9 +53,10 @@ Tooltip.defaultProps = {
  * @constructor
  */
 const SecondaryButton = ({
-  children, disabled, onClick,
+  children, disabled, onClick, style,
 }) => (
   <button className="btn-second"
+    style={style}
     disabled={disabled}
     onClick={onClick}>
     {children}
@@ -78,7 +79,22 @@ const styles = {
     borderWidth: '2px',
     borderColor: 'var(--background-color-light)',
   },
-  button: { marginLeft: 10 },
+  button: {
+    marginTop: 7,
+    marginLeft: 12,
+    backgroundColor: 'white',
+    color: '#19579e',
+    marginRight: 5,
+    marginBottom: 10,
+    padding: '2px 40px',
+    border: '2px solid #19579e',
+
+    transition: 'box-shadow 0.3s', // Add transition for smooth effect
+    boxShadow: '0px 0px 0px rgba(0, 0, 0, 0)', // Initial box shadow
+    ':hover': {
+      boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.3)', // Box shadow on hover
+    },
+  },
   icon: {
     color: 'var(--accent-color-dark)',
     verticalAlign: 'middle',
@@ -104,6 +120,7 @@ const styles = {
     lineHeight: 'inherit',
   },
   buttonIcon: {
+    display: 'inline-block',
     color: 'var(--accent-color-dark)',
     verticalAlign: 'middle',
     marginRight: '5px',
@@ -137,7 +154,8 @@ const InfoPopup = ({ translate }) => (
 InfoPopup.propTypes = { translate: PropTypes.func.isRequired };
 
 function log( message ){
-    console.log( `log(${message})` );
+    //console.log( `log(${message})` );
+    console.table( message );
     return message;
 }
 
