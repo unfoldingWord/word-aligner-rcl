@@ -5,6 +5,7 @@ import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
 import * as types from '../common/WordCardTypes';
+import MAPControls from './MAPControls';
 
 // on alignment changes, identifies possible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
@@ -603,7 +604,16 @@ const SuggestingWordAligner = ({
         dragItemType={dragItemType}
         setDragToken={setDragToken}
       />
-
+      <MAPControls
+        onAccept={this.handleAcceptSuggestions}
+        hasSuggestions={hasRenderedSuggestions}
+        complete={isComplete}
+        onToggleComplete={this.handleToggleComplete}
+        showPopover={showPopover}
+        onRefresh={this.handleRefreshSuggestions}
+        onReject={this.handleRejectSuggestions}
+        translate={translate}
+      />
     </div>
 
   );
