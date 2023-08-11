@@ -449,63 +449,49 @@ const SuggestingWordAligner = ({
    */
   const handleAlignTargetToken = (targetToken, alignmentIndex, srcAlignmentIndex) => {
     console.log('handleAlignTargetToken', {alignmentIndex, srcAlignmentIndex})
-    if (alignmentIndex !== srcAlignmentIndex) {
-      const destination=GRID
-      let source=( srcAlignmentIndex === -1)?GRID:TARGET_WORD_BANK;
-      let verseAlignments = [...verseAlignments_]
-      const dest = verseAlignments[alignmentIndex];
-      let src = null;
-      let found = -1;
+    
+    const destination=GRID
+    let source=( srcAlignmentIndex === -1)?GRID:TARGET_WORD_BANK;
+    let verseAlignments = [...verseAlignments_]
+    const dest = verseAlignments[alignmentIndex];
+    let src = null;
+    let found = -1;
 
-      //instead of removing the target word from just where it was pulled from, we will remove it from everywhere
-      //We will say the source was the GRID if it was found anywhere in there.
-      for( src of verseAlignments) {
-        found = findToken(src.targetNgram, targetToken);
-        if (found >= 0) {
-          src.targetNgram.splice(found, 1);
-        }
+    //don't do a check if the target index is the same as the source, because if we pick up a suggested word
+    //and drop it we still want any duplicates of it to be removed and for it to be removed from the word bank
+    //and the alignment card to not be marked as a suggestion.
+
+    //instead of removing the target word from just where it was pulled from, we will remove it from everywhere
+    //We will say the source was the GRID if it was found anywhere in there.
+    for( src of verseAlignments) {
+      found = findToken(src.targetNgram, targetToken);
+      if (found >= 0) {
+        src.targetNgram.splice(found, 1);
       }
-      //also make sure the word is marked as disabled in the wordbank.
-      found = findInWordList(targetWords_, targetToken);
-      if (found >= 0 && targetWords_[found].disabled !== true) {
-        const words = [...targetWords_];
-        words[found].disabled = true; //this is actually mutating the original object... but oh well.
-        setTargetWords(words);
-      }
-
-
-      // if (srcAlignmentIndex >= 0) { // coming from a different alignment card
-      //   src = verseAlignments[srcAlignmentIndex];
-      //   found = findToken(src.targetNgram, targetToken);
-      //   if (found >= 0) {
-      //     src.targetNgram.splice(found, 1);
-      //   }
-      // } else { // coming from word list
-      //   source=TARGET_WORD_BANK
-      //   const found = findInWordList(targetWords_, targetToken);
-      //   if (found >= 0) {
-      //     const words = [...targetWords_]
-      //     words[found].disabled = true;
-      //     setTargetWords(words);
-      //     targetToken = tokenToAlignment(targetToken);
-      //   }
-      //   setResetDrag(true);
-      // }
-
-      dest.targetNgram.push(targetToken);
-      const _verseAlignments = updateVerseAlignments(verseAlignments);
-      doChangeCallback({
-        type: ALIGN_TARGET_WORD,
-        source,
-        destination,
-        srcSourceToken: src?.sourceNgram,
-        destSourceToken: dest?.sourceNgram,
-        srcTargetToken: src?.targetNgram,
-        destTargetToken: dest?.targetNgram,
-        sourceIndex: srcAlignmentIndex,
-        destIndex: ""
-      }, _verseAlignments);
     }
+    //also make sure the word is marked as disabled in the wordbank.
+    found = findInWordList(targetWords_, targetToken);
+    if (found >= 0 && targetWords_[found].disabled !== true) {
+      const words = [...targetWords_];
+      words[found].disabled = true; //this is actually mutating the original object... but oh well.
+      setTargetWords(words);
+    }
+  
+    dest.targetNgram.push(targetToken); //technically mutating the original object
+    dest.isSuggestion = false;
+    const _verseAlignments = updateVerseAlignments(verseAlignments);
+    doChangeCallback({
+      type: ALIGN_TARGET_WORD,
+      source,
+      destination,
+      srcSourceToken: src?.sourceNgram,
+      destSourceToken: dest?.sourceNgram,
+      srcTargetToken: src?.targetNgram,
+      destTargetToken: dest?.targetNgram,
+      sourceIndex: srcAlignmentIndex,
+      destIndex: ""
+    }, _verseAlignments);
+    
   };
 
   /**
