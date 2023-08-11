@@ -599,7 +599,7 @@ const SuggestingWordAligner = ({
     //remove all suggested targets
     const alignmentsStage1 = verseAlignments_.map( alignment => {
       if( alignment.isSuggestion ){
-        return {...alignment, targetNgram: [] };
+        return {...alignment, targetNgram: [], isSuggestion: false };
       }else{
         return alignment;
       }
@@ -720,14 +720,42 @@ const SuggestingWordAligner = ({
   }
 
   const handleRejectSuggestions = () => {
-    //TODO: wire this up
+    console.log( "handleRejectSuggestions" );
+    //Make sure all words which were dropped are not disabled in the word list.
+    const targetTokensNeedingDisabled = verseAlignments_
+      //filter to only suggestions
+      .filter( alignment => alignment.isSuggestion) 
+      //Now reduce to target words.
+      .reduce( (acc, alignment) => {
+        alignment.targetNgram.forEach( targetToken => {
+          acc.push( targetToken );
+        });
+        return acc;
+      },[])
+      //now reduce these to target words which are not already disabled.
+      .filter( targetToken => {
+        const found = findInWordList(targetWords_, targetToken);
+        if( found > 0 && !targetWords_[found].disabled ) return true;
+        return false;
+      });
 
-    // const {
-    //   clearAlignmentSuggestions,
-    //   contextId: { reference: { chapter, verse } },
-    // } = this.props;
-    // clearAlignmentSuggestions(chapter, verse);
-    // this.handleResetWordList();
+    //if there are any of the target words needing to be disabled
+    if( targetTokensNeedingDisabled.length > 0 ) {
+      //Then map through creating new word objects which are disabled if they are in the targetTokensNeedingDisabled list.
+      const newTargetWords = targetWords_.map( targetWord => {
+        if( findInWordList( targetTokensNeedingDisabled, targetWord ) > 0 ) return { ...targetWord, disabled: false };
+        return targetWord;
+      });
+      setTargetWords( newTargetWords );
+    }
+
+
+    //Drop all target tokens from verseAlignments which are suggestions
+    const clearedAlignments = verseAlignments_.map( alignment => {
+      if( alignment.isSuggestion ) return {...alignment, isSuggestion: false, targetNgram: []};
+      return alignment;
+    });
+    setVerseAlignments(updateVerseAlignments( clearedAlignments ));
   }
 
   let sourceFontSizePercent_ = sourceFontSizePercent;
