@@ -562,16 +562,27 @@ const SuggestingWordAligner = ({
   };
 
   const handleAcceptSuggestions = () => {
-    //TODO: wire this up.
-
-    // const {
-    //   acceptAlignmentSuggestions,
-    //   contextId: { reference: { chapter, verse } },
-    // } = this.props;
-    // // accepting all suggestions can auto-complete the verse
-    // this.enableAutoComplete();
-    // acceptAlignmentSuggestions(chapter, verse);
-    // this.handleResetWordList();
+    //I am going to implement this as a drag event for every single suggested word as though from the wordbank.
+    //This will automatically disable the words which are suggested as well as handle change callbacks.
+    verseAlignments_
+      //get all the alignments which are marked as suggestions.
+      .filter( alignment => alignment.isSuggestion )
+      //convert them to an info object per target token in them.
+      .reduce( (acc, alignment) => {
+        alignment.targetNgram.forEach( primaryToken => {
+          acc.push( {
+            primaryToken,
+            destAlignmentIndex: alignment.index,
+            sourceToken: alignment.sourceNgram,
+            targetToken: alignment.targetNgram
+          })
+        })
+        return acc;
+      }, [])
+      //Now execute the drag event with the info object produced by the reduce.
+      .forEach( info => {
+        handleAlignTargetToken(info.primaryToken, info.destAlignmentIndex, -1);
+      })
   }
 
   const handleRefreshSuggestions = () => {
