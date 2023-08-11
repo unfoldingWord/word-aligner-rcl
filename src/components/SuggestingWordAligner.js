@@ -6,6 +6,8 @@ import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
 import * as types from '../common/WordCardTypes';
 import MAPControls from './MAPControls';
+import { Alignment, Ngram } from "wordmap";
+import {Token} from 'wordmap-lexer';
 
 // on alignment changes, identifies possible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
@@ -137,7 +139,7 @@ function tokenToAlignment(token) {
 }
 
 /**
- * const from word alignment fromat to token format
+ * const from word alignment format to token format
  * @param {object} alignment
  * @return {*&{occurrence, occurrences, text, index}}
  */
@@ -306,6 +308,15 @@ const indexComparator = (a, b) => a.index - b.index;
  */
 
 /**
+ * @callback SuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
+ * @param {string|array[Token]} source - source translation 
+ * @param {string|array[Token]} target - target translation
+ * @param {number} maxSuggestions - max number of suggestions
+ * @param {array[Alignment]} manualAlignments - array manual alignments
+ * @return {array[Suggestion]} list of suggestions
+ */
+
+/**
  * SuggestingWordAligner is a stand-alone component for aligning words with word alignment suggestions.
  * @param {(book, chapter, verse)} contextId - current verse context
  * @param {object|null} lexiconCache - cache for lexicon data
@@ -321,6 +332,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {TranslateCB} translate - callback to look up localized text
  * @param {array[AlignmentType]} verseAlignments - initial verse alignment
  * @param {array[TargetWordBankType]} targetWords - list of target words for use in wordbank
+ * @param {SuggesterCB} suggester - callback to suggest alignments
  * @return {JSX.Element}
  * @constructor
  */
@@ -342,6 +354,7 @@ const SuggestingWordAligner = ({
   targetWords,
   style: styles_ = {},
   hasRenderedSuggestions = true,
+  suggester = null,
   }) => {
   const [dragToken, setDragToken_] = useState(null);
   const [dragItemType, setDragItemType] = useState(null);
@@ -558,26 +571,137 @@ const SuggestingWordAligner = ({
   }
 
   const handleRefreshSuggestions = () => {
-    //TODO: wire this up
 
-    // const {
-    //   tool: { translate },
-    //   contextId: { reference: { chapter, verse } },
-    // } = this.props;
-    // const { store } = this.context;
+    console.log( "handleRefreshSuggestions" );
 
-    // this.runMAP(this.props).catch(() => {
-    //   this.setState({ snackText: translate('suggestions.none') });
-    // }).then(() => {
-    //   // TRICKY: suggestions may not be rendered
-    //   const hasSuggestions = getVerseHasRenderedSuggestions(store.getState(),
-    //     chapter, verse);
+    //Just return if suggester is null or undefined
+    if( !suggester ){
+      console.log( "suggester is null or undefined" );
+      return;
+    }
+    
 
-    //   if (!hasSuggestions) {
-    //     this.setState({ snackText: translate('suggestions.none') });
-    //   }
-    // });
-    // this.handleResetWordList();
+    //remove all suggested targets
+    const alignmentsStage1 = verseAlignments_.map( alignment => {
+      if( alignment.isSuggestion ){
+        return {...alignment, targetNgram: [] };
+      }else{
+        return alignment;
+      }
+    })
+
+
+    //Now break apart source tokens which have no targets on them still.
+    const alignmentsStage2 = alignmentsStage1.reduce( (acc, alignment) => {
+      if( !alignment.targetNgram.length && alignment.sourceNgram.length > 1 ){
+        alignment.sourceNgram.forEach(sourceToken => {
+          acc.push( {
+            ...alignment
+            , sourceNgram: [ sourceToken ]
+          })
+        });
+      }else{
+        acc.push(alignment);
+      }
+      return acc;
+    },[]);
+
+    //Now reindex it.
+    const alignmentsStage3 = alignmentsStage2.map( (alignment, index) => ({...alignment, index}) );
+    
+
+
+    //Convert the data into the structure useful by the suggester.
+    const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
+    const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
+    const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
+
+    //obtain the suggestions
+    const predictions = suggester( sourceWordObjects, targetWordObjects, 1, manualAlignmentObjects )[0].predictions;
+
+
+    const lookupNgrams = ( predictionNgram, targetWords ) => {
+      const ngrams = [];
+      for( let i = 0; i < predictionNgram.tokenLength; i++ ){
+        const foundTargetWord = targetWords.find( targetWord => {
+          if( targetWord.text !== predictionNgram.tokens[i].text ) return false;
+          if( targetWord.occurrence !== predictionNgram.tokens[i].occurrence ) return false;
+          return true;
+        })
+        //if( foundTargetWord ) ngrams.push( { ...foundTargetWord, disabled:false } );  //Marking the word as not disabled here probably doesn't update the word list and perhaps we don't want to mark out words which are only suggestions anyway.
+        if( foundTargetWord ) ngrams.push( foundTargetWord );
+      }
+      return ngrams;
+    }
+
+    //Now iterate through the suggestions and see which ones don't mess with an existing alignment.
+    const alignmentsStage4 = alignmentsStage3.map( (alignmentToFilter, index) => {
+      //if the alignment already has targets, they are manually aligned and should be respected.
+      //We can't add in suggested additional targets because we can't represent a mixture of suggested and manual.
+      if( alignmentToFilter.targetNgram.length > 0 ) return alignmentToFilter;
+      
+
+      //Next see if the given source word is the first of an ngram in a prediction.  If so create the alignment with
+      //the suggestion flag set.
+      const predictionWithSourceAsFirst = predictions.find( prediction => {
+        if( prediction.alignment.sourceNgram.tokenLength < 1 ) return false;
+        if( prediction.alignment.sourceNgram.tokens[0].text !== alignmentToFilter.sourceNgram[0].text ) return false;
+        if( prediction.alignment.sourceNgram.tokens[0].occurrence !== alignmentToFilter.sourceNgram[0].occurrence ) return false;
+        return true;
+      });
+      if( predictionWithSourceAsFirst ){
+        //If there is only one suggested source ngram we are good, just pass it through.
+        if( predictionWithSourceAsFirst.alignment.sourceNgram.tokenLength === 1 ){
+          return {
+            ...alignmentToFilter,
+            isSuggestion: true,
+            targetNgram: lookupNgrams( predictionWithSourceAsFirst.alignment.targetNgram, targetWords_ )
+          }
+        }
+
+        //otherwise, we need to hunt to make sure all the rest of the source ngrams are available, and go ahead and nab them if they are.
+        const freeSourceNgrams = predictionWithSourceAsFirst.alignment.sourceNgram.tokens.map( sourceToken => {
+          return alignmentsStage3.find( alignment => {
+            if( alignment.sourceNgram.length < 1 ) return false;
+            if( alignment.sourceNgram[0].text !== sourceToken.text ) return false;
+            if( alignment.sourceNgram[0].occurrence !== sourceToken.occurrence ) return false;
+            return true;
+          })
+        }).filter( alignmentWithTargetAsFirst => {
+          if( alignmentWithTargetAsFirst === undefined ) return false; //Wasn't first or wasn't found
+          if( alignmentWithTargetAsFirst.targetNgram.length > 0 ) return false; // already has a target
+          return true;
+        }).map( alignmentWithTargetAsFirst => alignmentWithTargetAsFirst.sourceNgram[0] );
+
+        return {
+          ...alignmentToFilter,
+          isSuggestion: true,
+          sourceNgram: freeSourceNgrams,
+          targetNgram: lookupNgrams( predictionWithSourceAsFirst.alignment.targetNgram, targetWords_ ),
+        }
+      }
+
+      //See if this word is one that is a non first source word in the suggestions.  If so then it would have been grabbed and we can just drop it here.
+      const predictionWithSourceAsNonFirst = predictions.find( prediction => {
+        //start ngramI at 1 because we are skipping the first entry.
+        for( let ngramI = 1; ngramI < prediction.alignment.sourceNgram.tokenLength; ngramI++ ){
+          if( prediction.alignment.sourceNgram.tokens[ngramI].text !== alignmentToFilter.sourceNgram[0].text ) continue;
+          if( prediction.alignment.sourceNgram.tokens[ngramI].occurrence !== alignmentToFilter.sourceNgram[0].occurrence ) continue;
+          return true;
+        }
+        return false;
+      });
+      if( predictionWithSourceAsNonFirst ){
+        return undefined;
+      }
+
+
+      //for the remainder of items, they have no manual alignment or suggestion which involve them so just pass them through.
+      return alignmentToFilter;
+    }).filter( alignment => alignment !== undefined ).map( (alignment, index) => ({...alignment, index}) );
+
+    const alignmentsStage5 = updateVerseAlignments( alignmentsStage4 );
+    setVerseAlignments(alignmentsStage5);
   }
 
   const handleRejectSuggestions = () => {
@@ -682,6 +806,7 @@ SuggestingWordAligner.propTypes = {
   verseAlignments: PropTypes.array.isRequired,
   targetWords: PropTypes.array.isRequired,
   hasRenderedSuggestions: PropTypes.bool,
+  suggester: PropTypes.func,
 };
 
 SuggestingWordAligner.defaultProps = { hasRenderedSuggestions: true };
