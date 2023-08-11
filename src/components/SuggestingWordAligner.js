@@ -451,28 +451,46 @@ const SuggestingWordAligner = ({
     console.log('handleAlignTargetToken', {alignmentIndex, srcAlignmentIndex})
     if (alignmentIndex !== srcAlignmentIndex) {
       const destination=GRID
-      let source=GRID
+      let source=( srcAlignmentIndex === -1)?GRID:TARGET_WORD_BANK;
       let verseAlignments = [...verseAlignments_]
       const dest = verseAlignments[alignmentIndex];
       let src = null;
       let found = -1;
-      if (srcAlignmentIndex >= 0) { // coming from a different alignment card
-        src = verseAlignments[srcAlignmentIndex];
+
+      //instead of removing the target word from just where it was pulled from, we will remove it from everywhere
+      //We will say the source was the GRID if it was found anywhere in there.
+      for( src of verseAlignments) {
         found = findToken(src.targetNgram, targetToken);
         if (found >= 0) {
           src.targetNgram.splice(found, 1);
         }
-      } else { // coming from word list
-        source=TARGET_WORD_BANK
-        const found = findInWordList(targetWords_, targetToken);
-        if (found >= 0) {
-          const words = [...targetWords_]
-          words[found].disabled = true;
-          setTargetWords(words);
-          targetToken = tokenToAlignment(targetToken);
-        }
-        setResetDrag(true);
       }
+      //also make sure the word is marked as disabled in the wordbank.
+      found = findInWordList(targetWords_, targetToken);
+      if (found >= 0 && targetWords_[found].disabled !== true) {
+        const words = [...targetWords_];
+        words[found].disabled = true; //this is actually mutating the original object... but oh well.
+        setTargetWords(words);
+      }
+
+
+      // if (srcAlignmentIndex >= 0) { // coming from a different alignment card
+      //   src = verseAlignments[srcAlignmentIndex];
+      //   found = findToken(src.targetNgram, targetToken);
+      //   if (found >= 0) {
+      //     src.targetNgram.splice(found, 1);
+      //   }
+      // } else { // coming from word list
+      //   source=TARGET_WORD_BANK
+      //   const found = findInWordList(targetWords_, targetToken);
+      //   if (found >= 0) {
+      //     const words = [...targetWords_]
+      //     words[found].disabled = true;
+      //     setTargetWords(words);
+      //     targetToken = tokenToAlignment(targetToken);
+      //   }
+      //   setResetDrag(true);
+      // }
 
       dest.targetNgram.push(targetToken);
       const _verseAlignments = updateVerseAlignments(verseAlignments);
