@@ -461,23 +461,43 @@ const SuggestingWordAligner = ({
     //and drop it we still want any duplicates of it to be removed and for it to be removed from the word bank
     //and the alignment card to not be marked as a suggestion.
 
-    //instead of removing the target word from just where it was pulled from, we will remove it from everywhere
-    //We will say the source was the GRID if it was found anywhere in there.
-    for( src of verseAlignments) {
-      found = findToken(src.targetNgram, targetToken);
-      if (found >= 0) {
-        src.targetNgram.splice(found, 1);
+    //Make sure the targetToken isn't in dest.targetNgram
+    found = findToken(dest.targetNgram, targetToken);
+    if (found >= 0) {
+      dest.targetNgram.splice(found, 1);
+    }
+    
+
+    //now group the targetToken with the new target tokens in the dest and then handle them toether
+    const newTargetTokens = [...dest.targetNgram, targetToken];
+
+
+    //Make sure the target words don't exist anywhere else.
+    for( const token of newTargetTokens) {
+      for( src of verseAlignments) {
+        found = findToken(src.targetNgram, token);
+        if (found >= 0) {
+          src.targetNgram.splice(found, 1);
+        }
       }
     }
-    //also make sure the word is marked as disabled in the wordbank.
-    found = findInWordList(targetWords_, targetToken);
-    if (found >= 0 && targetWords_[found].disabled !== true) {
-      const words = [...targetWords_];
-      words[found].disabled = true; //this is actually mutating the original object... but oh well.
-      setTargetWords(words);
+
+    //also make sure the target words are marked as disabled in the wordbank.
+    let disabledTarget = false;
+    let newWordList = [...targetWords_];
+    for( const token of newTargetTokens) {
+      found = findInWordList(newWordList, token);
+      if (found >= 0 && newWordList[found].disabled !== true) {
+        newWordList[found].disabled = true; //this is actually mutating the original object... but oh well.
+        disabledTarget = true;
+      }
     }
-  
-    dest.targetNgram.push(targetToken); //technically mutating the original object
+    if(disabledTarget) {
+      setTargetWords(newWordList);
+    }
+
+    //new set the new list.
+    dest.targetNgram = newTargetTokens; //technically mutating the original object
     dest.isSuggestion = false;
     const _verseAlignments = updateVerseAlignments(verseAlignments);
     doChangeCallback({
