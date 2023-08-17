@@ -126,7 +126,8 @@ class DroppableAlignmentCard extends Component {
         // console.log(`DraggableAlignmentCard.onDragOver() - fromWordBank`, { canDrop, fromWordBank})
       } else {
         const alignmentPositionDelta = this.props.alignmentIndex - item.alignmentIndex;
-        canDrop = alignmentPositionDelta !== 0 && !alignmentEmpty;
+        //allow drop of suggestion on the source tile as a to mark it as not a suggestion.
+        canDrop = (alignmentPositionDelta !== 0 || this.props.isSuggestion) && !alignmentEmpty;
         // console.log(`DraggableAlignmentCard.onDragOver() - not fromWordBank`, { canDrop, alignmentPositionDelta, alignmentEmpty})
       }
     } else if (item.type === types.PRIMARY_WORD) {
