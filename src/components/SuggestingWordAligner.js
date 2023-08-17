@@ -332,7 +332,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {TranslateCB} translate - callback to look up localized text
  * @param {array[AlignmentType]} verseAlignments - initial verse alignment
  * @param {array[TargetWordBankType]} targetWords - list of target words for use in wordbank
- * @param {SuggesterCB} suggester - callback to suggest alignments
+ * @param {SuggesterCB|null} suggester - callback to suggest alignments
  * @return {JSX.Element}
  * @constructor
  */
@@ -591,6 +591,8 @@ const SuggestingWordAligner = ({
 
     //Just return if suggester is null or undefined
     if( !suggester ){
+      //pop up a dialog telling the user that the model is not trained.
+      alert( "Can not refresh suggestions. Model is not trained" );
       console.log( "suggester is null or undefined" );
       return;
     }
