@@ -651,6 +651,15 @@ const SuggestingWordAligner = ({
       return ngrams;
     }
 
+    //Index the hash of all the target tokens already used so we can not use them again.
+    const token_to_hash = (t) => `${t.text}:${t.occurrence}:${t.occurrences}`;
+    
+    const hashToManualTargetTokens = alignmentsStage3.reduce( (acc, alignment) => {
+      alignment.targetNgram.forEach( targetToken => acc[token_to_hash(targetToken)] = targetToken );
+      return acc;
+    },{});
+  
+
     //Now iterate through the suggestions and see which ones don't mess with an existing alignment.
     const alignmentsStage4 = alignmentsStage3.map( (alignmentToFilter, index) => {
       //if the alignment already has targets, they are manually aligned and should be respected.
@@ -666,13 +675,26 @@ const SuggestingWordAligner = ({
         if( prediction.alignment.sourceNgram.tokens[0].occurrence !== alignmentToFilter.sourceNgram[0].occurrence ) return false;
         return true;
       });
+
+
+      //filter the target ngrams to not use any manually used ngrams.
+      let filteredSuggestedTargetNgram = null;
       if( predictionWithSourceAsFirst ){
+        //predictionWithSourceAsFirst.alignment.targetNgram
+        filteredSuggestedTargetNgram = predictionWithSourceAsFirst.alignment.targetNgram.tokens.filter( targetNgram => {
+          if( hashToManualTargetTokens[token_to_hash(targetNgram)] ) return false;
+          return true
+        })
+      }
+      
+      //Continue only if there was a prediction and filtered target suggestions still have at least one target
+      if( predictionWithSourceAsFirst && filteredSuggestedTargetNgram.length > 0 ){
         //If there is only one suggested source ngram we are good, just pass it through.
         if( predictionWithSourceAsFirst.alignment.sourceNgram.tokenLength === 1 ){
           return {
             ...alignmentToFilter,
             isSuggestion: true,
-            targetNgram: lookupNgrams( predictionWithSourceAsFirst.alignment.targetNgram, targetWords_ )
+            targetNgram: lookupNgrams( new Ngram(filteredSuggestedTargetNgram), targetWords_ )
           }
         }
 
@@ -694,7 +716,7 @@ const SuggestingWordAligner = ({
           ...alignmentToFilter,
           isSuggestion: true,
           sourceNgram: freeSourceNgrams,
-          targetNgram: lookupNgrams( predictionWithSourceAsFirst.alignment.targetNgram, targetWords_ ),
+          targetNgram: lookupNgrams(  new Ngram(filteredSuggestedTargetNgram), targetWords_ ),
         }
       }
 
@@ -715,6 +737,8 @@ const SuggestingWordAligner = ({
 
       //for the remainder of items, they have no manual alignment or suggestion which involve them so just pass them through.
       return alignmentToFilter;
+
+    //now filter out the undefined values and reindex.
     }).filter( alignment => alignment !== undefined ).map( (alignment, index) => ({...alignment, index}) );
 
     const alignmentsStage5 = updateVerseAlignments( alignmentsStage4 );
