@@ -246,7 +246,7 @@ DroppableWordList.propTypes = {
   targetLanguageFont: PropTypes.string,
   toolsSettings: PropTypes.object.isRequired,
   setToolSettings: PropTypes.func.isRequired,
-  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  dragToken: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   setDragToken: PropTypes.func.isRequired,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   onDropTargetToken: PropTypes.func.isRequired,

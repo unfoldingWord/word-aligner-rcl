@@ -194,7 +194,7 @@ AlignmentGrid.propTypes = {
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
   targetLanguageFont: PropTypes.string,
-  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  dragToken: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   dragItemType: PropTypes.string,
   setDragToken: PropTypes.func.isRequired,
 };

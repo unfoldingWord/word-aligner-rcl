@@ -246,7 +246,7 @@ DroppableAlignmentCard.propTypes = {
   targetLanguageFontClassName: PropTypes.string,
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
-  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  dragToken: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   setDragToken: PropTypes.func.isRequired,
   showAsDrop: PropTypes.bool,
 };
