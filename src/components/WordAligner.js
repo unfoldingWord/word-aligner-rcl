@@ -508,6 +508,7 @@ const WordAligner = ({
         dest = {
           index: newPosition,
           isSuggestion: false,
+          sourceSuggested: 0,
           sourceNgram: [ primaryToken ],
           targetNgram: [],
         }

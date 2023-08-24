@@ -211,7 +211,7 @@ class MAPControls extends React.Component {
             <SecondaryButton style={styles.button}
               onClick={onRefresh}>
               <MdRefresh style={styles.buttonIcon}/>
-              {log(translate('suggestions.refresh'))}
+              {translate('suggestions.refresh')}
             </SecondaryButton>
           </Tooltip> 
 

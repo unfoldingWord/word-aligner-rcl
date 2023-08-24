@@ -157,6 +157,7 @@ class DroppableAlignmentCard extends Component {
       sourceDirection,
       targetDirection,
       isSuggestion,
+      sourceSuggested,
       isHebrew,
       showPopover,
       loadLexiconEntry,
@@ -217,6 +218,7 @@ class DroppableAlignmentCard extends Component {
             hoverBottom={hoverBottom}
             hoverTop={hoverTop}
             isSuggestion={isSuggestion}
+            sourceSuggested={sourceSuggested}
             acceptsTargetTokens={acceptsBottom}
             acceptsSourceTokens={acceptsTop}
             sourceTokenCards={topWordCards}/>
@@ -238,6 +240,7 @@ DroppableAlignmentCard.propTypes = {
   targetNgram: PropTypes.arrayOf(PropTypes.object).isRequired,
   alignmentIndex: PropTypes.number.isRequired,
   isSuggestion: PropTypes.bool,
+  sourceSuggested: PropTypes.number,
   onDrop: PropTypes.func.isRequired,
   lexicons: PropTypes.object.isRequired,
   sourceDirection: PropTypes.oneOf(['ltr', 'rtl']),

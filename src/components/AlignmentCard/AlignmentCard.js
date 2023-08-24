@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 const makeStyles = (props) => {
   const {
     isSuggestion,
+    sourceSuggested,
     sourceTokenCards,
     hoverTop,
     hoverBottom,
@@ -71,7 +72,8 @@ const makeStyles = (props) => {
       ...rowStyle,
       top: acceptsSourceTokens ? '7px' : 0,
       left: acceptsSourceTokens ? '7px' : 0,
-      opacity: hoverTop ? '0.8' : 1
+      opacity: hoverTop ? '0.8' : 1,
+      borderBottom: `3px solid rgb(255 154 68 / ${Math.round(sourceSuggested*100)}%)`
     },
     bottomRow: {
       ...rowStyle,
@@ -125,6 +127,7 @@ class AlignmentCard extends Component {
 
 AlignmentCard.propTypes = {
   isSuggestion: PropTypes.bool,
+  sourceSuggested: PropTypes.number,
   sourceTokenCards: PropTypes.array.isRequired,
   targetTokenCards: PropTypes.array.isRequired,
   hoverBottom: PropTypes.bool,
@@ -135,6 +138,7 @@ AlignmentCard.propTypes = {
 };
 AlignmentCard.defaultProps = {
   isSuggestion: false,
+  sourceSuggested: 0,
   targetDirection: 'ltr'
 };
 

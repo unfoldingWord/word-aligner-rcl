@@ -108,6 +108,7 @@ class AlignmentGrid extends Component {
                 targetDirection={targetDirection}
                 alignmentIndex={alignment.index}
                 isSuggestion={alignment.isSuggestion}
+                sourceSuggested={alignment.sourceSuggested}
                 targetNgram={alignment.targetNgram}
                 sourceNgram={alignment.sourceNgram}
                 onDrop={(item) => this.handleDrop(key, item, this.state.draggedAlignment)}
@@ -128,6 +129,7 @@ class AlignmentGrid extends Component {
                 targetDirection={targetDirection}
                 alignmentIndex={alignment.index}
                 isSuggestion={alignment.isSuggestion}
+                sourceSuggested={0}
                 placeholderPosition="right"
                 targetNgram={[]}
                 sourceNgram={[]}

@@ -370,13 +370,106 @@ const SuggestingWordAligner = ({
     console.log('setToolSettings')
   };
 
+
+  function updateSuggestedSourceToken(token) {
+    let newVerseAlignments = verseAlignments_;
+
+      //now test if the word being dragged is a secondary word.
+      //and that the suggester is actually available.
+      if( suggester && (token.type || types.SECONDARY_WORD) === types.SECONDARY_WORD ) {
+
+          //Convert the data into the structure useful by the suggester.
+          const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
+          const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
+          const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
+
+          //remove the token in consideration from the manualAlignments so that it doesn't restrict the suggestions for that word
+          //first we will map it to alignments dropping the target word and then we will filter out the alignments which no longer have target words.
+          const manualAlignmentObjectsWithoutToken = manualAlignmentObjects.map( alignment=> {
+            //if the alignment doesn't include the target token, just pass it through.
+            if( !alignment.targetNgram.tokens.find( t=>t.text === token.text && t.occurrence === token.occurrence ) ) {
+              return alignment;
+            }
+            //otherwise, remove the target word from the alignment
+            return new Alignment( alignment.sourceNgram, new Ngram(alignment.targetNgram.tokens.filter( t=>t.text !== token.text || t.occurrence !== token.occurrence )) );
+          })
+          //now filter out the dead alignments.
+          .filter( alignment=>alignment.targetNgram.tokens.length > 0 );
+
+          //now call the suggester.
+          const numberOfSuggestions = 3;
+          const suggestions = suggester(sourceWordObjects, targetWordObjects, numberOfSuggestions, manualAlignmentObjectsWithoutToken);
+
+
+          //construct a hash from a source key to the probablity that that word is a target.
+          const sourceTargetConfidence = {};
+
+          suggestions.forEach( suggestion=> {
+            const newConfidence = suggestion.compoundConfidence();
+            //now go searching for the alignments which have the target word.
+            suggestion.predictions.forEach( prediction=> {
+              prediction.alignment.targetNgram.tokens.forEach( targetToken=> {
+                //if the target token is the same as the dragged token
+                if( targetToken.text === token.text && targetToken.occurrence === token.occurrence ) {
+                  //now update the hash for all the target tokens in this alignment.
+                  prediction.alignment.sourceNgram.tokens.forEach( sourceToken => {
+                    const sourceHash = `${sourceToken.text}:${sourceToken.occurrence}:${sourceToken.occurrences}`;
+
+                    //pull the existing probability defaulting to zero if it doesn't exist yet.
+                    const existingConfidence = sourceTargetConfidence[sourceHash] || 0;
+
+                    //update the hash
+                    sourceTargetConfidence[sourceHash] = Math.max(existingConfidence, newConfidence);
+                  });
+                }
+              });
+            });
+          });
+
+
+          //now update the sourceSuggested property of the alignments to match that for the dragged token.
+          newVerseAlignments = verseAlignments_.map( alignment=> {
+            //Map the source tokens into their confidences.
+            //and then take the max of that.
+            const sourceTokenConfidences = alignment.sourceNgram.map( sourceToken=> {
+              const sourceHash = `${sourceToken.text}:${sourceToken.occurrence}:${sourceToken.occurrences}`;
+              return sourceTargetConfidence[sourceHash] || 0;
+            });
+            const maxSourceConfidence = Math.max(...sourceTokenConfidences);
+
+            //now return the alignment with this confidence that it should be the source word.
+            return {
+              ...alignment,
+              sourceSuggested: maxSourceConfidence,
+            }
+          });
+
+      }else{  //this is if there is no suggester or if the word being dragged is not a secondary word.
+        //clear out the suggestions when a source word is being dragged.
+        newVerseAlignments = verseAlignments_.map( alignment=> {
+          return {
+            ...alignment,
+            sourceSuggested: 0,
+          }
+        })
+      }
+
+      //now go ahead and do the set.
+      setVerseAlignments(newVerseAlignments);
+  }
+
   /**
    * on start of token drag, save drag token and drag item type
    * @param {object} token
    */
   function setDragToken(token) {
-   setDragToken_(token)
-   setDragItemType(token.type || types.SECONDARY_WORD)
+    setDragToken_(token)
+    setDragItemType(token.type || types.SECONDARY_WORD)
+
+    //handle this in a callback to not lag the UI.
+    setTimeout(() => {
+      updateSuggestedSourceToken(token);
+    },0);
   }
 
   /**
@@ -499,6 +592,7 @@ const SuggestingWordAligner = ({
     //new set the new list.
     dest.targetNgram = newTargetTokens; //technically mutating the original object
     dest.isSuggestion = false;
+    dest.sourceSuggested = 0;
     const _verseAlignments = updateVerseAlignments(verseAlignments);
     doChangeCallback({
       type: ALIGN_TARGET_WORD,
@@ -547,6 +641,7 @@ const SuggestingWordAligner = ({
         dest = {
           index: newPosition,
           isSuggestion: false,
+          sourceSuggested: 0,
           sourceNgram: [ primaryToken ],
           targetNgram: [],
         }
