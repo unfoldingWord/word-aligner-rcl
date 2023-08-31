@@ -197,6 +197,43 @@ function sortIndexForAlignment(alignment) {
   return -1
 }
 
+
+
+/**
+ * Adds the indexing location into tokens similar to tokenizeWords in Lexer.
+ * https://github.com/unfoldingWord/wordMAP-lexer/blob/develop/src/Lexer.ts#L20
+ * @param {Token[]} inputTokens - an array Wordmap Token objects.
+ * @param sentenceCharLength - the length of the sentence in characters
+ */
+function updateTokenLocations(inputTokens, sentenceCharLength = -1){
+  if (sentenceCharLength === -1) {
+      sentenceCharLength = inputTokens.map( t => t.text ).join(" ").length;
+  }
+
+  //const tokens: {text: string, position: number, characterPosition: number, sentenceTokenLen: number, sentenceCharLen: number, occurrence: number}[] = [];
+  let charPos = 0;
+  let tokenCount = 0;
+  const occurrenceIndex = {};
+  for (const inputToken of inputTokens) {
+      if (!occurrenceIndex[inputToken.text]) {
+          occurrenceIndex[inputToken.text] = 0;
+      }
+      occurrenceIndex[inputToken.text] += 1;
+      inputToken.tokenPos = tokenCount;
+      inputToken.characterPosition = charPos;
+      inputToken.sentenceTokenLen = inputTokens.length;
+      inputToken.sentenceCharLen = sentenceCharLength;
+      inputToken.tokenOccurrence = occurrenceIndex[inputToken.text];
+      tokenCount++;
+      charPos += inputToken.text.length;
+  }
+
+  // Finish adding occurrence information
+  for( const t of inputTokens){
+    t.tokenOccurrences = occurrenceIndex[t.text];
+  }
+}
+
 /**
  * sort comparator function for alignments
  * @param a
@@ -382,6 +419,9 @@ const SuggestingWordAligner = ({
           const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
           const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
           const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
+
+          updateTokenLocations(sourceWordObjects);
+          updateTokenLocations(targetWordObjects);
 
           //remove the token in consideration from the manualAlignments so that it doesn't restrict the suggestions for that word
           //first we will map it to alignments dropping the target word and then we will filter out the alignments which no longer have target words.
@@ -747,6 +787,8 @@ const SuggestingWordAligner = ({
     const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
     const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
     const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
+    updateTokenLocations(sourceWordObjects);
+    updateTokenLocations(targetWordObjects);
 
     //obtain the suggestions
     const predictions = suggester( sourceWordObjects, targetWordObjects, 1, manualAlignmentObjects )[0].predictions;
