@@ -220,7 +220,7 @@ function updateTokenLocations(inputTokens, sentenceCharLength = -1){
       }
       occurrenceIndex[inputToken.text] += 1;
       inputToken.tokenPos = tokenCount;
-      inputToken.characterPosition = charPos;
+      inputToken.charPos = charPos;
       inputToken.sentenceTokenLen = inputTokens.length;
       inputToken.sentenceCharLen = sentenceCharLength;
       inputToken.tokenOccurrence = occurrenceIndex[inputToken.text];
