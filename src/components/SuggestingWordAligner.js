@@ -441,7 +441,7 @@ const SuggestingWordAligner = ({
           const suggestions = suggester(sourceWordObjects, targetWordObjects, numberOfSuggestions, manualAlignmentObjectsWithoutToken);
 
 
-          //construct a hash from a source key to the probablity that that word is a target.
+          //construct a hash from a source key to the probability that that word is a target.
           const sourceTargetConfidence = {};
 
           suggestions.forEach( suggestion=> {
@@ -915,18 +915,19 @@ const SuggestingWordAligner = ({
         });
         return acc;
       },[])
-      //now reduce these to target words which are not already disabled.
+      //now reduce these to target words which are still disabled in the wordbox.
       .filter( targetToken => {
         const found = findInWordList(targetWords_, targetToken);
-        if( found > 0 && !targetWords_[found].disabled ) return true;
-        return false;
+        if( found < 0 ) return false;
+        if( !targetWords_[found].disabled ) return false;
+        return true;
       });
 
     //if there are any of the target words needing to be disabled
     if( targetTokensNeedingDisabled.length > 0 ) {
       //Then map through creating new word objects which are disabled if they are in the targetTokensNeedingDisabled list.
       const newTargetWords = targetWords_.map( targetWord => {
-        if( findInWordList( targetTokensNeedingDisabled, targetWord ) > 0 ) return { ...targetWord, disabled: false };
+        if( findInWordList( targetTokensNeedingDisabled, targetWord ) >= 0 ) return { ...targetWord, disabled: false };
         return targetWord;
       });
       setTargetWords( newTargetWords );
@@ -937,6 +938,43 @@ const SuggestingWordAligner = ({
     const clearedAlignments = verseAlignments_.map( alignment => {
       if( alignment.isSuggestion ) return {...alignment, isSuggestion: false, targetNgram: []};
       return alignment;
+    });
+    setVerseAlignments(updateVerseAlignments( clearedAlignments ));
+  }
+
+  const handleClearAlignments = () => {
+    console.log( "handleClearAlignments" );
+    //Make sure all words which were dropped are not disabled in the word list.
+    const targetTokensNeedingDisabled = verseAlignments_
+      //Now reduce to target words.
+      .reduce( (acc, alignment) => {
+        alignment.targetNgram.forEach( targetToken => {
+          acc.push( targetToken );
+        });
+        return acc;
+      },[])
+      //now reduce these to target words which are still disabled in the wordbox.
+      .filter( targetToken => {
+        const found = findInWordList(targetWords_, targetToken);
+        if( found < 0 ) return false;
+        if( !targetWords_[found].disabled ) return false;
+        return true;
+      });
+
+    //if there are any of the target words needing to be disabled
+    if( targetTokensNeedingDisabled.length > 0 ) {
+      //Then map through creating new word objects which are disabled if they are in the targetTokensNeedingDisabled list.
+      const newTargetWords = targetWords_.map( targetWord => {
+        if( findInWordList( targetTokensNeedingDisabled, targetWord ) >= 0 ) return { ...targetWord, disabled: false };
+        return targetWord;
+      });
+      setTargetWords( newTargetWords );
+    }
+
+
+    //Drop all target tokens from verseAlignments
+    const clearedAlignments = verseAlignments_.map( alignment => {
+      return {...alignment, isSuggestion: false, targetNgram: []};
     });
     setVerseAlignments(updateVerseAlignments( clearedAlignments ));
   }
@@ -1010,6 +1048,7 @@ const SuggestingWordAligner = ({
           onRefresh={handleRefreshSuggestions}
           onReject={handleRejectSuggestions}
           translate={translate}
+          onClear={handleClearAlignments}
         />
       </div>
     </div>

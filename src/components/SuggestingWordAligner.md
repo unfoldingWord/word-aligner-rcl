@@ -22,6 +22,8 @@ const translate = (key) => {
     "suggestions.accept"             : "Accept",
     "suggestions.reject_suggestions" : "Reject all suggestions.",
     "suggestions.reject"             : "Reject",
+    "alignments.clear_alignments"    : "Clear all alignments.",
+    "alignments.clear"              : "Clear",
   };
   if( !(key in lookup) ){
     console.log(`translate(${key})`)

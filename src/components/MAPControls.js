@@ -81,12 +81,12 @@ const styles = {
   },
   button: {
     marginTop: 7,
-    marginLeft: 12,
+    marginLeft: 5,
     backgroundColor: 'white',
     color: '#19579e',
     marginRight: 5,
     marginBottom: 10,
-    padding: '2px 40px',
+    padding: '2px 25px',
     border: '2px solid #19579e',
 
     transition: 'box-shadow 0.3s', // Add transition for smooth effect
@@ -193,6 +193,7 @@ class MAPControls extends React.Component {
       onReject,
       translate,
       hasSuggestions,
+      onClear,
     } = this.props;
 
     return (
@@ -232,6 +233,15 @@ class MAPControls extends React.Component {
               {translate('suggestions.reject')}
             </SecondaryButton>
           </Tooltip>
+
+          <Tooltip tooltip={translate('alignments.clear_alignments')}>
+            <SecondaryButton style={styles.button}
+              onClick={onClear}
+              disabled={!hasSuggestions}>
+              <MdCancel style={styles.buttonIcon}/>
+              {translate('alignments.clear')}
+            </SecondaryButton>
+          </Tooltip>
         </div>
     );
   }
@@ -244,6 +254,7 @@ MAPControls.propTypes = {
   onAccept: PropTypes.func.isRequired,
   onReject: PropTypes.func.isRequired,
   translate: PropTypes.func.isRequired,
+  onClear: PropTypes.func,
 };
 MAPControls.defaultProps = { hasSuggestions: true };
 export default MAPControls;
