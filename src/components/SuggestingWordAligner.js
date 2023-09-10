@@ -445,7 +445,7 @@ const SuggestingWordAligner = ({
           const sourceTargetConfidence = {};
 
           suggestions.forEach( suggestion=> {
-            const newConfidence = suggestion.compoundConfidence();
+
             //now go searching for the alignments which have the target word.
             suggestion.predictions.forEach( prediction=> {
               prediction.alignment.targetNgram.tokens.forEach( targetToken=> {
@@ -459,7 +459,7 @@ const SuggestingWordAligner = ({
                     const existingConfidence = sourceTargetConfidence[sourceHash] || 0;
 
                     //update the hash
-                    sourceTargetConfidence[sourceHash] = Math.max(existingConfidence, newConfidence);
+                    sourceTargetConfidence[sourceHash] = Math.max(existingConfidence, prediction.getScore( "confidence" ));
                   });
                 }
               });
