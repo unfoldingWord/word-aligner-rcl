@@ -356,6 +356,13 @@ function handleAddedWordsInNewText(targetWordList, wordBankList, verseAlignments
           }
         }
       }
+      // update occurrence count for all wordbank instances of this word
+      for (const wordBank of wordBankList) {
+        var word_ = wordBank.word || wordBank.text;
+        if (word_ === tokenWord) {
+          wordBank.occurrences = occurrences
+        }
+      }
       wordBankList.push(targetToken);
     }
   }
