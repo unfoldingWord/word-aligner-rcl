@@ -450,7 +450,7 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
   handleDeletedWords(verseAlignments, targetTokens, targetWords);
   targetVerseText = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
   if (targetVerseText === null) {
-    console.log(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
+    console.warn(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
     targetVerseText = newTargetVerse;
   }
   const alignedVerseObjects = usfmVerseToJson(targetVerseText)
