@@ -80,6 +80,95 @@ describe('testing alignment updates', () => {
     expect(targetWords.length).toEqual(initialWords.length)
   });
 
+  test('should pass alignment with "zzz" added twice', () => {
+
+    // add first word
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    let newText = initialText + ' zzz';
+    let results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    let expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="1"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    let initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    let { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+    expect(targetWords.length).toEqual(initialWords.length)
+
+    // add second word
+    newText = newText + ' zzz';
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="2"\\w*\n\\w zzz|x-occurrence="2" x-occurrences="2"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+  });
+
+  test('should pass alignment with "zzz" added twice and removed twice', () => {
+
+    // add first word
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    let newText = initialText + ' zzz';
+    let results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    let expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="1"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    let initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    let { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+    expect(targetWords.length).toEqual(initialWords.length)
+
+    // add second word
+    newText = newText + ' zzz';
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="2"\\w*\n\\w zzz|x-occurrence="2" x-occurrences="2"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+
+    // remove second word
+    newText = initialText + ' zzz';
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="1"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+
+    // remove first word
+    newText = initialText;
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    expectedFinalAlign = alignedInitialVerseText;
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+  });
+
+  test('should pass alignment with "I" prefixed twice and removed twice', () => {
+    // this tests adding a word that is already in the target text
+
+    // add first word
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    let newText = 'I ' + initialText;
+    let results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign1 = alignedInitialVerseText.replace(
+        "\\w I|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w am|x-occurrence=\"1\" x-occurrences=\"1\"\\w*",
+        "\\w I|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\\zaln-e\\*\n\\w I|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\n" +
+        "\\zaln-s |x-strong=\"G51030\" x-lemma=\"Τίτος\" x-morph=\"Gr,N,,,,,DMS,\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"Τίτῳ\"\\*\\w am|x-occurrence=\"1\" x-occurrences=\"1\"\\w*")
+    expect(results.targetVerseText).toEqual(expectedFinalAlign1)
+    let initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    let { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+    expect(targetWords.length).toEqual(initialWords.length)
+
+    // add second word
+    newText = 'I ' + newText;
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    const expectedFinalAlign2 = alignedInitialVerseText.replace(
+        "\\w I|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w am|x-occurrence=\"1\" x-occurrences=\"1\"\\w*",
+        "\\w I|x-occurrence=\"1\" x-occurrences=\"3\"\\w*\\zaln-e\\*\n" +
+        "\\w I|x-occurrence=\"2\" x-occurrences=\"3\"\\w*\n" +
+        "\\w I|x-occurrence=\"3\" x-occurrences=\"3\"\\w*\n" +
+        "\\zaln-s |x-strong=\"G51030\" x-lemma=\"Τίτος\" x-morph=\"Gr,N,,,,,DMS,\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"Τίτῳ\"\\*\\w am|x-occurrence=\"1\" x-occurrences=\"1\"\\w*")
+    expect(results.targetVerseText).toEqual(expectedFinalAlign2)
+
+    // remove second word
+    newText = 'I ' + initialText;
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    expect(results.targetVerseText).toEqual(expectedFinalAlign1)
+
+    // remove first word
+    newText = initialText;
+    results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
+    const expectedFinalAlign = alignedInitialVerseText;
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+  });
+
   test('should pass alignment with "to" added', () => {
     const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
     const newText = initialText + ' to';

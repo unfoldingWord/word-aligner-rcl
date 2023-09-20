@@ -356,6 +356,13 @@ function handleAddedWordsInNewText(targetWordList, wordBankList, verseAlignments
           }
         }
       }
+      // update occurrence count for all wordbank instances of this word
+      for (const wordBank of wordBankList) {
+        var word_ = wordBank.word || wordBank.text;
+        if (word_ === tokenWord) {
+          wordBank.occurrences = occurrences
+        }
+      }
       wordBankList.push(targetToken);
     }
   }
@@ -399,15 +406,30 @@ function handleDeletedWords(verseAlignments, targetWordList, targetWords) {
 
   // remove extra target words that are not in targetWordList
   for (let i = 0; i < targetWords.length; i++) {
+    let newOccurrences = 0
     const wordBankWord = targetWords[i]
     const found = targetWordList.findIndex(word => {
-      if ((word.text === wordBankWord.text )
-        && (word.occurrence === wordBankWord.occurrence)) {
-        return true
+      if (word.text === wordBankWord.text ) {
+        if (word.occurrence === wordBankWord.occurrence) {
+          return true
+        }
+        newOccurrences = word.occurrences
       }
       return false;
     })
     if (found < 0) {
+      // update occurrences
+      if (newOccurrences) {
+        for (const word of targetWords) {
+          if (word.text === wordBankWord.text) {
+            if (word.occurrences !== newOccurrences) {
+              // fixup counts
+              word.occurrences = newOccurrences
+            }
+          }
+        }
+      }
+      // remove extra word
       targetWords.splice(i, 1)
       i--
     }
@@ -428,7 +450,7 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
   handleDeletedWords(verseAlignments, targetTokens, targetWords);
   targetVerseText = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
   if (targetVerseText === null) {
-    console.log(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
+    console.warn(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
     targetVerseText = newTargetVerse;
   }
   const alignedVerseObjects = usfmVerseToJson(targetVerseText)
