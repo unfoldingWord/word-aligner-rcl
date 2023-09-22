@@ -1,7 +1,7 @@
 
 # suggesting-word-aligner-rcl
 
-This is a fork of word-aligner-rcl.  word-aligner-rcl is a react component which allows a translator to connect source and target words in a translation and thus map out an alignment.  
+This is a fork of [word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl is a react component which allows a translator to connect source and target words in a translation and thus map out an alignment.  
 
 This fork adds the addition of connecting an AI suggester for creating word alignments.
 
