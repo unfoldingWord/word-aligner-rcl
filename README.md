@@ -5,4 +5,4 @@ This is a fork of word-aligner-rcl.  word-aligner-rcl is a react component which
 
 This fork adds the addition of connecting an AI suggester for creating word alignments.
 
-The demonstration app for this is [alignment-transferer](https://alignment-transferer.netlify.app/).  
+The demonstration app for this is [Alignment Transferer](https://github.com/JEdward7777/alignment-transferer) which has a [Netlify demo.](https://alignment-transferer.netlify.app/).  
