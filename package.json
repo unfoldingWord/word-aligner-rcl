@@ -1,9 +1,9 @@
 {
-  "name": "word-aligner-rcl",
-  "version": "1.0.3-beta",
+  "name": "suggesting-word-aligner-rcl",
+  "version": "1.0.2",
   "main": "dist",
   "source": "dist/index.js",
-  "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",
+  "repository": "https://github.com/JEdward7777/word-aligner-rcl/tree/suggesting-word-aligner",
   "author": "",
   "license": "MIT",
   "scripts": {

@@ -6,3 +6,16 @@ This is a fork of [word-aligner-rcl](https://github.com/unfoldingWord/word-align
 This fork adds the addition of connecting an AI suggester for creating word alignments.
 
 The demonstration app for this is [Alignment Transferer](https://github.com/JEdward7777/alignment-transferer) which has a [Netlify demo.](https://alignment-transferer.netlify.app/).  
+
+
+## Installation
+
+### npm
+```bash
+yarn add suggesting-word-aligner-rcl
+```
+
+### yarn
+```bash
+yarn add suggesting-word-aligner-rcl
+```
