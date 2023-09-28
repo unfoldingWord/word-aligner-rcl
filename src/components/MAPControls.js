@@ -236,8 +236,7 @@ class MAPControls extends React.Component {
 
           <Tooltip tooltip={translate('alignments.clear_alignments')}>
             <SecondaryButton style={styles.button}
-              onClick={onClear}
-              disabled={!hasSuggestions}>
+              onClick={onClear}>
               <MdCancel style={styles.buttonIcon}/>
               {translate('alignments.clear')}
             </SecondaryButton>
