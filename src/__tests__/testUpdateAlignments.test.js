@@ -3,7 +3,7 @@ import _ from 'lodash';
 // import {describe, expect, test} from '@jest/globals'
 
 import {parseUsfmToWordAlignerData, updateAlignmentsToTargetVerse} from "../utils/alignmentHelpers";
-import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
+import {getParsedUSFM, removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
 
 const initialText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
@@ -258,3 +258,78 @@ describe('testing alignment updates', () => {
   });
 });
 
+const psa_73_5_newVerseText = 'They do not experience the difficult things that other people do;\n' +
+  '\\q2 they do not experience catastrophes and sicknesses like other people.\n' +
+  '\n' +
+  '\\ts\\*\n' +
+  '\\q1 ';
+const psa_73_5_alignedInitialVerseText = '\\zaln-s |x-strong="H0369" x-lemma="אַיִן" x-morph="He,Tn:Sp3mp" x-occurrence="1" x-occurrences="1" x-content="אֵינֵ֑⁠מוֹ"\\*\\w They|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w do|x-occurrence="1" x-occurrences="3"\\w*\n' +
+  '\\w not|x-occurrence="1" x-occurrences="2"\\w*\n' +
+  '\\w have|x-occurrence="1" x-occurrences="3"\\w*\\zaln-e\\*\n' +
+  '\\zaln-s |x-strong="b:H5999" x-lemma="עָמָל" x-morph="He,R:Ncbsc" x-occurrence="1" x-occurrences="1" x-content="בַּ⁠עֲמַ֣ל"\\*\\w the|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w troubles|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\n' +
+  '\\zaln-s |x-strong="c:H5973a" x-lemma="עִם" x-morph="He,C:R" x-occurrence="1" x-occurrences="1" x-content="וְ⁠עִם"\\*\\w that|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\n' +
+  '\\zaln-s |x-strong="H0582" x-lemma="אֱנוֹשׁ" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אֱנ֣וֹשׁ"\\*\\w other|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\n' +
+  '\\zaln-s |x-strong="H0120" x-lemma="אָדָם" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אָ֝דָ֗ם"\\*\\w people|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w have|x-occurrence="2" x-occurrences="3"\\w*\\zaln-e\\*;\n' +
+  '\\q2 \\zaln-s |x-strong="H3808" x-lemma="לֹא" x-morph="He,Tn" x-occurrence="1" x-occurrences="1" x-content="לֹ֣א"\\*\\w they|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w do|x-occurrence="2" x-occurrences="3"\\w*\n' +
+  '\\w not|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*\n' +
+  '\\zaln-s |x-strong="H5060" x-lemma="נָגַע" x-morph="He,VPi3mp" x-occurrence="1" x-occurrences="1" x-content="יְנֻגָּֽעוּ"\\*\\w have|x-occurrence="3" x-occurrences="3"\\w*\n' +
+  '\\w problems|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w as|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w others|x-occurrence="1" x-occurrences="1"\\w*\n' +
+  '\\w do|x-occurrence="3" x-occurrences="3"\\w*\\zaln-e\\*.\n'
+const psa_73_5_originalVerseText =
+  '\\w בַּ⁠עֲמַ֣ל|lemma="עָמָל" strong="b:H5999" x-morph="He,R:Ncbsc"\\w*\n' +
+  '\\w אֱנ֣וֹשׁ|lemma="אֱנוֹשׁ" strong="H0582" x-morph="He,Ncmsa"\\w*\n' +
+  '\\w אֵינֵ֑⁠מוֹ|lemma="אַיִן" strong="H0369" x-morph="He,Tn:Sp3mp"\\w*\n' +
+  '\\w וְ⁠עִם|lemma="עִם" strong="c:H5973a" x-morph="He,C:R"\\w*־\\w אָ֝דָ֗ם|lemma="אָדָם" strong="H0120" x-morph="He,Ncmsa"\\w*\n' +
+  '\\w לֹ֣א|lemma="לֹא" strong="H3808" x-morph="He,Tn"\\w*\n' +
+  '\\w יְנֻגָּֽעוּ|lemma="נָגַע" strong="H5060" x-morph="He,VPi3mp"\\w*׃\n';
+
+describe('testing alignment updates with original language', () => {
+  test('should pass alignment with major edit', () => {
+    const initialVerseObjects = usfmVerseToJson(psa_73_5_alignedInitialVerseText);
+    const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+    const newText = psa_73_5_newVerseText;
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = psa_73_5_alignedInitialVerseText;
+    expect(results).toMatchSnapshot()
+    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+    expect(targetWords.length).toEqual(initialWords.length)
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
+    expect(finalOriginalWords).toEqual(expectedOriginalWords)
+  });
+});
+
+//////////////////////////////
+// Support functions
+//////////////////////////////
+
+function getWordCountFromVerseObjects(verseObjects) {
+  let count = 0
+  for (const vo of verseObjects) {
+    if (vo?.type === 'word') {
+      count++
+    }
+    if (vo?.children) {
+      const _count = getWordCountFromVerseObjects(vo.children)
+      count += _count
+    }
+  }
+  return count
+}
+
+function getWordCountFromAlignments(verseAlignments) {
+  let count = 0
+  for (const alignment of verseAlignments) {
+    if (alignment?.sourceNgram) {
+      count += alignment?.sourceNgram?.length
+    }
+  }
+  return count
+}
