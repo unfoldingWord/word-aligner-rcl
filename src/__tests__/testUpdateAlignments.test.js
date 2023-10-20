@@ -289,13 +289,35 @@ const psa_73_5_originalVerseText =
   '\\w לֹ֣א|lemma="לֹא" strong="H3808" x-morph="He,Tn"\\w*\n' +
   '\\w יְנֻגָּֽעוּ|lemma="נָגַע" strong="H5060" x-morph="He,VPi3mp"\\w*׃\n';
 
+
 describe('testing alignment updates with original language', () => {
   test('should pass alignment with major edit', () => {
     const initialVerseObjects = usfmVerseToJson(psa_73_5_alignedInitialVerseText);
     const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+
+    // apply edited text    const newText = psa_73_5_newVerseText;
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    expect(results).toMatchSnapshot()
+    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+    expect(targetWords.length).toEqual(initialWords.length)
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
+    expect(finalOriginalWords).toEqual(expectedOriginalWords)
+  });
+
+  test('should pass invalid alignment with major edit', () => {
+    var invalidInitialAlignment = psa_73_5_alignedInitialVerseText.replace('x-content="אָ֝דָ֗ם"', 'x-content="אָ֝��ָ֗ם"');
+    expect(invalidInitialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+    const initialVerseObjects = usfmVerseToJson(invalidInitialAlignment);
+    const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+
+    // apply edited text
     const newText = psa_73_5_newVerseText;
     const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
     const expectedFinalAlign = psa_73_5_alignedInitialVerseText;
+    const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
+    expect(invalidCharacterFound).toBeFalsy()
     expect(results).toMatchSnapshot()
     const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
     const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
@@ -307,7 +329,7 @@ describe('testing alignment updates with original language', () => {
 });
 
 //////////////////////////////
-// Support functions
+// Testing Support functions
 //////////////////////////////
 
 function getWordCountFromVerseObjects(verseObjects) {
