@@ -1,5 +1,12 @@
 import { normalizer } from 'string-punctuation-tokenizer';
 import { referenceHelpers } from 'bible-reference-range';
+import {convertVerseDataToUSFM, getUsfmForVerseContent} from "./UsfmFileConversionHelpers";
+import {
+  addAlignmentsToVerseUSFM,
+  extractAlignmentsFromTargetVerse,
+  parseUsfmToWordAlignerData,
+} from "./alignmentHelpers";
+import {usfmVerseToJson} from "./usfmHelpers";
 
 const ignoreFields = [ 'tag', 'type', 'text' ];
 const ignoreOrig = [ 'tw' ];
@@ -220,13 +227,75 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
 }
 
 /**
- * remove aligned words no longer in original language
- * @param {array} alignmentsChapter
- * @param {string|number} verseRef
- * @return {object} true if extra word found
+ * remove aligned words no longer in original language and update word bank to enable target words not used
+ * @param {array} alignments * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
+ * @param {array} wordBank
  */
-function removeExtraWordsFromAlignments(alignmentsChapter, verseRef) {
-  const alignments = alignmentsChapter?.[verseRef]?.alignments || [];
+export function updateAlignmentData(alignments, wordBank) {
+  const toRemove = [];
+  let extraWordFound = false;
+
+  for (let j = 0, l = alignments.length; j < l; j++) {
+    const alignment = alignments[j];
+    let sourceNgram = alignment.sourceNgram;
+
+    for (let i = 0; i < sourceNgram.length; i++) {
+      const topWord = sourceNgram[i];
+
+      if (topWord.unmatched || !alignment.targetNgram.length) { // remove extra word or unaligned word
+        sourceNgram.splice(i, 1);
+        i--;
+
+        if (topWord.unmatched) {
+          extraWordFound = true;
+        }
+      }
+    }
+
+    if (!sourceNgram.length) { // if empty, remove alignment
+          toRemove.push(j);
+      }
+  }
+
+  if (toRemove.length) {
+      for (let j = toRemove.length - 1; j >= 0; j--) { // reverse order so remaining indices not messed up by removals
+          const removeIdx = toRemove[j];
+          alignments.splice(removeIdx, 1);
+      }
+  }
+
+  for (let j = 0, l = alignments.length; j < l; j++) {
+    const alignment = alignments[j];
+    let targetNgram = alignment.targetNgram;
+    for (let i = 0; i < targetNgram.length; i++) {
+      const bottomWord = targetNgram[i];
+
+      const foundtarget = wordBank.find(item => (item.text === bottomWord.text) && (item.occurrence == bottomWord.occurrence));
+
+      if (foundtarget) {
+        foundtarget.used = true;
+      }
+    }
+  }
+
+  wordBank.forEach(item => {
+    const used = item.used;
+    if (!used) {
+      delete item.disabled;
+    }
+    delete item.used
+  })
+
+  const emptyAlignmentsFound = !!toRemove.length;
+  return {extraWordFound, emptyAlignmentsFound};
+}
+
+/**
+ * remove aligned words no longer in original language
+ * @param {array} alignments
+ * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
+ */
+function removeExtraWordsFromAlignments(alignments) {
   const toRemove = [];
   let extraWordFound = false;
 
@@ -259,7 +328,20 @@ function removeExtraWordsFromAlignments(alignmentsChapter, verseRef) {
     }
   }
 
-  return { extraWordFound, emptyAlignmentsFound: !!toRemove.length };
+  const emptyAlignmentsFound = !!toRemove.length;
+  return {extraWordFound, emptyAlignmentsFound};
+}
+
+/**
+ * remove aligned words no longer in original language
+ * @param {array} alignmentsChapter
+ * @param {string|number} verseRef
+ * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
+ */
+function removeExtraWordsFromChapterAlignments(alignmentsChapter, verseRef) {
+  const alignments = alignmentsChapter?.[verseRef]?.alignments || [];
+  let {extraWordFound, emptyAlignmentsFound} = removeExtraWordsFromAlignments(alignments);
+  return { extraWordFound, emptyAlignmentsFound };
 }
 
 /**
@@ -369,7 +451,7 @@ export function updateAlignedWordsFromOriginalForVerse(originalLangChapter, alig
     if (alignmentsChapter?.[verse_]?.alignments) {
       // clear word bank so it will be regenerated
       alignmentsChapter[verse_].wordBank = [];
-      const { extraWordFound, emptyAlignmentsFound } = removeExtraWordsFromAlignments(alignmentsChapter, verse_);
+      const { extraWordFound, emptyAlignmentsFound } = removeExtraWordsFromChapterAlignments(alignmentsChapter, verse_);
       removedExtraWords = increment(removedExtraWords, extraWordFound);
       emptyAlignments = increment(emptyAlignments, emptyAlignmentsFound);
     }
@@ -466,4 +548,30 @@ export function updateAlignedWordAttribFromOriginalForBook(origBook, alignments,
     removedExtraWordsChapters,
     emptyAlignmentsChapters,
   };
+}
+
+/**
+ *
+ * @param targetVerseObjects
+ * @param originalVerseObjects
+ * @return {*}
+ */
+export function migrateTargetFromOriginal(targetVerseObjects, originalVerseObjects) {
+  const originalLangWordList = getOriginalLanguageListForVerseData(originalVerseObjects);
+  const targetVerseText = convertVerseDataToUSFM({ verseObjects: targetVerseObjects})
+  const alignments =  extractAlignmentsFromTargetVerse(targetVerseText, originalVerseObjects)
+  // const alignments = wordaligner.unmerge(targetVerseObjects, originalVerseObjects);
+  const alignmentsWordList = getAlignedWordListFromAlignments(alignments.alignment);
+  if (originalLangWordList?.length && alignmentsWordList?.length) {
+    const changed_ = updateAlignedWordsFromOriginalWordList(originalLangWordList, alignmentsWordList);
+    // let results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const results = parseUsfmToWordAlignerData(targetVerseText, null);
+    const targetWords = results.targetWords
+    const {extraWordFound, emptyAlignmentsFound} = updateAlignmentData(alignments.alignments, targetWords);
+    const bareTargetText = getUsfmForVerseContent({ verseObjects: targetVerseObjects })
+    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, alignments.alignments, bareTargetText)
+    const alignedVerseObjects = usfmVerseToJson(verseUsfm)
+    return alignedVerseObjects
+  }
+  return targetVerseObjects;
 }

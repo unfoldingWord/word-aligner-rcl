@@ -3,8 +3,9 @@ import _ from 'lodash';
 // import {describe, expect, test} from '@jest/globals'
 
 import {parseUsfmToWordAlignerData, updateAlignmentsToTargetVerse} from "../utils/alignmentHelpers";
-import {getParsedUSFM, removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
+import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
+import {migrateTargetFromOriginal} from "../utils/migrateOriginalLanguageHelpers";
 
 const initialText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
 const alignedInitialVerseText = '\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*\n' +
@@ -292,14 +293,30 @@ const psa_73_5_originalVerseText =
 
 describe('testing alignment updates with original language', () => {
   test('should pass alignment with major edit', () => {
+    ////////////
+    // given
+
     const initialVerseObjects = usfmVerseToJson(psa_73_5_alignedInitialVerseText);
     const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+    const newText = psa_73_5_newVerseText;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
 
     // apply edited text    const newText = psa_73_5_newVerseText;
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
     expect(results).toMatchSnapshot()
     const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+    const alignerResults = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+    expect(alignerResults).toMatchSnapshot()
+    const {targetWords, verseAlignments} = alignerResults;
     expect(targetWords.length).toEqual(initialWords.length)
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
     const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
@@ -307,20 +324,35 @@ describe('testing alignment updates with original language', () => {
   });
 
   test('should pass invalid alignment with major edit', () => {
+    ////////////
+    // given
+
     var invalidInitialAlignment = psa_73_5_alignedInitialVerseText.replace('x-content="אָ֝דָ֗ם"', 'x-content="אָ֝��ָ֗ם"');
     expect(invalidInitialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
     const initialVerseObjects = usfmVerseToJson(invalidInitialAlignment);
     const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
 
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
     // apply edited text
     const newText = psa_73_5_newVerseText;
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
     const expectedFinalAlign = psa_73_5_alignedInitialVerseText;
     const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
     expect(invalidCharacterFound).toBeFalsy()
     expect(results).toMatchSnapshot()
     const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+    const alignerResults = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+    expect(alignerResults).toMatchSnapshot()
+    const {targetWords, verseAlignments} = alignerResults;
     expect(targetWords.length).toEqual(initialWords.length)
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
     const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
