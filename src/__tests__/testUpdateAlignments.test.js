@@ -10,6 +10,7 @@ import {
 import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
 import {migrateTargetFromOriginal} from "../utils/migrateOriginalLanguageHelpers";
+import {getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
 
 const initialText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
 const alignedInitialVerseText = '\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*\n' +
@@ -296,7 +297,7 @@ const psa_73_5_originalVerseText =
 
 
 describe('testing alignment updates with original language', () => {
-  test('should pass alignment with major edit', () => {
+  test('should handle alignment with major edit', () => {
 
     ////////////
     // given
@@ -311,6 +312,7 @@ describe('testing alignment updates with original language', () => {
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = false;
 
     ////////////
     // when
@@ -324,10 +326,11 @@ describe('testing alignment updates with original language', () => {
     ////////////
     // then
 
+    validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
   });
 
-  test('should pass invalid alignment with major edit', () => {
+  test('should handle invalid alignment with major edit', () => {
 
     ////////////
     // given
@@ -342,6 +345,7 @@ describe('testing alignment updates with original language', () => {
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = true;
 
     ////////////
     // when
@@ -358,8 +362,89 @@ describe('testing alignment updates with original language', () => {
 
     const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
     expect(invalidCharacterFound).toBeFalsy()
+    validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
   });
+
+  test('should normalize invalid alignment with no edit', () => {
+
+    ////////////
+    // given
+
+    const initialOriginalAlignment = 'x-content="אָ֝דָ֗ם"'
+    const newOriginalAlignment = initialOriginalAlignment.replace('\u05B8\u0597', '\u0597\u05B8')
+    expect(initialOriginalAlignment).not.toEqual(newOriginalAlignment)
+    const initialAlignment = psa_73_5_alignedInitialVerseText.replace(initialOriginalAlignment, newOriginalAlignment);
+    expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+    const expectInitialAlignmentsValid = false
+    const expectFinalAlignmentsValid = true;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const bareTargetText = getUsfmForVerseContent({ verseObjects: initialVerseObjects})
+    const expectMigration = true;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
+    // apply edited text
+    const newText = bareTargetText;
+
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
+    validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+  });
+
+  test('should normalize invalid alignment with major edit', () => {
+
+    ////////////
+    // given
+
+    const initialOriginalAlignment = 'x-content="אָ֝דָ֗ם"'
+    const newOriginalAlignment = initialOriginalAlignment.replace('\u05B8\u0597', '\u0597\u05B8')
+    expect(initialOriginalAlignment).not.toEqual(newOriginalAlignment)
+    const initialAlignment = psa_73_5_alignedInitialVerseText.replace(initialOriginalAlignment, newOriginalAlignment);
+    expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+    const expectInitialAlignmentsValid = false
+    const expectFinalAlignmentsValid = false;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = true;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
+    // apply edited text
+    const newText = psa_73_5_newVerseText;
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
+    const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
+    expect(invalidCharacterFound).toBeFalsy()
+    validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+  });
+
+
 });
 
 //////////////////////////////
@@ -417,4 +502,9 @@ function validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlign
   expect(finalOriginalWords).toEqual(expectedOriginalWords)
   const areAlignmentsComplete = _areAlgnmentsComplete(results.targetVerseText, originalLanguageVerseObjects)
   expect(areAlignmentsComplete).toEqual(expectFinalAlignmentsValid)
+}
+
+function validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration) {
+  const migratedAlignments = JSON.stringify(initialVerseObjects) !== JSON.stringify(targetVerseObjects)
+  expect(migratedAlignments).toEqual(expectMigration)
 }

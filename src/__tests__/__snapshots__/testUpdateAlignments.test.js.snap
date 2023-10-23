@@ -5141,7 +5141,7 @@ exports[`testing alignment updates should pass alignment with half of verse repl
 }
 `;
 
-exports[`testing alignment updates with original language should pass alignment with major edit 1`] = `
+exports[`testing alignment updates with original language should handle alignment with major edit 1`] = `
 {
   "targetVerseObjects": [
     {
@@ -5538,7 +5538,7 @@ exports[`testing alignment updates with original language should pass alignment 
 }
 `;
 
-exports[`testing alignment updates with original language should pass alignment with major edit 2`] = `
+exports[`testing alignment updates with original language should handle alignment with major edit 2`] = `
 {
   "targetWords": [
     {
@@ -5865,7 +5865,7 @@ exports[`testing alignment updates with original language should pass alignment 
 }
 `;
 
-exports[`testing alignment updates with original language should pass invalid alignment with major edit 1`] = `
+exports[`testing alignment updates with original language should handle invalid alignment with major edit 1`] = `
 {
   "targetVerseObjects": [
     {
@@ -6249,7 +6249,7 @@ exports[`testing alignment updates with original language should pass invalid al
 }
 `;
 
-exports[`testing alignment updates with original language should pass invalid alignment with major edit 2`] = `
+exports[`testing alignment updates with original language should handle invalid alignment with major edit 2`] = `
 {
   "targetWords": [
     {
@@ -6560,6 +6560,1400 @@ exports[`testing alignment updates with original language should pass invalid al
       "targetNgram": [
         {
           "index": 12,
+          "occurrence": 3,
+          "occurrences": 3,
+          "text": "do",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`testing alignment updates with original language should normalize invalid alignment with major edit 1`] = `
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "They",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "2",
+          "tag": "w",
+          "text": "not",
+          "type": "word",
+        },
+      ],
+      "content": "אֵינֵ֑⁠מוֹ",
+      "endTag": "zaln-e\\*",
+      "lemma": "אַיִן",
+      "morph": "He,Tn:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0369",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "2",
+      "tag": "w",
+      "text": "experience",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "the",
+          "type": "word",
+        },
+      ],
+      "content": "בַּ⁠עֲמַ֣ל",
+      "endTag": "zaln-e\\*",
+      "lemma": "עָמָל",
+      "morph": "He,R:Ncbsc",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "b:H5999",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "difficult",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "things",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "that",
+          "type": "word",
+        },
+      ],
+      "content": "וְ⁠עִם",
+      "endTag": "zaln-e\\*",
+      "lemma": "עִם",
+      "morph": "He,C:R",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "c:H5973a",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "2",
+          "tag": "w",
+          "text": "other",
+          "type": "word",
+        },
+      ],
+      "content": "אֱנ֣וֹשׁ",
+      "endTag": "zaln-e\\*",
+      "lemma": "אֱנוֹשׁ",
+      "morph": "He,Ncmsa",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0582",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "2",
+          "tag": "w",
+          "text": "people",
+          "type": "word",
+        },
+      ],
+      "content": "אָ֝דָ֗ם",
+      "endTag": "zaln-e\\*",
+      "lemma": "אָדָם",
+      "morph": "He,Ncmsa",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0120",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "2",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+      ],
+      "content": "לֹ֣א",
+      "endTag": "zaln-e\\*",
+      "lemma": "לֹא",
+      "morph": "He,Tn",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H3808",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": ";
+",
+      "type": "text",
+    },
+    {
+      "nextChar": " ",
+      "tag": "q2",
+      "type": "quote",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "they",
+          "type": "word",
+        },
+      ],
+      "content": "לֹ֣א",
+      "endTag": "zaln-e\\*",
+      "lemma": "לֹא",
+      "morph": "He,Tn",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H3808",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "3",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+      ],
+      "content": "יְנֻגָּֽעוּ",
+      "endTag": "zaln-e\\*",
+      "lemma": "נָגַע",
+      "morph": "He,VPi3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H5060",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "2",
+          "occurrences": "2",
+          "tag": "w",
+          "text": "not",
+          "type": "word",
+        },
+      ],
+      "content": "לֹ֣א",
+      "endTag": "zaln-e\\*",
+      "lemma": "לֹא",
+      "morph": "He,Tn",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H3808",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "2",
+      "occurrences": "2",
+      "tag": "w",
+      "text": "experience",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "catastrophes",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "and",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "sicknesses",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "like",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "2",
+      "occurrences": "2",
+      "tag": "w",
+      "text": "other",
+      "type": "word",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "occurrence": "2",
+      "occurrences": "2",
+      "tag": "w",
+      "text": "people",
+      "type": "word",
+    },
+    {
+      "text": ".
+
+",
+      "type": "text",
+    },
+    {
+      "nextChar": "
+",
+      "tag": "ts\\*",
+    },
+    {
+      "tag": "q1",
+      "text": " ",
+      "type": "quote",
+    },
+  ],
+  "targetVerseText": "\\zaln-s |x-strong="H0369" x-lemma="אַיִן" x-morph="He,Tn:Sp3mp" x-occurrence="1" x-occurrences="1" x-content="אֵינֵ֑⁠מוֹ"\\*\\w They|x-occurrence="1" x-occurrences="1"\\w*
+\\w do|x-occurrence="1" x-occurrences="3"\\w*
+\\w not|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\w experience|x-occurrence="1" x-occurrences="2"\\w*
+\\zaln-s |x-strong="b:H5999" x-lemma="עָמָל" x-morph="He,R:Ncbsc" x-occurrence="1" x-occurrences="1" x-content="בַּ⁠עֲמַ֣ל"\\*\\w the|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\w difficult|x-occurrence="1" x-occurrences="1"\\w*
+\\w things|x-occurrence="1" x-occurrences="1"\\w*
+\\zaln-s |x-strong="c:H5973a" x-lemma="עִם" x-morph="He,C:R" x-occurrence="1" x-occurrences="1" x-content="וְ⁠עִם"\\*\\w that|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H0582" x-lemma="אֱנוֹשׁ" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אֱנ֣וֹשׁ"\\*\\w other|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H0120" x-lemma="אָדָם" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אָ֝דָ֗ם"\\*\\w people|x-occurrence="1" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H3808" x-lemma="לֹא" x-morph="He,Tn" x-occurrence="1" x-occurrences="1" x-content="לֹ֣א"\\*\\w do|x-occurrence="2" x-occurrences="3"\\w*\\zaln-e\\*;
+\\q2 \\zaln-s |x-strong="H3808" x-lemma="לֹא" x-morph="He,Tn" x-occurrence="1" x-occurrences="1" x-content="לֹ֣א"\\*\\w they|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H5060" x-lemma="נָגַע" x-morph="He,VPi3mp" x-occurrence="1" x-occurrences="1" x-content="יְנֻגָּֽעוּ"\\*\\w do|x-occurrence="3" x-occurrences="3"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H3808" x-lemma="לֹא" x-morph="He,Tn" x-occurrence="1" x-occurrences="1" x-content="לֹ֣א"\\*\\w not|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\w experience|x-occurrence="2" x-occurrences="2"\\w*
+\\w catastrophes|x-occurrence="1" x-occurrences="1"\\w*
+\\w and|x-occurrence="1" x-occurrences="1"\\w*
+\\w sicknesses|x-occurrence="1" x-occurrences="1"\\w*
+\\w like|x-occurrence="1" x-occurrences="1"\\w*
+\\w other|x-occurrence="2" x-occurrences="2"\\w*
+\\w people|x-occurrence="2" x-occurrences="2"\\w*.
+
+\\ts\\*
+\\q1  ",
+}
+`;
+
+exports[`testing alignment updates with original language should normalize invalid alignment with major edit 2`] = `
+{
+  "targetWords": [
+    {
+      "disabled": true,
+      "index": 0,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "They",
+    },
+    {
+      "disabled": true,
+      "index": 1,
+      "occurrence": 1,
+      "occurrences": 3,
+      "text": "do",
+    },
+    {
+      "disabled": true,
+      "index": 2,
+      "occurrence": 1,
+      "occurrences": 2,
+      "text": "not",
+    },
+    {
+      "disabled": false,
+      "index": 3,
+      "occurrence": 1,
+      "occurrences": 2,
+      "text": "experience",
+    },
+    {
+      "disabled": true,
+      "index": 4,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "the",
+    },
+    {
+      "disabled": false,
+      "index": 5,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "difficult",
+    },
+    {
+      "disabled": false,
+      "index": 6,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "things",
+    },
+    {
+      "disabled": true,
+      "index": 7,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "that",
+    },
+    {
+      "disabled": true,
+      "index": 8,
+      "occurrence": 1,
+      "occurrences": 2,
+      "text": "other",
+    },
+    {
+      "disabled": true,
+      "index": 9,
+      "occurrence": 1,
+      "occurrences": 2,
+      "text": "people",
+    },
+    {
+      "disabled": true,
+      "index": 10,
+      "occurrence": 2,
+      "occurrences": 3,
+      "text": "do",
+    },
+    {
+      "disabled": true,
+      "index": 11,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "they",
+    },
+    {
+      "disabled": true,
+      "index": 12,
+      "occurrence": 3,
+      "occurrences": 3,
+      "text": "do",
+    },
+    {
+      "disabled": true,
+      "index": 13,
+      "occurrence": 2,
+      "occurrences": 2,
+      "text": "not",
+    },
+    {
+      "disabled": false,
+      "index": 14,
+      "occurrence": 2,
+      "occurrences": 2,
+      "text": "experience",
+    },
+    {
+      "disabled": false,
+      "index": 15,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "catastrophes",
+    },
+    {
+      "disabled": false,
+      "index": 16,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "and",
+    },
+    {
+      "disabled": false,
+      "index": 17,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "sicknesses",
+    },
+    {
+      "disabled": false,
+      "index": 18,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "like",
+    },
+    {
+      "disabled": false,
+      "index": 19,
+      "occurrence": 2,
+      "occurrences": 2,
+      "text": "other",
+    },
+    {
+      "disabled": false,
+      "index": 20,
+      "occurrence": 2,
+      "occurrences": 2,
+      "text": "people",
+    },
+  ],
+  "verseAlignments": [
+    {
+      "sourceNgram": [
+        {
+          "index": 0,
+          "lemma": "עָמָל",
+          "morph": "He,R:Ncbsc",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "b:H5999",
+          "text": "בַּ⁠עֲמַ֣ל",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 4,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "the",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 1,
+          "lemma": "אֱנוֹשׁ",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0582",
+          "text": "אֱנ֣וֹשׁ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 8,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "other",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 2,
+          "lemma": "אַיִן",
+          "morph": "He,Tn:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0369",
+          "text": "אֵינֵ֑⁠מוֹ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 0,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "They",
+        },
+        {
+          "index": 1,
+          "occurrence": 1,
+          "occurrences": 3,
+          "text": "do",
+        },
+        {
+          "index": 2,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "not",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 3,
+          "lemma": "עִם",
+          "morph": "He,C:R",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "c:H5973a",
+          "text": "וְ⁠עִם",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 7,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "that",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 4,
+          "lemma": "אָדָם",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0120",
+          "text": "אָ֝דָ֗ם",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 9,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "people",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 5,
+          "lemma": "לֹא",
+          "morph": "He,Tn",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H3808",
+          "text": "לֹ֣א",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 10,
+          "occurrence": 2,
+          "occurrences": 3,
+          "text": "do",
+        },
+        {
+          "index": 11,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "they",
+        },
+        {
+          "index": 13,
+          "occurrence": 2,
+          "occurrences": 2,
+          "text": "not",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 6,
+          "lemma": "נָגַע",
+          "morph": "He,VPi3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H5060",
+          "text": "יְנֻגָּֽעוּ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 12,
+          "occurrence": 3,
+          "occurrences": 3,
+          "text": "do",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`testing alignment updates with original language should normalize invalid alignment with no edit 1`] = `
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "They",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "2",
+          "tag": "w",
+          "text": "not",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "have",
+          "type": "word",
+        },
+      ],
+      "content": "אֵינֵ֑⁠מוֹ",
+      "endTag": "zaln-e\\*",
+      "lemma": "אַיִן",
+      "morph": "He,Tn:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0369",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "the",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "troubles",
+          "type": "word",
+        },
+      ],
+      "content": "בַּ⁠עֲמַ֣ל",
+      "endTag": "zaln-e\\*",
+      "lemma": "עָמָל",
+      "morph": "He,R:Ncbsc",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "b:H5999",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "that",
+          "type": "word",
+        },
+      ],
+      "content": "וְ⁠עִם",
+      "endTag": "zaln-e\\*",
+      "lemma": "עִם",
+      "morph": "He,C:R",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "c:H5973a",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "other",
+          "type": "word",
+        },
+      ],
+      "content": "אֱנ֣וֹשׁ",
+      "endTag": "zaln-e\\*",
+      "lemma": "אֱנוֹשׁ",
+      "morph": "He,Ncmsa",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0582",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "people",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "2",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "have",
+          "type": "word",
+        },
+      ],
+      "content": "אָ֝דָ֗ם",
+      "endTag": "zaln-e\\*",
+      "lemma": "אָדָם",
+      "morph": "He,Ncmsa",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0120",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": ";
+",
+      "type": "text",
+    },
+    {
+      "nextChar": " ",
+      "tag": "q2",
+      "type": "quote",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "they",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "2",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "2",
+          "occurrences": "2",
+          "tag": "w",
+          "text": "not",
+          "type": "word",
+        },
+      ],
+      "content": "לֹ֣א",
+      "endTag": "zaln-e\\*",
+      "lemma": "לֹא",
+      "morph": "He,Tn",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H3808",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": " ",
+      "type": "text",
+    },
+    {
+      "children": [
+        {
+          "occurrence": "3",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "have",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "problems",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "as",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "others",
+          "type": "word",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "occurrence": "3",
+          "occurrences": "3",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+      ],
+      "content": "יְנֻגָּֽעוּ",
+      "endTag": "zaln-e\\*",
+      "lemma": "נָגַע",
+      "morph": "He,VPi3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H5060",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+    {
+      "text": ".
+",
+      "type": "text",
+    },
+  ],
+  "targetVerseText": "\\zaln-s |x-strong="H0369" x-lemma="אַיִן" x-morph="He,Tn:Sp3mp" x-occurrence="1" x-occurrences="1" x-content="אֵינֵ֑⁠מוֹ"\\*\\w They|x-occurrence="1" x-occurrences="1"\\w*
+\\w do|x-occurrence="1" x-occurrences="3"\\w*
+\\w not|x-occurrence="1" x-occurrences="2"\\w*
+\\w have|x-occurrence="1" x-occurrences="3"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="b:H5999" x-lemma="עָמָל" x-morph="He,R:Ncbsc" x-occurrence="1" x-occurrences="1" x-content="בַּ⁠עֲמַ֣ל"\\*\\w the|x-occurrence="1" x-occurrences="1"\\w*
+\\w troubles|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="c:H5973a" x-lemma="עִם" x-morph="He,C:R" x-occurrence="1" x-occurrences="1" x-content="וְ⁠עִם"\\*\\w that|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H0582" x-lemma="אֱנוֹשׁ" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אֱנ֣וֹשׁ"\\*\\w other|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H0120" x-lemma="אָדָם" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אָ֝דָ֗ם"\\*\\w people|x-occurrence="1" x-occurrences="1"\\w*
+\\w have|x-occurrence="2" x-occurrences="3"\\w*\\zaln-e\\*;
+\\q2 \\zaln-s |x-strong="H3808" x-lemma="לֹא" x-morph="He,Tn" x-occurrence="1" x-occurrences="1" x-content="לֹ֣א"\\*\\w they|x-occurrence="1" x-occurrences="1"\\w*
+\\w do|x-occurrence="2" x-occurrences="3"\\w*
+\\w not|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*
+\\zaln-s |x-strong="H5060" x-lemma="נָגַע" x-morph="He,VPi3mp" x-occurrence="1" x-occurrences="1" x-content="יְנֻגָּֽעוּ"\\*\\w have|x-occurrence="3" x-occurrences="3"\\w*
+\\w problems|x-occurrence="1" x-occurrences="1"\\w*
+\\w as|x-occurrence="1" x-occurrences="1"\\w*
+\\w others|x-occurrence="1" x-occurrences="1"\\w*
+\\w do|x-occurrence="3" x-occurrences="3"\\w*\\zaln-e\\*.
+",
+}
+`;
+
+exports[`testing alignment updates with original language should normalize invalid alignment with no edit 2`] = `
+{
+  "targetWords": [
+    {
+      "disabled": true,
+      "index": 0,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "They",
+    },
+    {
+      "disabled": true,
+      "index": 1,
+      "occurrence": 1,
+      "occurrences": 3,
+      "text": "do",
+    },
+    {
+      "disabled": true,
+      "index": 2,
+      "occurrence": 1,
+      "occurrences": 2,
+      "text": "not",
+    },
+    {
+      "disabled": true,
+      "index": 3,
+      "occurrence": 1,
+      "occurrences": 3,
+      "text": "have",
+    },
+    {
+      "disabled": true,
+      "index": 4,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "the",
+    },
+    {
+      "disabled": true,
+      "index": 5,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "troubles",
+    },
+    {
+      "disabled": true,
+      "index": 6,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "that",
+    },
+    {
+      "disabled": true,
+      "index": 7,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "other",
+    },
+    {
+      "disabled": true,
+      "index": 8,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "people",
+    },
+    {
+      "disabled": true,
+      "index": 9,
+      "occurrence": 2,
+      "occurrences": 3,
+      "text": "have",
+    },
+    {
+      "disabled": true,
+      "index": 10,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "they",
+    },
+    {
+      "disabled": true,
+      "index": 11,
+      "occurrence": 2,
+      "occurrences": 3,
+      "text": "do",
+    },
+    {
+      "disabled": true,
+      "index": 12,
+      "occurrence": 2,
+      "occurrences": 2,
+      "text": "not",
+    },
+    {
+      "disabled": true,
+      "index": 13,
+      "occurrence": 3,
+      "occurrences": 3,
+      "text": "have",
+    },
+    {
+      "disabled": true,
+      "index": 14,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "problems",
+    },
+    {
+      "disabled": true,
+      "index": 15,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "as",
+    },
+    {
+      "disabled": true,
+      "index": 16,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "others",
+    },
+    {
+      "disabled": true,
+      "index": 17,
+      "occurrence": 3,
+      "occurrences": 3,
+      "text": "do",
+    },
+  ],
+  "verseAlignments": [
+    {
+      "sourceNgram": [
+        {
+          "index": 0,
+          "lemma": "עָמָל",
+          "morph": "He,R:Ncbsc",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "b:H5999",
+          "text": "בַּ⁠עֲמַ֣ל",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 4,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "the",
+        },
+        {
+          "index": 5,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "troubles",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 1,
+          "lemma": "אֱנוֹשׁ",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0582",
+          "text": "אֱנ֣וֹשׁ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 7,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "other",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 2,
+          "lemma": "אַיִן",
+          "morph": "He,Tn:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0369",
+          "text": "אֵינֵ֑⁠מוֹ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 0,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "They",
+        },
+        {
+          "index": 1,
+          "occurrence": 1,
+          "occurrences": 3,
+          "text": "do",
+        },
+        {
+          "index": 2,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "not",
+        },
+        {
+          "index": 3,
+          "occurrence": 1,
+          "occurrences": 3,
+          "text": "have",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 3,
+          "lemma": "עִם",
+          "morph": "He,C:R",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "c:H5973a",
+          "text": "וְ⁠עִם",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 6,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "that",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 4,
+          "lemma": "אָדָם",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0120",
+          "text": "אָ֝דָ֗ם",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 8,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "people",
+        },
+        {
+          "index": 9,
+          "occurrence": 2,
+          "occurrences": 3,
+          "text": "have",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 5,
+          "lemma": "לֹא",
+          "morph": "He,Tn",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H3808",
+          "text": "לֹ֣א",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 10,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "they",
+        },
+        {
+          "index": 11,
+          "occurrence": 2,
+          "occurrences": 3,
+          "text": "do",
+        },
+        {
+          "index": 12,
+          "occurrence": 2,
+          "occurrences": 2,
+          "text": "not",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 6,
+          "lemma": "נָגַע",
+          "morph": "He,VPi3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H5060",
+          "text": "יְנֻגָּֽעוּ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 13,
+          "occurrence": 3,
+          "occurrences": 3,
+          "text": "have",
+        },
+        {
+          "index": 14,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "problems",
+        },
+        {
+          "index": 15,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "as",
+        },
+        {
+          "index": 16,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "others",
+        },
+        {
+          "index": 17,
           "occurrence": 3,
           "occurrences": 3,
           "text": "do",
