@@ -1,8 +1,12 @@
 /* eslint-env jest */
 import _ from 'lodash';
 // import {describe, expect, test} from '@jest/globals'
-
-import {parseUsfmToWordAlignerData, updateAlignmentsToTargetVerse} from "../utils/alignmentHelpers";
+import {
+  areAlgnmentsComplete,
+  extractAlignmentsFromTargetVerse,
+  parseUsfmToWordAlignerData,
+  updateAlignmentsToTargetVerse
+} from "../utils/alignmentHelpers";
 import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
 import {migrateTargetFromOriginal} from "../utils/migrateOriginalLanguageHelpers";
@@ -293,12 +297,20 @@ const psa_73_5_originalVerseText =
 
 describe('testing alignment updates with original language', () => {
   test('should pass alignment with major edit', () => {
+
     ////////////
     // given
 
-    const initialVerseObjects = usfmVerseToJson(psa_73_5_alignedInitialVerseText);
-    const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+    const initialAlignment = psa_73_5_alignedInitialVerseText
     const newText = psa_73_5_newVerseText;
+    const expectInitialAlignmentsValid = true
+    const expectFinalAlignmentsValid = false;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
 
     ////////////
     // when
@@ -312,25 +324,24 @@ describe('testing alignment updates with original language', () => {
     ////////////
     // then
 
-    expect(results).toMatchSnapshot()
-    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const alignerResults = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
-    expect(alignerResults).toMatchSnapshot()
-    const {targetWords, verseAlignments} = alignerResults;
-    expect(targetWords.length).toEqual(initialWords.length)
-    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
-    const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
-    expect(finalOriginalWords).toEqual(expectedOriginalWords)
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
   });
 
   test('should pass invalid alignment with major edit', () => {
+
     ////////////
     // given
 
-    var invalidInitialAlignment = psa_73_5_alignedInitialVerseText.replace('x-content="אָ֝דָ֗ם"', 'x-content="אָ֝��ָ֗ם"');
-    expect(invalidInitialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
-    const initialVerseObjects = usfmVerseToJson(invalidInitialAlignment);
-    const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+    const initialAlignment = psa_73_5_alignedInitialVerseText.replace('x-content="אָ֝דָ֗ם"', 'x-content="אָ֝��ָ֗ם"');
+    expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+    const expectInitialAlignmentsValid = false
+    const expectFinalAlignmentsValid = false;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
 
     ////////////
     // when
@@ -345,18 +356,9 @@ describe('testing alignment updates with original language', () => {
     ////////////
     // then
 
-    const expectedFinalAlign = psa_73_5_alignedInitialVerseText;
     const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
     expect(invalidCharacterFound).toBeFalsy()
-    expect(results).toMatchSnapshot()
-    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const alignerResults = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
-    expect(alignerResults).toMatchSnapshot()
-    const {targetWords, verseAlignments} = alignerResults;
-    expect(targetWords.length).toEqual(initialWords.length)
-    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
-    const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
-    expect(finalOriginalWords).toEqual(expectedOriginalWords)
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
   });
 });
 
@@ -386,4 +388,33 @@ function getWordCountFromAlignments(verseAlignments) {
     }
   }
   return count
+}
+
+function _areAlgnmentsComplete(targetVerseUSFM, originalVerseObjects) {
+  const {
+    alignments,
+    wordBank
+  } = extractAlignmentsFromTargetVerse(targetVerseUSFM, originalVerseObjects)
+  return areAlgnmentsComplete(wordBank, alignments)
+}
+
+function getVerseObjectsFromUsfms(initialAlignment) {
+  const initialVerseObjects = usfmVerseToJson(initialAlignment);
+  const originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText);
+  const areInitialAlignmentsComplete = _areAlgnmentsComplete(initialAlignment, originalLanguageVerseObjects)
+  return {initialVerseObjects, originalLanguageVerseObjects, areInitialAlignmentsComplete};
+}
+
+function validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects) {
+  expect(areInitialAlignmentsComplete).toEqual(expectInitialAlignmentsValid)
+  expect(results).toMatchSnapshot()
+  const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+  const alignerResults = parseUsfmToWordAlignerData(results.targetVerseText, psa_73_5_originalVerseText);
+  expect(alignerResults).toMatchSnapshot()
+  const {targetWords, verseAlignments} = alignerResults;
+  expect(targetWords.length).toEqual(initialWords.length)
+  const finalOriginalWords = getWordCountFromAlignments(verseAlignments)
+  expect(finalOriginalWords).toEqual(expectedOriginalWords)
+  const areAlignmentsComplete = _areAlgnmentsComplete(results.targetVerseText, originalLanguageVerseObjects)
+  expect(areAlignmentsComplete).toEqual(expectFinalAlignmentsValid)
 }
