@@ -551,12 +551,12 @@ export function updateAlignedWordAttribFromOriginalForBook(origBook, alignments,
 }
 
 /**
- *
- * @param targetVerseObjects
- * @param originalVerseObjects
- * @return {*}
+ * check if original words in target alignment have changed, if so make an effort to update alignments based on normalized text.  Otherwise remove any original words from alignments that are not found in the original verse objects.
+ * @param {Object[]} targetVerseObjects
+ * @param {Object[]} originalVerseObjects
+ * @return {Object[]}} migrated targetVerseObjects
  */
-export function migrateTargetFromOriginal(targetVerseObjects, originalVerseObjects) {
+export function migrateTargetAlignmentsToOriginal(targetVerseObjects, originalVerseObjects) {
   const originalLangWordList = getOriginalLanguageListForVerseData(originalVerseObjects);
   const targetVerseText = convertVerseDataToUSFM({ verseObjects: targetVerseObjects})
   const alignments =  extractAlignmentsFromTargetVerse(targetVerseText, originalVerseObjects)

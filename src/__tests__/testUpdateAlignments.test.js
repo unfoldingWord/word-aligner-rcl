@@ -9,7 +9,7 @@ import {
 } from "../utils/alignmentHelpers";
 import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
-import {migrateTargetFromOriginal} from "../utils/migrateOriginalLanguageHelpers";
+import {migrateTargetAlignmentsToOriginal} from "../utils/migrateOriginalLanguageHelpers";
 import {getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
 
 const initialText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
@@ -318,7 +318,7 @@ describe('testing alignment updates with original language', () => {
     // when
 
     // migrate the initial alignments to current original source
-    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
 
     // apply edited text    const newText = psa_73_5_newVerseText;
     const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
@@ -337,6 +337,9 @@ describe('testing alignment updates with original language', () => {
 
     const initialAlignment = psa_73_5_alignedInitialVerseText.replace('x-content="אָ֝דָ֗ם"', 'x-content="אָ֝��ָ֗ם"');
     expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+    const _invalidCharacterFound = initialAlignment.indexOf('�') >= 0; // this should not be found, because word is not in original language
+    expect(_invalidCharacterFound).toBeTruthy()
+
     const expectInitialAlignmentsValid = false
     const expectFinalAlignmentsValid = false;
     const {
@@ -351,7 +354,7 @@ describe('testing alignment updates with original language', () => {
     // when
 
     // migrate the initial alignments to current original source
-    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
 
     // apply edited text
     const newText = psa_73_5_newVerseText;
@@ -360,7 +363,7 @@ describe('testing alignment updates with original language', () => {
     ////////////
     // then
 
-    const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
+    const invalidCharacterFound = results.targetVerseText.indexOf('�') >= 0; // this should not be found, because word is not in original language
     expect(invalidCharacterFound).toBeFalsy()
     validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
@@ -391,7 +394,7 @@ describe('testing alignment updates with original language', () => {
     // when
 
     // migrate the initial alignments to current original source
-    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
 
     // apply edited text
     const newText = bareTargetText;
@@ -429,7 +432,7 @@ describe('testing alignment updates with original language', () => {
     // when
 
     // migrate the initial alignments to current original source
-    const targetVerseObjects = migrateTargetFromOriginal(initialVerseObjects, originalLanguageVerseObjects)
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
 
     // apply edited text
     const newText = psa_73_5_newVerseText;
@@ -438,7 +441,7 @@ describe('testing alignment updates with original language', () => {
     ////////////
     // then
 
-    const invalidCharacterFound = results.targetVerseText.indexOf('ָ֝�') >= 0; // this should not be found, because word is not in original language
+    const invalidCharacterFound = results.targetVerseText.indexOf('�') >= 0; // this should not be found, because word is not in original language
     expect(invalidCharacterFound).toBeFalsy()
     validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
