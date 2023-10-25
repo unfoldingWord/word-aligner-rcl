@@ -413,6 +413,18 @@ const WordAligner = ({
 
       for (const alignment of verseAlignments) {
         alignment.targetNgram = []
+        if (alignment.sourceNgram?.length > 1) { // if there are multiple source words, split them into separate alignments
+          for (let i = 1; i < alignment.sourceNgram?.length; i++) {
+            const sourceNgram = alignment.sourceNgram[i]
+            const newAlignment = {
+              sourceNgram: [sourceNgram],
+              targetNgram: []
+            }
+            verseAlignments.push(newAlignment)
+          }
+
+          alignment.sourceNgram = [alignment.sourceNgram[0]]
+        }
       }
 
       for (const word of words) {
