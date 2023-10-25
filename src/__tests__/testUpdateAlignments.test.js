@@ -369,6 +369,78 @@ describe('testing alignment updates with original language', () => {
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
   });
 
+  test('should handle alignment with major reset', () => {
+
+    ////////////
+    // given
+
+    const initialAlignment = psa_73_5_alignedInitialVerseText
+    const newText = "";
+    const expectInitialAlignmentsValid = true
+    const expectFinalAlignmentsValid = false;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = false;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
+    // apply edited text    const newText = psa_73_5_newVerseText;
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
+    validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+  });
+
+  test('should handle invalid alignment with major reset', () => {
+
+    ////////////
+    // given
+
+    const initialAlignment = psa_73_5_alignedInitialVerseText.replace('x-content="אָ֝דָ֗ם"', 'x-content="אָ֝��ָ֗ם"');
+    expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+    const _invalidCharacterFound = initialAlignment.indexOf('�') >= 0; // this should not be found, because word is not in original language
+    expect(_invalidCharacterFound).toBeTruthy()
+
+    const expectInitialAlignmentsValid = false
+    const expectFinalAlignmentsValid = false;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = true;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
+    // apply edited text
+    const newText = "";
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
+    const invalidCharacterFound = results.targetVerseText.indexOf('�') >= 0; // this should not be found, because word is not in original language
+    expect(invalidCharacterFound).toBeFalsy()
+    validatMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+  });
+
   test('should normalize invalid alignment with no edit', () => {
 
     ////////////

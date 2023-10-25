@@ -1,6 +1,7 @@
 Word Aligner Example:
 
 ```js
+import React, {useState, useEffect} from 'react';
 import {
   addAlignmentsToVerseUSFM,
   areAlgnmentsComplete,
@@ -27,6 +28,8 @@ const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
 console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
 
 const App = () => {
+  const [resetAlignments, setResetAlignments] = useState(false);
+
   const targetLanguageFont = '';
   const sourceLanguage = NT_ORIG_LANG;
   const lexicons = {};
@@ -61,23 +64,46 @@ const App = () => {
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
   }
 
+  function onReset() {
+    console.log("WordAligner() - reset Alignments")
+    setResetAlignments(true)
+  }
+
+  useEffect(() => {
+    if (resetAlignments) {
+      console.log("WordAligner() - clearing reset Alignments Toggle")
+      setResetAlignments(false)
+    }
+  }, [resetAlignments])
+
   return (
-    <div style={{height: '650px', width: '800px'}}>
-      <WordAligner
-        styles={{ maxHeight: '450px', overflowY: 'auto' }}
-        verseAlignments={verseAlignments}
-        targetWords={targetWords}
-        translate={translate}
-        contextId={contextId}
-        targetLanguageFont={targetLanguageFont}
-        sourceLanguage={sourceLanguage}
-        showPopover={showPopover}
-        lexicons={lexicons}
-        loadLexiconEntry={loadLexiconEntry}
-        onChange={onChange}
-        getLexiconData={getLexiconData_}
-      />
-    </div>
+    <>
+      <div>
+        <button
+          style={{margin: '10px'}}
+          onClick={onReset}
+        >
+          {"Reset Alignments"}
+        </button>
+      </div>
+      <div style={{height: '650px', width: '800px'}}>
+          <WordAligner
+            styles={{ maxHeight: '450px', overflowY: 'auto' }}
+            verseAlignments={verseAlignments}
+            targetWords={targetWords}
+            translate={translate}
+            contextId={contextId}
+            targetLanguageFont={targetLanguageFont}
+            sourceLanguage={sourceLanguage}
+            showPopover={showPopover}
+            lexicons={lexicons}
+            loadLexiconEntry={loadLexiconEntry}
+            onChange={onChange}
+            getLexiconData={getLexiconData_}
+            resetAlignments={resetAlignments}
+          />
+        </div>
+    </>
   );
 };
 

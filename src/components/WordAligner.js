@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
@@ -310,6 +310,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {object|null} lexiconCache - cache for lexicon data
  * @param {LoadLexiconEntryCB} loadLexiconEntry - callback to load lexicon for language and strong number
  * @param {OnChangeCB} onChange - optional callback for whenever alignment changed.  Contains the specific operation performed as well as the latest state of the verse alignments and target words usage
+ * @param {boolean} resetAlignments - optional - if true the alignments will be reset
  * @param {ShowPopOverCB} showPopover - callback function to display a popover
  * @param {string} sourceLanguage - ID of source language
  * @param {string} sourceLanguageFont - font to use for source
@@ -329,6 +330,7 @@ const WordAligner = ({
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
   onChange,
+  resetAlignments,
   showPopover = null,
   sourceLanguage,
   sourceLanguageFont = '',
@@ -354,6 +356,13 @@ const WordAligner = ({
   const setToolSettings = () => {
     console.log('setToolSettings')
   };
+
+  useEffect(() => { // detect reset of alignments command
+    if (resetAlignments) {
+      console.log("WordAligner - toggle detected")
+      resetVerseAlignments()
+    }
+  }, [resetAlignments])
 
   /**
    * on start of token drag, save drag token and drag item type
@@ -391,6 +400,28 @@ const WordAligner = ({
     const _verseAlignments = alignmentCleanup(verseAlignments);
     setVerseAlignments(_verseAlignments);
     return _verseAlignments;
+  }
+
+  /**
+   * clear all alignments and move words back to wordbank
+   */
+  function resetVerseAlignments() {
+    console.log('resetVerseAlignments');
+    if (verseAlignments_?.length) {
+      let verseAlignments = [...verseAlignments_];
+      const words = [...targetWords_]
+
+      for (const alignment of verseAlignments) {
+        alignment.targetNgram = []
+      }
+
+      for (const word of words) {
+        word.disabled = false
+      }
+
+      setTargetWords(words);
+      updateVerseAlignments(verseAlignments);
+    }
   }
 
   /**
