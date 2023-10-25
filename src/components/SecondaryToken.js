@@ -49,6 +49,7 @@ class SecondaryToken extends React.Component {
     const {
       token, onClick,
     } = this.props;
+    const shiftClick = e.shiftKey;
 
     if (!token.disabled && onClick) {
       const buttonDiv = e.currentTarget.getElementsByTagName('DIV')[0].getElementsByTagName('DIV')[0];
@@ -58,7 +59,7 @@ class SecondaryToken extends React.Component {
           buttonDiv.style.cursor = 'pointer';
         }
       }, 1000);
-      onClick(token);
+      onClick(token, shiftClick);
     }
   }
 

@@ -147,30 +147,59 @@ class DroppableWordList extends React.Component {
 
   /**
    * maintains the list of selected words
-   * @param token
+   * @param {object} token - token clicked
+   * @param {boolean} selectToCurrentToken - if true then select all the words from first selection up through selected token
    */
-  handleWordSelection(token) {
+  handleWordSelection(token, selectToCurrentToken) {
     const { selectedWordPositions, selectedWords } = this.state;
-    let positions = [...selectedWordPositions];
-    let words = [...selectedWords];
+    let _selectedPositions = [...selectedWordPositions];
+    let _selectedWords = [...selectedWords];
     token = {
       ...token,
       type: null,
     }
 
-    const index = positions.indexOf(token.index);
+    const index = _selectedPositions.indexOf(token.index);
 
     if (index === -1) {
-      positions.push(token.index);
-      words.push(token);
+      _selectedPositions.push(token.index);
+      _selectedWords.push(token);
+
+      // if we are to select words between also
+      if (selectToCurrentToken && _selectedPositions?.length) {
+        var tIndex = token.index;
+        let firstSelection = tIndex
+        const _positions = _selectedPositions.toSorted();
+
+        // find first selection
+        for (const index of _positions) {
+          if (index < firstSelection) {
+            firstSelection = index
+            break
+          }
+        }
+
+        if (firstSelection < tIndex && this.props.words?.length) { // if there was a first selection, then select from that item up to token
+          for (const word of this.props.words) { // search through the word list
+            const index = word.index
+            if ( index > firstSelection && index < tIndex ) {
+              const pos = _selectedPositions.indexOf(index);
+              if (pos < 0) {
+                _selectedPositions.push(index);
+                _selectedWords.push(word);
+              }
+            }
+          }
+        }
+      }
     } else {
-      positions.splice(index, 1);
-      words.splice(index, 1);
+      _selectedPositions.splice(index, 1);
+      _selectedWords.splice(index, 1);
     }
 
     this.setState({
-      selectedWords: words,
-      selectedWordPositions: positions,
+      selectedWords: _selectedWords,
+      selectedWordPositions: _selectedPositions,
     });
   }
 
