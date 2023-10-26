@@ -16,6 +16,7 @@ const CREATE_NEW_ALIGNMENT_CARD=`Alignment Grid - new alignment`;
 const UNALIGN_TARGET_WORD = `Unalign Target Word`;
 const ALIGN_TARGET_WORD = `Align Target Word`;
 const ALIGN_SOURCE_WORD = `Align Source Word`;
+const RESET_ALL_ALIGNMENTS = `Reset All Alignments`;
 
 const lexiconCache_ = {};
 const styles = {
@@ -359,8 +360,8 @@ const WordAligner = ({
 
   useEffect(() => { // detect reset of alignments command
     if (resetAlignments) {
-      console.log("WordAligner - toggle detected")
-      resetVerseAlignments()
+      console.log("WordAligner - reset alignments toggle detected")
+      handleResetVerseAlignments()
     }
   }, [resetAlignments])
 
@@ -405,8 +406,8 @@ const WordAligner = ({
   /**
    * clear all alignments and move words back to wordbank
    */
-  function resetVerseAlignments() {
-    console.log('resetVerseAlignments');
+  function handleResetVerseAlignments() {
+    console.log('handleResetVerseAlignments');
     if (verseAlignments_?.length) {
       let verseAlignments = [...verseAlignments_];
       const words = [...targetWords_]
@@ -433,6 +434,10 @@ const WordAligner = ({
 
       setTargetWords(words);
       updateVerseAlignments(verseAlignments);
+
+      doChangeCallback({
+        type: RESET_ALL_ALIGNMENTS,
+      }, verseAlignments, words);
     }
   }
 
@@ -657,6 +662,7 @@ WordAligner.propTypes = {
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
+  resetAlignments: PropTypes.bool,
   showPopover: PropTypes.func.isRequired,
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,

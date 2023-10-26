@@ -5985,6 +5985,297 @@ exports[`testing alignment updates with original language should handle alignmen
 }
 `;
 
+exports[`testing alignment updates with original language should handle alignment with major reset to included word 1`] = `
+{
+  "targetVerseObjects": [
+    {
+      "children": [
+        {
+          "occurrence": "1",
+          "occurrences": "1",
+          "tag": "w",
+          "text": "do",
+          "type": "word",
+        },
+      ],
+      "content": "אֵינֵ֑⁠מוֹ",
+      "endTag": "zaln-e\\*",
+      "lemma": "אַיִן",
+      "morph": "He,Tn:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "strong": "H0369",
+      "tag": "zaln",
+      "type": "milestone",
+    },
+  ],
+  "targetVerseText": "\\zaln-s |x-strong="H0369" x-lemma="אַיִן" x-morph="He,Tn:Sp3mp" x-occurrence="1" x-occurrences="1" x-content="אֵינֵ֑⁠מוֹ"\\*\\w do|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*",
+}
+`;
+
+exports[`testing alignment updates with original language should handle alignment with major reset to included word 2`] = `
+{
+  "targetWords": [
+    {
+      "disabled": true,
+      "index": 0,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "do",
+    },
+  ],
+  "verseAlignments": [
+    {
+      "sourceNgram": [
+        {
+          "index": 0,
+          "lemma": "עָמָל",
+          "morph": "He,R:Ncbsc",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "b:H5999",
+          "text": "בַּ⁠עֲמַ֣ל",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 1,
+          "lemma": "אֱנוֹשׁ",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0582",
+          "text": "אֱנ֣וֹשׁ",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 2,
+          "lemma": "אַיִן",
+          "morph": "He,Tn:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0369",
+          "text": "אֵינֵ֑⁠מוֹ",
+        },
+      ],
+      "targetNgram": [
+        {
+          "index": 0,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "do",
+        },
+      ],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 3,
+          "lemma": "עִם",
+          "morph": "He,C:R",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "c:H5973a",
+          "text": "וְ⁠עִם",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 4,
+          "lemma": "אָדָם",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0120",
+          "text": "אָ֝דָ֗ם",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 5,
+          "lemma": "לֹא",
+          "morph": "He,Tn",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H3808",
+          "text": "לֹ֣א",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 6,
+          "lemma": "נָגַע",
+          "morph": "He,VPi3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H5060",
+          "text": "יְנֻגָּֽעוּ",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+  ],
+}
+`;
+
+exports[`testing alignment updates with original language should handle alignment with major reset to single word 1`] = `
+{
+  "targetVerseObjects": [
+    {
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "text": "stuff",
+      "type": "word",
+    },
+  ],
+  "targetVerseText": "\\w stuff|x-occurrence="1" x-occurrences="1"\\w*",
+}
+`;
+
+exports[`testing alignment updates with original language should handle alignment with major reset to single word 2`] = `
+{
+  "targetWords": [
+    {
+      "disabled": false,
+      "index": 0,
+      "occurrence": 1,
+      "occurrences": 1,
+      "text": "stuff",
+    },
+  ],
+  "verseAlignments": [
+    {
+      "sourceNgram": [
+        {
+          "index": 0,
+          "lemma": "עָמָל",
+          "morph": "He,R:Ncbsc",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "b:H5999",
+          "text": "בַּ⁠עֲמַ֣ל",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 1,
+          "lemma": "אֱנוֹשׁ",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0582",
+          "text": "אֱנ֣וֹשׁ",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 2,
+          "lemma": "אַיִן",
+          "morph": "He,Tn:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0369",
+          "text": "אֵינֵ֑⁠מוֹ",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 3,
+          "lemma": "עִם",
+          "morph": "He,C:R",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "c:H5973a",
+          "text": "וְ⁠עִם",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 4,
+          "lemma": "אָדָם",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H0120",
+          "text": "אָ֝דָ֗ם",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 5,
+          "lemma": "לֹא",
+          "morph": "He,Tn",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H3808",
+          "text": "לֹ֣א",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+    {
+      "sourceNgram": [
+        {
+          "index": 6,
+          "lemma": "נָגַע",
+          "morph": "He,VPi3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H5060",
+          "text": "יְנֻגָּֽעוּ",
+          "unmatched": true,
+        },
+      ],
+      "targetNgram": [],
+    },
+  ],
+}
+`;
+
 exports[`testing alignment updates with original language should handle invalid alignment with major edit 1`] = `
 {
   "targetVerseObjects": [
