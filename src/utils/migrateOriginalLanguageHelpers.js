@@ -173,7 +173,6 @@ function normalizeList(originalWordList, normalOrig) {
     };
     normalOrig.push(origWord_);
   }
-  getOccurrencesForWordList(normalOrig);
 }
 
 /**
@@ -195,11 +194,12 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
     if (!foundOrig) { // fall back to normalized matching
       if (!normalOrig.length) { // if not initialized
         normalizeList(originalLangWordList, normalOrig);
+        getOccurrencesForWordList(normalOrig);
         normalizeList(alignmentsWordList, normalAlign);
       }
 
       const normalWord = normalAlign[i];
-      const foundPos = normalOrig.findIndex(item => (item.word === normalWord.word) && (item.occurrence === normalWord.occurrence) && (item.occurrences === normalWord.occurrences));
+      const foundPos = normalOrig.findIndex(item => (item.word === normalWord.word) && (item.occurrence == normalWord.occurrence) && (item.occurrences == normalWord.occurrences));
 
       if (foundPos >= 0) {
         foundOrig = originalLangWordList[foundPos];

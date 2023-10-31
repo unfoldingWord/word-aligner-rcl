@@ -269,6 +269,8 @@ const psa_73_5_newVerseText = 'They do not experience the difficult things that 
   '\n' +
   '\\ts\\*\n' +
   '\\q1 ';
+const psa_73_5_bareVerseText = 'They do not have the troubles that other people have;\n' +
+'\\q2 they do not have problems as others do.\n';
 const psa_73_5_alignedInitialVerseText = '\\zaln-s |x-strong="H0369" x-lemma="אַיִן" x-morph="He,Tn:Sp3mp" x-occurrence="1" x-occurrences="1" x-content="אֵינֵ֑⁠מוֹ"\\*\\w They|x-occurrence="1" x-occurrences="1"\\w*\n' +
   '\\w do|x-occurrence="1" x-occurrences="3"\\w*\n' +
   '\\w not|x-occurrence="1" x-occurrences="2"\\w*\n' +
@@ -585,7 +587,77 @@ describe('testing alignment updates with original language', () => {
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
   });
 
+  test('should handle alignment with no text change', () => {
 
+    ////////////
+    // given
+
+    const initialAlignment = psa_73_5_alignedInitialVerseText;
+    const expectInitialAlignmentsValid = true
+    const expectFinalAlignmentsValid = true;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = false;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
+    // apply edited text
+    const newText = psa_73_5_bareVerseText;
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
+    const invalidCharacterFound = results.targetVerseText.indexOf('�') >= 0; // this should not be found, because word is not in original language
+    expect(invalidCharacterFound).toBeFalsy()
+    validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+  });
+
+  test('should handle invalid alignment with occurrence change', () => {
+
+    ////////////
+    // given
+
+    const initialAlignment = psa_73_5_alignedInitialVerseText.replace('x-occurrence="1" x-occurrences="1" x-content="אָ֝דָ֗ם"', 'x-occurrence="2" x-occurrences="2" x-content="אָ֝דָ֗ם"');
+    expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
+
+    const expectInitialAlignmentsValid = false
+    const expectFinalAlignmentsValid = false;
+    const {
+      initialVerseObjects,
+      originalLanguageVerseObjects,
+      areInitialAlignmentsComplete
+    } = getVerseObjectsFromUsfms(initialAlignment);
+    const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
+    const expectMigration = true;
+
+    ////////////
+    // when
+
+    // migrate the initial alignments to current original source
+    const targetVerseObjects = migrateTargetAlignmentsToOriginal(initialVerseObjects, originalLanguageVerseObjects)
+
+    // apply edited text
+    const newText = psa_73_5_bareVerseText;
+    const results = updateAlignmentsToTargetVerse(targetVerseObjects, newText)
+
+    ////////////
+    // then
+
+    const invalidCharacterFound = results.targetVerseText.indexOf('�') >= 0; // this should not be found, because word is not in original language
+    expect(invalidCharacterFound).toBeFalsy()
+    validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
+    validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+  });
 });
 
 //////////////////////////////

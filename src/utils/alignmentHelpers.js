@@ -82,19 +82,35 @@ function parseStrToNumber(value) {
 }
 
 /**
+ * convert occurrence(s) in word to numbers
+ * @param {object} item
+ * @returns {object} - new word with occurrence(s) converted to numbers
+ */
+function convertOccurrencesInWord(item) {
+  const occurrence = parseStrToNumber(item.occurrence);
+  const occurrences = parseStrToNumber(item.occurrences);
+  if (
+    (occurrence !== item.occurrence)
+    || (occurrences !== item.occurrences)
+  ) { // if occurrence(s) changed, create new word
+    return {
+      ...item,
+      occurrence,
+      occurrences,
+    }
+  }
+
+  return item;
+}
+
+/**
  * for each item in word list convert occurrence(s) to numbers
  * @param {array} wordlist
  * @returns {array}
  */
 function convertOccurrences(wordlist) {
   const wordlist_ = wordlist.map(item => {
-    const occurrence = parseStrToNumber(item.occurrence);
-    const occurrences = parseStrToNumber(item.occurrences);
-    return {
-      ...item,
-      occurrence,
-      occurrences,
-    }
+    return convertOccurrencesInWord(item);
   })
   return wordlist_;
 }
@@ -141,7 +157,7 @@ export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse
           if (originalLangWordList) {
             const pos = originalLangWordList.findIndex(item => (
               topWord.word === (item.word || item.text) &&
-              topWord.occurrence === item.occurrence
+              topWord.occurrence == item.occurrence
             ));
             const newSource = {
               ...topWord,
