@@ -10,33 +10,38 @@ import {
 import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
 import {migrateTargetAlignmentsToOriginal} from "../utils/migrateOriginalLanguageHelpers";
-import {getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
+import {convertVerseDataToUSFM, getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
 import path from "path-extra";
 import fs from 'fs-extra';
 
 jest.unmock('fs-extra');
 
-const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleUpdatesTests.json');
-const simpleUpdatesTests = {}
+const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleEditsTests.json');
+const migrationUpdatesPath = path.join(__dirname, './fixtures/alignments/migrationEditsTests.json');
+const editsTests = {}
 
-function addSimpleTest(testName, initialAlignedUsfm, initialEditText, newEditText, expectedFinalUsfm) {
-  let test = simpleUpdatesTests[testName]
+function addMigrationTest(testName, initialAlignedUsfm, initialEditText, newEditText, expectedFinalUsfm, originalLanguageUsfm, migrationExpected) {
+  let test = editsTests[testName]
   if (!test) { // if first in a series
     test = {
       initialAlignedUsfm,
       initialEditText,
-      steps: [
-        {newEditText, expectedFinalUsfm}
-      ]
+      originalLanguageUsfm,
+      steps: [ ]
     }
-    simpleUpdatesTests[testName] = test
-  } else {
-   test.steps.push(
-      {newEditText, expectedFinalUsfm}
-    )
+    editsTests[testName] = test
   }
-  const output = JSON.stringify(simpleUpdatesTests, null, 2)
-  fs.writeFileSync(simpleUpdatesPath, output, 'utf8') // update tests fixture
+
+  test.steps.push(
+    {
+      newEditText,
+      expectedFinalUsfm,
+      migrationExpected,
+    }
+  )
+
+  const output = JSON.stringify(editsTests, null, 2)
+  fs.writeFileSync(migrationUpdatesPath, output, 'utf8') // update tests fixture
 }
 
 describe('testing edit of aligned target text', () => {
@@ -114,7 +119,44 @@ const psa_73_5_originalVerseText =
   '\\w וְ⁠עִם|lemma="עִם" strong="c:H5973a" x-morph="He,C:R"\\w*־\\w אָ֝דָ֗ם|lemma="אָדָם" strong="H0120" x-morph="He,Ncmsa"\\w*\n' +
   '\\w לֹ֣א|lemma="לֹא" strong="H3808" x-morph="He,Tn"\\w*\n' +
   '\\w יְנֻגָּֽעוּ|lemma="נָגַע" strong="H5060" x-morph="He,VPi3mp"\\w*׃\n';
+const psa_73_5_originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText)
 
+describe('testing alignment migrations', () => {
+  const tests = fs.readJsonSync(migrationUpdatesPath)
+  const testNames = Object.keys(tests)
+  // console.log(tests)
+  for (const testName of testNames) {
+    const test_ = tests[testName]
+    test(`${testName}`, () => {
+      let {
+        initialAlignedUsfm,
+        originalLanguageUsfm,
+        steps,
+      } = test_
+
+      let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+      const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
+
+      for (const step of steps) {
+
+        ////////////
+        // Given
+
+        const {newEditText, migrationExpected} = step
+
+        ////////////
+        // When
+
+        const targetVerseObjects = migrateTargetAlignmentsToOriginal(currentVerseObjects, originalLanguageVerseObjects)
+
+        ////////////
+        // Then
+
+        validateMigrations(currentVerseObjects, targetVerseObjects, migrationExpected);
+      }
+    })
+  }
+})
 
 describe('testing alignment updates with original language', () => {
   test('should handle alignment with major edit', () => {
@@ -126,9 +168,9 @@ describe('testing alignment updates with original language', () => {
     const newText = psa_73_5_newVerseText;
     const expectInitialAlignmentsValid = true
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -148,7 +190,8 @@ describe('testing alignment updates with original language', () => {
 
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
-  });
+    addMigrationTest('major edit', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
+  })
 
   test('should handle invalid alignment with major edit', () => {
 
@@ -162,9 +205,9 @@ describe('testing alignment updates with original language', () => {
 
     const expectInitialAlignmentsValid = false
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -187,6 +230,7 @@ describe('testing alignment updates with original language', () => {
     expect(invalidCharacterFound).toBeFalsy()
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('invalid alignment with major edit', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should handle alignment with major reset', () => {
@@ -198,9 +242,9 @@ describe('testing alignment updates with original language', () => {
     const newText = "";
     const expectInitialAlignmentsValid = true
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -220,6 +264,7 @@ describe('testing alignment updates with original language', () => {
 
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('major reset', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should handle alignment with major reset to different word', () => {
@@ -231,9 +276,9 @@ describe('testing alignment updates with original language', () => {
     const newText = "stuff";
     const expectInitialAlignmentsValid = true
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -253,6 +298,7 @@ describe('testing alignment updates with original language', () => {
 
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('major reset to different word', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should handle alignment with major reset to included word', () => {
@@ -264,9 +310,9 @@ describe('testing alignment updates with original language', () => {
     const newText = "do";
     const expectInitialAlignmentsValid = true
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -286,6 +332,7 @@ describe('testing alignment updates with original language', () => {
 
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('major reset to included word', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should handle invalid alignment with major reset', () => {
@@ -300,9 +347,9 @@ describe('testing alignment updates with original language', () => {
 
     const expectInitialAlignmentsValid = false
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -325,6 +372,7 @@ describe('testing alignment updates with original language', () => {
     expect(invalidCharacterFound).toBeFalsy()
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('invalid alignment with major reset', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should normalize invalid alignment with no edit', () => {
@@ -339,9 +387,9 @@ describe('testing alignment updates with original language', () => {
     expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
     const expectInitialAlignmentsValid = false
     const expectFinalAlignmentsValid = true;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -364,6 +412,7 @@ describe('testing alignment updates with original language', () => {
 
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('normalize invalid alignment with no edit', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should normalize invalid alignment with major edit', () => {
@@ -378,9 +427,9 @@ describe('testing alignment updates with original language', () => {
     expect(initialAlignment).not.toEqual(psa_73_5_alignedInitialVerseText)
     const expectInitialAlignmentsValid = false
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -403,6 +452,7 @@ describe('testing alignment updates with original language', () => {
     expect(invalidCharacterFound).toBeFalsy()
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('normalize invalid alignment with major edit', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should handle alignment with no text change', () => {
@@ -413,9 +463,9 @@ describe('testing alignment updates with original language', () => {
     const initialAlignment = psa_73_5_alignedInitialVerseText;
     const expectInitialAlignmentsValid = true
     const expectFinalAlignmentsValid = true;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -438,6 +488,7 @@ describe('testing alignment updates with original language', () => {
     expect(invalidCharacterFound).toBeFalsy()
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('no text change', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 
   test('should handle invalid alignment with occurrence change', () => {
@@ -450,9 +501,9 @@ describe('testing alignment updates with original language', () => {
 
     const expectInitialAlignmentsValid = false
     const expectFinalAlignmentsValid = false;
+    const originalLanguageVerseObjects = psa_73_5_originalLanguageVerseObjects;
     const {
       initialVerseObjects,
-      originalLanguageVerseObjects,
       areInitialAlignmentsComplete
     } = getVerseObjectsFromUsfms(initialAlignment);
     const expectedOriginalWords = getWordCountFromVerseObjects(originalLanguageVerseObjects)
@@ -475,6 +526,7 @@ describe('testing alignment updates with original language', () => {
     expect(invalidCharacterFound).toBeFalsy()
     validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration);
     validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlignmentsValid, results, newText, expectedOriginalWords, expectFinalAlignmentsValid, originalLanguageVerseObjects);
+    addMigrationTest('invalid alignment with occurrence change', initialAlignment, removeUsfmMarkers(initialAlignment), newText, results.targetText, psa_73_5_originalVerseText, expectMigration)
   });
 });
 
@@ -535,7 +587,12 @@ function validateFinalAlignment(areInitialAlignmentsComplete, expectInitialAlign
   expect(areAlignmentsComplete).toEqual(expectFinalAlignmentsValid)
 }
 
-function validateMigrations(initialVerseObjects, targetVerseObjects, expectMigration) {
-  const migratedAlignments = JSON.stringify(initialVerseObjects) !== JSON.stringify(targetVerseObjects)
-  expect(migratedAlignments).toEqual(expectMigration)
+function validateMigrations(initialVerseObjects, migratedVerseObjects, expectMigration) {
+  const initialVerseText = convertVerseDataToUSFM({verseObjects: initialVerseObjects})
+  const migratedVerseText = convertVerseDataToUSFM({verseObjects: migratedVerseObjects});
+  if (expectMigration) {
+    expect(migratedVerseText).not.toEqual(initialVerseText)
+  } else {
+    expect(migratedVerseText).toEqual(initialVerseText)
+  }
 }
