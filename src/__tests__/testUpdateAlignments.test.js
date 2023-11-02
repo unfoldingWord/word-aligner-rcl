@@ -11,6 +11,10 @@ import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
 import Lexer from "wordmap-lexer";
 import {migrateTargetAlignmentsToOriginal} from "../utils/migrateOriginalLanguageHelpers";
 import {getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
+import path from "path-extra";
+import fs from 'fs-extra';
+
+jest.unmock('fs-extra');
 
 const initialText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
 const alignedInitialVerseText = '\\zaln-s |x-strong="G51030" x-lemma="Τίτος" x-morph="Gr,N,,,,,DMS," x-occurrence="1" x-occurrences="1" x-content="Τίτῳ"\\*\\w I|x-occurrence="1" x-occurrences="1"\\w*\n' +
@@ -64,7 +68,72 @@ const alignedInitialVerseText = '\\zaln-s |x-strong="G51030" x-lemma="Τίτος
   '\\p\n'
 const initialVerseObjects_ = usfmVerseToJson(alignedInitialVerseText);
 
-describe('testing alignment updates', () => {
+const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleUpdatesTests.json');
+const simpleUpdatesTests = {}
+
+function addSimpleTest(testName, initialAlignedUsfm, initialEditText, newEditText, expectedFinalUsfm) {
+  let test = simpleUpdatesTests[testName]
+  if (!test) { // if first in a series
+    test = {
+      initialAlignedUsfm,
+      initialEditText,
+      steps: [
+        {newEditText, expectedFinalUsfm}
+      ]
+    }
+    simpleUpdatesTests[testName] = test
+  } else {
+   test.steps.push(
+      {newEditText, expectedFinalUsfm}
+    )
+  }
+  const output = JSON.stringify(simpleUpdatesTests, null, 2)
+  fs.writeFileSync(simpleUpdatesPath, output, 'utf8') // update tests fixture
+}
+
+describe('testing edit of aligned target text', () => {
+  const tests = fs.readJsonSync(simpleUpdatesPath)
+  const testNames = Object.keys(tests)
+  // console.log(tests)
+  for (const testName of testNames) {
+    const test_ = tests[testName]
+    test(`${testName}`, () => {
+      let {
+        initialAlignedUsfm,
+        initialEditText,
+        steps,
+      } = test_
+
+      let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+
+      for (const step of steps) {
+        ////////////
+        // Given
+
+        const {newEditText, expectedFinalUsfm} = step
+
+        ////////////
+        // When
+
+        const results = updateAlignmentsToTargetVerse(currentVerseObjects, newEditText)
+
+        ////////////
+        // Then
+
+        expect(results.targetVerseText).toEqual(expectedFinalUsfm)
+
+        const initialWords = Lexer.tokenize(removeUsfmMarkers(newEditText))
+        const { targetWords: targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null)
+        expect(targetWords.length).toEqual(initialWords.length)
+
+        // final conditions of step become initial conditions for next step
+        currentVerseObjects = results.targetVerseObjects
+      }
+    })
+  }
+})
+
+describe.skip('testing alignment updates', () => {
   test('should pass alignment unchanged', () => {
     const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
     const newText = initialText;
@@ -73,6 +142,105 @@ describe('testing alignment updates', () => {
     const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
     const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
     expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('edit text unchanged', alignedInitialVerseText, initialText, newText, alignedInitialVerseText)
+  });
+
+  test('should pass alignment with "to" added', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = initialText + ' to';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    expect(results).toMatchSnapshot()
+    addSimpleTest('"to" added to end', alignedInitialVerseText, initialText, newText, results.targetVerseText)
+  });
+
+  test('should pass alignment with "spirit" changed to "heart"', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful heart.\n\\p\n';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = alignedInitialVerseText;
+    expect(results).toMatchSnapshot()
+    addSimpleTest('"spirit" changed to "heart"', alignedInitialVerseText, initialText, newText, results.targetVerseText)
+  });
+
+  test('should pass alignment with "to" moved', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = 'I am writing to you, Titus; you have become like a real son me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n to';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = alignedInitialVerseText;
+    expect(results).toMatchSnapshot()
+    addSimpleTest('"to" moved', alignedInitialVerseText, initialText, newText, results.targetVerseText)
+  });
+
+  test('should pass alignment with "to" renamed to "too"', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = 'I am writing to you, Titus; you have become like a real son too me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = alignedInitialVerseText;
+    expect(results).toMatchSnapshot()
+    addSimpleTest('"to" renamed to "too"', alignedInitialVerseText, initialText, newText, results.targetVerseText)
+  });
+
+  test('should pass alignment with half of verse deleted', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah.';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = alignedInitialVerseText;
+    expect(results).toMatchSnapshot()
+    addSimpleTest('half of verse deleted', alignedInitialVerseText, initialText, newText, results.targetVerseText)
+  });
+
+  test('should pass alignment with half of verse replaced', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah.  How are you doing man? Wish I could come see you';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = alignedInitialVerseText;
+    expect(results).toMatchSnapshot()
+    addSimpleTest('half of verse replaced', alignedInitialVerseText, initialText, newText, results.targetVerseText)
+  });
+
+  test('should pass alignment with all text removed', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = '';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = '';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+    expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('all text removed', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
+  });
+
+  test('should pass alignment with unaligned initial verse', () => {
+    const initialText = 'unaligned verse';
+    const initialVerseObjects = usfmVerseToJson(initialText);
+    const newText = initialText;
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = '\\w unaligned|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w verse|x-occurrence=\"1\" x-occurrences=\"1\"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+    expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('unaligned initial verse', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
+  });
+
+  test('should pass alignment with unaligned initial verse and changed', () => {
+    const initialVerseObjects = usfmVerseToJson('unaligned verse');
+    const newText = 'furby furry';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const expectedFinalAlign = '\\w furby|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w furry|x-occurrence=\"1\" x-occurrences=\"1\"\\w*';
+    expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
+    const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+    expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('unaligned initial verse and changed', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
+  });
+
+  test('should pass alignment with "\\p" removed', () => {
+    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
+    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\n';
+    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    expect(results).toMatchSnapshot()
+    addSimpleTest('"\\p" removed', alignedInitialVerseText, initialText, newText, results.targetVerseText)
   });
 
   test('should pass alignment with "zzz" added', () => {
@@ -84,6 +252,7 @@ describe('testing alignment updates', () => {
     const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
     const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
     expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('"zzz" added to end', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
   });
 
   test('should pass alignment with "zzz" added twice', () => {
@@ -97,12 +266,14 @@ describe('testing alignment updates', () => {
     let initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
     let { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
     expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('"zzz" added to end twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
 
     // add second word
     newText = newText + ' zzz';
     results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
     expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="2"\\w*\n\\w zzz|x-occurrence="2" x-occurrences="2"\\w*';
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    addSimpleTest('"zzz" added to end twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
   });
 
   test('should pass alignment with "zzz" added twice and removed twice', () => {
@@ -116,24 +287,28 @@ describe('testing alignment updates', () => {
     let initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
     let { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
     expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('"zzz" added to end twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
 
     // add second word
     newText = newText + ' zzz';
     results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
     expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="2"\\w*\n\\w zzz|x-occurrence="2" x-occurrences="2"\\w*';
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    addSimpleTest('"zzz" added to end twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
 
     // remove second word
     newText = initialText + ' zzz';
     results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
     expectedFinalAlign = alignedInitialVerseText + '\n\\w zzz|x-occurrence="1" x-occurrences="1"\\w*';
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    addSimpleTest('"zzz" added to end twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
 
     // remove first word
     newText = initialText;
     results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
     expectedFinalAlign = alignedInitialVerseText;
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    addSimpleTest('"zzz" added to end twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
   });
 
   test('should pass alignment with "I" prefixed twice and removed twice', () => {
@@ -151,6 +326,7 @@ describe('testing alignment updates', () => {
     let initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
     let { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
     expect(targetWords.length).toEqual(initialWords.length)
+    addSimpleTest('"I" prefixed twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign1)
 
     // add second word
     newText = 'I ' + newText;
@@ -162,106 +338,22 @@ describe('testing alignment updates', () => {
         "\\w I|x-occurrence=\"3\" x-occurrences=\"3\"\\w*\n" +
         "\\zaln-s |x-strong=\"G51030\" x-lemma=\"Τίτος\" x-morph=\"Gr,N,,,,,DMS,\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"Τίτῳ\"\\*\\w am|x-occurrence=\"1\" x-occurrences=\"1\"\\w*")
     expect(results.targetVerseText).toEqual(expectedFinalAlign2)
+    addSimpleTest('"I" prefixed twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign2)
 
     // remove second word
     newText = 'I ' + initialText;
     results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
     expect(results.targetVerseText).toEqual(expectedFinalAlign1)
+    addSimpleTest('"I" prefixed twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign1)
 
     // remove first word
     newText = initialText;
     results = updateAlignmentsToTargetVerse(results.targetVerseObjects, newText)
     const expectedFinalAlign = alignedInitialVerseText;
     expect(results.targetVerseText).toEqual(expectedFinalAlign)
+    addSimpleTest('"I" prefixed twice and removed twice', alignedInitialVerseText, initialText, newText, expectedFinalAlign)
   });
 
-  test('should pass alignment with "to" added', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = initialText + ' to';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    expect(results).toMatchSnapshot()
-  });
-
-  test('should pass alignment with "spirit" changed to "heart"', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful heart.\n\\p\n';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = alignedInitialVerseText;
-    expect(results).toMatchSnapshot()
-  });
-
-  test('should pass alignment with "to" moved', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = 'I am writing to you, Titus; you have become like a real son me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n to';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = alignedInitialVerseText;
-    expect(results).toMatchSnapshot()
-  });
-
-  test('should pass alignment with "to" renamed to "too"', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = 'I am writing to you, Titus; you have become like a real son too me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\\p\n';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = alignedInitialVerseText;
-    expect(results).toMatchSnapshot()
-  });
-
-  test('should pass alignment with half of verse deleted', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah.';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = alignedInitialVerseText;
-    expect(results).toMatchSnapshot()
-  });
-
-  test('should pass alignment with half of verse replaced', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah.  How are you doing man? Wish I could come see you';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = alignedInitialVerseText;
-    expect(results).toMatchSnapshot()
-  });
-
-  test('should pass alignment with all text removed', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = '';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = '';
-    expect(results.targetVerseText).toEqual(expectedFinalAlign)
-    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
-    expect(targetWords.length).toEqual(initialWords.length)
-  });
-
-  test('should pass alignment with unaligned initial verse', () => {
-    const initialText = 'unaligned verse';
-    const initialVerseObjects = usfmVerseToJson(initialText);
-    const newText = initialText;
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = '\\w unaligned|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w verse|x-occurrence=\"1\" x-occurrences=\"1\"\\w*';
-    expect(results.targetVerseText).toEqual(expectedFinalAlign)
-    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
-    expect(targetWords.length).toEqual(initialWords.length)
-  });
-
-  test('should pass alignment with unaligned initial verse and changed', () => {
-    const initialVerseObjects = usfmVerseToJson('unaligned verse');
-    const newText = 'furby furry';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    const expectedFinalAlign = '\\w furby|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w furry|x-occurrence=\"1\" x-occurrences=\"1\"\\w*';
-    expect(results.targetVerseText).toEqual(expectedFinalAlign)
-    const initialWords = Lexer.tokenize(removeUsfmMarkers(newText));
-    const { targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null);
-    expect(targetWords.length).toEqual(initialWords.length)
-  });
-
-  test('should pass alignment with "/p" removed', () => {
-    const initialVerseObjects = _.cloneDeep(initialVerseObjects_);
-    const newText = 'I am writing to you, Titus; you have become like a real son to me because we both now believe in Jesus the Messiah. May God the Father and the Messiah Jesus who saves us continue to be kind to you and to give you a peaceful spirit.\n\n';
-    const results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
-    expect(results).toMatchSnapshot()
-  });
 });
 
 const psa_73_5_newVerseText = 'They do not experience the difficult things that other people do;\n' +
