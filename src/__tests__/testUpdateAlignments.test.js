@@ -17,7 +17,8 @@ import fs from 'fs-extra';
 jest.unmock('fs-extra');
 
 const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleEditsTests.json');
-const migrationUpdatesPath = path.join(__dirname, './fixtures/alignments/migrationEditsTests.json');
+const otMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/otMigrationEditsTests.json');
+const ntMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/ntMigrationEditsTests.json');
 const editsTests = {}
 
 function addMigrationTest(testName, initialAlignedUsfm, initialEditText, newEditText, expectedFinalUsfm, originalLanguageUsfm, migrationExpected) {
@@ -41,7 +42,7 @@ function addMigrationTest(testName, initialAlignedUsfm, initialEditText, newEdit
   )
 
   const output = JSON.stringify(editsTests, null, 2)
-  fs.writeFileSync(migrationUpdatesPath, output, 'utf8') // update tests fixture
+  fs.writeFileSync(otMigrationUpdatesPath, output, 'utf8') // update tests fixture
 }
 
 describe('testing edit of aligned target text', () => {
@@ -86,80 +87,106 @@ describe('testing edit of aligned target text', () => {
   }
 })
 
-//
-// const psa_73_5_newVerseText = 'They do not experience the difficult things that other people do;\n' +
-//   '\\q2 they do not experience catastrophes and sicknesses like other people.\n' +
-//   '\n' +
-//   '\\ts\\*\n' +
-//   '\\q1 ';
-// const psa_73_5_bareVerseText = 'They do not have the troubles that other people have;\n' +
-// '\\q2 they do not have problems as others do.\n';
-// const psa_73_5_alignedInitialVerseText = '\\zaln-s |x-strong="H0369" x-lemma="אַיִן" x-morph="He,Tn:Sp3mp" x-occurrence="1" x-occurrences="1" x-content="אֵינֵ֑⁠מוֹ"\\*\\w They|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w do|x-occurrence="1" x-occurrences="3"\\w*\n' +
-//   '\\w not|x-occurrence="1" x-occurrences="2"\\w*\n' +
-//   '\\w have|x-occurrence="1" x-occurrences="3"\\w*\\zaln-e\\*\n' +
-//   '\\zaln-s |x-strong="b:H5999" x-lemma="עָמָל" x-morph="He,R:Ncbsc" x-occurrence="1" x-occurrences="1" x-content="בַּ⁠עֲמַ֣ל"\\*\\w the|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w troubles|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\n' +
-//   '\\zaln-s |x-strong="c:H5973a" x-lemma="עִם" x-morph="He,C:R" x-occurrence="1" x-occurrences="1" x-content="וְ⁠עִם"\\*\\w that|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\n' +
-//   '\\zaln-s |x-strong="H0582" x-lemma="אֱנוֹשׁ" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אֱנ֣וֹשׁ"\\*\\w other|x-occurrence="1" x-occurrences="1"\\w*\\zaln-e\\*\n' +
-//   '\\zaln-s |x-strong="H0120" x-lemma="אָדָם" x-morph="He,Ncmsa" x-occurrence="1" x-occurrences="1" x-content="אָ֝דָ֗ם"\\*\\w people|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w have|x-occurrence="2" x-occurrences="3"\\w*\\zaln-e\\*;\n' +
-//   '\\q2 \\zaln-s |x-strong="H3808" x-lemma="לֹא" x-morph="He,Tn" x-occurrence="1" x-occurrences="1" x-content="לֹ֣א"\\*\\w they|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w do|x-occurrence="2" x-occurrences="3"\\w*\n' +
-//   '\\w not|x-occurrence="2" x-occurrences="2"\\w*\\zaln-e\\*\n' +
-//   '\\zaln-s |x-strong="H5060" x-lemma="נָגַע" x-morph="He,VPi3mp" x-occurrence="1" x-occurrences="1" x-content="יְנֻגָּֽעוּ"\\*\\w have|x-occurrence="3" x-occurrences="3"\\w*\n' +
-//   '\\w problems|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w as|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w others|x-occurrence="1" x-occurrences="1"\\w*\n' +
-//   '\\w do|x-occurrence="3" x-occurrences="3"\\w*\\zaln-e\\*.\n'
-// const psa_73_5_originalVerseText =
-//   '\\w בַּ⁠עֲמַ֣ל|lemma="עָמָל" strong="b:H5999" x-morph="He,R:Ncbsc"\\w*\n' +
-//   '\\w אֱנ֣וֹשׁ|lemma="אֱנוֹשׁ" strong="H0582" x-morph="He,Ncmsa"\\w*\n' +
-//   '\\w אֵינֵ֑⁠מוֹ|lemma="אַיִן" strong="H0369" x-morph="He,Tn:Sp3mp"\\w*\n' +
-//   '\\w וְ⁠עִם|lemma="עִם" strong="c:H5973a" x-morph="He,C:R"\\w*־\\w אָ֝דָ֗ם|lemma="אָדָם" strong="H0120" x-morph="He,Ncmsa"\\w*\n' +
-//   '\\w לֹ֣א|lemma="לֹא" strong="H3808" x-morph="He,Tn"\\w*\n' +
-//   '\\w יְנֻגָּֽעוּ|lemma="נָגַע" strong="H5060" x-morph="He,VPi3mp"\\w*׃\n';
-// const psa_73_5_originalLanguageVerseObjects = usfmVerseToJson(psa_73_5_originalVerseText)
+describe('testing alignment operations', () => {
+  const testaments = [
+    {
+      name: "New Testament",
+      path: ntMigrationUpdatesPath,
+    },
+    {
+      name: "Old Testament",
+      path: otMigrationUpdatesPath,
+    }]
 
-describe('testing alignment migrations', () => {
-  const tests = fs.readJsonSync(migrationUpdatesPath)
-  const testNames = Object.keys(tests)
-  // console.log(tests)
-  for (const testName of testNames) {
-    const test_ = tests[testName]
-    test(`${testName}`, () => {
-      let {
-        initialAlignedUsfm,
-        originalLanguageUsfm,
-        steps,
-      } = test_
+  for (const testament of testaments) {
 
-      let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
-      const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
+    // create a describe block for each testament
+    const {name: testamentName, path: testamentPath} = testament
+    console.log(testamentName)
 
-      for (const step of steps) {
+    describe(`${testamentName} edit tests with original language validation`, () => {
+      const tests = fs.readJsonSync(testamentPath)
+      const testNames = Object.keys(tests)
+      // console.log(tests)
+      for (const testName of testNames) {
+        const test_ = tests[testName]
 
-        ////////////
-        // Given
+        test(`${testName}`, () => {
+          let {
+            initialAlignedUsfm,
+            initialEditText,
+            originalLanguageUsfm,
+            steps,
+          } = test_
 
-        const {newEditText, migrationExpected} = step
+          let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+          const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
 
-        ////////////
-        // When
+          for (const step of steps) {
 
-        const targetVerseObjects = migrateTargetAlignmentsToOriginal(currentVerseObjects, originalLanguageVerseObjects)
+            ////////////
+            // Given
 
-        ////////////
-        // Then
+            const {newEditText, expectedFinalUsfm} = step
 
-        validateMigrations(currentVerseObjects, targetVerseObjects, migrationExpected);
+            ////////////
+            // when
+
+            // apply edited text
+            const results = updateAlignmentsToTargetVerseWithOriginal(currentVerseObjects, newEditText, originalLanguageVerseObjects)
+
+            ////////////
+            // then
+
+            expect(results.targetVerseText).toEqual(expectedFinalUsfm)
+          }
+        })
+      }
+    })
+
+    describe(`${testamentName} migration tests`, () => {
+      const tests = fs.readJsonSync(testamentPath)
+      const testNames = Object.keys(tests)
+
+      // create a test for each item in json file
+      for (const testName of testNames) {
+        const test_ = tests[testName]
+
+        test(`${testName}`, () => {
+          let {
+            initialAlignedUsfm,
+            originalLanguageUsfm,
+            steps,
+          } = test_
+
+          let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+          const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
+
+          for (const step of steps) {
+
+            ////////////
+            // Given
+
+            const {newEditText, migrationExpected} = step
+
+            ////////////
+            // When
+
+            const targetVerseObjects = migrateTargetAlignmentsToOriginal(currentVerseObjects, originalLanguageVerseObjects)
+
+            ////////////
+            // Then
+
+            validateMigrations(currentVerseObjects, targetVerseObjects, migrationExpected);
+          }
+        })
       }
     })
   }
 })
 
 describe('testing edits with original language validation', () => {
-  const tests = fs.readJsonSync(migrationUpdatesPath)
+  const tests = fs.readJsonSync(otMigrationUpdatesPath)
   const testNames = Object.keys(tests)
   // console.log(tests)
   for (const testName of testNames) {
@@ -199,7 +226,7 @@ describe('testing edits with original language validation', () => {
 })
 
 describe('testing edits with original language validation and using manual migration', () => {
-  const tests = fs.readJsonSync(migrationUpdatesPath)
+  const tests = fs.readJsonSync(otMigrationUpdatesPath)
   const testNames = Object.keys(tests)
   // console.log(tests)
   for (const testName of testNames) {
