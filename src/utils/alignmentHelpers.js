@@ -158,7 +158,7 @@ export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse
           if (originalLangWordList) {
             const pos = originalLangWordList.findIndex(item => (
               topWord.word === (item.word || item.text) &&
-              topWord.occurrence == item.occurrence
+              topWord.occurrence == item.occurrence //Tricky: we want to allow automatic conversion between string and integer because occurrence could be either
             ));
             const newSource = {
               ...topWord,

@@ -193,7 +193,7 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
   for (let i = 0, l = alignmentsWordList.length; i < l; i++) {
     const alignedWord = alignmentsWordList[i];
     // eslint-disable-next-line eqeqeq
-    let foundOrig = originalLangWordList.find(item => (item.word === alignedWord.word) && (item.occurrence == alignedWord.occurrence) && (item.occurrences == alignedWord.occurrences));
+    let foundOrig = originalLangWordList.find(item => (item.word === alignedWord.word) && (item.occurrence == alignedWord.occurrence) && (item.occurrences == alignedWord.occurrences)); //Tricky: we want to allow automatic conversion between string and integer because occurrence could be either
 
     if (!foundOrig) { // fall back to normalized matching
       if (!normalOrig.length) { // if not initialized
@@ -203,7 +203,7 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
       }
 
       const normalWord = normalAlign[i];
-      const foundPos = normalOrig.findIndex(item => (item.word === normalWord.word) && (item.occurrence == normalWord.occurrence) && (item.occurrences == normalWord.occurrences));
+      const foundPos = normalOrig.findIndex(item => (item.word === normalWord.word) && (item.occurrence == normalWord.occurrence) && (item.occurrences == normalWord.occurrences)); //Tricky: we want to allow automatic conversion between string and integer because occurrence could be either
 
       if (foundPos >= 0) {
         foundOrig = originalLangWordList[foundPos];

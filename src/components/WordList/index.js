@@ -165,7 +165,7 @@ class DroppableWordList extends React.Component {
       _selectedPositions.push(token.index);
       _selectedWords.push(token);
 
-      // if we are to select words between also
+      // if we are also to select words in-between
       if (selectToCurrentToken && _selectedPositions?.length) {
         var tIndex = token.index;
         let firstSelection = tIndex
