@@ -1,6 +1,10 @@
 import { normalizer } from 'string-punctuation-tokenizer';
 import { referenceHelpers } from 'bible-reference-range';
-import {convertVerseDataToUSFM, getUsfmForVerseContent} from "./UsfmFileConversionHelpers";
+import {
+  convertVerseDataToUSFM,
+  getUsfmForVerseContent,
+  removeMilestonesAndWordMarkers
+} from "./UsfmFileConversionHelpers";
 import {
   addAlignmentsToVerseUSFM,
   extractAlignmentsFromTargetVerse,
@@ -227,7 +231,7 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
 }
 
 /**
- * remove aligned words no longer in original language and update word bank to enable target words not used
+ * remove aligned words no longer in original or target language and update word bank to enable target words not used
  * @param {array} alignments * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
  * @param {array} wordBank
  */
@@ -274,6 +278,8 @@ export function updateAlignmentData(alignments, wordBank) {
 
       if (foundtarget) {
         foundtarget.used = true;
+      } else {
+        targetNgram.splice(i, 1);
       }
     }
   }
@@ -570,8 +576,14 @@ export function migrateTargetAlignmentsToOriginal(targetVerseObjects, originalVe
     const {extraWordFound, emptyAlignmentsFound} = updateAlignmentData(alignments.alignments, targetWords);
     const bareTargetText = getUsfmForVerseContent({ verseObjects: targetVerseObjects })
     const verseUsfm = addAlignmentsToVerseUSFM(targetWords, alignments.alignments, bareTargetText)
-    const alignedVerseObjects = usfmVerseToJson(verseUsfm)
-    return alignedVerseObjects
+    if (verseUsfm) {
+      const alignedVerseObjects = usfmVerseToJson(verseUsfm)
+      return alignedVerseObjects
+    } else {
+      const unalignedVerseObjects = removeMilestonesAndWordMarkers(targetVerseObjects)?.verseObjects || [];
+      console.warn(`migrateTargetAlignmentsToOriginal() - separating alignments failed, removing alignments`)
+      return unalignedVerseObjects
+    }
   }
   return targetVerseObjects;
 }
