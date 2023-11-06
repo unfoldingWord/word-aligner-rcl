@@ -59,6 +59,8 @@ describe('testing edit of aligned target text', () => {
       } = test_
 
       let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+      const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
+      expect(initialEditText).toEqual(expectedInitialEditText)
 
       for (const step of steps) {
         ////////////
@@ -121,7 +123,7 @@ describe('testing alignment operations', () => {
 
           let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
           // make sure initial text matches the expected
-          const expectedInitialEditText = removeUsfmMarkers(initialAlignedUsfm)
+          const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
           expect(initialEditText).toEqual(expectedInitialEditText)
           const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
 
