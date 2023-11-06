@@ -19,31 +19,7 @@ jest.unmock('fs-extra');
 const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleEditsTests.json');
 const otMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/otMigrationEditsTests.json');
 const ntMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/ntMigrationEditsTests.json');
-const editsTests = {}
 
-function addMigrationTest(testName, initialAlignedUsfm, initialEditText, newEditText, expectedFinalUsfm, originalLanguageUsfm, migrationExpected) {
-  let test = editsTests[testName]
-  if (!test) { // if first in a series
-    test = {
-      initialAlignedUsfm,
-      initialEditText,
-      originalLanguageUsfm,
-      steps: [ ]
-    }
-    editsTests[testName] = test
-  }
-
-  test.steps.push(
-    {
-      newEditText,
-      expectedFinalUsfm,
-      migrationExpected,
-    }
-  )
-
-  const output = JSON.stringify(editsTests, null, 2)
-  fs.writeFileSync(otMigrationUpdatesPath, output, 'utf8') // update tests fixture
-}
 
 describe('testing edit of aligned target text', () => {
   const tests = fs.readJsonSync(simpleUpdatesPath)
