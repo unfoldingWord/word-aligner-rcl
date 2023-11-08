@@ -412,9 +412,9 @@ const WordAligner = ({
       let verseAlignments = [...verseAlignments_];
       const words = [...targetWords_]
 
-      for (const alignment of verseAlignments) {
-        alignment.targetNgram = []
-        if (alignment.sourceNgram?.length > 1) { // if there are multiple source words, split them into separate alignments
+      for (const alignment of verseAlignments) { // clear out each alignment
+        alignment.targetNgram = [] // remove target words for each alignment
+        if (alignment.sourceNgram?.length > 1) { // if there are multiple source words, split each into separate alignment
           for (let i = 1; i < alignment.sourceNgram?.length; i++) {
             const sourceNgram = alignment.sourceNgram[i]
             const newAlignment = {
@@ -428,7 +428,7 @@ const WordAligner = ({
         }
       }
 
-      for (const word of words) {
+      for (const word of words) { // clear all words marked used
         word.disabled = false
       }
 
