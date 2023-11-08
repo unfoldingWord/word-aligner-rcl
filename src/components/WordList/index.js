@@ -182,7 +182,7 @@ class DroppableWordList extends React.Component {
         if (firstSelection < tIndex && this.props.words?.length) { // if there was a first selection, then select from that item up to token
           for (const word of this.props.words) { // search through the word list
             const index = word.index
-            if ( index > firstSelection && index < tIndex ) {
+            if ( index > firstSelection && index < tIndex && !word.disabled ) {
               const pos = _selectedPositions.indexOf(index);
               if (pos < 0) {
                 _selectedPositions.push(index);
