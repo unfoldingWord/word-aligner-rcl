@@ -311,7 +311,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {object|null} lexiconCache - cache for lexicon data
  * @param {LoadLexiconEntryCB} loadLexiconEntry - callback to load lexicon for language and strong number
  * @param {OnChangeCB} onChange - optional callback for whenever alignment changed.  Contains the specific operation performed as well as the latest state of the verse alignments and target words usage
- * @param {boolean} resetAlignments - optional - if true the alignments will be reset
+ * @param {boolean} resetAlignments - optional - if this transitions to true the alignments will be reset
  * @param {ShowPopOverCB} showPopover - callback function to display a popover
  * @param {string} sourceLanguage - ID of source language
  * @param {string} sourceLanguageFont - font to use for source
