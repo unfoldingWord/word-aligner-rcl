@@ -155,20 +155,20 @@ class DroppableWordList extends React.Component {
     const { selectedWordPositions, selectedWords } = this.state;
     let _selectedPositions = _.cloneDeep(selectedWordPositions)
     let _selectedWords = _.cloneDeep(selectedWords)
-    token = {
+    const token_ = {
       ...token,
       type: null,
     }
 
-    const index = _selectedPositions.indexOf(token.index);
+    const index = _selectedPositions.indexOf(token_.index);
 
     if (index === -1) {
-      _selectedPositions.push(token.index);
-      _selectedWords.push(token);
+      _selectedPositions.push(token_.index);
+      _selectedWords.push(token_);
 
       // if we are also to select words in-between
       if (selectToCurrentToken && _selectedPositions?.length) {
-        const tIndex = token.index;
+        const tIndex = token_.index;
         let firstSelection = tIndex
         const _positions = _selectedPositions.toSorted();
 
