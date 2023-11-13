@@ -588,10 +588,10 @@ export function convertAlignmentsFromVerseSpansToVerse(originalLanguageChapterDa
 }
 
 /**
- * reset the alignments in verseAlignments_ and verseAlignments_ - returns new arrays with alignments reset
+ * reset the alignments in verseAlignments_ and targetWords_ - returns new arrays with alignments reset
  * @param {array[AlignmentType]} verseAlignments_
  * @param {array[TargetWordBankType]} targetWords_
- * @returns {{words: array[TargetWordBankType], verseAlignments: array[AlignmentType] }
+ * @returns {{words: array[TargetWordBankType], verseAlignments: array[AlignmentType] }}
  */
 export function resetAlignments(verseAlignments_, targetWords_) {
   if (verseAlignments_?.length) {
