@@ -586,3 +586,38 @@ export function convertAlignmentsFromVerseSpansToVerse(originalLanguageChapterDa
   const finalUSFM = convertVerseDataToUSFM(verseSpanData)
   return finalUSFM;
 }
+
+/**
+ * reset the alignments in verseAlignments_ and verseAlignments_ - returns new arrays with alignments reset
+ * @param {array[AlignmentType]} verseAlignments_
+ * @param {array[TargetWordBankType]} targetWords_
+ * @returns {{words: array[TargetWordBankType], verseAlignments: array[AlignmentType] }
+ */
+export function resetAlignments(verseAlignments_, targetWords_) {
+  if (verseAlignments_?.length) {
+    const verseAlignments = _.cloneDeep(verseAlignments_)
+    const targetWords = _.cloneDeep(targetWords_)
+
+    for (const alignment of verseAlignments) { // clear out each alignment
+      alignment.targetNgram = [] // remove target words for each alignment
+      if (alignment.sourceNgram?.length > 1) { // if there are multiple source words, split each into separate alignment
+        for (let i = 1; i < alignment.sourceNgram?.length; i++) {
+          const sourceNgram = alignment.sourceNgram[i]
+          const newAlignment = {
+            sourceNgram: [sourceNgram],
+            targetNgram: []
+          }
+          verseAlignments.push(newAlignment)
+        }
+
+        alignment.sourceNgram = [alignment.sourceNgram[0]]
+      }
+    }
+
+    for (const word of targetWords) { // clear all words marked used
+      word.disabled = false
+    }
+    return {verseAlignments, targetWords}
+  }
+  return { }
+}

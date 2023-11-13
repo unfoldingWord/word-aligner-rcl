@@ -16,7 +16,6 @@ const CREATE_NEW_ALIGNMENT_CARD=`Alignment Grid - new alignment`;
 const UNALIGN_TARGET_WORD = `Unalign Target Word`;
 const ALIGN_TARGET_WORD = `Align Target Word`;
 const ALIGN_SOURCE_WORD = `Align Source Word`;
-const RESET_ALL_ALIGNMENTS = `Reset All Alignments`;
 
 const lexiconCache_ = {};
 const styles = {
@@ -311,7 +310,6 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {object|null} lexiconCache - cache for lexicon data
  * @param {LoadLexiconEntryCB} loadLexiconEntry - callback to load lexicon for language and strong number
  * @param {OnChangeCB} onChange - optional callback for whenever alignment changed.  Contains the specific operation performed as well as the latest state of the verse alignments and target words usage
- * @param {boolean} resetAlignments - optional - if this transitions to true the alignments will be reset
  * @param {ShowPopOverCB} showPopover - callback function to display a popover
  * @param {string} sourceLanguage - ID of source language
  * @param {string} sourceLanguageFont - font to use for source
@@ -331,7 +329,6 @@ const WordAligner = ({
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
   onChange,
-  resetAlignments,
   showPopover = null,
   sourceLanguage,
   sourceLanguageFont = '',
@@ -358,12 +355,11 @@ const WordAligner = ({
     console.log('setToolSettings')
   };
 
-  useEffect(() => { // detect reset of alignments command
-    if (resetAlignments) {
-      console.log("WordAligner - reset alignments toggle detected")
-      handleResetVerseAlignments()
-    }
-  }, [resetAlignments])
+  useEffect(() => { // detect change of source alignments
+    console.log('WordAligner: app alignment data changed')
+    setTargetWords(targetWords)
+    updateVerseAlignments(verseAlignments)
+  }, [verseAlignments, targetWords])
 
   /**
    * on start of token drag, save drag token and drag item type
@@ -401,44 +397,6 @@ const WordAligner = ({
     const _verseAlignments = alignmentCleanup(verseAlignments);
     setVerseAlignments(_verseAlignments);
     return _verseAlignments;
-  }
-
-  /**
-   * clear all alignments and move words back to wordbank
-   */
-  function handleResetVerseAlignments() {
-    console.log('handleResetVerseAlignments');
-    if (verseAlignments_?.length) {
-      let verseAlignments = [...verseAlignments_];
-      const words = [...targetWords_]
-
-      for (const alignment of verseAlignments) { // clear out each alignment
-        alignment.targetNgram = [] // remove target words for each alignment
-        if (alignment.sourceNgram?.length > 1) { // if there are multiple source words, split each into separate alignment
-          for (let i = 1; i < alignment.sourceNgram?.length; i++) {
-            const sourceNgram = alignment.sourceNgram[i]
-            const newAlignment = {
-              sourceNgram: [sourceNgram],
-              targetNgram: []
-            }
-            verseAlignments.push(newAlignment)
-          }
-
-          alignment.sourceNgram = [alignment.sourceNgram[0]]
-        }
-      }
-
-      for (const word of words) { // clear all words marked used
-        word.disabled = false
-      }
-
-      setTargetWords(words);
-      updateVerseAlignments(verseAlignments);
-
-      doChangeCallback({
-        type: RESET_ALL_ALIGNMENTS,
-      }, verseAlignments, words);
-    }
   }
 
   /**
@@ -662,7 +620,6 @@ WordAligner.propTypes = {
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
-  resetAlignments: PropTypes.bool,
   showPopover: PropTypes.func.isRequired,
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,

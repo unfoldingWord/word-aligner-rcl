@@ -1,11 +1,12 @@
 Word Aligner Example:
 
 ```js
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   addAlignmentsToVerseUSFM,
   areAlgnmentsComplete,
-  parseUsfmToWordAlignerData
+  parseUsfmToWordAlignerData,
+  resetAlignments,
 } from "../utils/alignmentHelpers";
 import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
@@ -22,13 +23,14 @@ const translate = (key) => {
 const targetVerseUSFM = alignedVerseJson.usfm;
 const sourceVerseUSFM = originalVerseJson.usfm;
 
-const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
+const {targetWords: targetWords_, verseAlignments: verseAlignments_} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
 
-const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+const alignmentComplete = areAlgnmentsComplete(targetWords_, verseAlignments_);
 console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
 
 const App = () => {
-  const [resetAlignments, setResetAlignments] = useState(false);
+  const [state, setState] = useState({targetWords: targetWords_, verseAlignments: verseAlignments_});
+  const {targetWords, verseAlignments} = state;
 
   const targetLanguageFont = '';
   const sourceLanguage = NT_ORIG_LANG;
@@ -66,15 +68,12 @@ const App = () => {
 
   function onReset() {
     console.log("WordAligner() - reset Alignments")
-    setResetAlignments(true)
+    const alignmentData = resetAlignments(verseAlignments, targetWords)
+    setState({
+      verseAlignments: alignmentData.verseAlignments,
+      targetWords: alignmentData.targetWords,
+    })
   }
-
-  useEffect(() => {
-    if (resetAlignments) {
-      console.log("WordAligner() - clearing reset Alignments Toggle")
-      setResetAlignments(false)
-    }
-  }, [resetAlignments])
 
   return (
     <>
