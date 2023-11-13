@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WordList from './WordList';
 import * as types from "../../common/WordCardTypes";
+import _ from "lodash";
 
 /**
  * Renders a word bank with drag-drop support
@@ -152,8 +153,8 @@ class DroppableWordList extends React.Component {
    */
   handleWordSelection(token, selectToCurrentToken) {
     const { selectedWordPositions, selectedWords } = this.state;
-    let _selectedPositions = [...selectedWordPositions];
-    let _selectedWords = [...selectedWords];
+    let _selectedPositions = _.cloneDeep(selectedWordPositions)
+    let _selectedWords = _.cloneDeep(selectedWords)
     token = {
       ...token,
       type: null,
@@ -167,7 +168,7 @@ class DroppableWordList extends React.Component {
 
       // if we are also to select words in-between
       if (selectToCurrentToken && _selectedPositions?.length) {
-        var tIndex = token.index;
+        const tIndex = token.index;
         let firstSelection = tIndex
         const _positions = _selectedPositions.toSorted();
 
@@ -179,7 +180,7 @@ class DroppableWordList extends React.Component {
           }
         }
 
-        if (firstSelection < tIndex && this.props.words?.length) { // if there was a first selection, then select from that item up to token
+        if (firstSelection < tIndex && this.props.words?.length) { // if there was a first selection, then select words following the first item up to and including the clicked token
           for (const word of this.props.words) { // search through the word list
             const index = word.index
             if ( index > firstSelection && index < tIndex && !word.disabled ) {
