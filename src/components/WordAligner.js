@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
@@ -354,6 +354,12 @@ const WordAligner = ({
   const setToolSettings = () => {
     console.log('setToolSettings')
   };
+
+  useEffect(() => { // detect change of source alignments
+    console.log('WordAligner: app alignment data changed')
+    setTargetWords(targetWords)
+    updateVerseAlignments(verseAlignments)
+  }, [verseAlignments, targetWords])
 
   /**
    * on start of token drag, save drag token and drag item type

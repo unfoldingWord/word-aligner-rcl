@@ -1,10 +1,12 @@
 Word Aligner Example:
 
 ```js
+import React, {useState} from 'react';
 import {
   addAlignmentsToVerseUSFM,
   areAlgnmentsComplete,
-  parseUsfmToWordAlignerData
+  parseUsfmToWordAlignerData,
+  resetAlignments,
 } from "../utils/alignmentHelpers";
 import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
@@ -21,12 +23,15 @@ const translate = (key) => {
 const targetVerseUSFM = alignedVerseJson.usfm;
 const sourceVerseUSFM = originalVerseJson.usfm;
 
-const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
+const {targetWords: targetWords_, verseAlignments: verseAlignments_} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
 
-const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+const alignmentComplete = areAlgnmentsComplete(targetWords_, verseAlignments_);
 console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
 
 const App = () => {
+  const [state, setState] = useState({targetWords: targetWords_, verseAlignments: verseAlignments_});
+  const {targetWords, verseAlignments} = state;
+
   const targetLanguageFont = '';
   const sourceLanguage = NT_ORIG_LANG;
   const lexicons = {};
@@ -61,23 +66,43 @@ const App = () => {
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
   }
 
+  function onReset() {
+    console.log("WordAligner() - reset Alignments")
+    const alignmentData = resetAlignments(verseAlignments, targetWords)
+    setState({
+      verseAlignments: alignmentData.verseAlignments,
+      targetWords: alignmentData.targetWords,
+    })
+  }
+
   return (
-    <div style={{height: '650px', width: '800px'}}>
-      <WordAligner
-        styles={{ maxHeight: '450px', overflowY: 'auto' }}
-        verseAlignments={verseAlignments}
-        targetWords={targetWords}
-        translate={translate}
-        contextId={contextId}
-        targetLanguageFont={targetLanguageFont}
-        sourceLanguage={sourceLanguage}
-        showPopover={showPopover}
-        lexicons={lexicons}
-        loadLexiconEntry={loadLexiconEntry}
-        onChange={onChange}
-        getLexiconData={getLexiconData_}
-      />
-    </div>
+    <>
+      <div>
+        <button
+          style={{margin: '10px'}}
+          onClick={onReset}
+        >
+          {"Reset Alignments"}
+        </button>
+      </div>
+      <div style={{height: '650px', width: '800px'}}>
+          <WordAligner
+            styles={{ maxHeight: '450px', overflowY: 'auto' }}
+            verseAlignments={verseAlignments}
+            targetWords={targetWords}
+            translate={translate}
+            contextId={contextId}
+            targetLanguageFont={targetLanguageFont}
+            sourceLanguage={sourceLanguage}
+            showPopover={showPopover}
+            lexicons={lexicons}
+            loadLexiconEntry={loadLexiconEntry}
+            onChange={onChange}
+            getLexiconData={getLexiconData_}
+            resetAlignments={resetAlignments}
+          />
+        </div>
+    </>
   );
 };
 

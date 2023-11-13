@@ -10,6 +10,7 @@ import {
 import {
   getAlignedWordListFromAlignments,
   getOriginalLanguageListForVerseData,
+  migrateTargetAlignmentsToOriginal,
   updateAlignedWordsFromOriginalWordList
 } from "./migrateOriginalLanguageHelpers";
 import Lexer from "wordmap-lexer";
@@ -82,19 +83,35 @@ function parseStrToNumber(value) {
 }
 
 /**
+ * convert occurrence(s) in word to numbers
+ * @param {object} item
+ * @returns {object} - new word with occurrence(s) converted to numbers
+ */
+function convertOccurrencesInWord(item) {
+  const occurrence = parseStrToNumber(item.occurrence);
+  const occurrences = parseStrToNumber(item.occurrences);
+  if (
+    (occurrence !== item.occurrence)
+    || (occurrences !== item.occurrences)
+  ) { // if occurrence(s) changed, create new word
+    return {
+      ...item,
+      occurrence,
+      occurrences,
+    }
+  }
+
+  return item;
+}
+
+/**
  * for each item in word list convert occurrence(s) to numbers
  * @param {array} wordlist
  * @returns {array}
  */
 function convertOccurrences(wordlist) {
   const wordlist_ = wordlist.map(item => {
-    const occurrence = parseStrToNumber(item.occurrence);
-    const occurrences = parseStrToNumber(item.occurrences);
-    return {
-      ...item,
-      occurrence,
-      occurrences,
-    }
+    return convertOccurrencesInWord(item);
   })
   return wordlist_;
 }
@@ -141,7 +158,7 @@ export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse
           if (originalLangWordList) {
             const pos = originalLangWordList.findIndex(item => (
               topWord.word === (item.word || item.text) &&
-              topWord.occurrence === item.occurrence
+              topWord.occurrence == item.occurrence //Tricky: we want to allow automatic conversion between string and integer because occurrence could be either
             ));
             const newSource = {
               ...topWord,
@@ -439,7 +456,7 @@ function handleDeletedWords(verseAlignments, targetWordList, targetWords) {
 /**
  * merge alignments into target verse
  * @return {string|null} target verse in USFM format
- * @param {array} targetVerseObjects
+ * @param {object[]} targetVerseObjects
  * @param {string} newTargetVerse
  */
 export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse) {
@@ -458,6 +475,22 @@ export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse
     targetVerseObjects: alignedVerseObjects,
     targetVerseText,
   };
+}
+
+/**
+ * migrate alignments to match original language words, and then merge alignments into target verse
+ * @return {string|null} target verse in USFM format
+ * @param {object[]} targetVerseObjects
+ * @param {string} newTargetVerse
+ * @param {object[]} originalLanguageVerseObjects
+ */
+export function updateAlignmentsToTargetVerseWithOriginal(targetVerseObjects, newTargetVerse, originalLanguageVerseObjects) {
+  // migrate the initial alignments to current original source
+  const migratedTargetVerseObjects = migrateTargetAlignmentsToOriginal(targetVerseObjects, originalLanguageVerseObjects)
+
+  // apply new verse text
+  const results = updateAlignmentsToTargetVerse(migratedTargetVerseObjects, newTargetVerse)
+  return results
 }
 
 /**
@@ -552,4 +585,39 @@ export function convertAlignmentsFromVerseSpansToVerse(originalLanguageChapterDa
   convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapter)
   const finalUSFM = convertVerseDataToUSFM(verseSpanData)
   return finalUSFM;
+}
+
+/**
+ * reset the alignments in verseAlignments_ and targetWords_ - returns new arrays with alignments reset
+ * @param {array[AlignmentType]} verseAlignments_
+ * @param {array[TargetWordBankType]} targetWords_
+ * @returns {{words: array[TargetWordBankType], verseAlignments: array[AlignmentType] }}
+ */
+export function resetAlignments(verseAlignments_, targetWords_) {
+  if (verseAlignments_?.length) {
+    const verseAlignments = _.cloneDeep(verseAlignments_)
+    const targetWords = _.cloneDeep(targetWords_)
+
+    for (const alignment of verseAlignments) { // clear out each alignment
+      alignment.targetNgram = [] // remove target words for each alignment
+      if (alignment.sourceNgram?.length > 1) { // if there are multiple source words, split each into separate alignment
+        for (let i = 1; i < alignment.sourceNgram?.length; i++) {
+          const sourceNgram = alignment.sourceNgram[i]
+          const newAlignment = {
+            sourceNgram: [sourceNgram],
+            targetNgram: []
+          }
+          verseAlignments.push(newAlignment)
+        }
+
+        alignment.sourceNgram = [alignment.sourceNgram[0]]
+      }
+    }
+
+    for (const word of targetWords) { // clear all words marked used
+      word.disabled = false
+    }
+    return {verseAlignments, targetWords}
+  }
+  return { }
 }
