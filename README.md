@@ -38,6 +38,19 @@ The main react component instead of being called `WordAligner`, it is called `Su
     - `manuallyAligned`: This parameter contains existing [Alignment](https://github.com/unfoldingWord/wordMAP/blob/master/src/core/Alignment.ts) objects, so that the suggester can respect existing and partial alignments when making suggestions.
 
     - `return`: The suggester function should return an array of [Suggestion](https://github.com/unfoldingWord/wordMAP/blob/master/src/core/Suggestion.ts) objects which contain the suggested alignments made by the suggester.
+- `asyncSuggester`: This callback is supposed to take the same arguments as suggester but return the answer wrapped in a promise.  Either use this or the other but not both.
+    The JavaScript type signature for this function is
+   ```
+   /**
+   * @callback AsyncSuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
+   * @param {string|array[Token]} source - source translation 
+   * @param {string|array[Token]} target - target translation
+   * @param {number} maxSuggestions - max number of suggestions
+   * @param {array[Alignment]} manualAlignments - array manual alignments
+   * @return {Promise<array[Suggestion]>} list of suggestions
+   */
+    ```
+
  - `hasRenderedSuggestions`: This is a boolean property to `SuggestingWordAligner` which indicates if there are any active suggestions going on.  If this property is false, then alignment related buttons become disabled.
 
  ## Usage Similar to  WordAligner

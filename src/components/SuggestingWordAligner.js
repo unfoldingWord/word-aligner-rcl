@@ -353,6 +353,17 @@ const indexComparator = (a, b) => a.index - b.index;
  * @return {array[Suggestion]} list of suggestions
  */
 
+
+/**
+ * @callback AsyncSuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
+ * @param {string|array[Token]} source - source translation 
+ * @param {string|array[Token]} target - target translation
+ * @param {number} maxSuggestions - max number of suggestions
+ * @param {array[Alignment]} manualAlignments - array manual alignments
+ * @return {Promise<array[Suggestion]>} list of suggestions
+ */
+
+
 /**
  * SuggestingWordAligner is a stand-alone component for aligning words with word alignment suggestions.
  * @param {(book, chapter, verse)} contextId - current verse context
@@ -370,6 +381,7 @@ const indexComparator = (a, b) => a.index - b.index;
  * @param {array[AlignmentType]} verseAlignments - initial verse alignment
  * @param {array[TargetWordBankType]} targetWords - list of target words for use in wordbank
  * @param {SuggesterCB|null} suggester - callback to suggest alignments
+ * @param {AsyncSuggesterCB|null} asyncSuggester - callback to suggest alignments, async alternative.
  * @return {JSX.Element}
  * @constructor
  */
@@ -392,12 +404,21 @@ const SuggestingWordAligner = ({
   style: styles_ = {},
   hasRenderedSuggestions = true,
   suggester = null,
+  asyncSuggester = null,
   }) => {
   const [dragToken, setDragToken_] = useState(null);
   const [dragItemType, setDragItemType] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
   const [targetWords_, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
+
+
+  //if suggester is provided and not asyncSuggester, then wrap the suggester and set it in asyncSuggester.
+  if(suggester && !asyncSuggester) {
+    asyncSuggester = async (source, target, maxSuggestions, manualAlignments) => {
+      return suggester(source, target, maxSuggestions, manualAlignments);
+    }
+  }
 
   const over = false;
   const targetDirection = targetLanguage?.direction || 'ltr';
@@ -408,14 +429,13 @@ const SuggestingWordAligner = ({
   };
 
 
-  function updateSuggestedSourceToken(token) {
-    let newVerseAlignments = verseAlignments_;
+  async function updateSuggestedSourceToken(token) {
 
       //now test if the word being dragged is a secondary word.
-      //and that the suggester is actually available.
-      if( suggester && (token.type || types.SECONDARY_WORD) === types.SECONDARY_WORD ) {
+      //and that the asyncSuggester is actually available.
+      if( asyncSuggester && (token.type || types.SECONDARY_WORD) === types.SECONDARY_WORD ) {
 
-          //Convert the data into the structure useful by the suggester.
+          //Convert the data into the structure useful by the asyncSuggester.
           const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
           const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
           const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
@@ -436,9 +456,9 @@ const SuggestingWordAligner = ({
           //now filter out the dead alignments.
           .filter( alignment=>alignment.targetNgram.tokens.length > 0 );
 
-          //now call the suggester.
+          //now call the asyncSuggester.
           const numberOfSuggestions = 3;
-          const suggestions = suggester(sourceWordObjects, targetWordObjects, numberOfSuggestions, manualAlignmentObjectsWithoutToken);
+          const suggestions = await asyncSuggester(sourceWordObjects, targetWordObjects, numberOfSuggestions, manualAlignmentObjectsWithoutToken);
 
 
           //construct a hash from a source key to the probability that that word is a target.
@@ -466,36 +486,39 @@ const SuggestingWordAligner = ({
             });
           });
 
-
+          setVerseAlignments( (oldVerseAlignments) => {
           //now update the sourceSuggested property of the alignments to match that for the dragged token.
-          newVerseAlignments = verseAlignments_.map( alignment=> {
-            //Map the source tokens into their confidences.
-            //and then take the max of that.
-            const sourceTokenConfidences = alignment.sourceNgram.map( sourceToken=> {
-              const sourceHash = `${sourceToken.text}:${sourceToken.occurrence}:${sourceToken.occurrences}`;
-              return sourceTargetConfidence[sourceHash] || 0;
-            });
-            const maxSourceConfidence = Math.max(...sourceTokenConfidences);
+            const newVerseAlignments = oldVerseAlignments.map( alignment=> {
+              //Map the source tokens into their confidences.
+              //and then take the max of that.
+              const sourceTokenConfidences = alignment.sourceNgram.map( sourceToken=> {
+                const sourceHash = `${sourceToken.text}:${sourceToken.occurrence}:${sourceToken.occurrences}`;
+                return sourceTargetConfidence[sourceHash] || 0;
+              });
+              const maxSourceConfidence = Math.max(...sourceTokenConfidences);
 
-            //now return the alignment with this confidence that it should be the source word.
+              //now return the alignment with this confidence that it should be the source word.
+              return {
+                ...alignment,
+                sourceSuggested: maxSourceConfidence,
+              }
+            });
+            return newVerseAlignments;
+          });
+        
+
+      }else{  //this is if there is no asyncSuggester or if the word being dragged is not a secondary word.
+        //clear out the suggestions when a source word is being dragged.
+        setVerseAlignments( (oldVerseAlignments) => {
+          const newVerseAlignments = oldVerseAlignments.map( alignment=> {
             return {
               ...alignment,
-              sourceSuggested: maxSourceConfidence,
+              sourceSuggested: 0,
             }
-          });
-
-      }else{  //this is if there is no suggester or if the word being dragged is not a secondary word.
-        //clear out the suggestions when a source word is being dragged.
-        newVerseAlignments = verseAlignments_.map( alignment=> {
-          return {
-            ...alignment,
-            sourceSuggested: 0,
-          }
-        })
+          })
+          return newVerseAlignments
+        });
       }
-
-      //now go ahead and do the set.
-      setVerseAlignments(newVerseAlignments);
   }
 
   /**
@@ -740,15 +763,15 @@ const SuggestingWordAligner = ({
       })
   }
 
-  const handleRefreshSuggestions = () => {
+  const handleRefreshSuggestions = async () => {
 
     console.log( "handleRefreshSuggestions" );
 
-    //Just return if suggester is null or undefined
-    if( !suggester ){
+    //Just return if asyncSuggester is null or undefined
+    if( !asyncSuggester ){
       //pop up a dialog telling the user that the model is not trained.
       alert( "Can not refresh suggestions. Model is not trained" );
-      console.log( "suggester is null or undefined" );
+      console.log( "suggester and asyncSuggester are null or undefined" );
       return;
     }
     
@@ -783,7 +806,7 @@ const SuggestingWordAligner = ({
     
 
 
-    //Convert the data into the structure useful by the suggester.
+    //Convert the data into the structure useful by the asyncSuggester.
     const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
     const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
     const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
@@ -791,7 +814,7 @@ const SuggestingWordAligner = ({
     updateTokenLocations(targetWordObjects);
 
     //obtain the suggestions
-    const predictions = suggester( sourceWordObjects, targetWordObjects, 1, manualAlignmentObjects )[0].predictions;
+    const predictions = (await asyncSuggester( sourceWordObjects, targetWordObjects, 1, manualAlignmentObjects ))[0].predictions;
 
 
     const lookupNgrams = ( predictionNgram, targetWords ) => {
@@ -1072,6 +1095,7 @@ SuggestingWordAligner.propTypes = {
   targetWords: PropTypes.array.isRequired,
   hasRenderedSuggestions: PropTypes.bool,
   suggester: PropTypes.func,
+  asyncSuggester: PropTypes.func,
 };
 
 SuggestingWordAligner.defaultProps = { hasRenderedSuggestions: true };
