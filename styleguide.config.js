@@ -9,7 +9,7 @@ module.exports = {
   },
   styles,
   theme,
-  components: 'src/components/WordAligner.js',
+  components: 'src/components/Checker.js',
   webpackConfig: {
     module: {
       rules: [

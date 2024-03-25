@@ -1,9 +1,9 @@
 {
-  "name": "word-aligner-rcl",
+  "name": "checking-tool-rcl",
   "version": "1.0.4",
   "main": "dist",
   "source": "dist/index.js",
-  "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",
+  "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",
   "author": "",
   "license": "MIT",
   "scripts": {
@@ -46,6 +46,7 @@
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "string-punctuation-tokenizer": "2.2.0",
+    "tc-ui-toolkit": "6.2.9",
     "usfm-js": "3.4.2",
     "word-aligner": "1.0.2",
     "wordmap-lexer": "^0.3.6"
