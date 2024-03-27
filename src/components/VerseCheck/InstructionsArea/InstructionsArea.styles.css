@@ -1,0 +1,9 @@
+.instructions-area {
+  padding: 5px;
+  text-align: center;
+  overflow: auto;
+}
+
+.no-selection-needed {
+  color: 'var(--accent-color)'
+}

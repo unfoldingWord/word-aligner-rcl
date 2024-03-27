@@ -11,5 +11,3 @@ export {
   Checker,
 }
 
-
-JSON.stringify(temp,null, 2)

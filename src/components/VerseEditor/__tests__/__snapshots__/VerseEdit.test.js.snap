@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerseEditor component: should render 1`] = `
+<WithStyles(BaseDialog)
+  actionsEnabled={false}
+  key="VerseEditor-Rom 3:11"
+  modal={true}
+  onClose={[Function]}
+  open={true}
+  title={
+    <span
+      className=""
+    >
+      <pure(EditIcon)
+        className="edit-icon"
+        style={
+          Object {
+            "fontSize": "24px",
+          }
+        }
+      />
+      edit_verse_title: {"passage":"Rom 3:11"}
+    </span>
+  }
+>
+  <div
+    className="screen"
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "padding": "12px 12px 0 12px",
+      }
+    }
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "fontSize": "16px",
+            "fontWeight": "bold",
+            "paddingLeft": "6px",
+          }
+        }
+      >
+        Klingon
+      </div>
+      <EditScreen
+        direction="ltr"
+        onChange={[Function]}
+        rows={9}
+        style={
+          Object {
+            "padding": "6px",
+            "width": "320px",
+          }
+        }
+        targetLanguageFontClassName=""
+        targetLanguageFontSize="100%"
+        verseText="Dummy Text"
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "fontSize": "16px",
+          "fontWeight": "bold",
+          "margin": "0 0 0 10px",
+          "width": "240px",
+        }
+      }
+    >
+      <div>
+        select_reasons
+      </div>
+      <ReasonScreen
+        columns={1}
+        onChange={[Function]}
+        selectedReasons={Array []}
+        translate={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="actions"
+  >
+    <button
+      className="btn-second"
+      onClick={[Function]}
+    >
+      buttons.cancel_button
+    </button>
+    <button
+      className="btn-second"
+      disabled={true}
+      onClick={[Function]}
+    >
+      <Glyphicon
+        bsClass="glyphicon"
+        glyph="repeat"
+        style={
+          Object {
+            "marginRight": "10px",
+            "transform": "scaleX(-1)",
+          }
+        }
+      />
+      buttons.reset_button
+    </button>
+    <button
+      className="btn-prime"
+      disabled={true}
+      onClick={[Function]}
+    >
+      <Glyphicon
+        bsClass="glyphicon"
+        glyph="ok"
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      />
+      buttons.save_button
+    </button>
+  </div>
+</WithStyles(BaseDialog)>
+`;

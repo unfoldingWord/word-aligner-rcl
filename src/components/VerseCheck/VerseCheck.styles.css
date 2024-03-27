@@ -1,0 +1,66 @@
+@import '../index.styles.css';
+
+.verse-check {
+  margin: 10px;
+  height: 100%;
+  display: flex;
+  flex-grow: 1;
+}
+
+.verse-check-flex {
+  display:flex;
+  flex-direction:column;
+  height: 100%;
+  width:100%;
+}
+
+.verse-check .ltr-content {
+  direction: ltr;
+  flex: auto;
+  padding: 0 15px 10px;
+  overflow-y: auto;
+}
+.verse-check .rtl-content {
+  direction: rtl;
+  flex: auto;
+  padding: 0 15px 10px;
+  overflow-y: auto;
+}
+.verse-title-title {
+  font-weight: bold;
+}
+.verse-title-subtitle {
+  color: var(--text-color-light);
+}
+
+.verse-check-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 10px var(--background-color);
+  border-radius: 2px;
+}
+.verse-check .title-bar {
+  flex: 0 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: var(--reverse-color);
+  background-color: var(--accent-color-dark);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.verse-title {
+  flex: 0 0 45px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px 5px 15px;
+}
+
+.selection-area-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

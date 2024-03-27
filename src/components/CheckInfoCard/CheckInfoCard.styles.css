@@ -1,0 +1,79 @@
+@import '../index.styles.css';
+
+.handleIcon {
+  z-index: 999;
+  color: var(--reverse-color);
+  background-color: var(--text-color-dark);
+  padding: 10px 0px;
+  border-radius: 5px 0px 0px 5px
+}
+
+.linkActive {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  margin: 5px 20px;
+  cursor: pointer
+}
+
+.linkInactive {
+  display: none;
+  font-weight: bold;
+  margin: 5px 20px;
+  text-align: right;
+  cursor: default;
+}
+
+.checkInfo {
+  flex: 0 0 120px;
+  display: flex;
+  margin: 0 10px;
+  color: var(--reverse-color);
+  background-color: var(--accent-color-dark);
+  box-shadow: 0 3px 10px var(--background-color);
+  border-radius: 2px;
+}
+
+.leftSide {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightSide {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 10px;
+  border-left: 1px solid var(--reverse-color);
+}
+
+.title {
+  max-height: 100px;
+  overflow-y: auto;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.phrase {
+  max-height: 80px;
+  overflow-y: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.phrase a,
+.phrase a:active,
+.phrase a:link,
+.phrase a:visited {
+  color: #3FB7FA;
+  white-space: nowrap;
+}
+.phrase a:hover {
+  color: #3FB7FA;
+  text-decoration: underline;
+}
