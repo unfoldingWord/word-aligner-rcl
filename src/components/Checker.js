@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
+import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
+import VerseCheck from '../tc_ui_toolkit/VerseCheck'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -28,6 +30,7 @@ const styles = {
 };
 
 console.log('Checker.js - startup')
+const name = 'Checker'
 
 const Checker = ({
  translate,
@@ -233,19 +236,33 @@ const Checker = ({
     }
   ];
   const alignedGLText = 'eternity';
-  const handleComment = () => {};
+  const handleComment = () => {
+    console.log(`${name}-handleComment`)
+  }
   const isVerseChanged = false;
-  const setToolSettings = () => {};
+  const setToolSettings = () => {
+    console.log(`${name}-setToolSettings`)
+  }
   const nothingToSelect = false;
-  const openAlertDialog = () => {};
-  const handleEditVerse = () => {};
+  const openAlertDialog = () => {
+    console.log(`${name}-openAlertDialog`)
+  }
+  const handleEditVerse = () => {
+    console.log(`${name}-handleEditVerse`)
+  }
   const maximumSelections = 4
   const isVerseInvalidated = false
-  const handleTagsCheckbox = () => {};
-  const validateSelections = () => {};
+  const handleTagsCheckbox = () => {
+    console.log(`${name}-handleTagsCheckbox`)
+  }
+  const validateSelections = () => {
+    console.log(`${name}-validateSelections`)
+  }
   const targetLanguageFont = 'default'
   const unfilteredVerseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!\n\n\\ts\\*\n\\p'
-  const checkIfVerseChanged = () => {}
+  const checkIfVerseChanged = () => {
+    console.log(`${name}-checkIfVerseChanged`)
+  }
   const targetLanguageDetails = {
     "id": "en",
     "name": "English",
@@ -254,8 +271,45 @@ const Checker = ({
       "name": "1 John"
     }
   }
-  const checkIfCommentChanged = () => {}
-  const changeSelectionsInLocalState = () => {}
+  const checkIfCommentChanged = () => {
+    console.log(`${name}-checkIfCommentChanged`)
+  }
+  const changeSelectionsInLocalState = () => {
+    console.log(`${name}-changeSelectionsInLocalState`)
+  }
+  const toggleNothingToSelect = () => {
+    console.log(`${name}-toggleNothingToSelect`)
+  }
+  const localNothingToSelect = false
+  const isCommentChanged = false
+  const bookmarkEnabled = false
+  const saveSelection = () => {
+    console.log(`${name}-saveSelection`)
+  }
+  const cancelSelection = () => {
+    console.log(`${name}-cancelSelection`)
+  }
+  const clearSelection = () => {
+    console.log(`${name}-clearSelection`)
+  }
+  const toggleBookmark = () => {
+    console.log(`${name}-toggleBookmark`)
+  }
+  const changeMode = () => {
+    console.log(`${name}-changeMode`)
+  }
+  const cancelEditVerse = () => {
+    console.log(`${name}-cancelEditVerse`)
+  }
+  const saveEditVerse = () => {
+    console.log(`${name}-saveEditVerse`)
+  }
+  const cancelComment = () => {
+    console.log(`${name}-cancelComment`)
+  }
+  const saveComment = () => {
+    console.log(`${name}-saveComment`)
+  }
 
   return (
     <div style={styles.containerDiv}>
@@ -289,6 +343,27 @@ const Checker = ({
           targetLanguageDetails={targetLanguageDetails}
           checkIfCommentChanged={checkIfCommentChanged}
           changeSelectionsInLocalState={changeSelectionsInLocalState}
+        />
+        <ActionsArea
+          mode={mode}
+          tags={tags}
+          toggleNothingToSelect={toggleNothingToSelect}
+          localNothingToSelect={localNothingToSelect}
+          nothingToSelect={nothingToSelect}
+          isCommentChanged={isCommentChanged}
+          selections={selections}
+          newSelections={newSelections}
+          translate={translate}
+          bookmarkEnabled={bookmarkEnabled}
+          saveSelection={saveSelection}
+          cancelSelection={cancelSelection}
+          clearSelection={clearSelection}
+          toggleBookmark={toggleBookmark}
+          changeMode={changeMode}
+          cancelEditVerse={cancelEditVerse}
+          saveEditVerse={saveEditVerse}
+          cancelComment={cancelComment}
+          saveComment={saveComment}
         />
       </div>
     </div>

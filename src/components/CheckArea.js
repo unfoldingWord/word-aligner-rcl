@@ -27,7 +27,8 @@ const styles = {
   },
 };
 
-console.log('Checker.js - startup')
+console.log('CheckArea.js - startup')
+const name = 'CheckArea'
 
 const Checker = ({
  translate,
@@ -233,19 +234,33 @@ const Checker = ({
     }
   ];
   const alignedGLText = 'eternity';
-  const handleComment = () => {};
+  const handleComment = () => {
+    console.log(`${name}-handleComment`)
+  }
   const isVerseChanged = false;
-  const setToolSettings = () => {};
+  const setToolSettings = () => {
+    console.log(`${name}-setToolSettings`)
+  }
   const nothingToSelect = false;
-  const openAlertDialog = () => {};
-  const handleEditVerse = () => {};
+  const openAlertDialog = () => {
+    console.log(`${name}-openAlertDialog`)
+  }
+  const handleEditVerse = () => {
+    console.log(`${name}-handleEditVerse`)
+  }
   const maximumSelections = 4
   const isVerseInvalidated = false
-  const handleTagsCheckbox = () => {};
-  const validateSelections = () => {};
+  const handleTagsCheckbox = () => {
+    console.log(`${name}-handleTagsCheckbox`)
+  }
+  const validateSelections = () => {
+    console.log(`${name}-validateSelections`)
+  }
   const targetLanguageFont = 'default'
   const unfilteredVerseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!\n\n\\ts\\*\n\\p'
-  const checkIfVerseChanged = () => {}
+  const checkIfVerseChanged = () => {
+    console.log(`${name}-checkIfVerseChanged`)
+  }
   const targetLanguageDetails = {
     "id": "en",
     "name": "English",
@@ -254,8 +269,12 @@ const Checker = ({
       "name": "1 John"
     }
   }
-  const checkIfCommentChanged = () => {}
-  const changeSelectionsInLocalState = () => {}
+  const checkIfCommentChanged = () => {
+    console.log(`${name}-checkIfCommentChanged`)
+  }
+  const changeSelectionsInLocalState = () => {
+    console.log(`${name}-changeSelectionsInLocalState`)
+  }
 
   return (
     <div style={styles.containerDiv}>
