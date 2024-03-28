@@ -1,4 +1,4 @@
-import { getAlignedText } from '../components/VerseCheck/helpers/checkAreaHelpers'
+import { getAlignedText } from '../tc_ui_toolkit/VerseCheck/helpers/checkAreaHelpers'
 
 /**
  * looks up the GL text from an aligned GL bible using the Original Language

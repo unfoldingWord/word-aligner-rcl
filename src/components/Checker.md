@@ -1,8 +1,9 @@
 Checking Tool Example:
 
 ```js
-import React, {useState} from 'react';
-import {NT_ORIG_LANG} from "../common/constants";
+import React, { useState } from 'react';
+import { NT_ORIG_LANG } from '../common/constants';
+import Checker from './Checker'
 
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 
@@ -11,6 +12,7 @@ const translate = (key) => {
   return `key-(${key})`
 };
 
+console.log('Checker.md - startup')
 
 const App = () => {
   const loadLexiconEntry = (key) => {
@@ -19,18 +21,18 @@ const App = () => {
   const getLexiconData_ = (lexiconId, entryId) => {
     console.log(`loadLexiconEntry(${lexiconId}, ${entryId})`)
     const entryData = (LexiconData && LexiconData[lexiconId]) ? LexiconData[lexiconId][entryId] : null;
-    return {[lexiconId]: {[entryId]: entryData}};
+    return { [lexiconId]: { [entryId]: entryData } };
   };
 
 
   return (
     <>
-      <div style={{height: '650px', width: '800px'}}>
-          <Checker
-            styles={{ maxHeight: '450px', overflowY: 'auto' }}
-            translate={translate}
-          />
-        </div>
+      <div style={{ height: '650px', width: '800px' }}>
+        <Checker
+          styles={{ maxHeight: '450px', overflowY: 'auto' }}
+          translate={translate}
+        />
+      </div>
     </>
   );
 };

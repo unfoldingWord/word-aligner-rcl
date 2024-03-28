@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CheckArea from './VerseCheck/CheckArea'
+import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -27,6 +27,7 @@ const styles = {
   },
 };
 
+console.log('Checker.js - startup')
 
 const Checker = ({
  translate,

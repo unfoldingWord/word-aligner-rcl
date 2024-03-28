@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import GroupMenuComponent from '../components/GroupMenuComponent';
+import GroupMenuComponent from '../tc_ui_toolkit/GroupMenuComponent';
 // Actions
 import { loadGroupsIndex, clearGroupsIndex } from '../state/actions/groupsIndexActions';
 import { loadGroupsData, clearGroupsData } from '../state/actions/groupsDataActions';
