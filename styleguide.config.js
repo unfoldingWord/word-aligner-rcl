@@ -1,5 +1,17 @@
 const { name, version, repository } = require('./package.json')
 const { styles, theme } = require('./styleguide.styles')
+const path = require('path')
+
+const sections = [
+  {
+    name: 'Checker',
+    content: 'src/components/Checker.md',
+  },
+  {
+    name: 'CheckArea',
+    content: 'src/components/CheckArea.md',
+  },
+];
 
 module.exports = {
   title: `${name} v${version}`,
@@ -9,7 +21,8 @@ module.exports = {
   },
   styles,
   theme,
-  components: 'src/components/Checker.js',
+  sections,
+  components: 'src/components/*.js',
   webpackConfig: {
     module: {
       rules: [
