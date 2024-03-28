@@ -45,6 +45,10 @@ const styles = {
   },
 };
 
+const hideBookmarks = true;
+const hideEdit = true;
+const hideComment = true;
+
 const actionButtonStyleRM = {
   ...styles.actionButtons,
   marginRight: '5px',
@@ -70,12 +74,14 @@ const ChangeModeArea = ({
   const commentText = translate('comment');
   return (
     <div className='actions-area'>
-      <Bookmark
-        value='bookmark'
-        color='primary'
-        checked={bookmarkEnabled}
-        label={translate('bookmark')}
-        onChange={toggleBookmark} />
+      {!hideBookmarks &&
+        <Bookmark
+          value='bookmark'
+          color='primary'
+          checked={bookmarkEnabled}
+          label={translate('bookmark')}
+          onChange={toggleBookmark} />
+      }
       <div style={{ display: 'flex', marginLeft: 'auto' }}>
         <Hint
           position={'top'}
@@ -93,38 +99,42 @@ const ChangeModeArea = ({
             {selectText}
           </button>
         </Hint>
-        <Hint
-          position={'top'}
-          size='medium'
-          label={editVerseText}
-          enabled={!!editVerseText}
-          hintLength={14}
-        >
-          <button
-            style={actionButtonStyleRM}
-            className='btn-second'
-            onClick={() => changeMode('edit')}
+        {!hideEdit &&
+          <Hint
+            position={'top'}
+            size='medium'
+            label={editVerseText}
+            enabled={!!editVerseText}
+            hintLength={14}
           >
-            <Glyphicon glyph='pencil' style={{ marginRight: '10px' }} />
-            {editVerseText}
-          </button>
-        </Hint>
-        <Hint
-          position={'top'}
-          size='medium'
-          label={commentText}
-          enabled={!!commentText}
-          hintLength={14}
-        >
-          <button
-            style={styles.actionButtons}
-            className='btn-second'
-            onClick={() => changeMode('comment')}
+            <button
+              style={actionButtonStyleRM}
+              className='btn-second'
+              onClick={() => changeMode('edit')}
+            >
+              <Glyphicon glyph='pencil' style={{ marginRight: '10px' }} />
+              {editVerseText}
+            </button>
+          </Hint>
+        }
+        {!hideComment &&
+          <Hint
+            position={'top'}
+            size='medium'
+            label={commentText}
+            enabled={!!commentText}
+            hintLength={14}
           >
-            <Glyphicon glyph='comment' style={{ marginRight: '10px' }} />
-            {commentText}
-          </button>
-        </Hint>
+            <button
+              style={styles.actionButtons}
+              className='btn-second'
+              onClick={() => changeMode('comment')}
+            >
+              <Glyphicon glyph='comment' style={{ marginRight: '10px' }} />
+              {commentText}
+            </button>
+          </Hint>
+        }
       </div>
     </div>
   );
@@ -348,7 +358,13 @@ const ActionsArea = ({
   saveEditVerse,
   cancelComment,
   saveComment,
+  disables,
 }) => {
+
+  const {
+    bookMark: disableBookMark,
+
+  } = (disables || {})
   switch (mode) {
   case 'edit':
     return (
@@ -425,6 +441,11 @@ ActionsArea.propTypes = {
   saveEditVerse: PropTypes.func.isRequired,
   cancelComment: PropTypes.func.isRequired,
   saveComment: PropTypes.func.isRequired,
+  disables: PropTypes.object
 };
+
+ActionsArea.defaultProps = {
+  disables: { }
+}
 
 export default withStyles(styles)(ActionsArea);

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
-import VerseCheck from '../tc_ui_toolkit/VerseCheck'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -32,9 +31,34 @@ const styles = {
 console.log('Checker.js - startup')
 const name = 'Checker'
 
+const selections = [
+  {
+    "text": "desire",
+    "occurrence": 1,
+    "occurrences": 1
+  }
+];
+
 const Checker = ({
  translate,
 }) => {
+  const [state, _setState] = useState({
+    nothingToSelect: false,
+    localNothingToSelect: false,
+    mode: 'default',
+    newSelections: selections,
+  })
+
+  const {
+    nothingToSelect,
+    localNothingToSelect,
+    mode,
+    newSelections,
+  } = state
+
+  function setState(newState) {
+    _setState(prevState => ({ ...prevState, ...newState }))
+  }
 
   const contextId =
   {
@@ -55,17 +79,9 @@ const Checker = ({
     "occurrence": 1
   }
 
-  const mode = 'default';
   const tags = [];
   const commentText = '';
   const verseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!';
-  const selections = [
-    {
-      "text": "desire",
-      "occurrence": 1,
-      "occurrences": 1
-    }
-  ];
   const invalidated = false;
   const bookDetails = {
     "id": "1jn",
@@ -228,13 +244,6 @@ const Checker = ({
       ]
     }
   };
-  const newSelections = [
-    {
-      "text": "desire",
-      "occurrence": 1,
-      "occurrences": 1
-    }
-  ];
   const alignedGLText = 'eternity';
   const handleComment = () => {
     console.log(`${name}-handleComment`)
@@ -243,7 +252,6 @@ const Checker = ({
   const setToolSettings = () => {
     console.log(`${name}-setToolSettings`)
   }
-  const nothingToSelect = false;
   const openAlertDialog = () => {
     console.log(`${name}-openAlertDialog`)
   }
@@ -274,29 +282,41 @@ const Checker = ({
   const checkIfCommentChanged = () => {
     console.log(`${name}-checkIfCommentChanged`)
   }
-  const changeSelectionsInLocalState = () => {
-    console.log(`${name}-changeSelectionsInLocalState`)
+  const changeSelectionsInLocalState = (selections) => {
+    console.log(`${name}-changeSelectionsInLocalState`, selections)
+    setState({
+      newSelections: selections,
+    });
   }
-  const toggleNothingToSelect = () => {
-    console.log(`${name}-toggleNothingToSelect`)
+  const toggleNothingToSelect = (select) => {
+    console.log(`${name}-toggleNothingToSelect`, select)
+    setState({ localNothingToSelect: select })
   }
-  const localNothingToSelect = false
+
   const isCommentChanged = false
   const bookmarkEnabled = false
   const saveSelection = () => {
     console.log(`${name}-saveSelection`)
+    //TODO: save changes
+    setState({ mode: 'default' });
   }
   const cancelSelection = () => {
     console.log(`${name}-cancelSelection`)
+    setState({
+      newSelections: selections,
+      mode: 'default'
+    });
   }
   const clearSelection = () => {
     console.log(`${name}-clearSelection`)
+    setState({ newSelections: [] });
   }
   const toggleBookmark = () => {
     console.log(`${name}-toggleBookmark`)
   }
-  const changeMode = () => {
-    console.log(`${name}-changeMode`)
+  const changeMode = (mode) => {
+    console.log(`${name}-changeMode`, mode)
+    setState({ mode })
   }
   const cancelEditVerse = () => {
     console.log(`${name}-cancelEditVerse`)
@@ -367,7 +387,6 @@ const Checker = ({
         />
       </div>
     </div>
-
   );
 };
 
