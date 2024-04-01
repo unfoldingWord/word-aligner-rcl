@@ -1,8 +1,8 @@
 import isEqual from 'deep-equal';
-import path from 'path-extra';
-import fs from 'fs-extra';
-import { saveGroupsDataItem } from '../localStorage/saveMethods';
-import ProjectAPI from './ProjectAPI';
+// import path from 'path-extra';
+// import fs from 'fs-extra';
+// import { saveGroupsDataItem } from '../localStorage/saveMethods';
+// import ProjectAPI from './ProjectAPI';
 import { sameContext } from './contextIdHelpers';
 
 /**
@@ -42,47 +42,47 @@ export const getGroupDataForVerse = (groupsData, contextId) => {
   return filteredGroupData;
 };
 
-/**
- * Loads all of a tool's group data from the project.
- * @param {string} toolName - the name of the tool who's helps will be loaded
- * @param {string} projectDir - the absolute path to the project
- * @param {object} targetBook - target book content to mark verse spans
- * @returns {*}
- */
-export function loadProjectGroupData(toolName, projectDir, targetBook = null) {
-  const project = new ProjectAPI(projectDir);
-  const groupsData = project.getGroupsData(toolName);
+// /**
+//  * Loads all of a tool's group data from the project.
+//  * @param {string} toolName - the name of the tool who's helps will be loaded
+//  * @param {string} projectDir - the absolute path to the project
+//  * @param {object} targetBook - target book content to mark verse spans
+//  * @returns {*}
+//  */
+// export function loadProjectGroupData(toolName, projectDir, targetBook = null) {
+//   const project = new ProjectAPI(projectDir);
+//   const groupsData = project.getGroupsData(toolName);
+//
+//   if (targetBook) {
+//     tagGroupDataSpans(targetBook, groupsData);
+//   }
+//   return groupsData;
+// }
 
-  if (targetBook) {
-    tagGroupDataSpans(targetBook, groupsData);
-  }
-  return groupsData;
-}
+// /**
+//  * gets path to a tool's group data from the project.
+//  * @param {string} toolName - the name of the tool who's helps will be loaded
+//  * @param {string} projectDir - the absolute path to the project
+//  * @param {string} groupID - group identifier
+//  * @returns {string} path to a tool's group data
+//  */
+// export function getGroupDataIndexPath(toolName, projectDir, groupID) {
+//   const project = new ProjectAPI(projectDir);
+//   return path.join(project.getCategoriesDir(toolName), groupID + '.json');
+// }
 
-/**
- * gets path to a tool's group data from the project.
- * @param {string} toolName - the name of the tool who's helps will be loaded
- * @param {string} projectDir - the absolute path to the project
- * @param {string} groupID - group identifier
- * @returns {string} path to a tool's group data
- */
-export function getGroupDataIndexPath(toolName, projectDir, groupID) {
-  const project = new ProjectAPI(projectDir);
-  return path.join(project.getCategoriesDir(toolName), groupID + '.json');
-}
-
-/**
- * gets path to a tool's group data from the project.
- * @param {string} toolName - the name of the tool who's helps will be loaded
- * @param {string} projectDir - the absolute path to the project
- * @param {string} groupID - group identifier
- * @param {object} groupData - data to save
- * @returns {string} path to a tool's group data
- */
-export function saveGroupData(toolName, projectDir, groupID, groupData) {
-  const dataPath = getGroupDataIndexPath(toolName, projectDir, groupID);
-  return fs.outputJson(dataPath, groupData, { spaces: 2 }); // don't need to wait for it to complete, so not a sync operation
-}
+// /**
+//  * gets path to a tool's group data from the project.
+//  * @param {string} toolName - the name of the tool who's helps will be loaded
+//  * @param {string} projectDir - the absolute path to the project
+//  * @param {string} groupID - group identifier
+//  * @param {object} groupData - data to save
+//  * @returns {string} path to a tool's group data
+//  */
+// export function saveGroupData(toolName, projectDir, groupID, groupData) {
+//   const dataPath = getGroupDataIndexPath(toolName, projectDir, groupID);
+//   return fs.outputJson(dataPath, groupData, { spaces: 2 }); // don't need to wait for it to complete, so not a sync operation
+// }
 
 /**
  * Generates a chapter-based group index.
@@ -339,7 +339,7 @@ export const getToggledGroupData = (state, action, key) => {
       [action.contextId.groupId]: groupData,
     };
     // Persisting groupsData in filesystem
-    saveGroupsDataItem(updatedGroupsData, projectSaveLocation, toolName, bookId, action.contextId.groupId);
+    // saveGroupsDataItem(updatedGroupsData, projectSaveLocation, toolName, bookId, action.contextId.groupId);
   }
 
   return groupData;

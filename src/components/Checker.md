@@ -5,12 +5,34 @@ import React, { useState } from 'react';
 import { NT_ORIG_LANG } from '../common/constants';
 import Checker from './Checker'
 
+import { lookupTranslationForKey } from '../utils/translations'
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
+const translations = require('../locales/English-en_US.json')
 
 const translate = (key) => {
-  console.log(`translate(${key})`)
-  return `key-(${key})`
+  const translation = lookupTranslationForKey(translations, key)
+  return translation
 };
+
+const contextId =
+  {
+    "reference": {
+      "bookId": "1jn",
+      "chapter": 2,
+      "verse": 17
+    },
+    "tool": "translationWords",
+    "groupId": "age",
+    "quote": "αἰῶνα",
+    "strong": [
+      "G01650"
+    ],
+    "lemma": [
+      "αἰών"
+    ],
+    "occurrence": 1
+  }
+
 
 console.log('Checker.md - startup')
 
@@ -31,6 +53,7 @@ const App = () => {
         <Checker
           styles={{ maxHeight: '450px', overflowY: 'auto' }}
           translate={translate}
+          contextId={contextId}
         />
       </div>
     </>

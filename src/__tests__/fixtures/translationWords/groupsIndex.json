@@ -1,0 +1,354 @@
+[
+  {
+    "id": "age",
+    "name": "age, aged"
+  },
+  {
+    "id": "amazed",
+    "name": "amazed, amazement, astonished, marvel, marveled, marvelous, wonder, dumbfounded"
+  },
+  {
+    "id": "father",
+    "name": "ancestor, father, fathered, forefather, grandfather"
+  },
+  {
+    "id": "anoint",
+    "name": "anoint, anointed, anointing"
+  },
+  {
+    "id": "antichrist",
+    "name": "antichrist"
+  },
+  {
+    "id": "astray",
+    "name": "astray, go astray, went astray, lead astray, stray"
+  },
+  {
+    "id": "believe",
+    "name": "believe, believer, belief, unbeliever, unbelief"
+  },
+  {
+    "id": "beloved",
+    "name": "beloved"
+  },
+  {
+    "id": "blood",
+    "name": "blood"
+  },
+  {
+    "id": "bold",
+    "name": "bold, boldness, emboldened"
+  },
+  {
+    "id": "bornagain",
+    "name": "born again, born of God, new birth"
+  },
+  {
+    "id": "brother",
+    "name": "brother"
+  },
+  {
+    "id": "burden",
+    "name": "burden, load, heavy, hard work, hard labor, utterances"
+  },
+  {
+    "id": "cain",
+    "name": "Cain"
+  },
+  {
+    "id": "call",
+    "name": "call, call out"
+  },
+  {
+    "id": "children",
+    "name": "children, child, offspring"
+  },
+  {
+    "id": "christ",
+    "name": "Christ, Messiah"
+  },
+  {
+    "id": "clean",
+    "name": "clean, wash"
+  },
+  {
+    "id": "command",
+    "name": "command, commandment"
+  },
+  {
+    "id": "condemn",
+    "name": "condemn, condemned, condemnation"
+  },
+  {
+    "id": "confess",
+    "name": "confess, confession"
+  },
+  {
+    "id": "confidence",
+    "name": "confidence, confident"
+  },
+  {
+    "id": "darkness",
+    "name": "darkness"
+  },
+  {
+    "id": "biblicaltimeday",
+    "name": "day"
+  },
+  {
+    "id": "deceive",
+    "name": "deceive, lie, deception, illusions"
+  },
+  {
+    "id": "declare",
+    "name": "declare, proclaim, announce"
+  },
+  {
+    "id": "death",
+    "name": "die, dead, deadly, death"
+  },
+  {
+    "id": "eternity",
+    "name": "eternity, everlasting, eternal, forever"
+  },
+  {
+    "id": "evil",
+    "name": "evil, wicked, unpleasant"
+  },
+  {
+    "id": "faith",
+    "name": "faith"
+  },
+  {
+    "id": "faithful",
+    "name": "faithful, faithfulness, trustworthy"
+  },
+  {
+    "id": "falseprophet",
+    "name": "false prophet"
+  },
+  {
+    "id": "fear",
+    "name": "fear, afraid, frighten"
+  },
+  {
+    "id": "fellowship",
+    "name": "fellowship"
+  },
+  {
+    "id": "flesh",
+    "name": "flesh"
+  },
+  {
+    "id": "forgive",
+    "name": "forgive, forgiven, forgiveness, pardon, pardoned"
+  },
+  {
+    "id": "god",
+    "name": "God"
+  },
+  {
+    "id": "godthefather",
+    "name": "God the Father, heavenly Father, Father"
+  },
+  {
+    "id": "falsegod",
+    "name": "god, false god, goddess, idol, idolater, idolatrous, idolatry"
+  },
+  {
+    "id": "hand",
+    "name": "hand"
+  },
+  {
+    "id": "heart",
+    "name": "heart"
+  },
+  {
+    "id": "holyone",
+    "name": "Holy One"
+  },
+  {
+    "id": "holyspirit",
+    "name": "Holy Spirit, Spirit of God, Spirit of the Lord, Spirit"
+  },
+  {
+    "id": "hope",
+    "name": "hope, hoped"
+  },
+  {
+    "id": "hour",
+    "name": "hour"
+  },
+  {
+    "id": "jesus",
+    "name": "Jesus, Jesus Christ, Christ Jesus"
+  },
+  {
+    "id": "joy",
+    "name": "joy, joyful, rejoice, glad"
+  },
+  {
+    "id": "judge",
+    "name": "judge, judgment"
+  },
+  {
+    "id": "know",
+    "name": "know, knowledge, unknown, distinguish"
+  },
+  {
+    "id": "lawful",
+    "name": "lawful, unlawful, not lawful, lawless, lawlessness"
+  },
+  {
+    "id": "life",
+    "name": "life, live, living, alive"
+  },
+  {
+    "id": "light",
+    "name": "light, luminary, shine, brighten, enlighten"
+  },
+  {
+    "id": "like",
+    "name": "like, likeminded, likeness, likewise, alike, unlike, as if"
+  },
+  {
+    "id": "love",
+    "name": "love, beloved"
+  },
+  {
+    "id": "lust",
+    "name": "lust, lustful, passions, desires"
+  },
+  {
+    "id": "name",
+    "name": "name"
+  },
+  {
+    "id": "obey",
+    "name": "obey, keep"
+  },
+  {
+    "id": "perfect",
+    "name": "perfect, complete"
+  },
+  {
+    "id": "pray",
+    "name": "pray, prayer"
+  },
+  {
+    "id": "promise",
+    "name": "promise, promised"
+  },
+  {
+    "id": "propitiation",
+    "name": "propitiation"
+  },
+  {
+    "id": "punish",
+    "name": "punish, punished, punishment, unpunished"
+  },
+  {
+    "id": "purify",
+    "name": "pure, purify, purification"
+  },
+  {
+    "id": "receive",
+    "name": "receive, welcome, taken up, acceptance"
+  },
+  {
+    "id": "reveal",
+    "name": "reveal, revealed, revelation"
+  },
+  {
+    "id": "righteous",
+    "name": "righteous, righteousness, unrighteous, unrighteousness, upright, uprightness"
+  },
+  {
+    "id": "satan",
+    "name": "Satan, devil, evil one"
+  },
+  {
+    "id": "savior",
+    "name": "Savior, savior"
+  },
+  {
+    "id": "seed",
+    "name": "seed, semen"
+  },
+  {
+    "id": "send",
+    "name": "send, sent, send out"
+  },
+  {
+    "id": "shame",
+    "name": "shame, ashamed, disgrace, humiliate, reproach"
+  },
+  {
+    "id": "sin",
+    "name": "sin, sinful, sinner, sinning"
+  },
+  {
+    "id": "sonofgod",
+    "name": "Son of God, the Son"
+  },
+  {
+    "id": "spirit",
+    "name": "spirit, wind, breath"
+  },
+  {
+    "id": "strength",
+    "name": "strength, strengthen, strong"
+  },
+  {
+    "id": "stumblingblock",
+    "name": "stumbling block, stone of stumbling"
+  },
+  {
+    "id": "teach",
+    "name": "teach, teaching, untaught"
+  },
+  {
+    "id": "test",
+    "name": "test, tested, testing, testing in the fire"
+  },
+  {
+    "id": "testimony",
+    "name": "testimony, testify, witness, eyewitness, evidence"
+  },
+  {
+    "id": "tongue",
+    "name": "tongue, language"
+  },
+  {
+    "id": "true",
+    "name": "true, truth"
+  },
+  {
+    "id": "understand",
+    "name": "understand, understanding, thinking"
+  },
+  {
+    "id": "walk",
+    "name": "walk, walked"
+  },
+  {
+    "id": "water",
+    "name": "water, deep"
+  },
+  {
+    "id": "willofgod",
+    "name": "will of God"
+  },
+  {
+    "id": "wordofgod",
+    "name": "word of God, word of Yahweh, word of the Lord, word of truth, scripture"
+  },
+  {
+    "id": "works",
+    "name": "work, works, deeds"
+  },
+  {
+    "id": "world",
+    "name": "world, worldly"
+  }
+]
