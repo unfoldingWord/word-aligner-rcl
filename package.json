@@ -54,6 +54,7 @@
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "marked": "0.6.2",
+    "memoize-one": "^5.1.1",
     "react-bootstrap": "^0.32.1",
     "react-draggable": "^3.3.2",
     "react-tooltip": "^3.11.6",
