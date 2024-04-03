@@ -195,6 +195,23 @@ export function parseReference(ref) {
   return ref_;
 }
 
+export function flattenGroupData(groupsData) {
+  let mergedGroups = { }
+
+  for (const groupId of Object.keys(groupsData)) {
+    const group = groupsData[groupId]
+    const newGroups = {...mergedGroups, ...group}
+    mergedGroups = newGroups
+  }
+
+  let sortedGroups = { }
+  for (const key of Object.keys(mergedGroups).sort()) {
+    sortedGroups[key] = mergedGroups[key]
+  }
+
+  return sortedGroups;
+}
+
 /**
  * process the TSV file into index files
  * @param {string} tsvData
@@ -233,6 +250,22 @@ export async function twlTsvToGroupData(tsvData, project, origLangBible) {
     throw e;
   }
   return groupData;
+}
+
+/**
+ * parse the twData into a flat index
+ * @param {object} twData
+ * @returns {array}
+ */
+export function parseTwToIndex(twData) {
+  let index = []
+  for (const catagoryId of Object.keys(twData)) {
+    const catagory = twData[catagoryId]
+    if (catagory?.index) {
+      index = index.concat(catagory?.index)
+    }
+  }
+  return index
 }
 
 /**

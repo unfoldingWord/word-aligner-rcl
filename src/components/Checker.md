@@ -8,6 +8,8 @@ import Checker from './Checker'
 import { lookupTranslationForKey } from '../utils/translations'
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 const translations = require('../locales/English-en_US.json')
+const glTwlTsv = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json').data
+const glTwData = require('../__tests__/fixtures/translationWords/enTw.json')
 
 const translate = (key) => {
   const translation = lookupTranslationForKey(translations, key)
@@ -54,6 +56,8 @@ const App = () => {
           styles={{ maxHeight: '450px', overflowY: 'auto' }}
           translate={translate}
           contextId={contextId}
+          glTwlTsv={glTwlTsv}
+          glTwData={glTwData}
         />
       </div>
     </>

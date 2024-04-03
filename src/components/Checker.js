@@ -6,7 +6,7 @@ import GroupMenuComponent from './GroupMenuComponent'
 import { getBestVerseFromBook } from '../helpers/verseHelpers'
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import isEqual from 'deep-equal'
-import { twlTsvToGroupData } from '../helpers/translationHelps/twArticleHelpers'
+import { flattenGroupData, parseTwToIndex, twlTsvToGroupData } from '../helpers/translationHelps/twArticleHelpers'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -39,14 +39,17 @@ const name = 'Checker'
 const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
-const groupsData = require('../__tests__/fixtures/translationWords/groupsData.json')
-const groupsIndex =require('../__tests__/fixtures/translationWords/groupsIndex.json')
-const twl = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json')
+// const groupsData = require('../__tests__/fixtures/translationWords/groupsData.json')
+// const groupsIndex =require('../__tests__/fixtures/translationWords/groupsIndex.json')
+const tWdata = require('../__tests__/fixtures/translationWords/enTw.json')
+// const groupsIndex = parseTwToIndex(tWdata)
+
+// const twl = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json')
 const project = {
   identifier: '1jn',
   languageId: 'en'
 }
-twlTsvToGroupData(twl.data, project, ugntBible).then(() => { })
+// twlTsvToGroupData(twl.data, project, ugntBible).then(() => { })
 
 const selections = [
   {
@@ -58,10 +61,14 @@ const selections = [
 
 const Checker = ({
   contextId,
+  glTwlTsv,
+  glTwData,
   translate,
 }) => {
   const [state, _setState] = useState({
     currentContextId: contextId,
+    groupsData: null,
+    groupsIndex: null,
     localNothingToSelect: false,
     mode: 'default',
     newSelections: selections,
@@ -71,6 +78,8 @@ const Checker = ({
 
   const {
     currentContextId,
+    groupsData,
+    groupsIndex,
     localNothingToSelect,
     mode,
     newSelections,
@@ -86,6 +95,23 @@ const Checker = ({
     updateContext(contextId)
     setState({ newSelections: selections })
   }, [contextId]);
+
+  useEffect(() => {
+    if (glTwlTsv) {
+      twlTsvToGroupData(glTwlTsv, project, ugntBible).then((groupsData) => {
+        const flattenedGroupData = flattenGroupData(groupsData)
+        setState({ groupsData: flattenedGroupData })
+      })
+    } else {
+      setState({ groupsData: null })
+    }
+    if (glTwData) {
+      const groupsIndex = parseTwToIndex(glTwData)
+      setState({ groupsIndex })
+    } else {
+      setState({ groupsIndex: null })
+    }
+  }, [glTwlTsv, glTwData]);
 
   function updateContext(contextId) {
     const reference = contextId?.reference
@@ -236,76 +262,81 @@ const Checker = ({
   }
 
   return (
-    <div style={styles.containerDiv}>
-      <GroupMenuComponent
-        bookName={bookName}
-        translate={translate}
-        contextId={currentContextId}
-        groupsData={groupsData}
-        groupsIndex={groupsIndex}
-        targetLanguageFont={targetLanguageFont}
-        changeCurrentContextId={changeCurrentContextId}
-        direction={direction}
-      />
-      <div style={styles.centerDiv}>
-        <CheckArea
-          mode={mode}
-          tags={tags}
-          verseText={verseText}
-          comment={commentText}
+    (groupsData && groupsIndex) ?
+      <div style={styles.containerDiv}>
+        <GroupMenuComponent
+          bookName={bookName}
           translate={translate}
           contextId={currentContextId}
-          selections={selections}
-          bookDetails={bookDetails}
-          targetBible={targetBible}
-          toolsSettings={toolsSettings}
-          newSelections={newSelections}
-          alignedGLText={alignedGLText}
-          handleComment={handleComment}
-          isVerseChanged={isVerseChanged}
-          invalidated={isVerseInvalidated}
-          setToolSettings={setToolSettings}
-          nothingToSelect={nothingToSelect}
-          openAlertDialog={openAlertDialog}
-          handleEditVerse={handleEditVerse}
-          maximumSelections={maximumSelections}
-          handleTagsCheckbox={handleTagsCheckbox}
-          validateSelections={validateSelections}
+          groupsData={groupsData}
+          groupsIndex={groupsIndex}
           targetLanguageFont={targetLanguageFont}
-          unfilteredVerseText={unfilteredVerseText}
-          checkIfVerseChanged={checkIfVerseChanged}
-          targetLanguageDetails={targetLanguageDetails}
-          checkIfCommentChanged={checkIfCommentChanged}
-          changeSelectionsInLocalState={changeSelectionsInLocalState}
+          changeCurrentContextId={changeCurrentContextId}
+          direction={direction}
         />
-        <ActionsArea
-          mode={mode}
-          tags={tags}
-          toggleNothingToSelect={toggleNothingToSelect}
-          localNothingToSelect={localNothingToSelect}
-          nothingToSelect={nothingToSelect}
-          isCommentChanged={isCommentChanged}
-          selections={selections}
-          newSelections={newSelections}
-          translate={translate}
-          bookmarkEnabled={bookmarkEnabled}
-          saveSelection={saveSelection}
-          cancelSelection={cancelSelection}
-          clearSelection={clearSelection}
-          toggleBookmark={toggleBookmark}
-          changeMode={changeMode}
-          cancelEditVerse={cancelEditVerse}
-          saveEditVerse={saveEditVerse}
-          cancelComment={cancelComment}
-          saveComment={saveComment}
-        />
+        <div style={styles.centerDiv}>
+          <CheckArea
+            mode={mode}
+            tags={tags}
+            verseText={verseText}
+            comment={commentText}
+            translate={translate}
+            contextId={currentContextId}
+            selections={selections}
+            bookDetails={bookDetails}
+            targetBible={targetBible}
+            toolsSettings={toolsSettings}
+            newSelections={newSelections}
+            alignedGLText={alignedGLText}
+            handleComment={handleComment}
+            isVerseChanged={isVerseChanged}
+            invalidated={isVerseInvalidated}
+            setToolSettings={setToolSettings}
+            nothingToSelect={nothingToSelect}
+            openAlertDialog={openAlertDialog}
+            handleEditVerse={handleEditVerse}
+            maximumSelections={maximumSelections}
+            handleTagsCheckbox={handleTagsCheckbox}
+            validateSelections={validateSelections}
+            targetLanguageFont={targetLanguageFont}
+            unfilteredVerseText={unfilteredVerseText}
+            checkIfVerseChanged={checkIfVerseChanged}
+            targetLanguageDetails={targetLanguageDetails}
+            checkIfCommentChanged={checkIfCommentChanged}
+            changeSelectionsInLocalState={changeSelectionsInLocalState}
+          />
+          <ActionsArea
+            mode={mode}
+            tags={tags}
+            toggleNothingToSelect={toggleNothingToSelect}
+            localNothingToSelect={localNothingToSelect}
+            nothingToSelect={nothingToSelect}
+            isCommentChanged={isCommentChanged}
+            selections={selections}
+            newSelections={newSelections}
+            translate={translate}
+            bookmarkEnabled={bookmarkEnabled}
+            saveSelection={saveSelection}
+            cancelSelection={cancelSelection}
+            clearSelection={clearSelection}
+            toggleBookmark={toggleBookmark}
+            changeMode={changeMode}
+            cancelEditVerse={cancelEditVerse}
+            saveEditVerse={saveEditVerse}
+            cancelComment={cancelComment}
+            saveComment={saveComment}
+          />
+        </div>
       </div>
-    </div>
+      :
+      "Waiting for Data"
   );
 };
 
 Checker.propTypes = {
   contextId: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
+  glTwlTsv: PropTypes.string.isRequired,
+  glTwData: PropTypes.object.isRequired,
 };
 export default Checker;

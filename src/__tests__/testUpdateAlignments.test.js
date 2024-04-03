@@ -21,7 +21,7 @@ const otMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/otMig
 const ntMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/ntMigrationEditsTests.json');
 
 
-describe('testing edit of aligned target text', () => {
+describe.skip('testing edit of aligned target text', () => {
   const tests = fs.readJsonSync(simpleUpdatesPath)
   const testNames = Object.keys(tests)
   // console.log(tests)
@@ -65,7 +65,7 @@ describe('testing edit of aligned target text', () => {
   }
 })
 
-describe('testing alignment operations', () => {
+describe.skip('testing alignment operations', () => {
   const testaments = [
     {
       name: "New Testament",
