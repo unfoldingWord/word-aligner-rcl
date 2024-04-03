@@ -5,6 +5,8 @@ import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
 import GroupMenuComponent from './GroupMenuComponent'
 import { getBestVerseFromBook } from '../helpers/verseHelpers'
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
+import isEqual from 'deep-equal'
+import { twlTsvToGroupData } from '../helpers/translationHelps/twArticleHelpers'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -34,9 +36,17 @@ const styles = {
 
 console.log('Checker.js - startup')
 const name = 'Checker'
-const targetBible = require('../__tests__/fixtures/bibles/targetBible.json')
+const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
+const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
+const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
 const groupsData = require('../__tests__/fixtures/translationWords/groupsData.json')
 const groupsIndex =require('../__tests__/fixtures/translationWords/groupsIndex.json')
+const twl = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json')
+const project = {
+  identifier: '1jn',
+  languageId: 'en'
+}
+twlTsvToGroupData(twl.data, project, ugntBible).then(() => { })
 
 const selections = [
   {
@@ -72,6 +82,11 @@ const Checker = ({
     _setState(prevState => ({ ...prevState, ...newState }))
   }
 
+  useEffect(() => {
+    updateContext(contextId)
+    setState({ newSelections: selections })
+  }, [contextId]);
+
   function updateContext(contextId) {
     const reference = contextId?.reference
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
@@ -81,10 +96,6 @@ const Checker = ({
       verseText,
     })
   }
-
-  useEffect(() => {
-    updateContext(contextId)
-  }, [contextId]);
 
   const tags = [];
   const commentText = '';
@@ -141,8 +152,8 @@ const Checker = ({
   const handleTagsCheckbox = () => {
     console.log(`${name}-handleTagsCheckbox`)
   }
-  const validateSelections = () => {
-    console.log(`${name}-validateSelections`)
+  const validateSelections = (selections_) => {
+    console.log(`${name}-validateSelections`, selections_)
   }
   const targetLanguageFont = 'default'
   const unfilteredVerseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!\n\n\\ts\\*\n\\p'
@@ -160,10 +171,10 @@ const Checker = ({
   const checkIfCommentChanged = () => {
     console.log(`${name}-checkIfCommentChanged`)
   }
-  const changeSelectionsInLocalState = (selections) => {
-    console.log(`${name}-changeSelectionsInLocalState`, selections)
+  const changeSelectionsInLocalState = (selections_) => {
+    console.log(`${name}-changeSelectionsInLocalState`, selections_)
     setState({
-      newSelections: selections,
+      newSelections: selections_,
     });
   }
   const toggleNothingToSelect = (select) => {
@@ -175,8 +186,13 @@ const Checker = ({
     const newContextId = newContext?.contextId
     console.log(`${name}-changeCurrentContextId`, newContextId)
 
-    if (newContextId) {
-      updateContext(newContextId)
+    const selectionsUnchanged = isEqual(selections, newSelections)
+    if (selectionsUnchanged) {
+      if (newContextId) {
+        updateContext(newContextId)
+      }
+    } else {
+      console.log('Checker.changeCurrentContextId - unsaved changes')
     }
   }
   const direction = 'ltr'

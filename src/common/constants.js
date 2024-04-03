@@ -11,3 +11,6 @@ export const NT_ORIG_LANG = 'el-x-koine';
 export const NT_ORIG_LANG_BIBLE = 'ugnt';
 export const OT_ORIG_LANG = 'hbo';
 export const OT_ORIG_LANG_BIBLE = 'uhb';
+export const OWNER_SEPARATOR = '_';
+export const ELLIPSIS = '\u2026';
+export const THREE_DOTS = '...';

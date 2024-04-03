@@ -60,6 +60,7 @@
     "react-tooltip": "^3.11.6",
     "string-punctuation-tokenizer": "2.2.0",
     "usfm-js": "3.4.2",
+    "uw-tsv-parser": "1.0.3",
     "word-aligner": "1.0.2",
     "wordmap-lexer": "^0.3.6"
   },
