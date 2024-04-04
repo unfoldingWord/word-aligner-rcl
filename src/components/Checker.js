@@ -6,7 +6,12 @@ import GroupMenuComponent from './GroupMenuComponent'
 import { getBestVerseFromBook } from '../helpers/verseHelpers'
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import isEqual from 'deep-equal'
-import { flattenGroupData, parseTwToIndex, twlTsvToGroupData } from '../helpers/translationHelps/twArticleHelpers'
+import {
+  findCheck,
+  findFirstCheck,
+  flattenGroupData,
+  parseTwToIndex
+} from '../helpers/translationHelps/twArticleHelpers'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -45,38 +50,41 @@ const tWdata = require('../__tests__/fixtures/translationWords/enTw.json')
 // const groupsIndex = parseTwToIndex(tWdata)
 
 // const twl = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json')
-const project = {
-  identifier: '1jn',
-  languageId: 'en'
-}
+// const project = {
+//   identifier: '1jn',
+//   languageId: 'en'
+// }
 // twlTsvToGroupData(twl.data, project, ugntBible).then(() => { })
 
-const selections = [
-  {
-    "text": "desire",
-    "occurrence": 1,
-    "occurrences": 1
-  }
-];
+// const selections = [
+//   {
+//     "text": "desire",
+//     "occurrence": 1,
+//     "occurrences": 1
+//   }
+// ];
 
 const Checker = ({
   contextId,
-  glTwlTsv,
+  checkingData,
   glTwData,
   translate,
 }) => {
   const [state, _setState] = useState({
-    currentContextId: contextId,
+    check: null,
+    currentContextId: null,
     groupsData: null,
     groupsIndex: null,
     localNothingToSelect: false,
     mode: 'default',
-    newSelections: selections,
+    newSelections: null,
     nothingToSelect: false,
+    selections: null,
     verseText: '',
   })
 
   const {
+    check,
     currentContextId,
     groupsData,
     groupsIndex,
@@ -84,6 +92,7 @@ const Checker = ({
     mode,
     newSelections,
     nothingToSelect,
+    selections,
     verseText,
   } = state
 
@@ -92,26 +101,59 @@ const Checker = ({
   }
 
   useEffect(() => {
-    updateContext(contextId)
-    setState({ newSelections: selections })
+    let contextId_ = contextId
+    let newSelections = false
+    let check = findCheck(groupsData, contextId, false)
+    if (!check) {
+      check = findFirstCheck(groupsData) // fall back to first item if contextId is not found
+      if (check) {
+        contextId_ = check?.contextId
+        newSelections = check.selections || []
+      } else {
+        contextId_ = null
+      }
+    }
+
+    updateContext(contextId_)
+    setState({
+      newSelections,
+      selections: newSelections
+    })
   }, [contextId]);
 
   useEffect(() => {
-    if (glTwlTsv) {
-      twlTsvToGroupData(glTwlTsv, project, ugntBible).then((groupsData) => {
-        const flattenedGroupData = flattenGroupData(groupsData)
-        setState({ groupsData: flattenedGroupData })
-      })
-    } else {
-      setState({ groupsData: null })
+    let flattenedGroupData = null
+    if (checkingData) {
+      flattenedGroupData = flattenGroupData(checkingData)
     }
+
+    const check = findCheck(flattenedGroupData, contextId, true)
+
+    const newState = {
+      groupsData: flattenedGroupData,
+      check,
+    }
+
+    if (check) { // if found a match, use the selections
+      const newSelections = check.selections || []
+      newState.selections = newSelections
+      newState.newSelections = newSelections
+    }
+
+    setState(newState)
+
+    if (flattenedGroupData && !currentContextId && check?.contextId) { // need to initialize contextId if we have the data
+      updateContext(check?.contextId)
+    }
+  }, [checkingData]);
+
+  useEffect(() => {
+    let groupsIndex = null
     if (glTwData) {
-      const groupsIndex = parseTwToIndex(glTwData)
-      setState({ groupsIndex })
-    } else {
-      setState({ groupsIndex: null })
+      groupsIndex = parseTwToIndex(glTwData)
     }
-  }, [glTwlTsv, glTwData]);
+    setState({ groupsIndex })
+  }, [glTwData]);
 
   function updateContext(contextId) {
     const reference = contextId?.reference
@@ -215,7 +257,15 @@ const Checker = ({
     const selectionsUnchanged = isEqual(selections, newSelections)
     if (selectionsUnchanged) {
       if (newContextId) {
+        let check = findCheck(groupsData, newContextId, false)
         updateContext(newContextId)
+        if (check) {
+          const newSelections = check.selections || []
+          setState({
+            newSelections,
+            selections: newSelections
+          })
+        }
       }
     } else {
       console.log('Checker.changeCurrentContextId - unsaved changes')
@@ -262,7 +312,7 @@ const Checker = ({
   }
 
   return (
-    (groupsData && groupsIndex) ?
+    (groupsData && groupsIndex && currentContextId && verseText) ?
       <div style={styles.containerDiv}>
         <GroupMenuComponent
           bookName={bookName}
@@ -336,7 +386,7 @@ const Checker = ({
 Checker.propTypes = {
   contextId: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
-  glTwlTsv: PropTypes.string.isRequired,
+  checkingData: PropTypes.object.isRequired,
   glTwData: PropTypes.object.isRequired,
 };
 export default Checker;

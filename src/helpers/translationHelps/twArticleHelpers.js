@@ -195,13 +195,99 @@ export function parseReference(ref) {
   return ref_;
 }
 
+/**
+ * make sure context IDs are for same verse.  Optimized over isEqual()
+ * @param {Object} contextId1
+ * @param {Object} contextId2
+ * @return {boolean} returns true if context IDs are for same verse
+ */
+export function isSameVerseByContext(contextId1, contextId2) {
+  return (contextId1.reference.chapter == contextId2.reference.chapter) && // TRICKY: we are allowing coercion since chapters and verses could be either strings or numbers
+    (contextId1.reference.verse == contextId2.reference.verse);
+}
+
+/**
+ * make sure context IDs are for same verse.  Optimized over isEqual()
+ * @param {Object} reference1
+ * @param {Object} reference2
+ * @return {boolean} returns true if context IDs are for same verse
+ */
+export function isSameVerseByRef(reference1, reference2) {
+  return (reference1.chapter == reference2.chapter) && // TRICKY: we are allowing coercion since chapters and verses could be either strings or numbers
+    (reference1.verse == reference2.verse);
+}
+
+export function findCheck(groupsData, contextId, defaultToFirst = false) {
+  let check = null
+  let checkedBook = false;
+  if (groupsData && contextId?.reference) {
+    for (const groupId of Object.keys(groupsData)) {
+      if (groupId === contextId.groupId) {
+        const items = groupsData[groupId]
+        const reference = contextId?.reference
+        if (!checkedBook && items.length) {
+          if (reference?.bookId !== items[0]?.contextId?.reference?.bookId) {
+            break; // context id is for difference book
+          }
+          checkedBook = true
+        }
+        if (reference) {
+          for (const item of items) {
+            const itemContextId = item.contextId
+            if (isSameVerseByRef(reference, itemContextId?.reference)) {
+              let matchFound = false
+              if (contextId.checkId) {
+                if (contextId.checkId === itemContextId?.checkId) {
+                  matchFound = true
+                }
+              } else // if no checkId, fall back to matching quote and occurrence
+              if ((contextId.quote === itemContextId?.quote) && (contextId.occurrence === itemContextId?.occurrence)) {
+                matchFound = true
+              }
+
+              if (matchFound) {
+                check = item
+                break
+              }
+            }
+          }
+        }
+        break // when finished checking all items in groupId, there is no point to continue
+      }
+    }
+  }
+  if (!check && defaultToFirst) {
+    check = findFirstCheck(groupsData)
+  }
+  return check
+}
+
+export function findFirstCheck(groupsData) {
+  let check = null
+  const groupKeys = groupsData && Object.keys(groupsData)
+  if (groupKeys?.length) {
+    const firstGroup = groupsData[groupKeys[0]]
+    if (firstGroup?.length) {
+      check = firstGroup[0]
+    }
+  }
+  return check
+}
+
 export function flattenGroupData(groupsData) {
   let mergedGroups = { }
 
-  for (const groupId of Object.keys(groupsData)) {
-    const group = groupsData[groupId]
-    const newGroups = {...mergedGroups, ...group}
-    mergedGroups = newGroups
+  for (const category of Object.keys(groupsData)) {
+    const groups = groupsData[category]
+    for (const groupId of Object.keys(groups)) {
+      const group = groups[groupId]
+      const newGroup = group.map(item => {
+        const newItem = {...item} // shallow copy
+        newItem.category = category
+        return newItem
+      })
+      mergedGroups[groupId] = newGroup
+    }
   }
 
   let sortedGroups = { }
