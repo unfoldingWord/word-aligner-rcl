@@ -12,6 +12,7 @@ const translations = require('../locales/English-en_US.json')
 const glTwlTsv = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json').data
 const glTwData = require('../__tests__/fixtures/translationWords/enTw.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
+const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
 
 const translate = (key) => {
   const translation = lookupTranslationForKey(translations, key)
@@ -74,6 +75,7 @@ const App = () => {
           contextId={contextId}
           checkingData={checkingData}
           glTwData={glTwData}
+          alignedGlBible={enGlBible}
         />
       </div>
     </>

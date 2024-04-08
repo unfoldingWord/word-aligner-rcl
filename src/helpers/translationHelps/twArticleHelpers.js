@@ -28,6 +28,7 @@ import { hasEllipsis } from '../tsv-groupdata-parser/ellipsisHelpers'
 import { getVerseString } from '../tsv-groupdata-parser/verseHelpers'
 import { ELLIPSIS } from '../../common/constants'
 import { convertReference } from './tsvToGroupData'
+import { getAlignedText } from '../../tc_ui_toolkit/VerseCheck/helpers/checkAreaHelpers'
 // import { delay } from '../../utils/delay';
 
 /**
@@ -223,16 +224,16 @@ export function findCheck(groupsData, contextId, defaultToFirst = false) {
   if (groupsData && contextId?.reference) {
     for (const groupId of Object.keys(groupsData)) {
       if (groupId === contextId.groupId) {
-        const items = groupsData[groupId]
+        const catagoryItems = groupsData[groupId]
         const reference = contextId?.reference
-        if (!checkedBook && items.length) {
-          if (reference?.bookId !== items[0]?.contextId?.reference?.bookId) {
+        if (!checkedBook && catagoryItems.length) {
+          if (reference?.bookId !== catagoryItems[0]?.contextId?.reference?.bookId) {
             break; // context id is for difference book
           }
           checkedBook = true
         }
         if (reference) {
-          for (const item of items) {
+          for (const item of catagoryItems) {
             const itemContextId = item.contextId
             if (isSameVerseByRef(reference, itemContextId?.reference)) {
               let matchFound = false
@@ -562,4 +563,30 @@ function compareByFirstUniqueWord(a, b) {
       return (aWord < bWord ? -1 : 1);
   }
   return 0; // both lists are the same
+}
+
+/**
+ * looks up the GL text from an aligned GL bible using the Original Language
+ * @param {object} toolsSelectedGLs
+ * @param {object} contextId
+ * @param {object} bibles
+ * @param {string} currentToolName
+ * @return {string|null} returns null if error getting text
+ */
+export function getAlignedGLText(alignedGlBible, contextId) {
+  if (contextId) {
+    if (!alignedGlBible || !Object.keys(alignedGlBible).length) {
+      return contextId.quote;
+    }
+
+    const verseObjects = alignedGlBible?.[contextId.reference.chapter]?.[contextId.reference.verse]?.verseObjects
+    if (contextId ) {
+      const alignedText = getAlignedText(verseObjects, contextId.quote, contextId.occurrence);
+
+      if (alignedText) {
+        return alignedText;
+      }
+    }
+  }
+  return null;
 }

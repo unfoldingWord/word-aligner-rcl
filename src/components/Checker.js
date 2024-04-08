@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
+import _ from 'lodash'
 import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
 import GroupMenuComponent from './GroupMenuComponent'
@@ -10,6 +11,7 @@ import {
   findCheck,
   findFirstCheck,
   flattenGroupData,
+  getAlignedGLText,
   parseTwToIndex
 } from '../helpers/translationHelps/twArticleHelpers'
 
@@ -65,18 +67,22 @@ const tWdata = require('../__tests__/fixtures/translationWords/enTw.json')
 // ];
 
 const Checker = ({
-  contextId,
+  alignedGlBible,
   checkingData,
+  contextId,
   glTwData,
   translate,
 }) => {
   const [state, _setState] = useState({
+    alignedGLText: '',
     check: null,
     currentContextId: null,
+    currentCheckingData: null,
     groupsData: null,
     groupsIndex: null,
     localNothingToSelect: false,
     mode: 'default',
+    modified: false,
     newSelections: null,
     nothingToSelect: false,
     selections: null,
@@ -84,12 +90,15 @@ const Checker = ({
   })
 
   const {
+    alignedGLText,
     check,
     currentContextId,
+    currentCheckingData,
     groupsData,
     groupsIndex,
     localNothingToSelect,
     mode,
+    modified,
     newSelections,
     nothingToSelect,
     selections,
@@ -131,7 +140,9 @@ const Checker = ({
 
     const newState = {
       groupsData: flattenedGroupData,
+      currentCheckingData: checkingData,
       check,
+      modified: false,
     }
 
     if (check) { // if found a match, use the selections
@@ -159,7 +170,9 @@ const Checker = ({
     const reference = contextId?.reference
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
     verseText = removeUsfmMarkers(verseText)
+    const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     setState({
+      alignedGLText,
       currentContextId: contextId,
       verseText,
     })
@@ -201,7 +214,7 @@ const Checker = ({
       ]
     }
   };
-  const alignedGLText = 'eternity';
+
   const handleComment = () => {
     console.log(`${name}-handleComment`)
   }
@@ -277,8 +290,25 @@ const Checker = ({
   const bookmarkEnabled = false
   const saveSelection = () => {
     console.log(`${name}-saveSelection`)
-    //TODO: save changes
-    setState({ mode: 'default' });
+    const newGroupsData = _.cloneDeep(groupsData);
+    const checkInGroupsData = findCheck(newGroupsData, currentContextId)
+    if (checkInGroupsData) {
+      //save the selection changes
+      const category = checkInGroupsData.category
+      const newCheckData = _.cloneDeep(currentCheckingData);
+      const checkInCheckingData = findCheck(newCheckData[category], currentContextId, false)
+      if (checkInCheckingData) {
+        checkInCheckingData.selections = newSelections
+        checkInGroupsData.selections = newSelections
+        setState({
+          currentCheckingData: newCheckData,
+          groupsData: newGroupsData,
+          mode: 'default',
+          modified: true,
+          selections: newSelections,
+        });
+      }
+    }
   }
   const cancelSelection = () => {
     console.log(`${name}-cancelSelection`)
@@ -384,9 +414,10 @@ const Checker = ({
 };
 
 Checker.propTypes = {
-  contextId: PropTypes.object.isRequired,
-  translate: PropTypes.func.isRequired,
+  alignedGlBible: PropTypes.object,
   checkingData: PropTypes.object.isRequired,
+  contextId: PropTypes.object.isRequired,
   glTwData: PropTypes.object.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 export default Checker;
