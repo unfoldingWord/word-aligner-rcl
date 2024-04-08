@@ -68,9 +68,9 @@ const App = () => {
 
   return (
     <>
-      <div style={{ height: '650px', width: '800px' }}>
+      <div style={{ height: '600px', width: '850px' }}>
         <Checker
-          styles={{ maxHeight: '450px', overflowY: 'auto' }}
+          styles={{ maxHeight: '500px', overflowY: 'auto' }}
           translate={translate}
           contextId={contextId}
           checkingData={checkingData}

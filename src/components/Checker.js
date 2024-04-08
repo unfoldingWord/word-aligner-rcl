@@ -25,13 +25,14 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     // width: '100vw',
-    height: '50%',
+    height: '75%',
   },
   centerDiv: {
     display: 'flex',
     flexDirection: 'column',
     width: '85%',
     overflowX: 'auto',
+    marginLeft: '10px',
   },
   scripturePaneDiv: {
     display: 'flex',
@@ -356,6 +357,7 @@ const Checker = ({
         />
         <div style={styles.centerDiv}>
           <CheckArea
+            style={{marginRight: '14px'}}
             mode={mode}
             tags={tags}
             verseText={verseText}
