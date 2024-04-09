@@ -110,6 +110,14 @@ const Checker = ({
     _setState(prevState => ({ ...prevState, ...newState }))
   }
 
+  function updateMode(newSelections) {
+    const noSelections = (!newSelections.length)
+    const newMode = noSelections ? 'select' : 'default'
+    setState({
+      mode: newMode
+    })
+  }
+
   useEffect(() => {
     let contextId_ = contextId
     let newSelections = false
@@ -129,10 +137,13 @@ const Checker = ({
       newSelections,
       selections: newSelections
     })
+
+    updateMode(newSelections)
   }, [contextId]);
 
   useEffect(() => {
     let flattenedGroupData = null
+    let newSelections = null
     if (checkingData) {
       flattenedGroupData = flattenGroupData(checkingData)
     }
@@ -147,7 +158,7 @@ const Checker = ({
     }
 
     if (check) { // if found a match, use the selections
-      const newSelections = check.selections || []
+      newSelections = check.selections || []
       newState.selections = newSelections
       newState.newSelections = newSelections
     }
@@ -156,6 +167,7 @@ const Checker = ({
 
     if (flattenedGroupData && !currentContextId && check?.contextId) { // need to initialize contextId if we have the data
       updateContext(check?.contextId)
+      updateMode(newSelections)
     }
   }, [checkingData]);
 
@@ -279,6 +291,7 @@ const Checker = ({
             newSelections,
             selections: newSelections
           })
+          updateMode(newSelections)
         }
       }
     } else {

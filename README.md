@@ -10,6 +10,13 @@
 
 A React Component Library for doing translation checking - extracted from translationNotes and translationWords.
 
+## Running demo
+
+- using node v18:
+  - from the command line cd to the folder containing the repo
+  - then run `yarn` to install dependencies
+  - then run `yarn start` to launch the demo
+
 ## Updates
 
 - In version 1.0.0 converted to react 18
