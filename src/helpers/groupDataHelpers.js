@@ -4,6 +4,7 @@ import isEqual from 'deep-equal';
 // import { saveGroupsDataItem } from '../localStorage/saveMethods';
 // import ProjectAPI from './ProjectAPI';
 import { sameContext } from './contextIdHelpers';
+import * as verseHelpers from '../tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
 
 /**
  * Gets the group data for the verse reference in contextId from groupsDataReducer

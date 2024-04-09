@@ -3,7 +3,7 @@ import {describe, expect, test} from '@jest/globals'
 import path from "path-extra";
 import fs from 'fs-extra';
 import tWdata from './fixtures/translationWords/enTw.json'
-import { parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
+import { extractGroupData, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
 
 jest.unmock('fs-extra');
 
@@ -12,11 +12,20 @@ const enTwlFolder = '/Users/blm0/translationCore/resources/en/translationHelps/t
 const enTwFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWords/v79_unfoldingWord'
 const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v79_unfoldingWord'
 
+
 describe('read resources', () => {
   test(`read tA`, () => {
     const filePath = enTaFolder
     const data = readFolder(filePath)
     expect(data)
+  });
+
+  test(`read tWl 1jn`, () => {
+    const filePath = enTwlFolder
+    const data = readFolder(filePath, '1jn')
+    expect(data)
+    const groupData = extractGroupData(data)
+    expect(Object.keys(groupData).length).toEqual(3)
   });
 
   test(`read tW`, () => {
@@ -25,6 +34,8 @@ describe('read resources', () => {
     const groupsIndex = parseTwToIndex(data)
     expect(data)
     expect(groupsIndex.length > 0)
+    const phrase = getPhraseFromTw(data, 'know')
+    expect(phrase)
   });
 
   test(`read en ult`, () => {
@@ -61,7 +72,7 @@ function readTextFile(filePath) {
   return data
 }
 
-function readFolder(folderPath) {
+function readFolder(folderPath, filterBook = '') {
   const contents = {}
   const files = fs.readdirSync(folderPath)
   for (const file of files) {
@@ -79,8 +90,14 @@ function readFolder(folderPath) {
         contents[key] = data
       }
     } else if (isDirectory(filePath)) {
-      const data = readFolder(filePath)
-      contents[key] = data
+      if ((key === 'groups') && filterBook) {
+        const bookPath = path.join(filePath, filterBook)
+        const data = readFolder(bookPath)
+        contents[key] = data
+      } else {
+        const data = readFolder(filePath, filterBook)
+        contents[key] = data
+      }
     }
   }
   return contents

@@ -1,0 +1,1335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WordLexiconDetails rendering  renders Greek 1`] = `
+<div
+  style={
+    Object {
+      "margin": "0px 10px 0px 10px",
+      "maxWidth": "400px",
+    }
+  }
+>
+  
+  
+  <span>
+    <strong>
+      lemma
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.2em",
+        }
+      }
+    >
+      lemma
+    </span>
+  </span>
+  <br />
+  <span>
+    <strong>
+      morphology
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.0em",
+        }
+      }
+    >
+      noun, substantive_adj, genitive, masculine, plural, F
+    </span>
+  </span>
+  <br />
+  <span>
+    <strong>
+      strongs
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.0em",
+        }
+      }
+    >
+      G1230
+    </span>
+  </span>
+  <br />
+  <span>
+    <strong>
+      lexicon
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.0em",
+        }
+      }
+    >
+      
+    </span>
+  </span>
+  <br />
+</div>
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew extra word part 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 10px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        בָּבֶֽלָ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        lemma
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        בָּבֶל
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        noun, proper_name
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        strongs
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        H0894
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        lexicon
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        ה
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        morph_missing
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew missing strongs part 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 10px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        מַלְכָּ֣
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        lemma
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        מֶלֶךְ
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        noun, common, masculine, singular, determined
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        strongs
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        H4430
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        lexicon
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        לְ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        preposition
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        א
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        particle, definite_article
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew single part 1`] = `
+<div
+  style={
+    Object {
+      "margin": "0px 10px 0px 10px",
+      "maxWidth": "400px",
+    }
+  }
+>
+  
+  
+  <span>
+    <strong>
+      lemma
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.7em",
+        }
+      }
+    >
+      בָּרָא
+    </span>
+  </span>
+  <br />
+  <span>
+    <strong>
+      morphology
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.0em",
+        }
+      }
+    >
+      verb, qal, perfect_qatal, third, masculine, singular
+    </span>
+  </span>
+  <br />
+  <span>
+    <strong>
+      strongs
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.0em",
+        }
+      }
+    >
+      H1254a
+    </span>
+  </span>
+  <br />
+  <span>
+    <strong>
+      lexicon
+    </strong>
+     
+    <span
+      style={
+        Object {
+          "fontSize": "1.0em",
+        }
+      }
+    >
+      
+    </span>
+  </span>
+  <br />
+</div>
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew three part 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 10px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        אָ֗רֶץ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        lemma
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        אֶרֶץ
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        noun, common, both_genders, singular, absolute
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        strongs
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        H0776
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        lexicon
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        וְ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        conjunction
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        הָ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        particle, definite_article
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew three part with suffix 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 10px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        מִינ֔
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        lemma
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        מִין
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        noun, common, masculine, singular, construct
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        strongs
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        H4327
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        lexicon
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        לְ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        preposition
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        וֹ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        suffix, pronominal, third, masculine, singular
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew two part 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 10px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        רֵאשִׁ֖ית
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        lemma
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        אשִׁירֵת
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        noun, common, feminine, singular, absolute
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        strongs
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        H7225
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        lexicon
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        בְּ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        preposition
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew two part with suffix 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 10px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        זַרְע
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        lemma
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        זֶרַע
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        noun, common, masculine, singular, construct
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        strongs
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        H2233
+      </span>
+    </span>
+    <br />
+    <span>
+      <strong>
+        lexicon
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        וֹ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        suffix, pronominal, third, masculine, singular
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;
+
+exports[`WordLexiconDetails rendering  renders Hebrew with no strongs number 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        בּֽ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        preposition
+      </span>
+    </span>
+    <br />
+  </div>,
+  <div
+    style={
+      Object {
+        "margin": "0px 0px 0px 10px",
+        "maxWidth": "400px",
+      }
+    }
+  >
+    <hr
+      style={
+        Object {
+          "borderBottom": "1px solid gray",
+          "height": "6px",
+          "marginBottom": "5px",
+          "marginTop": "0px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "margin": "0",
+          "padding": "0",
+        }
+      }
+    >
+      <strong
+        style={
+          Object {
+            "fontSize": "1.7em",
+          }
+        }
+      >
+        וֹ
+      </strong>
+      <br />
+    </div>
+    <span>
+      <strong>
+        morphology
+      </strong>
+       
+      <span
+        style={
+          Object {
+            "fontSize": "1.0em",
+          }
+        }
+      >
+        suffix, pronominal, third, masculine, singular
+      </span>
+    </span>
+    <br />
+  </div>,
+]
+`;

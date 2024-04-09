@@ -1,0 +1,2381 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`verseHelpers.verseArray should succeed with heb-12-27.el-x-koine 1`] = `
+Array [
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      τὸ
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      δὲ
+    </span>
+  </span>,
+  <span>
+    ,
+“
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ἔτι
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ἅπαξ
+    </span>
+  </span>,
+  <span>
+    ”,
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      δηλοῖ
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      τῶν
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      σαλευομένων
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      μετάθεσιν
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ὡς
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      πεποιημένων
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ἵνα
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      μείνῃ
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      τὰ
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      μὴ
+    </span>
+  </span>,
+  <span
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      σαλευόμενα
+    </span>
+  </span>,
+  <span>
+    .
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+]
+`;
+
+exports[`verseHelpers.verseArray should succeed with heb-12-27.el-x-koine and tisch should not be clickable 1`] = `
+Array [
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      τὸ
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      δὲ
+    </span>
+  </span>,
+  <span>
+    ,
+“
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ἔτι
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ἅπαξ
+    </span>
+  </span>,
+  <span>
+    ”,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      δηλοῖ
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      τῶν
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      σαλευομένων
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      μετάθεσιν
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ὡς
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      πεποιημένων
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      ἵνα
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      μείνῃ
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      τὰ
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      μὴ
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      σαλευόμενα
+    </span>
+  </span>,
+  <span>
+    .
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+]
+`;
+
+exports[`verseHelpers.verseArray should succeed with jhn-6-21-en-t4t 1`] = `
+Array [
+  <span>
+    We were glad to take him into the boat. As soon as
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    we
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    did that, the boat reached the shore where
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    we
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    were going!
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+]
+`;
+
+exports[`verseHelpers.verseArray should succeed with luke-22-30.ult 1`] = `
+Array [
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      that
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      you
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      may
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      eat
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      and
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      drink
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      at
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      my
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      table
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      in
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      my
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      kingdom
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      and
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      you
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      will
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      sit
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      on
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      thrones
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+      judging
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      the
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+      twelve
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+      tribes
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+      of
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "var(--highlight-color)",
+        }
+      }
+    >
+      Israel
+    </span>
+  </span>,
+  <span>
+    .
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "var(--highlight-color)",
+      }
+    }
+  >
+    
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+]
+`;
+
+exports[`verseHelpers.verseArray should succeed with mat-4-6 1`] = `
+Array [
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      and
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      said
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      to
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      him
+    </span>
+  </span>,
+  <span>
+    ,"
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      If
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      you
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      are
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      the
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      Son
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      of
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      God
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      throw
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      yourself
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      down
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      for
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      it
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      is
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      written
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    '
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      He
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      will
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      command
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      his
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      angels
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      to
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      take
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      care
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      of
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      you
+    </span>
+  </span>,
+  <span>
+    ,'
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    and,
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    '
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      They
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      will
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      lift
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      you
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      up
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      in
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      their
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      hands
+    </span>
+  </span>,
+  <span>
+    ,
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      so
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      that
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      you
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      will
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      not
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      hit
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      your
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      foot
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      against
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      a
+    </span>
+  </span>,
+  <span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+       
+    </span>
+    <span
+      style={
+        Object {
+          "backgroundColor": "",
+        }
+      }
+    >
+      stone
+    </span>
+  </span>,
+  <span>
+    .'"
+  </span>,
+  <span
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+     
+  </span>,
+  <span>
+    
+  </span>,
+]
+`;

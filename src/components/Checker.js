@@ -12,8 +12,10 @@ import {
   findFirstCheck,
   flattenGroupData,
   getAlignedGLText,
+  getPhraseFromTw,
   parseTwToIndex
 } from '../helpers/translationHelps/twArticleHelpers'
+import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -79,6 +81,8 @@ const Checker = ({
     check: null,
     currentContextId: null,
     currentCheckingData: null,
+    groupTitle: '',
+    groupPhrase: '',
     groupsData: null,
     groupsIndex: null,
     localNothingToSelect: false,
@@ -95,6 +99,8 @@ const Checker = ({
     check,
     currentContextId,
     currentCheckingData,
+    groupTitle,
+    groupPhrase,
     groupsData,
     groupsIndex,
     localNothingToSelect,
@@ -133,9 +139,13 @@ const Checker = ({
     }
 
     updateContext(contextId_)
+    const groupTitle = contextId_?.groupId || ''
+    const groupPhrase = getPhraseFromTw(glTwData, contextId_?.groupId)
     setState({
       newSelections,
-      selections: newSelections
+      selections: newSelections,
+      groupTitle,
+      groupPhrase
     })
 
     updateMode(newSelections)
@@ -161,6 +171,10 @@ const Checker = ({
       newSelections = check.selections || []
       newState.selections = newSelections
       newState.newSelections = newSelections
+      const groupTitle = check?.contextId?.groupId || ''
+      newState.groupTitle = groupTitle
+      const groupPhrase = getPhraseFromTw(glTwData, check?.contextId?.groupId)
+      newState.groupPhrase = groupPhrase
     }
 
     setState(newState)
@@ -287,9 +301,13 @@ const Checker = ({
         updateContext(newContextId)
         if (check) {
           const newSelections = check.selections || []
+          const groupTitle = check.contextId?.groupId || ''
+          const groupPhrase = getPhraseFromTw(glTwData, check?.contextId?.groupId)
           setState({
             newSelections,
-            selections: newSelections
+            selections: newSelections,
+            groupTitle,
+            groupPhrase
           })
           updateMode(newSelections)
         }
@@ -368,59 +386,71 @@ const Checker = ({
           changeCurrentContextId={changeCurrentContextId}
           direction={direction}
         />
+        <div>
         <div style={styles.centerDiv}>
-          <CheckArea
-            style={{marginRight: '14px'}}
-            mode={mode}
-            tags={tags}
-            verseText={verseText}
-            comment={commentText}
-            translate={translate}
-            contextId={currentContextId}
-            selections={selections}
-            bookDetails={bookDetails}
-            targetBible={targetBible}
-            toolsSettings={toolsSettings}
-            newSelections={newSelections}
-            alignedGLText={alignedGLText}
-            handleComment={handleComment}
-            isVerseChanged={isVerseChanged}
-            invalidated={isVerseInvalidated}
-            setToolSettings={setToolSettings}
-            nothingToSelect={nothingToSelect}
-            openAlertDialog={openAlertDialog}
-            handleEditVerse={handleEditVerse}
-            maximumSelections={maximumSelections}
-            handleTagsCheckbox={handleTagsCheckbox}
-            validateSelections={validateSelections}
-            targetLanguageFont={targetLanguageFont}
-            unfilteredVerseText={unfilteredVerseText}
-            checkIfVerseChanged={checkIfVerseChanged}
-            targetLanguageDetails={targetLanguageDetails}
-            checkIfCommentChanged={checkIfCommentChanged}
-            changeSelectionsInLocalState={changeSelectionsInLocalState}
-          />
-          <ActionsArea
-            mode={mode}
-            tags={tags}
-            toggleNothingToSelect={toggleNothingToSelect}
-            localNothingToSelect={localNothingToSelect}
-            nothingToSelect={nothingToSelect}
-            isCommentChanged={isCommentChanged}
-            selections={selections}
-            newSelections={newSelections}
-            translate={translate}
-            bookmarkEnabled={bookmarkEnabled}
-            saveSelection={saveSelection}
-            cancelSelection={cancelSelection}
-            clearSelection={clearSelection}
-            toggleBookmark={toggleBookmark}
-            changeMode={changeMode}
-            cancelEditVerse={cancelEditVerse}
-            saveEditVerse={saveEditVerse}
-            cancelComment={cancelComment}
-            saveComment={saveComment}
-          />
+          <CheckInfoCard
+            title={groupTitle}
+            phrase={groupPhrase}
+            getScriptureFromReference={null}
+            seeMoreLabel={translate('see_more')}
+            showSeeMoreButton={false}
+            onSeeMoreClick={() => false}
+            onLinkClick={() => false}/>
+        </div>
+          <div style={styles.centerDiv}>
+            <CheckArea
+              style={{marginRight: '14px'}}
+              mode={mode}
+              tags={tags}
+              verseText={verseText}
+              comment={commentText}
+              translate={translate}
+              contextId={currentContextId}
+              selections={selections}
+              bookDetails={bookDetails}
+              targetBible={targetBible}
+              toolsSettings={toolsSettings}
+              newSelections={newSelections}
+              alignedGLText={alignedGLText}
+              handleComment={handleComment}
+              isVerseChanged={isVerseChanged}
+              invalidated={isVerseInvalidated}
+              setToolSettings={setToolSettings}
+              nothingToSelect={nothingToSelect}
+              openAlertDialog={openAlertDialog}
+              handleEditVerse={handleEditVerse}
+              maximumSelections={maximumSelections}
+              handleTagsCheckbox={handleTagsCheckbox}
+              validateSelections={validateSelections}
+              targetLanguageFont={targetLanguageFont}
+              unfilteredVerseText={unfilteredVerseText}
+              checkIfVerseChanged={checkIfVerseChanged}
+              targetLanguageDetails={targetLanguageDetails}
+              checkIfCommentChanged={checkIfCommentChanged}
+              changeSelectionsInLocalState={changeSelectionsInLocalState}
+            />
+            <ActionsArea
+              mode={mode}
+              tags={tags}
+              toggleNothingToSelect={toggleNothingToSelect}
+              localNothingToSelect={localNothingToSelect}
+              nothingToSelect={nothingToSelect}
+              isCommentChanged={isCommentChanged}
+              selections={selections}
+              newSelections={newSelections}
+              translate={translate}
+              bookmarkEnabled={bookmarkEnabled}
+              saveSelection={saveSelection}
+              cancelSelection={cancelSelection}
+              clearSelection={clearSelection}
+              toggleBookmark={toggleBookmark}
+              changeMode={changeMode}
+              cancelEditVerse={cancelEditVerse}
+              saveEditVerse={saveEditVerse}
+              cancelComment={cancelComment}
+              saveComment={saveComment}
+            />
+          </div>
         </div>
       </div>
       :

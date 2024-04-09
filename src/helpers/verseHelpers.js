@@ -2,6 +2,7 @@ import usfmjs from 'usfm-js';
 import { getVerses } from 'bible-reference-range';
 import { normalizeString } from './stringHelpers';
 import { isVerseWithinVerseSpan } from './groupDataHelpers';
+import * as verseHelpers from '../tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
 
 /**
  * find verse data from verse or verse span

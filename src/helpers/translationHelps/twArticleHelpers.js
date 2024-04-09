@@ -299,6 +299,16 @@ export function flattenGroupData(groupsData) {
   return sortedGroups;
 }
 
+export function extractGroupData(data) {
+  const groupData = {}
+  for (const catagory of Object.keys(data)) {
+    if (catagory !== 'manifest') { // skip over manifest
+      groupData[catagory] = data[catagory]?.groups || {}
+    }
+  }
+  return groupData
+}
+
 /**
  * process the TSV file into index files
  * @param {string} tsvData
@@ -589,4 +599,57 @@ export function getAlignedGLText(alignedGlBible, contextId) {
     }
   }
   return null;
+}
+
+/**
+ * Gets the phrase from tW
+ * @param {string} articleId
+ * @param {object} glTwData
+ * @return {string}
+ */
+export function getPhraseFromTw(glTwData, articleId) {
+  let currentArticle = '';
+  glTwData = glTwData || {}
+
+  for (const groupId of Object.keys(glTwData)) {
+    const group = glTwData[groupId]
+    const article = group?.articles?.[articleId]
+    if (article) {
+      currentArticle = article
+      break
+    }
+  }
+
+  if (!currentArticle) {
+    return '';
+  }
+
+  let splitLine = currentArticle.split('\n');
+
+  if (splitLine.length === 1 && splitLine[0] === '') {
+    return '';
+  }
+
+  let finalArray = [];
+
+  for (let i = 0; i < splitLine.length; i++) {
+    if (splitLine[i] !== '' && !~splitLine[i].indexOf('#')) {
+      finalArray.push(splitLine[i]);
+    }
+  }
+
+  let maxLength = 225;
+  let finalString = '';
+  let chosenString = finalArray[0];
+  let splitString = chosenString.split(' ');
+
+  for (let word of splitString) {
+    if ((finalString + ' ' + word).length >= maxLength) {
+      finalString += '...';
+      break;
+    }
+    finalString += ' ';
+    finalString += word;
+  }
+  return finalString;
 }
