@@ -10,6 +10,7 @@ import isEqual from 'deep-equal'
 import {
   findCheck,
   findFirstCheck,
+  findNextCheck,
   flattenGroupData,
   getAlignedGLText,
   getPhraseFromTw,
@@ -290,12 +291,12 @@ const Checker = ({
     setState({ localNothingToSelect: select })
   }
   const bookName = '1 John'
-  const changeCurrentContextId = (newContext) => {
+  const changeCurrentContextId = (newContext, noCheck = false) => {
     const newContextId = newContext?.contextId
     console.log(`${name}-changeCurrentContextId`, newContextId)
 
     const selectionsUnchanged = isEqual(selections, newSelections)
-    if (selectionsUnchanged) {
+    if (noCheck || selectionsUnchanged) {
       if (newContextId) {
         let check = findCheck(groupsData, newContextId, false)
         updateContext(newContextId)
@@ -339,6 +340,12 @@ const Checker = ({
           modified: true,
           selections: newSelections,
         });
+
+        const nextCheck = findNextCheck(groupsData, currentContextId, false)
+        const nextContextId = nextCheck?.contextId
+        if (nextContextId) {
+          changeCurrentContextId(nextCheck, true)
+        }
       }
     }
   }
