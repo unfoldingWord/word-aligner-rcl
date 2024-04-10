@@ -2,7 +2,6 @@
 import {describe, expect, test} from '@jest/globals'
 import path from "path-extra";
 import fs from 'fs-extra';
-import tWdata from './fixtures/translationWords/enTw.json'
 import { extractGroupData, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
 
 jest.unmock('fs-extra');
@@ -11,17 +10,27 @@ const enTaFolder = '/Users/blm0/translationCore/resources/en/translationHelps/tr
 const enTwlFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v79_unfoldingWord'
 const enTwFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWords/v79_unfoldingWord'
 const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v79_unfoldingWord'
-
+const enTnFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationNotes/v79_unfoldingWord'
 
 describe('read resources', () => {
   test(`read tA`, () => {
     const filePath = enTaFolder
     const data = readFolder(filePath)
     expect(data)
+    const groupData = extractGroupData(data)
+    expect(Object.keys(groupData).length).toEqual(3)
   });
 
   test(`read tWl 1jn`, () => {
     const filePath = enTwlFolder
+    const data = readFolder(filePath, '1jn')
+    expect(data)
+    const groupData = extractGroupData(data)
+    expect(Object.keys(groupData).length).toEqual(3)
+  });
+
+  test(`read tN 1jn`, () => {
+    const filePath = enTnFolder
     const data = readFolder(filePath, '1jn')
     expect(data)
     const groupData = extractGroupData(data)

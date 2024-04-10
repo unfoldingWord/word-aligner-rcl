@@ -357,7 +357,11 @@ export function extractGroupData(data) {
   const groupData = {}
   for (const catagory of Object.keys(data)) {
     if (catagory !== 'manifest') { // skip over manifest
-      groupData[catagory] = data[catagory]?.groups || {}
+      let categoryData = data[catagory]
+      if (categoryData?.groups) { // if grouped, then drill down
+        categoryData = categoryData.groups
+      }
+      groupData[catagory] = categoryData || {}
     }
   }
   return groupData
@@ -656,6 +660,21 @@ export function getAlignedGLText(alignedGlBible, contextId) {
 }
 
 /**
+ * Gets the title from groupIndex
+ * @param {string} articleId
+ * @param {object} groupIndex
+ * @return {string}
+ */
+export function getTitleFromIndex(groupIndex, articleId) {
+  for (const item of groupIndex || []) {
+    if (item.id === articleId) {
+      return item.name
+    }
+  }
+  return articleId
+}
+
+/**
  * Gets the phrase from tW
  * @param {string} articleId
  * @param {object} glTwData
@@ -666,8 +685,11 @@ export function getPhraseFromTw(glTwData, articleId) {
   glTwData = glTwData || {}
 
   for (const groupId of Object.keys(glTwData)) {
-    const group = glTwData[groupId]
-    const article = group?.articles?.[articleId]
+    let group = glTwData[groupId]
+    if (group?.articles) {
+      group = group?.articles
+    }
+    const article = group?.[articleId]
     if (article) {
       currentArticle = article
       break

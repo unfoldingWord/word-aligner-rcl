@@ -429,3 +429,34 @@ export function convertEllipsisToAmpersand(groupData, filepath) {
 //
 //   return versionsToNotDelete;
 // }
+
+/**
+ * parse the twData into a flat index
+ * @param {object} tnData
+ * @returns {array}
+ */
+export function parseTnToIndex(tnData) {
+  let index = []
+  for (const categoryId of Object.keys(tnData)) {
+    const category = tnData[categoryId]
+    for (const groupId of Object.keys(category)) {
+      const markDown = category[groupId] || ''
+      let name = groupId
+      if (markDown) { // get title from markdown - this is the localized name
+        const parts = markDown.split('#')
+        if (parts?.length > 1) {
+          const title = parts[1].trim()
+          if (title) {
+            name = title
+          }
+        }
+      }
+      const entry = {
+        id: groupId,
+        name,
+      }
+      index.push(entry)
+    }
+  }
+  return index
+}

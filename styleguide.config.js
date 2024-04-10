@@ -4,8 +4,12 @@ const path = require('path')
 
 const sections = [
   {
-    name: 'Checker',
-    content: 'src/components/Checker.md',
+    name: 'Checker-translationWords',
+    content: 'src/components/CheckerTW.md',
+  },
+  {
+    name: 'Checker-translationNotes',
+    content: 'src/components/CheckerTN.md',
   },
   {
     name: 'CheckArea',

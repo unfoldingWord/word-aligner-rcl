@@ -14,9 +14,11 @@ import {
   flattenGroupData,
   getAlignedGLText,
   getPhraseFromTw,
+  getTitleFromIndex,
   parseTwToIndex
 } from '../helpers/translationHelps/twArticleHelpers'
 import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
+import { parseTnToIndex } from '../helpers/translationHelps/tnArticleHelpers'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -45,36 +47,19 @@ const styles = {
   },
 };
 
+export const translationWords = 'translationWords'
+export const translationNotes = 'translationNotes'
+
 console.log('Checker.js - startup')
 const name = 'Checker'
 const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
-const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
-const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
-// const groupsData = require('../__tests__/fixtures/translationWords/groupsData.json')
-// const groupsIndex =require('../__tests__/fixtures/translationWords/groupsIndex.json')
-const tWdata = require('../__tests__/fixtures/translationWords/enTw.json')
-// const groupsIndex = parseTwToIndex(tWdata)
-
-// const twl = require('../__tests__/fixtures/translationWords/twl_1JN.tsv.json')
-// const project = {
-//   identifier: '1jn',
-//   languageId: 'en'
-// }
-// twlTsvToGroupData(twl.data, project, ugntBible).then(() => { })
-
-// const selections = [
-//   {
-//     "text": "desire",
-//     "occurrence": 1,
-//     "occurrences": 1
-//   }
-// ];
 
 const Checker = ({
   alignedGlBible,
   checkingData,
+  checkType,
   contextId,
-  glTwData,
+  glWordsData,
   translate,
 }) => {
   const [state, _setState] = useState({
@@ -126,83 +111,59 @@ const Checker = ({
   }
 
   useEffect(() => {
-    let contextId_ = contextId
-    let newSelections = false
-    let check = findCheck(groupsData, contextId, false)
-    if (!check) {
-      check = findFirstCheck(groupsData) // fall back to first item if contextId is not found
-      if (check) {
-        contextId_ = check?.contextId
+    if (contextId && checkingData && glWordsData) {
+      let flattenedGroupData = null
+      let newSelections = null
+      let groupsIndex = null
+      if (checkingData) {
+        flattenedGroupData = flattenGroupData(checkingData)
+      }
+
+      const check = findCheck(flattenedGroupData, contextId, true)
+      if (glWordsData) {
+        if (checkType === translationNotes) {
+          groupsIndex = parseTnToIndex(glWordsData)
+        } else {
+          groupsIndex = parseTwToIndex(glWordsData)
+        }
+      }
+
+      const newState = {
+        groupsData: flattenedGroupData,
+        groupsIndex,
+        currentCheckingData: checkingData,
+        check,
+        modified: false,
+      }
+
+      if (check) { // if found a match, use the selections
         newSelections = check.selections || []
-      } else {
-        contextId_ = null
+        newState.selections = newSelections
+        newState.newSelections = newSelections
+      }
+
+      setState(newState)
+
+      if (flattenedGroupData && check?.contextId) {
+        updateContext(check?.contextId, groupsIndex)
+        updateMode(newSelections)
       }
     }
+  }, [contextId, checkingData, glWordsData]);
 
-    updateContext(contextId_)
-    const groupTitle = contextId_?.groupId || ''
-    const groupPhrase = getPhraseFromTw(glTwData, contextId_?.groupId)
-    setState({
-      newSelections,
-      selections: newSelections,
-      groupTitle,
-      groupPhrase
-    })
-
-    updateMode(newSelections)
-  }, [contextId]);
-
-  useEffect(() => {
-    let flattenedGroupData = null
-    let newSelections = null
-    if (checkingData) {
-      flattenedGroupData = flattenGroupData(checkingData)
-    }
-
-    const check = findCheck(flattenedGroupData, contextId, true)
-
-    const newState = {
-      groupsData: flattenedGroupData,
-      currentCheckingData: checkingData,
-      check,
-      modified: false,
-    }
-
-    if (check) { // if found a match, use the selections
-      newSelections = check.selections || []
-      newState.selections = newSelections
-      newState.newSelections = newSelections
-      const groupTitle = check?.contextId?.groupId || ''
-      newState.groupTitle = groupTitle
-      const groupPhrase = getPhraseFromTw(glTwData, check?.contextId?.groupId)
-      newState.groupPhrase = groupPhrase
-    }
-
-    setState(newState)
-
-    if (flattenedGroupData && !currentContextId && check?.contextId) { // need to initialize contextId if we have the data
-      updateContext(check?.contextId)
-      updateMode(newSelections)
-    }
-  }, [checkingData]);
-
-  useEffect(() => {
-    let groupsIndex = null
-    if (glTwData) {
-      groupsIndex = parseTwToIndex(glTwData)
-    }
-    setState({ groupsIndex })
-  }, [glTwData]);
-
-  function updateContext(contextId) {
+  function updateContext(contextId, groupsIndex_ = groupsIndex) {
     const reference = contextId?.reference
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
     verseText = removeUsfmMarkers(verseText)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
+    const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
+    const groupPhrase = getPhraseFromTw(glWordsData, contextId?.groupId)
     setState({
       alignedGLText,
       currentContextId: contextId,
       verseText,
+      groupTitle,
+      groupPhrase
     })
   }
 
@@ -302,13 +263,9 @@ const Checker = ({
         updateContext(newContextId)
         if (check) {
           const newSelections = check.selections || []
-          const groupTitle = check.contextId?.groupId || ''
-          const groupPhrase = getPhraseFromTw(glTwData, check?.contextId?.groupId)
           setState({
             newSelections,
             selections: newSelections,
-            groupTitle,
-            groupPhrase
           })
           updateMode(newSelections)
         }
@@ -379,9 +336,10 @@ const Checker = ({
   const saveComment = () => {
     console.log(`${name}-saveComment`)
   }
+  const readyToDisplayChecker = groupsData && groupsIndex && currentContextId && verseText
 
   return (
-    (groupsData && groupsIndex && currentContextId && verseText) ?
+    readyToDisplayChecker ?
       <div style={styles.containerDiv}>
         <GroupMenuComponent
           bookName={bookName}
@@ -406,7 +364,6 @@ const Checker = ({
         </div>
           <div style={styles.centerDiv}>
             <CheckArea
-              style={{marginRight: '14px'}}
               mode={mode}
               tags={tags}
               verseText={verseText}
@@ -468,8 +425,9 @@ const Checker = ({
 Checker.propTypes = {
   alignedGlBible: PropTypes.object,
   checkingData: PropTypes.object.isRequired,
+  checkType: PropTypes.string,
   contextId: PropTypes.object.isRequired,
-  glTwData: PropTypes.object.isRequired,
+  glWordsData: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
 };
 export default Checker;

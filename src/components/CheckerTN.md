@@ -3,17 +3,17 @@ Checking Tool Example:
 ```js
 import React, { useState, useEffect } from 'react';
 import { NT_ORIG_LANG } from '../common/constants';
-import Checker from './Checker'
+import Checker, { translationNotes } from './Checker'
 import { lookupTranslationForKey } from '../utils/translations'
 import { extractGroupData } from '../helpers/translationHelps/twArticleHelpers'
 
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 const translations = require('../locales/English-en_US.json')
-const glTwl = require('../__tests__/fixtures/translationWords/twl_1jn_parsed.json')
-const glTwData = require('../__tests__/fixtures/translationWords/enTw.json')
+const glTn = require('../__tests__/fixtures/translationNotes/enTn_1JN.json')
+const glTaData = require('../__tests__/fixtures/translationAcademy/enTa_1JN.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
 const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
-const checkingData = extractGroupData(glTwl)
+const checkingData = extractGroupData(glTn)
 
 const translate = (key) => {
   const translation = lookupTranslationForKey(translations, key)
@@ -46,7 +46,7 @@ const project = {
   languageId: 'en'
 }
 
-console.log('Checker.md - startup')
+console.log('CheckerTW.md - startup')
 
 const App = () => {
   const [contextId, setCcontextId] = useState(contextId_)
@@ -68,8 +68,9 @@ const App = () => {
           translate={translate}
           contextId={contextId}
           checkingData={checkingData}
-          glTwData={glTwData}
+          glWordsData={glTaData}
           alignedGlBible={enGlBible}
+          checkType={translationNotes}
         />
       </div>
     </>
