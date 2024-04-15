@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import PropTypes from 'prop-types';
 import _ from 'lodash'
 import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
@@ -57,6 +61,7 @@ const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 
 const Checker = ({
   alignedGlBible,
+  bibles: bibles_,
   checkingData,
   checkType,
   contextId,
@@ -339,28 +344,26 @@ const Checker = ({
   }
   const readyToDisplayChecker = groupsData && groupsIndex && currentContextId && verseText
 
-  const bibles = {
-    'en_unfoldingWord': {
-      'en_ult': {
-        ...alignedGlBible,
-        manifest: {
-          language_name: 'English',
-          language_id: 'en',
-          direction: "ltr",
-          description: 'Gateway Language',
-          resource_title: "unfoldingWord® Literal Text"
+  const { bibles, paneSettings } = useMemo(() => {
+    const bibles = {}
+    let paneSettings = bibles_
+    if (bibles_?.length) {
+      for (const bible of bibles_) {
+        const key = `${bible?.languageId}_${bible?.owner}`
+        let keyGroup = bibles[key]
+        if (!keyGroup) { // if group does not exist, create new
+          keyGroup = {}
+          bibles[key] = keyGroup
         }
+        keyGroup[bible?.bibleId] = bible?.book
       }
+    } else {
+      paneSettings = []
     }
-  }
 
-  const paneSettings = [
-    {
-      languageId: 'en',
-      bibleId: 'en_ult',
-      owner: 'unfoldingWord'
-    }
-  ]
+    return { bibles, paneSettings }
+  }, [bibles_])
+
   const manifest = {
     language_name: 'English'
   }
@@ -379,34 +382,29 @@ const Checker = ({
           translate={translate}
         />
         <div style={{ display: 'flex', flexDirection: 'column',}}>
-          <div style={styles.scripturePaneDiv}>
-            <ScripturePane
-              addObjectPropertyToManifest={null}
-              bibles={bibles}
-              complexScriptFonts={null}
-              contextId={currentContextId}
-              currentPaneSettings={paneSettings}
-              editVerseRef={null}
-              editTargetVerse={null}
-              expandedScripturePaneTitle={'expandedScripturePaneTitle'}
-              getAvailableScripturePaneSelections={null}
-              getLexiconData={null}
-              makeSureBiblesLoadedForTool={null}
-              projectDetailsReducer={{ manifest }}
-              selections={selections}
-              setToolSettings={null}
-              showPopover={false}
-              onExpandedScripturePaneShow={null}
-              translate={translate}
-            />
-            {/*<ScripturePaneWrapper*/}
-            {/*  tc={tc}*/}
-            {/*  toolApi={toolApi}*/}
-            {/*  translate={translate}*/}
-            {/*  onExpandedScripturePaneShow={onExpandedScripturePaneShow}*/}
-            {/*  editVerseInScrPane={editVerseInScrPane}*/}
-            {/*/>*/}
-          </div>
+          { bibles && Object.keys(bibles).length &&
+            <div style={styles.scripturePaneDiv}>
+              <ScripturePane
+                addObjectPropertyToManifest={null}
+                bibles={bibles}
+                complexScriptFonts={null}
+                contextId={currentContextId}
+                currentPaneSettings={paneSettings}
+                editVerseRef={null}
+                editTargetVerse={null}
+                expandedScripturePaneTitle={'expandedScripturePaneTitle'}
+                getAvailableScripturePaneSelections={null}
+                getLexiconData={null}
+                makeSureBiblesLoadedForTool={null}
+                projectDetailsReducer={{ manifest }}
+                selections={selections}
+                setToolSettings={null}
+                showPopover={false}
+                onExpandedScripturePaneShow={null}
+                translate={translate}
+              />
+            </div>
+          }
           <div>
             <CheckInfoCard
               getScriptureFromReference={null}
@@ -482,6 +480,7 @@ const Checker = ({
 
 Checker.propTypes = {
   alignedGlBible: PropTypes.object,
+  bibles: PropTypes.array,
   checkingData: PropTypes.object.isRequired,
   checkType: PropTypes.string,
   contextId: PropTypes.object.isRequired,

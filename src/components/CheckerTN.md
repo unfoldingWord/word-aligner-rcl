@@ -46,7 +46,22 @@ const project = {
   languageId: 'en'
 }
 
-console.log('CheckerTW.md - startup')
+const bibles = [
+  {
+    book: enGlBible,
+    languageId: 'en',
+    bibleId: 'ult',
+    owner: 'unfoldingWord'
+  },
+  {
+    book: ugntBible,
+    languageId: 'el-x-koine',
+    bibleId: 'ugnt',
+    owner: 'unfoldingWord'
+  }
+]
+
+console.log('CheckerTN.md - startup')
 
 const App = () => {
   const [contextId, setCcontextId] = useState(contextId_)
@@ -71,6 +86,7 @@ const App = () => {
           glWordsData={glTaData}
           alignedGlBible={enGlBible}
           checkType={translationNotes}
+          bibles={bibles}
         />
       </div>
     </>

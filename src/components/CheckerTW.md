@@ -46,6 +46,21 @@ const project = {
   languageId: 'en'
 }
 
+const bibles = [
+  {
+    book: enGlBible,
+    languageId: 'en',
+    bibleId: 'ult',
+    owner: 'unfoldingWord'
+  },
+  {
+    book: ugntBible,
+    languageId: 'el-x-koine',
+    bibleId: 'ugnt',
+    owner: 'unfoldingWord'
+  }
+]
+
 console.log('CheckerTW.md - startup')
 
 const App = () => {
@@ -71,6 +86,7 @@ const App = () => {
           glWordsData={glTwData}
           alignedGlBible={enGlBible}
           checkType={translationWords}
+          bibles={bibles}
         />
       </div>
     </>

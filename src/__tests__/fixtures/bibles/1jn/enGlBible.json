@@ -57141,5 +57141,12 @@
         }
       ]
     }
+  },
+  "manifest": {
+    "language_name": "English",
+    "language_id": "en",
+    "direction": "ltr",
+    "description": "Gateway Language",
+    "resource_title": "unfoldingWord® Literal Text"
   }
 }
