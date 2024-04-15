@@ -19,6 +19,7 @@ import {
 } from '../helpers/translationHelps/twArticleHelpers'
 import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
 import { parseTnToIndex } from '../helpers/translationHelps/tnArticleHelpers'
+import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -29,7 +30,7 @@ const styles = {
   containerDiv:{
     display: 'flex',
     flexDirection: 'row',
-    // width: '100vw',
+    width: '80vw',
     height: '75%',
   },
   centerDiv: {
@@ -338,87 +339,144 @@ const Checker = ({
   }
   const readyToDisplayChecker = groupsData && groupsIndex && currentContextId && verseText
 
+  const bibles = {
+    'en_unfoldingWord': {
+      'en_ult': {
+        ...alignedGlBible,
+        manifest: {
+          language_name: 'English',
+          language_id: 'en',
+          direction: "ltr",
+          description: 'Gateway Language',
+          resource_title: "unfoldingWord® Literal Text"
+        }
+      }
+    }
+  }
+
+  const paneSettings = [
+    {
+      languageId: 'en',
+      bibleId: 'en_ult',
+      owner: 'unfoldingWord'
+    }
+  ]
+  const manifest = {
+    language_name: 'English'
+  }
+
   return (
     readyToDisplayChecker ?
       <div style={styles.containerDiv}>
         <GroupMenuComponent
           bookName={bookName}
-          translate={translate}
+          changeCurrentContextId={changeCurrentContextId}
           contextId={currentContextId}
+          direction={direction}
           groupsData={groupsData}
           groupsIndex={groupsIndex}
           targetLanguageFont={targetLanguageFont}
-          changeCurrentContextId={changeCurrentContextId}
-          direction={direction}
+          translate={translate}
         />
-        <div>
-        <div style={styles.centerDiv}>
-          <CheckInfoCard
-            title={groupTitle}
-            phrase={groupPhrase}
-            getScriptureFromReference={null}
-            seeMoreLabel={translate('see_more')}
-            showSeeMoreButton={false}
-            onSeeMoreClick={() => false}
-            onLinkClick={() => false}/>
-        </div>
-          <div style={styles.centerDiv}>
-            <CheckArea
-              mode={mode}
-              tags={tags}
-              verseText={verseText}
-              comment={commentText}
-              translate={translate}
+        <div style={{ display: 'flex', flexDirection: 'column',}}>
+          <div style={styles.scripturePaneDiv}>
+            <ScripturePane
+              addObjectPropertyToManifest={null}
+              bibles={bibles}
+              complexScriptFonts={null}
               contextId={currentContextId}
+              currentPaneSettings={paneSettings}
+              editVerseRef={null}
+              editTargetVerse={null}
+              expandedScripturePaneTitle={'expandedScripturePaneTitle'}
+              getAvailableScripturePaneSelections={null}
+              getLexiconData={null}
+              makeSureBiblesLoadedForTool={null}
+              projectDetailsReducer={{ manifest }}
               selections={selections}
-              bookDetails={bookDetails}
-              targetBible={targetBible}
-              toolsSettings={toolsSettings}
-              newSelections={newSelections}
-              alignedGLText={alignedGLText}
-              handleComment={handleComment}
-              isVerseChanged={isVerseChanged}
-              invalidated={isVerseInvalidated}
-              setToolSettings={setToolSettings}
-              nothingToSelect={nothingToSelect}
-              openAlertDialog={openAlertDialog}
-              handleEditVerse={handleEditVerse}
-              maximumSelections={maximumSelections}
-              handleTagsCheckbox={handleTagsCheckbox}
-              validateSelections={validateSelections}
-              targetLanguageFont={targetLanguageFont}
-              unfilteredVerseText={unfilteredVerseText}
-              checkIfVerseChanged={checkIfVerseChanged}
-              targetLanguageDetails={targetLanguageDetails}
-              checkIfCommentChanged={checkIfCommentChanged}
-              changeSelectionsInLocalState={changeSelectionsInLocalState}
-            />
-            <ActionsArea
-              mode={mode}
-              tags={tags}
-              toggleNothingToSelect={toggleNothingToSelect}
-              localNothingToSelect={localNothingToSelect}
-              nothingToSelect={nothingToSelect}
-              isCommentChanged={isCommentChanged}
-              selections={selections}
-              newSelections={newSelections}
+              setToolSettings={null}
+              showPopover={false}
+              onExpandedScripturePaneShow={null}
               translate={translate}
-              bookmarkEnabled={bookmarkEnabled}
-              saveSelection={saveSelection}
-              cancelSelection={cancelSelection}
-              clearSelection={clearSelection}
-              toggleBookmark={toggleBookmark}
-              changeMode={changeMode}
-              cancelEditVerse={cancelEditVerse}
-              saveEditVerse={saveEditVerse}
-              cancelComment={cancelComment}
-              saveComment={saveComment}
             />
+            {/*<ScripturePaneWrapper*/}
+            {/*  tc={tc}*/}
+            {/*  toolApi={toolApi}*/}
+            {/*  translate={translate}*/}
+            {/*  onExpandedScripturePaneShow={onExpandedScripturePaneShow}*/}
+            {/*  editVerseInScrPane={editVerseInScrPane}*/}
+            {/*/>*/}
+          </div>
+          <div>
+            <CheckInfoCard
+              getScriptureFromReference={null}
+              onLinkClick={() => false}
+              onSeeMoreClick={() => false}
+              phrase={groupPhrase}
+              seeMoreLabel={translate('see_more')}
+              showSeeMoreButton={false}
+              title={groupTitle}
+            />
+            <div style={styles.centerDiv}>
+            </div>
+            <div style={styles.centerDiv}>
+              <CheckArea
+                alignedGLText={alignedGLText}
+                bookDetails={bookDetails}
+                changeSelectionsInLocalState={changeSelectionsInLocalState}
+                checkIfCommentChanged={checkIfCommentChanged}
+                checkIfVerseChanged={checkIfVerseChanged}
+                comment={commentText}
+                contextId={currentContextId}
+                handleComment={handleComment}
+                handleEditVerse={handleEditVerse}
+                handleTagsCheckbox={handleTagsCheckbox}
+                isVerseChanged={isVerseChanged}
+                invalidated={isVerseInvalidated}
+                maximumSelections={maximumSelections}
+                mode={mode}
+                newSelections={newSelections}
+                nothingToSelect={nothingToSelect}
+                openAlertDialog={openAlertDialog}
+                setToolSettings={setToolSettings}
+                selections={selections}
+                tags={tags}
+                targetBible={targetBible}
+                targetLanguageDetails={targetLanguageDetails}
+                targetLanguageFont={targetLanguageFont}
+                translate={translate}
+                toolsSettings={toolsSettings}
+                unfilteredVerseText={unfilteredVerseText}
+                verseText={verseText}
+                validateSelections={validateSelections}
+              />
+              <ActionsArea
+                bookmarkEnabled={bookmarkEnabled}
+                cancelComment={cancelComment}
+                cancelEditVerse={cancelEditVerse}
+                cancelSelection={cancelSelection}
+                changeMode={changeMode}
+                clearSelection={clearSelection}
+                isCommentChanged={isCommentChanged}
+                localNothingToSelect={localNothingToSelect}
+                mode={mode}
+                newSelections={newSelections}
+                nothingToSelect={nothingToSelect}
+                saveComment={saveComment}
+                saveEditVerse={saveEditVerse}
+                saveSelection={saveSelection}
+                selections={selections}
+                tags={tags}
+                toggleNothingToSelect={toggleNothingToSelect}
+                translate={translate}
+                toggleBookmark={toggleBookmark}
+              />
+            </div>
           </div>
         </div>
       </div>
       :
-      "Waiting for Data"
+      'Waiting for Data'
   );
 };
 
