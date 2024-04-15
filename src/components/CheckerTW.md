@@ -87,6 +87,7 @@ const App = () => {
           alignedGlBible={enGlBible}
           checkType={translationWords}
           bibles={bibles}
+          getLexiconData={getLexiconData_}
         />
       </div>
     </>

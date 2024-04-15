@@ -13,7 +13,6 @@ import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import isEqual from 'deep-equal'
 import {
   findCheck,
-  findFirstCheck,
   findNextCheck,
   flattenGroupData,
   getAlignedGLText,
@@ -24,6 +23,7 @@ import {
 import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
 import { parseTnToIndex } from '../helpers/translationHelps/tnArticleHelpers'
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
+import PopoverContainer from '../containers/PopoverContainer'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -65,6 +65,7 @@ const Checker = ({
   checkingData,
   checkType,
   contextId,
+  getLexiconData,
   glWordsData,
   translate,
 }) => {
@@ -82,6 +83,9 @@ const Checker = ({
     modified: false,
     newSelections: null,
     nothingToSelect: false,
+    popoverProps: {
+      popoverVisibility: false
+    },
     selections: null,
     verseText: '',
   })
@@ -100,6 +104,7 @@ const Checker = ({
     modified,
     newSelections,
     nothingToSelect,
+    popoverProps,
     selections,
     verseText,
   } = state
@@ -344,6 +349,34 @@ const Checker = ({
   }
   const readyToDisplayChecker = groupsData && groupsIndex && currentContextId && verseText
 
+  const getLexiconData_ = (lexiconId, entryId) => {
+    console.log(`${name}-getLexiconData_`, {lexiconId, entryId})
+    const lexiconData = getLexiconData && getLexiconData(lexiconId, entryId)
+    return lexiconData
+  }
+
+  const onClosePopover = () => {
+    console.log(`${name}-onClosePopover`)
+    setState({
+      popoverProps: {
+        popoverVisibility: false,
+      }
+    })
+  }
+
+  const showPopover = (title, bodyText, positionCoord) => {
+    console.log(`${name}-showPopover`, title)
+    setState({
+      popoverProps: {
+        popoverVisibility: true,
+        title,
+        bodyText,
+        positionCoord,
+        onClosePopover: () => onClosePopover()
+      }
+    })
+  }
+
   const { bibles, paneSettings } = useMemo(() => {
     const bibles = {}
     let paneSettings = bibles_
@@ -394,12 +427,12 @@ const Checker = ({
                 editTargetVerse={null}
                 expandedScripturePaneTitle={'expandedScripturePaneTitle'}
                 getAvailableScripturePaneSelections={null}
-                getLexiconData={null}
+                getLexiconData={getLexiconData_}
                 makeSureBiblesLoadedForTool={null}
                 projectDetailsReducer={{ manifest }}
                 selections={selections}
                 setToolSettings={null}
-                showPopover={false}
+                showPopover={showPopover}
                 onExpandedScripturePaneShow={null}
                 translate={translate}
               />
@@ -472,6 +505,9 @@ const Checker = ({
             </div>
           </div>
         </div>
+        { popoverProps?.popoverVisibility &&
+          <PopoverContainer {...popoverProps} />
+        }
       </div>
       :
       'Waiting for Data'
@@ -486,5 +522,6 @@ Checker.propTypes = {
   contextId: PropTypes.object.isRequired,
   glWordsData: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
+  getLexiconData: PropTypes.func,
 };
 export default Checker;
