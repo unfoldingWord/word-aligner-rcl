@@ -1,4 +1,4 @@
-import _ from "lodash";
+import cloneDeep from "lodash.clonedeep";
 import {removeUsfmMarkers, usfmVerseToJson} from "./usfmHelpers";
 import wordaligner from "word-aligner";
 import * as UsfmFileConversionHelpers from "./UsfmFileConversionHelpers";
@@ -559,7 +559,7 @@ function convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blank
  */
 export function convertAlignmentFromVerseToVerseSpan(targetLanguageVerse, originalLanguageChapterData, chapter, verseSpan) {
   const blankVerseAlignments = {};
-  const alignedTargetVerseObjects = _.cloneDeep(targetLanguageVerse)
+  const alignedTargetVerseObjects = cloneDeep(targetLanguageVerse)
   const {low, hi} = getRawAlignmentsForVerseSpan(verseSpan, originalLanguageChapterData, blankVerseAlignments);
   let mergedUgntData = [];
   for (let verse = low; verse <= hi; verse++) {
@@ -581,7 +581,7 @@ export function convertAlignmentFromVerseToVerseSpan(targetLanguageVerse, origin
 export function convertAlignmentsFromVerseSpansToVerse(originalLanguageChapterData, alignedTargetVerseObjects, chapter, verseSpan) {
   const blankVerseAlignments = {};
   const {low, hi} = getRawAlignmentsForVerseSpan(verseSpan, originalLanguageChapterData, blankVerseAlignments);
-  const verseSpanData = _.cloneDeep(alignedTargetVerseObjects)
+  const verseSpanData = cloneDeep(alignedTargetVerseObjects)
   convertAlignmentsFromVerseSpansToVerseSub(verseSpanData, low, hi, blankVerseAlignments, chapter)
   const finalUSFM = convertVerseDataToUSFM(verseSpanData)
   return finalUSFM;
@@ -595,8 +595,8 @@ export function convertAlignmentsFromVerseSpansToVerse(originalLanguageChapterDa
  */
 export function resetAlignments(verseAlignments_, targetWords_) {
   if (verseAlignments_?.length) {
-    const verseAlignments = _.cloneDeep(verseAlignments_)
-    const targetWords = _.cloneDeep(targetWords_)
+    const verseAlignments = cloneDeep(verseAlignments_)
+    const targetWords = cloneDeep(targetWords_)
 
     for (const alignment of verseAlignments) { // clear out each alignment
       alignment.targetNgram = [] // remove target words for each alignment
