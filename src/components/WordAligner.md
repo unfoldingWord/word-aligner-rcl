@@ -11,8 +11,14 @@ import {
 import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
 
+// a fully aligned example
 // var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1.json');
-var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1_partial.json');
+
+// a partially aligned example
+// var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1_partial.json');
+
+// a fully aligned UST example
+var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ust_tit_1_1.json');
 var originalVerseJson = require('../__tests__/fixtures/alignments/grk_tit_1_1.json');
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 

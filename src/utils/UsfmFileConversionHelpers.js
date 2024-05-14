@@ -1,6 +1,6 @@
 /* eslint-disable no-async-promise-executor, no-throw-literal */
 import usfmjs from 'usfm-js';
-import _ from 'lodash';
+import cloneDeep from "lodash.clonedeep";
 import {getVerseAlignments, getWordCountInVerse} from "./alignmentHelpers";
 
 /**
@@ -168,7 +168,7 @@ const replaceWordsAndMilestones = (verseObject, wordSpacing) => {
     }
 
     if (verseObject.children) { // handle nested
-      const verseObject_ = _.cloneDeep(verseObject);
+      const verseObject_ = cloneDeep(verseObject);
       let wordSpacing_ = '';
       const length = verseObject.children.length;
 

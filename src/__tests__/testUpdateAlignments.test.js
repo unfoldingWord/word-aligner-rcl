@@ -20,6 +20,8 @@ const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleEdit
 const otMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/otMigrationEditsTests.json');
 const ntMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/ntMigrationEditsTests.json');
 
+const alignedVerseJson = require(path.join(__dirname, './fixtures/alignments/en_ust_tit_1_1.json'));
+const USFM = convertVerseDataToUSFM(alignedVerseJson.json)
 
 describe('testing edit of aligned target text', () => {
   const tests = fs.readJsonSync(simpleUpdatesPath)

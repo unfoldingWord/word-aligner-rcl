@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import cloneDeep from 'lodash.clonedeep';
+import isEqual from 'deep-equal'
 import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
@@ -356,9 +358,13 @@ const WordAligner = ({
   };
 
   useEffect(() => { // detect change of source alignments
-    console.log('WordAligner: app alignment data changed')
-    setTargetWords(targetWords)
-    updateVerseAlignments(verseAlignments)
+    const changedTW = !isEqual(targetWords, targetWords_);
+    const changedVA = !isEqual(verseAlignments, verseAlignments_);
+    if (changedTW || changedVA) {
+      console.log('WordAligner: app alignment data changed', verseAlignments, targetWords)
+      setTargetWords(targetWords)
+      updateVerseAlignments(verseAlignments)
+    }
   }, [verseAlignments, targetWords])
 
   /**
@@ -409,8 +415,8 @@ const WordAligner = ({
     const destination=TARGET_WORD_BANK;
     let sourceToken = {};
     const { tokenIndex, alignmentIndex } = findAlignment(verseAlignments_, targetToken);
+    let verseAlignments =  cloneDeep(verseAlignments_);
     if (alignmentIndex >= 0) {
-      let verseAlignments = [...verseAlignments_];
       verseAlignments[alignmentIndex].targetNgram.splice(tokenIndex, 1);
       sourceToken = verseAlignments[alignmentIndex].sourceNgram;
       updateVerseAlignments(verseAlignments);
@@ -429,7 +435,7 @@ const WordAligner = ({
       destination,
       sourceToken: sourceToken,
       targetToken: targetToken
-    });
+    }, verseAlignments);
   };
 
   /**
@@ -443,7 +449,7 @@ const WordAligner = ({
     if (alignmentIndex !== srcAlignmentIndex) {
       const destination=GRID
       let source=GRID
-      let verseAlignments = [...verseAlignments_]
+      let verseAlignments =  cloneDeep(verseAlignments_)
       const dest = verseAlignments[alignmentIndex];
       let src = null;
       let found = -1;
@@ -494,7 +500,7 @@ const WordAligner = ({
     if ((destAlignmentIndex !== srcAlignmentIndex) || startNew) {
       let destination=MERGE_ALIGNMENT_CARDS
       const source=GRID
-      let verseAlignments = [...verseAlignments_];
+      let verseAlignments =  cloneDeep(verseAlignments_);
       let dest = verseAlignments[destAlignmentIndex];
       let src = null;
       let found = -1;
@@ -575,9 +581,9 @@ const WordAligner = ({
         <WordList
           styles={styles_}
           words={targetWords_}
-          verse={contextId.reference.verse}
+          verse={contextId?.reference?.verse}
           isOver={over}
-          chapter={contextId.reference.chapter}
+          chapter={contextId?.reference?.chapter}
           direction={targetDirection}
           toolsSettings={toolsSettings}
           reset={resetDrag}

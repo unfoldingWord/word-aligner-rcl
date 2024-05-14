@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WordList from './WordList';
 import * as types from "../../common/WordCardTypes";
-import _ from "lodash";
+import cloneDeep from "lodash.clonedeep";
 
 /**
  * Renders a word bank with drag-drop support
@@ -153,8 +153,8 @@ class DroppableWordList extends React.Component {
    */
   handleWordSelection(token, selectToCurrentToken) {
     const { selectedWordPositions, selectedWords } = this.state;
-    let _selectedPositions = _.cloneDeep(selectedWordPositions)
-    let _selectedWords = _.cloneDeep(selectedWords)
+    let _selectedPositions = cloneDeep(selectedWordPositions)
+    let _selectedWords = cloneDeep(selectedWords)
     const token_ = {
       ...token,
       type: null,
