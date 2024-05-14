@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash.clonedeep';
-import diff from 'deep-diff';
 import isEqual from 'deep-equal'
 import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
@@ -359,27 +358,14 @@ const WordAligner = ({
   };
 
   useEffect(() => { // detect change of source alignments
-    console.log('WordAligner: app alignment data changed', verseAlignments_, targetWords_)
     const changedTW = !isEqual(targetWords, targetWords_);
-    if (changedTW) {
-      const differences = diff(targetWords, targetWords_);
-      console.log("targetWords differences", differences)
-    }
     const changedVA = !isEqual(verseAlignments, verseAlignments_);
-    if (changedVA) {
-      const differences = diff(verseAlignments, verseAlignments_);
-      console.log("verseAlignments differences", differences)
-    }
     if (changedTW || changedVA) {
-      console.log("saving differences")
+      console.log('WordAligner: app alignment data changed', verseAlignments, targetWords)
       setTargetWords(targetWords)
       updateVerseAlignments(verseAlignments)
     }
   }, [verseAlignments, targetWords])
-
-  useEffect(() => {
-    console.log('WordAligner: initialized')
-  }, [])
 
   /**
    * on start of token drag, save drag token and drag item type
