@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import cloneDeep from 'lodash.clonedeep';
 import isEqual from 'deep-equal'
 import WordList from './WordList/index';
 import AlignmentGrid from "./AlignmentGrid";
@@ -415,7 +414,7 @@ const WordAligner = ({
     const destination=TARGET_WORD_BANK;
     let sourceToken = {};
     const { tokenIndex, alignmentIndex } = findAlignment(verseAlignments_, targetToken);
-    let verseAlignments =  cloneDeep(verseAlignments_);
+    let verseAlignments =  [...verseAlignments_];
     if (alignmentIndex >= 0) {
       verseAlignments[alignmentIndex].targetNgram.splice(tokenIndex, 1);
       sourceToken = verseAlignments[alignmentIndex].sourceNgram;
@@ -449,7 +448,7 @@ const WordAligner = ({
     if (alignmentIndex !== srcAlignmentIndex) {
       const destination=GRID
       let source=GRID
-      let verseAlignments =  cloneDeep(verseAlignments_)
+      let verseAlignments = [...verseAlignments_]
       const dest = verseAlignments[alignmentIndex];
       let src = null;
       let found = -1;
@@ -500,7 +499,7 @@ const WordAligner = ({
     if ((destAlignmentIndex !== srcAlignmentIndex) || startNew) {
       let destination=MERGE_ALIGNMENT_CARDS
       const source=GRID
-      let verseAlignments =  cloneDeep(verseAlignments_);
+      let verseAlignments = [...verseAlignments_];
       let dest = verseAlignments[destAlignmentIndex];
       let src = null;
       let found = -1;
