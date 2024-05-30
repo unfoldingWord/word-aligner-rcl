@@ -215,7 +215,7 @@ export function addAlignmentsToTargetVerseUsingMerge(targetVerseText, verseAlign
       verseAlignments.alignments, verseAlignments.wordBank, verseString, true,
     );
   } catch (e) {
-    console.log(`addAlignmentsToTargetVerseUsingMerge() - invalid alignment`, e);
+    console.error(`addAlignmentsToTargetVerseUsingMerge() - invalid alignment`, e);
   }
 
   if (verseObjects) {
