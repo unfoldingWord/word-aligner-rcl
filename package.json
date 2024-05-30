@@ -1,6 +1,6 @@
 {
   "name": "word-aligner-rcl",
-  "version": "1.1.1-beta",
+  "version": "1.1.1",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",
@@ -21,7 +21,7 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "prepublishOnly": "rm -rf ./dist && npm run build:dev",
+    "prepublishOnly": "rm -rf ./dist && npm run build:prod",
     "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
   },
   "files": [
