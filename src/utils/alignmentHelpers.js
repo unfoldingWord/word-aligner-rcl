@@ -141,63 +141,68 @@ export function getWordListFromVerseObjects(verseObjects) {
  * @return {array} list of alignments in target text
  */
 export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse) {
-  const targetVerse = usfmVerseToJson(alignedTargetVerse);
-  const alignments = wordaligner.unmerge(targetVerse, sourceVerse);
-  const originalLangWordList = sourceVerse && getOriginalLanguageListForVerseData(sourceVerse);
-  const alignmentsWordList = getAlignedWordListFromAlignments(alignments.alignment);
-  const targetTokens = getWordListFromVerseObjects(targetVerse);
-  // clean up metadata in alignments
-  originalLangWordList && updateAlignedWordsFromOriginalWordList(originalLangWordList, alignmentsWordList);
-  if (alignments.alignment) { // for compatibility change alignment to alignments
-    // convert occurrence(s) from string to number
-    const alignments_ = alignments.alignment.map(alignment => {
-      const topWords = convertOccurrences(alignment.topWords);
-      const bottomWords = convertOccurrences(alignment.bottomWords);
-      return {
-        sourceNgram: topWords.map(topWord => { // word aligner uses sourceNgram instead of topWord
-          if (originalLangWordList) {
-            const pos = originalLangWordList.findIndex(item => (
-              topWord.word === (item.word || item.text) &&
-              topWord.occurrence == item.occurrence //Tricky: we want to allow automatic conversion between string and integer because occurrence could be either
-            ));
+  try {
+    const targetVerse = usfmVerseToJson(alignedTargetVerse);
+    const alignments = wordaligner.unmerge(targetVerse, sourceVerse);
+    const originalLangWordList = sourceVerse && getOriginalLanguageListForVerseData(sourceVerse);
+    const alignmentsWordList = getAlignedWordListFromAlignments(alignments.alignment);
+    const targetTokens = getWordListFromVerseObjects(targetVerse);
+    // clean up metadata in alignments
+    originalLangWordList && updateAlignedWordsFromOriginalWordList(originalLangWordList, alignmentsWordList);
+    if (alignments.alignment) { // for compatibility change alignment to alignments
+      // convert occurrence(s) from string to number
+      const alignments_ = alignments.alignment.map(alignment => {
+        const topWords = convertOccurrences(alignment.topWords);
+        const bottomWords = convertOccurrences(alignment.bottomWords);
+        return {
+          sourceNgram: topWords.map(topWord => { // word aligner uses sourceNgram instead of topWord
+            if (originalLangWordList) {
+              const pos = originalLangWordList.findIndex(item => (
+                topWord.word === (item.word || item.text) &&
+                topWord.occurrence == item.occurrence //Tricky: we want to allow automatic conversion between string and integer because occurrence could be either
+              ));
+              const newSource = {
+                ...topWord,
+                index: pos,
+                text: topWord.text || topWord.word,
+              };
+              delete newSource.word
+              return newSource
+            }
             const newSource = {
               ...topWord,
-              index: pos,
               text: topWord.text || topWord.word,
             };
             delete newSource.word
+            delete newSource.position
             return newSource
-          }
-          const newSource = {
-            ...topWord,
-            text: topWord.text || topWord.word,
-          };
-          delete newSource.word
-          delete newSource.position
-          return newSource
-        }),
-        targetNgram: bottomWords.map(bottomWord => { // word aligner uses targetNgram instead of bottomWords
-          const word = bottomWord.text || bottomWord.word
-          // noinspection EqualityComparisonWithCoercionJS
-          const pos = targetTokens.findIndex(item => (
-            word === item.text &&
-            // eslint-disable-next-line eqeqeq
-            bottomWord.occurrence == item.occurrence
-          ));
+          }),
+          targetNgram: bottomWords.map(bottomWord => { // word aligner uses targetNgram instead of bottomWords
+            const word = bottomWord.text || bottomWord.word
+            // noinspection EqualityComparisonWithCoercionJS
+            const pos = targetTokens.findIndex(item => (
+              word === item.text &&
+              // eslint-disable-next-line eqeqeq
+              bottomWord.occurrence == item.occurrence
+            ));
 
-          const newTarget = {
-            ...bottomWord,
-            index: pos,
-            text: word,
-          };
-          delete newTarget.word
-          return newTarget;
-        }),
-      }
-    })
-    alignments.alignments = alignments_;
+            const newTarget = {
+              ...bottomWord,
+              index: pos,
+              text: word,
+            };
+            delete newTarget.word
+            return newTarget;
+          }),
+        }
+      })
+      alignments.alignments = alignments_;
+    }
+    return alignments;
+  } catch (e) {
+    console.warn(`extractAlignmentsFromTargetVerse()`,e)
+    return null
   }
-  return alignments;
 }
 
 /**
@@ -215,7 +220,7 @@ export function addAlignmentsToTargetVerseUsingMerge(targetVerseText, verseAlign
       verseAlignments.alignments, verseAlignments.wordBank, verseString, true,
     );
   } catch (e) {
-    console.log(`addAlignmentsToTargetVerseUsingMerge() - invalid alignment`, e);
+    console.error(`addAlignmentsToTargetVerseUsingMerge() - invalid alignment`, e);
   }
 
   if (verseObjects) {
@@ -315,7 +320,7 @@ export function parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM) {
   const sourceVerseObjects = sourceVerseUSFM && usfmVerseToJson(sourceVerseUSFM);
   let targetWords = [];
   const targetVerseAlignments = extractAlignmentsFromTargetVerse(targetVerseUSFM, sourceVerseObjects);
-  const verseAlignments = targetVerseAlignments.alignments;
+  const verseAlignments = targetVerseAlignments?.alignments;
   targetWords = markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetTokens, verseAlignments);
   return {targetWords, verseAlignments};
 }
