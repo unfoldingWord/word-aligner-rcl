@@ -14,7 +14,7 @@
     "lint:fix": "eslint ./src --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "prepublishOnly": "rm -rf ./dist && babel ./src --out-dir ./dist -s inline",
-    "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
+    "xpostpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
   },
   "files": [
     "dist/*"
