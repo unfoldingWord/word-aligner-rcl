@@ -1,0 +1,3969 @@
+{
+  "culture": {
+    "groups": {
+      "figs-explicit": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "z4tk",
+            "occurrenceNote": "**The elder** refers to John, the apostle and disciple of Jesus. He refers to himself as **elder** either because of his old age or because he is a leader in the church or both. If you have a term for an older, respected leader, you can use it here. Alternate translation: “I, John, am writing this letter to you” or “I, John the elder, am writing this letter to you”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "πρεσβύτερος",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ὁ πρεσβύτερος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zfgr",
+            "occurrenceNote": "In this culture, letter writers would normally offer a good wish or blessing for the recipients before introducing the main business of the letter. But instead of a blessing here, John makes a declarative statement. This probably expresses his confidence that God will do as he promised. Be sure that your translation also expresses this confidence.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "ἔσται",
+                "occurrence": 1
+              },
+              {
+                "word": "μεθ’",
+                "occurrence": 1
+              },
+              {
+                "word": "ἡμῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "χάρις",
+                "occurrence": 1
+              },
+              {
+                "word": ",",
+                "occurrence": 1
+              },
+              {
+                "word": "ἔλεος",
+                "occurrence": 1
+              },
+              {
+                "word": ",",
+                "occurrence": 2
+              },
+              {
+                "word": "εἰρήνη",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἔσται μεθ’ ἡμῶν χάρις, ἔλεος, εἰρήνη",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "s7hr",
+            "occurrenceNote": "The expression **received a commandment** expresses the idea that God commanded the believers to do something. If it would be helpful in your language, you could make **the Father** the subject of a sentence with the verb “command.” Alternate translation: “just as the Father has commanded us”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "καθὼς",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐντολὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐλάβομεν",
+                "occurrence": 1
+              },
+              {
+                "word": "παρὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Πατρός",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "καθὼς ἐντολὴν ἐλάβομεν παρὰ τοῦ Πατρός",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uhs8",
+            "occurrenceNote": "The phrase **from the beginning** refers to the time when John and his audience first believed in Jesus Christ. You could include this information if that would be helpful to your readers. Alternate translation: “since the time that we first believed”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "ἀπ’",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀρχῆς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἀπ’ ἀρχῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vqnb",
+            "occurrenceNote": "**This** refers back to the situation of people teaching falsely that Jesus did not have a body of flesh. John is saying that people deceive others in this way because the original deceiver (the devil) directs them to do so. You could include this information if that would be helpful to your readers. Alternate translation: “This is the work of the deceiver, the antichrist” or “This kind of teaching comes from the one who is the deceiver and the antichrist”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "οὗτός",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐστιν",
+                "occurrence": 1
+              },
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "πλάνος",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "ὁ",
+                "occurrence": 2
+              },
+              {
+                "word": "ἀντίχριστος",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "οὗτός ἐστιν ὁ πλάνος καὶ ὁ ἀντίχριστος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "it9t",
+            "occurrenceNote": "The implication is that the believers are to be careful so that they are not deceived by the deceiving false teachers. You could include this information if that would be helpful to your readers. Alternate translation: “Be careful not to let the deceivers influence you”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "βλέπετε",
+                "occurrence": 1
+              },
+              {
+                "word": "ἑαυτούς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "βλέπετε ἑαυτούς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "i8n6",
+            "occurrenceNote": "The word **what** refers generally to all of the work that John and his fellow believers have done to build up the faith of the believers in the church to which he is writing. You could use a general term here, or if it would be helpful in your language, you could state this more explicitly. Alternate translation: “everything” or “the faith in Jesus”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": "ἃ",
+            "quoteString": "ἃ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xty9",
+            "occurrenceNote": "To **have God** means to have a relationship with God as Savior through faith in Jesus Christ. If it would be helpful in your language, you could express this explicitly. Alternate translation: “does not have a right relationship with God” or “does not truly know God”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "Θεὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "οὐκ",
+                "occurrence": 1
+              },
+              {
+                "word": "ἔχει",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "Θεὸν οὐκ ἔχει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ls1c",
+            "occurrenceNote": "John does not want the believers to accept a false teacher into their homes and, as a result, support his false teaching by showing him respect and providing for his needs. Alternate translation: “do not support him or encourage him by welcoming him into your home”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "μὴ",
+                "occurrence": 1
+              },
+              {
+                "word": "λαμβάνετε",
+                "occurrence": 1
+              },
+              {
+                "word": "αὐτὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "εἰς",
+                "occurrence": 1
+              },
+              {
+                "word": "οἰκίαν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "μὴ λαμβάνετε αὐτὸν εἰς οἰκίαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "lbct",
+            "occurrenceNote": "John warns the believers not to greet a false teacher respectfully in public. The implication is that he does not want them to do anything that might look like they are endorsing a false teacher or that would give a false teacher good standing in the eyes of others. Alternate translation: “do not give him a respectful public greeting”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "χαίρειν",
+                "occurrence": 1
+              },
+              {
+                "word": "αὐτῷ",
+                "occurrence": 1
+              },
+              {
+                "word": "μὴ",
+                "occurrence": 2
+              },
+              {
+                "word": "λέγετε",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "χαίρειν αὐτῷ μὴ λέγετε",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "a4rc",
+            "occurrenceNote": "As was customary in this culture, John concludes the letter by extending greetings from people who are with him and who may know the people to whom he is writing. Your language may have a particular way of sharing greetings in a letter. If so, you can use that form here. Alternate translation: “send you their greetings” or “ask to be remembered to you”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "ἀσπάζεταί",
+                "occurrence": 1
+              },
+              {
+                "word": "σε",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἀσπάζεταί σε",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-go": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w9n9",
+            "occurrenceNote": "In a context such as this, your language might say “go” instead of **come**. Alternate translation: “to go”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-go",
+            "quote": "γενέσθαι",
+            "quoteString": "γενέσθαι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "figs-explicit",
+        "name": "Assumed Knowledge and Implicit Information"
+      },
+      {
+        "id": "translate-bdistance",
+        "name": "Biblical Distance"
+      },
+      {
+        "id": "translate-bmoney",
+        "name": "Biblical Money"
+      },
+      {
+        "id": "translate-hebrewmonths",
+        "name": "Hebrew Months"
+      },
+      {
+        "id": "translate-names",
+        "name": "How to Translate Names"
+      },
+      {
+        "id": "translate-symaction",
+        "name": "Symbolic Action"
+      },
+      {
+        "id": "translate-unknown",
+        "name": "Translate Unknowns"
+      },
+      {
+        "id": "writing-symlanguage",
+        "name": "Symbolic Language"
+      },
+      {
+        "id": "figs-go",
+        "name": "Go and Come"
+      },
+      {
+        "id": "translate-bvolume",
+        "name": "Biblical Volume"
+      },
+      {
+        "id": "translate-bweight",
+        "name": "Biblical Weight"
+      }
+    ]
+  },
+  "discourse": {
+    "groups": {},
+    "index": [
+      {
+        "id": "figs-exclamations",
+        "name": "Exclamations"
+      },
+      {
+        "id": "figs-quotesinquotes",
+        "name": "Quotes within Quotes"
+      },
+      {
+        "id": "translate-versebridge",
+        "name": "Verse Bridges"
+      },
+      {
+        "id": "writing-background",
+        "name": "Background Information"
+      },
+      {
+        "id": "writing-newevent",
+        "name": "Introduction of a New Event"
+      },
+      {
+        "id": "writing-poetry",
+        "name": "Poetry"
+      },
+      {
+        "id": "figs-exmetaphor",
+        "name": "Biblical Imagery — Extended Metaphors"
+      },
+      {
+        "id": "figs-imperative",
+        "name": "Imperatives — Other Uses"
+      },
+      {
+        "id": "figs-pastforfuture",
+        "name": "Predictive Past"
+      },
+      {
+        "id": "figs-quotations",
+        "name": "Direct and Indirect Quotations"
+      },
+      {
+        "id": "writing-proverbs",
+        "name": "Proverbs"
+      },
+      {
+        "id": "writing-quotations",
+        "name": "Quotations and Quote Margins"
+      },
+      {
+        "id": "figs-declarative",
+        "name": "Statements — Other Uses"
+      },
+      {
+        "id": "figs-events",
+        "name": "Order of Events"
+      },
+      {
+        "id": "writing-endofstory",
+        "name": "End of Story"
+      },
+      {
+        "id": "writing-participants",
+        "name": "Introduction of New and Old Participants"
+      },
+      {
+        "id": "figs-parables",
+        "name": "Parables"
+      },
+      {
+        "id": "figs-sentences",
+        "name": "Sentence Structure"
+      }
+    ]
+  },
+  "figures": {
+    "groups": {
+      "figs-doublet": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vfdn",
+            "occurrenceNote": "The terms **deceiver** and **antichrist** refer to the same person (the devil). It may be helpful to clarify that in your translation. Alternate translation: “the deceiver, that is, the antichrist”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "πλάνος",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "ὁ",
+                "occurrence": 2
+              },
+              {
+                "word": "ἀντίχριστος",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ὁ πλάνος καὶ ὁ ἀντίχριστος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-ellipsis": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "u38f",
+            "occurrenceNote": "If your language requires you to state who is **writing**, you could add a pronoun here. Alternate translation: “not as though I were writing a new commandment to you”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-ellipsis",
+            "quote": [
+              {
+                "word": "οὐχ",
+                "occurrence": 1
+              },
+              {
+                "word": "ὡς",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐντολὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "καινὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "γράφων",
+                "occurrence": 1
+              },
+              {
+                "word": "σοι",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "οὐχ ὡς ἐντολὴν καινὴν γράφων σοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gq26",
+            "occurrenceNote": "Here John leaves out some of the words that a sentence would need in many languages in order to be complete. If it would be helpful to your readers, you could supply these words from earlier in the sentence. Alternate translation: “I did not want to write these things with paper and ink” (See: Ellipsis)",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-ellipsis",
+            "quote": [
+              {
+                "word": "οὐκ",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐβουλήθην",
+                "occurrence": 1
+              },
+              {
+                "word": "διὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "χάρτου",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "μέλανος",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "οὐκ ἐβουλήθην διὰ χάρτου καὶ μέλανος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-hyperbole": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "a50f",
+            "occurrenceNote": "John uses the phrase **all the ones having known the truth** to refer to believers who know and accept the true message about Jesus Christ. John is most likely using the term **all** as a generalization to mean all the believers who are with him and who know the people of this church. Alternate translation: “all who are with me and who know and accept the truth”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-hyperbole",
+            "quote": [
+              {
+                "word": "πάντες",
+                "occurrence": 1
+              },
+              {
+                "word": "οἱ",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐγνωκότες",
+                "occurrence": 1
+              },
+              {
+                "word": "τὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀλήθειαν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "πάντες οἱ ἐγνωκότες τὴν ἀλήθειαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-idiom": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ueev",
+            "occurrenceNote": "In this context, the term **chosen** indicates a person or group of people whom God has chosen to receive salvation. Alternate translation: “to the congregation that God has saved”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "ἐκλεκτῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "κυρίᾳ",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῖς",
+                "occurrence": 1
+              },
+              {
+                "word": "τέκνοις",
+                "occurrence": 1
+              },
+              {
+                "word": "αὐτῆς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἐκλεκτῇ κυρίᾳ καὶ τοῖς τέκνοις αὐτῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "a7rm",
+            "occurrenceNote": "This is an idiom that means “forever.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: “for all time”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "εἰς",
+                "occurrence": 1
+              },
+              {
+                "word": "τὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "αἰῶνα",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "εἰς τὸν αἰῶνα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "cvtt",
+            "occurrenceNote": "Here, **Watch yourselves** is an idiom that means “be careful.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: “Mind yourselves” or “Guard yourselves”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "βλέπετε",
+                "occurrence": 1
+              },
+              {
+                "word": "ἑαυτούς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "βλέπετε ἑαυτούς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "n7zt",
+            "occurrenceNote": "John is using the verb **shares** in a particular sense here to mean assisting and helping to advance the activity of the false teacher. Alternate translation: “takes part in his evil deeds” or “helps him in his evil deeds”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 11
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "κοινωνεῖ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῖς",
+                "occurrence": 1
+              },
+              {
+                "word": "ἔργοις",
+                "occurrence": 1
+              },
+              {
+                "word": "αὐτοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῖς",
+                "occurrence": 2
+              },
+              {
+                "word": "πονηροῖς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "κοινωνεῖ τοῖς ἔργοις αὐτοῦ τοῖς πονηροῖς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "v4v2",
+            "occurrenceNote": "The expression **mouth to mouth** describes people speaking to one another in person. You can use an expression in your own language with this same meaning or use plain language. Alternate translation: “to speak face to face” or “to speak to you in person”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "στόμα",
+                "occurrence": 1
+              },
+              {
+                "word": "πρὸς",
+                "occurrence": 2
+              },
+              {
+                "word": "στόμα",
+                "occurrence": 2
+              },
+              {
+                "word": "λαλῆσαι",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "στόμα πρὸς στόμα λαλῆσαι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "aonw",
+            "occurrenceNote": "In this context, the term **chosen** indicates someone whom God has chosen to receive salvation. In the context of John’s metaphor, this indicates a church or group of people whom God has chosen to receive salvation. Alternate translation: “The members of this group of believers in Jesus”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "τὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "τέκνα",
+                "occurrence": 1
+              },
+              {
+                "word": "τῆς",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀδελφῆς",
+                "occurrence": 1
+              },
+              {
+                "word": "σου",
+                "occurrence": 1
+              },
+              {
+                "word": "τῆς",
+                "occurrence": 2
+              },
+              {
+                "word": "ἐκλεκτῆς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "τὰ τέκνα τῆς ἀδελφῆς σου τῆς ἐκλεκτῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-metaphor": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "a9w3",
+            "occurrenceNote": "Here John is speaking of a church and its people as if they were a **lady and her children**. See the discussion in Part 3 of the Introduction to this book. If it would be helpful in your language, you could state the meaning plainly in the text or in a footnote. Alternate translation: “to the people of the chosen church”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "ἐκλεκτῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "κυρίᾳ",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῖς",
+                "occurrence": 1
+              },
+              {
+                "word": "τέκνοις",
+                "occurrence": 1
+              },
+              {
+                "word": "αὐτῆς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἐκλεκτῇ κυρίᾳ καὶ τοῖς τέκνοις αὐτῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w2b6",
+            "occurrenceNote": "Here John is speaking figuratively of a person's life as if it were a journey, and the way that the person behaves is the way that he walks on that journey. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: “living according to the truth”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "περιπατοῦντας",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀληθείᾳ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "περιπατοῦντας ἐν ἀληθείᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vvej",
+            "occurrenceNote": "The word translated as **reward** also refers to the wages that a worker gets for his work. John is using this idea to say that God rewards his people for the work that they have done for him, and that this reward would be lost if the work came to nothing. In this context, the reward may include the idea of the person's relationship with God, since that is what would be lost if John's readers leave behind the teachings of Christ, as he goes on to say in the next verse. Use a general phrase that could include all of those things. Alternate translation: “complete recompense” or “the whole prize”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "μισθὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "πλήρη",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "μισθὸν πλήρη",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mn3v",
+            "occurrenceNote": "John figuratively refers to **the teaching of Christ** as a place where faithful believers **remain** and also as a place that false teachers leave as they go **beyond**. The expression **going beyond** refers to teaching new and false things that Jesus did not teach. Alternate translation: “Everyone who teaches things that Jesus did not teach”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "πᾶς",
+                "occurrence": 1
+              },
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "προάγων",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "μὴ",
+                "occurrence": 1
+              },
+              {
+                "word": "μένων",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "τῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "διδαχῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Χριστοῦ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "πᾶς ὁ προάγων καὶ μὴ μένων ἐν τῇ διδαχῇ τοῦ Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xafi",
+            "occurrenceNote": "John is speaking of a **teaching** or a message as if it were an object that someone could **bring**. If you would not use this kind of metaphor in your language, you could use one that has the same meaning or use plain language. Alternate translation: “does not teach this same message”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "ταύτην",
+                "occurrence": 1
+              },
+              {
+                "word": "τὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "διδαχὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "οὐ",
+                "occurrence": 1
+              },
+              {
+                "word": "φέρει",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ταύτην τὴν διδαχὴν οὐ φέρει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-metonymy": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "x8yl",
+            "occurrenceNote": "The expression **coming in flesh** is a metonym for being a real, physical person and not a spiritual being only. Alternate translation: “that Jesus Christ came as a real human”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "Ἰησοῦν",
+                "occurrence": 1
+              },
+              {
+                "word": "Χριστὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐρχόμενον",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "σαρκί",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "Ἰησοῦν Χριστὸν ἐρχόμενον ἐν σαρκί",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nx77",
+            "occurrenceNote": "John is not saying that he would rather write these things with something other than **paper and ink**. Rather, he is speaking of those writing materials to represent writing in general. He means that he wants to visit the believers personally and to continue his communication with them directly. Alternate translation: “to communicate these things in writing”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "διὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "χάρτου",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "μέλανος",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "διὰ χάρτου καὶ μέλανος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "figs-doublet",
+        "name": "Doublet"
+      },
+      {
+        "id": "figs-ellipsis",
+        "name": "Ellipsis"
+      },
+      {
+        "id": "figs-euphemism",
+        "name": "Euphemism"
+      },
+      {
+        "id": "figs-hyperbole",
+        "name": "Hyperbole"
+      },
+      {
+        "id": "figs-idiom",
+        "name": "Idiom"
+      },
+      {
+        "id": "figs-merism",
+        "name": "Merism"
+      },
+      {
+        "id": "figs-metaphor",
+        "name": "Metaphor"
+      },
+      {
+        "id": "figs-metonymy",
+        "name": "Metonymy"
+      },
+      {
+        "id": "figs-parallelism",
+        "name": "Parallelism"
+      },
+      {
+        "id": "figs-personification",
+        "name": "Personification"
+      },
+      {
+        "id": "figs-rquestion",
+        "name": "Rhetorical Question"
+      },
+      {
+        "id": "figs-simile",
+        "name": "Simile"
+      },
+      {
+        "id": "figs-synecdoche",
+        "name": "Synecdoche"
+      },
+      {
+        "id": "figs-apostrophe",
+        "name": "Apostrophe"
+      },
+      {
+        "id": "figs-doublenegatives",
+        "name": "Double Negatives"
+      },
+      {
+        "id": "figs-hendiadys",
+        "name": "Hendiadys"
+      },
+      {
+        "id": "figs-irony",
+        "name": "Irony"
+      },
+      {
+        "id": "figs-litotes",
+        "name": "Litotes"
+      },
+      {
+        "id": "figs-quotemarks",
+        "name": "Quote Markings"
+      }
+    ]
+  },
+  "grammar": {
+    "groups": {
+      "figs-123person": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uspy",
+            "occurrenceNote": "In this culture, letter writers would identify themselves first, referring to themselves in the third person. If that is confusing in your language, you could use the first person here. Or if your language has a particular way of introducing the author of a letter, and if it would be helpful to your readers, you could use it here. Alternate translation: “I, the elder, am writing this letter to you”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-123person",
+            "quote": [
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "πρεσβύτερος",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ὁ πρεσβύτερος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "y7hw",
+            "occurrenceNote": "In this culture, letter writers would name the addressees next, referring to them in the third person. If that is confusing in your language, you could use the second person here. Or if your language has a particular way of introducing the person who receives a letter, and if it would be helpful to your readers, you could use it here. Alternate translation: “to you, chosen lady, and to your children”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-123person",
+            "quote": [
+              {
+                "word": "ἐκλεκτῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "κυρίᾳ",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῖς",
+                "occurrence": 1
+              },
+              {
+                "word": "τέκνοις",
+                "occurrence": 1
+              },
+              {
+                "word": "αὐτῆς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἐκλεκτῇ κυρίᾳ καὶ τοῖς τέκνοις αὐτῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-abstractnouns": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "src4",
+            "occurrenceNote": "If it would be helpful in your language, you could express the idea behind the abstract noun **truth** with an equivalent expression. The phrase **the truth** could: (1) refer to how John loves. Alternate translation: “truly love” (2) provide the reason for John’s love. Alternate translation: “love because we both follow the one who is true”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "ἀγαπῶ",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀληθείᾳ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἀγαπῶ ἐν ἀληθείᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "spdg",
+            "occurrenceNote": "John uses the abstract noun **truth** to refer to the true message that Christians believe. If it would be helpful in your language, you could express the same idea with a different form of the word. Alternate translation: “the true message”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "τὴν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀλήθειαν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "τὴν ἀλήθειαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gad9",
+            "occurrenceNote": "If it would be helpful in your language, you could express the idea behind the abstract nouns **grace**, **mercy**, and **peace** with verbal phrases, and use **God the Father** and **Jesus Christ** as the subject. Alternate translation: “God the Father and Jesus Christ will be kind to us, be merciful to us, and enable us to be peaceful”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "ἔσται",
+                "occurrence": 1
+              },
+              {
+                "word": "μεθ’",
+                "occurrence": 1
+              },
+              {
+                "word": "ἡμῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "χάρις",
+                "occurrence": 1
+              },
+              {
+                "word": ",",
+                "occurrence": 1
+              },
+              {
+                "word": "ἔλεος",
+                "occurrence": 1
+              },
+              {
+                "word": ",",
+                "occurrence": 2
+              },
+              {
+                "word": "εἰρήνη",
+                "occurrence": 1
+              },
+              {
+                "word": ",",
+                "occurrence": 3
+              },
+              {
+                "word": "παρὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "Θεοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Πατρός",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "παρὰ",
+                "occurrence": 2
+              },
+              {
+                "word": "Ἰησοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Χριστοῦ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἔσται μεθ’ ἡμῶν χάρις, ἔλεος, εἰρήνη, παρὰ Θεοῦ Πατρός καὶ παρὰ Ἰησοῦ Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w6tr",
+            "occurrenceNote": "If it would be helpful in your language, you could express the abstract nouns **truth** and **love** by stating the ideas behind them with adjectives or verbs. Here, these abstract nouns could refer to: (1) the qualities of God the Father and Jesus Christ. Alternate translation: “who are truthful and loving” (2) how believers should live, and thus are the conditions under which believers will receive the “grace, mercy, and peace” from God. Alternate translation: “as we continue to believe what is true and to love each other”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀληθείᾳ",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 2
+              },
+              {
+                "word": "ἀγάπῃ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἐν ἀληθείᾳ καὶ ἀγάπῃ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ddnx",
+            "occurrenceNote": "If your language does not use an abstract noun for **truth**, you could use a phrase with an adjective. Alternate translation: “in a way that agrees with the true message from God”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀληθείᾳ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἐν ἀληθείᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hwtk",
+            "occurrenceNote": "If it would be helpful in your language, you could express the idea behind the abstract noun **joy** with an adjective such as “joyful.” Alternate translation: “so that this will make you completely joyful”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "ἵνα",
+                "occurrence": 1
+              },
+              {
+                "word": "ἡ",
+                "occurrence": 1
+              },
+              {
+                "word": "χαρὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "ὑμῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "πεπληρωμένη",
+                "occurrence": 1
+              },
+              {
+                "word": "ᾖ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἵνα ἡ χαρὰ ὑμῶν πεπληρωμένη ᾖ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-activepassive": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "auwq",
+            "occurrenceNote": "If it would be helpful in your language, you could express this with an active verb form. Alternate translation: “so that this will make your joy complete”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-activepassive",
+            "quote": [
+              {
+                "word": "ἵνα",
+                "occurrence": 1
+              },
+              {
+                "word": "ἡ",
+                "occurrence": 1
+              },
+              {
+                "word": "χαρὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "ὑμῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "πεπληρωμένη",
+                "occurrence": 1
+              },
+              {
+                "word": "ᾖ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἵνα ἡ χαρὰ ὑμῶν πεπληρωμένη ᾖ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-exclusive": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "et6b",
+            "occurrenceNote": "If your language marks this distinction, the pronoun **us** would be inclusive here and throughout the epistle, because John always uses it to refer to both himself and to the recipients of the letter. The pronoun “we” would also be inclusive for that same reason, as would the pronoun “our,” if you choose to use it in your translation.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-exclusive",
+            "quote": [
+              {
+                "word": "ἡμῖν",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "ἡμῶν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἡμῖν & ἡμῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "byw5",
+            "occurrenceNote": "The word **we** here is probably inclusive. John, his audience, and others have all worked to build up the faith of the believers to whom John is writing.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-exclusive",
+            "quote": "εἰργασάμεθα",
+            "quoteString": "εἰργασάμεθα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "k9yt",
+            "occurrenceNote": "If you use “our” here instead of **your**, it would include both John and the letter recipients.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-exclusive",
+            "quote": "ὑμῶν",
+            "quoteString": "ὑμῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-genericnoun": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "x523",
+            "occurrenceNote": "By **one**, John does not mean a particular person. He means anyone **remaining in the teaching** of Jesus. Alternate translation: “Anyone who follows Christ’s teaching belongs to both the Father and the Son”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-genericnoun",
+            "quote": [
+              {
+                "word": "ὁ",
+                "occurrence": 2
+              },
+              {
+                "word": "μένων",
+                "occurrence": 2
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 2
+              },
+              {
+                "word": "τῇ",
+                "occurrence": 2
+              },
+              {
+                "word": "διδαχῇ",
+                "occurrence": 2
+              },
+              {
+                "word": ",",
+                "occurrence": 2
+              },
+              {
+                "word": "οὗτος",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 2
+              },
+              {
+                "word": "τὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "Πατέρα",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 3
+              },
+              {
+                "word": "τὸν",
+                "occurrence": 2
+              },
+              {
+                "word": "Υἱὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἔχει",
+                "occurrence": 2
+              }
+            ],
+            "quoteString": "ὁ μένων ἐν τῇ διδαχῇ, οὗτος καὶ τὸν Πατέρα καὶ τὸν Υἱὸν ἔχει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uhea",
+            "occurrenceNote": "By **one**, John does not mean a particular person. He means anyone who greets a false teacher. Alternate translation: “any person who gives him a respectful public greeting”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 11
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-genericnoun",
+            "quote": [
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "λέγων",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "αὐτῷ",
+                "occurrence": 1
+              },
+              {
+                "word": "χαίρειν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ὁ λέγων & αὐτῷ χαίρειν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-nominaladj": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vg19",
+            "occurrenceNote": "John is using the demonstrative adjective **this** as a noun, to refer to a kind of person. ULT indicates this by adding the word **one**. If your language does not use adjectives in this way, you can translate this with an equivalent phrase. Alternate translation: “such a person” or “that kind of person”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-nominaladj",
+            "quote": "οὗτος",
+            "quoteString": "οὗτος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-you": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ir6v",
+            "occurrenceNote": "The word **your** is singular here, since John is continuing his figure of speech in which he addresses the church collectively as a “lady” and its members as her **children**. If you are translating this in a non-figurative way, you may want to make this plural, according to what is natural in your language. Alternate translation: “the believers from your group”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-you",
+            "quote": [
+              {
+                "word": "τῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "τέκνων",
+                "occurrence": 1
+              },
+              {
+                "word": "σου",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "τῶν τέκνων σου",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "c9xi",
+            "occurrenceNote": "These instances of **you** are singular since John is once again addressing the church in a figurative way as a **lady**. If you are translating John's form of address in a non-figurative way, you may want to make these plural, according to what is natural in your language.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-you",
+            "quote": [
+              {
+                "word": "σε",
+                "occurrence": 1
+              },
+              {
+                "word": ",",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "σοι",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "σε, & σοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "cl95",
+            "occurrenceNote": "The term **you** is plural in this verse, because John is addressing a congregation of believers without any figure of speech. This is the case throughout the rest of the letter, as well, except at the end (verse 13), where John returns to using his figure of speech in which he refers to a church as a woman and its members as her children.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 6
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-you",
+            "quote": [
+              {
+                "word": "ἠκούσατε",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "περιπατῆτε",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἠκούσατε & περιπατῆτε",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qjdz",
+            "occurrenceNote": "The pronouns **you** and **your** are singular here, in keeping with John’s metaphor of writing to a congregation as though it were a lady. If it would be clearer in your language, you could use plural forms here.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-you",
+            "quote": [
+              {
+                "word": "σε",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "σου",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "σε & σου",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "grammar-connect-logic-contrast": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xwoe",
+            "occurrenceNote": "This phrase is in contrast to the previous sentence. If it would be helpful in your language, you could use a word or phrase to mark this contrast, as in the UST.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "grammar-connect-logic-contrast",
+            "quote": [
+              {
+                "word": "ὁ",
+                "occurrence": 2
+              },
+              {
+                "word": "μένων",
+                "occurrence": 2
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 2
+              },
+              {
+                "word": "τῇ",
+                "occurrence": 2
+              },
+              {
+                "word": "διδαχῇ",
+                "occurrence": 2
+              }
+            ],
+            "quoteString": "ὁ μένων ἐν τῇ διδαχῇ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "grammar-connect-logic-result": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ajlf",
+            "occurrenceNote": "If it is more natural in your language to state the reason first and then the result, you can put the statement **I rejoiced greatly** at the end of the verse. Alternate translation: “I found some of your children walking in the truth, just as we have received a commandment from the Father. Therefore, I rejoiced greatly.”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "grammar-connect-logic-result",
+            "quote": [
+              {
+                "word": "ἐχάρην",
+                "occurrence": 1
+              },
+              {
+                "word": "λείαν",
+                "occurrence": 1
+              },
+              {
+                "word": "ὅτι",
+                "occurrence": 1
+              },
+              {
+                "word": "εὕρηκα",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐκ",
+                "occurrence": 1
+              },
+              {
+                "word": "τῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "τέκνων",
+                "occurrence": 1
+              },
+              {
+                "word": "σου",
+                "occurrence": 1
+              },
+              {
+                "word": "περιπατοῦντας",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "ἀληθείᾳ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἐχάρην λείαν ὅτι εὕρηκα ἐκ τῶν τέκνων σου περιπατοῦντας ἐν ἀληθείᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "u749",
+            "occurrenceNote": "Here, **For** introduces the reason why John wrote about the commandment to love and obey God in the previous verses—it is because there are many who pretend to be believers but they do not love or obey God. Use a natural way to introduce this reason in your language. See the UST.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationNotes",
+            "groupId": "grammar-connect-logic-result",
+            "quote": "ὅτι",
+            "quoteString": "ὅτι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "figs-123person",
+        "name": "First, Second or Third Person"
+      },
+      {
+        "id": "figs-abstractnouns",
+        "name": "Abstract Nouns"
+      },
+      {
+        "id": "figs-activepassive",
+        "name": "Active or Passive"
+      },
+      {
+        "id": "figs-exclusive",
+        "name": "Exclusive and Inclusive ‘We’"
+      },
+      {
+        "id": "figs-nominaladj",
+        "name": "Nominal Adjectives"
+      },
+      {
+        "id": "figs-rpronouns",
+        "name": "Reflexive Pronouns"
+      },
+      {
+        "id": "figs-you",
+        "name": "Forms of You"
+      },
+      {
+        "id": "figs-distinguish",
+        "name": "Distinguishing Versus Informing or Reminding"
+      },
+      {
+        "id": "figs-gendernotations",
+        "name": "When Masculine Words Include Women"
+      },
+      {
+        "id": "figs-genericnoun",
+        "name": "Generic Noun Phrases"
+      },
+      {
+        "id": "figs-hypo",
+        "name": "Hypothetical Situations"
+      },
+      {
+        "id": "figs-possession",
+        "name": "Possession"
+      },
+      {
+        "id": "grammar-connect-exceptions",
+        "name": "Connect — Exception Clauses"
+      },
+      {
+        "id": "grammar-connect-logic-contrast",
+        "name": "Connect — Contrast Relationship"
+      },
+      {
+        "id": "grammar-connect-logic-goal",
+        "name": "Connect — Goal (Purpose) Relationship"
+      },
+      {
+        "id": "grammar-connect-logic-result",
+        "name": "Connect — Reason-and-Result Relationship"
+      },
+      {
+        "id": "figs-pronouns",
+        "name": "Pronouns"
+      }
+    ]
+  },
+  "manifest": {
+    "dublin_core": {
+      "conformsto": "rc0.2",
+      "contributor": [
+        "Door43 World Missions Community",
+        "Aaron Fenlason",
+        "Abner Bauman",
+        "Adam Van Goor",
+        "Alan Bird",
+        "Alan Borkenhagen",
+        "Alfred Van Dellen",
+        "Alice Wright",
+        "Allen Bair",
+        "Allyson Presswood Nance",
+        "Amanda Adams",
+        "Andrew Belcher",
+        "Andrew Johnson",
+        "Andrew Rice",
+        "Angelo Palo",
+        "Anita Moreau",
+        "April Linton",
+        "Aurora Lee",
+        "Barbara Summers",
+        "Barbara White",
+        "Becky Hancock",
+        "Beryl Carpenter",
+        "Bethany Fenlason",
+        "Betty Forbes",
+        "Bianca Elliott",
+        "Bill Cleveland",
+        "Bill Pruett",
+        "Bob Britting",
+        "Bram van den Heuvel",
+        "Brian Metzger",
+        "Bruce Bridges",
+        "Bruce Collier",
+        "Bruce Smith",
+        "Caleb Worgess",
+        "Carlyle Kilmore",
+        "Carol Pace",
+        "Carol Heim",
+        "Caroline Crawford",
+        "Caroline Fleming",
+        "Caroline S Wong",
+        "Carol Lee",
+        "Carol Moyer",
+        "Carolyn Lafferty",
+        "Catherine C Newton",
+        "Charese Jackson",
+        "Charlotte Gibson",
+        "Charlotte Hobbs",
+        "Cheryl A Chojnacki",
+        "Cheryl Stieben",
+        "Cheryl Warren",
+        "Christian Berry",
+        "Christine Harrison",
+        "Clairmene Pascal",
+        "Connie Bryan",
+        "Connie Goss",
+        "Craig Balden",
+        "Craig Lins",
+        "Craig Scott",
+        "Cynthia J Puckett",
+        "Dale Hahs",
+        "Dale Masser",
+        "Daniel Lauk",
+        "Daniel Summers",
+        "Darlene M Hopkins",
+        "Darlene Silas",
+        "David Boerschlein",
+        "David F Withee",
+        "David Glover",
+        "David J Forbes",
+        "David Mullen",
+        "David N Hanley",
+        "David Sandlin",
+        "David Shortess",
+        "David Smith",
+        "David Whisler",
+        "Debbie Nispel",
+        "Debbie Piper",
+        "Deborah Bartow",
+        "Deborah Bush",
+        "Deborah Miniard",
+        "Dennis Jackson",
+        "Dianne Forrest",
+        "Donna Borkenhagen",
+        "Donna Mullis",
+        "Douglas Hayes",
+        "Drew Curley",
+        "Ed Davis",
+        "Edgar Navera",
+        "Edward Kosky",
+        "Edward Quigley",
+        "Elaine VanRegenmorter",
+        "Elizabeth Nataly Silvestre Herbas",
+        "Ellen Lee",
+        "Emeline Thermidor",
+        "Emily Lee",
+        "Esther Roman",
+        "Esther Trew",
+        "Esther Zirk",
+        "Ethel Lynn Baker",
+        "Evangeline Puen",
+        "Evelyn Wildgust",
+        "Fletcher Coleman",
+        "Freda Dibble",
+        "Gail Spell",
+        "Gary Greer",
+        "Gary Shogren",
+        "Gay Ellen Stulp",
+        "Gene Gossman",
+        "George Arlyn Briggs",
+        "Gerald L. Naughton",
+        "Glen Tallent",
+        "Grace Balwit",
+        "Grace Bird",
+        "Greg Stoffregen",
+        "Gretchen Stencil",
+        "Hallie Miller",
+        "Harry Harriss",
+        "Heather Hicks",
+        "Helen Morse",
+        "Hendrik deVries",
+        "Henry Bult",
+        "Henry Whitney",
+        "Hilary O'Sullivan",
+        "Ibrahim Audu",
+        "Ines Gipson",
+        "Irene J Dodson",
+        "Jackie Jones",
+        "Jacqueline Bartley",
+        "James Giddens",
+        "James Pedersen",
+        "James Pohlig",
+        "James Roe",
+        "Janet O'Herron",
+        "Janice Connor",
+        "Jaqueline Rotruck",
+        "Jeanette Friesen",
+        "Jeff Graf",
+        "Jeff Kennedy",
+        "Jeff Martin",
+        "Jennifer Cunneen",
+        "Jenny Thomas",
+        "Jerry Lund",
+        "Jessica Lauk",
+        "Jim Frederick",
+        "Jim Lee",
+        "Jimmy Warren",
+        "Jim Rotruck",
+        "Jim Swartzentruber",
+        "Jody Garcia",
+        "Joe Chater",
+        "Joel Bryan",
+        "Joey Howell",
+        "John Anderson",
+        "John Geddis",
+        "John D Rogers",
+        "John Hutchins",
+        "John Luton",
+        "John Pace",
+        "John P Tornifolio",
+        "Jolene Valeu",
+        "Jon Haahr",
+        "Joseph Fithian",
+        "Joseph Greene",
+        "Joseph Wharton",
+        "Joshua Berkowitz",
+        "Joshua Calhoun",
+        "Joshua Rister",
+        "Josh Wondra",
+        "Joy Anderson",
+        "Joyce Jacobs",
+        "Joyce Pedersen",
+        "JT Crowder",
+        "Judi Brodeen",
+        "Judith Cline",
+        "Judith C Yon",
+        "Julia N Bult",
+        "Patty Li",
+        "Julie Susanto",
+        "Kahar Barat",
+        "Kannahi Sellers",
+        "Kara Anderson",
+        "Karen Davie",
+        "Karen Dreesen",
+        "Karen Fabean",
+        "Karen Riecks",
+        "Karen Smith",
+        "Karen Turner",
+        "Kathleen Glover",
+        "Kathryn Hendrix",
+        "Kathy Mentink",
+        "Katrina Geurink",
+        "Kay Myers",
+        "Kelly Strong",
+        "Ken Haugh",
+        "Kim Puterbaugh",
+        "Kristin Butts Page",
+        "Kristin Rinne",
+        "Kwesi Opoku-debrah",
+        "Langston Spell",
+        "Larry Sallee",
+        "Lawrence Lipe",
+        "Lee Sipe",
+        "Leonard Smith",
+        "Lester Harper",
+        "Lia Hadley",
+        "Linda Buckman",
+        "Linda Dale Barton",
+        "Linda Havemeier",
+        "Linda Homer",
+        "Linda Lee Sebastien",
+        "Linn Peterson",
+        "Liz Dakota",
+        "Lloyd Box",
+        "Luis Keelin",
+        "Madeline Kilmore",
+        "Maggie D Paul",
+        "Marc Nelson",
+        "Mardi Welo",
+        "Margo Hoffman",
+        "Marilyn Cook",
+        "Marjean Swann",
+        "Marjorie Francis",
+        "Mark Albertini",
+        "Mark Chapman",
+        "Mark Thomas",
+        "Marselene Norton",
+        "Mary Jane Davis",
+        "Mary Jean Stout",
+        "Mary Landon",
+        "Mary Scarborough",
+        "Megan Kidwell",
+        "Melissa Roe",
+        "Merton Dibble",
+        "Meseret Abraham-Zemede",
+        "Michael Bush",
+        "Michael Connor",
+        "Michael Francis",
+        "Michael Geurink",
+        "Mike Tisdell",
+        "Mickey White",
+        "Miel Horrilleno",
+        "Monique Greer",
+        "Morgan Mellette",
+        "Morris Anderson",
+        "Nancy C. Naughton",
+        "Nancy Neu",
+        "Nancy VanCott",
+        "Neal Snook",
+        "Nicholas Scovil",
+        "Nick Dettman",
+        "Nils Friberg",
+        "Noah Crabtree",
+        "Pamela B Johnston",
+        "Pamela Nungesser",
+        "Pamela Roberts",
+        "Pam Gullifer",
+        "Pat Ankney",
+        "Pat Giddens",
+        "Patricia Brougher",
+        "Patricia Carson",
+        "Patricia Cleveland",
+        "Patricia Foster",
+        "Patricia Middlebrooks",
+        "Paul Mellema",
+        "Paula Carlson",
+        "Paula Oestreich",
+        "Paul Holloway",
+        "Paul Nungesser",
+        "Peggy Anderson",
+        "Peggyrose Swartzentruber",
+        "Peter Polloni",
+        "Phillip Harms",
+        "Phyllis Mortensen",
+        "Priscilla Enggren",
+        "Rachel Agheyisi",
+        "Rachel Ropp",
+        "Raif Turner",
+        "Ray Puen",
+        "Reina Y Mora",
+        "Rene Bahrenfuss",
+        "Renee Triplett",
+        "Rhonda Bartels",
+        "Richard Beatty",
+        "Richard Moreau",
+        "Richard Rutter",
+        "Richard Stevens",
+        "Rick Keaton",
+        "Robby Little",
+        "Robert W Johnson",
+        "Rochelle Hook",
+        "Rodney White",
+        "Rolaine Franz",
+        "Ronald D Hook",
+        "Rosario Baria",
+        "Roxann Carey",
+        "Roxanne Pittard",
+        "Ruben Michael Garay",
+        "Russell Isham",
+        "Russ Perry",
+        "Ruth Calo",
+        "Ruth E Withee",
+        "Ruth Montgomery",
+        "Ryan Blizek",
+        "Sam Todd",
+        "Samuel Njuguna",
+        "Sandy Anderson",
+        "Sandy Blanes",
+        "Sara Giesmann",
+        "Sara Van Cott (Barnes)",
+        "Sharon Johnson",
+        "Sharon Peterson",
+        "Sharon Shortess",
+        "Shelly Harms",
+        "Sherie Nelson",
+        "Sherman Sebastien",
+        "Sherry Mosher",
+        "Stacey Swanson",
+        "Steve Gibbs",
+        "Steve Mercier",
+        "Susan Langohr",
+        "Susan Quigley",
+        "Susan Snook",
+        "Suzanne Richards",
+        "Sylvia Thomas",
+        "Sze Suze Lau",
+        "Tabitha Price",
+        "Tammy L Enns",
+        "Tammy White",
+        "Teresa Everett-Leone",
+        "Teresa Linn",
+        "Terri Collins",
+        "Theresa Baker",
+        "Thomas Jopling",
+        "Thomas Nickell",
+        "Thomas Warren",
+        "Tim Coleman",
+        "Tim Ingram",
+        "Tim Linn",
+        "Tim Lovestrand",
+        "Tim Mentink",
+        "Tom Penry",
+        "Tom William Warren",
+        "Toni Shuma",
+        "Tracie Pogue",
+        "Tricia Coffman",
+        "Vicki Ivester",
+        "Victoria G DeKraker",
+        "Victor M Prieto",
+        "Vivian Kamph",
+        "Vivian Richardson",
+        "Ward Pyles",
+        "Warren Blaisdell",
+        "Wayne Homer",
+        "Wendy Coleman",
+        "Wendy Colon",
+        "Wilbur Zirk",
+        "Wil Gipson",
+        "William Carson",
+        "William Cline",
+        "William Dickerson",
+        "William Smitherman",
+        "William Wilder",
+        "Yvonne Tallent"
+      ],
+      "creator": "Door43 World Missions Community",
+      "description": "Open-licensed exegetical notes that provide historical, cultural, and linguistic information for translators. It provides translators and checkers with pertinent, just-in-time information to help them make the best possible translation decisions.",
+      "format": "text/tsv",
+      "identifier": "tn",
+      "issued": "2024-04-24",
+      "language": {
+        "direction": "ltr",
+        "identifier": "en",
+        "title": "English"
+      },
+      "modified": "2024-04-24",
+      "publisher": "unfoldingWord",
+      "relation": [
+        "en/ult",
+        "en/ust",
+        "en/ta",
+        "en/tq",
+        "en/tw",
+        "hbo/uhb?v=2.1.30",
+        "el-x-koine/ugnt?v=0.34"
+      ],
+      "rights": "CC BY-SA 4.0",
+      "source": [
+        {
+          "identifier": "tn",
+          "language": "en",
+          "version": "79"
+        }
+      ],
+      "subject": "TSV Translation Notes",
+      "title": "unfoldingWord® Translation Notes",
+      "type": "help",
+      "version": "80"
+    },
+    "checking": {
+      "checking_entity": [
+        "unfoldingWord"
+      ],
+      "checking_level": "3"
+    },
+    "projects": [
+      {
+        "title": "Genesis",
+        "versification": "ufw",
+        "identifier": "gen",
+        "sort": 1,
+        "path": "tn_GEN.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Exodus",
+        "versification": "ufw",
+        "identifier": "exo",
+        "sort": 2,
+        "path": "tn_EXO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Leviticus",
+        "versification": "ufw",
+        "identifier": "lev",
+        "sort": 3,
+        "path": "tn_LEV.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Numbers",
+        "versification": "ufw",
+        "identifier": "num",
+        "sort": 4,
+        "path": "tn_NUM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Deuteronomy",
+        "versification": "ufw",
+        "identifier": "deu",
+        "sort": 5,
+        "path": "tn_DEU.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Joshua",
+        "versification": "ufw",
+        "identifier": "jos",
+        "sort": 6,
+        "path": "tn_JOS.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Judges",
+        "versification": "ufw",
+        "identifier": "jdg",
+        "sort": 7,
+        "path": "tn_JDG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ruth",
+        "versification": "ufw",
+        "identifier": "rut",
+        "sort": 8,
+        "path": "tn_RUT.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Samuel",
+        "versification": "ufw",
+        "identifier": "1sa",
+        "sort": 9,
+        "path": "tn_1SA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Samuel",
+        "versification": "ufw",
+        "identifier": "2sa",
+        "sort": 10,
+        "path": "tn_2SA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Kings",
+        "versification": "ufw",
+        "identifier": "1ki",
+        "sort": 11,
+        "path": "tn_1KI.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Kings",
+        "versification": "ufw",
+        "identifier": "2ki",
+        "sort": 12,
+        "path": "tn_2KI.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Chronicles",
+        "versification": "ufw",
+        "identifier": "1ch",
+        "sort": 13,
+        "path": "tn_1CH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Chronicles",
+        "versification": "ufw",
+        "identifier": "2ch",
+        "sort": 14,
+        "path": "tn_2CH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ezra",
+        "versification": "ufw",
+        "identifier": "ezr",
+        "sort": 15,
+        "path": "tn_EZR.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Nehemiah",
+        "versification": "ufw",
+        "identifier": "neh",
+        "sort": 16,
+        "path": "tn_NEH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Esther",
+        "versification": "ufw",
+        "identifier": "est",
+        "sort": 17,
+        "path": "tn_EST.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Job",
+        "versification": "ufw",
+        "identifier": "job",
+        "sort": 18,
+        "path": "tn_JOB.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Psalms",
+        "versification": "ufw",
+        "identifier": "psa",
+        "sort": 19,
+        "path": "tn_PSA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Proverbs",
+        "versification": "ufw",
+        "identifier": "pro",
+        "sort": 20,
+        "path": "tn_PRO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ecclesiastes",
+        "versification": "ufw",
+        "identifier": "ecc",
+        "sort": 21,
+        "path": "tn_ECC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Song of Solomon",
+        "versification": "ufw",
+        "identifier": "sng",
+        "sort": 22,
+        "path": "tn_SNG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Isaiah",
+        "versification": "ufw",
+        "identifier": "isa",
+        "sort": 23,
+        "path": "tn_ISA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Jeremiah",
+        "versification": "ufw",
+        "identifier": "jer",
+        "sort": 24,
+        "path": "tn_JER.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Lamentations",
+        "versification": "ufw",
+        "identifier": "lam",
+        "sort": 25,
+        "path": "tn_LAM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ezekiel",
+        "versification": "ufw",
+        "identifier": "ezk",
+        "sort": 26,
+        "path": "tn_EZK.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Daniel",
+        "versification": "ufw",
+        "identifier": "dan",
+        "sort": 27,
+        "path": "tn_DAN.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Hosea",
+        "versification": "ufw",
+        "identifier": "hos",
+        "sort": 28,
+        "path": "tn_HOS.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Joel",
+        "versification": "ufw",
+        "identifier": "jol",
+        "sort": 29,
+        "path": "tn_JOL.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Amos",
+        "versification": "ufw",
+        "identifier": "amo",
+        "sort": 30,
+        "path": "tn_AMO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Obadiah",
+        "versification": "ufw",
+        "identifier": "oba",
+        "sort": 31,
+        "path": "tn_OBA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Jonah",
+        "versification": "ufw",
+        "identifier": "jon",
+        "sort": 32,
+        "path": "tn_JON.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Micah",
+        "versification": "ufw",
+        "identifier": "mic",
+        "sort": 33,
+        "path": "tn_MIC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Nahum",
+        "versification": "ufw",
+        "identifier": "nam",
+        "sort": 34,
+        "path": "tn_NAM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Habakkuk",
+        "versification": "ufw",
+        "identifier": "hab",
+        "sort": 35,
+        "path": "tn_HAB.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Zephaniah",
+        "versification": "ufw",
+        "identifier": "zep",
+        "sort": 36,
+        "path": "tn_ZEP.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Haggai",
+        "versification": "ufw",
+        "identifier": "hag",
+        "sort": 37,
+        "path": "tn_HAG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Zechariah",
+        "versification": "ufw",
+        "identifier": "zec",
+        "sort": 38,
+        "path": "tn_ZEC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Malachi",
+        "versification": "ufw",
+        "identifier": "mal",
+        "sort": 39,
+        "path": "tn_MAL.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Matthew",
+        "versification": "ufw",
+        "identifier": "mat",
+        "sort": 40,
+        "path": "tn_MAT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Mark",
+        "versification": "ufw",
+        "identifier": "mrk",
+        "sort": 41,
+        "path": "tn_MRK.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Luke",
+        "versification": "ufw",
+        "identifier": "luk",
+        "sort": 42,
+        "path": "tn_LUK.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "John",
+        "versification": "ufw",
+        "identifier": "jhn",
+        "sort": 43,
+        "path": "tn_JHN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Acts",
+        "versification": "ufw",
+        "identifier": "act",
+        "sort": 44,
+        "path": "tn_ACT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Romans",
+        "versification": "ufw",
+        "identifier": "rom",
+        "sort": 45,
+        "path": "tn_ROM.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Corinthians",
+        "versification": "ufw",
+        "identifier": "1co",
+        "sort": 46,
+        "path": "tn_1CO.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Corinthians",
+        "versification": "ufw",
+        "identifier": "2co",
+        "sort": 47,
+        "path": "tn_2CO.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Galatians",
+        "versification": "ufw",
+        "identifier": "gal",
+        "sort": 48,
+        "path": "tn_GAL.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Ephesians",
+        "versification": "ufw",
+        "identifier": "eph",
+        "sort": 49,
+        "path": "tn_EPH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Philippians",
+        "versification": "ufw",
+        "identifier": "php",
+        "sort": 50,
+        "path": "tn_PHP.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Colossians",
+        "versification": "ufw",
+        "identifier": "col",
+        "sort": 51,
+        "path": "tn_COL.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Thessalonians",
+        "versification": "ufw",
+        "identifier": "1th",
+        "sort": 52,
+        "path": "tn_1TH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Thessalonians",
+        "versification": "ufw",
+        "identifier": "2th",
+        "sort": 53,
+        "path": "tn_2TH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Timothy",
+        "versification": "ufw",
+        "identifier": "1ti",
+        "sort": 54,
+        "path": "tn_1TI.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Timothy",
+        "versification": "ufw",
+        "identifier": "2ti",
+        "sort": 55,
+        "path": "tn_2TI.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Titus",
+        "versification": "ufw",
+        "identifier": "tit",
+        "sort": 56,
+        "path": "tn_TIT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Philemon",
+        "versification": "ufw",
+        "identifier": "phm",
+        "sort": 57,
+        "path": "tn_PHM.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Hebrews",
+        "versification": "ufw",
+        "identifier": "heb",
+        "sort": 58,
+        "path": "tn_HEB.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "James",
+        "versification": "ufw",
+        "identifier": "jas",
+        "sort": 59,
+        "path": "tn_JAS.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Peter",
+        "versification": "ufw",
+        "identifier": "1pe",
+        "sort": 60,
+        "path": "tn_1PE.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Peter",
+        "versification": "ufw",
+        "identifier": "2pe",
+        "sort": 61,
+        "path": "tn_2PE.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 John",
+        "versification": "ufw",
+        "identifier": "1jn",
+        "sort": 62,
+        "path": "tn_1JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 John",
+        "versification": "ufw",
+        "identifier": "2jn",
+        "sort": 63,
+        "path": "tn_2JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "3 John",
+        "versification": "ufw",
+        "identifier": "3jn",
+        "sort": 64,
+        "path": "tn_3JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Jude",
+        "versification": "ufw",
+        "identifier": "jud",
+        "sort": 65,
+        "path": "tn_JUD.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Revelation",
+        "versification": "ufw",
+        "identifier": "rev",
+        "sort": 66,
+        "path": "tn_REV.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      }
+    ],
+    "version": "80",
+    "catalog_modified_time": "2024-04-24T05:55:45Z",
+    "modifiedTime": "2024-04-24T05:55:45Z"
+  },
+  "numbers": {
+    "groups": {},
+    "index": [
+      {
+        "id": "translate-numbers",
+        "name": "Numbers"
+      },
+      {
+        "id": "translate-ordinal",
+        "name": "Ordinal Numbers"
+      },
+      {
+        "id": "translate-fraction",
+        "name": "Fractions"
+      }
+    ]
+  },
+  "other": {
+    "groups": {
+      "figs-infostructure": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "x3ae",
+            "occurrenceNote": "These two phrases mean the same thing, one stated positively (**going beyond**) and the other stated negatively (**not remaining**). If it is more natural in your language, you can reverse the order of these, as in the UST.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-infostructure",
+            "quote": [
+              {
+                "word": "πᾶς",
+                "occurrence": 1
+              },
+              {
+                "word": "ὁ",
+                "occurrence": 1
+              },
+              {
+                "word": "προάγων",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "μὴ",
+                "occurrence": 1
+              },
+              {
+                "word": "μένων",
+                "occurrence": 1
+              },
+              {
+                "word": "ἐν",
+                "occurrence": 1
+              },
+              {
+                "word": "τῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "διδαχῇ",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Χριστοῦ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "πᾶς ὁ προάγων καὶ μὴ μένων ἐν τῇ διδαχῇ τοῦ Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "grammar-connect-words-phrases": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "r4hx",
+            "occurrenceNote": "The words **and now** signal that what follows is the main point of the letter, or at least the first main point. Use a natural way for introducing the main point in your language.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationNotes",
+            "groupId": "grammar-connect-words-phrases",
+            "quote": [
+              {
+                "word": "καὶ",
+                "occurrence": 1
+              },
+              {
+                "word": "νῦν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "καὶ νῦν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "guidelines-sonofgodprinciples": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vpl9",
+            "occurrenceNote": "**Father** and **Son** are important titles that describe the relationship between God and Jesus Christ. Be sure to translate them accurately and consistently.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "guidelines-sonofgodprinciples",
+            "quote": [
+              {
+                "word": "Πατρός",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "Υἱοῦ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "Πατρός & Υἱοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w7f1",
+            "occurrenceNote": "**Father** is an important title for God. Be careful to translate it accurately and consistently.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "guidelines-sonofgodprinciples",
+            "quote": [
+              {
+                "word": "τοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Πατρός",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "τοῦ Πατρός",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "k8cv",
+            "occurrenceNote": "**Father** and **Son** are important titles that describe the relationship between God and Jesus Christ. Be sure to express these titles consistently and accurately.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationNotes",
+            "groupId": "guidelines-sonofgodprinciples",
+            "quote": [
+              {
+                "word": "τὸν",
+                "occurrence": 1
+              },
+              {
+                "word": "Πατέρα",
+                "occurrence": 1
+              },
+              {
+                "word": "καὶ",
+                "occurrence": 3
+              },
+              {
+                "word": "τὸν",
+                "occurrence": 2
+              },
+              {
+                "word": "Υἱὸν",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "τὸν Πατέρα καὶ τὸν Υἱὸν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "translate-textvariants": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "r9ky",
+            "occurrenceNote": "Some manuscripts have “you” here instead of **we**. Most scholars, however, consider the reading with **we** to be the correct one. See the discussion in Part 3 of the Introduction.",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-textvariants",
+            "quote": "εἰργασάμεθα",
+            "quoteString": "εἰργασάμεθα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "lt77",
+            "occurrenceNote": "See the note in Part 3 of the General Introduction to 2 John about the textual issue here. Alternate translation: “our joy might be made complete”",
+            "reference": {
+              "bookId": "2jn",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-textvariants",
+            "quote": [
+              {
+                "word": "ἡ",
+                "occurrence": 1
+              },
+              {
+                "word": "χαρὰ",
+                "occurrence": 1
+              },
+              {
+                "word": "ὑμῶν",
+                "occurrence": 1
+              },
+              {
+                "word": "πεπληρωμένη",
+                "occurrence": 1
+              },
+              {
+                "word": "ᾖ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "ἡ χαρὰ ὑμῶν πεπληρωμένη ᾖ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "translate-textvariants",
+        "name": "Textual Variants"
+      },
+      {
+        "id": "figs-explicitinfo",
+        "name": "Making Assumed Knowledge and Implicit Information Explicit"
+      },
+      {
+        "id": "figs-extrainfo",
+        "name": "When to Keep Information Implicit"
+      },
+      {
+        "id": "figs-infostructure",
+        "name": "Information Structure"
+      },
+      {
+        "id": "figs-yousingular",
+        "name": "Forms of ‘You’ — Singular"
+      },
+      {
+        "id": "grammar-collectivenouns",
+        "name": "Collective Nouns"
+      },
+      {
+        "id": "grammar-connect-condition-contrary",
+        "name": "Connect — Contrary to Fact Conditions"
+      },
+      {
+        "id": "grammar-connect-condition-fact",
+        "name": "Connect — Factual Conditions"
+      },
+      {
+        "id": "grammar-connect-condition-hypothetical",
+        "name": "Connect — Hypothetical Conditions"
+      },
+      {
+        "id": "grammar-connect-time-background",
+        "name": "Connect — Background Information"
+      },
+      {
+        "id": "grammar-connect-time-sequential",
+        "name": "Connect — Sequential Time Relationship"
+      },
+      {
+        "id": "grammar-connect-time-simultaneous",
+        "name": "Connect — Simultaneous Time Relationship"
+      },
+      {
+        "id": "grammar-connect-words-phrases",
+        "name": "Connecting Words and Phrases"
+      },
+      {
+        "id": "guidelines-sonofgodprinciples",
+        "name": "Translating Son and Father"
+      },
+      {
+        "id": "translate-blessing",
+        "name": "Blessings"
+      },
+      {
+        "id": "translate-kinship",
+        "name": "Kinship"
+      },
+      {
+        "id": "translate-transliterate",
+        "name": "Copy or Borrow Words"
+      },
+      {
+        "id": "writing-pronouns",
+        "name": "Pronouns — When to Use Them"
+      },
+      {
+        "id": "translate-manuscripts",
+        "name": "Original Manuscripts"
+      },
+      {
+        "id": "writing-oathformula",
+        "name": "Oath Formulas"
+      },
+      {
+        "id": "writing-politeness",
+        "name": "Politeness"
+      },
+      {
+        "id": "figs-imperative3p",
+        "name": "Third-Person Imperatives"
+      },
+      {
+        "id": "translate-tense",
+        "name": "Irregular Use of Tenses"
+      },
+      {
+        "id": "headings",
+        "name": "Section Headings"
+      },
+      {
+        "id": "figs-litany",
+        "name": "Litany"
+      },
+      {
+        "id": "figs-verbs",
+        "name": "Verbs"
+      },
+      {
+        "id": "figs-youdual",
+        "name": "Forms of ‘You’ — Dual/Plural"
+      },
+      {
+        "id": "figs-youformal",
+        "name": "Forms of ‘You’ — Formal or Informal"
+      },
+      {
+        "id": "grammar-honorifics",
+        "name": "Honorifics"
+      },
+      {
+        "id": "figs-aside",
+        "name": "Aside"
+      },
+      {
+        "id": "figs-youcrowd",
+        "name": "Singular Pronouns that refer to Groups"
+      },
+      {
+        "id": "figs-Idiom",
+        "name": "Idiom"
+      },
+      {
+        "id": "figs-abstractnoun",
+        "name": "figs-abstractnoun"
+      },
+      {
+        "id": "figs-chiasm",
+        "name": "figs-chiasm"
+      },
+      {
+        "id": "figs-dual",
+        "name": "figs-dual"
+      },
+      {
+        "id": "figs-dualpronoun",
+        "name": "figs-dualpronoun"
+      },
+      {
+        "id": "figs-honorifics",
+        "name": "figs-honorifics"
+      },
+      {
+        "id": "figs-idioms",
+        "name": "figs-idioms"
+      },
+      {
+        "id": "figs-order",
+        "name": "Word Order"
+      },
+      {
+        "id": "figs-passives",
+        "name": "figs-passives"
+      },
+      {
+        "id": "figs-politeness",
+        "name": "figs-politeness"
+      },
+      {
+        "id": "figs-theydual",
+        "name": "figs-theydual"
+      },
+      {
+        "id": "grammar-connect-logic-purpose",
+        "name": "grammar-connect-logic-purpose"
+      },
+      {
+        "id": "grammar-connect-logic-sequential",
+        "name": "grammar-connect-logic-sequential"
+      },
+      {
+        "id": "translate-honorifics",
+        "name": "translate-honorifics"
+      },
+      {
+        "id": "translate-key-term",
+        "name": "translate-key-term"
+      },
+      {
+        "id": "translate-key-terms",
+        "name": "Making a Key Terms Spreadsheet"
+      },
+      {
+        "id": "translate-keyterms",
+        "name": "translate-keyterms"
+      },
+      {
+        "id": "translate-unknowns",
+        "name": "translate-unknowns"
+      },
+      {
+        "id": "figs-sentencetypes",
+        "name": "Sentence Types"
+      },
+      {
+        "id": "figs-reduplication",
+        "name": "Reduplication"
+      },
+      {
+        "id": "translate-plural",
+        "name": "Unusual Uses of the Plural"
+      },
+      {
+        "id": "figs-exclamation",
+        "name": "figs-exclamation"
+      }
+    ]
+  }
+}

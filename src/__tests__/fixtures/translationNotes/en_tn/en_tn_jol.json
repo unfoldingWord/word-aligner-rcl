@@ -1,0 +1,4768 @@
+{
+  "culture": {
+    "groups": {
+      "figs-explicit": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "z4y6",
+            "occurrenceNote": "These are examples of the kinds of things they did and do not indicate what they did to two particular children. Alternate translation: “and did things like trading a boy for a prostitute and selling a girl for wine, so they could drink” (See: [[rc://*/ta/man/translate/figs-explicit]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "וַ⁠יִּתְּנ֤וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "הַ⁠יֶּ֨לֶד֙",
+                "occurrence": 1
+              },
+              {
+                "word": "בַּ⁠זּוֹנָ֔ה",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠הַ⁠יַּלְדָּ֛ה",
+                "occurrence": 1
+              },
+              {
+                "word": "מָכְר֥וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "בַ⁠יַּ֖יִן",
+                "occurrence": 1
+              },
+              {
+                "word": "וַ⁠יִּשְׁתּֽוּ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וַ⁠יִּתְּנ֤וּ הַ⁠יֶּ֨לֶד֙ בַּ⁠זּוֹנָ֔ה וְ⁠הַ⁠יַּלְדָּ֛ה מָכְר֥וּ בַ⁠יַּ֖יִן וַ⁠יִּשְׁתּֽוּ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dc6d",
+            "occurrenceNote": "The people of Israel will leave the places where they were slaves and come back to the land of Israel. (See: [[rc://*/ta/man/translate/figs-explicit]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 7
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": [
+              {
+                "word": "מִן",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "הַ֨⁠מָּק֔וֹם",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲשֶׁר",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "מְכַרְתֶּ֥ם",
+                "occurrence": 1
+              },
+              {
+                "word": "אֹתָ֖⁠ם",
+                "occurrence": 1
+              },
+              {
+                "word": "שָׁ֑מָּ⁠ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "מִן־הַ֨⁠מָּק֔וֹם אֲשֶׁר־מְכַרְתֶּ֥ם אֹתָ֖⁠ם שָׁ֑מָּ⁠ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "p5mc",
+            "occurrenceNote": "The purpose of the gathering is for battle. This can be stated explicitly. Alternate translation: “gather yourselves together for battle” (See: [[rc://*/ta/man/translate/figs-explicit]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 11
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-explicit",
+            "quote": "וְ⁠נִקְבָּ֑צוּ",
+            "quoteString": "וְ⁠נִקְבָּ֑צוּ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "translate-names": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "m5wr",
+            "occurrenceNote": "Joel’s father (See: [[rc://*/ta/man/translate/translate-names]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-names",
+            "quote": "פְּתוּאֵֽל",
+            "quoteString": "פְּתוּאֵֽל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "t9jc",
+            "occurrenceNote": "the people of the land of Sabea (See: [[rc://*/ta/man/translate/translate-names]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-names",
+            "quote": "לִ⁠שְׁבָאיִ֖ם",
+            "quoteString": "לִ⁠שְׁבָאיִ֖ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f69l",
+            "occurrenceNote": "This is the name of a place on the east side of the Jordan River. It means “Acacia Trees.” (See: [[rc://*/ta/man/translate/translate-names]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 18
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-names",
+            "quote": "הַ⁠שִּׁטִּֽים",
+            "quoteString": "הַ⁠שִּׁטִּֽים",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "translate-unknown": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "m68u",
+            "occurrenceNote": "large groups of insects like grasshoppers that fly together and eat large areas of food crops (See: [[rc://*/ta/man/translate/translate-unknown]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-unknown",
+            "quote": "הָֽ⁠אַרְבֶּ֔ה",
+            "quoteString": "הָֽ⁠אַרְבֶּ֔ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "eeq1",
+            "occurrenceNote": "a type of grass, like wheat, whose seeds can be used to make bread (See: [[rc://*/ta/man/translate/translate-unknown]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 11
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-unknown",
+            "quote": "שְׂעֹרָ֑ה",
+            "quoteString": "שְׂעֹרָ֑ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "r11a",
+            "occurrenceNote": "different types of fruit (See: [[rc://*/ta/man/translate/translate-unknown]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-unknown",
+            "quote": [
+              {
+                "word": "וְ⁠הַ⁠תְּאֵנָ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "מּ֞וֹן",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "וְ⁠תַפּ֗וּחַ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠הַ⁠תְּאֵנָ֖ה & מּ֞וֹן & וְ⁠תַפּ֗וּחַ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "fdt4",
+            "occurrenceNote": "A large, strong, fast animal with four legs. (See: [[rc://*/ta/man/translate/translate-unknown]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "translate-unknown",
+            "quote": "סוּסִ֖ים",
+            "quoteString": "סוּסִ֖ים",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "figs-explicit",
+        "name": "Assumed Knowledge and Implicit Information"
+      },
+      {
+        "id": "translate-bdistance",
+        "name": "Biblical Distance"
+      },
+      {
+        "id": "translate-bmoney",
+        "name": "Biblical Money"
+      },
+      {
+        "id": "translate-hebrewmonths",
+        "name": "Hebrew Months"
+      },
+      {
+        "id": "translate-names",
+        "name": "How to Translate Names"
+      },
+      {
+        "id": "translate-symaction",
+        "name": "Symbolic Action"
+      },
+      {
+        "id": "translate-unknown",
+        "name": "Translate Unknowns"
+      },
+      {
+        "id": "writing-symlanguage",
+        "name": "Symbolic Language"
+      },
+      {
+        "id": "figs-go",
+        "name": "Go and Come"
+      },
+      {
+        "id": "translate-bvolume",
+        "name": "Biblical Volume"
+      },
+      {
+        "id": "translate-bweight",
+        "name": "Biblical Weight"
+      }
+    ]
+  },
+  "discourse": {
+    "groups": {},
+    "index": [
+      {
+        "id": "figs-exclamations",
+        "name": "Exclamations"
+      },
+      {
+        "id": "figs-quotesinquotes",
+        "name": "Quotes within Quotes"
+      },
+      {
+        "id": "translate-versebridge",
+        "name": "Verse Bridges"
+      },
+      {
+        "id": "writing-background",
+        "name": "Background Information"
+      },
+      {
+        "id": "writing-newevent",
+        "name": "Introduction of a New Event"
+      },
+      {
+        "id": "writing-poetry",
+        "name": "Poetry"
+      },
+      {
+        "id": "figs-exmetaphor",
+        "name": "Biblical Imagery — Extended Metaphors"
+      },
+      {
+        "id": "figs-imperative",
+        "name": "Imperatives — Other Uses"
+      },
+      {
+        "id": "figs-pastforfuture",
+        "name": "Predictive Past"
+      },
+      {
+        "id": "figs-quotations",
+        "name": "Direct and Indirect Quotations"
+      },
+      {
+        "id": "writing-proverbs",
+        "name": "Proverbs"
+      },
+      {
+        "id": "writing-quotations",
+        "name": "Quotations and Quote Margins"
+      },
+      {
+        "id": "figs-declarative",
+        "name": "Statements — Other Uses"
+      },
+      {
+        "id": "figs-events",
+        "name": "Order of Events"
+      },
+      {
+        "id": "writing-endofstory",
+        "name": "End of Story"
+      },
+      {
+        "id": "writing-participants",
+        "name": "Introduction of New and Old Participants"
+      },
+      {
+        "id": "figs-parables",
+        "name": "Parables"
+      },
+      {
+        "id": "figs-sentences",
+        "name": "Sentence Structure"
+      }
+    ]
+  },
+  "figures": {
+    "groups": {
+      "figs-apostrophe": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "g3z3",
+            "occurrenceNote": "Joel speaks to the people of the land as if he were speaking to the land itself. Alternate translation: “Do not be afraid, you people of the land” (See: [[rc://*/ta/man/translate/figs-apostrophe]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 21
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-apostrophe",
+            "quote": [
+              {
+                "word": "אַל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "תִּֽירְאִ֖י",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲדָמָ֑ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "אַל־תִּֽירְאִ֖י אֲדָמָ֑ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "n9lm",
+            "occurrenceNote": "Joel speaks to people who own livestock as if he were speaking to the animals themselves. Alternate translation: “Do not be afraid, you people who own livestock” (See: [[rc://*/ta/man/translate/figs-apostrophe]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 22
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-apostrophe",
+            "quote": [
+              {
+                "word": "אַל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "תִּֽירְאוּ֙",
+                "occurrence": 1
+              },
+              {
+                "word": "בַּהֲמ֣וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "שָׂדַ֔י",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "אַל־תִּֽירְאוּ֙ בַּהֲמ֣וֹת שָׂדַ֔י",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-doublet": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ppt5",
+            "occurrenceNote": "These two words mean basically the same thing. Together they emphasize that there is no kind of joyful activity happening at the temple. (See: [[rc://*/ta/man/translate/figs-doublet]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "שִׂמְחָ֥ה",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠גִֽיל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שִׂמְחָ֥ה וָ⁠גִֽיל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qmb9",
+            "occurrenceNote": "The words “darkness” and “gloom” share similar meanings and emphasize that the darkness will be very dark. Both words refer to a time of disaster or divine judgment. Alternate translation: “day that is full of darkness” or “day of terrible judgment” (See: [[rc://*/ta/man/translate/figs-doublet]] and [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "י֧וֹם",
+                "occurrence": 1
+              },
+              {
+                "word": "חֹ֣שֶׁךְ",
+                "occurrence": 1
+              },
+              {
+                "word": "וַ⁠אֲפֵלָ֗ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "י֧וֹם חֹ֣שֶׁךְ וַ⁠אֲפֵלָ֗ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pcr6",
+            "occurrenceNote": "This phrase means the same thing as, and intensifies the idea of the previous phrase. Like that phrase, both “clouds” and “thick darkness” refer to divine judgment. Alternate translation: “day full of dark storm clouds” (See: [[rc://*/ta/man/translate/figs-doublet]] and [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "י֤וֹם",
+                "occurrence": 1
+              },
+              {
+                "word": "עָנָן֙",
+                "occurrence": 1
+              },
+              {
+                "word": "וַ⁠עֲרָפֶ֔ל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "י֤וֹם עָנָן֙ וַ⁠עֲרָפֶ֔ל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "k5zj",
+            "occurrenceNote": "These refer to the same place. Alternate translation: “on Mount Zion in Jerusalem” (See: [[rc://*/ta/man/translate/figs-doublet]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 32
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "בְּ⁠הַר",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "צִיּ֨וֹן",
+                "occurrence": 1
+              },
+              {
+                "word": "וּ⁠בִ⁠ירוּשָׁלִַ֜ם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "בְּ⁠הַר־צִיּ֨וֹן וּ⁠בִ⁠ירוּשָׁלִַ֜ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zy3s",
+            "occurrenceNote": "The phrase “at that time” means the same thing as and intensifies the phrase “in those days.” Alternate translation: “in those very days” or “at that very time” (See: [[rc://*/ta/man/translate/figs-doublet]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "בַּ⁠יָּמִ֥ים",
+                "occurrence": 1
+              },
+              {
+                "word": "הָ⁠הֵ֖מָּה",
+                "occurrence": 1
+              },
+              {
+                "word": "וּ⁠בָ⁠עֵ֣ת",
+                "occurrence": 1
+              },
+              {
+                "word": "הַ⁠הִ֑יא",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "בַּ⁠יָּמִ֥ים הָ⁠הֵ֖מָּה וּ⁠בָ⁠עֵ֣ת הַ⁠הִ֑יא",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "idt3",
+            "occurrenceNote": "These two phrases emphasize how Yahweh views Israel as his own precious people. Alternate translation: “the people of Israel, who are my inheritance” (See: [[rc://*/ta/man/translate/figs-doublet]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-doublet",
+            "quote": [
+              {
+                "word": "עַמִּ֨⁠י",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠נַחֲלָתִ֤⁠י",
+                "occurrence": 1
+              },
+              {
+                "word": "יִשְׂרָאֵל֙",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "עַמִּ֨⁠י וְ⁠נַחֲלָתִ֤⁠י יִשְׂרָאֵל֙",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-ellipsis": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vge5",
+            "occurrenceNote": "You may need to fill in the words that have been left out. Alternate translation: “let their children tell the generation after them” (See: [[rc://*/ta/man/translate/figs-ellipsis]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-ellipsis",
+            "quote": [
+              {
+                "word": "וּ⁠בְנֵי⁠הֶ֖ם",
+                "occurrence": 1
+              },
+              {
+                "word": "לְ⁠ד֥וֹר",
+                "occurrence": 1
+              },
+              {
+                "word": "אַחֵֽר",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וּ⁠בְנֵי⁠הֶ֖ם לְ⁠ד֥וֹר אַחֵֽר",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yv6d",
+            "occurrenceNote": "It is certain that destruction will come from the Almighty because these things have already happened. This can be translated in active form. Alternate translation: “We know this is true because we have already seen the Almighty cut off our supply of food, and he has cut off joy and gladness from the house of our God.” (See: [[rc://*/ta/man/translate/figs-ellipsis]] and [[rc://*/ta/man/translate/figs-activepassive]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-ellipsis",
+            "quote": [
+              {
+                "word": "הֲ⁠ל֛וֹא",
+                "occurrence": 1
+              },
+              {
+                "word": "נֶ֥גֶד",
+                "occurrence": 1
+              },
+              {
+                "word": "עֵינֵ֖י⁠נוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "אֹ֣כֶל",
+                "occurrence": 1
+              },
+              {
+                "word": "נִכְרָ֑ת",
+                "occurrence": 1
+              },
+              {
+                "word": "מִ⁠בֵּ֥ית",
+                "occurrence": 1
+              },
+              {
+                "word": "אֱלֹהֵ֖י⁠נוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "שִׂמְחָ֥ה",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠גִֽיל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "הֲ⁠ל֛וֹא נֶ֥גֶד עֵינֵ֖י⁠נוּ אֹ֣כֶל נִכְרָ֑ת מִ⁠בֵּ֥ית אֱלֹהֵ֖י⁠נוּ שִׂמְחָ֥ה וָ⁠גִֽיל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f1eb",
+            "occurrenceNote": "You may need to fill in the ellipsis. Alternate translation: “joy and gladness have been cut off from the house of our God” (See: [[rc://*/ta/man/translate/figs-ellipsis]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-ellipsis",
+            "quote": [
+              {
+                "word": "מִ⁠בֵּ֥ית",
+                "occurrence": 1
+              },
+              {
+                "word": "אֱלֹהֵ֖י⁠נוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "שִׂמְחָ֥ה",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠גִֽיל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "מִ⁠בֵּ֥ית אֱלֹהֵ֖י⁠נוּ שִׂמְחָ֥ה וָ⁠גִֽיל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "j194",
+            "occurrenceNote": "The phrase “there will be” is understood from earlier in the sentence. It can be repeated here. Alternate translation: “among the survivors there will be those whom Yahweh calls” (See: [[rc://*/ta/man/translate/figs-ellipsis]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 32
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-ellipsis",
+            "quote": [
+              {
+                "word": "וּ⁠בַ֨⁠שְּׂרִידִ֔ים",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲשֶׁ֥ר",
+                "occurrence": 1
+              },
+              {
+                "word": "יְהוָ֖ה",
+                "occurrence": 2
+              },
+              {
+                "word": "קֹרֵֽא",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וּ⁠בַ֨⁠שְּׂרִידִ֔ים אֲשֶׁ֥ר יְהוָ֖ה קֹרֵֽא",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-hendiadys": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "tzv4",
+            "occurrenceNote": "In this phrase both descriptions mean basically the same thing. Alternate translation: “greatly terrible” (See: [[rc://*/ta/man/translate/figs-hendiadys]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 11
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-hendiadys",
+            "quote": [
+              {
+                "word": "גָד֧וֹל",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "וְ⁠נוֹרָ֥א",
+                "occurrence": 1
+              },
+              {
+                "word": "מְאֹ֖ד",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "גָד֧וֹל & וְ⁠נוֹרָ֥א מְאֹ֖ד",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-hyperbole": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "lm84",
+            "occurrenceNote": "This exaggeration claims that there are so many locusts that people cannot see the sun, moon, or stars. (See: [[rc://*/ta/man/translate/figs-hyperbole]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-hyperbole",
+            "quote": [
+              {
+                "word": "שֶׁ֤מֶשׁ",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠יָרֵ֨חַ֙",
+                "occurrence": 1
+              },
+              {
+                "word": "קָדָ֔רוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠כוֹכָבִ֖ים",
+                "occurrence": 1
+              },
+              {
+                "word": "אָסְפ֥וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "נָגְהָֽ⁠",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שֶׁ֤מֶשׁ וְ⁠יָרֵ֨חַ֙ קָדָ֔רוּ וְ⁠כוֹכָבִ֖ים אָסְפ֥וּ נָגְהָֽ⁠",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "lf34",
+            "occurrenceNote": "Joel speaks of the heavens and earth as if they were people who are shaking with fear. This can be translated as either a hyperbole, that Yahweh’s roar is so frightening that even things that are not alive are afraid, or as metonymy, that the heavens and earth are metonyms for the beings who live there. Alternate translation: “Everyone in the heavens and on the earth is very afraid” (See: [[rc://*/ta/man/translate/figs-hyperbole]] and [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-hyperbole",
+            "quote": [
+              {
+                "word": "וְ⁠רָעֲשׁ֖וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "שָׁמַ֣יִם",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠אָ֑רֶץ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠רָעֲשׁ֖וּ שָׁמַ֣יִם וָ⁠אָ֑רֶץ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "m6v9",
+            "occurrenceNote": "“sweet wine will drip from the mountains.” This is an exaggeration to show that the land is very fertile. Alternate translation: “On the mountains there will be vineyards that produce plenty of sweet wine” (See: [[rc://*/ta/man/translate/figs-hyperbole]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 18
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-hyperbole",
+            "quote": [
+              {
+                "word": "יִטְּפ֧וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "הֶ⁠הָרִ֣ים",
+                "occurrence": 1
+              },
+              {
+                "word": "עָסִ֗יס",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "יִטְּפ֧וּ הֶ⁠הָרִ֣ים עָסִ֗יס",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-idiom": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "er8g",
+            "occurrenceNote": "This idiom is used to announce that God gave messages to Joel. Alternate translation: “the message Yahweh gave to Joel” or “the message Yahweh spoke to Joel” (See: [[rc://*/ta/man/translate/figs-idiom]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-idiom",
+            "quote": [
+              {
+                "word": "דְּבַר",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "יְהוָה֙",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲשֶׁ֣ר",
+                "occurrence": 1
+              },
+              {
+                "word": "הָיָ֔ה",
+                "occurrence": 1
+              },
+              {
+                "word": "אֶל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "יוֹאֵ֖ל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "דְּבַר־יְהוָה֙ אֲשֶׁ֣ר הָיָ֔ה אֶל־יוֹאֵ֖ל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-metaphor": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qm8j",
+            "occurrenceNote": "The locust swarm is like an invading army. (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 6
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": "גוֹי֙",
+            "quoteString": "גוֹי֙",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zn6h",
+            "occurrenceNote": "Here the land is spoken of as if it were a person. These words could also be seen as a metonym for the people who are mourning or even as hyperbole, that the famine is so bad that even things that are not alive are mourning. Alternate translation: “the farmers are mourning” (See: [[rc://*/ta/man/translate/figs-metaphor]] and [[rc://*/ta/man/translate/figs-metonymy]] and [[rc://*/ta/man/translate/figs-hyperbole]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "אָבְלָ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲדָמָ֑ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "אָבְלָ֖ה אֲדָמָ֑ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ekb8",
+            "occurrenceNote": "The words “large” and “mighty” share similar meanings here and emphasize that the army will be very strong. The word **army** could possibly be: (1) a metaphor for a swarm of locusts or (2) referring to a human army. (See: [[rc://*/ta/man/translate/figs-metaphor]] and [[rc://*/ta/man/translate/figs-doublet]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "עַ֚ם",
+                "occurrence": 1
+              },
+              {
+                "word": "רַ֣ב",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠עָצ֔וּם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "עַ֚ם רַ֣ב וְ⁠עָצ֔וּם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "z5iu",
+            "occurrenceNote": "After a wall of flame goes through dry land and burns the dryest and smallest fuel, there will still be flames as the larger and less dry fuel burns. (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "וְ⁠אַחֲרָ֖י⁠ו",
+                "occurrence": 1
+              },
+              {
+                "word": "תְּלַהֵ֣ט",
+                "occurrence": 1
+              },
+              {
+                "word": "לֶֽהָבָ֑ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠אַחֲרָ֖י⁠ו תְּלַהֵ֣ט לֶֽהָבָ֑ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "kqr6",
+            "occurrenceNote": "Here the people of Israel are spoken of as God’s inheritance. Alternate translation: “your special people” (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 17
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": "נַחֲלָתְ⁠ךָ֤",
+            "quoteString": "נַחֲלָתְ⁠ךָ֤",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mc8b",
+            "occurrenceNote": "Yahweh speaks of the Spirit as if he were speaking of water. AT” “I will give my Spirit generously to all flesh” (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 28
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "אֶשְׁפּ֤וֹךְ",
+                "occurrence": 1
+              },
+              {
+                "word": "אֶת",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "רוּחִ⁠י֙",
+                "occurrence": 1
+              },
+              {
+                "word": "עַל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 3
+              },
+              {
+                "word": "כָּל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 4
+              },
+              {
+                "word": "בָּשָׂ֔ר",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "אֶשְׁפּ֤וֹךְ אֶת־רוּחִ⁠י֙ עַל־כָּל־בָּשָׂ֔ר",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hq7f",
+            "occurrenceNote": "Possible meanings are that Yahweh speaks of completely destroying the nations as if: (1) he were harvesting all the grapes and all the grain or (2) he were harvesting quickly, while the grain and grapes are ripe. (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "שִׁלְח֣וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "מַגָּ֔ל",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "מָ֣לְאָה",
+                "occurrence": 1
+              },
+              {
+                "word": "גַּ֔ת",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שִׁלְח֣וּ מַגָּ֔ל & מָ֣לְאָה גַּ֔ת",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "iw8d",
+            "occurrenceNote": "Yahweh speaks of making war against the nations as if he were using a sharp tool to harvest a field of ripe crops. If your readers will not understand the word “sickle,” you may use the word for any sharp tool that your people use for harvesting. (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "שִׁלְח֣וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "מַגָּ֔ל",
+                "occurrence": 1
+              },
+              {
+                "word": "כִּ֥י",
+                "occurrence": 1
+              },
+              {
+                "word": "בָשַׁ֖ל",
+                "occurrence": 1
+              },
+              {
+                "word": "קָצִ֑יר",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שִׁלְח֣וּ מַגָּ֔ל כִּ֥י בָשַׁ֖ל קָצִ֑יר",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "i8r2",
+            "occurrenceNote": "“Swing the sickle to cut the grain.” This is a metaphor for a soldier using a sword to kill people, but it is best to use the word for a sharp tool used in harvesting. (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "שִׁלְח֣וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "מַגָּ֔ל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שִׁלְח֣וּ מַגָּ֔ל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "tz4a",
+            "occurrenceNote": "Yahweh speaks of the nations as if they were many grapes in a winepress, ready for people to crush them by stepping on them. Alternate translation: “Come, completely destroy the nations, for they are many, and they are helpless to resist you” (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "בֹּ֤אֽוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "רְדוּ֙",
+                "occurrence": 1
+              },
+              {
+                "word": "כִּֽי",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "מָ֣לְאָה",
+                "occurrence": 1
+              },
+              {
+                "word": "גַּ֔ת",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "בֹּ֤אֽוּ רְדוּ֙ כִּֽי־מָ֣לְאָה גַּ֔ת",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "haw5",
+            "occurrenceNote": "Yahweh speaks of the nations’ wickedness as if it were the juice that flows from the winepress into storage containers, and more juice flows into the vats than they can contain. (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "הֵשִׁ֨יקוּ֙",
+                "occurrence": 1
+              },
+              {
+                "word": "הַ⁠יְקָבִ֔ים",
+                "occurrence": 1
+              },
+              {
+                "word": "כִּ֥י",
+                "occurrence": 2
+              },
+              {
+                "word": "רַבָּ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "רָעָתָֽ⁠ם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "הֵשִׁ֨יקוּ֙ הַ⁠יְקָבִ֔ים כִּ֥י רַבָּ֖ה רָעָתָֽ⁠ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yr8u",
+            "occurrenceNote": "This could mean: (1) “Yahweh will roar like a lion” or (2) “Yahweh will roar like thunder.” (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "וַ⁠יהוָ֞ה",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "יִשְׁאָ֗ג",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וַ⁠יהוָ֞ה & יִשְׁאָ֗ג",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "lr5v",
+            "occurrenceNote": "Both of these phrases mean Yahweh will protect his people. A fortress is a strong shelter used to protect people during war. Alternate translation: “Yahweh will be a strong fortress for his people, the people of Israel” (See: [[rc://*/ta/man/translate/figs-metaphor]] and [[rc://*/ta/man/translate/figs-parallelism]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "וַֽ⁠יהוָה֙",
+                "occurrence": 1
+              },
+              {
+                "word": "מַֽחֲסֶ֣ה",
+                "occurrence": 1
+              },
+              {
+                "word": "לְ⁠עַמּ֔⁠וֹ",
+                "occurrence": 1
+              },
+              {
+                "word": "וּ⁠מָע֖וֹז",
+                "occurrence": 1
+              },
+              {
+                "word": "לִ⁠בְנֵ֥י",
+                "occurrence": 1
+              },
+              {
+                "word": "יִשְׂרָאֵֽל",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וַֽ⁠יהוָה֙ מַֽחֲסֶ֣ה לְ⁠עַמּ֔⁠וֹ וּ⁠מָע֖וֹז לִ⁠בְנֵ֥י יִשְׂרָאֵֽל",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yj7w",
+            "occurrenceNote": "“milk will flow from the hills.” The land being very fertile is spoken of as if the hills would flow with milk. Alternate translation: “on the hills your cattle and goats will produce plenty of milk” (See: [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 18
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metaphor",
+            "quote": [
+              {
+                "word": "וְ⁠הַ⁠גְּבָעוֹת֙",
+                "occurrence": 1
+              },
+              {
+                "word": "תֵּלַ֣כְנָה",
+                "occurrence": 1
+              },
+              {
+                "word": "חָלָ֔ב",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠הַ⁠גְּבָעוֹת֙ תֵּלַ֣כְנָה חָלָ֔ב",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-metonymy": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "d1i9",
+            "occurrenceNote": "The heart is a metonym for what the person thinks and loves. Alternate translation: “Turn away from your sins and be totally devoted to me” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "שֻׁ֥בוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "עָדַ֖⁠י",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּ⁠כָל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 3
+              },
+              {
+                "word": "לְבַבְ⁠כֶ֑ם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שֻׁ֥בוּ עָדַ֖⁠י בְּ⁠כָל־לְבַבְ⁠כֶ֑ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "d1sf",
+            "occurrenceNote": "The heart is a metonym for what the person thinks and loves. Tearing one’s clothes is an outward act of shame or repentance. Alternate translation: “Change your way of thinking; do not just tear your garments” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "וְ⁠קִרְע֤וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "לְבַבְ⁠כֶם֙",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠אַל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "בִּגְדֵי⁠כֶ֔ם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠קִרְע֤וּ לְבַבְ⁠כֶם֙ וְ⁠אַל־בִּגְדֵי⁠כֶ֔ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "t5ty",
+            "occurrenceNote": "The pastures are a metonym for the plants that grow in the pastures. Alternate translation: “plants good for food will sprout in the pastures in the wilderness” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 22
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "דָשְׁא֖וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "נְא֣וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "מִדְבָּ֑ר",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "דָשְׁא֖וּ נְא֣וֹת מִדְבָּ֑ר",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "jy17",
+            "occurrenceNote": "The name is a metonym for the person, specifically his reputation. Alternate translation: “praise Yahweh” or “praise Yahweh because everyone knows he is good” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 26
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "וְ⁠הִלַּלְתֶּ֗ם",
+                "occurrence": 1
+              },
+              {
+                "word": "אֶת",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "שֵׁ֤ם",
+                "occurrence": 1
+              },
+              {
+                "word": "יְהוָה֙",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠הִלַּלְתֶּ֗ם אֶת־שֵׁ֤ם יְהוָה֙",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "fxj8",
+            "occurrenceNote": "“blood” is symbolizing the death of people. Alternate translation: “death, fire and pillars of smoke” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 30
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "דָּ֣ם",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠אֵ֔שׁ",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠תִֽימֲר֖וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "עָשָֽׁן",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "דָּ֣ם וָ⁠אֵ֔שׁ וְ⁠תִֽימֲר֖וֹת עָשָֽׁן",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "fc5h",
+            "occurrenceNote": "Here the word “blood” refers to the color red. You can supply the verb for this phrase. Alternate translation: “the moon will turn red like blood” (See: [[rc://*/ta/man/translate/figs-metonymy]] and [[rc://*/ta/man/translate/figs-ellipsis]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 31
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "וְ⁠הַ⁠יָּרֵ֖חַ",
+                "occurrence": 1
+              },
+              {
+                "word": "לְ⁠דָ֑ם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠הַ⁠יָּרֵ֖חַ לְ⁠דָ֑ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "t1vg",
+            "occurrenceNote": "The name is a metonym for the person. This can be translated in active form. Alternate translation: “Yahweh will save everyone who calls on his name” (See: [[rc://*/ta/man/translate/figs-metonymy]] and [[rc://*/ta/man/translate/figs-activepassive]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 32
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "כֹּ֧ל",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲשֶׁר",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "יִקְרָ֛א",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּ⁠שֵׁ֥ם",
+                "occurrence": 1
+              },
+              {
+                "word": "יְהוָ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "יִמָּלֵ֑ט",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כֹּ֧ל אֲשֶׁר־יִקְרָ֛א בְּ⁠שֵׁ֥ם יְהוָ֖ה יִמָּלֵ֑ט",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pww6",
+            "occurrenceNote": "The hand can be a metonym for the power the hand exercises or a synecdoche for the person. Alternate translation: “I will have the people of Judah sell your sons and your daughters” (See: [[rc://*/ta/man/translate/figs-metonymy]] and [[rc://*/ta/man/translate/figs-synecdoche]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "וּ⁠מָכַרְתִּ֞י",
+                "occurrence": 1
+              },
+              {
+                "word": "אֶת",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּנֵי⁠כֶ֣ם",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠אֶת",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "בְּנֽוֹתֵי⁠כֶ֗ם",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּ⁠יַד֙",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּנֵ֣י",
+                "occurrence": 1
+              },
+              {
+                "word": "יְהוּדָ֔ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וּ⁠מָכַרְתִּ֞י אֶת־בְּנֵי⁠כֶ֣ם וְ⁠אֶת־בְּנֽוֹתֵי⁠כֶ֗ם בְּ⁠יַד֙ בְּנֵ֣י יְהוּדָ֔ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "t6ay",
+            "occurrenceNote": "The word “they” refers to “Edom” and “Egypt” and is a metonym for the people of Egypt and Edom. The words “innocent blood” are a metonym for innocent people whom they have killed. Alternate translation: “because the people of Egypt and the people of Edom killed innocent people in the land of the people of Judah” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 19
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "אֲשֶׁר",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "שָׁפְכ֥וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "דָם",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "נָקִ֖יא",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּ⁠אַרְצָֽ⁠ם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "אֲשֶׁר־שָׁפְכ֥וּ דָם־נָקִ֖יא בְּ⁠אַרְצָֽ⁠ם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dj9s",
+            "occurrenceNote": "Blood is a metonym for death. Alternate translation: “I will punish the enemies who killed the people of Israel and still have not been punished” (See: [[rc://*/ta/man/translate/figs-metonymy]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 21
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-metonymy",
+            "quote": [
+              {
+                "word": "וְ⁠נִקֵּ֖יתִי",
+                "occurrence": 1
+              },
+              {
+                "word": "דָּמָ֣⁠ם",
+                "occurrence": 1
+              },
+              {
+                "word": "לֹֽא",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "נִקֵּ֑יתִי",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠נִקֵּ֖יתִי דָּמָ֣⁠ם לֹֽא־נִקֵּ֑יתִי",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-parallelism": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qry6",
+            "occurrenceNote": "# General Information:\n\nGod speaks through Joel to the people of Israel using poetry. (See: [[rc://*/ta/man/translate/figs-parallelism]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-parallelism",
+            "quote": [
+              {
+                "word": "General",
+                "occurrence": 1
+              },
+              {
+                "word": "Information",
+                "occurrence": 1
+              },
+              {
+                "word": ":",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "General Information:",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "l1nq",
+            "occurrenceNote": "If your language has only one word for “weep” and “wail,” you can combine the lines: “you people who love wine should cry out in sorrow” (See: [[rc://*/ta/man/translate/figs-parallelism]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-parallelism",
+            "quote": [
+              {
+                "word": "שִׁכּוֹרִים֙",
+                "occurrence": 1
+              },
+              {
+                "word": "וּ⁠בְכ֔וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠הֵילִ֖לוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "כָּל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "שֹׁ֣תֵי",
+                "occurrence": 1
+              },
+              {
+                "word": "יָ֑יִן",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שִׁכּוֹרִים֙ וּ⁠בְכ֔וּ וְ⁠הֵילִ֖לוּ כָּל־שֹׁ֣תֵי יָ֑יִן",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mpz6",
+            "occurrenceNote": "These two lines share similar meanings. The reference to the locusts’ teeth being as sharp as lions’ teeth emphasize how fierce they are as they eat all of the crops of the land. (See: [[rc://*/ta/man/translate/figs-parallelism]] and [[rc://*/ta/man/translate/figs-metaphor]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 6
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-parallelism",
+            "quote": [
+              {
+                "word": "שִׁנָּי⁠ו֙",
+                "occurrence": 1
+              },
+              {
+                "word": "שִׁנֵּ֣י",
+                "occurrence": 1
+              },
+              {
+                "word": "אַרְיֵ֔ה",
+                "occurrence": 1
+              },
+              {
+                "word": "וּֽ⁠מְתַלְּע֥וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "לָבִ֖יא",
+                "occurrence": 1
+              },
+              {
+                "word": "לֽ⁠וֹ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שִׁנָּי⁠ו֙ שִׁנֵּ֣י אַרְיֵ֔ה וּֽ⁠מְתַלְּע֥וֹת לָבִ֖יא לֽ⁠וֹ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "t93c",
+            "occurrenceNote": "These two phrases share similar meanings. Both of them instruct the people to turn their farming tools into weapons. (See: [[rc://*/ta/man/translate/figs-parallelism]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-parallelism",
+            "quote": [
+              {
+                "word": "כֹּ֤תּוּ",
+                "occurrence": 1
+              },
+              {
+                "word": "אִתֵּי⁠כֶם֙",
+                "occurrence": 1
+              },
+              {
+                "word": "לַֽ⁠חֲרָב֔וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "וּ⁠מַזְמְרֹֽתֵי⁠כֶ֖ם",
+                "occurrence": 1
+              },
+              {
+                "word": "לִ⁠רְמָחִ֑ים",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כֹּ֤תּוּ אִתֵּי⁠כֶם֙ לַֽ⁠חֲרָב֔וֹת וּ⁠מַזְמְרֹֽתֵי⁠כֶ֖ם לִ⁠רְמָחִ֑ים",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "fe1r",
+            "occurrenceNote": "Both phrases mean Yahweh will shout with a loud, clear and powerful voice from Jerusalem. If your language only has one word for speaking very loudly, this can be used as one phrase. Alternate translation: “Yahweh will shout from Jerusalem” (See: [[rc://*/ta/man/translate/figs-parallelism]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-parallelism",
+            "quote": [
+              {
+                "word": "וַ⁠יהוָ֞ה",
+                "occurrence": 1
+              },
+              {
+                "word": "מִ⁠צִּיּ֣וֹן",
+                "occurrence": 1
+              },
+              {
+                "word": "יִשְׁאָ֗ג",
+                "occurrence": 1
+              },
+              {
+                "word": "וּ⁠מִ⁠ירוּשָׁלִַ֨ם֙",
+                "occurrence": 1
+              },
+              {
+                "word": "יִתֵּ֣ן",
+                "occurrence": 1
+              },
+              {
+                "word": "קוֹל֔⁠וֹ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וַ⁠יהוָ֞ה מִ⁠צִּיּ֣וֹן יִשְׁאָ֗ג וּ⁠מִ⁠ירוּשָׁלִַ֨ם֙ יִתֵּ֣ן קוֹל֔⁠וֹ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-personification": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "e5ge",
+            "occurrenceNote": "The army of locusts acts as real soldiers do. (See: [[rc://*/ta/man/translate/figs-personification]] and [[rc://*/ta/man/translate/figs-simile]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 7
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-personification",
+            "quote": [
+              {
+                "word": "כְּ⁠גִבּוֹרִ֣ים",
+                "occurrence": 1
+              },
+              {
+                "word": "יְרֻצ֔וּ⁠ן",
+                "occurrence": 1
+              },
+              {
+                "word": "כְּ⁠אַנְשֵׁ֥י",
+                "occurrence": 1
+              },
+              {
+                "word": "מִלְחָמָ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "יַעֲל֣וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "חוֹמָ֑ה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כְּ⁠גִבּוֹרִ֣ים יְרֻצ֔וּ⁠ן כְּ⁠אַנְשֵׁ֥י מִלְחָמָ֖ה יַעֲל֣וּ חוֹמָ֑ה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "iu1h",
+            "occurrenceNote": "Joel speaks of the earth and heavens as if they were people who are shaking with fear. This can be translated as either a hyperbole, that the army is so frightening that even things that are not alive are afraid, or as metonymy, that the earth and the heavens are metonyms for the beings who live there. Alternate translation: “Everyone on earth and in the heavens is very afraid” (See: [[rc://*/ta/man/translate/figs-personification]] and [[rc://*/ta/man/translate/figs-hyperbole]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-personification",
+            "quote": [
+              {
+                "word": "לְ⁠פָנָי⁠ו֙",
+                "occurrence": 1
+              },
+              {
+                "word": "רָ֣גְזָה",
+                "occurrence": 1
+              },
+              {
+                "word": "אֶ֔רֶץ",
+                "occurrence": 1
+              },
+              {
+                "word": "רָעֲשׁ֖וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "שָׁמָ֑יִם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "לְ⁠פָנָי⁠ו֙ רָ֣גְזָה אֶ֔רֶץ רָעֲשׁ֖וּ שָׁמָ֑יִם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-rquestion": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "t74n",
+            "occurrenceNote": "Joel is preparing the elders to listen to what he has to say. If it would be helpful in your language, you could express this question as a statement. Alternate translation: “Nothing like this has ever happened before either to you or to your ancestors” (See: [[rc://*/ta/man/translate/figs-rquestion]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-rquestion",
+            "quote": [
+              {
+                "word": "הֶ⁠הָ֤יְתָה",
+                "occurrence": 1
+              },
+              {
+                "word": "זֹּאת֙",
+                "occurrence": 1
+              },
+              {
+                "word": "בִּֽ⁠ימֵי⁠כֶ֔ם",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠אִ֖ם",
+                "occurrence": 1
+              },
+              {
+                "word": "בִּ⁠ימֵ֥י",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲבֹֽתֵי⁠כֶֽם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "הֶ⁠הָ֤יְתָה זֹּאת֙ בִּֽ⁠ימֵי⁠כֶ֔ם וְ⁠אִ֖ם בִּ⁠ימֵ֥י אֲבֹֽתֵי⁠כֶֽם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vht4",
+            "occurrenceNote": "If it would be helpful in your language, you could express this question as a statement. Alternate translation: “No one will be strong enough to survive Yahweh’s judgment.” (See: [[rc://*/ta/man/translate/figs-rquestion]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 11
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-rquestion",
+            "quote": [
+              {
+                "word": "וּ⁠מִ֥י",
+                "occurrence": 1
+              },
+              {
+                "word": "יְכִילֶֽ⁠נּוּ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וּ⁠מִ֥י יְכִילֶֽ⁠נּוּ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "a2av",
+            "occurrenceNote": "If it would be helpful in your language, you could express this question as a statement. Alternate translation: “Perhaps Yahweh will turn from his anger … God.” (See: [[rc://*/ta/man/translate/figs-rquestion]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 14
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-rquestion",
+            "quote": [
+              {
+                "word": "יָשׁ֣וּב",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠נִחָ֑ם",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠הִשְׁאִ֤יר",
+                "occurrence": 1
+              },
+              {
+                "word": "אַֽחֲרָי⁠ו֙",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּרָכָ֔ה",
+                "occurrence": 1
+              },
+              {
+                "word": "מִנְחָ֣ה",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠נֶ֔סֶךְ",
+                "occurrence": 1
+              },
+              {
+                "word": "לַ⁠יהוָ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "אֱלֹהֵי⁠כֶֽם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "יָשׁ֣וּב וְ⁠נִחָ֑ם וְ⁠הִשְׁאִ֤יר אַֽחֲרָי⁠ו֙ בְּרָכָ֔ה מִנְחָ֣ה וָ⁠נֶ֔סֶךְ לַ⁠יהוָ֖ה אֱלֹהֵי⁠כֶֽם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ey9s",
+            "occurrenceNote": "If it would be helpful in your language, you could express this question as a statement. Alternate translation: “Other nations should not be able to say, ‘Their God does not help them.’” or “Other nations should not be able to say that the God of Israel has abandoned his people.” (See: [[rc://*/ta/man/translate/figs-rquestion]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 17
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-rquestion",
+            "quote": [
+              {
+                "word": "לָ֚⁠מָּה",
+                "occurrence": 1
+              },
+              {
+                "word": "יֹאמְר֣וּ",
+                "occurrence": 1
+              },
+              {
+                "word": "בָֽ⁠עַמִּ֔ים",
+                "occurrence": 1
+              },
+              {
+                "word": "אַיֵּ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "אֱלֹהֵי⁠הֶֽם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "לָ֚⁠מָּה יֹאמְר֣וּ בָֽ⁠עַמִּ֔ים אַיֵּ֖ה אֱלֹהֵי⁠הֶֽם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qj6v",
+            "occurrenceNote": "Yahweh is encouraging the people of Judah, who can hear him, by scolding the people of Tyre, Sidon, and Philistia, who cannot hear him, as if they can. The names of the towns are metonyms for the people who live in the towns. These words can be translated as a statement. Alternate translation: “you have no right to be angry at me … Philistia.” (See: [[rc://*/ta/man/translate/figs-rquestion]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-rquestion",
+            "quote": [
+              {
+                "word": "וְ֠⁠גַם",
+                "occurrence": 1
+              },
+              {
+                "word": "מָה",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "אַתֶּ֥ם",
+                "occurrence": 1
+              },
+              {
+                "word": "לִ⁠י֙",
+                "occurrence": 1
+              },
+              {
+                "word": "צֹ֣ר",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠צִיד֔וֹן",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠כֹ֖ל",
+                "occurrence": 1
+              },
+              {
+                "word": "גְּלִיל֣וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "פְּלָ֑שֶׁת",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ֠⁠גַם מָה־אַתֶּ֥ם לִ⁠י֙ צֹ֣ר וְ⁠צִיד֔וֹן וְ⁠כֹ֖ל גְּלִיל֣וֹת פְּלָ֑שֶׁת",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xaa9",
+            "occurrenceNote": "“Will you get revenge on me?” God uses this question to make the people think about what they are doing. Alternate translation: “You think you can get revenge on me, but you cannot.” (See: [[rc://*/ta/man/translate/figs-rquestion]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-rquestion",
+            "quote": [
+              {
+                "word": "הַ⁠גְּמ֗וּל",
+                "occurrence": 1
+              },
+              {
+                "word": "אַתֶּם֙",
+                "occurrence": 1
+              },
+              {
+                "word": "מְשַׁלְּמִ֣ים",
+                "occurrence": 1
+              },
+              {
+                "word": "עָלָ֔⁠י",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "הַ⁠גְּמ֗וּל אַתֶּם֙ מְשַׁלְּמִ֣ים עָלָ֔⁠י",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-simile": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "h3d1",
+            "occurrenceNote": "When direct sunlight shines on a mountain at dawn, it begins at the top and spreads to the bottom. When an army comes over a mountain range, it comes over the top and spreads out as it comes down. Alternate translation: “A large, mighty army comes over the mountains into the land. They spread over the land like the light from the rising sun” (See: [[rc://*/ta/man/translate/figs-simile]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-simile",
+            "quote": [
+              {
+                "word": "כְּ⁠שַׁ֖חַר",
+                "occurrence": 1
+              },
+              {
+                "word": "פָּרֻ֣שׂ",
+                "occurrence": 1
+              },
+              {
+                "word": "עַל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "הֶֽ⁠הָרִ֑ים",
+                "occurrence": 1
+              },
+              {
+                "word": "עַ֚ם",
+                "occurrence": 1
+              },
+              {
+                "word": "רַ֣ב",
+                "occurrence": 1
+              },
+              {
+                "word": "וְ⁠עָצ֔וּם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כְּ⁠שַׁ֖חַר פָּרֻ֣שׂ עַל־הֶֽ⁠הָרִ֑ים עַ֚ם רַ֣ב וְ⁠עָצ֔וּם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yne4",
+            "occurrenceNote": "The garden of Eden was a beautiful place, and the land was beautiful. (See: [[rc://*/ta/man/translate/figs-simile]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-simile",
+            "quote": [
+              {
+                "word": "כְּ⁠גַן",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 1
+              },
+              {
+                "word": "עֵ֨דֶן",
+                "occurrence": 1
+              },
+              {
+                "word": "הָ⁠אָ֜רֶץ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כְּ⁠גַן־עֵ֨דֶן הָ⁠אָ֜רֶץ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ztn5",
+            "occurrenceNote": "The head of a locust looks like a small horse head. The army is fast, and horses are fast. (See: [[rc://*/ta/man/translate/figs-simile]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-simile",
+            "quote": [
+              {
+                "word": "כְּ⁠מַרְאֵ֥ה",
+                "occurrence": 1
+              },
+              {
+                "word": "סוּסִ֖ים",
+                "occurrence": 1
+              },
+              {
+                "word": "מַרְאֵ֑⁠הוּ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כְּ⁠מַרְאֵ֥ה סוּסִ֖ים מַרְאֵ֑⁠הוּ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "myc3",
+            "occurrenceNote": "Men riding horses move quickly, and the army moves quickly. (See: [[rc://*/ta/man/translate/figs-simile]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-simile",
+            "quote": [
+              {
+                "word": "וּ⁠כְ⁠פָרָשִׁ֖ים",
+                "occurrence": 1
+              },
+              {
+                "word": "כֵּ֥ן",
+                "occurrence": 1
+              },
+              {
+                "word": "יְרוּצֽוּ⁠ן",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וּ⁠כְ⁠פָרָשִׁ֖ים כֵּ֥ן יְרוּצֽוּ⁠ן",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "n75f",
+            "occurrenceNote": "These sounds would have been very frightening to Joel’s readers. If your readers will not understand what these sound like, you might be able to use a more general phrase: “a noise that frightens everyone” (See: [[rc://*/ta/man/translate/figs-simile]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-simile",
+            "quote": [
+              {
+                "word": "כְּ⁠ק֣וֹל",
+                "occurrence": 1
+              },
+              {
+                "word": "מַרְכָּב֗וֹת",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "כְּ⁠קוֹל֙",
+                "occurrence": 1
+              },
+              {
+                "word": "לַ֣הַב",
+                "occurrence": 1
+              },
+              {
+                "word": "אֵ֔שׁ",
+                "occurrence": 1
+              },
+              {
+                "word": "&"
+              },
+              {
+                "word": "כְּ⁠עַ֣ם",
+                "occurrence": 1
+              },
+              {
+                "word": "עָצ֔וּם",
+                "occurrence": 1
+              },
+              {
+                "word": "עֱר֖וּךְ",
+                "occurrence": 1
+              },
+              {
+                "word": "מִלְחָמָֽה",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כְּ⁠ק֣וֹל מַרְכָּב֗וֹת & כְּ⁠קוֹל֙ לַ֣הַב אֵ֔שׁ & כְּ⁠עַ֣ם עָצ֔וּם עֱר֖וּךְ מִלְחָמָֽה",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-synecdoche": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "r8wr",
+            "occurrenceNote": "“from us.” This refers to all of the nation of Israel. (See: [[rc://*/ta/man/translate/figs-synecdoche]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-synecdoche",
+            "quote": [
+              {
+                "word": "נֶ֥גֶד",
+                "occurrence": 1
+              },
+              {
+                "word": "עֵינֵ֖י⁠נוּ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "נֶ֥גֶד עֵינֵ֖י⁠נוּ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ny8x",
+            "occurrenceNote": "Here “flesh” represents people. Alternate translation: “all people” (See: [[rc://*/ta/man/translate/figs-synecdoche]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 28
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-synecdoche",
+            "quote": [
+              {
+                "word": "כָּל",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 4
+              },
+              {
+                "word": "בָּשָׂ֔ר",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "כָּל־בָּשָׂ֔ר",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ns7f",
+            "occurrenceNote": "Here the word “head” refers to the person. Yahweh will make them suffer the pain they wanted him to suffer. Alternate translation: “I will cause you to suffer the retribution that you tried to put on me” (See: [[rc://*/ta/man/translate/figs-synecdoche]] and [[rc://*/ta/man/translate/figs-idiom]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 4
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-synecdoche",
+            "quote": [
+              {
+                "word": "קַ֣ל",
+                "occurrence": 1
+              },
+              {
+                "word": "מְהֵרָ֔ה",
+                "occurrence": 1
+              },
+              {
+                "word": "אָשִׁ֥יב",
+                "occurrence": 1
+              },
+              {
+                "word": "גְּמֻלְ⁠כֶ֖ם",
+                "occurrence": 1
+              },
+              {
+                "word": "בְּ⁠רֹאשְׁ⁠כֶֽם",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "קַ֣ל מְהֵרָ֔ה אָשִׁ֥יב גְּמֻלְ⁠כֶ֖ם בְּ⁠רֹאשְׁ⁠כֶֽם",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "figs-doublet",
+        "name": "Doublet"
+      },
+      {
+        "id": "figs-ellipsis",
+        "name": "Ellipsis"
+      },
+      {
+        "id": "figs-euphemism",
+        "name": "Euphemism"
+      },
+      {
+        "id": "figs-hyperbole",
+        "name": "Hyperbole"
+      },
+      {
+        "id": "figs-idiom",
+        "name": "Idiom"
+      },
+      {
+        "id": "figs-merism",
+        "name": "Merism"
+      },
+      {
+        "id": "figs-metaphor",
+        "name": "Metaphor"
+      },
+      {
+        "id": "figs-metonymy",
+        "name": "Metonymy"
+      },
+      {
+        "id": "figs-parallelism",
+        "name": "Parallelism"
+      },
+      {
+        "id": "figs-personification",
+        "name": "Personification"
+      },
+      {
+        "id": "figs-rquestion",
+        "name": "Rhetorical Question"
+      },
+      {
+        "id": "figs-simile",
+        "name": "Simile"
+      },
+      {
+        "id": "figs-synecdoche",
+        "name": "Synecdoche"
+      },
+      {
+        "id": "figs-apostrophe",
+        "name": "Apostrophe"
+      },
+      {
+        "id": "figs-doublenegatives",
+        "name": "Double Negatives"
+      },
+      {
+        "id": "figs-hendiadys",
+        "name": "Hendiadys"
+      },
+      {
+        "id": "figs-irony",
+        "name": "Irony"
+      },
+      {
+        "id": "figs-litotes",
+        "name": "Litotes"
+      },
+      {
+        "id": "figs-quotemarks",
+        "name": "Quote Markings"
+      }
+    ]
+  },
+  "grammar": {
+    "groups": {
+      "figs-123person": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "x2qr",
+            "occurrenceNote": "Yahweh speaks of himself by name to show that he will certainly do as he has said. Alternate translation: “my name … because I have done wonders” (See: [[rc://*/ta/man/translate/figs-123person]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 26
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-123person",
+            "quote": [
+              {
+                "word": "שֵׁ֤ם",
+                "occurrence": 1
+              },
+              {
+                "word": "יְהוָה֙",
+                "occurrence": 1
+              },
+              {
+                "word": "אֱלֹ֣הֵי⁠כֶ֔ם",
+                "occurrence": 1
+              },
+              {
+                "word": "אֲשֶׁר",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 2
+              },
+              {
+                "word": "עָשָׂ֥ה",
+                "occurrence": 1
+              },
+              {
+                "word": "עִמָּ⁠כֶ֖ם",
+                "occurrence": 1
+              },
+              {
+                "word": "לְ⁠הַפְלִ֑יא",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שֵׁ֤ם יְהוָה֙ אֱלֹ֣הֵי⁠כֶ֔ם אֲשֶׁר־עָשָׂ֥ה עִמָּ⁠כֶ֖ם לְ⁠הַפְלִ֑יא",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-abstractnouns": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "u6hs",
+            "occurrenceNote": "If your language does not use an abstract noun for the idea behind the word **destruction**, you can express the same idea with a verbal form such as “destroy.” You may need to make explicit what it is the Almighty will destroy. Alternate translation: “On that day the Almighty will destroy his enemies” (See: [[rc://*/ta/man/translate/figs-abstractnouns]] and [[rc://*/ta/man/translate/figs-explicit]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "וּ⁠כְ⁠שֹׁ֖ד",
+                "occurrence": 1
+              },
+              {
+                "word": "מִ⁠שַׁדַּ֥י",
+                "occurrence": 1
+              },
+              {
+                "word": "יָבֽוֹא",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וּ⁠כְ⁠שֹׁ֖ד מִ⁠שַׁדַּ֥י יָבֽוֹא",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wfp5",
+            "occurrenceNote": "If your language does not use an abstract noun for the idea behind the word **faithfulness**, you can express the same idea with a verbal form such as “faithful” or “faithfully.” Alternate translation: “always faithful to his covenant” or “always loves faithfully” (See: [[rc://*/ta/man/translate/figs-abstractnouns]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "וְ⁠רַב",
+                "occurrence": 1
+              },
+              {
+                "word": "־",
+                "occurrence": 4
+              },
+              {
+                "word": "חֶ֔סֶד",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וְ⁠רַב־חֶ֔סֶד",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "fq2i",
+            "occurrenceNote": "There is no known place with this name. If your language does not use an abstract noun for the idea behind the word **judgment**, you can express the same idea with a verbal form such as “judge.” Alternate translation: “Valley Where Yahweh Judges” (See: [[rc://*/ta/man/translate/figs-abstractnouns]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 14
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-abstractnouns",
+            "quote": [
+              {
+                "word": "בְּ⁠עֵ֖מֶק",
+                "occurrence": 1
+              },
+              {
+                "word": "הֶֽ⁠חָר֑וּץ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "בְּ⁠עֵ֖מֶק הֶֽ⁠חָר֑וּץ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "figs-activepassive": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "j565",
+            "occurrenceNote": "This can be translated in active form. Alternate translation: “the locusts have destroyed all of the grain” (See: [[rc://*/ta/man/translate/figs-activepassive]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-activepassive",
+            "quote": [
+              {
+                "word": "שֻׁדַּ֣ד",
+                "occurrence": 2
+              },
+              {
+                "word": "דָּגָ֔ן",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "שֻׁדַּ֣ד דָּגָ֔ן",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gi4z",
+            "occurrenceNote": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: “people will live in Judah forever” (See: [[rc://*/ta/man/translate/figs-activepassive]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 20
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-activepassive",
+            "quote": [
+              {
+                "word": "וִ⁠יהוּדָ֖ה",
+                "occurrence": 1
+              },
+              {
+                "word": "לְ⁠עוֹלָ֣ם",
+                "occurrence": 1
+              },
+              {
+                "word": "תֵּשֵׁ֑ב",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וִ⁠יהוּדָ֖ה לְ⁠עוֹלָ֣ם תֵּשֵׁ֑ב",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f72t",
+            "occurrenceNote": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: “generation after generation, people will live in Jerusalem” (See: [[rc://*/ta/man/translate/figs-activepassive]])",
+            "reference": {
+              "bookId": "jol",
+              "chapter": 3,
+              "verse": 20
+            },
+            "tool": "translationNotes",
+            "groupId": "figs-activepassive",
+            "quote": [
+              {
+                "word": "וִ⁠ירוּשָׁלִַ֖ם",
+                "occurrence": 1
+              },
+              {
+                "word": "לְ⁠ד֥וֹר",
+                "occurrence": 1
+              },
+              {
+                "word": "וָ⁠דֽוֹר",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "וִ⁠ירוּשָׁלִַ֖ם לְ⁠ד֥וֹר וָ⁠דֽוֹר",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    },
+    "index": [
+      {
+        "id": "figs-123person",
+        "name": "First, Second or Third Person"
+      },
+      {
+        "id": "figs-abstractnouns",
+        "name": "Abstract Nouns"
+      },
+      {
+        "id": "figs-activepassive",
+        "name": "Active or Passive"
+      },
+      {
+        "id": "figs-exclusive",
+        "name": "Exclusive and Inclusive ‘We’"
+      },
+      {
+        "id": "figs-nominaladj",
+        "name": "Nominal Adjectives"
+      },
+      {
+        "id": "figs-rpronouns",
+        "name": "Reflexive Pronouns"
+      },
+      {
+        "id": "figs-you",
+        "name": "Forms of You"
+      },
+      {
+        "id": "figs-distinguish",
+        "name": "Distinguishing Versus Informing or Reminding"
+      },
+      {
+        "id": "figs-gendernotations",
+        "name": "When Masculine Words Include Women"
+      },
+      {
+        "id": "figs-genericnoun",
+        "name": "Generic Noun Phrases"
+      },
+      {
+        "id": "figs-hypo",
+        "name": "Hypothetical Situations"
+      },
+      {
+        "id": "figs-possession",
+        "name": "Possession"
+      },
+      {
+        "id": "grammar-connect-exceptions",
+        "name": "Connect — Exception Clauses"
+      },
+      {
+        "id": "grammar-connect-logic-contrast",
+        "name": "Connect — Contrast Relationship"
+      },
+      {
+        "id": "grammar-connect-logic-goal",
+        "name": "Connect — Goal (Purpose) Relationship"
+      },
+      {
+        "id": "grammar-connect-logic-result",
+        "name": "Connect — Reason-and-Result Relationship"
+      },
+      {
+        "id": "figs-pronouns",
+        "name": "Pronouns"
+      }
+    ]
+  },
+  "manifest": {
+    "dublin_core": {
+      "conformsto": "rc0.2",
+      "contributor": [
+        "Door43 World Missions Community",
+        "Aaron Fenlason",
+        "Abner Bauman",
+        "Adam Van Goor",
+        "Alan Bird",
+        "Alan Borkenhagen",
+        "Alfred Van Dellen",
+        "Alice Wright",
+        "Allen Bair",
+        "Allyson Presswood Nance",
+        "Amanda Adams",
+        "Andrew Belcher",
+        "Andrew Johnson",
+        "Andrew Rice",
+        "Angelo Palo",
+        "Anita Moreau",
+        "April Linton",
+        "Aurora Lee",
+        "Barbara Summers",
+        "Barbara White",
+        "Becky Hancock",
+        "Beryl Carpenter",
+        "Bethany Fenlason",
+        "Betty Forbes",
+        "Bianca Elliott",
+        "Bill Cleveland",
+        "Bill Pruett",
+        "Bob Britting",
+        "Bram van den Heuvel",
+        "Brian Metzger",
+        "Bruce Bridges",
+        "Bruce Collier",
+        "Bruce Smith",
+        "Caleb Worgess",
+        "Carlyle Kilmore",
+        "Carol Pace",
+        "Carol Heim",
+        "Caroline Crawford",
+        "Caroline Fleming",
+        "Caroline S Wong",
+        "Carol Lee",
+        "Carol Moyer",
+        "Carolyn Lafferty",
+        "Catherine C Newton",
+        "Charese Jackson",
+        "Charlotte Gibson",
+        "Charlotte Hobbs",
+        "Cheryl A Chojnacki",
+        "Cheryl Stieben",
+        "Cheryl Warren",
+        "Christian Berry",
+        "Christine Harrison",
+        "Clairmene Pascal",
+        "Connie Bryan",
+        "Connie Goss",
+        "Craig Balden",
+        "Craig Lins",
+        "Craig Scott",
+        "Cynthia J Puckett",
+        "Dale Hahs",
+        "Dale Masser",
+        "Daniel Lauk",
+        "Daniel Summers",
+        "Darlene M Hopkins",
+        "Darlene Silas",
+        "David Boerschlein",
+        "David F Withee",
+        "David Glover",
+        "David J Forbes",
+        "David Mullen",
+        "David N Hanley",
+        "David Sandlin",
+        "David Shortess",
+        "David Smith",
+        "David Whisler",
+        "Debbie Nispel",
+        "Debbie Piper",
+        "Deborah Bartow",
+        "Deborah Bush",
+        "Deborah Miniard",
+        "Dennis Jackson",
+        "Dianne Forrest",
+        "Donna Borkenhagen",
+        "Donna Mullis",
+        "Douglas Hayes",
+        "Drew Curley",
+        "Ed Davis",
+        "Edgar Navera",
+        "Edward Kosky",
+        "Edward Quigley",
+        "Elaine VanRegenmorter",
+        "Elizabeth Nataly Silvestre Herbas",
+        "Ellen Lee",
+        "Emeline Thermidor",
+        "Emily Lee",
+        "Esther Roman",
+        "Esther Trew",
+        "Esther Zirk",
+        "Ethel Lynn Baker",
+        "Evangeline Puen",
+        "Evelyn Wildgust",
+        "Fletcher Coleman",
+        "Freda Dibble",
+        "Gail Spell",
+        "Gary Greer",
+        "Gary Shogren",
+        "Gay Ellen Stulp",
+        "Gene Gossman",
+        "George Arlyn Briggs",
+        "Gerald L. Naughton",
+        "Glen Tallent",
+        "Grace Balwit",
+        "Grace Bird",
+        "Greg Stoffregen",
+        "Gretchen Stencil",
+        "Hallie Miller",
+        "Harry Harriss",
+        "Heather Hicks",
+        "Helen Morse",
+        "Hendrik deVries",
+        "Henry Bult",
+        "Henry Whitney",
+        "Hilary O'Sullivan",
+        "Ibrahim Audu",
+        "Ines Gipson",
+        "Irene J Dodson",
+        "Jackie Jones",
+        "Jacqueline Bartley",
+        "James Giddens",
+        "James Pedersen",
+        "James Pohlig",
+        "James Roe",
+        "Janet O'Herron",
+        "Janice Connor",
+        "Jaqueline Rotruck",
+        "Jeanette Friesen",
+        "Jeff Graf",
+        "Jeff Kennedy",
+        "Jeff Martin",
+        "Jennifer Cunneen",
+        "Jenny Thomas",
+        "Jerry Lund",
+        "Jessica Lauk",
+        "Jim Frederick",
+        "Jim Lee",
+        "Jimmy Warren",
+        "Jim Rotruck",
+        "Jim Swartzentruber",
+        "Jody Garcia",
+        "Joe Chater",
+        "Joel Bryan",
+        "Joey Howell",
+        "John Anderson",
+        "John Geddis",
+        "John D Rogers",
+        "John Hutchins",
+        "John Luton",
+        "John Pace",
+        "John P Tornifolio",
+        "Jolene Valeu",
+        "Jon Haahr",
+        "Joseph Fithian",
+        "Joseph Greene",
+        "Joseph Wharton",
+        "Joshua Berkowitz",
+        "Joshua Calhoun",
+        "Joshua Rister",
+        "Josh Wondra",
+        "Joy Anderson",
+        "Joyce Jacobs",
+        "Joyce Pedersen",
+        "JT Crowder",
+        "Judi Brodeen",
+        "Judith Cline",
+        "Judith C Yon",
+        "Julia N Bult",
+        "Patty Li",
+        "Julie Susanto",
+        "Kahar Barat",
+        "Kannahi Sellers",
+        "Kara Anderson",
+        "Karen Davie",
+        "Karen Dreesen",
+        "Karen Fabean",
+        "Karen Riecks",
+        "Karen Smith",
+        "Karen Turner",
+        "Kathleen Glover",
+        "Kathryn Hendrix",
+        "Kathy Mentink",
+        "Katrina Geurink",
+        "Kay Myers",
+        "Kelly Strong",
+        "Ken Haugh",
+        "Kim Puterbaugh",
+        "Kristin Butts Page",
+        "Kristin Rinne",
+        "Kwesi Opoku-debrah",
+        "Langston Spell",
+        "Larry Sallee",
+        "Lawrence Lipe",
+        "Lee Sipe",
+        "Leonard Smith",
+        "Lester Harper",
+        "Lia Hadley",
+        "Linda Buckman",
+        "Linda Dale Barton",
+        "Linda Havemeier",
+        "Linda Homer",
+        "Linda Lee Sebastien",
+        "Linn Peterson",
+        "Liz Dakota",
+        "Lloyd Box",
+        "Luis Keelin",
+        "Madeline Kilmore",
+        "Maggie D Paul",
+        "Marc Nelson",
+        "Mardi Welo",
+        "Margo Hoffman",
+        "Marilyn Cook",
+        "Marjean Swann",
+        "Marjorie Francis",
+        "Mark Albertini",
+        "Mark Chapman",
+        "Mark Thomas",
+        "Marselene Norton",
+        "Mary Jane Davis",
+        "Mary Jean Stout",
+        "Mary Landon",
+        "Mary Scarborough",
+        "Megan Kidwell",
+        "Melissa Roe",
+        "Merton Dibble",
+        "Meseret Abraham-Zemede",
+        "Michael Bush",
+        "Michael Connor",
+        "Michael Francis",
+        "Michael Geurink",
+        "Mike Tisdell",
+        "Mickey White",
+        "Miel Horrilleno",
+        "Monique Greer",
+        "Morgan Mellette",
+        "Morris Anderson",
+        "Nancy C. Naughton",
+        "Nancy Neu",
+        "Nancy VanCott",
+        "Neal Snook",
+        "Nicholas Scovil",
+        "Nick Dettman",
+        "Nils Friberg",
+        "Noah Crabtree",
+        "Pamela B Johnston",
+        "Pamela Nungesser",
+        "Pamela Roberts",
+        "Pam Gullifer",
+        "Pat Ankney",
+        "Pat Giddens",
+        "Patricia Brougher",
+        "Patricia Carson",
+        "Patricia Cleveland",
+        "Patricia Foster",
+        "Patricia Middlebrooks",
+        "Paul Mellema",
+        "Paula Carlson",
+        "Paula Oestreich",
+        "Paul Holloway",
+        "Paul Nungesser",
+        "Peggy Anderson",
+        "Peggyrose Swartzentruber",
+        "Peter Polloni",
+        "Phillip Harms",
+        "Phyllis Mortensen",
+        "Priscilla Enggren",
+        "Rachel Agheyisi",
+        "Rachel Ropp",
+        "Raif Turner",
+        "Ray Puen",
+        "Reina Y Mora",
+        "Rene Bahrenfuss",
+        "Renee Triplett",
+        "Rhonda Bartels",
+        "Richard Beatty",
+        "Richard Moreau",
+        "Richard Rutter",
+        "Richard Stevens",
+        "Rick Keaton",
+        "Robby Little",
+        "Robert W Johnson",
+        "Rochelle Hook",
+        "Rodney White",
+        "Rolaine Franz",
+        "Ronald D Hook",
+        "Rosario Baria",
+        "Roxann Carey",
+        "Roxanne Pittard",
+        "Ruben Michael Garay",
+        "Russell Isham",
+        "Russ Perry",
+        "Ruth Calo",
+        "Ruth E Withee",
+        "Ruth Montgomery",
+        "Ryan Blizek",
+        "Sam Todd",
+        "Samuel Njuguna",
+        "Sandy Anderson",
+        "Sandy Blanes",
+        "Sara Giesmann",
+        "Sara Van Cott (Barnes)",
+        "Sharon Johnson",
+        "Sharon Peterson",
+        "Sharon Shortess",
+        "Shelly Harms",
+        "Sherie Nelson",
+        "Sherman Sebastien",
+        "Sherry Mosher",
+        "Stacey Swanson",
+        "Steve Gibbs",
+        "Steve Mercier",
+        "Susan Langohr",
+        "Susan Quigley",
+        "Susan Snook",
+        "Suzanne Richards",
+        "Sylvia Thomas",
+        "Sze Suze Lau",
+        "Tabitha Price",
+        "Tammy L Enns",
+        "Tammy White",
+        "Teresa Everett-Leone",
+        "Teresa Linn",
+        "Terri Collins",
+        "Theresa Baker",
+        "Thomas Jopling",
+        "Thomas Nickell",
+        "Thomas Warren",
+        "Tim Coleman",
+        "Tim Ingram",
+        "Tim Linn",
+        "Tim Lovestrand",
+        "Tim Mentink",
+        "Tom Penry",
+        "Tom William Warren",
+        "Toni Shuma",
+        "Tracie Pogue",
+        "Tricia Coffman",
+        "Vicki Ivester",
+        "Victoria G DeKraker",
+        "Victor M Prieto",
+        "Vivian Kamph",
+        "Vivian Richardson",
+        "Ward Pyles",
+        "Warren Blaisdell",
+        "Wayne Homer",
+        "Wendy Coleman",
+        "Wendy Colon",
+        "Wilbur Zirk",
+        "Wil Gipson",
+        "William Carson",
+        "William Cline",
+        "William Dickerson",
+        "William Smitherman",
+        "William Wilder",
+        "Yvonne Tallent"
+      ],
+      "creator": "Door43 World Missions Community",
+      "description": "Open-licensed exegetical notes that provide historical, cultural, and linguistic information for translators. It provides translators and checkers with pertinent, just-in-time information to help them make the best possible translation decisions.",
+      "format": "text/tsv",
+      "identifier": "tn",
+      "issued": "2024-04-24",
+      "language": {
+        "direction": "ltr",
+        "identifier": "en",
+        "title": "English"
+      },
+      "modified": "2024-04-24",
+      "publisher": "unfoldingWord",
+      "relation": [
+        "en/ult",
+        "en/ust",
+        "en/ta",
+        "en/tq",
+        "en/tw",
+        "hbo/uhb?v=2.1.30",
+        "el-x-koine/ugnt?v=0.34"
+      ],
+      "rights": "CC BY-SA 4.0",
+      "source": [
+        {
+          "identifier": "tn",
+          "language": "en",
+          "version": "79"
+        }
+      ],
+      "subject": "TSV Translation Notes",
+      "title": "unfoldingWord® Translation Notes",
+      "type": "help",
+      "version": "80"
+    },
+    "checking": {
+      "checking_entity": [
+        "unfoldingWord"
+      ],
+      "checking_level": "3"
+    },
+    "projects": [
+      {
+        "title": "Genesis",
+        "versification": "ufw",
+        "identifier": "gen",
+        "sort": 1,
+        "path": "tn_GEN.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Exodus",
+        "versification": "ufw",
+        "identifier": "exo",
+        "sort": 2,
+        "path": "tn_EXO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Leviticus",
+        "versification": "ufw",
+        "identifier": "lev",
+        "sort": 3,
+        "path": "tn_LEV.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Numbers",
+        "versification": "ufw",
+        "identifier": "num",
+        "sort": 4,
+        "path": "tn_NUM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Deuteronomy",
+        "versification": "ufw",
+        "identifier": "deu",
+        "sort": 5,
+        "path": "tn_DEU.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Joshua",
+        "versification": "ufw",
+        "identifier": "jos",
+        "sort": 6,
+        "path": "tn_JOS.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Judges",
+        "versification": "ufw",
+        "identifier": "jdg",
+        "sort": 7,
+        "path": "tn_JDG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ruth",
+        "versification": "ufw",
+        "identifier": "rut",
+        "sort": 8,
+        "path": "tn_RUT.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Samuel",
+        "versification": "ufw",
+        "identifier": "1sa",
+        "sort": 9,
+        "path": "tn_1SA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Samuel",
+        "versification": "ufw",
+        "identifier": "2sa",
+        "sort": 10,
+        "path": "tn_2SA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Kings",
+        "versification": "ufw",
+        "identifier": "1ki",
+        "sort": 11,
+        "path": "tn_1KI.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Kings",
+        "versification": "ufw",
+        "identifier": "2ki",
+        "sort": 12,
+        "path": "tn_2KI.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Chronicles",
+        "versification": "ufw",
+        "identifier": "1ch",
+        "sort": 13,
+        "path": "tn_1CH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Chronicles",
+        "versification": "ufw",
+        "identifier": "2ch",
+        "sort": 14,
+        "path": "tn_2CH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ezra",
+        "versification": "ufw",
+        "identifier": "ezr",
+        "sort": 15,
+        "path": "tn_EZR.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Nehemiah",
+        "versification": "ufw",
+        "identifier": "neh",
+        "sort": 16,
+        "path": "tn_NEH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Esther",
+        "versification": "ufw",
+        "identifier": "est",
+        "sort": 17,
+        "path": "tn_EST.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Job",
+        "versification": "ufw",
+        "identifier": "job",
+        "sort": 18,
+        "path": "tn_JOB.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Psalms",
+        "versification": "ufw",
+        "identifier": "psa",
+        "sort": 19,
+        "path": "tn_PSA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Proverbs",
+        "versification": "ufw",
+        "identifier": "pro",
+        "sort": 20,
+        "path": "tn_PRO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ecclesiastes",
+        "versification": "ufw",
+        "identifier": "ecc",
+        "sort": 21,
+        "path": "tn_ECC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Song of Solomon",
+        "versification": "ufw",
+        "identifier": "sng",
+        "sort": 22,
+        "path": "tn_SNG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Isaiah",
+        "versification": "ufw",
+        "identifier": "isa",
+        "sort": 23,
+        "path": "tn_ISA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Jeremiah",
+        "versification": "ufw",
+        "identifier": "jer",
+        "sort": 24,
+        "path": "tn_JER.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Lamentations",
+        "versification": "ufw",
+        "identifier": "lam",
+        "sort": 25,
+        "path": "tn_LAM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ezekiel",
+        "versification": "ufw",
+        "identifier": "ezk",
+        "sort": 26,
+        "path": "tn_EZK.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Daniel",
+        "versification": "ufw",
+        "identifier": "dan",
+        "sort": 27,
+        "path": "tn_DAN.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Hosea",
+        "versification": "ufw",
+        "identifier": "hos",
+        "sort": 28,
+        "path": "tn_HOS.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Joel",
+        "versification": "ufw",
+        "identifier": "jol",
+        "sort": 29,
+        "path": "tn_JOL.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Amos",
+        "versification": "ufw",
+        "identifier": "amo",
+        "sort": 30,
+        "path": "tn_AMO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Obadiah",
+        "versification": "ufw",
+        "identifier": "oba",
+        "sort": 31,
+        "path": "tn_OBA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Jonah",
+        "versification": "ufw",
+        "identifier": "jon",
+        "sort": 32,
+        "path": "tn_JON.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Micah",
+        "versification": "ufw",
+        "identifier": "mic",
+        "sort": 33,
+        "path": "tn_MIC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Nahum",
+        "versification": "ufw",
+        "identifier": "nam",
+        "sort": 34,
+        "path": "tn_NAM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Habakkuk",
+        "versification": "ufw",
+        "identifier": "hab",
+        "sort": 35,
+        "path": "tn_HAB.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Zephaniah",
+        "versification": "ufw",
+        "identifier": "zep",
+        "sort": 36,
+        "path": "tn_ZEP.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Haggai",
+        "versification": "ufw",
+        "identifier": "hag",
+        "sort": 37,
+        "path": "tn_HAG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Zechariah",
+        "versification": "ufw",
+        "identifier": "zec",
+        "sort": 38,
+        "path": "tn_ZEC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Malachi",
+        "versification": "ufw",
+        "identifier": "mal",
+        "sort": 39,
+        "path": "tn_MAL.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Matthew",
+        "versification": "ufw",
+        "identifier": "mat",
+        "sort": 40,
+        "path": "tn_MAT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Mark",
+        "versification": "ufw",
+        "identifier": "mrk",
+        "sort": 41,
+        "path": "tn_MRK.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Luke",
+        "versification": "ufw",
+        "identifier": "luk",
+        "sort": 42,
+        "path": "tn_LUK.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "John",
+        "versification": "ufw",
+        "identifier": "jhn",
+        "sort": 43,
+        "path": "tn_JHN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Acts",
+        "versification": "ufw",
+        "identifier": "act",
+        "sort": 44,
+        "path": "tn_ACT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Romans",
+        "versification": "ufw",
+        "identifier": "rom",
+        "sort": 45,
+        "path": "tn_ROM.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Corinthians",
+        "versification": "ufw",
+        "identifier": "1co",
+        "sort": 46,
+        "path": "tn_1CO.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Corinthians",
+        "versification": "ufw",
+        "identifier": "2co",
+        "sort": 47,
+        "path": "tn_2CO.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Galatians",
+        "versification": "ufw",
+        "identifier": "gal",
+        "sort": 48,
+        "path": "tn_GAL.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Ephesians",
+        "versification": "ufw",
+        "identifier": "eph",
+        "sort": 49,
+        "path": "tn_EPH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Philippians",
+        "versification": "ufw",
+        "identifier": "php",
+        "sort": 50,
+        "path": "tn_PHP.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Colossians",
+        "versification": "ufw",
+        "identifier": "col",
+        "sort": 51,
+        "path": "tn_COL.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Thessalonians",
+        "versification": "ufw",
+        "identifier": "1th",
+        "sort": 52,
+        "path": "tn_1TH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Thessalonians",
+        "versification": "ufw",
+        "identifier": "2th",
+        "sort": 53,
+        "path": "tn_2TH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Timothy",
+        "versification": "ufw",
+        "identifier": "1ti",
+        "sort": 54,
+        "path": "tn_1TI.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Timothy",
+        "versification": "ufw",
+        "identifier": "2ti",
+        "sort": 55,
+        "path": "tn_2TI.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Titus",
+        "versification": "ufw",
+        "identifier": "tit",
+        "sort": 56,
+        "path": "tn_TIT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Philemon",
+        "versification": "ufw",
+        "identifier": "phm",
+        "sort": 57,
+        "path": "tn_PHM.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Hebrews",
+        "versification": "ufw",
+        "identifier": "heb",
+        "sort": 58,
+        "path": "tn_HEB.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "James",
+        "versification": "ufw",
+        "identifier": "jas",
+        "sort": 59,
+        "path": "tn_JAS.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Peter",
+        "versification": "ufw",
+        "identifier": "1pe",
+        "sort": 60,
+        "path": "tn_1PE.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Peter",
+        "versification": "ufw",
+        "identifier": "2pe",
+        "sort": 61,
+        "path": "tn_2PE.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 John",
+        "versification": "ufw",
+        "identifier": "1jn",
+        "sort": 62,
+        "path": "tn_1JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 John",
+        "versification": "ufw",
+        "identifier": "2jn",
+        "sort": 63,
+        "path": "tn_2JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "3 John",
+        "versification": "ufw",
+        "identifier": "3jn",
+        "sort": 64,
+        "path": "tn_3JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Jude",
+        "versification": "ufw",
+        "identifier": "jud",
+        "sort": 65,
+        "path": "tn_JUD.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Revelation",
+        "versification": "ufw",
+        "identifier": "rev",
+        "sort": 66,
+        "path": "tn_REV.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      }
+    ],
+    "version": "80",
+    "catalog_modified_time": "2024-04-24T05:55:45Z",
+    "modifiedTime": "2024-04-24T05:55:45Z"
+  },
+  "numbers": {
+    "groups": {},
+    "index": [
+      {
+        "id": "translate-numbers",
+        "name": "Numbers"
+      },
+      {
+        "id": "translate-ordinal",
+        "name": "Ordinal Numbers"
+      },
+      {
+        "id": "translate-fraction",
+        "name": "Fractions"
+      }
+    ]
+  },
+  "other": {
+    "groups": {},
+    "index": [
+      {
+        "id": "translate-textvariants",
+        "name": "Textual Variants"
+      },
+      {
+        "id": "figs-explicitinfo",
+        "name": "Making Assumed Knowledge and Implicit Information Explicit"
+      },
+      {
+        "id": "figs-extrainfo",
+        "name": "When to Keep Information Implicit"
+      },
+      {
+        "id": "figs-infostructure",
+        "name": "Information Structure"
+      },
+      {
+        "id": "figs-yousingular",
+        "name": "Forms of ‘You’ — Singular"
+      },
+      {
+        "id": "grammar-collectivenouns",
+        "name": "Collective Nouns"
+      },
+      {
+        "id": "grammar-connect-condition-contrary",
+        "name": "Connect — Contrary to Fact Conditions"
+      },
+      {
+        "id": "grammar-connect-condition-fact",
+        "name": "Connect — Factual Conditions"
+      },
+      {
+        "id": "grammar-connect-condition-hypothetical",
+        "name": "Connect — Hypothetical Conditions"
+      },
+      {
+        "id": "grammar-connect-time-background",
+        "name": "Connect — Background Information"
+      },
+      {
+        "id": "grammar-connect-time-sequential",
+        "name": "Connect — Sequential Time Relationship"
+      },
+      {
+        "id": "grammar-connect-time-simultaneous",
+        "name": "Connect — Simultaneous Time Relationship"
+      },
+      {
+        "id": "grammar-connect-words-phrases",
+        "name": "Connecting Words and Phrases"
+      },
+      {
+        "id": "guidelines-sonofgodprinciples",
+        "name": "Translating Son and Father"
+      },
+      {
+        "id": "translate-blessing",
+        "name": "Blessings"
+      },
+      {
+        "id": "translate-kinship",
+        "name": "Kinship"
+      },
+      {
+        "id": "translate-transliterate",
+        "name": "Copy or Borrow Words"
+      },
+      {
+        "id": "writing-pronouns",
+        "name": "Pronouns — When to Use Them"
+      },
+      {
+        "id": "translate-manuscripts",
+        "name": "Original Manuscripts"
+      },
+      {
+        "id": "writing-oathformula",
+        "name": "Oath Formulas"
+      },
+      {
+        "id": "writing-politeness",
+        "name": "Politeness"
+      },
+      {
+        "id": "figs-imperative3p",
+        "name": "Third-Person Imperatives"
+      },
+      {
+        "id": "translate-tense",
+        "name": "Irregular Use of Tenses"
+      },
+      {
+        "id": "headings",
+        "name": "Section Headings"
+      },
+      {
+        "id": "figs-litany",
+        "name": "Litany"
+      },
+      {
+        "id": "figs-verbs",
+        "name": "Verbs"
+      },
+      {
+        "id": "figs-youdual",
+        "name": "Forms of ‘You’ — Dual/Plural"
+      },
+      {
+        "id": "figs-youformal",
+        "name": "Forms of ‘You’ — Formal or Informal"
+      },
+      {
+        "id": "grammar-honorifics",
+        "name": "Honorifics"
+      },
+      {
+        "id": "figs-aside",
+        "name": "Aside"
+      },
+      {
+        "id": "figs-youcrowd",
+        "name": "Singular Pronouns that refer to Groups"
+      },
+      {
+        "id": "figs-Idiom",
+        "name": "Idiom"
+      },
+      {
+        "id": "figs-abstractnoun",
+        "name": "figs-abstractnoun"
+      },
+      {
+        "id": "figs-chiasm",
+        "name": "figs-chiasm"
+      },
+      {
+        "id": "figs-dual",
+        "name": "figs-dual"
+      },
+      {
+        "id": "figs-dualpronoun",
+        "name": "figs-dualpronoun"
+      },
+      {
+        "id": "figs-honorifics",
+        "name": "figs-honorifics"
+      },
+      {
+        "id": "figs-idioms",
+        "name": "figs-idioms"
+      },
+      {
+        "id": "figs-order",
+        "name": "Word Order"
+      },
+      {
+        "id": "figs-passives",
+        "name": "figs-passives"
+      },
+      {
+        "id": "figs-politeness",
+        "name": "figs-politeness"
+      },
+      {
+        "id": "figs-theydual",
+        "name": "figs-theydual"
+      },
+      {
+        "id": "grammar-connect-logic-purpose",
+        "name": "grammar-connect-logic-purpose"
+      },
+      {
+        "id": "grammar-connect-logic-sequential",
+        "name": "grammar-connect-logic-sequential"
+      },
+      {
+        "id": "translate-honorifics",
+        "name": "translate-honorifics"
+      },
+      {
+        "id": "translate-key-term",
+        "name": "translate-key-term"
+      },
+      {
+        "id": "translate-key-terms",
+        "name": "Making a Key Terms Spreadsheet"
+      },
+      {
+        "id": "translate-keyterms",
+        "name": "translate-keyterms"
+      },
+      {
+        "id": "translate-unknowns",
+        "name": "translate-unknowns"
+      },
+      {
+        "id": "figs-sentencetypes",
+        "name": "Sentence Types"
+      },
+      {
+        "id": "figs-reduplication",
+        "name": "Reduplication"
+      },
+      {
+        "id": "translate-plural",
+        "name": "Unusual Uses of the Plural"
+      },
+      {
+        "id": "figs-exclamation",
+        "name": "figs-exclamation"
+      }
+    ]
+  }
+}

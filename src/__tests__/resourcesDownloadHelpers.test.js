@@ -48,9 +48,11 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
     return resourcesDownloadHelpers.downloadAndProcessResource(resource, resourcesPath, []).then((res) => {
       const folderPath = path.join(resourcesPath, '/en/translationHelps/translationNotes/v80_unfoldingWord')
       const bookIds = Object.keys(ALL_BIBLE_BOOKS)
+      const outputFolder = path.join(resourcesPath, 'processed', resource.languageId, resource.resourceId)
+      fs.ensureDirSync(outputFolder);
       for (const bookId of bookIds) {
         const contents = readHelpsFolder(folderPath, bookId)
-        const outputPath = path.join(resourcesPath, 'processed', resource.languageId, resource.resourceId, 'translationHelps.json')
+        const outputPath = path.join(outputFolder, `${resource.languageId}_${resource.resourceId}_${bookId}.json`)
         fs.outputJsonSync(outputPath, contents, { spaces: 2 });
       }
       expect(resourceData).toEqual(resource);
@@ -73,7 +75,16 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
       },
     };
     return resourcesDownloadHelpers.downloadAndProcessResource(resource, resourcesPath, []).then((res) => {
-      expect(res).toEqual(resource);
+      const folderPath = path.join(resourcesPath, '/en/translationHelps/translationWords/v80_unfoldingWord')
+      const bookIds = Object.keys(ALL_BIBLE_BOOKS)
+      const outputFolder = path.join(resourcesPath, 'processed', resource.languageId, resource.resourceId)
+      fs.ensureDirSync(outputFolder);
+      for (const bookId of bookIds) {
+        const contents = readHelpsFolder(folderPath, bookId)
+        const outputPath = path.join(outputFolder, `${resource.languageId}_${resource.resourceId}_${bookId}.json`)
+        fs.outputJsonSync(outputPath, contents, { spaces: 2 });
+      }
+      expect(resourceData).toEqual(resource);
     });
   });
 
