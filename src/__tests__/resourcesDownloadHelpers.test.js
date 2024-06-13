@@ -6,34 +6,53 @@ import { ALL_BIBLE_BOOKS } from '../common/BooksOfTheBible'
 // helpers
 const {
   default: SourceContentUpdater,
-  apiHelpers,
+  downloadHelpers,
+  resourcesHelpers,
   resourcesDownloadHelpers,
 } = require('tc-source-content-updater');
+const resourcesList = require('./fixtures/updatedResources.json');
 
 
 // jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
 describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () => {
   const resourcesPath = path.join(ospath.home(), 'translationCore/temp');
+  const updatedResourcesPath = path.join(resourcesPath, 'updatedResources.json')
 
   it('Test getLatestResources', () => {
-    const sourceContentUpdater = new SourceContentUpdater();
+    // const sourceContentUpdater = new SourceContentUpdater();
+    // const neededResources = sourceContentUpdater.getLatestResources([], resourcesPath);
     return getLatestResources(resourcesPath).then( (updatedCatalogResources) => {
       console.log(updatedCatalogResources)
-      for (const item of updatedCatalogResources) {
-        const lang = item.languageId
-        if (lang === 'en') {
-          console.log(item)
-        }
-      }
+      // for (const item of updatedCatalogResources) {
+      //   const lang = item.languageId
+      //   if (lang === 'en') {
+      //     console.log(item)
+      //   }
+      // }
+      fs.ensureDirSync(resourcesPath)
+      fs.outputJsonSync(updatedResourcesPath, updatedCatalogResources, { spaces: 2 })
     });
   })
 
-  it('Test get all resources', () => {
+  it('Test get all tHelps resources', () => {
     const owner = 'unfoldingWord'
     const language = 'en'
-    return getResourcesFor(resourcesPath, owner, language).then(() => {
+    // const resources = fs.readJsonSync(updatedResourcesPath)
+    const updatedCatalogResources = resourcesList
+    return getAllResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath).then(() => {
       console.log()
+    })
+  })
+
+  it('Test get ugnt', () => {
+    const owner = 'unfoldingWord'
+    const language = 'el-x-koine'
+    const resourceId = 'ugnt'
+    // const resources = fs.readJsonSync(updatedResourcesPath)
+    const updatedCatalogResources = resourcesList
+    return fetchBibleResource(updatedCatalogResources, language, owner, resourceId, resourcesPath).then((results) => {
+      console.log(results)
     })
   })
 
@@ -221,6 +240,44 @@ async function getResourcesFor(resourcesPath, owner, language) {
   await getAllResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath)
   return updatedCatalogResources;
 }
+
+async function fetchBibleResource(updatedCatalogResources, language, owner, resourceId, resourcesPath) {
+  const item = findResource(updatedCatalogResources, language, owner, resourceId)
+  if (item) {
+    const downloadUrl = item.downloadUrl
+    try {
+      const zipFolder = path.join(resourcesPath, 'imports', item.languageId, 'bible', `v${item.version}_${item.owner}`)
+      fs.ensureDirSync(zipFolder)
+      const zipFileName = `${item.languageId}_${item.resourceId}_v${item.version}_${encodeURIComponent(item.owner)}.zip`;
+      const zipFilePath = path.join(zipFolder, zipFileName)
+      console.log('fetching')
+      const results = await downloadHelpers.download(downloadUrl, zipFilePath)
+
+      if (results.status === 200) {
+        // downloadComplete = true;
+        try {
+          console.log('Unzipping: ' + downloadUrl);
+          const importPath = await resourcesHelpers.unzipResource(item, zipFilePath, resourcesPath);
+          console.log('importPath', importPath)
+        } catch (err) {
+          console.log(err)
+          throw err;
+        }
+
+        console.log(results)
+        return results
+      } else {
+        const message = `Download ${downloadUrl} error, status: ${results.status}`
+        console.log(message)
+        throw message
+      }
+    } catch (err) {
+      console.log(err)
+      throw err
+    }
+  }
+}
+
 
 const en_tn = {
   "languageId": "en",
