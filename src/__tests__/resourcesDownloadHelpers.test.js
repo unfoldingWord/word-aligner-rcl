@@ -24,12 +24,10 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
     // const neededResources = sourceContentUpdater.getLatestResources([], resourcesPath);
     return getLatestResources(resourcesPath).then( (updatedCatalogResources) => {
       console.log(updatedCatalogResources)
-      // for (const item of updatedCatalogResources) {
-      //   const lang = item.languageId
-      //   if (lang === 'en') {
-      //     console.log(item)
-      //   }
-      // }
+      const allResourcesByLanguage = createLanguagesObjectFromResources(updatedCatalogResources);
+      console.log(allResourcesByLanguage)
+      const filtered = filterCompleteCheckingResources(allResourcesByLanguage)
+      console.log(filtered)
       fs.ensureDirSync(resourcesPath)
       fs.outputJsonSync(updatedResourcesPath, updatedCatalogResources, { spaces: 2 })
     });
@@ -37,21 +35,42 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
 
   it('Test get all tHelps resources', () => {
     const owner = 'unfoldingWord'
-    const language = 'en'
+    const languageId = 'en'
     // const resources = fs.readJsonSync(updatedResourcesPath)
     const updatedCatalogResources = resourcesList
-    return getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath).then((processed) => {
-      console.log(processed)
+    return getLangResourcesFromCatalog(updatedCatalogResources, languageId, owner, resourcesPath).then(( { processed, updatedCatalogResources } ) => {
+      console.log({ processed, updatedCatalogResources })
+      const success = verifyHaveGlResources(languageId, owner, resourcesPath)
+      expect(success).toBeTruthy()
     })
+  })
+
+  it('Test get all tHelps resources invalid owner', () => {
+    const owner = 'xunfoldingWord'
+    const languageId = 'en'
+    // const resources = fs.readJsonSync(updatedResourcesPath)
+    const updatedCatalogResources = resourcesList
+    return getLangResourcesFromCatalog(updatedCatalogResources, languageId, owner, resourcesPath).then(( { processed, updatedCatalogResources } ) => {
+      console.log({ processed, updatedCatalogResources })
+      const success = verifyHaveGlResources(languageId, owner, resourcesPath)
+      expect(success).toBeTruthy()
+    })
+  })
+
+  it('Test verifyHaveGlResources()', () => {
+    const owner = 'unfoldingWord'
+    const languageId = 'en'
+    const success = verifyHaveGlResources(languageId, owner, resourcesPath)
+    expect(success).toBeTruthy()
   })
 
   it('Test get ugnt', () => {
     const owner = 'unfoldingWord'
-    const language = 'el-x-koine'
+    const languageId = 'el-x-koine'
     const resourceId = 'ugnt'
     // const resources = fs.readJsonSync(updatedResourcesPath)
     const updatedCatalogResources = resourcesList
-    return fetchBibleResource(updatedCatalogResources, language, owner, resourceId, resourcesPath).then((results) => {
+    return fetchBibleResource(updatedCatalogResources, languageId, owner, resourceId, resourcesPath).then((results) => {
       console.log(results)
     })
   })
@@ -165,15 +184,15 @@ function processHelpsIntoJson(resource, resourcesPath, folderPath, resourceFiles
   }
 }
 
+const RESOURCE_ID_MAP = {
+  'tw': 'translationWords',
+  'twl': 'translationWordsLinks',
+  'tn': 'translationNotes',
+  'ta': 'translationAcademy'
+}
+
 async function downloadAndProcessResource(resource, resourcesPath, byBook = false, process = false) {
   const res = await resourcesDownloadHelpers.downloadAndProcessResource(resource, resourcesPath, [])
-  const RESOURCE_ID_MAP = {
-    'tw': 'translationWords',
-    'twl': 'translationWordsLinks',
-    'tn': 'translationNotes',
-    'ta': 'translationAcademy'
-  }
-
   const resourceFiles = []
   const resourceName = RESOURCE_ID_MAP[resource.resourceId] || ''
   const folderPath = path.join(resourcesPath, resource.languageId, 'translationHelps', resourceName, `v${resource.version}_${resource.owner}`)
@@ -190,11 +209,11 @@ async function getLatestResources(resourcesPath) {
   return updatedCatalogResources;
 }
 
-function findResource(updatedCatalogResources, language, owner, resource) {
+function findResource(updatedCatalogResources, languageId, owner, resource) {
   for (const item of updatedCatalogResources) {
     const lang = item.languageId
     const owner_ = item.owner
-    if ((lang === language) && (owner === owner_)) {
+    if ((lang === languageId) && (owner === owner_)) {
       if (resource == item.resourceId) {
         console.log('Found', item)
         return item
@@ -204,16 +223,22 @@ function findResource(updatedCatalogResources, language, owner, resource) {
   return null
 }
 
-async function getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath) {
-  const resources = [
-    { id:'ta' }, { id:'tw' }, { id:'twl', bookRes: true }, { id: 'tn', bookRes: true }]
+const checkingHelpsResources = [
+  { id:'ta' }, { id:'tw' }, { id:'twl', bookRes: true }, { id: 'tn', bookRes: true }]
+
+async function getLangResourcesFromCatalog(updatedCatalogResources, languageId, owner, resourcesPath) {
+  if (!updatedCatalogResources?.length) {
+    updatedCatalogResources = await getLatestResources(resourcesPath)
+  }
     // , { id: 'ult', bookRes: true }, { id: 'ust', bookRes: true }, { id: 'glt', bookRes: true }, { id: 'gst', bookRes: true }]
   const found = []
-  for (const resource of resources) {
-    const item = findResource(updatedCatalogResources, language, owner, resource.id)
+  for (const resource of checkingHelpsResources) {
+    const item = findResource(updatedCatalogResources, languageId, owner, resource.id)
     if (item) {
       item.bookRes = resource.bookRes
       found.push(item)
+    } else {
+      console.error('Resource item not found', {languageId, owner, resourceId: resource.id})
     }
   }
   const processed = []
@@ -226,17 +251,11 @@ async function getLangResourcesFromCatalog(updatedCatalogResources, language, ow
     console.log(item)
     processHelpsIntoJson(item.resource, resourcesPath, item.resourcePath, item.resourceFiles, item.byBook)
   }
-  return processed
+  return { processed, updatedCatalogResources }
 }
 
-async function getResourcesFor(resourcesPath, owner, language) {
-  const updatedCatalogResources = await getLatestResources(resourcesPath)
-  await getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath)
-  return updatedCatalogResources;
-}
-
-async function fetchBibleResource(updatedCatalogResources, language, owner, resourceId, resourcesPath) {
-  const item = findResource(updatedCatalogResources, language, owner, resourceId)
+async function fetchBibleResource(updatedCatalogResources, languageId, owner, resourceId, resourcesPath) {
+  const item = findResource(updatedCatalogResources, languageId, owner, resourceId)
   if (item) {
     const downloadUrl = item.downloadUrl
     try {
@@ -280,6 +299,102 @@ async function fetchBibleResource(updatedCatalogResources, language, owner, reso
   }
 }
 
+export const createLanguagesObjectFromResources = (resources_) => {
+  const result = {};
+
+  resources_.forEach((item) => {
+    const languageId = item?.languageId
+    const owner = item?.owner
+    const resourceId = item?.resourceId
+    let langObject = result[languageId]
+    if (!langObject) {
+      langObject = {}
+      result[languageId] = langObject
+    }
+
+    let ownerObject = langObject[owner]
+    if (!ownerObject) {
+      ownerObject = {}
+      langObject[owner] = ownerObject
+    }
+
+    ownerObject[resourceId] = item
+  });
+
+  return result;
+};
+
+export const filterCompleteCheckingResources = (resourceObject) => {
+  const result = {};
+
+  for (const languageId of Object.keys(resourceObject)) {
+    let langObject = resourceObject[languageId]
+    if (!langObject) {
+      langObject = {}
+    }
+
+    for (const owner of Object.keys(langObject)) {
+      let ownerObject = langObject[owner]
+      if (!ownerObject) {
+        ownerObject = {}
+      }
+
+      let foundAll = true
+      let found = {  }
+      for (const desiredResource of checkingHelpsResources) {
+        const resourceId = desiredResource?.id
+        const foundResource = ownerObject?.[resourceId]
+        if (foundResource) {
+          found[resourceId] = foundResource
+        } else {
+          foundAll = false
+          break
+        }
+      }
+      if (foundAll) {
+        let langObject = result[languageId]
+        if (!langObject) {
+          langObject = {}
+          result[languageId] = langObject
+        }
+
+        langObject[owner] = found
+      }
+    }
+  }
+
+  return result;
+};
+
+function verifyHaveGlResources(languageId, owner, resourcesPath) {
+  for (const resource of checkingHelpsResources) {
+    const resourceName = RESOURCE_ID_MAP[resource.id] || ''
+    const folderPath = path.join(resourcesPath, languageId, 'translationHelps', resourceName) // , `v${resource.version}_${resource.owner}`)
+    const versionPath = resourcesHelpers.getLatestVersionInPath(folderPath, owner, false)
+
+    if (versionPath && fs.pathExistsSync(versionPath)) {
+      if (!resource?.bookRes) {
+        const filePath = path.join(versionPath, `${resource?.id}.json`)
+        if (fs.pathExistsSync(filePath)) {
+          continue
+        }
+        console.log(`verifyHaveGlResources() - Could not find file: ${filePath}`)
+      } else { // by book
+        const files = fs.readdirSync(versionPath).filter((filename) => path.extname(filename) === '.json');
+        if  (files?.length) {
+          continue
+        }
+
+        console.log(`verifyHaveGlResources() - Could not find files in : ${versionPath}`)
+      }
+    }
+
+    console.log(`verifyHaveGlResources() - Could not find folder: ${folderPath}`)
+    return false
+  }
+
+  return true
+}
 
 const en_tn = {
   "languageId": "en",
