@@ -40,8 +40,8 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
     const language = 'en'
     // const resources = fs.readJsonSync(updatedResourcesPath)
     const updatedCatalogResources = resourcesList
-    return getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath).then(() => {
-      console.log()
+    return getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath).then((processed) => {
+      console.log(processed)
     })
   })
 
@@ -55,27 +55,6 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
       console.log(results)
     })
   })
-
-  it('Test resourcesDownloadHelpers.downloadAndProcessResource() for all EN helps', () => {
-    const resource = {
-      "languageId": "en",
-      "resourceId": "tn",
-      "remoteModifiedTime": "2024-04-24T05:55:45Z",
-      "downloadUrl": "https://git.door43.org/unfoldingWord/en_tn/archive/v80.zip",
-      "version": "80",
-      "subject": "TSV_Translation_Notes",
-      "owner": "unfoldingWord",
-      catalogEntry: {
-        subject: {},
-        resource: {},
-        format: {},
-      },
-    };
-    return downloadAndProcessResource(resource, resourcesPath). then(({ resourcePath: outputFolder, resourceFiles}) => {
-      expect(!!resourcesPath).toBeTruthy()
-      expect(resourcesPath?.length).toEqual(66)
-    })
-  });
 
   it('Test resourcesDownloadHelpers.downloadAndProcessResource() for EN TN', () => {
     const resource = {
@@ -92,7 +71,7 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
         format: {},
       },
     };
-    return downloadAndProcessResource(resource, resourcesPath). then(({ resourcePath: outputFolder, resourceFiles}) => {
+    return downloadAndProcessResource(resource, resourcesPath, true, true). then(({ resourcePath: outputFolder, resourceFiles}) => {
       expect(!!resourcesPath).toBeTruthy()
       expect(resourcesPath?.length).toEqual(66)
     })
@@ -113,7 +92,7 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
         format: {},
       },
     };
-    return downloadAndProcessResource(resource, resourcesPath). then(({ resourcePath: outputFolder, resourceFiles}) => {
+    return downloadAndProcessResource(resource, resourcesPath, true, true). then(({ resourcePath: outputFolder, resourceFiles}) => {
       expect(!!resourcesPath).toBeTruthy()
       expect(resourcesPath?.length).toEqual(66)
     })
@@ -162,35 +141,46 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
 // helpers
 //
 
-async function downloadAndProcessResource(resource, resourcesPath, byBook = false) {
+function processHelpsIntoJson(resource, resourcesPath, folderPath, resourceFiles, byBook) {
+  const bookIds = Object.keys(ALL_BIBLE_BOOKS)
+  if (!byBook) {
+    const contents = readHelpsFolder(folderPath)
+    fs.removeSync(folderPath) // remove unzipped files
+    fs.ensureDirSync(folderPath)
+    const outputPath = path.join(folderPath, `${resource.resourceId}.json`)
+    fs.outputJsonSync(outputPath, contents, { spaces: 2 })
+    resourceFiles.push(outputPath)
+  } else {
+    const outputFolder = path.join(folderPath, '../temp')
+    for (const bookId of bookIds) {
+      const contents = readHelpsFolder(folderPath, bookId)
+      // fs.removeSync(folderPath) // remove unzipped files
+      // fs.ensureDirSync(folderPath)
+      const outputPath = path.join(outputFolder, `${resource.resourceId}_${bookId}.json`)
+      fs.outputJsonSync(outputPath, contents, { spaces: 2 })
+      resourceFiles.push(outputPath)
+    }
+    fs.removeSync(folderPath) // remove unzipped files
+    fs.moveSync(outputFolder, folderPath)
+  }
+}
+
+async function downloadAndProcessResource(resource, resourcesPath, byBook = false, process = false) {
   const res = await resourcesDownloadHelpers.downloadAndProcessResource(resource, resourcesPath, [])
   const RESOURCE_ID_MAP = {
     'tw': 'translationWords',
     'twl': 'translationWordsLinks',
     'tn': 'translationNotes',
-    'ta': 'translationAcademy',
-  };
-
-  const resourceName = RESOURCE_ID_MAP[resource.resourceId] || ''
-  const folderPath = path.join(resourcesPath, resource.languageId, 'translationHelps', resourceName,`v${resource.version}_${resource.owner}`)
-  const bookIds = Object.keys(ALL_BIBLE_BOOKS)
-  const outputFolder = path.join(resourcesPath, resource.owner, resource.languageId, resource.resourceId)
-  fs.ensureDirSync(outputFolder);
-  const resourceFiles = []
-  if (!byBook) {
-    const contents = readHelpsFolder(folderPath)
-    const outputPath = path.join(outputFolder, `${resource.owner}_${resource.languageId}_${resource.resourceId}.json`)
-    fs.outputJsonSync(outputPath, contents, { spaces: 2 });
-    resourceFiles.push(outputPath)
-  } else {
-    for (const bookId of bookIds) {
-      const contents = readHelpsFolder(folderPath, bookId)
-      const outputPath = path.join(outputFolder, `${resource.owner}_${resource.languageId}_${resource.resourceId}_${bookId}.json`)
-      fs.outputJsonSync(outputPath, contents, { spaces: 2 });
-      resourceFiles.push(outputPath)
-    }
+    'ta': 'translationAcademy'
   }
-  return { resourcePath: outputFolder, resourceFiles};
+
+  const resourceFiles = []
+  const resourceName = RESOURCE_ID_MAP[resource.resourceId] || ''
+  const folderPath = path.join(resourcesPath, resource.languageId, 'translationHelps', resourceName, `v${resource.version}_${resource.owner}`)
+  if (process) {
+    processHelpsIntoJson(resource, resourcesPath, folderPath, resourceFiles, byBook)
+  }
+  return { resourcePath: folderPath, resourceFiles, resource, byBook};
 }
 
 async function getLatestResources(resourcesPath) {
@@ -229,8 +219,12 @@ async function getLangResourcesFromCatalog(updatedCatalogResources, language, ow
   const processed = []
   for (const item of found) {
     console.log('downloading', item)
-    const { resourcePath, resourceFiles} = await downloadAndProcessResource(item, resourcesPath, item.bookRes)
-    processed.push(resourcesPath)
+    const resource = await downloadAndProcessResource(item, resourcesPath, item.bookRes, false)
+    processed.push(resource)
+  }
+  for(const item of processed) {
+    console.log(item)
+    processHelpsIntoJson(item.resource, resourcesPath, item.resourcePath, item.resourceFiles, item.byBook)
   }
   return processed
 }
