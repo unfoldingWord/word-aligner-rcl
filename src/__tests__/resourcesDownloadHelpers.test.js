@@ -16,7 +16,7 @@ const resourcesList = require('./fixtures/updatedResources.json');
 // jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
 describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () => {
-  const resourcesPath = path.join(ospath.home(), 'translationCore/temp');
+  const resourcesPath = path.join(ospath.home(), 'translationCore/temp/downloaded');
   const updatedResourcesPath = path.join(resourcesPath, 'updatedResources.json')
 
   it('Test getLatestResources', () => {
@@ -40,7 +40,7 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
     const language = 'en'
     // const resources = fs.readJsonSync(updatedResourcesPath)
     const updatedCatalogResources = resourcesList
-    return getAllResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath).then(() => {
+    return getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath).then(() => {
       console.log()
     })
   })
@@ -174,7 +174,7 @@ async function downloadAndProcessResource(resource, resourcesPath, byBook = fals
   const resourceName = RESOURCE_ID_MAP[resource.resourceId] || ''
   const folderPath = path.join(resourcesPath, resource.languageId, 'translationHelps', resourceName,`v${resource.version}_${resource.owner}`)
   const bookIds = Object.keys(ALL_BIBLE_BOOKS)
-  const outputFolder = path.join(resourcesPath, 'processed', resource.owner, resource.languageId, resource.resourceId)
+  const outputFolder = path.join(resourcesPath, resource.owner, resource.languageId, resource.resourceId)
   fs.ensureDirSync(outputFolder);
   const resourceFiles = []
   if (!byBook) {
@@ -214,7 +214,7 @@ function findResource(updatedCatalogResources, language, owner, resource) {
   return null
 }
 
-async function getAllResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath) {
+async function getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath) {
   const resources = [
     { id:'ta' }, { id:'tw' }, { id:'twl', bookRes: true }, { id: 'tn', bookRes: true }]
     // , { id: 'ult', bookRes: true }, { id: 'ust', bookRes: true }, { id: 'glt', bookRes: true }, { id: 'gst', bookRes: true }]
@@ -237,7 +237,7 @@ async function getAllResourcesFromCatalog(updatedCatalogResources, language, own
 
 async function getResourcesFor(resourcesPath, owner, language) {
   const updatedCatalogResources = await getLatestResources(resourcesPath)
-  await getAllResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath)
+  await getLangResourcesFromCatalog(updatedCatalogResources, language, owner, resourcesPath)
   return updatedCatalogResources;
 }
 
@@ -246,10 +246,13 @@ async function fetchBibleResource(updatedCatalogResources, language, owner, reso
   if (item) {
     const downloadUrl = item.downloadUrl
     try {
-      const zipFolder = path.join(resourcesPath, 'imports', item.languageId, 'bible', `v${item.version}_${item.owner}`)
+      const destFolder = path.join(resourcesPath, item.owner, item.languageId, 'bible', `${item.resourceId}`)
+      const importFolder = path.join(resourcesPath, 'imports')
+      const zipFolder = path.join(importFolder, `v${item.version}_${item.owner}_${item.resourceId}`)
       fs.ensureDirSync(zipFolder)
       const zipFileName = `${item.languageId}_${item.resourceId}_v${item.version}_${encodeURIComponent(item.owner)}.zip`;
       const zipFilePath = path.join(zipFolder, zipFileName)
+      let importPath;
       console.log('fetching')
       const results = await downloadHelpers.download(downloadUrl, zipFilePath)
 
@@ -257,7 +260,7 @@ async function fetchBibleResource(updatedCatalogResources, language, owner, reso
         // downloadComplete = true;
         try {
           console.log('Unzipping: ' + downloadUrl);
-          const importPath = await resourcesHelpers.unzipResource(item, zipFilePath, resourcesPath);
+          importPath = await resourcesHelpers.unzipResource(item, zipFilePath, resourcesPath);
           console.log('importPath', importPath)
         } catch (err) {
           console.log(err)
@@ -265,6 +268,11 @@ async function fetchBibleResource(updatedCatalogResources, language, owner, reso
         }
 
         console.log(results)
+        if (importPath) {
+          const sourcePath = path.join(importPath, `${item.languageId}_${item.resourceId}`)
+          fs.moveSync(sourcePath, destFolder)
+          fs.removeSync(importFolder)
+        }
         return results
       } else {
         const message = `Download ${downloadUrl} error, status: ${results.status}`
