@@ -3,6 +3,7 @@ import path from 'path-extra';
 import ospath from 'ospath';
 import { readHelpsFolder } from './folderUtils'
 import { ALL_BIBLE_BOOKS } from '../common/BooksOfTheBible'
+import { apiHelpers } from 'tc-source-content-updater'
 // helpers
 const {
   default: SourceContentUpdater,
@@ -47,6 +48,18 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
     })
   })
 
+  it('Test get all language resources if missing', () => {
+    const owner = 'unfoldingWord'
+    const languageId = 'en'
+    // const resources = fs.readJsonSync(updatedResourcesPath)
+    const updatedCatalogResources = resourcesList
+    return getLatestLangResourcesFromCatalog(updatedCatalogResources, languageId, owner, resourcesPath).then(( { processed, updatedCatalogResources } ) => {
+      console.log({ processed, updatedCatalogResources })
+      const success = verifyHaveGlResources(languageId, owner, resourcesPath)
+      expect(success).toBeTruthy()
+    })
+  })
+
   it('Test get all tHelps resources', () => {
     const owner = 'unfoldingWord'
     const languageId = 'en'
@@ -74,7 +87,7 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
   it('Test verifyHaveGlResources()', () => {
     const owner = 'unfoldingWord'
     const languageId = 'en'
-    const success = verifyHaveGlResources(languageId, owner, resourcesPath)
+    const success = verifyHaveGlResources(languageId, owner, resourcesPath, resourcesList)
     expect(success).toBeTruthy()
   })
 
@@ -340,7 +353,7 @@ async function getLangResourcesFromCatalog(catalog, languageId, owner, resources
   for (const alignedBibles of alignedBiblesList) {
     let fetched = false
     for (const bibleId of alignedBibles) {
-      const item = findResource(catalog, languageId, owner, bibleId)
+      const item = findResource(updatedCatalogResources, languageId, owner, bibleId)
       if (item) {
         console.log('getLangResourcesFromCatalog - downloading', item)
         const resource = await downloadAndProcessResource(item, resourcesPath, item.bookRes, false)
@@ -361,7 +374,7 @@ async function getLangResourcesFromCatalog(catalog, languageId, owner, resources
     }
   }
 
-  return { processed, updatedCatalogResources: catalog }
+  return { processed, updatedCatalogResources }
 }
 
 /**
@@ -495,42 +508,111 @@ export const filterCompleteCheckingResources = (resourcesObject) => {
   return result;
 };
 
+function verifyHaveHelpsResource(resource, resourcesPath, languageId, owner, catalog = null) {
+  const resourceName = RESOURCE_ID_MAP[resource.id] || ''
+  const folderPath = path.join(resourcesPath, languageId, 'translationHelps', resourceName) // , `v${resource.version}_${resource.owner}`)
+  const versionPath = resourcesHelpers.getLatestVersionInPath(folderPath, owner, false)
+
+  if (versionPath && fs.pathExistsSync(versionPath)) {
+    if (catalog) {
+      const {version, owner} = resourcesHelpers.getVersionAndOwnerFromPath(versionPath)
+      const item = findResource(catalog, languageId, owner, resource.id)
+      if (item) {
+        const currentVersion = apiHelpers.formatVersionWithV(version)
+        const latestVersion = apiHelpers.formatVersionWithV(item.version)
+        const comparion = resourcesHelpers.compareVersions(currentVersion, latestVersion )
+        if (comparion >= 0) {
+          // version is good
+        } else {
+          console.log(`verifyHaveHelpsResource() - Expected version '${item.version}', but currently have '${version}'`)
+          return false
+        }
+      }
+    }
+    if (!resource?.bookRes) {
+      const filePath = path.join(versionPath, `${resource?.id}.json`)
+      if (fs.pathExistsSync(filePath)) {
+        return true
+      } else {
+        console.log(`verifyHaveHelpsResource() - Could not find file: ${versionPath}`)
+        return false
+      }
+    } else { // by book
+      const files = fs.readdirSync(versionPath).filter((filename) => path.extname(filename) === '.json')
+      if (files?.length) {
+        return true
+      } else {
+        console.log(`verifyHaveHelpsResource() - Could not find files in : ${versionPath}`)
+        return false
+      }
+    }
+  } else {
+    console.log(`verifyHaveHelpsResource() - Could not find folder: ${folderPath}`)
+    return false
+  }
+}
+
+/**
+ * make sure specific bible resouce is already downloaded, and if catalog give, make sure it is valid version
+ * @param {string} bibleId
+ * @param {string} resourcesPath
+ * @param {string} languageId
+ * @param {string} owner
+ * @param  {object[]} catalog - if given then also validate version is equal to or greater than catalog version
+ * @returns {boolean} - true if found and valid
+ */
+function verifyHaveBibleResource(bibleId, resourcesPath, languageId, owner, catalog = null) {
+  const folderPath = path.join(resourcesPath, languageId, 'bibles', bibleId) // , `v${resource.version}_${resource.owner}`)
+  const versionPath = resourcesHelpers.getLatestVersionInPath(folderPath, owner, false)
+
+  if (versionPath && fs.pathExistsSync(versionPath)) {
+    if (catalog) {
+      const {version, owner} = resourcesHelpers.getVersionAndOwnerFromPath(versionPath)
+      const item = findResource(catalog, languageId, owner, bibleId)
+      if (item) {
+        const currentVersion = apiHelpers.formatVersionWithV(version)
+        const latestVersion = apiHelpers.formatVersionWithV(item.version)
+        const comparion = resourcesHelpers.compareVersions(currentVersion, latestVersion )
+        if (comparion >= 0) {
+          // version is good
+        } else {
+          console.log(`verifyHaveBibleResource() - Expected version '${item.version}', but currently have '${version}'`)
+          return false
+        }
+      }
+    }
+
+    const books = fs.readdirSync(versionPath)
+      .filter((file) => path.extname(file) !== '.json' && file !== '.DS_Store');
+    if (books?.length) {
+      return true
+    } else {
+      console.log(`verifyHaveBibleResource() - Could not find files in : ${versionPath}`)
+    }
+  } else {
+    console.log(`verifyHaveBibleResource() - Could not find folder: ${folderPath}`)
+  }
+  return false
+}
+
+
 /**
  * look in resourcesPath to make sure we have all the GL translationHelps resources needed for GL
  * @param {string} languageId
  * @param {string} owner
  * @param {string} resourcesPath
+ * @param {object[]} catalog - if given then also validate version is equal to or greater than catalog version
  * @returns {boolean}
  */
-function verifyHaveGlHelpsResources(languageId, owner, resourcesPath) {
+function verifyHaveGlHelpsResources(languageId, owner, resourcesPath, catalog = null) {
   let found = true
   for (const resource of checkingHelpsResources) {
-    const resourceName = RESOURCE_ID_MAP[resource.id] || ''
-    const folderPath = path.join(resourcesPath, languageId, 'translationHelps', resourceName) // , `v${resource.version}_${resource.owner}`)
-    const versionPath = resourcesHelpers.getLatestVersionInPath(folderPath, owner, false)
+    let foundItem = verifyHaveHelpsResource(resource, resourcesPath, languageId, owner, catalog)
 
-    if (versionPath && fs.pathExistsSync(versionPath)) {
-      if (!resource?.bookRes) {
-        const filePath = path.join(versionPath, `${resource?.id}.json`)
-        if (fs.pathExistsSync(filePath)) {
-          continue
-        }
-        console.log(`verifyHaveGlResources() - Could not find file: ${filePath}`)
-      } else { // by book
-        const files = fs.readdirSync(versionPath).filter((filename) => path.extname(filename) === '.json')
-        if (files?.length) {
-          continue
-        }
-
-        console.log(`verifyHaveGlResources() - Could not find files in : ${versionPath}`)
-        found = false
-        break
-      }
+    if (!foundItem) {
+      found = false
+      break
     }
-
-    console.log(`verifyHaveGlResources() - Could not find folder: ${folderPath}`)
-    found = false
-    break
   }
   return found
 }
@@ -540,45 +622,30 @@ function verifyHaveGlHelpsResources(languageId, owner, resourcesPath) {
  * @param {string} languageId
  * @param {string} owner
  * @param {string} resourcesPath
+ * @param {object[]} catalog - if given then also validate version is equal to or greater than catalog version
  * @returns {boolean}
  */
-function verifyHaveGlResources(languageId, owner, resourcesPath) {
-  let found = verifyHaveGlHelpsResources(languageId, owner, resourcesPath)
+function verifyHaveGlResources(languageId, owner, resourcesPath, catalog = null) {
+  let found = verifyHaveGlHelpsResources(languageId, owner, resourcesPath, catalog)
 
   if (found) { // verify have orig languages and aligned bibles
     const alignedBiblesList = [['ugnt'], ['uhb'], ['glt', 'ult'], ['gst', 'ust']]
     for (const alignedBibles of alignedBiblesList) {
-      let fetched = false
+      let alreadyHave = false
       for (const bibleId of alignedBibles) {
-        let languageId_ = languageId
-        let owner_ = owner
-        if (bibleId === 'ugnt') {
-          languageId_ = 'el-x-koine'
-          owner_ = 'unfoldingWord'
-        } else if (bibleId === 'uhb') {
-          languageId_ = 'hbo'
-          owner_ = 'unfoldingWord'
-        }
-
-        const folderPath = path.join(resourcesPath, languageId_, 'bibles', bibleId) // , `v${resource.version}_${resource.owner}`)
-        const versionPath = resourcesHelpers.getLatestVersionInPath(folderPath, owner_, false)
-
-        if (versionPath && fs.pathExistsSync(versionPath)) {
-          const books = fs.readdirSync(versionPath)
-            .filter((file) => path.extname(file) !== '.json' && file !== '.DS_Store');
-          if (books?.length) {
-            fetched = true
-          }
+        const { languageId_, owner_ } = getLanguageAndOwnerForBible(languageId, owner, bibleId)
+        const alreadyHave_ = verifyHaveBibleResource(bibleId, resourcesPath, languageId_, owner_, catalog)
+        if (alreadyHave_) {
+          alreadyHave = alreadyHave_
         }
       }
-      if (!fetched) {
-        console.error('getLangResourcesFromCatalog - Resource item not downloaded for list', {
+      if (!alreadyHave) {
+        console.error('verifyHaveGlResources - Resource item not downloaded for bible', {
           languageId,
           owner,
           alignedBibles
         })
         found = false
-        break
       }
     }
   }
@@ -586,3 +653,121 @@ function verifyHaveGlResources(languageId, owner, resourcesPath) {
   return found
 }
 
+/**
+ * search the catalog to find and download the translationHelps resources (ta, tw, tn, twl) along with dependencies
+ * @param {object[]} catalog - list of items in catalog
+ * @param {string} languageId
+ * @param {string} owner
+ * @param {string} resourcesPath - parent path for resources
+ * @returns {Promise<{updatedCatalogResources, processed: *[]}>}
+ */
+async function getLatestLangHelpsResourcesFromCatalog(catalog, languageId, owner, resourcesPath) {
+  if (!catalog?.length) {
+    catalog = await getLatestResources(resourcesPath)
+  }
+
+  const processed = []
+  let haveResources = verifyHaveGlHelpsResources(languageId, owner, resourcesPath)
+  if (haveResources) {
+    return { processed, updatedCatalogResources: catalog }
+  }
+
+  const found = []
+  for (const resource of checkingHelpsResources) {
+    const item = findResource(catalog, languageId, owner, resource.id)
+    if (item) {
+      item.bookRes = resource.bookRes
+      found.push(item)
+    } else {
+      console.error('getLangHelpsResourcesFromCatalog - Resource item not found', {languageId, owner, resourceId: resource.id})
+    }
+  }
+  for (const item of found) {
+    console.log('getLangHelpsResourcesFromCatalog - downloading', item)
+    const resource_ = await downloadAndProcessResource(item, resourcesPath, item.bookRes, false)
+    if (resource_) {
+      processed.push(resource_)
+    } else {
+      console.error('getLangHelpsResourcesFromCatalog - could not download Resource item', {languageId, owner, resourceId: resource.id})
+    }
+  }
+  for(const item of processed) {
+    console.log(item)
+    processHelpsIntoJson(item.resource, resourcesPath, item.resourcePath, item.resourceFiles, item.byBook)
+  }
+  return { processed, updatedCatalogResources: catalog }
+}
+
+/**
+ * thre original language bibles are always from unfoldingWrod and have specific languageId
+ * @param {string} languageId
+ * @param {string} owner
+ * @param {string} bibleId
+ * @returns {{languageId_: string, owner_: string}}
+ */
+function getLanguageAndOwnerForBible(languageId, owner, bibleId) {
+  let languageId_ = languageId
+  let owner_ = owner
+  if (bibleId === 'ugnt') {
+    languageId_ = 'el-x-koine'
+    owner_ = 'unfoldingWord'
+  } else if (bibleId === 'uhb') {
+    languageId_ = 'hbo'
+    owner_ = 'unfoldingWord'
+  }
+  return { languageId_, owner_ }
+}
+
+/**
+ * search the catalog to find and download the translationHelps resources (ta, tw, tn, twl) along with dependencies and aligned bibles
+ * @param {object[]} catalog - list of items in catalog
+ * @param {string} languageId
+ * @param {string} owner
+ * @param {string} resourcesPath - parent path for resources
+ * @returns {Promise<{updatedCatalogResources, processed: *[]}>}
+ */
+async function getLatestLangResourcesFromCatalog(catalog, languageId, owner, resourcesPath) {
+  const { processed, updatedCatalogResources } = await getLatestLangHelpsResourcesFromCatalog(catalog, languageId, owner, resourcesPath)
+
+  // get aligned bibles
+  const alignedBiblesList = [['glt', 'ult'], ['gst', 'ust']]
+  for (const alignedBibles of alignedBiblesList) {
+    let fetched = false
+    for (const bibleId of alignedBibles) {
+      const { languageId_, owner_ } = getLanguageAndOwnerForBible(languageId, owner, bibleId)
+
+      const alreadyHave_ = verifyHaveBibleResource(bibleId, resourcesPath, languageId_, owner_, catalog)
+      if (alreadyHave_) {
+        fetched = true
+        break
+      }
+    }
+
+    if (!fetched) {
+      for (const bibleId of alignedBibles) {
+        const { languageId_, owner_ } = getLanguageAndOwnerForBible(languageId, owner, bibleId)
+        const item = findResource(updatedCatalogResources, languageId_, owner_, bibleId)
+        if (item) {
+          console.log('getLangResourcesFromCatalog - downloading', item)
+          const resource = await downloadAndProcessResource(item, resourcesPath, item.bookRes, false)
+          if (resource) {
+            processed.push(resource)
+            fetched = true
+          } else {
+            console.error('getLangResourcesFromCatalog - Resource item not downloaded', { languageId_, owner_, bibleId })
+          }
+        }
+      }
+    }
+
+    if (!fetched) {
+      console.error('getLangResourcesFromCatalog - Resource item not downloaded for list', {
+        languageId,
+        owner,
+        bibles
+      })
+    }
+  }
+
+  return { processed, updatedCatalogResources: catalog }
+}
