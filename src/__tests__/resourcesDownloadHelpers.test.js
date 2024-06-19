@@ -21,6 +21,26 @@ describe('Tests for resourcesDownloadHelpers.downloadAndProcessResource()', () =
   const updatedResourcesPath = path.join(resourcesPath, 'updatedResources.json')
   const completeResourcesPath = path.join(resourcesPath, 'completeResources.json')
 
+  it('Test initProject tn', () => {
+    const gl_owner = 'unfoldingWord'
+    const gl_languageId = 'en'
+    const languageId = 'en'
+    const projectId = 'tn'
+    const repoPath = path.join(resourcesPath, '../projects', `${languageId}_${projectId}_checks`)
+    const success = initProject(repoPath, languageId, gl_languageId, gl_owner, resourcesPath, projectId)
+    expect(success).toBeTruthy()
+  })
+
+  it('Test initProject twl', () => {
+    const gl_owner = 'unfoldingWord'
+    const gl_languageId = 'en'
+    const languageId = 'en'
+    const projectId = 'twl'
+    const repoPath = path.join(resourcesPath, '../projects', `${languageId}_${projectId}_checks`)
+    const success = initProject(repoPath, languageId, gl_languageId, gl_owner, resourcesPath, projectId)
+    expect(success).toBeTruthy()
+  })
+
   it('Test getLatestResources', () => {
     // const sourceContentUpdater = new SourceContentUpdater();
     // const neededResources = sourceContentUpdater.getLatestResources([], resourcesPath);
@@ -770,4 +790,58 @@ async function getLatestLangResourcesFromCatalog(catalog, languageId, owner, res
   }
 
   return { processed, updatedCatalogResources: catalog }
+}
+
+function initProject(repoPath, languageId, gl_languageId, gl_owner, resourcesBasePath, sourceResourceId) {
+  const exists = fs.pathExistsSync(repoPath)
+  if (!exists) {
+    try {
+      let sourceTsvsPath;
+      switch (sourceResourceId) {
+        case 'tn':
+        case 'twl':
+          const resourceName = RESOURCE_ID_MAP[sourceResourceId] || ''
+          const folderPath = path.join(resourcesBasePath, gl_languageId, 'translationHelps', resourceName)
+          sourceTsvsPath = resourcesHelpers.getLatestVersionInPath(folderPath, gl_owner, false)
+          break
+
+        default:
+          console.error(`initProject - unsupported source project ID: ${sourceResourceId}`)
+          return false
+      }
+
+      fs.ensureDirSync(repoPath)
+      fs.copySync(sourceTsvsPath, repoPath)
+
+      // create check json files
+      const files = fs.readdirSync(repoPath).filter((filename) => path.extname(filename) === '.json')
+      if (files?.length) {
+        for (const filename of files) {
+          let newName = filename.replace('.json', '.check')
+          if (newName !== filename) {
+            fs.moveSync(path.join(repoPath, filename), path.join(repoPath, newName))
+          }
+        }
+      }
+
+      // create manifest
+      const manifest = {
+        checkingType: sourceResourceId,
+        languageId,
+        gatewayLanguageId: gl_languageId,
+        gatewayLanguageOwner: gl_owner,
+        resourcesPath: resourcesBasePath,
+        sourceTsvsPath
+      }
+      const outputPath = path.join(repoPath, `manifest.json`)
+      fs.outputJsonSync(outputPath, manifest, { spaces: 2 })
+      return true
+
+    } catch (e) {
+      console.error(`initProject - error creating project: ${repoPath}`)
+    }
+  } else {
+    console.error(`initProject - cannot initialize folder because it already exists: ${repoPath}`)
+  }
+  return false
 }
