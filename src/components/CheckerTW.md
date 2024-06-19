@@ -10,7 +10,7 @@ import { extractGroupData } from '../helpers/translationHelps/twArticleHelpers'
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 const translations = require('../locales/English-en_US.json')
 const glTwl = require('../__tests__/fixtures/translationWords/twl_1jn_parsed.json')
-const glTwData = require('../__tests__/fixtures/translationWords/enTw.json')
+const glTwData = require('../__tests__/fixtures/translationWords/en_tw.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
 const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
 const checkingData = extractGroupData(glTwl)
