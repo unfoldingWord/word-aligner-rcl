@@ -57,7 +57,6 @@ export const translationNotes = 'translationNotes'
 
 console.log('Checker.js - startup')
 const name = 'Checker'
-const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 
 const Checker = ({
   alignedGlBible,
@@ -67,6 +66,7 @@ const Checker = ({
   contextId,
   getLexiconData,
   glWordsData,
+  targetBible,
   translate,
 }) => {
   const [state, _setState] = useState({
@@ -521,7 +521,8 @@ Checker.propTypes = {
   checkType: PropTypes.string,
   contextId: PropTypes.object.isRequired,
   glWordsData: PropTypes.object.isRequired,
-  translate: PropTypes.func.isRequired,
   getLexiconData: PropTypes.func,
+  targetBible: PropTypes.object.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 export default Checker;
