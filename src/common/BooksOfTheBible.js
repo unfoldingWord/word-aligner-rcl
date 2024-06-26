@@ -165,4 +165,8 @@ export function getAllBibleBooks(translate=k=>k) {
   return bibleBooks;
 }
 
+export function isNT(bookId) {
+  return Object.keys(BIBLE_BOOKS.newTestament).includes(bookId)
+}
+
 export default BIBLE_BOOKS;
