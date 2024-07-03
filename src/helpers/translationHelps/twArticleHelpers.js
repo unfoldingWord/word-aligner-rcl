@@ -22,7 +22,6 @@ import {
 import * as tsvparser from 'uw-tsv-parser';
 import { cleanupReference } from 'bible-reference-range'
 import { getBestVerseFromBook } from '../verseHelpers'
-import targetBible from '../../__tests__/fixtures/bibles/1jn/targetBible.json'
 import { getWordOccurrencesForQuote } from './wordOccurrenceHelpers'
 import { hasEllipsis } from '../tsv-groupdata-parser/ellipsisHelpers'
 import { getVerseString } from '../tsv-groupdata-parser/verseHelpers'
