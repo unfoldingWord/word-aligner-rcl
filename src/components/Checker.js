@@ -168,6 +168,10 @@ const Checker = ({
   function updateContext(contextId, groupsIndex_ = groupsIndex) {
     const reference = contextId?.reference
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
+    if (typeof verseText !== 'string') {
+      console.log(`updateContext- verse data is not text`)
+      verseText = UsfmFileConversionHelpers.getUsfmForVerseContent(verseText)
+    }
     verseText = removeUsfmMarkers(verseText)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)

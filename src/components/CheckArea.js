@@ -1,3 +1,4 @@
+// Used by styleguidist demo in CheckArea.md
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'

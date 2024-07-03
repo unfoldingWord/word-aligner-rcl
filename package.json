@@ -1,6 +1,6 @@
 {
   "name": "checking-tool-rcl",
-  "version": "0.9.0-beta.3",
+  "version": "0.9.0-beta.5",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",
