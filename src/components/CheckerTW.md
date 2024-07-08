@@ -10,17 +10,22 @@ import { extractGroupData } from '../helpers/translationHelps/twArticleHelpers'
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 const translations = require('../locales/English-en_US.json')
 const glTwl = require('../__tests__/fixtures/translationWords/twl_1jn_parsed.json')
-const glTwData = require('../__tests__/fixtures/translationWords/enTw.json')
+const glTwData = require('../__tests__/fixtures/translationWords/en_tw.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
 const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
 const checkingData = extractGroupData(glTwl)
+const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 
 const translate = (key) => {
   const translation = lookupTranslationForKey(translations, key)
   return translation
 };
 
-var bookId = "1jn"
+const bookId = "1jn"
+const bookName = "1 John"
+const targetLanguageId = 'en'
+const targetLanguageName = "English"
+const targetLanguageDirection = "ltr"
 
 const contextId_ =
   {
@@ -41,11 +46,6 @@ const contextId_ =
     "occurrence": 1
   }
 
-const project = {
-  identifier: bookId,
-  languageId: 'en'
-}
-
 const bibles = [
   {
     book: enGlBible,
@@ -60,6 +60,16 @@ const bibles = [
     owner: 'unfoldingWord'
   }
 ]
+
+const targetLanguageDetails = {
+  id: targetLanguageId,
+  name: targetLanguageName,
+  direction: targetLanguageDirection,
+  book: {
+    id: bookId,
+    name: bookName
+  }
+}
 
 console.log('CheckerTW.md - startup')
 
@@ -80,14 +90,16 @@ const App = () => {
       <div style={{ height: '600px', width: '850px' }}>
         <Checker
           styles={{ maxHeight: '500px', overflowY: 'auto' }}
-          translate={translate}
-          contextId={contextId}
-          checkingData={checkingData}
-          glWordsData={glTwData}
           alignedGlBible={enGlBible}
-          checkType={translationWords}
           bibles={bibles}
+          checkingData={checkingData}
+          checkType={translationWords}
+          contextId={contextId}
           getLexiconData={getLexiconData_}
+          glWordsData={glTwData}
+          targetBible={targetBible}
+          targetLanguageDetails={targetLanguageDetails}
+          translate={translate}
         />
       </div>
     </>

@@ -1,0 +1,5084 @@
+{
+  "kt": {
+    "groups": {
+      "apostle": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sda6",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "apostle",
+            "quote": "ἀπόστολος",
+            "quoteString": "ἀπόστολος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "authority": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ew7w",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "authority",
+            "quote": "ἐπιταγῆς",
+            "quoteString": "ἐπιταγῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yrw4",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "authority",
+            "quote": "ἐξουσίαις",
+            "quoteString": "ἐξουσίαις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "believe": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "y2bm",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "believe",
+            "quote": "ἀπίστοις",
+            "quoteString": "ἀπίστοις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "aphr",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "believe",
+            "quote": "πεπιστευκότες",
+            "quoteString": "πεπιστευκότες",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "blameless": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rbuz",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "blameless",
+            "quote": "ἀνέγκλητος",
+            "quoteString": "ἀνέγκλητος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wejy",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "blameless",
+            "quote": "ἀνέγκλητον",
+            "quoteString": "ἀνέγκλητον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "bless": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ctfv",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "bless",
+            "quote": "μακαρίαν",
+            "quoteString": "μακαρίαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "bornagain": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f8tn",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "bornagain",
+            "quote": "παλινγενεσίας",
+            "quoteString": "παλινγενεσίας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "christ": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "n9wu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "christ",
+            "quote": "Χριστοῦ",
+            "quoteString": "Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f6ja",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "christ",
+            "quote": "Χριστοῦ",
+            "quoteString": "Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "smpv",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "christ",
+            "quote": "Χριστοῦ",
+            "quoteString": "Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bmkx",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "christ",
+            "quote": "Χριστοῦ",
+            "quoteString": "Χριστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "circumcise": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "z5xs",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "circumcise",
+            "quote": "περιτομῆς",
+            "quoteString": "περιτομῆς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "clean": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "m5b2",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "clean",
+            "quote": "λουτροῦ",
+            "quoteString": "λουτροῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "conscience": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "unp8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "conscience",
+            "quote": "συνείδησις",
+            "quoteString": "συνείδησις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "elect": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dz84",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "elect",
+            "quote": "ἐκλεκτῶν",
+            "quoteString": "ἐκλεκτῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "eternity": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rjm7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "eternity",
+            "quote": "αἰωνίου",
+            "quoteString": "αἰωνίου",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "g6gy",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "eternity",
+            "quote": "αἰωνίου",
+            "quoteString": "αἰωνίου",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "evil": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wgym",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "evil",
+            "quote": "κακὰ",
+            "quoteString": "κακὰ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zdzc",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "evil",
+            "quote": "φαῦλον",
+            "quoteString": "φαῦλον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "strs",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "evil",
+            "quote": "κακίᾳ",
+            "quoteString": "κακίᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "exhort": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "j7r6",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "exhort",
+            "quote": "παρακάλει",
+            "quoteString": "παρακάλει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pnzt",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "exhort",
+            "quote": "παρακάλει",
+            "quoteString": "παρακάλει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "faith": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "z5q5",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "faith",
+            "quote": "πίστιν",
+            "quoteString": "πίστιν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "c2fm",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "faith",
+            "quote": "πίστιν",
+            "quoteString": "πίστιν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "s5qd",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "faith",
+            "quote": "πίστει",
+            "quoteString": "πίστει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "skyq",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "faith",
+            "quote": "πίστει",
+            "quoteString": "πίστει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bn72",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "faith",
+            "quote": "πίστιν",
+            "quoteString": "πίστιν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "b3pn",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "faith",
+            "quote": "πίστει",
+            "quoteString": "πίστει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "faithful": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nsxd",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "faithful",
+            "quote": "πιστά",
+            "quoteString": "πιστά",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "x67x",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "faithful",
+            "quote": "πιστοῦ",
+            "quoteString": "πιστοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dxb8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "faithful",
+            "quote": "πιστὸς",
+            "quoteString": "πιστὸς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "foolish": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "tjjs",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "foolish",
+            "quote": "ἀνόητοι",
+            "quoteString": "ἀνόητοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ctja",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "foolish",
+            "quote": "μωρὰς",
+            "quoteString": "μωρὰς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "glory": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xzqt",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "glory",
+            "quote": "δόξης",
+            "quoteString": "δόξης",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "god": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pmq8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f44k",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 2
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hmks",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεὸς",
+            "quoteString": "Θεὸς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uj2x",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mm9y",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rjjt",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεὸν",
+            "quoteString": "Θεὸν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pynk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xef2",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "scfu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "g4b9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεοῦ",
+            "quoteString": "Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gbdk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "god",
+            "quote": "Θεῷ",
+            "quoteString": "Θεῷ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "godly": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qktr",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "godly",
+            "quote": "εὐσέβειαν",
+            "quoteString": "εὐσέβειαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "trje",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "godly",
+            "quote": "ἀσέβειαν",
+            "quoteString": "ἀσέβειαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wyfa",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "godly",
+            "quote": "εὐσεβῶς",
+            "quoteString": "εὐσεβῶς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "godthefather": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "new9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "godthefather",
+            "quote": [
+              {
+                "word": "Θεοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Πατρὸς",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "Θεοῦ Πατρὸς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "good": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ufbw",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "φιλάγαθον",
+            "quoteString": "φιλάγαθον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yxnn",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "ἀγαθὸν",
+            "quoteString": "ἀγαθὸν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mguz",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "ἀγαθάς",
+            "quoteString": "ἀγαθάς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ncv7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "καλῶν",
+            "quoteString": "καλῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "d9wq",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "ἀγαθήν",
+            "quoteString": "ἀγαθήν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "jy6c",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "καλῶν",
+            "quoteString": "καλῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w9yp",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "ἀγαθὸν",
+            "quoteString": "ἀγαθὸν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "cmmp",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "καλῶν",
+            "quoteString": "καλῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sbrv",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "καλὰ",
+            "quoteString": "καλὰ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "m7z9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "good",
+            "quote": "καλῶν",
+            "quoteString": "καλῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "grace": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "khr6",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "grace",
+            "quote": "χάρις",
+            "quoteString": "χάρις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rxzp",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "grace",
+            "quote": "χάρις",
+            "quoteString": "χάρις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qjc9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "grace",
+            "quote": "χάριτι",
+            "quoteString": "χάριτι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "stmk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "grace",
+            "quote": "χάρις",
+            "quoteString": "χάρις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "holy": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pcs8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "holy",
+            "quote": "ὅσιον",
+            "quoteString": "ὅσιον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "holyspirit": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "e5fx",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "holyspirit",
+            "quote": [
+              {
+                "word": "Πνεύματος",
+                "occurrence": 1
+              },
+              {
+                "word": "Ἁγίου",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "Πνεύματος Ἁγίου",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "hope": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pdm7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "hope",
+            "quote": "ἐλπίδι",
+            "quoteString": "ἐλπίδι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pqwf",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "hope",
+            "quote": "ἐλπίδα",
+            "quoteString": "ἐλπίδα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yut8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "hope",
+            "quote": "ἐλπίδα",
+            "quoteString": "ἐλπίδα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "humble": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xrq8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "humble",
+            "quote": "πραΰτητα",
+            "quoteString": "πραΰτητα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "jesus": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nze4",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "jesus",
+            "quote": "Ἰησοῦ",
+            "quoteString": "Ἰησοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "jgfj",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "jesus",
+            "quote": "Ἰησοῦ",
+            "quoteString": "Ἰησοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mgn9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "jesus",
+            "quote": "Ἰησοῦ",
+            "quoteString": "Ἰησοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "snat",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "jesus",
+            "quote": "Ἰησοῦ",
+            "quoteString": "Ἰησοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "jew": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "we3r",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "jew",
+            "quote": "Ἰουδαϊκοῖς",
+            "quoteString": "Ἰουδαϊκοῖς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "justice": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "va33",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "justice",
+            "quote": "δικαιωθέντες",
+            "quoteString": "δικαιωθέντες",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "lawofmoses": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nptj",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "lawofmoses",
+            "quote": "νομικὰς",
+            "quoteString": "νομικὰς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "lord": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hc8q",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "lord",
+            "quote": "δεσπόταις",
+            "quoteString": "δεσπόταις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "love": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pr7x",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "love",
+            "quote": "ἀγάπῃ",
+            "quoteString": "ἀγάπῃ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "q8p8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "love",
+            "quote": "φιλάνδρους",
+            "quoteString": "φιλάνδρους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "m7kb",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "love",
+            "quote": "φιλοτέκνους",
+            "quoteString": "φιλοτέκνους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nwn9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "love",
+            "quote": "φιλανθρωπία",
+            "quoteString": "φιλανθρωπία",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xuej",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "love",
+            "quote": "φιλοῦντας",
+            "quoteString": "φιλοῦντας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "mercy": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uvcs",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "mercy",
+            "quote": "ἔλεος",
+            "quoteString": "ἔλεος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "promise": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sht2",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "promise",
+            "quote": "ἐπηγγείλατο",
+            "quoteString": "ἐπηγγείλατο",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "prophet": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "b5s5",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "prophet",
+            "quote": "προφήτης",
+            "quoteString": "προφήτης",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "purify": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gpvr",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "purify",
+            "quote": "καθαρὰ",
+            "quoteString": "καθαρὰ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hr5s",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "purify",
+            "quote": "καθαροῖς",
+            "quoteString": "καθαροῖς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "vg9y",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "purify",
+            "quote": "καθαρόν",
+            "quoteString": "καθαρόν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "j8nj",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "purify",
+            "quote": "ἁγνάς",
+            "quoteString": "ἁγνάς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bxw8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "purify",
+            "quote": "καθαρίσῃ",
+            "quoteString": "καθαρίσῃ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "redeem": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uzyk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "redeem",
+            "quote": "λυτρώσηται",
+            "quoteString": "λυτρώσηται",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "righteous": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "r9c9",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "righteous",
+            "quote": "δίκαιον",
+            "quoteString": "δίκαιον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dr9j",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "righteous",
+            "quote": "δικαίως",
+            "quoteString": "δικαίως",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sqsf",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "righteous",
+            "quote": "δικαιοσύνῃ",
+            "quoteString": "δικαιοσύνῃ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "save": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "kjwq",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "save",
+            "quote": "σωτήριος",
+            "quoteString": "σωτήριος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "y2kk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "save",
+            "quote": "ἔσωσεν",
+            "quoteString": "ἔσωσεν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "savior": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "snb7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "savior",
+            "quote": "Σωτῆρος",
+            "quoteString": "Σωτῆρος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mvwu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "savior",
+            "quote": "Σωτῆρος",
+            "quoteString": "Σωτῆρος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rqa2",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "savior",
+            "quote": "Σωτῆρος",
+            "quoteString": "Σωτῆρος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bpbw",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "savior",
+            "quote": "Σωτῆρος",
+            "quoteString": "Σωτῆρος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "x4gg",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "savior",
+            "quote": "Σωτῆρος",
+            "quoteString": "Σωτῆρος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "h9fu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "savior",
+            "quote": "Σωτῆρος",
+            "quoteString": "Σωτῆρος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "sin": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "f74c",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "sin",
+            "quote": "ἁμαρτάνει",
+            "quoteString": "ἁμαρτάνει",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "testimony": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dsy8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "testimony",
+            "quote": "μαρτυρία",
+            "quoteString": "μαρτυρία",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "trust": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "yu3w",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "trust",
+            "quote": "ἐπιστεύθην",
+            "quoteString": "ἐπιστεύθην",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "wordofgod": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "uz9x",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "wordofgod",
+            "quote": "λόγον",
+            "quoteString": "λόγον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ub8v",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "wordofgod",
+            "quote": [
+              {
+                "word": "λόγος",
+                "occurrence": 1
+              },
+              {
+                "word": "τοῦ",
+                "occurrence": 1
+              },
+              {
+                "word": "Θεοῦ",
+                "occurrence": 1
+              }
+            ],
+            "quoteString": "λόγος τοῦ Θεοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "world": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "y4sh",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "world",
+            "quote": "κοσμικὰς",
+            "quoteString": "κοσμικὰς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "zealous": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "s2u6",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "zealous",
+            "quote": "ζηλωτὴν",
+            "quoteString": "ζηλωτὴν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "dublin_core": {
+      "conformsto": "rc0.2",
+      "contributor": [
+        "Door43 World Missions Community",
+        "Jesse Griffin (BA Biblical Studies, Liberty University; MA Biblical Languages, Gordon-Conwell Theological Seminary)",
+        "Perry Oakes (BA Biblical Studies, Taylor University; MA Theology, Fuller Seminary; MA Linguistics, University of Texas at Arlington; PhD Old Testament, Southwestern Baptist Theological Seminary)",
+        "Larry Sallee (Th.M Dallas Theological Seminary, D.Min. Columbia Biblical Seminary)",
+        "Joel D. Ruark (M.A.Th. Gordon-Conwell Theological Seminary; Th.M. Stellenbosch University; Ph.D. Candidate in Old Testament Studies, Stellenbosch University)"
+      ],
+      "creator": "Door43 World Missions Community",
+      "description": "Open-licensed links from particular original languages words to Translation Words articles.",
+      "format": "text/tsv",
+      "identifier": "twl",
+      "issued": "2024-04-24",
+      "language": {
+        "direction": "ltr",
+        "identifier": "en",
+        "title": "English"
+      },
+      "modified": "2024-04-24",
+      "publisher": "unfoldingWord",
+      "relation": [
+        "en/tw",
+        "hbo/uhb?v=2.1.30",
+        "el-x-koine/ugnt?v=0.34"
+      ],
+      "rights": "CC BY-SA 4.0",
+      "source": [
+        {
+          "identifier": "twl",
+          "language": "en",
+          "version": "79"
+        }
+      ],
+      "subject": "TSV Translation Words Links",
+      "title": "unfoldingWord® Translation Words Links",
+      "type": "help",
+      "version": "80"
+    },
+    "checking": {
+      "checking_entity": [
+        "unfoldingWord"
+      ],
+      "checking_level": "3"
+    },
+    "projects": [
+      {
+        "title": "Genesis",
+        "versification": "ufw",
+        "identifier": "gen",
+        "sort": 1,
+        "path": "./twl_GEN.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Exodus",
+        "versification": "ufw",
+        "identifier": "exo",
+        "sort": 2,
+        "path": "./twl_EXO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Leviticus",
+        "versification": "ufw",
+        "identifier": "lev",
+        "sort": 3,
+        "path": "./twl_LEV.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Numbers",
+        "versification": "ufw",
+        "identifier": "num",
+        "sort": 4,
+        "path": "./twl_NUM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Deuteronomy",
+        "versification": "ufw",
+        "identifier": "deu",
+        "sort": 5,
+        "path": "./twl_DEU.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Joshua",
+        "versification": "ufw",
+        "identifier": "jos",
+        "sort": 6,
+        "path": "./twl_JOS.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Judges",
+        "versification": "ufw",
+        "identifier": "jdg",
+        "sort": 7,
+        "path": "./twl_JDG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ruth",
+        "versification": "ufw",
+        "identifier": "rut",
+        "sort": 8,
+        "path": "./twl_RUT.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Samuel",
+        "versification": "ufw",
+        "identifier": "1sa",
+        "sort": 9,
+        "path": "./twl_1SA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Samuel",
+        "versification": "ufw",
+        "identifier": "2sa",
+        "sort": 10,
+        "path": "./twl_2SA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Kings",
+        "versification": "ufw",
+        "identifier": "1ki",
+        "sort": 11,
+        "path": "./twl_1KI.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Kings",
+        "versification": "ufw",
+        "identifier": "2ki",
+        "sort": 12,
+        "path": "./twl_2KI.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "1 Chronicles",
+        "versification": "ufw",
+        "identifier": "1ch",
+        "sort": 13,
+        "path": "./twl_1CH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "2 Chronicles",
+        "versification": "ufw",
+        "identifier": "2ch",
+        "sort": 14,
+        "path": "./twl_2CH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ezra",
+        "versification": "ufw",
+        "identifier": "ezr",
+        "sort": 15,
+        "path": "./twl_EZR.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Nehemiah",
+        "versification": "ufw",
+        "identifier": "neh",
+        "sort": 16,
+        "path": "./twl_NEH.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Esther",
+        "versification": "ufw",
+        "identifier": "est",
+        "sort": 17,
+        "path": "./twl_EST.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Job",
+        "versification": "ufw",
+        "identifier": "job",
+        "sort": 18,
+        "path": "./twl_JOB.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Psalms",
+        "versification": "ufw",
+        "identifier": "psa",
+        "sort": 19,
+        "path": "./twl_PSA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Proverbs",
+        "versification": "ufw",
+        "identifier": "pro",
+        "sort": 20,
+        "path": "./twl_PRO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ecclesiastes",
+        "versification": "ufw",
+        "identifier": "ecc",
+        "sort": 21,
+        "path": "./twl_ECC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Song of Solomon",
+        "versification": "ufw",
+        "identifier": "sng",
+        "sort": 22,
+        "path": "./twl_SNG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Isaiah",
+        "versification": "ufw",
+        "identifier": "isa",
+        "sort": 23,
+        "path": "./twl_ISA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Jeremiah",
+        "versification": "ufw",
+        "identifier": "jer",
+        "sort": 24,
+        "path": "./twl_JER.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Lamentations",
+        "versification": "ufw",
+        "identifier": "lam",
+        "sort": 25,
+        "path": "./twl_LAM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Ezekiel",
+        "versification": "ufw",
+        "identifier": "ezk",
+        "sort": 26,
+        "path": "./twl_EZK.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Daniel",
+        "versification": "ufw",
+        "identifier": "dan",
+        "sort": 27,
+        "path": "./twl_DAN.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Hosea",
+        "versification": "ufw",
+        "identifier": "hos",
+        "sort": 28,
+        "path": "./twl_HOS.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Joel",
+        "versification": "ufw",
+        "identifier": "jol",
+        "sort": 29,
+        "path": "./twl_JOL.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Amos",
+        "versification": "ufw",
+        "identifier": "amo",
+        "sort": 30,
+        "path": "./twl_AMO.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Obadiah",
+        "versification": "ufw",
+        "identifier": "oba",
+        "sort": 31,
+        "path": "./twl_OBA.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Jonah",
+        "versification": "ufw",
+        "identifier": "jon",
+        "sort": 32,
+        "path": "./twl_JON.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Micah",
+        "versification": "ufw",
+        "identifier": "mic",
+        "sort": 33,
+        "path": "./twl_MIC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Nahum",
+        "versification": "ufw",
+        "identifier": "nam",
+        "sort": 34,
+        "path": "./twl_NAM.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Habakkuk",
+        "versification": "ufw",
+        "identifier": "hab",
+        "sort": 35,
+        "path": "./twl_HAB.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Zephaniah",
+        "versification": "ufw",
+        "identifier": "zep",
+        "sort": 36,
+        "path": "./twl_ZEP.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Haggai",
+        "versification": "ufw",
+        "identifier": "hag",
+        "sort": 37,
+        "path": "./twl_HAG.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Zechariah",
+        "versification": "ufw",
+        "identifier": "zec",
+        "sort": 38,
+        "path": "./twl_ZEC.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Malachi",
+        "versification": "ufw",
+        "identifier": "mal",
+        "sort": 39,
+        "path": "./twl_MAL.tsv",
+        "categories": [
+          "bible-ot"
+        ]
+      },
+      {
+        "title": "Matthew",
+        "versification": "ufw",
+        "identifier": "mat",
+        "sort": 40,
+        "path": "./twl_MAT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Mark",
+        "versification": "ufw",
+        "identifier": "mrk",
+        "sort": 41,
+        "path": "./twl_MRK.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Luke",
+        "versification": "ufw",
+        "identifier": "luk",
+        "sort": 42,
+        "path": "./twl_LUK.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "John",
+        "versification": "ufw",
+        "identifier": "jhn",
+        "sort": 43,
+        "path": "./twl_JHN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Acts",
+        "versification": "ufw",
+        "identifier": "act",
+        "sort": 44,
+        "path": "./twl_ACT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Romans",
+        "versification": "ufw",
+        "identifier": "rom",
+        "sort": 45,
+        "path": "./twl_ROM.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Corinthians",
+        "versification": "ufw",
+        "identifier": "1co",
+        "sort": 46,
+        "path": "./twl_1CO.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Corinthians",
+        "versification": "ufw",
+        "identifier": "2co",
+        "sort": 47,
+        "path": "./twl_2CO.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Galatians",
+        "versification": "ufw",
+        "identifier": "gal",
+        "sort": 48,
+        "path": "./twl_GAL.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Ephesians",
+        "versification": "ufw",
+        "identifier": "eph",
+        "sort": 49,
+        "path": "./twl_EPH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Philippians",
+        "versification": "ufw",
+        "identifier": "php",
+        "sort": 50,
+        "path": "./twl_PHP.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Colossians",
+        "versification": "ufw",
+        "identifier": "col",
+        "sort": 51,
+        "path": "./twl_COL.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Thessalonians",
+        "versification": "ufw",
+        "identifier": "1th",
+        "sort": 52,
+        "path": "./twl_1TH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Thessalonians",
+        "versification": "ufw",
+        "identifier": "2th",
+        "sort": 53,
+        "path": "./twl_2TH.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Timothy",
+        "versification": "ufw",
+        "identifier": "1ti",
+        "sort": 54,
+        "path": "./twl_1TI.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Timothy",
+        "versification": "ufw",
+        "identifier": "2ti",
+        "sort": 55,
+        "path": "./twl_2TI.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Titus",
+        "versification": "ufw",
+        "identifier": "tit",
+        "sort": 56,
+        "path": "./twl_TIT.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Philemon",
+        "versification": "ufw",
+        "identifier": "phm",
+        "sort": 57,
+        "path": "./twl_PHM.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Hebrews",
+        "versification": "ufw",
+        "identifier": "heb",
+        "sort": 58,
+        "path": "./twl_HEB.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "James",
+        "versification": "ufw",
+        "identifier": "jas",
+        "sort": 59,
+        "path": "./twl_JAS.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 Peter",
+        "versification": "ufw",
+        "identifier": "1pe",
+        "sort": 60,
+        "path": "./twl_1PE.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 Peter",
+        "versification": "ufw",
+        "identifier": "2pe",
+        "sort": 61,
+        "path": "./twl_2PE.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "1 John",
+        "versification": "ufw",
+        "identifier": "1jn",
+        "sort": 62,
+        "path": "./twl_1JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "2 John",
+        "versification": "ufw",
+        "identifier": "2jn",
+        "sort": 63,
+        "path": "./twl_2JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "3 John",
+        "versification": "ufw",
+        "identifier": "3jn",
+        "sort": 64,
+        "path": "./twl_3JN.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Jude",
+        "versification": "ufw",
+        "identifier": "jud",
+        "sort": 65,
+        "path": "./twl_JUD.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      },
+      {
+        "title": "Revelation",
+        "versification": "ufw",
+        "identifier": "rev",
+        "sort": 66,
+        "path": "./twl_REV.tsv",
+        "categories": [
+          "bible-nt"
+        ]
+      }
+    ],
+    "version": "80",
+    "catalog_modified_time": "2024-04-24T05:55:44Z",
+    "modifiedTime": "2024-04-24T05:55:44Z",
+    "stage": "prod"
+  },
+  "names": {
+    "groups": {
+      "apollos": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sy96",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "apollos",
+            "quote": "Ἀπολλῶν",
+            "quoteString": "Ἀπολλῶν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "crete": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ymd3",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "crete",
+            "quote": "Κρήτῃ",
+            "quoteString": "Κρήτῃ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "myt5",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "crete",
+            "quote": "Κρῆτες",
+            "quoteString": "Κρῆτες",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "paul": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "trr8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "paul",
+            "quote": "Παῦλος",
+            "quoteString": "Παῦλος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "titus": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w4h6",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "titus",
+            "quote": "Τίτῳ",
+            "quoteString": "Τίτῳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "tychicus": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "adg4",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "tychicus",
+            "quote": "Τυχικόν",
+            "quoteString": "Τυχικόν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    }
+  },
+  "other": {
+    "groups": {
+      "admonish": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "czjk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "admonish",
+            "quote": "νουθεσίαν",
+            "quoteString": "νουθεσίαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "age": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "e5gn",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "age",
+            "quote": "αἰῶνι",
+            "quoteString": "αἰῶνι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "beast": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ecyq",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "beast",
+            "quote": "θηρία",
+            "quoteString": "θηρία",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "corrupt": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "mn4k",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "corrupt",
+            "quote": "μεμιαμμένοις",
+            "quoteString": "μεμιαμμένοις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nvgm",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "corrupt",
+            "quote": "μεμίανται",
+            "quoteString": "μεμίανται",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "courage": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nngz",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "courage",
+            "quote": "παρακαλεῖν",
+            "quoteString": "παρακαλεῖν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "deceive": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ucvu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "deceive",
+            "quote": "φρεναπάται",
+            "quoteString": "φρεναπάται",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "detestable": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "frhh",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationWords",
+            "groupId": "detestable",
+            "quote": "βδελυκτοὶ",
+            "quoteString": "βδελυκτοὶ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "doctrine": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "c9tq",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "doctrine",
+            "quote": "διδασκαλίᾳ",
+            "quoteString": "διδασκαλίᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gjgw",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "doctrine",
+            "quote": "διδασκαλίᾳ",
+            "quoteString": "διδασκαλίᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "p6a7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "doctrine",
+            "quote": "διδασκαλίᾳ",
+            "quoteString": "διδασκαλίᾳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "pex6",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "doctrine",
+            "quote": "διδασκαλίαν",
+            "quoteString": "διδασκαλίαν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "elder": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "znyx",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "elder",
+            "quote": "πρεσβυτέρους",
+            "quoteString": "πρεσβυτέρους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "y4e7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "elder",
+            "quote": "πρεσβύτας",
+            "quoteString": "πρεσβύτας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "enslave": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "khhe",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "enslave",
+            "quote": "δεδουλωμένας",
+            "quoteString": "δεδουλωμένας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "udd5",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "enslave",
+            "quote": "δουλεύοντες",
+            "quoteString": "δουλεύοντες",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "envy": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "p9ch",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "envy",
+            "quote": "φθόνῳ",
+            "quoteString": "φθόνῳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "fruit": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "en8v",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "fruit",
+            "quote": "ἄκαρποι",
+            "quoteString": "ἄκαρποι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "heir": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "w3sp",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "heir",
+            "quote": "κληρονόμοι",
+            "quoteString": "κληρονόμοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "household": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "n4aq",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "household",
+            "quote": "οἴκους",
+            "quoteString": "οἴκους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "know": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "tr4u",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "know",
+            "quote": "ἐπίγνωσιν",
+            "quoteString": "ἐπίγνωσιν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "napb",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 16
+            },
+            "tool": "translationWords",
+            "groupId": "know",
+            "quote": "εἰδέναι",
+            "quoteString": "εἰδέναι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "syjf",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "know",
+            "quote": "εἰδὼς",
+            "quoteString": "εἰδὼς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "law": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "v462",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "law",
+            "quote": "νομικὸν",
+            "quoteString": "νομικὸν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "lawful": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xhp7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 14
+            },
+            "tool": "translationWords",
+            "groupId": "lawful",
+            "quote": "ἀνομίας",
+            "quoteString": "ἀνομίας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "like": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wqsh",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "like",
+            "quote": "ὡς",
+            "quoteString": "ὡς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "d8ve",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "like",
+            "quote": "ὡσαύτως",
+            "quoteString": "ὡσαύτως",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ge2q",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "like",
+            "quote": "ὡσαύτως",
+            "quoteString": "ὡσαύτως",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "lust": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hukr",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 12
+            },
+            "tool": "translationWords",
+            "groupId": "lust",
+            "quote": "ἐπιθυμίας",
+            "quoteString": "ἐπιθυμίας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "gz5z",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "lust",
+            "quote": "ἐπιθυμίαις",
+            "quoteString": "ἐπιθυμίαις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "manager": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "nmsw",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "manager",
+            "quote": "οἰκονόμον",
+            "quoteString": "οἰκονόμον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "mind": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qzbf",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "mind",
+            "quote": "νοῦς",
+            "quoteString": "νοῦς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "ordain": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "a98w",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "ordain",
+            "quote": "καταστήσῃς",
+            "quoteString": "καταστήσῃς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "overseer": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "g6v8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "overseer",
+            "quote": "ἐπίσκοπον",
+            "quoteString": "ἐπίσκοπον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "peace": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "es8n",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 4
+            },
+            "tool": "translationWords",
+            "groupId": "peace",
+            "quote": "εἰρήνη",
+            "quoteString": "εἰρήνη",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "kjtc",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "peace",
+            "quote": "ἀμάχους",
+            "quoteString": "ἀμάχους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "perseverance": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zvdw",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "perseverance",
+            "quote": "ὑπομονῇ",
+            "quoteString": "ὑπομονῇ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "perverse": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sqgk",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "perverse",
+            "quote": "ἐξέστραπται",
+            "quoteString": "ἐξέστραπται",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "preach": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bgv4",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "preach",
+            "quote": "κηρύγματι",
+            "quoteString": "κηρύγματι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "profit": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wjg8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "profit",
+            "quote": "κέρδους",
+            "quoteString": "κέρδους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qttb",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "profit",
+            "quote": "ὠφέλιμα",
+            "quoteString": "ὠφέλιμα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "rebel": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "evqx",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "rebel",
+            "quote": "ἀνυπότακτα",
+            "quoteString": "ἀνυπότακτα",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "p8yj",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "rebel",
+            "quote": "ἀνυπότακτοι",
+            "quoteString": "ἀνυπότακτοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "rebuke": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "ss39",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "rebuke",
+            "quote": "ἐλέγχειν",
+            "quoteString": "ἐλέγχειν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "crce",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "rebuke",
+            "quote": "ἔλεγχε",
+            "quoteString": "ἔλεγχε",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rvsu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 15
+            },
+            "tool": "translationWords",
+            "groupId": "rebuke",
+            "quote": "ἔλεγχε",
+            "quoteString": "ἔλεγχε",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "receive": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "eqaj",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 13
+            },
+            "tool": "translationWords",
+            "groupId": "receive",
+            "quote": "προσδεχόμενοι",
+            "quoteString": "προσδεχόμενοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "reject": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "cf9q",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "reject",
+            "quote": "παραιτοῦ",
+            "quoteString": "παραιτοῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "reverence": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qkdt",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "reverence",
+            "quote": "ἱεροπρεπεῖς",
+            "quoteString": "ἱεροπρεπεῖς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "ruler": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rtff",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "ruler",
+            "quote": "ἀρχαῖς",
+            "quoteString": "ἀρχαῖς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "selfcontrol": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qfud",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "selfcontrol",
+            "quote": "ἐγκρατῆ",
+            "quoteString": "ἐγκρατῆ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "z2h3",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "selfcontrol",
+            "quote": "σώφρονας",
+            "quoteString": "σώφρονας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "wz6r",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 6
+            },
+            "tool": "translationWords",
+            "groupId": "selfcontrol",
+            "quote": "σωφρονεῖν",
+            "quoteString": "σωφρονεῖν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "servant": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zfgc",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "servant",
+            "quote": "δοῦλος",
+            "quoteString": "δοῦλος",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xaer",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "servant",
+            "quote": "δούλους",
+            "quoteString": "δούλους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "shame": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bjyb",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 11
+            },
+            "tool": "translationWords",
+            "groupId": "shame",
+            "quote": "αἰσχροῦ",
+            "quoteString": "αἰσχροῦ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "bxtu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 8
+            },
+            "tool": "translationWords",
+            "groupId": "shame",
+            "quote": "ἐντραπῇ",
+            "quoteString": "ἐντραπῇ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "slander": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "cz4m",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "slander",
+            "quote": "διαβόλους",
+            "quoteString": "διαβόλους",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rhfd",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "slander",
+            "quote": "βλασφημῆται",
+            "quoteString": "βλασφημῆται",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "sq5t",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "slander",
+            "quote": "βλασφημεῖν",
+            "quoteString": "βλασφημεῖν",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "strife": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "zxns",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "strife",
+            "quote": "ἔρεις",
+            "quoteString": "ἔρεις",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "kgjd",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "strife",
+            "quote": "μάχας",
+            "quoteString": "μάχας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "subject": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xd42",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 5
+            },
+            "tool": "translationWords",
+            "groupId": "subject",
+            "quote": "ὑποτασσομένας",
+            "quoteString": "ὑποτασσομένας",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "hhgu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "subject",
+            "quote": "ὑποτάσσεσθαι",
+            "quoteString": "ὑποτάσσεσθαι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "s4xn",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 1
+            },
+            "tool": "translationWords",
+            "groupId": "subject",
+            "quote": "ὑποτάσσεσθαι",
+            "quoteString": "ὑποτάσσεσθαι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "time": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "xut8",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 2
+            },
+            "tool": "translationWords",
+            "groupId": "time",
+            "quote": "χρόνων",
+            "quoteString": "χρόνων",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "dhdb",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "time",
+            "quote": "καιροῖς",
+            "quoteString": "καιροῖς",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "vain": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "k8ta",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 10
+            },
+            "tool": "translationWords",
+            "groupId": "vain",
+            "quote": "ματαιολόγοι",
+            "quoteString": "ματαιολόγοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "qdwm",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 3,
+              "verse": 9
+            },
+            "tool": "translationWords",
+            "groupId": "vain",
+            "quote": "μάταιοι",
+            "quoteString": "μάταιοι",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ],
+      "wine": [
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "rfj7",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 1,
+              "verse": 7
+            },
+            "tool": "translationWords",
+            "groupId": "wine",
+            "quote": "πάροινον",
+            "quoteString": "πάροινον",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        },
+        {
+          "comments": false,
+          "reminders": false,
+          "selections": false,
+          "verseEdits": false,
+          "nothingToSelect": false,
+          "contextId": {
+            "checkId": "jfdu",
+            "occurrenceNote": "",
+            "reference": {
+              "bookId": "tit",
+              "chapter": 2,
+              "verse": 3
+            },
+            "tool": "translationWords",
+            "groupId": "wine",
+            "quote": "οἴνῳ",
+            "quoteString": "οἴνῳ",
+            "glQuote": "",
+            "occurrence": 1
+          }
+        }
+      ]
+    }
+  }
+}

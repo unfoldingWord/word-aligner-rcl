@@ -442,7 +442,8 @@ export function parseTnToIndex(tnData) {
     for (const groupId of Object.keys(category)) {
       const markDown = category[groupId] || ''
       let name = groupId
-      if (markDown) { // get title from markdown - this is the localized name
+      if (typeof markDown === 'string') {
+        // get title from markdown - this is the localized name
         const parts = markDown.split('#')
         if (parts?.length > 1) {
           const title = parts[1].trim()

@@ -9,6 +9,7 @@ import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
 import GroupMenuComponent from './GroupMenuComponent'
 import { getBestVerseFromBook } from '../helpers/verseHelpers'
+import { UsfmFileConversionHelpers } from 'word-aligner-rcl';
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import isEqual from 'deep-equal'
 import {
@@ -24,6 +25,7 @@ import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
 import { parseTnToIndex } from '../helpers/translationHelps/tnArticleHelpers'
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import PopoverContainer from '../containers/PopoverContainer'
+import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
 
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
@@ -57,7 +59,6 @@ export const translationNotes = 'translationNotes'
 
 console.log('Checker.js - startup')
 const name = 'Checker'
-const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 
 const Checker = ({
   alignedGlBible,
@@ -67,6 +68,8 @@ const Checker = ({
   contextId,
   getLexiconData,
   glWordsData,
+  targetBible,
+  targetLanguageDetails,
   translate,
 }) => {
   const [state, _setState] = useState({
@@ -165,6 +168,10 @@ const Checker = ({
   function updateContext(contextId, groupsIndex_ = groupsIndex) {
     const reference = contextId?.reference
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
+    if (typeof verseText !== 'string') {
+      console.log(`updateContext- verse data is not text`)
+      verseText = UsfmFileConversionHelpers.getUsfmForVerseContent(verseText)
+    }
     verseText = removeUsfmMarkers(verseText)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
@@ -181,38 +188,11 @@ const Checker = ({
   const tags = [];
   const commentText = '';
   const invalidated = false;
+  const bookId = targetLanguageDetails?.book?.id
+  const bookName = targetLanguageDetails?.book?.name
   const bookDetails = {
-    "id": "1jn",
-    "name": "1 John"
-  };
-  const toolsSettings = {
-    "ScripturePane": {
-      "currentPaneSettings": [
-        {
-          "languageId": "targetLanguage",
-          "bibleId": "targetBible",
-          "fontSize": 120,
-          "owner": "Door43-Catalog"
-        },
-        {
-          "languageId": "originalLanguage",
-          "bibleId": "ugnt",
-          "owner": "Door43-Catalog"
-        },
-        {
-          "languageId": "en",
-          "bibleId": "ult",
-          "owner": "Door43-Catalog",
-          "isPreRelease": false
-        },
-        {
-          "languageId": "fa",
-          "bibleId": "glt",
-          "owner": "fa_gl",
-          "isPreRelease": false
-        }
-      ]
-    }
+    id: bookId,
+    name: bookName
   };
 
   const handleComment = () => {
@@ -237,18 +217,29 @@ const Checker = ({
     console.log(`${name}-validateSelections`, selections_)
   }
   const targetLanguageFont = 'default'
-  const unfilteredVerseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!\n\n\\ts\\*\n\\p'
+
+  const unfilteredVerseText = useMemo(() => {
+    let unfilteredVerseText_ = ''
+    const reference = currentContextId?.reference
+    const chapter = reference?.chapter
+    const verse = reference?.verse
+    if (chapter && verse) {
+      const verseData = targetBible?.[chapter]?.[verse]
+      if (verseData) {
+        unfilteredVerseText_ = verseData
+        if (typeof verseData !== 'string') {
+          unfilteredVerseText_ = UsfmFileConversionHelpers.getUsfmForVerseContent(verseData)
+        }
+      }
+    }
+
+    return unfilteredVerseText_
+  }, [targetBible, currentContextId])
+
   const checkIfVerseChanged = () => {
     console.log(`${name}-checkIfVerseChanged`)
   }
-  const targetLanguageDetails = {
-    "id": "en",
-    "name": "English",
-    "direction": "ltr",
-    "book": {
-      "name": "1 John"
-    }
-  }
+
   const checkIfCommentChanged = () => {
     console.log(`${name}-checkIfCommentChanged`)
   }
@@ -262,7 +253,7 @@ const Checker = ({
     console.log(`${name}-toggleNothingToSelect`, select)
     setState({ localNothingToSelect: select })
   }
-  const bookName = '1 John'
+
   const changeCurrentContextId = (newContext, noCheck = false) => {
     const newContextId = newContext?.contextId
     console.log(`${name}-changeCurrentContextId`, newContextId)
@@ -379,16 +370,25 @@ const Checker = ({
 
   const { bibles, paneSettings } = useMemo(() => {
     const bibles = {}
-    let paneSettings = bibles_
+    let paneSettings = []
     if (bibles_?.length) {
       for (const bible of bibles_) {
-        const key = `${bible?.languageId}_${bible?.owner}`
+        let languageId = bible?.languageId
+        if (languageId === NT_ORIG_LANG || languageId === OT_ORIG_LANG) {
+          languageId = "originalLanguage"
+        }
+        const key = `${languageId}_${bible?.owner}`
         let keyGroup = bibles[key]
         if (!keyGroup) { // if group does not exist, create new
           keyGroup = {}
           bibles[key] = keyGroup
         }
         keyGroup[bible?.bibleId] = bible?.book
+        const pane = {
+          ...bible,
+          languageId
+        }
+        paneSettings.push(pane)
       }
     } else {
       paneSettings = []
@@ -396,6 +396,13 @@ const Checker = ({
 
     return { bibles, paneSettings }
   }, [bibles_])
+
+  const toolsSettings = {
+    "ScripturePane": {
+      "currentPaneSettings": paneSettings
+    }
+  };
+
 
   const manifest = {
     language_name: 'English'
@@ -521,7 +528,9 @@ Checker.propTypes = {
   checkType: PropTypes.string,
   contextId: PropTypes.object.isRequired,
   glWordsData: PropTypes.object.isRequired,
-  translate: PropTypes.func.isRequired,
   getLexiconData: PropTypes.func,
+  targetBible: PropTypes.object.isRequired,
+  targetLanguageDetails: PropTypes.object.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 export default Checker;

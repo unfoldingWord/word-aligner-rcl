@@ -252,10 +252,13 @@ function ScripturePane({
             currentPaneSettings={currentPaneSettings}
             addObjectPropertyToManifest={addObjectPropertyToManifest}
           />
-          <AddBibleButton
-            showAddBibleModal={showAddBibleModal}
-            clickAddResource={translate('pane.add_resource')}
-          />
+          {
+            getAvailableScripturePaneSelections && // only show option if there is a callback to get selections
+              <AddBibleButton
+                showAddBibleModal={showAddBibleModal}
+                clickAddResource={translate('pane.add_resource')}
+              />
+          }
         </div>
       </div>
       {
