@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  FormGroup, FormControl, Glyphicon,
+  FormGroup, FormControl,
 } from 'react-bootstrap';
 import './CommentArea.styles.css';
 import { moveCursorToEnd } from '../../VerseEditor/helpers/editHelpers';
+import { TfiComment } from 'react-icons/tfi'
 
 const CommentArea = ({
   comment,
@@ -14,7 +15,7 @@ const CommentArea = ({
 }) => (
   <div className='comment-area'>
     <div style={{ fontWeight: 'bold' }}>
-      <Glyphicon glyph='comment' style={{ marginRight: '5px' }} />
+      <TfiComment style={{ marginRight: '5px' }} />
       {translate('comment')}
     </div>
     <FormGroup style={{ flex: 'auto', display: 'flex' }} controlId="formControlsTextarea">

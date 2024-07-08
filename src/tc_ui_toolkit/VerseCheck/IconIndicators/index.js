@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 import InvalidatedIcon from './svgIcons/InvalidatedIcon';
+import { FaBookmark, FaCheck } from 'react-icons/fa'
+import { TfiComment, TfiPencil } from 'react-icons/tfi'
 
 const IconIndicators = ({
   isVerseEdited,
@@ -41,8 +42,7 @@ const IconIndicators = ({
   return (
     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
       {getInvalidatedIcon()}
-      <Glyphicon
-        glyph="ok"
+      <FaCheck
         style={{
           margin: '0px 20px',
           color: 'var(--reverse-color)',
@@ -50,8 +50,7 @@ const IconIndicators = ({
         }}
         title={title}
       />
-      <Glyphicon
-        glyph="pencil"
+      <TfiPencil
         style={{
           margin: '0px 20px',
           color: 'var(--reverse-color)',
@@ -59,8 +58,7 @@ const IconIndicators = ({
         }}
         title={isVerseEdited ? translate('icons.verse_edits_found') : translate('icons.no_verse_edits_found')}
       />
-      <Glyphicon
-        glyph="comment"
+      <TfiComment
         style={{
           margin: '0px 20px',
           color: 'var(--reverse-color)',
@@ -68,8 +66,7 @@ const IconIndicators = ({
         }}
         title={comment && comment.length > 0 ? translate('icons.comments_found') : translate('icons.no_comments_found')}
       />
-      <Glyphicon
-        glyph="bookmark"
+      <FaBookmark
         style={{
           margin: '0px 20px',
           color: 'var(--reverse-color)',

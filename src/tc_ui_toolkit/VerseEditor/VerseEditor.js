@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import EditIcon from '@material-ui/icons/Edit';
-import { Glyphicon } from 'react-bootstrap';
 import { isLTR } from '../ScripturePane/helpers/utils';
 import { getFontClassName } from '../common/fontUtils';
 // components
@@ -10,6 +9,7 @@ import ReasonScreen from './ReasonScreen';
 import BaseDialog from './BaseDialog';
 
 import './VerseEditor.styles.css';
+import { LuUndo2 } from 'react-icons/lu'
 
 const styles = {
   screen: {
@@ -189,13 +189,13 @@ class VerseEditor extends React.Component {
             disabled={!isVerseChanged}
             onClick={this._handleReset}>
             { /* TRICKY - do mirror image of repeat to make reset icon */ }
-            <Glyphicon glyph='repeat' style={{ marginRight: '10px', transform: 'scaleX(-1)' }} />
+            <LuUndo2 style={{ marginRight: '10px' }} />
             {translate('buttons.reset_button')}
           </button>
           <button className="btn-prime"
             disabled={!isVerseChangedAndHaveReason}
             onClick={this._handleSubmit}>
-            <Glyphicon glyph='ok' style={{ marginRight: '10px' }} />
+            <FaCheck style={{ marginRight: '10px' }} />
             {translate('buttons.save_button')}
           </button>
         </div>

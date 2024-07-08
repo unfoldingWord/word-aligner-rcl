@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 import isEqual from 'deep-equal';
 import Checkbox from '@material-ui/core/Checkbox';
 import { withStyles } from '@material-ui/core/styles';
@@ -14,6 +13,9 @@ import Bookmark from '../../Bookmark';
 // css
 import './ActionsArea.styles.css';
 import Hint from '../../Hint/Hint';
+import { FaCheck } from 'react-icons/fa'
+import { TfiComment, TfiPencil } from 'react-icons/tfi'
+import { LuEraser } from 'react-icons/lu'
 
 const styles = {
   formControl: { margin: '0' },
@@ -95,7 +97,7 @@ const ChangeModeArea = ({
             className='btn-second'
             onClick={() => changeMode('select')}
           >
-            <Glyphicon glyph='ok' style={{ marginRight: '10px' }} />
+            <FaCheck style={{ marginRight: '10px' }} />
             {selectText}
           </button>
         </Hint>
@@ -112,7 +114,7 @@ const ChangeModeArea = ({
               className='btn-second'
               onClick={() => changeMode('edit')}
             >
-              <Glyphicon glyph='pencil' style={{ marginRight: '10px' }} />
+              <TfiPencil style={{ marginRight: '10px' }} />
               {editVerseText}
             </button>
           </Hint>
@@ -130,7 +132,7 @@ const ChangeModeArea = ({
               className='btn-second'
               onClick={() => changeMode('comment')}
             >
-              <Glyphicon glyph='comment' style={{ marginRight: '10px' }} />
+              <TfiComment style={{ marginRight: '10px' }} />
               {commentText}
             </button>
           </Hint>
@@ -175,7 +177,7 @@ const ConfirmEditVerseArea = ({
           disabled={!tags.length}
           onClick={saveEditVerse}
         >
-          <Glyphicon glyph='ok' style={{ marginRight: '10px' }} />
+          <FaCheck style={{ marginRight: '10px' }} />
           {saveText}
         </button>
       </Hint>
@@ -217,7 +219,7 @@ const ConfirmCommentArea = ({
           disabled={!isCommentChanged}
           onClick={saveComment}
         >
-          <Glyphicon glyph='ok' style={{ marginRight: '10px' }}/>
+          <FaCheck style={{ marginRight: '10px' }}/>
           {saveText}
         </button>
       </Hint>
@@ -310,7 +312,7 @@ const ConfirmSelectionArea = ({
             disabled={newSelections.length > 0 ? false : true}
             onClick={clearSelection}
           >
-            <Glyphicon glyph='erase' style={{ marginRight: '10px' }}/>
+            <LuEraser style={{ marginRight: '10px' }}/>
             {clearSelectionText}
           </button>
         </Hint>
@@ -327,7 +329,7 @@ const ConfirmSelectionArea = ({
             disabled={isSelectionsSaveDisable(localNothingToSelect, nothingToSelect, newSelections, selections)}
             onClick={saveSelection}
           >
-            <Glyphicon glyph='ok' style={{ marginRight: '10px' }}/>
+            <FaCheck style={{ marginRight: '10px' }}/>
             {saveText}
           </button>
         </Hint>

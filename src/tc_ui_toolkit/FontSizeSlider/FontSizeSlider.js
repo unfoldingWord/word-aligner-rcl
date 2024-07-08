@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import { makeStyles } from '@material-ui/core/styles';
+import { AiOutlineFontSize } from 'react-icons/ai'
 
 const useStyles = makeStyles({
   gridItem: { cursor: 'pointer' },
@@ -62,8 +62,7 @@ function FontSizeSlider({
   return (
     <Grid container spacing={2} alignItems='center'>
       <Grid item onClick={handleDecrease} classes={{ root: classes.gridItem }}>
-        <Glyphicon
-          glyph='font'
+        <AiOutlineFontSize
           className={classes.smallFont}
         />
       </Grid>
@@ -85,7 +84,7 @@ function FontSizeSlider({
         />
       </Grid>
       <Grid item onClick={handleIncrease} classes={{ root: classes.gridItem }}>
-        <Glyphicon
+        <AiOutlineFontSize
           glyph='font'
           className={classes.largeFont}
         />

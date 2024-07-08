@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
-  Glyphicon, FormGroup, FormControl,
+  FormGroup, FormControl,
 } from 'react-bootstrap';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -12,6 +12,7 @@ import { moveCursorToEnd } from '../../VerseEditor/helpers/editHelpers';
 import { getFontClassName } from '../../common/fontUtils';
 
 import './EditVerseArea.styles.css';
+import { TfiPencil } from 'react-icons/tfi'
 
 const styles = {
   formControlLabelRoot: { height: 30 },
@@ -102,7 +103,7 @@ const EditVerseArea = ({
   return (
     <div className='edit-area'>
       <div style={{ fontWeight: 'bold' }}>
-        <Glyphicon glyph='pencil' style={{ marginRight: '5px' }} />
+        <TfiPencil style={{ marginRight: '5px' }} />
         {translate('edit_verse')}
       </div>
       <FormGroup style={{

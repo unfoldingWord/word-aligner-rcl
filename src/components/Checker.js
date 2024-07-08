@@ -26,7 +26,7 @@ import { parseTnToIndex } from '../helpers/translationHelps/tnArticleHelpers'
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import PopoverContainer from '../containers/PopoverContainer'
 import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
-
+import complexScriptFonts from '../common/complexScriptFonts'
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
 //
@@ -427,7 +427,7 @@ const Checker = ({
               <ScripturePane
                 addObjectPropertyToManifest={null}
                 bibles={bibles}
-                complexScriptFonts={null}
+                complexScriptFonts={complexScriptFonts}
                 contextId={currentContextId}
                 currentPaneSettings={paneSettings}
                 editVerseRef={null}

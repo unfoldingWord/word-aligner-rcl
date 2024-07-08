@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 import './SaveArea.styles.css';
 import Hint from '../../Hint/Hint';
+import { IoIosShareAlt } from 'react-icons/io'
 
 const styles = {
   actionButtons: {
@@ -45,7 +45,7 @@ const SaveArea = ({
           style={styles.actionButtons}
           onClick={handlePrevious}
         >
-          <Glyphicon glyph='share-alt' style={{ marginRight: '10px', transform: 'scaleX(-1)' }} />
+          <IoIosShareAlt style={{ marginRight: '10px', transform: 'scaleX(-1)' }} />
           {savePreviousText}
         </button>
       </Hint>
@@ -61,7 +61,7 @@ const SaveArea = ({
           onClick={handleNext}
         >
           {saveContinueText}
-          <Glyphicon glyph='share-alt' style={{ marginLeft: '10px' }} />
+          <IoIosShareAlt style={{ marginLeft: '10px' }} />
         </button>
       </Hint>
     </div>
