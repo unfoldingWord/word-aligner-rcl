@@ -7,7 +7,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import { Glyphicon } from 'react-bootstrap';
 import { withStyles } from '@material-ui/core/styles';
 // components
 import Paper from '@material-ui/core/Paper';
@@ -19,6 +18,7 @@ import ChapterView from './ChapterView';
 import BibleHeadingsRow from './ChapterView/BibleHeadingsRow';
 
 import './ExpandedScripturePaneModal.styles.css';
+import { IoMdRemoveCircle } from 'react-icons/io'
 
 function PaperComponent(props) {
   // component will only be draggable by element with the className in the handle prop
@@ -168,7 +168,7 @@ function ExpandedScripturePaneModal({
           )}
         </IconButton>
         <IconButton color="inherit" onClick={onHide} aria-label="Close" style={styles.closeButton}>
-          <Glyphicon glyph="remove" />
+          <IoMdRemoveCircle />
         </IconButton>
       </Toolbar>
       <DialogContent style={styles.dialogContent}>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 import deepEqual from 'deep-equal';
 import _ from 'lodash';
 // components
@@ -11,6 +10,7 @@ import AddPaneModal from './AddPaneModal';
 import { getBibleElement } from './helpers/verseHelpers';
 
 import './ScripturePane.styles.css';
+import { BsArrowsFullscreen } from 'react-icons/bs'
 
 // constant
 const NAMESPACE = 'ScripturePane';
@@ -229,9 +229,8 @@ function ScripturePane({
       <div className="inner-container">
         <div className="title-bar">
           <span>{translate('pane.title')}</span>
-          <Glyphicon
+          <BsArrowsFullscreen
             onClick={openExpandedScripturePane}
-            glyph={'fullscreen'}
             style={{ cursor: 'pointer' }}
             title={translate('pane.expand_hover')}
           />

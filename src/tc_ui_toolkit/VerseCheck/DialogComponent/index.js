@@ -4,8 +4,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Glyphicon } from 'react-bootstrap';
 import { getTranslatedParts } from '../helpers/localizationHelpers';
+import { IoMdRemoveCircle } from 'react-icons/io'
 
 let DialogComponent = ({
   dialogModalVisibility, translate, handleSkip, handleClose,
@@ -30,9 +30,8 @@ let DialogComponent = ({
       display: 'flex', justifyContent: 'space-between', width:'100%', marginLeft:20, marginRight:20,
     }}>
       <span style={{ color: 'var(--reverse-color)' }}>{translate('attention')}</span>
-      <Glyphicon
+      <IoMdRemoveCircle
         onClick={handleClose}
-        glyph={'remove'}
         style={{
           color: 'var(--reverse-color)', cursor: 'pointer', fontSize: '18px', float: 'right',
         }}

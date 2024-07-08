@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 import ThreeDotIcon from '../../ThreeDotIcon';
 import FontSizeSlider from '../../FontSizeSlider';
 import DropdownMenu, { MenuItem } from '../../DropdownMenu';
+import { BsArrowsFullscreen } from 'react-icons/bs'
 
 function ThreeDotMenu({
   title,
@@ -53,9 +53,8 @@ function ThreeDotMenu({
             display: 'flex', justifyContent: 'flex-start', alignItems: 'center',
           }}
         >
-          <Glyphicon
+          <BsArrowsFullscreen
             title={title}
-            glyph='fullscreen'
             style={{ fontSize: '20px', color: '#000000' }}
           />
           <div title={title} style={{ margin: '0px 10px', color: '#000000' }}>

@@ -6,13 +6,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Glyphicon } from 'react-bootstrap';
 import Paper from '@material-ui/core/Paper';
 import Draggable from 'react-draggable';
 import MyTargetVerse from '../MyTargetVerse';
 
 import './MyLanguageModal.styles.css';
 import { getFontClassName } from '../../common/fontUtils';
+import { IoMdRemoveCircle } from 'react-icons/io'
 
 function PaperComponent(props) {
   // component will only be draggable by element with the className in the handle prop
@@ -123,9 +123,8 @@ const MyLanguageModal = ({
           <h4 style={{ color: 'var(--reverse-color)' }} className={targetLanguageFontClassName}>
             {title}
           </h4>
-          <Glyphicon
+          <IoMdRemoveCircle
             onClick={onHide}
-            glyph={'remove'}
             style={{
               position:'absolute', right: 0, margin: 24, color: 'var(--reverse-color)', cursor: 'pointer', fontSize: '18px',
             }}

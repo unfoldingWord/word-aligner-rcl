@@ -5,9 +5,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import { Glyphicon, FormControl } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 
 import './AddPaneModal.styles.css';
+import { IoMdRemoveCircle } from 'react-icons/io'
 
 const styles = {
   toolBar: {
@@ -125,7 +126,7 @@ const AddPaneModal = ({
           {title}
         </div>
         <IconButton color="inherit" onClick={onHide} aria-label="Close" style={styles.closeButton}>
-          <Glyphicon glyph="remove" />
+          <IoMdRemoveCircle />
         </IconButton>
       </Toolbar>
       <DialogContent style={styles.dialogContent}>

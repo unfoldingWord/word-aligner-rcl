@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
+import { SlOptionsVertical } from 'react-icons/sl'
 
 function ThreeDotIcon({
   style,
@@ -8,8 +8,7 @@ function ThreeDotIcon({
   onClick,
 }) {
   return (
-    <Glyphicon
-      glyph="option-vertical"
+    <SlOptionsVertical
       title={title}
       onClick={onClick}
       style={{
