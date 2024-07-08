@@ -1,9 +1,16 @@
 /* eslint-env jest */
+
+
+////////////////////////////////
+// only used for generating data for demo
+////////////////////////////////
+
+
 import {describe, expect, test} from '@jest/globals'
 import path from "path-extra";
 import fs from 'fs-extra';
 import { extractGroupData, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
-import { readHelpsFolder } from './folderUtils'
+import { readHelpsFolder } from '../helpers/fileHelpers'
 
 jest.unmock('fs-extra');
 
@@ -13,7 +20,7 @@ const enTwFolder = '/Users/blm0/translationCore/resources/en/translationHelps/tr
 const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v79_unfoldingWord'
 const enTnFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationNotes/v79_unfoldingWord'
 
-describe('read resources', () => {
+describe.skip('read resources', () => {
   test(`read tA`, () => {
     const filePath = enTaFolder
     const data = readHelpsFolder(filePath)
