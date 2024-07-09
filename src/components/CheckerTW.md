@@ -21,6 +21,13 @@ const translate = (key) => {
   return translation
 };
 
+const saveSelection = (newState) => {
+  const selections = newState && newState.selections
+  console.log(`saveSelection - new selections`, selections)
+  const currentContextId = newState && newState.currentContextId
+  console.log(`saveSelection - current context data`, currentContextId)
+}
+
 const bookId = "1jn"
 const bookName = "1 John"
 const targetLanguageId = 'en'
@@ -97,6 +104,7 @@ const App = () => {
           contextId={contextId}
           getLexiconData={getLexiconData_}
           glWordsData={glTwData}
+          saveSelection={saveSelection}
           targetBible={targetBible}
           targetLanguageDetails={targetLanguageDetails}
           translate={translate}

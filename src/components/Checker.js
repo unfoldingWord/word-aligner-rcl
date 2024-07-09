@@ -68,6 +68,7 @@ const Checker = ({
   contextId,
   getLexiconData,
   glWordsData,
+  saveSelection,
   targetBible,
   targetLanguageDetails,
   translate,
@@ -280,7 +281,7 @@ const Checker = ({
 
   const isCommentChanged = false
   const bookmarkEnabled = false
-  const saveSelection = () => {
+  const _saveSelection = () => {
     console.log(`${name}-saveSelection`)
     const newGroupsData = _.cloneDeep(groupsData);
     const checkInGroupsData = findCheck(newGroupsData, currentContextId)
@@ -292,13 +293,16 @@ const Checker = ({
       if (checkInCheckingData) {
         checkInCheckingData.selections = newSelections
         checkInGroupsData.selections = newSelections
-        setState({
+        const newState = {
           currentCheckingData: newCheckData,
+          currentContextId,
           groupsData: newGroupsData,
           mode: 'default',
           modified: true,
           selections: newSelections,
-        });
+        }
+        setState(newState);
+        saveSelection && saveSelection(newState)
 
         const nextCheck = findNextCheck(groupsData, currentContextId, false)
         const nextContextId = nextCheck?.contextId
@@ -510,7 +514,7 @@ const Checker = ({
                 nothingToSelect={nothingToSelect}
                 saveComment={saveComment}
                 saveEditVerse={saveEditVerse}
-                saveSelection={saveSelection}
+                saveSelection={_saveSelection}
                 selections={selections}
                 tags={tags}
                 toggleNothingToSelect={toggleNothingToSelect}
@@ -537,6 +541,7 @@ Checker.propTypes = {
   contextId: PropTypes.object.isRequired,
   glWordsData: PropTypes.object.isRequired,
   getLexiconData: PropTypes.func,
+  saveSelection: PropTypes.func,
   targetBible: PropTypes.object.isRequired,
   targetLanguageDetails: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
