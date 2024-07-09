@@ -27,6 +27,8 @@ import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import PopoverContainer from '../containers/PopoverContainer'
 import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
 import complexScriptFonts from '../common/complexScriptFonts'
+import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
+import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
 //
@@ -75,6 +77,7 @@ const Checker = ({
 }) => {
   const [state, _setState] = useState({
     alignedGLText: '',
+    article: null,
     check: null,
     currentContextId: null,
     currentCheckingData: null,
@@ -96,6 +99,7 @@ const Checker = ({
 
   const {
     alignedGLText,
+    article,
     check,
     currentContextId,
     currentCheckingData,
@@ -135,11 +139,36 @@ const Checker = ({
       }
 
       const check = findCheck(flattenedGroupData, contextId, true)
+      let groupData
       if (glWordsData) {
         if (checkType === translationNotes) {
+          groupData = {
+            translate: {
+              articles: glWordsData?.translate
+            }
+          }
           groupsIndex = parseTnToIndex(glWordsData)
         } else {
           groupsIndex = parseTwToIndex(glWordsData)
+          groupData = {
+            ...glWordsData,
+            manifest: {}
+          }
+        }
+      }
+
+      let _article
+      const articleId = check?.contextId?.groupId
+      const groupsIds = Object.keys(groupData)
+      for (const _groupId of groupsIds) {
+        const group = groupData[_groupId]
+        const articles = group?.articles || {}
+        _article = articles?.[articleId] || null
+        if (_article) {
+          const currentArticleMarkdown = tHelpsHelpers.convertMarkdownLinks(_article, gatewayLanguageId);
+          _article = currentArticleMarkdown
+          // const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(modalArticle, gatewayLanguageCode, articleCategory);
+          break
         }
       }
 
@@ -149,6 +178,7 @@ const Checker = ({
         currentCheckingData: checkingData,
         check,
         modified: false,
+        article: _article,
       }
 
       if (check) { // if found a match, use the selections
@@ -195,6 +225,8 @@ const Checker = ({
     id: bookId,
     name: bookName
   };
+  const gatewayLanguageId = targetLanguageDetails?.gatewayLanguageId
+  const gatewayLanguageOwner = targetLanguageDetails?.gatewayLanguageOwner
 
   const handleComment = () => {
     console.log(`${name}-handleComment`)
@@ -524,6 +556,17 @@ const Checker = ({
             </div>
           </div>
         </div>
+        {/*<TranslationHelps*/}
+        {/*  modalArticle={article}*/}
+        {/*  article={article}*/}
+        {/*  expandedHelpsButtonHoverText={'Click to show expanded help pane'}*/}
+        {/*  modalTitle={'translationHelps'}*/}
+        {/*  translate={translate}*/}
+        {/*  isShowHelpsExpanded={this.state.showHelpsModal}*/}
+        {/*  openExpandedHelpsModal={this.toggleHelpsModal.bind(this)}*/}
+        {/*  sidebarToggle={this.toggleHelps.bind(this)}*/}
+        {/*  isShowHelpsSidebar={this.state.showHelps}*/}
+        {/*/>*/}
         { popoverProps?.popoverVisibility &&
           <PopoverContainer {...popoverProps} />
         }

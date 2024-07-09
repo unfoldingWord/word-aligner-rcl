@@ -33,6 +33,8 @@ const bookName = "1 John"
 const targetLanguageId = 'en'
 const targetLanguageName = "English"
 const targetLanguageDirection = "ltr"
+const gatewayLanguageId = "en"
+const gatewayLanguageOwner = "unfoldingWord"
 
 const contextId_ =
   {
@@ -72,6 +74,8 @@ const targetLanguageDetails = {
   id: targetLanguageId,
   name: targetLanguageName,
   direction: targetLanguageDirection,
+  gatewayLanguageId,
+  gatewayLanguageOwner,
   book: {
     id: bookId,
     name: bookName
