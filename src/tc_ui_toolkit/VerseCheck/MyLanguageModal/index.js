@@ -12,7 +12,7 @@ import MyTargetVerse from '../MyTargetVerse';
 
 import './MyLanguageModal.styles.css';
 import { getFontClassName } from '../../common/fontUtils';
-import { IoMdRemoveCircle } from 'react-icons/io'
+import { GrClose } from 'react-icons/gr'
 
 function PaperComponent(props) {
   // component will only be draggable by element with the className in the handle prop
@@ -123,7 +123,7 @@ const MyLanguageModal = ({
           <h4 style={{ color: 'var(--reverse-color)' }} className={targetLanguageFontClassName}>
             {title}
           </h4>
-          <IoMdRemoveCircle
+          <GrClose
             onClick={onHide}
             style={{
               position:'absolute', right: 0, margin: 24, color: 'var(--reverse-color)', cursor: 'pointer', fontSize: '18px',

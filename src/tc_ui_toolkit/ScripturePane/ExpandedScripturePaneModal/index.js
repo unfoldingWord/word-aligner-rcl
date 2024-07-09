@@ -18,7 +18,7 @@ import ChapterView from './ChapterView';
 import BibleHeadingsRow from './ChapterView/BibleHeadingsRow';
 
 import './ExpandedScripturePaneModal.styles.css';
-import { IoMdRemoveCircle } from 'react-icons/io'
+import { GrClose } from 'react-icons/gr'
 
 function PaperComponent(props) {
   // component will only be draggable by element with the className in the handle prop
@@ -168,7 +168,7 @@ function ExpandedScripturePaneModal({
           )}
         </IconButton>
         <IconButton color="inherit" onClick={onHide} aria-label="Close" style={styles.closeButton}>
-          <IoMdRemoveCircle />
+          <GrClose />
         </IconButton>
       </Toolbar>
       <DialogContent style={styles.dialogContent}>
