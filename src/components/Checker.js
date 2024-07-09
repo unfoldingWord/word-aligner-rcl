@@ -368,22 +368,30 @@ const Checker = ({
     })
   }
 
+  function saveBibleToKey(bibles, key, bibleId, book) {
+    let keyGroup = bibles[key]
+    if (!keyGroup) { // if group does not exist, create new
+      keyGroup = {}
+      bibles[key] = keyGroup
+    }
+    keyGroup[bibleId] = book
+  }
+
   const { bibles, paneSettings } = useMemo(() => {
     const bibles = {}
     let paneSettings = []
     if (bibles_?.length) {
       for (const bible of bibles_) {
         let languageId = bible?.languageId
+        const owner = bible?.owner
+        const book = bible?.book
+        const bibleId = bible?.bibleId
         if (languageId === NT_ORIG_LANG || languageId === OT_ORIG_LANG) {
           languageId = "originalLanguage"
         }
-        const key = `${languageId}_${bible?.owner}`
-        let keyGroup = bibles[key]
-        if (!keyGroup) { // if group does not exist, create new
-          keyGroup = {}
-          bibles[key] = keyGroup
-        }
-        keyGroup[bible?.bibleId] = bible?.book
+        const key = `${languageId}_${owner}`
+        saveBibleToKey(bibles, key, bibleId, book)
+        saveBibleToKey(bibles, languageId, bibleId, book) // also save as default for language without owner
         const pane = {
           ...bible,
           languageId

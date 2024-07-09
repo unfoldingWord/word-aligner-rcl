@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { FormControl } from 'react-bootstrap';
 
 import './AddPaneModal.styles.css';
-import { IoMdRemoveCircle } from 'react-icons/io'
+import { GrClose } from 'react-icons/gr'
 
 const styles = {
   toolBar: {
@@ -126,7 +126,7 @@ const AddPaneModal = ({
           {title}
         </div>
         <IconButton color="inherit" onClick={onHide} aria-label="Close" style={styles.closeButton}>
-          <IoMdRemoveCircle />
+          <GrClose />
         </IconButton>
       </Toolbar>
       <DialogContent style={styles.dialogContent}>

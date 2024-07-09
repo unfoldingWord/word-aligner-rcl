@@ -10,6 +10,7 @@ import BaseDialog from './BaseDialog';
 
 import './VerseEditor.styles.css';
 import { LuUndo2 } from 'react-icons/lu'
+import { FaCheck } from 'react-icons/fa'
 
 const styles = {
   screen: {

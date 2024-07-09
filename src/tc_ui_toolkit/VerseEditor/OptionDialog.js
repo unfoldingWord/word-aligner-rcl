@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Toolbar from '@material-ui/core/Toolbar';
-import { IoMdRemoveCircle } from 'react-icons/io'
+import { GrClose } from 'react-icons/gr'
 
 const OptionDialog = ({
   isOpen,
@@ -37,7 +37,7 @@ const OptionDialog = ({
       display: 'flex', justifyContent: 'space-between', width:'100%', marginLeft:20, marginRight:20,
     }}>
       <span style={{ color: 'var(--reverse-color)' }}>{headerTitleText}</span>
-      <IoMdRemoveCircle
+      <GrClose
         onClick={handleClose}
         style={{
           color: 'var(--reverse-color)', cursor: 'pointer', fontSize: '18px', float: 'right',
