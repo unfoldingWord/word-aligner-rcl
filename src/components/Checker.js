@@ -135,7 +135,7 @@ const Checker = ({
   }
 
   useEffect(() => {
-    if (contextId && checkingData && glWordsData) {
+    if (currentContextId && checkingData && glWordsData) {
       let flattenedGroupData = null
       let newSelections = null
       let groupsIndex = null
@@ -143,7 +143,7 @@ const Checker = ({
         flattenedGroupData = flattenGroupData(checkingData)
       }
 
-      const check = findCheck(flattenedGroupData, contextId, true)
+      const check = findCheck(flattenedGroupData, currentContextId, true)
       let groupData
       if (glWordsData) {
         if (checkType === translationNotes) {
@@ -199,7 +199,7 @@ const Checker = ({
         updateMode(newSelections)
       }
     }
-  }, [contextId, checkingData, glWordsData]);
+  }, [currentContextId, checkingData, glWordsData]);
 
   function updateContext(contextId, groupsIndex_ = groupsIndex) {
     const reference = contextId?.reference
