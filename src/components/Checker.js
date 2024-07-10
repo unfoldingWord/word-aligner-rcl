@@ -71,6 +71,7 @@ const Checker = ({
   getLexiconData,
   glWordsData,
   saveSelection,
+  showDocument,
   targetBible,
   targetLanguageDetails,
   translate,
@@ -94,6 +95,8 @@ const Checker = ({
       popoverVisibility: false
     },
     selections: null,
+    showHelpsModal: false,
+    showHelps:false,
     verseText: '',
   })
 
@@ -114,6 +117,8 @@ const Checker = ({
     nothingToSelect,
     popoverProps,
     selections,
+    showHelpsModal,
+    showHelps,
     verseText,
   } = state
 
@@ -404,6 +409,20 @@ const Checker = ({
     })
   }
 
+  const toggleHelpsModal = () => {
+    const _showHelpsModal = !showHelpsModal
+    setState({
+      showHelpsModal: _showHelpsModal
+    })
+  }
+
+  const toggleHelps = () => {
+    const _showHelps = !showHelps
+    setState({
+      showHelps: _showHelps
+    })
+  }
+
   function saveBibleToKey(bibles, key, bibleId, book) {
     let keyGroup = bibles[key]
     if (!keyGroup) { // if group does not exist, create new
@@ -556,17 +575,17 @@ const Checker = ({
             </div>
           </div>
         </div>
-        {/*<TranslationHelps*/}
-        {/*  modalArticle={article}*/}
-        {/*  article={article}*/}
-        {/*  expandedHelpsButtonHoverText={'Click to show expanded help pane'}*/}
-        {/*  modalTitle={'translationHelps'}*/}
-        {/*  translate={translate}*/}
-        {/*  isShowHelpsExpanded={this.state.showHelpsModal}*/}
-        {/*  openExpandedHelpsModal={this.toggleHelpsModal.bind(this)}*/}
-        {/*  sidebarToggle={this.toggleHelps.bind(this)}*/}
-        {/*  isShowHelpsSidebar={this.state.showHelps}*/}
-        {/*/>*/}
+        {showDocument && <TranslationHelps
+          modalArticle={article}
+          article={article}
+          expandedHelpsButtonHoverText={'Click to show expanded help pane'}
+          modalTitle={'translationHelps'}
+          translate={translate}
+          isShowHelpsExpanded={showHelpsModal}
+          openExpandedHelpsModal={toggleHelpsModal}
+          sidebarToggle={toggleHelps}
+          isShowHelpsSidebar={showHelps}
+        />}
         { popoverProps?.popoverVisibility &&
           <PopoverContainer {...popoverProps} />
         }
@@ -585,6 +604,7 @@ Checker.propTypes = {
   glWordsData: PropTypes.object.isRequired,
   getLexiconData: PropTypes.func,
   saveSelection: PropTypes.func,
+  showDocument: PropTypes.bool,
   targetBible: PropTypes.object.isRequired,
   targetLanguageDetails: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,

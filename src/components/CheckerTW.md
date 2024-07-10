@@ -28,6 +28,7 @@ const saveSelection = (newState) => {
   console.log(`saveSelection - current context data`, currentContextId)
 }
 
+const showDocument = true // set to false to disable showing ta or tw document
 const bookId = "1jn"
 const bookName = "1 John"
 const targetLanguageId = 'en'
@@ -109,6 +110,7 @@ const App = () => {
           getLexiconData={getLexiconData_}
           glWordsData={glTwData}
           saveSelection={saveSelection}
+          showDocument={showDocument}
           targetBible={targetBible}
           targetLanguageDetails={targetLanguageDetails}
           translate={translate}
