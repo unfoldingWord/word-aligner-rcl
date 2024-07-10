@@ -135,7 +135,7 @@ const Checker = ({
   }
 
   useEffect(() => {
-    if (currentContextId && checkingData && glWordsData) {
+    if (contextId && checkingData && glWordsData) {
       let flattenedGroupData = null
       let newSelections = null
       let groupsIndex = null
@@ -143,37 +143,12 @@ const Checker = ({
         flattenedGroupData = flattenGroupData(checkingData)
       }
 
-      const check = findCheck(flattenedGroupData, currentContextId, true)
-      let groupData
+      const check = findCheck(flattenedGroupData, contextId, true)
       if (glWordsData) {
         if (checkType === translationNotes) {
-          groupData = {
-            translate: {
-              articles: glWordsData?.translate
-            }
-          }
           groupsIndex = parseTnToIndex(glWordsData)
         } else {
           groupsIndex = parseTwToIndex(glWordsData)
-          groupData = {
-            ...glWordsData,
-            manifest: {}
-          }
-        }
-      }
-
-      let _article
-      const articleId = check?.contextId?.groupId
-      const groupsIds = Object.keys(groupData)
-      for (const _groupId of groupsIds) {
-        const group = groupData[_groupId]
-        const articles = group?.articles || {}
-        _article = articles?.[articleId] || null
-        if (_article) {
-          const currentArticleMarkdown = tHelpsHelpers.convertMarkdownLinks(_article, gatewayLanguageId);
-          _article = currentArticleMarkdown
-          // const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(modalArticle, gatewayLanguageCode, articleCategory);
-          break
         }
       }
 
@@ -183,7 +158,6 @@ const Checker = ({
         currentCheckingData: checkingData,
         check,
         modified: false,
-        article: _article,
       }
 
       if (check) { // if found a match, use the selections
@@ -199,7 +173,7 @@ const Checker = ({
         updateMode(newSelections)
       }
     }
-  }, [currentContextId, checkingData, glWordsData]);
+  }, [contextId, checkingData, glWordsData]);
 
   function updateContext(contextId, groupsIndex_ = groupsIndex) {
     const reference = contextId?.reference
@@ -212,12 +186,45 @@ const Checker = ({
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
     const groupPhrase = getPhraseFromTw(glWordsData, contextId?.groupId)
+
+    let groupData
+    if (glWordsData) {
+      if (checkType === translationNotes) {
+        groupData = {
+          translate: {
+            articles: glWordsData?.translate
+          }
+        }
+      } else {
+        groupData = {
+          ...glWordsData,
+          manifest: {}
+        }
+      }
+    }
+
+    let _article
+    const articleId = contextId?.groupId
+    const groupsIds = Object.keys(groupData)
+    for (const _groupId of groupsIds) {
+      const group = groupData[_groupId]
+      const articles = group?.articles || {}
+      _article = articles?.[articleId] || null
+      if (_article) {
+        const currentArticleMarkdown = tHelpsHelpers.convertMarkdownLinks(_article, gatewayLanguageId);
+        _article = currentArticleMarkdown
+        // const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(modalArticle, gatewayLanguageCode, articleCategory);
+        break
+      }
+    }
+
     setState({
       alignedGLText,
       currentContextId: contextId,
       verseText,
       groupTitle,
-      groupPhrase
+      groupPhrase,
+      article: _article
     })
   }
 
