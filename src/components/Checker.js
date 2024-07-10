@@ -96,7 +96,7 @@ const Checker = ({
     },
     selections: null,
     showHelpsModal: false,
-    showHelps:false,
+    showHelps: true,
     verseText: '',
   })
 

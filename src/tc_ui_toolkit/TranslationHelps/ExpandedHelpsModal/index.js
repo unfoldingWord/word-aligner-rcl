@@ -10,12 +10,12 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import { Glyphicon } from 'react-bootstrap';
 import marked from 'marked';
 import Paper from '@material-ui/core/Paper';
 import Draggable from 'react-draggable';
 
 import './ExpandedHelpsModal.styles.css';
+import { GrClose } from 'react-icons/gr'
 
 function PaperComponent(props) {
   // component will only be draggable by element with the className in the handle prop
@@ -58,7 +58,7 @@ const ExpandedHelpsModal = ({
         {title}
       </div>
       <IconButton style={{ position: 'absolute', right: 10 }} color="inherit" onClick={onHide} aria-label="Close" className="close-button">
-        <Glyphicon glyph="remove" />
+        <GrClose />
       </IconButton>
     </Toolbar>
     <DialogContent

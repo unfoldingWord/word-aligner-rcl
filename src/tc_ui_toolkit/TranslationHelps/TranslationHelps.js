@@ -12,12 +12,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 // components
 import ExpandedHelpsModal from './ExpandedHelpsModal';
 import THelpsMarkDown from './THelpsMarkDown';
 
 import './TranslationHelps.styles.css';
+import { BsArrowsFullscreen } from 'react-icons/bs'
+import { FaChevronCircleRight, FaChevronLeft } from 'react-icons/fa'
 
 const TranslationHelps = ({
   modalArticle,
@@ -35,15 +36,13 @@ const TranslationHelps = ({
     return (
       <div className="helps-sash-container" style={{ direction }}>
         <div className="helps-sash-closed" onClick={sidebarToggle}>
-          <Glyphicon
-            glyph="chevron-right"
+          <FaChevronCircleRight
             style={{ cursor: 'pointer' }} />
         </div>
         <div className="helps">
           <div className="helps-title-bar">
-            <Glyphicon
+            <BsArrowsFullscreen
               onClick={openExpandedHelpsModal}
-              glyph={'fullscreen'}
               style={{ cursor: 'pointer' }}
               title={expandedHelpsButtonHoverText} />
           </div>
@@ -62,8 +61,7 @@ const TranslationHelps = ({
   } else {
     return (
       <div className="helps-sash-closed" style={{ direction }} onClick={sidebarToggle}>
-        <Glyphicon
-          glyph="chevron-left"
+        <FaChevronLeft
           style={{ cursor: 'pointer' }}
           onClick={sidebarToggle}
         />
