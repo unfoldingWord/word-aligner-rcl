@@ -532,9 +532,7 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            <div style={localStyles.centerDiv}>
-            </div>
-            <div style={localStyles.centerDiv}>
+            <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, height: '100%', width: '100%' }}>
               <CheckArea
                 alignedGLText={alignedGLText}
                 bookDetails={bookDetails}

@@ -99,7 +99,7 @@ const App = () => {
 
   return (
     <>
-      <div style={{ height: '400px', width: '1000px' }}>
+      <div style={{ height: '600px', width: '1200px' }}>
         <Checker
           styles={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'auto' }}
           alignedGlBible={enGlBible}
