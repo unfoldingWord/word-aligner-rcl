@@ -34,7 +34,7 @@ import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
 //
 // const lexiconCache_ = {};
 
-const styles = {
+const localStyles = {
   containerDiv:{
     display: 'flex',
     flexDirection: 'row',
@@ -72,6 +72,7 @@ const Checker = ({
   glWordsData,
   saveSelection,
   showDocument,
+  styles,
   targetBible,
   targetLanguageDetails,
   translate,
@@ -478,9 +479,15 @@ const Checker = ({
     language_name: 'English'
   }
 
+  const styleProps = styles || {}
+  const _checkerStyles = {
+    ...localStyles.containerDiv,
+    ...styleProps,
+  }
+
   return (
     readyToDisplayChecker ?
-      <div id='checker' style={styles.containerDiv}>
+      <div id='checker' style={_checkerStyles}>
         <GroupMenuComponent
           bookName={bookName}
           changeCurrentContextId={changeCurrentContextId}
@@ -491,9 +498,9 @@ const Checker = ({
           targetLanguageFont={targetLanguageFont}
           translate={translate}
         />
-        <div style={styles.centerDiv}>
+        <div style={localStyles.centerDiv}>
           { bibles && Object.keys(bibles).length &&
-            <div style={styles.scripturePaneDiv}>
+            <div style={localStyles.scripturePaneDiv}>
               <ScripturePane
                 addObjectPropertyToManifest={null}
                 bibles={bibles}
@@ -525,9 +532,9 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            <div style={styles.centerDiv}>
+            <div style={localStyles.centerDiv}>
             </div>
-            <div style={styles.centerDiv}>
+            <div style={localStyles.centerDiv}>
               <CheckArea
                 alignedGLText={alignedGLText}
                 bookDetails={bookDetails}
@@ -603,6 +610,7 @@ const Checker = ({
 };
 
 Checker.propTypes = {
+  styles:PropTypes.object,
   alignedGlBible: PropTypes.object,
   bibles: PropTypes.array,
   checkingData: PropTypes.object.isRequired,
