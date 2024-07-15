@@ -38,8 +38,8 @@ const styles = {
   containerDiv:{
     display: 'flex',
     flexDirection: 'row',
-    width: '80vw',
-    height: '75%',
+    width: '97vw',
+    height: '65vw',
   },
   centerDiv: {
     display: 'flex',
@@ -480,7 +480,7 @@ const Checker = ({
 
   return (
     readyToDisplayChecker ?
-      <div style={styles.containerDiv}>
+      <div id='checker' style={styles.containerDiv}>
         <GroupMenuComponent
           bookName={bookName}
           changeCurrentContextId={changeCurrentContextId}
@@ -491,7 +491,7 @@ const Checker = ({
           targetLanguageFont={targetLanguageFont}
           translate={translate}
         />
-        <div style={{ display: 'flex', flexDirection: 'column',}}>
+        <div style={styles.centerDiv}>
           { bibles && Object.keys(bibles).length &&
             <div style={styles.scripturePaneDiv}>
               <ScripturePane
