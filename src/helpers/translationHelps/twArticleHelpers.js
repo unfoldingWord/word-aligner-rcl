@@ -28,6 +28,7 @@ import { getVerseString } from '../tsv-groupdata-parser/verseHelpers'
 import { ELLIPSIS } from '../../common/constants'
 import { convertReference } from './tsvToGroupData'
 import { getAlignedText } from '../../tc_ui_toolkit/VerseCheck/helpers/checkAreaHelpers'
+import isEqual from 'deep-equal'
 // import { delay } from '../../utils/delay';
 
 /**
@@ -289,7 +290,7 @@ export function findNextCheck(groupsData, contextId, defaultToFirst = false) {
                   matchFound = true
                 }
               } else // if no checkId, fall back to matching quote and occurrence
-              if ((contextId.quote === itemContextId?.quote) && (contextId.occurrence === itemContextId?.occurrence)) {
+              if (isEqual(contextId.quote, itemContextId?.quote) && (contextId.occurrence === itemContextId?.occurrence)) {
                 matchFound = true
               }
             }
