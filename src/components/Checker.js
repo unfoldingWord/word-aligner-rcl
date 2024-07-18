@@ -9,7 +9,6 @@ import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
 import GroupMenuComponent from './GroupMenuComponent'
 import { getBestVerseFromBook } from '../helpers/verseHelpers'
-import { UsfmFileConversionHelpers } from 'word-aligner-rcl';
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import isEqual from 'deep-equal'
 import {
@@ -29,6 +28,7 @@ import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
 import complexScriptFonts from '../common/complexScriptFonts'
 import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
 import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
+import { getUsfmForVerseContent } from '../helpers/UsfmFileConversionHelpers'
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
 //
@@ -181,12 +181,15 @@ const Checker = ({
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
     if (typeof verseText !== 'string') {
       console.log(`updateContext- verse data is not text`)
-      verseText = UsfmFileConversionHelpers.getUsfmForVerseContent(verseText)
+      verseText = getUsfmForVerseContent(verseText)
     }
     verseText = removeUsfmMarkers(verseText)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
-    const groupPhrase = getPhraseFromTw(glWordsData, contextId?.groupId)
+    const groupPhrase =
+      checkType === translationNotes
+        ? contextId?.occurrenceNote
+        : getPhraseFromTw(glWordsData, contextId?.groupId)
 
     let groupData
     if (glWordsData) {
@@ -274,7 +277,7 @@ const Checker = ({
       if (verseData) {
         unfilteredVerseText_ = verseData
         if (typeof verseData !== 'string') {
-          unfilteredVerseText_ = UsfmFileConversionHelpers.getUsfmForVerseContent(verseData)
+          unfilteredVerseText_ = getUsfmForVerseContent(verseData)
         }
       }
     }
@@ -338,19 +341,20 @@ const Checker = ({
       if (checkInCheckingData) {
         checkInCheckingData.selections = newSelections
         checkInGroupsData.selections = newSelections
+        const nextCheck = findNextCheck(groupsData, currentContextId, false)
+        const nextContextId = nextCheck?.contextId
         const newState = {
           currentCheckingData: newCheckData,
           currentContextId,
           groupsData: newGroupsData,
           mode: 'default',
           modified: true,
+          nextContextId,
           selections: newSelections,
         }
         setState(newState);
         saveSelection && saveSelection(newState)
 
-        const nextCheck = findNextCheck(groupsData, currentContextId, false)
-        const nextContextId = nextCheck?.contextId
         if (nextContextId) {
           changeCurrentContextId(nextCheck, true)
         }

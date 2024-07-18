@@ -242,7 +242,7 @@ export function findCheck(groupsData, contextId, defaultToFirst = false) {
                   matchFound = true
                 }
               } else // if no checkId, fall back to matching quote and occurrence
-              if ((contextId.quote === itemContextId?.quote) && (contextId.occurrence === itemContextId?.occurrence)) {
+              if (isEqual(contextId.quote, itemContextId?.quote) && (contextId.occurrence === itemContextId?.occurrence)) {
                 matchFound = true
               }
 
