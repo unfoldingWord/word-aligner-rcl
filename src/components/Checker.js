@@ -9,7 +9,6 @@ import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 import ActionsArea from '../tc_ui_toolkit/VerseCheck/ActionsArea'
 import GroupMenuComponent from './GroupMenuComponent'
 import { getBestVerseFromBook } from '../helpers/verseHelpers'
-import { UsfmFileConversionHelpers } from 'word-aligner-rcl';
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import isEqual from 'deep-equal'
 import {
@@ -27,17 +26,20 @@ import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import PopoverContainer from '../containers/PopoverContainer'
 import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
 import complexScriptFonts from '../common/complexScriptFonts'
+import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
+import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
+import { getUsfmForVerseContent } from '../helpers/UsfmFileConversionHelpers'
 // const tc = require('../__tests__/fixtures/tc.json')
 // const toolApi = require('../__tests__/fixtures/toolApi.json')
 //
 // const lexiconCache_ = {};
 
-const styles = {
+const localStyles = {
   containerDiv:{
     display: 'flex',
     flexDirection: 'row',
-    width: '80vw',
-    height: '75%',
+    width: '97vw',
+    height: '65vw',
   },
   centerDiv: {
     display: 'flex',
@@ -68,12 +70,16 @@ const Checker = ({
   contextId,
   getLexiconData,
   glWordsData,
+  saveSelection,
+  showDocument,
+  styles,
   targetBible,
   targetLanguageDetails,
   translate,
 }) => {
   const [state, _setState] = useState({
     alignedGLText: '',
+    article: null,
     check: null,
     currentContextId: null,
     currentCheckingData: null,
@@ -90,11 +96,14 @@ const Checker = ({
       popoverVisibility: false
     },
     selections: null,
+    showHelpsModal: false,
+    showHelps: true,
     verseText: '',
   })
 
   const {
     alignedGLText,
+    article,
     check,
     currentContextId,
     currentCheckingData,
@@ -109,6 +118,8 @@ const Checker = ({
     nothingToSelect,
     popoverProps,
     selections,
+    showHelpsModal,
+    showHelps,
     verseText,
   } = state
 
@@ -170,18 +181,54 @@ const Checker = ({
     let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
     if (typeof verseText !== 'string') {
       console.log(`updateContext- verse data is not text`)
-      verseText = UsfmFileConversionHelpers.getUsfmForVerseContent(verseText)
+      verseText = getUsfmForVerseContent(verseText)
     }
     verseText = removeUsfmMarkers(verseText)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
-    const groupPhrase = getPhraseFromTw(glWordsData, contextId?.groupId)
+    const groupPhrase =
+      checkType === translationNotes
+        ? contextId?.occurrenceNote
+        : getPhraseFromTw(glWordsData, contextId?.groupId)
+
+    let groupData
+    if (glWordsData) {
+      if (checkType === translationNotes) {
+        groupData = {
+          translate: {
+            articles: glWordsData?.translate
+          }
+        }
+      } else {
+        groupData = {
+          ...glWordsData,
+          manifest: {}
+        }
+      }
+    }
+
+    let _article
+    const articleId = contextId?.groupId
+    const groupsIds = Object.keys(groupData)
+    for (const _groupId of groupsIds) {
+      const group = groupData[_groupId]
+      const articles = group?.articles || {}
+      _article = articles?.[articleId] || null
+      if (_article) {
+        const currentArticleMarkdown = tHelpsHelpers.convertMarkdownLinks(_article, gatewayLanguageId);
+        _article = currentArticleMarkdown
+        // const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(modalArticle, gatewayLanguageCode, articleCategory);
+        break
+      }
+    }
+
     setState({
       alignedGLText,
       currentContextId: contextId,
       verseText,
       groupTitle,
-      groupPhrase
+      groupPhrase,
+      article: _article
     })
   }
 
@@ -194,6 +241,8 @@ const Checker = ({
     id: bookId,
     name: bookName
   };
+  const gatewayLanguageId = targetLanguageDetails?.gatewayLanguageId
+  const gatewayLanguageOwner = targetLanguageDetails?.gatewayLanguageOwner
 
   const handleComment = () => {
     console.log(`${name}-handleComment`)
@@ -228,7 +277,7 @@ const Checker = ({
       if (verseData) {
         unfilteredVerseText_ = verseData
         if (typeof verseData !== 'string') {
-          unfilteredVerseText_ = UsfmFileConversionHelpers.getUsfmForVerseContent(verseData)
+          unfilteredVerseText_ = getUsfmForVerseContent(verseData)
         }
       }
     }
@@ -280,7 +329,7 @@ const Checker = ({
 
   const isCommentChanged = false
   const bookmarkEnabled = false
-  const saveSelection = () => {
+  const _saveSelection = () => {
     console.log(`${name}-saveSelection`)
     const newGroupsData = _.cloneDeep(groupsData);
     const checkInGroupsData = findCheck(newGroupsData, currentContextId)
@@ -292,16 +341,20 @@ const Checker = ({
       if (checkInCheckingData) {
         checkInCheckingData.selections = newSelections
         checkInGroupsData.selections = newSelections
-        setState({
+        const nextCheck = findNextCheck(groupsData, currentContextId, false)
+        const nextContextId = nextCheck?.contextId
+        const newState = {
           currentCheckingData: newCheckData,
+          currentContextId,
           groupsData: newGroupsData,
           mode: 'default',
           modified: true,
+          nextContextId,
           selections: newSelections,
-        });
+        }
+        setState(newState);
+        saveSelection && saveSelection(newState)
 
-        const nextCheck = findNextCheck(groupsData, currentContextId, false)
-        const nextContextId = nextCheck?.contextId
         if (nextContextId) {
           changeCurrentContextId(nextCheck, true)
         }
@@ -368,6 +421,20 @@ const Checker = ({
     })
   }
 
+  const toggleHelpsModal = () => {
+    const _showHelpsModal = !showHelpsModal
+    setState({
+      showHelpsModal: _showHelpsModal
+    })
+  }
+
+  const toggleHelps = () => {
+    const _showHelps = !showHelps
+    setState({
+      showHelps: _showHelps
+    })
+  }
+
   function saveBibleToKey(bibles, key, bibleId, book) {
     let keyGroup = bibles[key]
     if (!keyGroup) { // if group does not exist, create new
@@ -416,9 +483,15 @@ const Checker = ({
     language_name: 'English'
   }
 
+  const styleProps = styles || {}
+  const _checkerStyles = {
+    ...localStyles.containerDiv,
+    ...styleProps,
+  }
+
   return (
     readyToDisplayChecker ?
-      <div style={styles.containerDiv}>
+      <div id='checker' style={_checkerStyles}>
         <GroupMenuComponent
           bookName={bookName}
           changeCurrentContextId={changeCurrentContextId}
@@ -429,9 +502,9 @@ const Checker = ({
           targetLanguageFont={targetLanguageFont}
           translate={translate}
         />
-        <div style={{ display: 'flex', flexDirection: 'column',}}>
+        <div style={localStyles.centerDiv}>
           { bibles && Object.keys(bibles).length &&
-            <div style={styles.scripturePaneDiv}>
+            <div style={localStyles.scripturePaneDiv}>
               <ScripturePane
                 addObjectPropertyToManifest={null}
                 bibles={bibles}
@@ -463,9 +536,7 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            <div style={styles.centerDiv}>
-            </div>
-            <div style={styles.centerDiv}>
+            <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, height: '100%', width: '100%' }}>
               <CheckArea
                 alignedGLText={alignedGLText}
                 bookDetails={bookDetails}
@@ -510,7 +581,7 @@ const Checker = ({
                 nothingToSelect={nothingToSelect}
                 saveComment={saveComment}
                 saveEditVerse={saveEditVerse}
-                saveSelection={saveSelection}
+                saveSelection={_saveSelection}
                 selections={selections}
                 tags={tags}
                 toggleNothingToSelect={toggleNothingToSelect}
@@ -520,6 +591,17 @@ const Checker = ({
             </div>
           </div>
         </div>
+        {showDocument && <TranslationHelps
+          modalArticle={article}
+          article={article}
+          expandedHelpsButtonHoverText={'Click to show expanded help pane'}
+          modalTitle={'translationHelps'}
+          translate={translate}
+          isShowHelpsExpanded={showHelpsModal}
+          openExpandedHelpsModal={toggleHelpsModal}
+          sidebarToggle={toggleHelps}
+          isShowHelpsSidebar={showHelps}
+        />}
         { popoverProps?.popoverVisibility &&
           <PopoverContainer {...popoverProps} />
         }
@@ -530,6 +612,7 @@ const Checker = ({
 };
 
 Checker.propTypes = {
+  styles:PropTypes.object,
   alignedGlBible: PropTypes.object,
   bibles: PropTypes.array,
   checkingData: PropTypes.object.isRequired,
@@ -537,6 +620,8 @@ Checker.propTypes = {
   contextId: PropTypes.object.isRequired,
   glWordsData: PropTypes.object.isRequired,
   getLexiconData: PropTypes.func,
+  saveSelection: PropTypes.func,
+  showDocument: PropTypes.bool,
   targetBible: PropTypes.object.isRequired,
   targetLanguageDetails: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,

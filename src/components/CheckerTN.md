@@ -21,11 +21,21 @@ const translate = (key) => {
   return translation
 };
 
-var bookId = "1jn"
+const saveSelection = (newState) => {
+  const selections = newState && newState.selections
+  console.log(`saveSelection - new selections`, selections)
+  const currentContextId = newState && newState.currentContextId
+  console.log(`saveSelection - current context data`, currentContextId)
+}
+
+const showDocument = true // set to false to disable showing ta or tw document
+const bookId = "1jn"
 const bookName = "1 John"
 const targetLanguageId = 'en'
 const targetLanguageName = "English"
 const targetLanguageDirection = "ltr"
+const gatewayLanguageId = "en"
+const gatewayLanguageOwner = "unfoldingWord"
 
 const contextId_ =
   {
@@ -65,6 +75,8 @@ const targetLanguageDetails = {
   id: targetLanguageId,
   name: targetLanguageName,
   direction: targetLanguageDirection,
+  gatewayLanguageId,
+  gatewayLanguageOwner,
   book: {
     id: bookId,
     name: bookName
@@ -87,9 +99,9 @@ const App = () => {
 
   return (
     <>
-      <div style={{ height: '600px', width: '850px' }}>
+      <div style={{ height: '600px', width: '1200px' }}>
         <Checker
-          styles={{ maxHeight: '500px', overflowY: 'auto' }}
+          styles={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'auto' }}
           alignedGlBible={enGlBible}
           bibles={bibles}
           checkingData={checkingData}
@@ -97,6 +109,8 @@ const App = () => {
           contextId={contextId}
           getLexiconData={getLexiconData_}
           glWordsData={glTaData}
+          saveSelection={saveSelection}
+          showDocument={showDocument}
           targetBible={targetBible}
           targetLanguageDetails={targetLanguageDetails}
           translate={translate}

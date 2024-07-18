@@ -13,6 +13,7 @@ import MyTargetVerse from '../MyTargetVerse';
 import './MyLanguageModal.styles.css';
 import { getFontClassName } from '../../common/fontUtils';
 import { GrClose } from 'react-icons/gr'
+import { getUsfmForVerseContent } from '../../../helpers/UsfmFileConversionHelpers'
 
 function PaperComponent(props) {
   // component will only be draggable by element with the className in the handle prop
@@ -65,6 +66,10 @@ const MyLanguageModal = ({
     for (let key in targetBible[chapter]) {
       if (targetBible[chapter].hasOwnProperty(key)) {
         let verseText = targetBible[chapter][key];
+        if (typeof verseText !== 'string') { // convert to string
+          const text = getUsfmForVerseContent(verseText)
+          verseText = text
+        }
         let versePaneStyle = {};
 
         if (key == currentVerse) {
