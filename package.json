@@ -1,6 +1,6 @@
 {
   "name": "checking-tool-rcl",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",
@@ -52,7 +52,7 @@
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "bible-reference-range": "^1.1.0",
-    "deep-equal": "1.0.1",
+    "deep-equal": "2.2.3",
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "marked": "0.6.2",
