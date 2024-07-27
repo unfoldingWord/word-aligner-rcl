@@ -76,6 +76,7 @@ const Checker = ({
   const [paneSettings, setPaneSettings] = useState([])
   const [toolsSettings, setToolsSettings] = useState({ })
   const [bibles, setBibles] = useState({ })
+  const [manifest, setManifest] = useState({ })
   const [state, _setState] = useState({
     alignedGLText: '',
     article: null,
@@ -265,7 +266,32 @@ const Checker = ({
   const setToolSettingsScripture = (NAMESPACE, fieldName, _paneSettings) => {
     console.log(`${name}-setToolSettingsScripture`, _paneSettings)
     setPaneSettings( _paneSettings )
+
+    // if target pane font has changed, update manifest
+    const targetPane = _paneSettings.find(pane => {
+      return (pane?.bibleld === 'targetBible')
+    })
+    const targetFont = targetPane?.font
+    if (targetFont && (targetFont !== manifest?.projectFont)) {
+      const _manifest = {
+        ...manifest,
+        projectFont: projectFont || ''
+      }
+      setManifest(_manifest)
+    }
   }
+
+  const addObjectPropertyToManifest = (fieldName, fieldValue) => {
+    console.log(`${name}-addObjectPropertyToManifest ${fieldName}=${fieldValue}`)
+    if (manifest) {
+      const _manifest = {
+        ...manifest,
+        [fieldName]: fieldValue
+      }
+      setManifest(_manifest)
+    }
+  }
+
   const openAlertDialog = () => {
     console.log(`${name}-openAlertDialog`)
   }
@@ -280,7 +306,7 @@ const Checker = ({
   const validateSelections = (selections_) => {
     console.log(`${name}-validateSelections`, selections_)
   }
-  const targetLanguageFont = 'default'
+  const targetLanguageFont = manifest?.projectFont || ''
 
   const unfilteredVerseText = useMemo(() => {
     let unfilteredVerseText_ = ''
@@ -490,14 +516,16 @@ const Checker = ({
       }
     };
 
+    const _manifest = {
+      language_name: 'English',
+      projectFont: targetBible?.manifest?.projectFont || ''
+    }
+
     setBibles( _bibles )
     setPaneSettings( _paneSettings )
     setToolsSettings( _toolsSettings )
+    setManifest(_manifest)
   }, [bibles_])
-
-  const manifest = {
-    language_name: 'English'
-  }
 
   const styleProps = styles || {}
   const _checkerStyles = {
@@ -522,7 +550,7 @@ const Checker = ({
           { bibles && Object.keys(bibles).length &&
             <div style={localStyles.scripturePaneDiv}>
               <ScripturePane
-                addObjectPropertyToManifest={null}
+                addObjectPropertyToManifest={addObjectPropertyToManifest}
                 bibles={bibles}
                 complexScriptFonts={complexScriptFonts}
                 contextId={currentContextId}

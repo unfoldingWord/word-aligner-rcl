@@ -56,7 +56,25 @@ const contextId_ =
     "occurrence": 1
   }
 
+const targetLanguageDetails = {
+  id: targetLanguageId,
+  name: targetLanguageName,
+  direction: targetLanguageDirection,
+  gatewayLanguageId,
+  gatewayLanguageOwner,
+  book: {
+    id: bookId,
+    name: bookName
+  }
+}
+
 const bibles = [
+  {
+    book: targetBible,
+    languageId: 'targetLanguage',
+    bibleId: 'targetBible',
+    owner: 'unfoldingWord'
+  },
   {
     book: enGlBible,
     languageId: 'en',
@@ -70,18 +88,6 @@ const bibles = [
     owner: 'unfoldingWord'
   }
 ]
-
-const targetLanguageDetails = {
-  id: targetLanguageId,
-  name: targetLanguageName,
-  direction: targetLanguageDirection,
-  gatewayLanguageId,
-  gatewayLanguageOwner,
-  book: {
-    id: bookId,
-    name: bookName
-  }
-}
 
 console.log('CheckerTW.md - startup')
 
