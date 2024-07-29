@@ -24,7 +24,7 @@ import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
 import { parseTnToIndex } from '../helpers/translationHelps/tnArticleHelpers'
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import PopoverContainer from '../containers/PopoverContainer'
-import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
+import { isNT, NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
 import complexScriptFonts from '../common/complexScriptFonts'
 import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
 import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
@@ -66,17 +66,28 @@ const Checker = ({
   contextId,
   getLexiconData,
   glWordsData,
+  initialSettings,
   saveSelection,
+  saveSettings,
   showDocument,
   styles,
   targetBible,
   targetLanguageDetails,
   translate,
 }) => {
-  const [paneSettings, setPaneSettings] = useState([])
-  const [toolsSettings, setToolsSettings] = useState({ })
+  const [settings, _setSettings] = useState({
+    paneSettings: [],
+    paneKeySettings: {},
+    toolsSettings: {},
+    manifest: {}
+  })
+  const {
+    paneSettings,
+    paneKeySettings,
+    toolsSettings,
+    manifest
+  } = settings
   const [bibles, setBibles] = useState({ })
-  const [manifest, setManifest] = useState({ })
   const [state, _setState] = useState({
     alignedGLText: '',
     article: null,
@@ -252,33 +263,76 @@ const Checker = ({
     console.log(`${name}-setToolSettings ${fieldName}=${fieldValue}`)
     if (toolsSettings) {
       // Deep cloning object to avoid modifying original object
-      const _toolsSettings = _.cloneDeep(toolsSettings);
+      const _toolsSettings = { ...toolsSettings };
       let componentSettings = _toolsSettings?.[NAMESPACE]
       if (!componentSettings) {
         componentSettings = { }
         _toolsSettings[NAMESPACE] = componentSettings
       }
       componentSettings[fieldName] = fieldValue
-      setToolsSettings(_toolsSettings)
+      setSettings({ toolsSettings: _toolsSettings }, true)
     }
   }
 
-  const setToolSettingsScripture = (NAMESPACE, fieldName, _paneSettings) => {
-    console.log(`${name}-setToolSettingsScripture`, _paneSettings)
-    setPaneSettings( _paneSettings )
-
-    // if target pane font has changed, update manifest
-    const targetPane = _paneSettings.find(pane => {
-      return (pane?.bibleld === 'targetBible')
-    })
-    const targetFont = targetPane?.font
-    if (targetFont && (targetFont !== manifest?.projectFont)) {
-      const _manifest = {
-        ...manifest,
-        projectFont: projectFont || ''
+  /**
+   * clear out bible data before saving settings
+   * @param {object} _settings
+   * @private
+   */
+  function _saveSettings(_settings) {
+    if (saveSettings && _settings) {
+      const newSettings = { ..._settings }
+      const _paneSettings = [ ...newSettings.paneSettings ]
+      for (let i = 0; i < _paneSettings.length; i++) {
+        const _paneSetting = {..._paneSettings[i]} // shallow copy
+        if (_paneSetting?.book) {
+          delete _paneSetting.book // remove all the book data before saving
+        }
+        _paneSettings[i] = _paneSetting
       }
-      setManifest(_manifest)
+      newSettings.paneSettings = _paneSettings
+
+      const _paneKeySettings = { ...newSettings.paneKeySettings }
+      const keys = Object.keys(_paneKeySettings)
+      for (const key of keys) {
+        const _paneSetting = {..._paneKeySettings[key]} // shallow copy
+        if (_paneSetting?.book) {
+          delete _paneSetting.book // remove all the book data before saving
+        }
+        _paneKeySettings[key] = _paneSetting
+      }
+      newSettings.paneKeySettings = _paneKeySettings
+
+      saveSettings(newSettings)
     }
+  }
+
+  function setSettings(newSettings, doSave = false) {
+    const _settings = {
+      ...settings,
+      ...newSettings
+    }
+
+    _setSettings(_settings)
+    doSave && _saveSettings(_settings)
+  }
+
+  const setToolSettingsScripture = (NAMESPACE, fieldName, _paneSettings) => {
+    console.log(`${name}-setToolSettingsScripture ${fieldName}`, _paneSettings)
+    const _paneKeySettings = {...paneKeySettings}
+
+    for (const paneSettings of _paneSettings) {
+      const languageId = paneSettings?.languageId
+      const key = `${languageId}/${paneSettings?.bibleId}/${paneSettings?.owner}`
+      _paneKeySettings[key] = paneSettings
+    }
+
+    const _settings = {
+      paneSettings: _paneSettings,
+      paneKeySettings: _paneKeySettings,
+    }
+
+    setSettings(_settings, true)
   }
 
   const addObjectPropertyToManifest = (fieldName, fieldValue) => {
@@ -288,7 +342,7 @@ const Checker = ({
         ...manifest,
         [fieldName]: fieldValue
       }
-      setManifest(_manifest)
+      setSettings({ manifest: _manifest }, true)
     }
   }
 
@@ -488,6 +542,7 @@ const Checker = ({
   useEffect(() => {
     const _bibles = {}
     let _paneSettings = []
+    const _paneKeySettings = initialSettings?.paneKeySettings || {}
     if (bibles_?.length) {
       for (const bible of bibles_) {
         let languageId = bible?.languageId
@@ -497,34 +552,44 @@ const Checker = ({
         if (languageId === NT_ORIG_LANG || languageId === OT_ORIG_LANG) {
           languageId = "originalLanguage"
         }
-        const key = `${languageId}_${owner}`
-        saveBibleToKey(_bibles, key, bibleId, book)
+        const key = `${languageId}/${bibleId}/${owner}`
+        const intialPaneSettings = _paneKeySettings?.[key]
+        const langKey = `${languageId}_${owner}`
+        saveBibleToKey(_bibles, langKey, bibleId, book)
         saveBibleToKey(_bibles, languageId, bibleId, book) // also save as default for language without owner
-        const pane = {
+        const pane = intialPaneSettings || {
           ...bible,
-          languageId
+          languageId,
         }
         _paneSettings.push(pane)
+        if (!intialPaneSettings) {
+          _paneKeySettings[key] = pane
+        }
       }
     } else {
       _paneSettings = []
     }
 
-    const _toolsSettings = {
+    const _toolsSettings = initialSettings?.toolsSettings ||
+      {
       "CheckArea": {
         "fontSize": 100
       }
     };
 
-    const _manifest = {
-      language_name: 'English',
+    const _manifest =  initialSettings?.manifest ||
+    {
+      language_name: targetBible?.manifest?.dublin_core?.language?.title || 'Current',
       projectFont: targetBible?.manifest?.projectFont || ''
     }
 
     setBibles( _bibles )
-    setPaneSettings( _paneSettings )
-    setToolsSettings( _toolsSettings )
-    setManifest(_manifest)
+    setSettings({
+      paneSettings: _paneSettings,
+      paneKeySettings: _paneKeySettings,
+      toolsSettings: _toolsSettings,
+      manifest: _manifest
+    }, false)
   }, [bibles_])
 
   const styleProps = styles || {}
@@ -664,7 +729,9 @@ Checker.propTypes = {
   contextId: PropTypes.object.isRequired,
   glWordsData: PropTypes.object.isRequired,
   getLexiconData: PropTypes.func,
+  initialSettings: PropTypes.object,
   saveSelection: PropTypes.func,
+  saveSettings: PropTypes.func,
   showDocument: PropTypes.bool,
   targetBible: PropTypes.object.isRequired,
   targetLanguageDetails: PropTypes.object.isRequired,

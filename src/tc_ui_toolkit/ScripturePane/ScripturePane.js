@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import deepEqual from 'deep-equal';
-import _ from 'lodash';
 // components
 import Panes from './Panes';
 import ExpandedScripturePaneModal from './ExpandedScripturePaneModal';
@@ -95,8 +94,9 @@ function ScripturePane({
     try {
       if (currentPaneSettings) {
         if (Object.keys(selectedPane).length) {
-          currentPaneSettings.push(selectedPane);
-          setToolSettings(NAMESPACE, 'currentPaneSettings', currentPaneSettings);
+          const paneSettings = [...currentPaneSettings]; // make shallow array copy
+          paneSettings.push(selectedPane);
+          setToolSettings(NAMESPACE, 'currentPaneSettings', paneSettings);
           makeSureBiblesLoadedForTool();
           hideAddBibleModal();
         }
@@ -109,8 +109,9 @@ function ScripturePane({
   function removePane(key) {
     try {
       if (currentPaneSettings) {
-        currentPaneSettings.splice(key, 1);
-        setToolSettings(NAMESPACE, 'currentPaneSettings', currentPaneSettings);
+        const paneSettings = [...currentPaneSettings]; // make shallow array copy
+        paneSettings.splice(key, 1);
+        setToolSettings(NAMESPACE, 'currentPaneSettings', paneSettings);
       }
     } catch (e) {
       console.warn(e);
@@ -120,15 +121,13 @@ function ScripturePane({
   function changePaneFontSize(index, fontSize) {
     try {
       if (currentPaneSettings) {
-        const paneSettings = _.cloneDeep(currentPaneSettings);
-        const newCurrentPaneSettings = paneSettings.map((paneSetting, i) => {
-          if (index === i) {
-            paneSetting.fontSize = fontSize;
-          }
-
-          return paneSetting;
-        });
-        setToolSettings(NAMESPACE, 'currentPaneSettings', newCurrentPaneSettings);
+        const paneSettings = [...currentPaneSettings]; // make shallow array copy
+        if (paneSettings[index]) {
+          const matchedPane =  {...paneSettings[index]} // make shallow copy
+          matchedPane.fontSize = fontSize;
+          paneSettings[index] = matchedPane; // update settings in selected pane
+          setToolSettings(NAMESPACE, 'currentPaneSettings', paneSettings);
+        }
       }
     } catch (e) {
       console.warn(e);
@@ -138,15 +137,13 @@ function ScripturePane({
   function changePaneFontType(index, fontType) {
     try {
       if (currentPaneSettings) {
-        const paneSettings = _.cloneDeep(currentPaneSettings);
-        const newCurrentPaneSettings = paneSettings.map((paneSetting, i) => {
-          if (index === i) {
-            paneSetting.font = fontType;
-          }
-
-          return paneSetting;
-        });
-        setToolSettings(NAMESPACE, 'currentPaneSettings', newCurrentPaneSettings);
+        const paneSettings = [...currentPaneSettings]; // make shallow array copy
+        if (paneSettings[index]) {
+          const matchedPane =  {...paneSettings[index]} // make shallow copy
+          matchedPane.font = fontType;
+          paneSettings[index] = matchedPane; // update settings in selected pane
+          setToolSettings(NAMESPACE, 'currentPaneSettings', paneSettings);
+        }
       }
     } catch (e) {
       console.warn(e);

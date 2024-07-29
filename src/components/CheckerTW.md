@@ -21,6 +21,10 @@ const translate = (key) => {
   return translation
 };
 
+const saveSettings = (settings) => {
+  console.log(`saveSettings`, settings)
+};
+
 const saveSelection = (newState) => {
   const selections = newState && newState.selections
   console.log(`saveSelection - new selections`, selections)
@@ -116,6 +120,7 @@ const App = () => {
           getLexiconData={getLexiconData_}
           glWordsData={glTwData}
           saveSelection={saveSelection}
+          saveSettings={saveSettings}
           showDocument={showDocument}
           targetBible={targetBible}
           targetLanguageDetails={targetLanguageDetails}
