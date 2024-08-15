@@ -162,7 +162,7 @@ The main react component instead of being called `WordAligner`, it is called `Su
 
 ### npm
 ```bash
-yarn add suggesting-word-aligner-rcl
+npm add suggesting-word-aligner-rcl
 ```
 
 ### yarn

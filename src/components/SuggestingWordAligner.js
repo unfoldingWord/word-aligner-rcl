@@ -1005,7 +1005,15 @@ const SuggestingWordAligner = ({
     const clearedAlignments = verseAlignments_.map( alignment => {
       return {...alignment, isSuggestion: false, targetNgram: []};
     });
-    setVerseAlignments(updateVerseAlignments( clearedAlignments ));
+
+    const updatedVerseAlignments = updateVerseAlignments( clearedAlignments )
+    setVerseAlignments(updatedVerseAlignments);
+
+    doChangeCallback({
+      type: UNALIGN_TARGET_WORD,
+      source: GRID,
+      destination: TARGET_WORD_BANK
+    }, updatedVerseAlignments);
   }
 
   let sourceFontSizePercent_ = sourceFontSizePercent;
