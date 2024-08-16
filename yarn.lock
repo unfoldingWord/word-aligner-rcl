@@ -6936,10 +6936,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-usfm-js@3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/usfm-js/-/usfm-js-3.4.2.tgz#a4232cffe38c9f521246b007a4045648cbcf419a"
-  integrity sha512-i5nGxGwFhkOWd7xgfVWQ6GTkCpksfy5AUIwNJcwanTn3ua5J1nwl3pjApCDA6x1B++8ICkcQMUt0FB/bkKdE2g==
+usfm-js@3.4.3-beta.3:
+  version "3.4.3-beta.3"
+  resolved "https://registry.yarnpkg.com/usfm-js/-/usfm-js-3.4.3-beta.3.tgz#cbfe6a0129e4a4b1a9b536ebe4275589902d0cb1"
+  integrity sha512-4M1Mhpkv3EAjt92hFQK0xL7oelTHmgLMTI7k2/SSL+K79pK+tUnoj5/o+aI7YsO1m8A2G4tirktOOFb1HItUKw==
   dependencies:
     lodash.clonedeep "^4.5.0"
 
