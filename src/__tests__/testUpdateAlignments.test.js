@@ -13,6 +13,7 @@ import {migrateTargetAlignmentsToOriginal} from "../utils/migrateOriginalLanguag
 import {convertVerseDataToUSFM, getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
 import path from "path-extra";
 import fs from 'fs-extra';
+import cloneDeep from "lodash.clonedeep";
 
 jest.unmock('fs-extra');
 
@@ -34,15 +35,18 @@ describe('testing edit of aligned target text', () => {
         steps,
       } = test_
 
-      let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+      const initialVerseObjects = usfmVerseToJson(initialAlignedUsfm);
+      let currentVerseObjects = cloneDeep(initialVerseObjects); // set initial test conditions
       const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
       expect(initialEditText).toEqual(expectedInitialEditText)
+      expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
 
       for (const step of steps) {
         ////////////
         // Given
 
         const {newEditText, expectedFinalUsfm} = step
+        const startingVerseObjects = cloneDeep(currentVerseObjects); // save initial object
 
         ////////////
         // When
@@ -57,6 +61,7 @@ describe('testing edit of aligned target text', () => {
         const initialWords = Lexer.tokenize(removeUsfmMarkers(newEditText))
         const { targetWords: targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null)
         expect(targetWords.length).toEqual(initialWords.length)
+        expect(currentVerseObjects).toEqual(startingVerseObjects) // check for object mod
 
         // final conditions of step become initial conditions for next step
         currentVerseObjects = results.targetVerseObjects
@@ -97,10 +102,12 @@ describe('testing alignment operations', () => {
             steps,
           } = test_
 
-          let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
+          const initialVerseObjects = usfmVerseToJson(initialAlignedUsfm);
+          let currentVerseObjects = cloneDeep(initialVerseObjects); // set initial test conditions
           // make sure initial text matches the expected
           const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
           expect(initialEditText).toEqual(expectedInitialEditText)
+          expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
           const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
 
           for (const step of steps) {
@@ -109,6 +116,7 @@ describe('testing alignment operations', () => {
             // Given
 
             const {newEditText, expectedFinalUsfm} = step
+            const startingVerseObjects = cloneDeep(currentVerseObjects); // save initial object
 
             ////////////
             // when
@@ -120,6 +128,10 @@ describe('testing alignment operations', () => {
             // then
 
             expect(results.targetVerseText).toEqual(expectedFinalUsfm)
+            expect(currentVerseObjects).toEqual(startingVerseObjects) // check for object mod
+
+            // final conditions of step become initial conditions for next step
+            currentVerseObjects = results.targetVerseObjects
           }
         })
       }
