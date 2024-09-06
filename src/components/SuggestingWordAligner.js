@@ -652,6 +652,9 @@ const SuggestingWordAligner = ({
       setTargetWords(newWordList);
     }
 
+    //deselect multiselect
+    setResetDrag(true);
+
     //new set the new list.
     dest.targetNgram = newTargetTokens; //technically mutating the original object
     dest.isSuggestion = false;
