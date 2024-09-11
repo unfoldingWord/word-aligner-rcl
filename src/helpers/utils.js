@@ -24,7 +24,7 @@ export function getTranslation(translate, text, deflt) {
   let translation;
   translation = translate(key);
 
-  if (!translation || (translation.indexOf('Missing translation key') >= 0)) { // if not translated, return original text
+  if (!translation || ((typeof translation == 'string') && (translation.indexOf('Missing translation key') >= 0))) { // if not translated, return original text
     translation = deflt;
   }
   return translation;

@@ -1,5 +1,7 @@
+import React from 'react'
+
 /**
- *
+ * Look up translation for key value.
  * @param {object} translations - hierarchical object
  * @param {string} key - in format such as 'alert' or 'menu.label'
  * @returns {string}
@@ -20,7 +22,19 @@ export function lookupTranslationForKey(translations, key) {
   }
 
   if (typeof newTranslation == 'string') {
-    return newTranslation
+    return decodeString(newTranslation)
   }
   return translation
+}
+
+/**
+ * checks for html tags in text, if so it will return it wrapped in div
+ * @param text
+ * @returns {JSX.Element|string}
+ */
+export function decodeString(text) {
+  if (text?.includes('<')) {
+    return <div dangerouslySetInnerHTML={{ __html: text }} />;
+  }
+  return text
 }
