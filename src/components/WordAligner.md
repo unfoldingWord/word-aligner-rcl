@@ -3,12 +3,8 @@ Word Aligner Example:
 ```js
 import React, {useState} from 'react';
 import {
-  addAlignmentsToVerseUSFM,
-  areAlgnmentsComplete,
-  parseUsfmToWordAlignerData,
-  resetAlignments,
-} from "../utils/alignmentHelpers";
-import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
+  AlignmentHelpers
+}  from "word-aligner-lib";
 import {NT_ORIG_LANG} from "../common/constants";
 
 // a fully aligned example
@@ -29,9 +25,9 @@ const translate = (key) => {
 const targetVerseUSFM = alignedVerseJson.usfm;
 const sourceVerseUSFM = originalVerseJson.usfm;
 
-const {targetWords: targetWords_, verseAlignments: verseAlignments_} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
+const {targetWords: targetWords_, verseAlignments: verseAlignments_} = AlignmentHelpers.parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
 
-const alignmentComplete = areAlgnmentsComplete(targetWords_, verseAlignments_);
+const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords_, verseAlignments_);
 console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
 
 const App = () => {
@@ -66,15 +62,15 @@ const App = () => {
   function onChange(results) {
     console.log(`WordAligner() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
     const {targetWords, verseAlignments} = results;
-    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
+    const verseUsfm = AlignmentHelpers.addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
     console.log(verseUsfm);
-    const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+    const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments);
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
   }
 
   function onReset() {
     console.log("WordAligner() - reset Alignments")
-    const alignmentData = resetAlignments(verseAlignments, targetWords)
+    const alignmentData = AlignmentHelpers.resetAlignments(verseAlignments, targetWords)
     setState({
       verseAlignments: alignmentData.verseAlignments,
       targetWords: alignmentData.targetWords,
@@ -105,7 +101,7 @@ const App = () => {
             loadLexiconEntry={loadLexiconEntry}
             onChange={onChange}
             getLexiconData={getLexiconData_}
-            resetAlignments={resetAlignments}
+            resetAlignments={AlignmentHelpers.resetAlignments}
           />
         </div>
     </>
