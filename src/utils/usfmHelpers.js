@@ -72,12 +72,12 @@ export function getUSFMDetails(usfmObject) {
       name: undefined,
       direction: 'ltr',
     },
-    target_languge: { book: { name: undefined } },
+    target_language: { book: { name: undefined } },
   };
 
   // adding target language book name from usfm headers
   const targetLangugeBookName = getHeaderTag(usfmObject.headers, 'h');
-  details.target_languge.book.name = targetLangugeBookName;
+  details.target_language.book.name = targetLangugeBookName;
 
   let headerIDArray = [];
   const tag = 'id';
@@ -149,10 +149,12 @@ export const removeUsfmMarkers = (targetVerseText) => {
 };
 
 export function usfmVerseToJson(verseUSFM) {
-  const verseObjects = usfmjs.toJSON('\\v 1 ' + verseUSFM, { chunk: true });
+  if (verseUSFM) {
+    const verseObjects = usfmjs.toJSON('\\v 1 ' + verseUSFM, {chunk: true});
 
-  if (verseObjects?.verses?.[1]?.verseObjects) {
-    return verseObjects.verses[1].verseObjects;
+    if (verseObjects?.verses?.[1]?.verseObjects) {
+      return verseObjects.verses[1].verseObjects;
+    }
   }
   return null;
 }

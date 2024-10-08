@@ -29,6 +29,8 @@ import complexScriptFonts from '../common/complexScriptFonts'
 import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
 import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
 import { getUsfmForVerseContent } from '../helpers/UsfmFileConversionHelpers'
+import * as AlignmentHelpers from '../utils/alignmentHelpers'
+import * as UsfmFileConversionHelpers from '../utils/UsfmFileConversionHelpers'
 
 const localStyles = {
   containerDiv:{
@@ -61,6 +63,7 @@ const name = 'Checker'
 const Checker = ({
   alignedGlBible,
   bibles: bibles_,
+  changeTargetVerse,
   checkingData,
   checkType,
   contextId,
@@ -71,7 +74,7 @@ const Checker = ({
   saveSettings,
   showDocument,
   styles,
-  targetBible,
+  targetBible: targetBible_,
   targetLanguageDetails,
   translate,
 }) => {
@@ -88,6 +91,7 @@ const Checker = ({
     manifest
   } = settings
   const [bibles, setBibles] = useState({ })
+  const [targetBible, setTargetBible] = useState(targetBible_)
   const [state, _setState] = useState({
     alignedGLText: '',
     article: null,
@@ -539,18 +543,61 @@ const Checker = ({
     keyGroup[bibleId] = book
   }
 
-  useEffect(() => {
+  /**
+   * change content of verse
+   * @param {string} chapter
+   * @param {string} verse
+   * @param {string} oldVerseText
+   * @param {string} newVerseText
+   */
+  function editTargetVerse(chapter, verse, oldVerseText, newVerseText) {
+    console.log(`editTargetVerse ${chapter}:${verse} - changed to ${newVerseText}`)
+
+    //////////////////////////////////
+    // first update component state
+
+    const _bibles = [ ...bibles_]
+    const _targetBible = {..._bibles[0]}
+    _bibles[0] = _targetBible
+    const targetBook = {..._targetBible?.book}
+    _targetBible.book = targetBook
+    const targetChapter = {...targetBook[chapter]}
+    targetBook[chapter] = targetChapter
+    targetChapter[verse] = newVerseText
+    updateSettings(_bibles, targetBook)
+
+    const verseText = removeUsfmMarkers(newVerseText)
+    setState({
+      verseText
+    })
+
+    //////////////////////////////////
+    // now apply new verse text to selected aligned verse and call back to extension to save
+
+    let _newVerseText = newVerseText
+    if (typeof _newVerseText !== 'string') {
+      _newVerseText = UsfmFileConversionHelpers.convertVerseDataToUSFM(_newVerseText)
+    }
+
+    const currentChapterData = targetBible?.[chapter]
+    const currentVerseData = currentChapterData?.[verse]
+    const { targetVerseObjects } = AlignmentHelpers.updateAlignmentsToTargetVerse(currentVerseData, _newVerseText)
+
+    changeTargetVerse && changeTargetVerse(chapter, verse, newVerseText, targetVerseObjects)
+  }
+
+  function updateSettings(newBibles, targetBible) {
     const _bibles = {}
     let _paneSettings = []
     const _paneKeySettings = initialSettings?.paneKeySettings || {}
-    if (bibles_?.length) {
-      for (const bible of bibles_) {
+    if (newBibles?.length) {
+      for (const bible of newBibles) {
         let languageId = bible?.languageId
         const owner = bible?.owner
         const book = bible?.book
         const bibleId = bible?.bibleId
         if (languageId === NT_ORIG_LANG || languageId === OT_ORIG_LANG) {
-          languageId = "originalLanguage"
+          languageId = 'originalLanguage'
         }
         const key = `${languageId}/${bibleId}/${owner}`
         const intialPaneSettings = _paneKeySettings?.[key]
@@ -559,7 +606,7 @@ const Checker = ({
         saveBibleToKey(_bibles, languageId, bibleId, book) // also save as default for language without owner
         const pane = intialPaneSettings || {
           ...bible,
-          languageId,
+          languageId
         }
         _paneSettings.push(pane)
         if (!intialPaneSettings) {
@@ -572,25 +619,30 @@ const Checker = ({
 
     const _toolsSettings = initialSettings?.toolsSettings ||
       {
-      "CheckArea": {
-        "fontSize": 100
+        'CheckArea': {
+          'fontSize': 100
+        }
       }
-    };
 
-    const _manifest =  initialSettings?.manifest ||
-    {
-      language_name: targetBible?.manifest?.dublin_core?.language?.title || 'Current',
-      projectFont: targetBible?.manifest?.projectFont || ''
-    }
+    const _manifest = initialSettings?.manifest ||
+      {
+        language_name: targetBible?.manifest?.dublin_core?.language?.title || 'Current',
+        projectFont: targetBible?.manifest?.projectFont || ''
+      }
 
-    setBibles( _bibles )
+    setBibles(_bibles)
+    setTargetBible(targetBible)
     setSettings({
       paneSettings: _paneSettings,
       paneKeySettings: _paneKeySettings,
       toolsSettings: _toolsSettings,
       manifest: _manifest
     }, false)
-  }, [bibles_])
+  }
+
+  useEffect(() => {
+    updateSettings(bibles_, targetBible_)
+  }, [bibles_, targetBible_])
 
   const styleProps = styles || {}
   const _checkerStyles = {
@@ -621,7 +673,7 @@ const Checker = ({
                 contextId={currentContextId}
                 currentPaneSettings={paneSettings}
                 editVerseRef={null}
-                editTargetVerse={null}
+                editTargetVerse={editTargetVerse}
                 expandedScripturePaneTitle={'expandedScripturePaneTitle'}
                 getAvailableScripturePaneSelections={null}
                 getLexiconData={getLexiconData_}
@@ -724,6 +776,7 @@ Checker.propTypes = {
   styles:PropTypes.object,
   alignedGlBible: PropTypes.object,
   bibles: PropTypes.array,
+  changeTargetVerse: PropTypes.func,
   checkingData: PropTypes.object.isRequired,
   checkType: PropTypes.string,
   contextId: PropTypes.object.isRequired,

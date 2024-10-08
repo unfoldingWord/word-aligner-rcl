@@ -7,7 +7,7 @@
 
 
 import {describe, expect, test} from '@jest/globals'
-import path from "path-extra";
+import path from "path";
 import fs from 'fs-extra';
 import { extractGroupData, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
 import { readHelpsFolder } from '../helpers/fileHelpers'

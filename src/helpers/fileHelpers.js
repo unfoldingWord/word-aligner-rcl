@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import path from 'path-extra'
+import path from 'path'
 
 function readJsonFile(jsonPath) {
   if (fs.existsSync(jsonPath)) {

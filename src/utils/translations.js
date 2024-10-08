@@ -4,9 +4,10 @@ import React from 'react'
  * Look up translation for key value.
  * @param {object} translations - hierarchical object
  * @param {string} key - in format such as 'alert' or 'menu.label'
+ * @param {object} data - data to insert into translated string (e.g. instances of `${name}` will be replaced with `value.name`)
  * @returns {string}
  */
-export function lookupTranslationForKey(translations, key) {
+export function lookupTranslationForKey(translations, key, data= null) {
   const translation = `translate(${key})` // set to default value
   const steps = (key || '').split('.') // each level delimted by period
   let current = translations
@@ -18,6 +19,12 @@ export function lookupTranslationForKey(translations, key) {
       current = newTranslation
     } else { // not found
       current = null
+    }
+  }
+
+  if (data) {
+    for (const key of Object.keys(data)) {
+      newTranslation = newTranslation.replaceAll('${' + key + '}', data[key])
     }
   }
 

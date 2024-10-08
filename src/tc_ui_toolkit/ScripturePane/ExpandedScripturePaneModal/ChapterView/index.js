@@ -12,6 +12,7 @@ import { getReferenceStr, getTitleStr } from '../../helpers/utils';
 import VerseEditorDialog from '../../../VerseEditor';
 import { getBibleElement, getVerseDataFromBible } from '../../helpers/verseHelpers';
 import VerseRow from './VerseRow';
+import { getUsfmForVerseContent } from '../../../../helpers/UsfmFileConversionHelpers'
 
 class ChapterView extends Component {
   componentDidMount() {
@@ -119,7 +120,10 @@ class ChapterView extends Component {
 
       const refStr = getReferenceStr(editVerse.chapter, editVerse.verse);
       verseTitle = getTitleStr(bookName, refStr, direction);
-      verseText = editVerse.verseText;
+      verseText = editVerse.verseText || '';
+      if (typeof verseText !== 'string') {
+        verseText = getUsfmForVerseContent(verseText)
+      }
       const targetConfig = currentPaneSettings.find(pane => (pane.languageId === 'targetLanguage'));
 
       if (targetConfig) {

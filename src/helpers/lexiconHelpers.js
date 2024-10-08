@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import path from 'path-extra';
+import path from 'path';
 import { USER_RESOURCES_PATH } from '../common/constants';
 import ResourceAPI from './ResourceAPI';
 
