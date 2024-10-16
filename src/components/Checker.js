@@ -644,6 +644,15 @@ const Checker = ({
     updateSettings(bibles_, targetBible_)
   }, [bibles_, targetBible_])
 
+  // build the title
+  const { target_language, project } = manifest;
+  let expandedScripturePaneTitle = project?.title || '';
+
+  if (target_language?.book?.name) {
+    expandedScripturePaneTitle = target_language.book.name;
+  }
+
+
   const styleProps = styles || {}
   const _checkerStyles = {
     ...localStyles.containerDiv,
@@ -674,7 +683,7 @@ const Checker = ({
                 currentPaneSettings={paneSettings}
                 editVerseRef={null}
                 editTargetVerse={editTargetVerse}
-                expandedScripturePaneTitle={'expandedScripturePaneTitle'}
+                expandedScripturePaneTitle={expandedScripturePaneTitle}
                 getAvailableScripturePaneSelections={null}
                 getLexiconData={getLexiconData_}
                 makeSureBiblesLoadedForTool={null}
