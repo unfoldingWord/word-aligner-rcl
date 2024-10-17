@@ -465,7 +465,11 @@ function handleDeletedWords(verseAlignments, targetWordList, targetWords) {
  * @param {string} newTargetVerse
  */
 export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse) {
-  let targetVerseText = convertVerseDataToUSFM(targetVerseObjects);
+  let targetVerseText = targetVerseObjects
+  if (typeof targetVerseObjects !== 'string') {
+    targetVerseText = convertVerseDataToUSFM(targetVerseObjects)
+  }
+
   let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseText, null);
   const targetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   handleAddedWordsInNewText(targetTokens, targetWords, verseAlignments);
