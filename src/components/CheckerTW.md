@@ -25,11 +25,11 @@ const saveSettings = (settings) => {
   console.log(`saveSettings`, settings)
 };
 
-const saveSelection = (newState) => {
+const saveCheckingData = (newState) => {
   const selections = newState && newState.selections
-  console.log(`saveSelection - new selections`, selections)
+  console.log(`saveCheckingData - new selections`, selections)
   const currentContextId = newState && newState.currentContextId
-  console.log(`saveSelection - current context data`, currentContextId)
+  console.log(`saveCheckingData - current context data`, currentContextId)
 }
 
 const showDocument = true // set to false to disable showing ta or tw document
@@ -111,7 +111,7 @@ const App = () => {
     <>
       <div style={{ height: '600px', width: '1200px' }}>
         <Checker
-          styles={{ width: '100%', height: '100%',overflowX: 'auto',  overflowY: 'auto' }}
+          styles={{ width: '100%', height: '100%', overflowX: 'auto', overflowY: 'auto' }}
           alignedGlBible={enGlBible}
           bibles={bibles}
           checkingData={checkingData}
@@ -119,7 +119,7 @@ const App = () => {
           contextId={contextId}
           getLexiconData={getLexiconData_}
           glWordsData={glTwData}
-          saveSelection={saveSelection}
+          saveCheckingData={saveCheckingData}
           saveSettings={saveSettings}
           showDocument={showDocument}
           targetBible={targetBible}

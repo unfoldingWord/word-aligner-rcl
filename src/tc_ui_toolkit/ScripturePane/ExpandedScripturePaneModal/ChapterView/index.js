@@ -111,11 +111,11 @@ class ChapterView extends Component {
     const direction = projectManifest.target_language && projectManifest.target_language.direction || 'ltr';
 
     if (openEditor) {
-      let bookName = projectManifest.target_language.book.name;
+      let bookName = projectManifest?.target_language?.book?.name;
 
-      if (bookName === null) {
+      if (!bookName) {
         console.warn('The localized book name could not be found. This is likely a bug in tC.');
-        bookName = projectManifest.project.name;
+        bookName = projectManifest?.project?.name || bookID;
       }
 
       const refStr = getReferenceStr(editVerse.chapter, editVerse.verse);

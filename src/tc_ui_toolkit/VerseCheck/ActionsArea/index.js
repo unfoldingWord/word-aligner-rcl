@@ -47,9 +47,9 @@ const styles = {
   },
 };
 
-const hideBookmarks = true;
-const hideEdit = true;
-const hideComment = true;
+const hideBookmarks = false;
+const hideEdit = false;
+const hideComment = false;
 
 const actionButtonStyleRM = {
   ...styles.actionButtons,

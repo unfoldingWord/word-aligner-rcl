@@ -295,13 +295,67 @@ export function findNextCheck(groupsData, contextId, defaultToFirst = false) {
               }
             }
 
-            if (matchFound) { // if match was found, then this must be the next check
+            if (matchFound) { // if match was found, then move to next check
               if (i < catagoryItems.length - 1) {
                 check = catagoryItems[i + 1]
               } else if (idx < groupsKeys.length - 1) { // move to first item in next group
                 const nextGroupId = groupsKeys[idx + 1]
                 const nextGroupItems = groupsData[nextGroupId]
                 check = nextGroupItems[0]
+              }
+              break
+            }
+          }
+        }
+        break // when finished checking all items in groupId, there is no point to continue
+      }
+    }
+  }
+  if (!check && defaultToFirst) {
+    check = findFirstCheck(groupsData)
+  }
+  return check
+}
+
+export function findPreviousCheck(groupsData, contextId, defaultToFirst = false) {
+  let check = null
+  let checkedBook = false;
+  let matchFound = false
+  if (groupsData && contextId?.reference) {
+    const groupsKeys = Object.keys(groupsData)
+    for (let idx = 0; idx < groupsKeys.length; idx++) {
+      const groupId = groupsKeys[idx]
+      if (groupId === contextId.groupId) {
+        const catagoryItems = groupsData[groupId]
+        const reference = contextId?.reference
+        if (!checkedBook && catagoryItems.length) {
+          if (reference?.bookId !== catagoryItems[0]?.contextId?.reference?.bookId) {
+            break; // context id is for difference book
+          }
+          checkedBook = true
+        }
+        if (reference) {
+          for (let i = 0; i < catagoryItems.length; i++) {
+            const item = catagoryItems[i]
+            const itemContextId = item.contextId
+            if (isSameVerseByRef(reference, itemContextId?.reference)) {
+              if (contextId.checkId) {
+                if (contextId.checkId === itemContextId?.checkId) {
+                  matchFound = true
+                }
+              } else // if no checkId, fall back to matching quote and occurrence
+              if (isEqual(contextId.quote, itemContextId?.quote) && (contextId.occurrence === itemContextId?.occurrence)) {
+                matchFound = true
+              }
+            }
+
+            if (matchFound) { // if match was found, then move to previous check
+              if (i > 0) {
+                check = catagoryItems[i - 1]
+              } else if (idx > 0) { // move to first item in next group
+                const nextGroupId = groupsKeys[idx - 1]
+                const nextGroupItems = groupsData[nextGroupId]
+                check = nextGroupItems[nextGroupItems.length - 1]
               }
               break
             }
