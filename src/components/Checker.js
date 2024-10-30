@@ -165,43 +165,37 @@ const Checker = ({
 
   useEffect(() => {
     const haveData = checkingData && Object.keys(checkingData).length && glWordsData && Object.keys(glWordsData).length
-    if (haveData) {
-      const oldBook = currentContextId?.reference?.bookId
-      const oldCheckType = currentContextId?.tool
-      const newBook = contextId?.reference?.bookId
-      const newCheckType = contextId?.tool
-      const changedType = oldBook !== newBook || oldCheckType != newCheckType
-      if (changedType || !contextId?.reference) {
-        let flattenedGroupData = null
-        let groupsIndex = null
-        if (checkingData) {
-          flattenedGroupData = flattenGroupData(checkingData)
-        }
+    const groupsDataInitialized = groupsData && Object.keys(groupsData).length
+    if (haveData && !groupsDataInitialized) {
+      let flattenedGroupData = null
+      let groupsIndex = null
+      if (checkingData) {
+        flattenedGroupData = flattenGroupData(checkingData)
+      }
 
-        if (glWordsData) {
-          if (checkType === translationNotes) {
-            groupsIndex = parseTnToIndex(glWordsData)
-          } else {
-            groupsIndex = parseTwToIndex(glWordsData)
-          }
+      if (glWordsData) {
+        if (checkType === translationNotes) {
+          groupsIndex = parseTnToIndex(glWordsData)
+        } else {
+          groupsIndex = parseTwToIndex(glWordsData)
         }
+      }
 
-        const check = findCheck(flattenedGroupData, contextId, true)
-        const newState = {
-          groupsData: flattenedGroupData,
-          groupsIndex,
-          currentCheckingData: checkingData,
-          currentCheck: check,
-          modified: false,
-          isCommentChanged: false,
-        }
+      const check = findCheck(flattenedGroupData, contextId, true)
+      const newState = {
+        groupsData: flattenedGroupData,
+        groupsIndex,
+        currentCheckingData: checkingData,
+        currentCheck: check,
+        modified: false,
+        isCommentChanged: false,
+      }
 
-        setState(newState)
+      setState(newState)
 
-        if (flattenedGroupData && check?.contextId) {
-          updateContext(check, groupsIndex)
-          updateModeForSelections(check?.selections, check?.nothingToSelect)
-        }
+      if (flattenedGroupData && check?.contextId) {
+        updateContext(check, groupsIndex)
+        updateModeForSelections(check?.selections, check?.nothingToSelect)
       }
     }
   }, [contextId, checkingData, glWordsData]);
