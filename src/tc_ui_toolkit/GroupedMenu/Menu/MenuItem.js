@@ -10,7 +10,7 @@ import Badge from '@material-ui/core/Badge';
 import memoize from 'memoize-one';
 import _ from 'lodash';
 import { getFontClassName } from '../../common/fontUtils';
-import { isLTR } from '../../../helpers/utils'
+import { isLTR } from '../../ScripturePane/helpers/utils'
 
 /**
  * Utility to apply styles based on props

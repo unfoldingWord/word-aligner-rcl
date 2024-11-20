@@ -14,7 +14,7 @@ import { generateMenuData, generateMenuItem } from '../tc_ui_toolkit/GroupedMenu
 import {
   default as GroupedMenu,
 } from '../tc_ui_toolkit/GroupedMenu/FilteredMenu/';
-import { getReferenceStr } from '../helpers/utils'
+import { getReferenceStr } from '../tc_ui_toolkit/ScripturePane/helpers/utils'
 function GroupMenuComponent({
   translate,
   contextId,

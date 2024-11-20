@@ -1,4 +1,4 @@
-import { getReferenceStr, getTitleStr } from '../../helpers/utils'
+import { getReferenceStr, getTitleStr } from '../ScripturePane/helpers/utils'
 
 /**
  * zero fill string to make minimum length

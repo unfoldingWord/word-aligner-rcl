@@ -27,6 +27,12 @@ import { getUsfmForVerseContent } from '../helpers/UsfmFileConversionHelpers'
 import * as AlignmentHelpers from '../utils/alignmentHelpers'
 import * as UsfmFileConversionHelpers from '../utils/UsfmFileConversionHelpers'
 import VerseCheck from '../tc_ui_toolkit/VerseCheck'
+import {
+  validateAllSelectionsForVerse,
+  validateSelectionsForAllChecks,
+  validateVerseSelections
+} from '../utils/selectionsHelpers'
+import { delay } from '../tc_ui_toolkit/ScripturePane/helpers/utils'
 
 const localStyles = {
   containerDiv:{
@@ -154,6 +160,7 @@ const Checker = ({
   const tempSelections = getTempValueFor('selections') || []
   const tempNothingToSelect = getTempValueFor('nothingToSelect')
   const currentNothingToSelect = getCurrentValueFor('nothingToSelect')
+  const groupsDataLoaded = !!groupsData
 
   function updateModeForSelections(newSelections, nothingToSelect) {
     const noSelections = (!newSelections?.length)
@@ -199,6 +206,18 @@ const Checker = ({
       }
     }
   }, [contextId, checkingData, glWordsData]);
+
+  useEffect(() => {
+    if (groupsDataLoaded) {
+      // validate all checks
+      validateSelectionsForAllChecks(targetBible, groupsData, (check, invalidated) => {
+        if (check) {
+          console.log(`${name}-saveEditVerse - check validation changed`, check)
+          _saveCheckingData(groupsData, check, 'invalidated', invalidated, false)
+        }
+      })
+    }
+  }, [groupsDataLoaded]);
 
   function updateContext(newCheck, groupsIndex_ = groupsIndex) {
     const contextId = newCheck?.contextId
@@ -389,7 +408,7 @@ const Checker = ({
       mode: "default",
       isVerseChanged: false,
     });
-    editTargetVerse(chapter, verseRef, before, newVerseText, newTags);
+    editTargetVerse(chapter, verseRef, before, newVerseText);
   }
 
   function handleGoToNext() {
@@ -405,7 +424,6 @@ const Checker = ({
   }
 
   const maximumSelections = 10
-  const isVerseInvalidated = false
 
   const handleTagsCheckbox = (tag) => {
     console.log(`${name}-handleTagsCheckbox`, tag)
@@ -424,8 +442,9 @@ const Checker = ({
     setState({ newTags: _newTags });
   }
 
-  const validateSelections = (selections_) => {
+  const validateSelections = (verseText_, selections_) => {
     console.log(`${name}-validateSelections`, selections_)
+    return validateVerseSelections(verseText_, selections_)
   }
 
   const unfilteredVerseText = useMemo(() => {
@@ -484,6 +503,7 @@ const Checker = ({
 
   const bookmarkEnabled = getCurrentValueFor('reminders')
   const isVerseEdited = !!getCurrentValueFor('verseEdits')
+  const isVerseInvalidated = !!getCurrentValueFor('invalidated')
 
   const _saveSelection = () => {
     console.log(`${name}-_saveSelection persist to file`)
@@ -493,14 +513,17 @@ const Checker = ({
       if (tempNothingToSelect) {
         _newCheckingData.nothingToSelect = tempNothingToSelect
         _newCheckingData.selections = false
+        _newCheckingData.invalidated = false
       } else {
         _newCheckingData.nothingToSelect = false
         _newCheckingData.selections = tempSelections
+        _newCheckingData.invalidated = false
       }
 
       setLocalCheckingData(_newCheckingData)
       deleteTempCheckingData('nothingToSelect')
       deleteTempCheckingData('selections')
+      deleteTempCheckingData('invalidated')
 
       updateValuesInCheckData(_currentCheck, checkInGroupsData, _newCheckingData)
 
@@ -540,19 +563,55 @@ const Checker = ({
     }
   }
 
-  const _saveData = (key, value) => {
+  /**
+   * persist check changes to file
+   * @param {object} newData - new data to apply to check (key: valua)
+   * @private
+   */
+  const _saveData = (newData) => {
     console.log(`${name}-_saveData persist to file`)
     const { checkInGroupsData, _currentCheck, newState, _newCheckingData } = cloneDataForSaving()
 
     if (_currentCheck && newState) {
-      _newCheckingData[key] = value
+      for (const key of Object.keys(newData)) {
+        _newCheckingData[key] = newData[key]
+        deleteTempCheckingData(key)
+      }
       setLocalCheckingData(_newCheckingData)
-      deleteTempCheckingData(key)
 
       updateValuesInCheckData(_currentCheck, checkInGroupsData, _newCheckingData)
 
       setState(newState);
       saveCheckingData && saveCheckingData(newState)
+    }
+  }
+
+  /**
+   * save changes to check data if not current check
+   * @param {object} groupsData
+   * @param {object} check
+   * @param {string} key - key to change in check
+   * @param {any} value - value to change in check
+   * @private
+   */
+  const _saveCheckingData = (groupsData, check, key, value, onlyUpdateOnValueChange) => {
+    console.log(`${name}-_saveCheckingData persist to file`, check)
+    const _groupsData = _.cloneDeep(groupsData)
+    const checkInGroupsData = findCheck(_groupsData, check?.contextId)
+    if (checkInGroupsData) {
+      if (!onlyUpdateOnValueChange || (check[key] !== value)) {
+        checkInGroupsData[key] = value
+
+        const newState = {
+          groupsData: _groupsData,
+        }
+        setState(newState);
+
+        const newCheckingData = {
+          currentCheck: checkInGroupsData,
+        }
+        saveCheckingData && saveCheckingData(newCheckingData)
+      }
     }
   }
 
@@ -579,7 +638,9 @@ const Checker = ({
 
   const toggleBookmark = () => {
     console.log(`${name}-toggleBookmark`)
-    _saveData('reminders', !getTempValueFor('reminders'))
+    _saveData({
+      reminders: !getTempValueFor('reminders')
+    })
   }
 
   const changeMode = (mode) => {
@@ -610,7 +671,7 @@ const Checker = ({
   const saveComment = () => {
     console.log(`${name}-saveComment`)
     const newComment = getTempValueFor('comments')
-    _saveData('comments', newComment)
+    _saveData({ comments: newComment })
     setState({
       mode: 'default',
       isCommentChanged: false,
@@ -724,7 +785,22 @@ const Checker = ({
     })
 
     changeTargetVerse && changeTargetVerse(chapter, verse, newVerseText, targetVerseObjects)
-    _saveData('verseEdits', true)
+    _saveData({ verseEdits: true })
+
+    validateAllSelectionsForVerse(newVerseText, bookId, chapter, verse, groupsData, (check, invalidated) => {
+      if (check) {
+        const currentCheckId = currentCheck?.contextId?.checkId
+        const checkId = check?.contextId?.checkId
+
+        if (checkId === currentCheckId) {
+          // need to update current check
+          _saveData({ invalidated })
+        }
+
+        console.log(`${name}-editTargetVerse - check validated, state changed: invalid: ${invalidated}`, check)
+        _saveCheckingData(groupsData, check, 'invalidated', invalidated, true)
+      }
+    })
   }
 
   function updateSettings(newBibles, targetBible) {

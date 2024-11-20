@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 import { Col } from 'react-bootstrap';
-import { getReferenceStr } from '../../../helpers/utils';
+import { getReferenceStr } from '../../ScripturePane/helpers/utils'
 
 const MyTargetVerse = ({
   chapter,

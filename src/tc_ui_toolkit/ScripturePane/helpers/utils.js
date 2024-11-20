@@ -2,7 +2,7 @@ const defaultDirection = 'ltr';
 
 /**
  * Delays code execution for a number of ms given.
- * @param {ms} ms
+ * @param {number} ms
  */
 export function delay(ms) {
   return new Promise((resolve) =>

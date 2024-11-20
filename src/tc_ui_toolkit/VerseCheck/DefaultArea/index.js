@@ -10,7 +10,7 @@ import {
   getTitleStr,
   getTitleWithId,
   isLTR,
-} from '../../../helpers/utils';
+} from '../../ScripturePane/helpers/utils';
 // styling
 import '../VerseCheck.styles.css';
 const NAMESPACE = 'CheckArea';
@@ -35,10 +35,14 @@ class DefaultArea extends React.Component {
 
       for (let j = 0, len = selections.length; j < len; j++) {
         const selection = selections[j];
+        selection.selected = true; // default to enabled
 
         if (occurrencesInString(verseText, selection.text) !== selection.occurrences) {
-          // validate selections and remove ones that do not apply
-          validateSelections(verseText);
+          // validate selection and disable if invalid
+          const { selectionsChanged } = validateSelections(verseText, [selection]);
+          if (selectionsChanged) {
+            selection.selected = false;
+          }
         }
       }
 
