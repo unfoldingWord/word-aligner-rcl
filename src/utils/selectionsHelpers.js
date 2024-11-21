@@ -1,13 +1,11 @@
 import usfm from 'usfm-js';
 import isEqual from 'deep-equal'
 import { getUsfmForVerseContent } from '../helpers/UsfmFileConversionHelpers'
-import { getVerses } from 'bible-reference-range'
-import { delay } from '../tc_ui_toolkit/ScripturePane/helpers/utils'
 import { checkSelectionOccurrences } from './selections'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 
 /**
- * validata selections in verse string or object
+ * validate selections in verse string or object
  * @param {String|object} targetVerse - target bible verse.
  * @param {array} selections - array of selection objects [Obj,...]
  * @returns {object}
@@ -21,9 +19,8 @@ export function validateVerseSelections(targetVerse, selections) {
   return selectionsResults
 }
 
-
 /**
- * validata selections in verse string
+ * validate selections in verse string
  * @param {String} filteredTargetVerse - target bible verse as string.
  * @param {array} selections - array of selection objects [Obj,...]
  * @returns {object}
@@ -99,12 +96,11 @@ export const validateAllSelectionsForVerse = (targetVerse, bookId, chapter, vers
  * @param {function} invalidateCheckCallback - callback function
  * @returns {Promise<boolean>}
  */
-async function checkIfInvalidationChanged(check, currentSelectionsInvalid, _selectionsChanged, invalidateCheckCallback) {
+function checkIfInvalidationChanged(check, currentSelectionsInvalid, _selectionsChanged, invalidateCheckCallback) {
   if (!!check.invalidated !== currentSelectionsInvalid) {
     _selectionsChanged = true
     // callback
     invalidateCheckCallback && invalidateCheckCallback(check, currentSelectionsInvalid)
-    await delay(100)
   }
   return _selectionsChanged
 }
@@ -116,7 +112,7 @@ async function checkIfInvalidationChanged(check, currentSelectionsInvalid, _sele
  * @param {Function} invalidateCheckCallback
  * @return {Promise<boolean>}
  */
-export async function validateSelectionsForAllChecks(targetBible, groupsData = null, invalidateCheckCallback = null)  {
+export function validateSelectionsForAllChecks(targetBible, groupsData = null, invalidateCheckCallback = null)  {
   let _selectionsChanged = false;
   const filteredVerses = {} // for caching verse content parsed to text
 
@@ -142,10 +138,10 @@ export async function validateSelectionsForAllChecks(targetBible, groupsData = n
       if (targetVerse) {
         if (selections && selections.length) {
           const { selectionsChanged: currentSelectionsInvalid } = _validateVerseSelections(targetVerse, selections)
-          _selectionsChanged = await checkIfInvalidationChanged(check, currentSelectionsInvalid, _selectionsChanged, invalidateCheckCallback)
+          _selectionsChanged = checkIfInvalidationChanged(check, currentSelectionsInvalid, _selectionsChanged, invalidateCheckCallback)
         } else { // no selections, so not invalid
           const currentSelectionsInvalid = false
-          _selectionsChanged = await checkIfInvalidationChanged(check, currentSelectionsInvalid, _selectionsChanged, invalidateCheckCallback)
+          _selectionsChanged = checkIfInvalidationChanged(check, currentSelectionsInvalid, _selectionsChanged, invalidateCheckCallback)
         }
       }
     }

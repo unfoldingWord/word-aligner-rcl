@@ -32,7 +32,6 @@ import {
   validateSelectionsForAllChecks,
   validateVerseSelections
 } from '../utils/selectionsHelpers'
-import { delay } from '../tc_ui_toolkit/ScripturePane/helpers/utils'
 
 const localStyles = {
   containerDiv:{
@@ -198,6 +197,14 @@ const Checker = ({
         isCommentChanged: false,
       }
 
+      // validate all checks
+      validateSelectionsForAllChecks(targetBible, flattenedGroupData, (check, invalidated) => {
+        if (check) {
+          console.log(`${name}-saveEditVerse - check validation changed`, check)
+          _saveCheckingData(check, { invalidated })
+        }
+      })
+
       setState(newState)
 
       if (flattenedGroupData && check?.contextId) {
@@ -206,18 +213,6 @@ const Checker = ({
       }
     }
   }, [contextId, checkingData, glWordsData]);
-
-  useEffect(() => {
-    if (groupsDataLoaded) {
-      // validate all checks
-      validateSelectionsForAllChecks(targetBible, groupsData, (check, invalidated) => {
-        if (check) {
-          console.log(`${name}-saveEditVerse - check validation changed`, check)
-          _saveCheckingData(groupsData, check, 'invalidated', invalidated, false)
-        }
-      })
-    }
-  }, [groupsDataLoaded]);
 
   function updateContext(newCheck, groupsIndex_ = groupsIndex) {
     const contextId = newCheck?.contextId
@@ -303,13 +298,14 @@ const Checker = ({
   }
 
   /**
-   * clear out bible data before saving settings
+   * persist the settings, but first clear out bible data before saving settings
    * @param {object} _settings
    * @private
    */
   function _saveSettings(_settings) {
     if (saveSettings && _settings) {
       const newSettings = { ..._settings }
+      delete newSettings.manifest
       const _paneSettings = [ ...newSettings.paneSettings ]
       for (let i = 0; i < _paneSettings.length; i++) {
         const _paneSetting = {..._paneSettings[i]} // shallow copy
@@ -588,31 +584,29 @@ const Checker = ({
 
   /**
    * save changes to check data if not current check
-   * @param {object} groupsData
    * @param {object} check
-   * @param {string} key - key to change in check
-   * @param {any} value - value to change in check
+   * @param {object} newData - new data to apply to check (key: valua)
    * @private
    */
-  const _saveCheckingData = (groupsData, check, key, value, onlyUpdateOnValueChange) => {
-    console.log(`${name}-_saveCheckingData persist to file`, check)
-    const _groupsData = _.cloneDeep(groupsData)
-    const checkInGroupsData = findCheck(_groupsData, check?.contextId)
-    if (checkInGroupsData) {
-      if (!onlyUpdateOnValueChange || (check[key] !== value)) {
-        checkInGroupsData[key] = value
-
-        const newState = {
-          groupsData: _groupsData,
+  const _saveCheckingData = (check, newData) => {
+    let changedData = false
+    if (check) {
+      for (const key of Object.keys(newData)) {
+        if (check[key] !== newData[key]) {
+          check[key] = newData[key]
+          changedData = true
         }
-        setState(newState);
+      }
 
+      if (changedData) {
+        console.log(`${name}-_saveCheckingData persist changes to file`, check)
         const newCheckingData = {
-          currentCheck: checkInGroupsData,
+          currentCheck: check,
         }
         saveCheckingData && saveCheckingData(newCheckingData)
       }
     }
+    return changedData
   }
 
   function deleteTempCheckingData(key) {
@@ -787,20 +781,32 @@ const Checker = ({
     changeTargetVerse && changeTargetVerse(chapter, verse, newVerseText, targetVerseObjects)
     _saveData({ verseEdits: true })
 
-    validateAllSelectionsForVerse(newVerseText, bookId, chapter, verse, groupsData, (check, invalidated) => {
+    const _groupsData = _.cloneDeep(groupsData)
+    let changedData = false
+    validateAllSelectionsForVerse(newVerseText, bookId, chapter, verse, _groupsData, (check, invalidated) => {
       if (check) {
         const currentCheckId = currentCheck?.contextId?.checkId
         const checkId = check?.contextId?.checkId
 
         if (checkId === currentCheckId) {
           // need to update current check
-          _saveData({ invalidated })
+          _saveData({
+            invalidated,
+            verseEdits: true,
+          })
         }
 
         console.log(`${name}-editTargetVerse - check validated, state changed: invalid: ${invalidated}`, check)
-        _saveCheckingData(groupsData, check, 'invalidated', invalidated, true)
+        changedData = changedData || _saveCheckingData(check, { invalidated, verseEdits: true })
       }
     })
+
+    if (changedData) {
+      console.log(`${name}-editTargetVerse - changes detected updating groupsData`)
+      setState({
+        groupsData: _groupsData
+      })
+    }
   }
 
   function updateSettings(newBibles, targetBible) {
