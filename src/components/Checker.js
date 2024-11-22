@@ -366,7 +366,18 @@ const Checker = ({
         ...manifest,
         [fieldName]: fieldValue
       }
-      setSettings({ manifest: _manifest }, true)
+
+      // also save this in appSettings
+      const appSettings = settings.appSettings || {}
+      const _appSettings = {
+        ...appSettings,
+        [fieldName]: fieldValue
+      }
+
+      setSettings({
+        manifest: _manifest,
+        appSettings: _appSettings
+      }, true)
     }
   }
 
@@ -841,17 +852,23 @@ const Checker = ({
     }
 
     const _toolsSettings = initialSettings?.toolsSettings ||
-      {
-        'CheckArea': {
-          'fontSize': 100
-        }
+    {
+      'CheckArea': {
+        'fontSize': 100
       }
+    }
 
-    const _manifest = initialSettings?.manifest ||
-      {
-        language_name: targetBible?.manifest?.dublin_core?.language?.title || 'Current',
-        projectFont: targetBible?.manifest?.projectFont || ''
-      }
+    let _manifest = initialSettings?.manifest ||
+    {
+      language_name: targetBible?.manifest?.dublin_core?.language?.title || 'Current',
+      projectFont: targetBible?.manifest?.projectFont || ''
+    }
+
+    const appSettings = initialSettings?.appSettings || {}
+    _manifest = {
+      ..._manifest,
+      ...appSettings // older code is looking for appSettings in manifest
+    }
 
     setBibles(_bibles)
     setTargetBible(targetBible)
@@ -861,6 +878,7 @@ const Checker = ({
       toolsSettings: _toolsSettings,
       manifest: _manifest,
       newComment: '',
+      appSettings,
     }, false)
   }
 
