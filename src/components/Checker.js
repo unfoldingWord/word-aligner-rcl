@@ -32,6 +32,7 @@ import {
   validateSelectionsForAllChecks,
   validateVerseSelections
 } from '../utils/selectionsHelpers'
+import { getScriptureFromReference } from '../helpers/checkInfoCardHelpers'
 
 const localStyles = {
   containerDiv:{
@@ -882,6 +883,10 @@ const Checker = ({
     }, false)
   }
 
+  function _getScriptureFromReference(lang, id, book, chapter, verse) {
+    return getScriptureFromReference(bibles, lang, id, book, chapter, verse)
+  }
+
   useEffect(() => {
     updateSettings(bibles_, targetBible_)
   }, [bibles_, targetBible_])
@@ -940,7 +945,7 @@ const Checker = ({
           }
           <div>
             <CheckInfoCard
-              getScriptureFromReference={null}
+              getScriptureFromReference={_getScriptureFromReference}
               onLinkClick={() => false}
               onSeeMoreClick={() => false}
               phrase={groupPhrase}

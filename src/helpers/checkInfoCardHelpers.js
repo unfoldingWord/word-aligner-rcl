@@ -1,5 +1,7 @@
 import marked from 'marked';
 import { getResourceDirByType } from './tHelpsHelpers';
+import { VerseObjectUtils } from 'word-aligner'
+import { getBestVerseFromBook } from './verseHelpers'
 
 /**
  * Produces a text renderer
@@ -168,4 +170,35 @@ export function formatRCLink(resourcesReducer, appLanguage, href, title) {
     href,
     title,
   };
+}
+
+/**
+ * find verse data for verse or verse span
+ * @param {object} biblesForLanguage
+ * @param {string} id
+ * @param {string} chapter
+ * @param {string} verse
+ * @return {null|*}
+ */
+export function getBestVerse_(biblesForLanguage, id, chapter, verse) {
+  const currentBible = biblesForLanguage && biblesForLanguage[id];
+
+  if (currentBible) {
+    const verseData = getBestVerseFromBook(currentBible, chapter, verse);
+
+    if (verseData) {
+      return verseData;
+    }
+  }
+  return null;
+}
+
+export function getScriptureFromReference(bibles, lang, id, book, chapter, verse) {
+  const biblesForLanguage = bibles[lang];
+  const verseData = getBestVerse_(biblesForLanguage, id, chapter, verse);
+
+  if (verseData?.verseObjects) {
+    const verseText = VerseObjectUtils.mergeVerseData(verseData?.verseObjects).trim();
+    return verseText;
+  }
 }
