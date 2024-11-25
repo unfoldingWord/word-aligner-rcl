@@ -701,7 +701,10 @@ export function getAlignedGLText(alignedGlBible, contextId) {
       return contextId.quote;
     }
 
-    const verseObjects = alignedGlBible?.[contextId.reference.chapter]?.[contextId.reference.verse]?.verseObjects
+    let verseObjects = getBestVerseFromBook(alignedGlBible, contextId.reference.chapter, contextId.reference.verse)
+    if (verseObjects?.verseObjects) {
+      verseObjects = verseObjects?.verseObjects
+    }
     if (contextId ) {
       const alignedText = getAlignedText(verseObjects, contextId.quote, contextId.occurrence);
 
