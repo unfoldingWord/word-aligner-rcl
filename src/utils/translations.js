@@ -5,10 +5,11 @@ import React from 'react'
  * @param {object} translations - hierarchical object
  * @param {string} key - in format such as 'alert' or 'menu.label'
  * @param {object} data - data to insert into translated string (e.g. instances of `${name}` will be replaced with `value.name`)
+ * @param {string} defaultStr - default string to return if translation is not found
  * @returns {string}
  */
-export function lookupTranslationForKey(translations, key, data= null) {
-  const translation = `translate(${key})` // set to default value
+export function lookupTranslationForKey(translations, key, data = null, defaultStr = null) {
+  const translation = defaultStr || `translate(${key})` // set to default value
   const steps = (key || '').split('.') // each level delimted by period
   let current = translations
   let newTranslation = null
@@ -22,7 +23,7 @@ export function lookupTranslationForKey(translations, key, data= null) {
     }
   }
 
-  if (data) {
+  if ((typeof newTranslation == 'string') && data) {
     for (const key of Object.keys(data)) {
       newTranslation = newTranslation.replaceAll('${' + key + '}', data[key])
     }
