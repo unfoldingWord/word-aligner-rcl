@@ -21,7 +21,7 @@ import {
 } from './tnArticleHelpers';
 import * as tsvparser from 'uw-tsv-parser';
 import { cleanupReference } from 'bible-reference-range'
-import { getBestVerseFromBook } from '../verseHelpers'
+import { verseHelpers } from 'word-aligner-lib'
 import { getWordOccurrencesForQuote } from './wordOccurrenceHelpers'
 import { hasEllipsis } from '../tsv-groupdata-parser/ellipsisHelpers'
 import { getVerseString } from '../tsv-groupdata-parser/verseHelpers'
@@ -383,43 +383,6 @@ export function findFirstCheck(groupsData) {
   return check
 }
 
-export function flattenGroupData(groupsData) {
-  let mergedGroups = { }
-
-  for (const category of Object.keys(groupsData)) {
-    const groups = groupsData[category]
-    for (const groupId of Object.keys(groups)) {
-      const group = groups[groupId]
-      const newGroup = group.map(item => {
-        const newItem = {...item} // shallow copy
-        newItem.category = category
-        return newItem
-      })
-      mergedGroups[groupId] = newGroup
-    }
-  }
-
-  let sortedGroups = { }
-  for (const key of Object.keys(mergedGroups).sort()) {
-    sortedGroups[key] = mergedGroups[key]
-  }
-
-  return sortedGroups;
-}
-
-export function extractGroupData(data) {
-  const groupData = {}
-  for (const catagory of Object.keys(data)) {
-    if (catagory !== 'manifest') { // skip over manifest
-      let categoryData = data[catagory]
-      if (categoryData?.groups) { // if grouped, then drill down
-        categoryData = categoryData.groups
-      }
-      groupData[catagory] = categoryData || {}
-    }
-  }
-  return groupData
-}
 
 /**
  * process the TSV file into index files
@@ -701,7 +664,7 @@ export function getAlignedGLText(alignedGlBible, contextId) {
       return contextId.quote;
     }
 
-    let verseObjects = getBestVerseFromBook(alignedGlBible, contextId.reference.chapter, contextId.reference.verse)
+    let verseObjects = verseHelpers.getBestVerseFromBook(alignedGlBible, contextId.reference.chapter, contextId.reference.verse)
     if (verseObjects?.verseObjects) {
       verseObjects = verseObjects?.verseObjects
     }

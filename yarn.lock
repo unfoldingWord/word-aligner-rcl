@@ -2823,7 +2823,7 @@ dedent@^0.7.0:
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
   integrity sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==
 
-deep-equal@^2.2.3:
+deep-equal@^2.0.5, deep-equal@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-2.2.3.tgz#af89dafb23a396c7da3e862abc0be27cf51d56e1"
   integrity sha512-ZIwpnevOurS8bpT4192sqAowWM76JDKSHYzMLty3BZGSswgq6pBaH3DhCSW5xVAZICZyKdOBPjwww5wfgT/6PA==
@@ -7468,6 +7468,20 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+word-aligner-lib@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.0.0.tgz#9e44a00e05175cbaee9df9417ac8d876839babb0"
+  integrity sha512-S3eVSmeX6dRT1fEsLelaDrq5zp/yDGM72UFHpmyX3dVOLyYclrCtdN3nT1fcIp1she/zlRH1Lf7T22Dvav0E7g==
+  dependencies:
+    deep-equal "^2.0.5"
+    file-loader "^6.2.0"
+    lodash.clonedeep "^4.5.0"
+    string-punctuation-tokenizer "2.2.0"
+    tc-strings "^0.1.6"
+    usfm-js "3.4.3"
+    word-aligner "1.0.3"
+    wordmap-lexer "^0.3.6"
 
 word-aligner@1.0.3:
   version "1.0.3"

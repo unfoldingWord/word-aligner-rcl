@@ -1,7 +1,7 @@
 import marked from 'marked';
 import { getResourceDirByType } from './tHelpsHelpers';
 import { VerseObjectUtils } from 'word-aligner'
-import { getBestVerseFromBook } from './verseHelpers'
+import { verseHelpers } from 'word-aligner-lib'
 
 /**
  * Produces a text renderer
@@ -184,7 +184,7 @@ export function getBestVerse_(biblesForLanguage, id, chapter, verse) {
   const currentBible = biblesForLanguage && biblesForLanguage[id];
 
   if (currentBible) {
-    const verseData = getBestVerseFromBook(currentBible, chapter, verse);
+    const verseData = verseHelpers.getBestVerseFromBook(currentBible, chapter, verse);
 
     if (verseData) {
       return verseData;

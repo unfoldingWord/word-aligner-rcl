@@ -12,7 +12,7 @@ import { getReferenceStr, getTitleStr } from '../../helpers/utils';
 import VerseEditorDialog from '../../../VerseEditor';
 import { getBibleElement, getVerseDataFromBible } from '../../helpers/verseHelpers';
 import VerseRow from './VerseRow';
-import { getUsfmForVerseContent } from '../../../../helpers/UsfmFileConversionHelpers'
+import { UsfmFileConversionHelpers } from 'word-aligner-lib'
 
 class ChapterView extends Component {
   componentDidMount() {
@@ -122,7 +122,7 @@ class ChapterView extends Component {
       verseTitle = getTitleStr(bookName, refStr, direction);
       verseText = editVerse.verseText || '';
       if (typeof verseText !== 'string') {
-        verseText = getUsfmForVerseContent(verseText)
+        verseText = UsfmFileConversionHelpers.getUsfmForVerseContent(verseText)
       }
       const targetConfig = currentPaneSettings.find(pane => (pane.languageId === 'targetLanguage'));
 

@@ -2,14 +2,17 @@ import React, { useEffect, useMemo, useState } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import GroupMenuComponent from './GroupMenuComponent'
-import { getBestVerseFromBook } from '../helpers/verseHelpers'
-import { removeUsfmMarkers } from '../utils/usfmHelpers'
+import {
+  groupDataHelpers,
+  selectionsHelpers,
+  UsfmFileConversionHelpers,
+  verseHelpers
+} from 'word-aligner-lib'
 import isEqual from 'deep-equal'
 import {
   findCheck,
   findNextCheck,
   findPreviousCheck,
-  flattenGroupData,
   getAlignedGLText,
   getPhraseFromTw,
   getTitleFromIndex,
@@ -23,16 +26,10 @@ import { NT_ORIG_LANG, OT_ORIG_LANG } from '../common/BooksOfTheBible'
 import complexScriptFonts from '../common/complexScriptFonts'
 import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
 import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
-import { getUsfmForVerseContent } from '../helpers/UsfmFileConversionHelpers'
-import * as AlignmentHelpers from '../utils/alignmentHelpers'
-import * as UsfmFileConversionHelpers from '../utils/UsfmFileConversionHelpers'
 import VerseCheck from '../tc_ui_toolkit/VerseCheck'
-import {
-  validateAllSelectionsForVerse,
-  validateSelectionsForAllChecks,
-  validateVerseSelections
-} from '../utils/selectionsHelpers'
 import { getScriptureFromReference } from '../helpers/checkInfoCardHelpers'
+
+
 
 const localStyles = {
   containerDiv:{
@@ -62,9 +59,34 @@ export const translationNotes = 'translationNotes'
 console.log('Checker.js - startup')
 const name = 'Checker'
 
+/**
+ * @namespace Checker
+ * The Checker component is responsible for managing and presenting Bible checking data and translations.
+ * It handles state updates, settings management, and ensures the necessary data is loaded and displayed to the user.
+ *
+ * @param {object} parameters - An object with initialization parameters for the Checker component.
+ * @param {object} parameters.alignedGlBible - The aligned Gateway Language Bible data used for translations.
+ * @param {object} parameters.bibles - Bible data for various languages.
+ * @param {Function} parameters.changedCurrentCheck - callback to notify of changes in context.
+ * @param {Function} parameters.changeTargetVerse - A function to update the current verse being checked.
+ * @param {object} parameters.checkingData - Data related to checks (e.g., translation notes or translation words).
+ * @param {string} parameters.checkType - The type of check being performed (e.g., translation notes, translation words).
+ * @param {object} parameters.contextId - Object containing metadata about the current group/verse being worked on.
+ * @param {Function} parameters.getLexiconData - Function to retrieve lexicon data.
+ * @param {object} parameters.glWordsData - Data related to Gateway Language words and alignment information.
+ * @param {object} parameters.initialSettings - The initial configuration values for the Checker component.
+ * @param {Function} parameters.saveCheckingData - Function to save the modified checking data.
+ * @param {Function} parameters.saveSettings - Function to persist user's component settings.
+ * @param {Function} parameters.showDocument - Function to display a document in the interface.
+ * @param {object} parameters.styles - Styling information to customize the component's appearance.
+ * @param {object} parameters.targetBible - The target Bible data for the working language.
+ * @param {object} parameters.targetLanguageDetails - Metadata about the target language, including book and language-specific details.
+ * @param {Function} parameters.translate - A function used for string translations in the UI.
+ */
 const Checker = ({
   alignedGlBible,
   bibles: bibles_,
+  changedCurrentCheck,
   changeTargetVerse,
   checkingData,
   checkType,
@@ -177,7 +199,7 @@ const Checker = ({
       let flattenedGroupData = null
       let groupsIndex = null
       if (checkingData) {
-        flattenedGroupData = flattenGroupData(checkingData)
+        flattenedGroupData = groupDataHelpers.flattenGroupData(checkingData)
       }
 
       if (glWordsData) {
@@ -199,7 +221,7 @@ const Checker = ({
       }
 
       // validate all checks
-      validateSelectionsForAllChecks(targetBible, flattenedGroupData, (check, invalidated) => {
+      selectionsHelpers.validateSelectionsForAllChecks(targetBible, flattenedGroupData, (check, invalidated) => {
         if (check) {
           console.log(`${name}-saveEditVerse - check validation changed`, check)
           _saveCheckingData(check, { invalidated })
@@ -218,12 +240,7 @@ const Checker = ({
   function updateContext(newCheck, groupsIndex_ = groupsIndex) {
     const contextId = newCheck?.contextId
     const reference = contextId?.reference
-    let verseText = getBestVerseFromBook(targetBible, reference?.chapter, reference?.verse)
-    if (typeof verseText !== 'string') {
-      console.log(`updateContext- verse data is not text`)
-      verseText = getUsfmForVerseContent(verseText)
-    }
-    verseText = removeUsfmMarkers(verseText)
+    const verseText = verseHelpers.getVerseTextFromBible(targetBible, reference)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
     const groupPhrase =
@@ -422,13 +439,13 @@ const Checker = ({
   function handleGoToNext() {
     console.log(`${name}-handleGoToNext`)
     const nextCheck = findNextCheck(groupsData, currentContextId, false)
-    changeCurrentCheck(nextCheck, true)
+    changeCurrentCheck_(nextCheck, true)
   }
 
   function handleGoToPrevious() {
     console.log(`${name}-handleGoToPrevious`)
     const previousCheck = findPreviousCheck(groupsData, currentContextId, false)
-    changeCurrentCheck(previousCheck, true)
+    changeCurrentCheck_(previousCheck, true)
   }
 
   const maximumSelections = 10
@@ -452,7 +469,7 @@ const Checker = ({
 
   const validateSelections = (verseText_, selections_) => {
     console.log(`${name}-validateSelections`, selections_)
-    return validateVerseSelections(verseText_, selections_)
+    return selectionsHelpers.validateVerseSelections(verseText_, selections_)
   }
 
   const unfilteredVerseText = useMemo(() => {
@@ -465,7 +482,7 @@ const Checker = ({
       if (verseData) {
         unfilteredVerseText_ = verseData
         if (typeof verseData !== 'string') {
-          unfilteredVerseText_ = getUsfmForVerseContent(verseData)
+          unfilteredVerseText_ = UsfmFileConversionHelpers.getUsfmForVerseContent(verseData)
         }
       }
     }
@@ -488,7 +505,7 @@ const Checker = ({
     setTempCheckingItem('nothingToSelect', select)
   }
 
-  const changeCurrentCheck = (newContext, noCheck = false) => {
+  const changeCurrentCheck_ = (newContext, noCheck = false) => {
     const newContextId = newContext?.contextId
     console.log(`${name}-changeCurrentContextId`, newContextId)
 
@@ -506,9 +523,10 @@ const Checker = ({
     } else {
       console.log('Checker.changeCurrentContextId - unsaved changes')
     }
+    changedCurrentCheck && changedCurrentCheck(newContext)
   }
-  const direction = 'ltr'
 
+  const direction = 'ltr'
   const bookmarkEnabled = getCurrentValueFor('reminders')
   const isVerseEdited = !!getCurrentValueFor('verseEdits')
   const isVerseInvalidated = !!getCurrentValueFor('invalidated')
@@ -795,7 +813,7 @@ const Checker = ({
 
     const _groupsData = _.cloneDeep(groupsData)
     let changedData = false
-    validateAllSelectionsForVerse(newVerseText, bookId, chapter, verse, _groupsData, (check, invalidated) => {
+    selectionsHelpers.validateAllSelectionsForVerse(newVerseText, bookId, chapter, verse, _groupsData, (check, invalidated) => {
       if (check) {
         const currentCheckId = currentCheck?.contextId?.checkId
         const checkId = check?.contextId?.checkId
@@ -911,7 +929,7 @@ const Checker = ({
       <div id='checker' style={_checkerStyles}>
         <GroupMenuComponent
           bookName={bookName}
-          changeCurrentContextId={changeCurrentCheck}
+          changeCurrentContextId={changeCurrentCheck_}
           contextId={currentContextId}
           direction={direction}
           groupsData={groupsData}
