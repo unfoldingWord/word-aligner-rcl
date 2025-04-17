@@ -6,6 +6,7 @@ src/
 .editorconfig
 styleguide.config.js
 styleguide.styles.js
+styleguide/
 yalc.lock
 coverage/
 node_modules/

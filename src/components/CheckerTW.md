@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { NT_ORIG_LANG } from '../common/constants';
 import Checker, { translationWords } from './Checker'
 import { lookupTranslationForKey } from '../utils/translations'
-import { extractGroupData } from '../helpers/translationHelps/twArticleHelpers'
+import { groupDataHelpers } from 'word-aligner-lib'
 
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 const translations = require('../locales/English-en_US.json')
@@ -13,7 +13,7 @@ const glTwl = require('../__tests__/fixtures/translationWords/twl_1jn_parsed.jso
 const glTwData = require('../__tests__/fixtures/translationWords/en_tw.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
 const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
-const checkingData = extractGroupData(glTwl)
+const checkingData = groupDataHelpers.extractGroupData(glTwl)
 const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 
 const translate = (key) => {

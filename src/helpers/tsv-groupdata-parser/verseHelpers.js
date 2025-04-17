@@ -31,8 +31,6 @@ export function isVerseSet(verse) {
   return isSet;
 }
 
-
-
 /**
  * find all verses in ref and return as long string
  * @param {object} bookData - indexed by chapter and then verse ref

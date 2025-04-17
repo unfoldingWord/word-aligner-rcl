@@ -9,8 +9,9 @@
 import {describe, expect, test} from '@jest/globals'
 import path from "path";
 import fs from 'fs-extra';
-import { extractGroupData, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
+import { getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
 import { readHelpsFolder } from '../helpers/fileHelpers'
+import { groupDataHelpers } from 'word-aligner-lib'
 
 jest.unmock('fs-extra');
 
@@ -25,7 +26,7 @@ describe.skip('read resources', () => {
     const filePath = enTaFolder
     const data = readHelpsFolder(filePath)
     expect(data)
-    const groupData = extractGroupData(data)
+    const groupData = groupDataHelpers.extractGroupData(data)
     expect(Object.keys(groupData).length).toEqual(3)
   });
 
@@ -33,7 +34,7 @@ describe.skip('read resources', () => {
     const filePath = enTwlFolder
     const data = readHelpsFolder(filePath, '1jn')
     expect(data)
-    const groupData = extractGroupData(data)
+    const groupData = groupDataHelpers.extractGroupData(data)
     expect(Object.keys(groupData).length).toEqual(3)
   });
 
@@ -41,7 +42,7 @@ describe.skip('read resources', () => {
     const filePath = enTnFolder
     const data = readHelpsFolder(filePath, '1jn')
     expect(data)
-    const groupData = extractGroupData(data)
+    const groupData = groupDataHelpers.extractGroupData(data)
     expect(Object.keys(groupData).length).toEqual(3)
   });
 
