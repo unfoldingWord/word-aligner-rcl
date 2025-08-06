@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import WordList from './WordList/index';
+import isEqual from 'deep-equal'
+import WordList from './WordList';
 import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
@@ -355,6 +356,16 @@ const WordAligner = ({
     console.log('setToolSettings')
   };
 
+  useEffect(() => { // detect change of source alignments
+    const changedTW = !isEqual(targetWords, targetWords_);
+    const changedVA = !isEqual(verseAlignments, verseAlignments_);
+    if (changedTW || changedVA) {
+      console.log('WordAligner: app alignment data changed', verseAlignments, targetWords)
+      setTargetWords(targetWords)
+      updateVerseAlignments(verseAlignments)
+    }
+  }, [verseAlignments, targetWords])
+
   /**
    * on start of token drag, save drag token and drag item type
    * @param {object} token
@@ -403,8 +414,8 @@ const WordAligner = ({
     const destination=TARGET_WORD_BANK;
     let sourceToken = {};
     const { tokenIndex, alignmentIndex } = findAlignment(verseAlignments_, targetToken);
+    let verseAlignments =  [...verseAlignments_];
     if (alignmentIndex >= 0) {
-      let verseAlignments = [...verseAlignments_];
       verseAlignments[alignmentIndex].targetNgram.splice(tokenIndex, 1);
       sourceToken = verseAlignments[alignmentIndex].sourceNgram;
       updateVerseAlignments(verseAlignments);
@@ -423,7 +434,7 @@ const WordAligner = ({
       destination,
       sourceToken: sourceToken,
       targetToken: targetToken
-    });
+    }, verseAlignments);
   };
 
   /**
@@ -570,9 +581,9 @@ const WordAligner = ({
         <WordList
           styles={styles_}
           words={targetWords_}
-          verse={contextId.reference.verse}
+          verse={contextId?.reference?.verse}
           isOver={over}
-          chapter={contextId.reference.chapter}
+          chapter={contextId?.reference?.chapter}
           direction={targetDirection}
           toolsSettings={toolsSettings}
           reset={resetDrag}

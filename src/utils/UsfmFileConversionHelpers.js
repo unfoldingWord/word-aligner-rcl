@@ -1,6 +1,6 @@
 /* eslint-disable no-async-promise-executor, no-throw-literal */
 import usfmjs from 'usfm-js';
-import _ from 'lodash';
+import cloneDeep from "lodash.clonedeep";
 import {getVerseAlignments, getWordCountInVerse} from "./alignmentHelpers";
 
 /**
@@ -168,7 +168,7 @@ const replaceWordsAndMilestones = (verseObject, wordSpacing) => {
     }
 
     if (verseObject.children) { // handle nested
-      const verseObject_ = _.cloneDeep(verseObject);
+      const verseObject_ = cloneDeep(verseObject);
       let wordSpacing_ = '';
       const length = verseObject.children.length;
 
@@ -234,18 +234,19 @@ export function convertVerseDataToUSFM(verseData) {
 }
 
 /**
- * @description convert verse from verse objects to USFM string, removing milestones and word markers
+ * @description remove milestones and word markers
  * @param {Object|Array} verseData
- * @return {String}
+ * @return {Object}
  */
-export const getUsfmForVerseContent = (verseData) => {
-  if (verseData.verseObjects) {
+export function removeMilestonesAndWordMarkers(verseData) {
+  const verseObjects = verseData?.verseObjects || verseData;
+  if (verseObjects) {
     let wordSpacing = '';
     const flattenedData = [];
-    const length = verseData.verseObjects.length;
+    const length = verseObjects.length;
 
     for (let i = 0; i < length; i++) {
-      const verseObject = verseData.verseObjects[i];
+      const verseObject = verseObjects[i];
       const flattened = replaceWordsAndMilestones(verseObject, wordSpacing);
       wordSpacing = flattened.wordSpacing;
       flattenedData.push(flattened.verseObject);
@@ -254,5 +255,15 @@ export const getUsfmForVerseContent = (verseData) => {
       verseObjects: flattenedData,
     };
   }
+  return verseData;
+}
+
+/**
+ * @description convert verse from verse objects to USFM string, removing milestones and word markers
+ * @param {Object|Array} verseData
+ * @return {String}
+ */
+export const getUsfmForVerseContent = (verseData) => {
+  verseData = removeMilestonesAndWordMarkers(verseData);
   return convertVerseDataToUSFM(verseData);
 };

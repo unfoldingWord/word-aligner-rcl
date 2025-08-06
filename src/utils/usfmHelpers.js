@@ -149,10 +149,12 @@ export const removeUsfmMarkers = (targetVerseText) => {
 };
 
 export function usfmVerseToJson(verseUSFM) {
-  const verseObjects = usfmjs.toJSON('\\v 1 ' + verseUSFM, { chunk: true });
+  if (verseUSFM) {
+    const verseObjects = usfmjs.toJSON('\\v 1 ' + verseUSFM, {chunk: true});
 
-  if (verseObjects?.verses?.[1]?.verseObjects) {
-    return verseObjects.verses[1].verseObjects;
+    if (verseObjects?.verses?.[1]?.verseObjects) {
+      return verseObjects.verses[1].verseObjects;
+    }
   }
   return null;
 }

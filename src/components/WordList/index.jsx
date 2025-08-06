@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WordList from './WordList';
 import * as types from "../../common/WordCardTypes";
+import cloneDeep from "lodash.clonedeep";
 
 /**
  * Renders a word bank with drag-drop support
@@ -147,30 +148,59 @@ class DroppableWordList extends React.Component {
 
   /**
    * maintains the list of selected words
-   * @param token
+   * @param {object} token - token clicked
+   * @param {boolean} selectToCurrentToken - if true then select all the words from first selection up through selected token
    */
-  handleWordSelection(token) {
+  handleWordSelection(token, selectToCurrentToken) {
     const { selectedWordPositions, selectedWords } = this.state;
-    let positions = [...selectedWordPositions];
-    let words = [...selectedWords];
-    token = {
+    let _selectedPositions = cloneDeep(selectedWordPositions)
+    let _selectedWords = cloneDeep(selectedWords)
+    const token_ = {
       ...token,
       type: null,
     }
 
-    const index = positions.indexOf(token.index);
+    const index = _selectedPositions.indexOf(token_.index);
 
     if (index === -1) {
-      positions.push(token.index);
-      words.push(token);
+      _selectedPositions.push(token_.index);
+      _selectedWords.push(token_);
+
+      // if we are also to select words in-between
+      if (selectToCurrentToken && _selectedPositions?.length) {
+        const tIndex = token_.index;
+        let firstSelection = tIndex
+        const _positions = _selectedPositions.toSorted();
+
+        // find first selection
+        for (const index of _positions) {
+          if (index < firstSelection) {
+            firstSelection = index
+            break
+          }
+        }
+
+        if (firstSelection < tIndex && this.props.words?.length) { // if there was a first selection, then select words following the first item up to and including the clicked token
+          for (const word of this.props.words) { // search through the word list
+            const index = word.index
+            if ( index > firstSelection && index < tIndex && !word.disabled ) {
+              const pos = _selectedPositions.indexOf(index);
+              if (pos < 0) {
+                _selectedPositions.push(index);
+                _selectedWords.push(word);
+              }
+            }
+          }
+        }
+      }
     } else {
-      positions.splice(index, 1);
-      words.splice(index, 1);
+      _selectedPositions.splice(index, 1);
+      _selectedWords.splice(index, 1);
     }
 
     this.setState({
-      selectedWords: words,
-      selectedWordPositions: positions,
+      selectedWords: _selectedWords,
+      selectedWordPositions: _selectedPositions,
     });
   }
 
@@ -240,7 +270,7 @@ class DroppableWordList extends React.Component {
 DroppableWordList.propTypes = {
   styles: PropTypes.object,
   reset: PropTypes.bool,
-  verse: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  verse: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   chapter: PropTypes.number,
   wordList: PropTypes.object,
   targetLanguageFont: PropTypes.string,

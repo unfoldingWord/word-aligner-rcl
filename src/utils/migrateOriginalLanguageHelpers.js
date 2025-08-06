@@ -1,5 +1,16 @@
 import { normalizer } from 'string-punctuation-tokenizer';
 import { referenceHelpers } from 'bible-reference-range';
+import {
+  convertVerseDataToUSFM,
+  getUsfmForVerseContent,
+  removeMilestonesAndWordMarkers
+} from "./UsfmFileConversionHelpers";
+import {
+  addAlignmentsToVerseUSFM,
+  extractAlignmentsFromTargetVerse,
+  parseUsfmToWordAlignerData,
+} from "./alignmentHelpers";
+import {usfmVerseToJson} from "./usfmHelpers";
 
 const ignoreFields = [ 'tag', 'type', 'text' ];
 const ignoreOrig = [ 'tw' ];
@@ -166,7 +177,6 @@ function normalizeList(originalWordList, normalOrig) {
     };
     normalOrig.push(origWord_);
   }
-  getOccurrencesForWordList(normalOrig);
 }
 
 /**
@@ -183,16 +193,17 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
   for (let i = 0, l = alignmentsWordList.length; i < l; i++) {
     const alignedWord = alignmentsWordList[i];
     // eslint-disable-next-line eqeqeq
-    let foundOrig = originalLangWordList.find(item => (item.word === alignedWord.word) && (item.occurrence == alignedWord.occurrence) && (item.occurrences == alignedWord.occurrences));
+    let foundOrig = originalLangWordList.find(item => (item.word === alignedWord.word) && (item.occurrence == alignedWord.occurrence) && (item.occurrences == alignedWord.occurrences)); //Tricky: we are allowing automatic type coercion between string and integer because occurrence could be either
 
     if (!foundOrig) { // fall back to normalized matching
       if (!normalOrig.length) { // if not initialized
         normalizeList(originalLangWordList, normalOrig);
+        getOccurrencesForWordList(normalOrig);
         normalizeList(alignmentsWordList, normalAlign);
       }
 
       const normalWord = normalAlign[i];
-      const foundPos = normalOrig.findIndex(item => (item.word === normalWord.word) && (item.occurrence === normalWord.occurrence) && (item.occurrences === normalWord.occurrences));
+      const foundPos = normalOrig.findIndex(item => (item.word === normalWord.word) && (item.occurrence == normalWord.occurrence) && (item.occurrences == normalWord.occurrences)); //Tricky: we are allowing automatic type coercion between string and integer because occurrence could be either
 
       if (foundPos >= 0) {
         foundOrig = originalLangWordList[foundPos];
@@ -220,13 +231,77 @@ export function updateAlignedWordsFromOriginalWordList(originalLangWordList, ali
 }
 
 /**
- * remove aligned words no longer in original language
- * @param {array} alignmentsChapter
- * @param {string|number} verseRef
- * @return {object} true if extra word found
+ * remove aligned words no longer in original or target language and update word bank to enable target words not used
+ * @param {array} alignments * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
+ * @param {array} wordBank
  */
-function removeExtraWordsFromAlignments(alignmentsChapter, verseRef) {
-  const alignments = alignmentsChapter?.[verseRef]?.alignments || [];
+export function updateAlignmentData(alignments, wordBank) {
+  const toRemove = [];
+  let extraWordFound = false;
+
+  for (let j = 0, l = alignments.length; j < l; j++) {
+    const alignment = alignments[j];
+    let sourceNgram = alignment.sourceNgram;
+
+    for (let i = 0; i < sourceNgram.length; i++) {
+      const topWord = sourceNgram[i];
+
+      if (topWord.unmatched || !alignment.targetNgram.length) { // remove extra word or unaligned word
+        sourceNgram.splice(i, 1);
+        i--;
+
+        if (topWord.unmatched) {
+          extraWordFound = true;
+        }
+      }
+    }
+
+    if (!sourceNgram.length) { // if empty, remove alignment
+          toRemove.push(j);
+      }
+  }
+
+  if (toRemove.length) {
+      for (let j = toRemove.length - 1; j >= 0; j--) { // reverse order so remaining indices not messed up by removals
+          const removeIdx = toRemove[j];
+          alignments.splice(removeIdx, 1);
+      }
+  }
+
+  for (let j = 0, l = alignments.length; j < l; j++) {
+    const alignment = alignments[j];
+    let targetNgram = alignment.targetNgram;
+    for (let i = 0; i < targetNgram.length; i++) {
+      const bottomWord = targetNgram[i];
+
+      const foundtarget = wordBank.find(item => (item.text === bottomWord.text) && (item.occurrence == bottomWord.occurrence));
+
+      if (foundtarget) {
+        foundtarget.used = true;
+      } else {
+        targetNgram.splice(i, 1);
+      }
+    }
+  }
+
+  wordBank.forEach(item => {
+    const used = item.used;
+    if (!used) {
+      delete item.disabled;
+    }
+    delete item.used
+  })
+
+  const emptyAlignmentsFound = !!toRemove.length;
+  return {extraWordFound, emptyAlignmentsFound};
+}
+
+/**
+ * remove aligned words no longer in original language
+ * @param {array} alignments
+ * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
+ */
+function removeExtraWordsFromAlignments(alignments) {
   const toRemove = [];
   let extraWordFound = false;
 
@@ -259,7 +334,20 @@ function removeExtraWordsFromAlignments(alignmentsChapter, verseRef) {
     }
   }
 
-  return { extraWordFound, emptyAlignmentsFound: !!toRemove.length };
+  const emptyAlignmentsFound = !!toRemove.length;
+  return {extraWordFound, emptyAlignmentsFound};
+}
+
+/**
+ * remove aligned words no longer in original language
+ * @param {array} alignmentsChapter
+ * @param {string|number} verseRef
+ * @return { extraWordFound: boolean, emptyAlignmentsFound:boolean }
+ */
+function removeExtraWordsFromChapterAlignments(alignmentsChapter, verseRef) {
+  const alignments = alignmentsChapter?.[verseRef]?.alignments || [];
+  let {extraWordFound, emptyAlignmentsFound} = removeExtraWordsFromAlignments(alignments);
+  return { extraWordFound, emptyAlignmentsFound };
 }
 
 /**
@@ -369,7 +457,7 @@ export function updateAlignedWordsFromOriginalForVerse(originalLangChapter, alig
     if (alignmentsChapter?.[verse_]?.alignments) {
       // clear word bank so it will be regenerated
       alignmentsChapter[verse_].wordBank = [];
-      const { extraWordFound, emptyAlignmentsFound } = removeExtraWordsFromAlignments(alignmentsChapter, verse_);
+      const { extraWordFound, emptyAlignmentsFound } = removeExtraWordsFromChapterAlignments(alignmentsChapter, verse_);
       removedExtraWords = increment(removedExtraWords, extraWordFound);
       emptyAlignments = increment(emptyAlignments, emptyAlignmentsFound);
     }
@@ -466,4 +554,36 @@ export function updateAlignedWordAttribFromOriginalForBook(origBook, alignments,
     removedExtraWordsChapters,
     emptyAlignmentsChapters,
   };
+}
+
+/**
+ * check if original words in target alignment have changed, if so make an effort to update alignments based on normalized text.  Otherwise remove any original words from alignments that are not found in the original verse objects.
+ * @param {Object[]} targetVerseObjects
+ * @param {Object[]} originalVerseObjects
+ * @return {Object[]}} migrated targetVerseObjects
+ */
+export function migrateTargetAlignmentsToOriginal(targetVerseObjects, originalVerseObjects) {
+  const originalLangWordList = getOriginalLanguageListForVerseData(originalVerseObjects);
+  const targetVerseText = convertVerseDataToUSFM({ verseObjects: targetVerseObjects})
+  const alignments =  extractAlignmentsFromTargetVerse(targetVerseText, originalVerseObjects)
+  // const alignments = wordaligner.unmerge(targetVerseObjects, originalVerseObjects);
+  const alignmentsWordList = getAlignedWordListFromAlignments(alignments.alignment);
+  if (originalLangWordList?.length && alignmentsWordList?.length) {
+    const changed_ = updateAlignedWordsFromOriginalWordList(originalLangWordList, alignmentsWordList);
+    // let results = updateAlignmentsToTargetVerse(initialVerseObjects, newText)
+    const results = parseUsfmToWordAlignerData(targetVerseText, null);
+    const targetWords = results.targetWords
+    const {extraWordFound, emptyAlignmentsFound} = updateAlignmentData(alignments.alignments, targetWords);
+    const bareTargetText = getUsfmForVerseContent({ verseObjects: targetVerseObjects })
+    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, alignments.alignments, bareTargetText)
+    if (verseUsfm) {
+      const alignedVerseObjects = usfmVerseToJson(verseUsfm)
+      return alignedVerseObjects
+    } else {
+      const unalignedVerseObjects = removeMilestonesAndWordMarkers(targetVerseObjects)?.verseObjects || [];
+      console.warn(`migrateTargetAlignmentsToOriginal() - separating alignments failed, removing alignments`)
+      return unalignedVerseObjects
+    }
+  }
+  return targetVerseObjects;
 }

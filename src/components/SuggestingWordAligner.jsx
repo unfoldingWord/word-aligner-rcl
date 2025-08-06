@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import WordList from './WordList/index';
+import WordList from './WordList';
 import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
@@ -346,7 +346,7 @@ const indexComparator = (a, b) => a.index - b.index;
 
 /**
  * @callback SuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
- * @param {string|array[Token]} source - source translation 
+ * @param {string|array[Token]} source - source translation
  * @param {string|array[Token]} target - target translation
  * @param {number} maxSuggestions - max number of suggestions
  * @param {array[Alignment]} manualAlignments - array manual alignments
@@ -356,7 +356,7 @@ const indexComparator = (a, b) => a.index - b.index;
 
 /**
  * @callback AsyncSuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
- * @param {string|array[Token]} source - source translation 
+ * @param {string|array[Token]} source - source translation
  * @param {string|array[Token]} target - target translation
  * @param {number} maxSuggestions - max number of suggestions
  * @param {array[Alignment]} manualAlignments - array manual alignments
@@ -436,8 +436,8 @@ const SuggestingWordAligner = ({
       if( asyncSuggester && (token.type || types.SECONDARY_WORD) === types.SECONDARY_WORD ) {
 
           //Convert the data into the structure useful by the asyncSuggester.
-          const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
-          const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
+          const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) );
+          const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) );
           const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
 
           updateTokenLocations(sourceWordObjects);
@@ -505,7 +505,7 @@ const SuggestingWordAligner = ({
             });
             return newVerseAlignments;
           });
-        
+
 
       }else{  //this is if there is no asyncSuggester or if the word being dragged is not a secondary word.
         //clear out the suggestions when a source word is being dragged.
@@ -605,7 +605,7 @@ const SuggestingWordAligner = ({
    */
   const handleAlignTargetToken = (targetToken, alignmentIndex, srcAlignmentIndex) => {
     console.log('handleAlignTargetToken', {alignmentIndex, srcAlignmentIndex})
-    
+
     const destination=GRID
     let source=( srcAlignmentIndex === -1)?GRID:TARGET_WORD_BANK;
     let verseAlignments = [...verseAlignments_]
@@ -622,7 +622,7 @@ const SuggestingWordAligner = ({
     if (found >= 0) {
       dest.targetNgram.splice(found, 1);
     }
-    
+
 
     //now group the targetToken with the new target tokens in the dest and then handle them toether
     const newTargetTokens = [...dest.targetNgram, targetToken];
@@ -671,7 +671,7 @@ const SuggestingWordAligner = ({
       sourceIndex: srcAlignmentIndex,
       destIndex: ""
     }, _verseAlignments);
-    
+
   };
 
   /**
@@ -780,20 +780,20 @@ const SuggestingWordAligner = ({
 
 
     //Convert the data into the structure useful by the asyncSuggester.
-    const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) ); 
-    const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) ); 
+    const sourceWordObjects = verseAlignments_.map( alignment => alignment.sourceNgram ).reduce( (a, b) => a.concat(b), []).sort(indexComparator).map( t=>new Token(t) );
+    const targetWordObjects = [...targetWords_].sort(indexComparator).map( t=>new Token(t) );
     const manualAlignmentObjects = verseAlignments_.filter( alignment=>!alignment.isSuggestion ).map(alignment=>new Alignment( new Ngram( alignment.sourceNgram.map( n => new Token(n) ) ), new Ngram( alignment.targetNgram.map( n => new Token(n) )  ) ) );
     updateTokenLocations(sourceWordObjects);
     updateTokenLocations(targetWordObjects);
 
     //obtain the suggestions
     const predictions = (await asyncSuggester( sourceWordObjects, targetWordObjects, 1, manualAlignmentObjects ))[0].predictions;
-    
+
 
     //now transactionaly update the verseAlignments using a function so that it uses the most up to date information even if the asyncSuggester took a while
     //to get back to us.
     setVerseAlignments( oldVerseAlignments => {
-      
+
       //remove all suggested targets
       const alignmentsStage1 = oldVerseAlignments.map( alignment => {
         if( alignment.isSuggestion ){
@@ -841,19 +841,19 @@ const SuggestingWordAligner = ({
 
       //Index the hash of all the target tokens already used so we can not use them again.
       const token_to_hash = (t) => `${t.text}:${t.occurrence}:${t.occurrences}`;
-      
+
       const hashToManualTargetTokens = alignmentsStage3.reduce( (acc, alignment) => {
         alignment.targetNgram.forEach( targetToken => acc[token_to_hash(targetToken)] = targetToken );
         return acc;
       },{});
-    
+
 
       //Now iterate through the suggestions and see which ones don't mess with an existing alignment.
       const alignmentsStage4 = alignmentsStage3.map( (alignmentToFilter, index) => {
         //if the alignment already has targets, they are manually aligned and should be respected.
         //We can't add in suggested additional targets because we can't represent a mixture of suggested and manual.
         if( alignmentToFilter.targetNgram.length > 0 ) return alignmentToFilter;
-        
+
 
         //Next see if the given source word is the first of an ngram in a prediction.  If so create the alignment with
         //the suggestion flag set.
@@ -874,7 +874,7 @@ const SuggestingWordAligner = ({
             return true
           })
         }
-        
+
         //Continue only if there was a prediction and filtered target suggestions still have at least one target
         if( predictionWithSourceAsFirst && filteredSuggestedTargetNgram.length > 0 ){
           //If there is only one suggested source ngram we are good, just pass it through.
@@ -939,7 +939,7 @@ const SuggestingWordAligner = ({
     //Make sure all words which were dropped are not disabled in the word list.
     const targetTokensNeedingDisabled = verseAlignments_
       //filter to only suggestions
-      .filter( alignment => alignment.isSuggestion) 
+      .filter( alignment => alignment.isSuggestion)
       //Now reduce to target words.
       .reduce( (acc, alignment) => {
         alignment.targetNgram.forEach( targetToken => {
