@@ -9,5 +9,6 @@ export {
   migrateOriginalLanguageHelpers,
   UsfmFileConversionHelpers,
   usfmHelpers,
+  SuggestingWordAligner,
   WordAligner,
 }
