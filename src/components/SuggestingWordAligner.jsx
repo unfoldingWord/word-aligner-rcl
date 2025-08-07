@@ -766,10 +766,6 @@ const SuggestingWordAligner = ({
    * @param {object} token - The token object to be removed from suggestions
    */
   const handleRemoveSuggestion = (alignmentIndex, token) => {
-    // const {
-    //   contextId: { reference: { chapter, verse } },
-    // } = this.props;
-    // removeTokenSuggestion(chapter, verse, alignmentIndex, token);
     console.log('handleRemoveSuggestion', {alignmentIndex, token})
     handleUnalignTargetToken(token)
   }
@@ -783,7 +779,8 @@ const SuggestingWordAligner = ({
    * @param {string} token - The token to be accepted within the suggestion.
    */
   const handleAcceptTokenSuggestion = (alignmentIndex, token) => {
-    console.log('handleAcceptTokenSuggestion', {alignmentIndex, token})
+    // TODO blm - find way to implement
+    console.log('handleAcceptTokenSuggestion - UNIMPLEMENTED', {alignmentIndex, token})
     // const {
     //   acceptTokenSuggestion,
     //   contextId: { reference: { chapter, verse } },

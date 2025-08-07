@@ -37,9 +37,7 @@ class SecondaryToken extends React.Component {
   }
 
   handleCancel() {
-    console.log('SecondaryToken.handleCancel');
     const { onCancel, token } = this.props;
-
     if (typeof onCancel === 'function') {
       onCancel(token);
     }
@@ -47,7 +45,6 @@ class SecondaryToken extends React.Component {
 
   handleClick(e) {
     e.stopPropagation();
-    console.log('SecondaryToken.handleClick');
     const {
       isSuggestion,
       onAccept,
@@ -55,6 +52,8 @@ class SecondaryToken extends React.Component {
       token,
     } = this.props;
     const shiftClick = e.shiftKey;
+
+    console.log('SecondaryToken.handleClick', token);
 
     if (isSuggestion) {
       onAccept(token);

@@ -64,14 +64,12 @@ class AlignmentGrid extends Component {
   }
 
   render() {
-    console.log('AlignmentGrid.js - rerender');
-
     const {
       translate,
       lexicons,
-      onCancelSuggestion,
       sourceDirection,
       targetDirection,
+      onCancelSuggestion,
       onAcceptTokenSuggestion,
       sourceStyle,
       alignments,
@@ -133,6 +131,8 @@ class AlignmentGrid extends Component {
                 translate={translate}
                 sourceDirection={sourceDirection}
                 targetDirection={targetDirection}
+                onCancelTokenSuggestion={onCancelSuggestion}
+                onAcceptTokenSuggestion={onAcceptTokenSuggestion}
                 alignmentIndex={alignment.index}
                 isSuggestion={alignment.isSuggestion}
                 sourceSuggested={0}
