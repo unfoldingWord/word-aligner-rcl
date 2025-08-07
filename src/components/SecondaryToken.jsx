@@ -37,6 +37,7 @@ class SecondaryToken extends React.Component {
   }
 
   handleCancel() {
+    console.log('SecondaryToken.handleCancel');
     const { onCancel, token } = this.props;
 
     if (typeof onCancel === 'function') {
@@ -46,12 +47,16 @@ class SecondaryToken extends React.Component {
 
   handleClick(e) {
     e.stopPropagation();
+    console.log('SecondaryToken.handleClick');
     const {
-      token, onAccept, onClick,
+      isSuggestion,
+      onAccept,
+      onClick,
+      token,
     } = this.props;
     const shiftClick = e.shiftKey;
 
-    if (token.meta?.suggestion) {
+    if (isSuggestion) {
       onAccept(token);
     } else if (!token.disabled && onClick) {
       const buttonDiv = e.currentTarget.getElementsByTagName('DIV')[0].getElementsByTagName('DIV')[0];
@@ -119,7 +124,8 @@ class SecondaryToken extends React.Component {
       direction,
       isDragging,
       targetLanguageFontClassName,
-      fontScale
+      fontScale,
+      isSuggestion
     } = this.props;
     const opacity = isDragging ? 0.4 : 1;
 
@@ -139,7 +145,7 @@ class SecondaryToken extends React.Component {
           onCancel={this.handleCancel}
           occurrence={token.occurrence}
           occurrences={token.occurrences}
-          isSuggestion={token.meta?.suggestion}
+          isSuggestion={isSuggestion}
           targetLanguageFontClassName={targetLanguageFontClassName}
           onDragStart={this.onDragStart}
           onDragEnd={this.onDragEnd}
@@ -170,7 +176,8 @@ SecondaryToken.propTypes = {
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   disabled: PropTypes.bool,
   targetLanguageFontClassName: PropTypes.string,
-  fontScale: PropTypes.number
+  fontScale: PropTypes.number,
+  isSuggestion: PropTypes.bool,
 };
 
 SecondaryToken.defaultProps = {
@@ -184,6 +191,7 @@ SecondaryToken.defaultProps = {
   fontScale: 100,
   selectedTokens: [],
   direction: 'ltr',
+  isSuggestion: false,
 };
 
 /**

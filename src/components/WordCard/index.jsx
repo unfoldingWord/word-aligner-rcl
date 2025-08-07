@@ -159,12 +159,13 @@ class WordCard extends React.Component {
     const { tooltip } = this.state;
     return (
       <React.Fragment>
-        <ThemedTooltip message={'cheese'} disabled={!tooltip || disableTooltip} fontScale={fontScale} targetLanguageFontClassName={targetLanguageFontClassName}>
-        <div style={{ flex: 1 }}
+        <ThemedTooltip message={word} disabled={!tooltip || disableTooltip} fontScale={fontScale} targetLanguageFontClassName={targetLanguageFontClassName}>
+          <div style={{ flex: 1 }}
             draggable={!disabled}
             onDragStart={onDragStart}
             onDragEnd={onDragEnd}
-            onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
           >
             <div style={styles.root}>
               <span style={{

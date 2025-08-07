@@ -64,6 +64,8 @@ class AlignmentGrid extends Component {
   }
 
   render() {
+    console.log('AlignmentGrid.js - rerender');
+
     const {
       translate,
       lexicons,

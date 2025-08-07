@@ -197,6 +197,7 @@ class DroppableAlignmentCard extends Component {
         token={token}
         direction={targetDirection}
         alignmentIndex={alignmentIndex}
+        isSuggestion={isSuggestion}
         onCancel={this._handleCancelSuggestion}
         onAccept={this._handleAcceptSuggestion}
         targetLanguageFontClassName={targetLanguageFontClassName}
