@@ -54,8 +54,9 @@ const App = () => {
     console.log(`showPopover()`, rawData)
     window.prompt(`User clicked on ${JSON.stringify(rawData.token)}`)
   };
-  const loadLexiconEntry = (key) => {
-    console.log(`loadLexiconEntry(${key})`)
+  const loadLexiconEntry = (lexiconId) => {
+    console.log(`loadLexiconEntry(${lexiconId})`)
+    return LexiconData
   };
   const getLexiconData_ = (lexiconId, entryId) => {
     console.log(`loadLexiconEntry(${lexiconId}, ${entryId})`)
