@@ -760,6 +760,55 @@ const SuggestingWordAligner = ({
     }
   };
 
+  /**
+   * Handles removing a suggestion token from an alignment
+   * @param {number} alignmentIndex - The index of the alignment containing the token to remove
+   * @param {object} token - The token object to be removed from suggestions
+   */
+  const handleRemoveSuggestion = (alignmentIndex, token) => {
+    // const {
+    //   contextId: { reference: { chapter, verse } },
+    // } = this.props;
+    // removeTokenSuggestion(chapter, verse, alignmentIndex, token);
+    console.log('handleRemoveSuggestion', {alignmentIndex, token})
+    handleUnalignTargetToken(token)
+  }
+
+  /**
+   * Handles the acceptance of a token suggestion during an alignment process.
+   * It enables auto-completion and invokes the corresponding action with required parameters.
+   *
+   * @function
+   * @param {number} alignmentIndex - The index of the token alignment suggestion to be accepted.
+   * @param {string} token - The token to be accepted within the suggestion.
+   */
+  const handleAcceptTokenSuggestion = (alignmentIndex, token) => {
+    console.log('handleAcceptTokenSuggestion', {alignmentIndex, token})
+    // const {
+    //   acceptTokenSuggestion,
+    //   contextId: { reference: { chapter, verse } },
+    // } = this.props;
+    // // accepting a single suggestion can auto-complete the verse
+    // this.enableAutoComplete();
+    // acceptTokenSuggestion(chapter, verse, alignmentIndex, token);
+  }
+
+
+  /**
+   * Handles the acceptance of suggested alignments for target tokens.
+   *
+   * This function processes the alignments that are marked as suggestions and performs the following:
+   * - Filters alignments classified as suggestions.
+   * - Transforms each alignment into an info object containing details about the source tokens, target tokens,
+   *   primary token, and the alignment index.
+   * - Executes a drag event for each suggested word using the info objects, triggering target token alignments
+   *   and associated callbacks.
+   *
+   * Assumptions:
+   * - The alignments are filtered based on the `isSuggestion` property.
+   * - The drag event is managed by the `handleAlignTargetToken` function, provided with the necessary info.
+   * - Suggested words are automatically disabled as part of the process.
+   */
   const handleAcceptSuggestions = () => {
     //I am going to implement this as a drag event for every single suggested word as though from the wordbank.
     //This will automatically disable the words which are suggested as well as handle change callbacks.
@@ -1090,6 +1139,8 @@ const SuggestingWordAligner = ({
           toolsSettings={toolsSettings}
           onDropTargetToken={handleAlignTargetToken}
           onDropSourceToken={handleAlignSourceToken}
+          onCancelSuggestion={handleRemoveSuggestion}
+          onAcceptTokenSuggestion={handleAcceptTokenSuggestion}
           contextId={contextId}
           isHebrew={isHebrew}
           showPopover={showPopover}
