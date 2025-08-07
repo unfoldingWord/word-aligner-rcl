@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import Tooltip from '@mui/material/Tooltip';
 
-const styles = theme => ({
+const styles = {
   arrow: {
     'fontSize': 16,
     'width': 17,
     '&::before': {
       border: '1px solid #000',
-      backgroundColor: theme.palette.common.black,
+      backgroundColor: '#ffffff',
       boxSizing: 'border-box',
     },
   },
   bootstrapTooltip: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#ffffff',
     fontSize: "inherit",
     lineHeight: "inherit",
     maxWidth: 375,
     wordBreak: "break-all"
   },
-});
+};
 
 /**
  * Renders a tooltip.
