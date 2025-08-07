@@ -1,15 +1,11 @@
 
-# suggesting-word-aligner-rcl
+# word-aligner-rcl
 
-This is a fork of [word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl is a react component which allows a translator to connect source and target words in a translation and thus map out an alignment.  
+[word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl contains two react components: `SuggestingWordAligner` and `WordAligner`. UI components for aligning words in a verse.
 
-This fork adds the addition of connecting an AI suggester for creating word alignments.
+## Usage Difference SuggestingWordAligner over WordAligner
 
-The demonstration app for this is [Alignment Transferer](https://github.com/JEdward7777/alignment-transferer) which has a [Netlify demo.](https://alignment-transferer.netlify.app/).  
-
-## Usage Difference from WordAligner
-
-The main react component instead of being called `WordAligner`, it is called `SuggestingWordAligner`.  It has two additional properties in addition to those of `WordAligner`.
+`SuggestingWordAligner` has two additional properties in addition to those of `WordAligner`.
 
  - `suggester`:  This is function call by which this component calls the model to make alignment suggestions.  The TypeScript type signature for this function is
     ```
@@ -19,7 +15,7 @@ The main react component instead of being called `WordAligner`, it is called `Su
     ```
     /**
     * @callback SuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
-    * @param {string|array[Token]} source - source translation 
+    * @param {string|array[Token]} source - source translation
     * @param {string|array[Token]} target - target translation
     * @param {number} maxSuggestions - max number of suggestions
     * @param {array[Alignment]} manualAlignments - array manual alignments
@@ -43,7 +39,7 @@ The main react component instead of being called `WordAligner`, it is called `Su
    ```
    /**
    * @callback AsyncSuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
-   * @param {string|array[Token]} source - source translation 
+   * @param {string|array[Token]} source - source translation
    * @param {string|array[Token]} target - target translation
    * @param {number} maxSuggestions - max number of suggestions
    * @param {array[Alignment]} manualAlignments - array manual alignments
@@ -142,7 +138,7 @@ The main react component instead of being called `WordAligner`, it is called `Su
     * @property {string} text - text of the word itself
     */
     ```
- - `targetWords`: List of target words for use in wordbank.  
+ - `targetWords`: List of target words for use in wordbank.
     An array of `TargetWordBankType`
     ```
     /**
@@ -155,9 +151,6 @@ The main react component instead of being called `WordAligner`, it is called `Su
     */
     ```
 
-
-
-
 ## Installation
 
 ### npm
@@ -168,4 +161,10 @@ npm add suggesting-word-aligner-rcl
 ### yarn
 ```bash
 yarn add suggesting-word-aligner-rcl
+```
+
+## Local Testing using StyleGuidist
+- first install dependencies with `yarn`
+- then run `yarn start`
+- open `http://localhost:6060/` in browser to view the styleguidist demo
 ```
