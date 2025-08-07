@@ -55,7 +55,7 @@ const App = () => {
   };
   const showPopover = (PopoverTitle, wordDetails, positionCoord, rawData) => {
     console.log(`showPopover()`, rawData)
-    window.prompt(`User clicked on ${JSON.stringify(rawData.token)}`)
+    window.prompt(`User clicked on ${JSON.stringify(rawData)}`)
   };
   const loadLexiconEntry = (key) => {
     console.log(`loadLexiconEntry(${key})`)

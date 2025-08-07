@@ -52,7 +52,13 @@ const App = () => {
   };
   const showPopover = (PopoverTitle, wordDetails, positionCoord, rawData) => {
     console.log(`showPopover()`, rawData)
-    window.prompt(`User clicked on ${JSON.stringify(rawData.token)}`)
+    window.prompt(`User clicked on ${JSON.stringify(rawData)}`)
+    // setLexiconData({
+    //   PopoverTitle,
+    //   wordDetails,
+    //   positionCoord,
+    //   rawData,
+    // })
   };
   const loadLexiconEntry = (lexiconId) => {
     console.log(`loadLexiconEntry(${lexiconId})`)
