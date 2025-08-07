@@ -1,6 +1,6 @@
 {
   "name": "word-aligner-rcl",
-  "version": "1.2.0-beta.4",
+  "version": "1.2.0-beta.5",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",
@@ -56,10 +56,10 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.6.1",
-    "@mui/material": "^5.6.1",
-    "@mui/styles": "^5.6.1",
-    "@mui/styled-engine": "^5.6.1",
+    "@mui/icons-material": "6.5.0",
+    "@mui/material": "6.5.0",
+    "@mui/styled-engine": "6.5.0",
+    "@mui/styles": "6.5.0",
     "bible-reference-range": "^1.1.0",
     "deep-equal": "^2.0.5",
     "file-loader": "^6.2.0",
