@@ -47,11 +47,13 @@ class SecondaryToken extends React.Component {
   handleClick(e) {
     e.stopPropagation();
     const {
-      token, onClick,
+      token, onAccept, onClick,
     } = this.props;
     const shiftClick = e.shiftKey;
 
-    if (!token.disabled && onClick) {
+    if (token.meta?.suggestion) {
+      onAccept(token);
+    } else if (!token.disabled && onClick) {
       const buttonDiv = e.currentTarget.getElementsByTagName('DIV')[0].getElementsByTagName('DIV')[0];
       buttonDiv.style.cursor = 'wait';
       setTimeout(() => {
@@ -137,6 +139,7 @@ class SecondaryToken extends React.Component {
           onCancel={this.handleCancel}
           occurrence={token.occurrence}
           occurrences={token.occurrences}
+          isSuggestion={token.meta?.suggestion}
           targetLanguageFontClassName={targetLanguageFontClassName}
           onDragStart={this.onDragStart}
           onDragEnd={this.onDragEnd}
@@ -163,6 +166,7 @@ SecondaryToken.propTypes = {
   token: PropTypes.object.isRequired,
   dragToken: PropTypes.object,
   setDragToken: PropTypes.func.isRequired,
+  alignmentIndex: PropTypes.number,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
   disabled: PropTypes.bool,
   targetLanguageFontClassName: PropTypes.string,
@@ -175,6 +179,7 @@ SecondaryToken.defaultProps = {
   },
   onAccept: () => {
   },
+  alignmentIndex: undefined,
   disabled: false,
   fontScale: 100,
   selectedTokens: [],
