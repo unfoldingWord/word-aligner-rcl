@@ -1,7 +1,7 @@
 
 # word-aligner-rcl
 
-[word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl contains two react components: `SuggestingWordAligner` and `WordAligner`. UI components for aligning words in a verse.
+[word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl contains two react components: `SuggestingWordAligner` and `WordAligner`. UI components for aligning words in a verse.  See https://github.com/unfoldingWord-box3/enhanced-word-aligner-rcl for a more detailed example of using `SuggestingWordAligner` with alignment suggestions.
 
 ## Usage Difference SuggestingWordAligner over WordAligner
 
