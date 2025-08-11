@@ -19,7 +19,7 @@ const makeStyles = (props) => {
 
   const styles = {
     root: {
-      [borderKey]: '5px solid #44C6FF',
+      [borderKey]: '5px solid #44C6FF', // bright blue border
       padding: '9px',
       backgroundColor: '#FFFFFF',
       boxShadow: '0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset',
@@ -37,13 +37,13 @@ const makeStyles = (props) => {
   };
 
   if (isSuggestion) {
-    styles.root[borderKey] = '5px solid #1b7729';
+    styles.root[borderKey] = '5px solid #1b7729'; // dark green border
   }
 
   if (disabled) {
     styles.root = {
       ...styles.root,
-      [borderKey]: '5px solid #868686',
+      [borderKey]: '5px solid #868686', // dark gray border
       opacity: 0.3,
       cursor: 'not-allowed',
       userSelect: 'none',
@@ -53,7 +53,7 @@ const makeStyles = (props) => {
   if (selected) {
     styles.root = {
       ...styles.root,
-      backgroundColor: '#44C6FF',
+      backgroundColor: '#44C6FF', // bright blue background
     };
   }
 
