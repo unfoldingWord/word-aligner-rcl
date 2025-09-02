@@ -14,7 +14,7 @@ var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1_
 var originalVerseJson = require('../__tests__/fixtures/alignments/grk_tit_1_1.json');
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 
-const disableClear = false;  // set true to disable clear
+const removeClear = false;  // set true to remove clear button
 
 const translate = (key) => {
   const lookup = {
@@ -82,7 +82,7 @@ const App = () => {
     <div style={{height: '650px', width: '800px'}}>
       <SuggestingWordAligner
         contextId={contextId}
-        disableClear={disableClear}
+        removeClear={removeClear}
         getLexiconData={getLexiconData_}
         lexicons={lexicons}
         loadLexiconEntry={loadLexiconEntry}

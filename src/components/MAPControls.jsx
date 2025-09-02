@@ -157,13 +157,13 @@ class MAPControls extends React.Component {
 
   render() {
     const {
-      disableClear,
-      onRefresh,
-      onAccept,
-      onReject,
-      translate,
       hasSuggestions,
+      onAccept,
       onClear,
+      onRefresh,
+      onReject,
+      removeClear,
+      translate,
     } = this.props;
 
     return (
@@ -216,7 +216,7 @@ class MAPControls extends React.Component {
             </Box>
           </ThemedTooltip>
 
-          { !disableClear &&
+          { !removeClear &&
             <ThemedTooltip message={translate('alignments.clear_alignments')}>
               <Box component="span">
                 <SecondaryButton
@@ -236,7 +236,7 @@ class MAPControls extends React.Component {
 
 MAPControls.propTypes = {
   hasSuggestions: PropTypes.bool,
-  disableClear: PropTypes.bool,
+  removeClear: PropTypes.bool,
   onAccept: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   onRefresh: PropTypes.func.isRequired,

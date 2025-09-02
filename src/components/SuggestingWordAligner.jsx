@@ -386,26 +386,27 @@ const indexComparator = (a, b) => a.index - b.index;
  */
 
 const SuggestingWordAligner = ({
-  contextId,
-  disableClear,
-  lexiconCache = lexiconCache_,
-  loadLexiconEntry,
-  onChange,
-  showPopover = null,
-  sourceLanguage,
-  sourceLanguageFont = '',
-  sourceFontSizePercent = 100,
-  targetLanguage= {},
-  targetLanguageFont = '',
-  targetFontSizePercent = 100,
-  translate,
-  verseAlignments,
-  targetWords,
-  style: styles_ = {},
-  hasRenderedSuggestions = true,
-  suggester = null,
-  asyncSuggester = null,
+   asyncSuggester = null,
+   contextId,
+   hasRenderedSuggestions = true,
+   lexiconCache = lexiconCache_,
+   loadLexiconEntry,
+   onChange,
+   removeClear,
+   showPopover = null,
+   sourceLanguage,
+   sourceLanguageFont = '',
+   sourceFontSizePercent = 100,
+   suggester = null,
+   style: styles_ = {},
+   targetLanguage= {},
+   targetLanguageFont = '',
+   targetFontSizePercent = 100,
+   targetWords,
+   translate,
+   verseAlignments,
   }) => {
+
   const [dragToken, setDragToken_] = useState(null);
   const [dragItemType, setDragItemType] = useState(null);
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
@@ -1149,7 +1150,7 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
         <MAPControls
-          disableClear={disableClear}
+          removeClear={removeClear}
           onAccept={handleAcceptSuggestions}
           hasSuggestions={hasRenderedSuggestions}
           showPopover={showPopover}
@@ -1167,7 +1168,7 @@ const SuggestingWordAligner = ({
 SuggestingWordAligner.propTypes = {
   asyncSuggester: PropTypes.func,
   contextId: PropTypes.object.isRequired,
-  disableClear: PropTypes.bool,
+  removeClear: PropTypes.bool,
   hasRenderedSuggestions: PropTypes.bool,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
