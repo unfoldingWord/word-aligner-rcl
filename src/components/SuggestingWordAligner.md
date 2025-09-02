@@ -14,6 +14,8 @@ var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1_
 var originalVerseJson = require('../__tests__/fixtures/alignments/grk_tit_1_1.json');
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 
+const disableClear = false;  // set true to disable clear
+
 const translate = (key) => {
   const lookup = {
     "suggestions.refresh_suggestions": "Refresh suggestions.",
@@ -23,7 +25,7 @@ const translate = (key) => {
     "suggestions.reject_suggestions" : "Reject all suggestions.",
     "suggestions.reject"             : "Reject",
     "alignments.clear_alignments"    : "Clear all alignments.",
-    "alignments.clear"              : "Clear",
+    "alignments.clear"               : "Clear",
   };
   if( !(key in lookup) ){
     console.log(`translate(${key})`)
@@ -79,18 +81,19 @@ const App = () => {
   return (
     <div style={{height: '650px', width: '800px'}}>
       <SuggestingWordAligner
-        styles={{ maxHeight: '450px', overflowY: 'auto' }}
-        verseAlignments={verseAlignments}
-        targetWords={targetWords}
-        translate={translate}
         contextId={contextId}
-        targetLanguageFont={targetLanguageFont}
-        sourceLanguage={sourceLanguage}
-        showPopover={showPopover}
+        disableClear={disableClear}
+        getLexiconData={getLexiconData_}
         lexicons={lexicons}
         loadLexiconEntry={loadLexiconEntry}
         onChange={onChange}
-        getLexiconData={getLexiconData_}
+        showPopover={showPopover}
+        sourceLanguage={sourceLanguage}
+        styles={{ maxHeight: '450px', overflowY: 'auto' }}
+        targetWords={targetWords}
+        translate={translate}
+        targetLanguageFont={targetLanguageFont}
+        verseAlignments={verseAlignments}
       />
     </div>
   );

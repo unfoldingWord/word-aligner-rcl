@@ -387,6 +387,7 @@ const indexComparator = (a, b) => a.index - b.index;
 
 const SuggestingWordAligner = ({
   contextId,
+  disableClear,
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
   onChange,
@@ -1148,6 +1149,7 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
         <MAPControls
+          disableClear={disableClear}
           onAccept={handleAcceptSuggestions}
           hasSuggestions={hasRenderedSuggestions}
           showPopover={showPopover}
@@ -1163,7 +1165,10 @@ const SuggestingWordAligner = ({
 };
 
 SuggestingWordAligner.propTypes = {
+  asyncSuggester: PropTypes.func,
   contextId: PropTypes.object.isRequired,
+  disableClear: PropTypes.bool,
+  hasRenderedSuggestions: PropTypes.bool,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
@@ -1171,14 +1176,12 @@ SuggestingWordAligner.propTypes = {
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,
   sourceFontSizePercent: PropTypes.number,
+  suggester: PropTypes.func,
   targetLanguageFont: PropTypes.string,
   targetFontSizePercent: PropTypes.number,
+  targetWords: PropTypes.array.isRequired,
   translate: PropTypes.func.isRequired,
   verseAlignments: PropTypes.array.isRequired,
-  targetWords: PropTypes.array.isRequired,
-  hasRenderedSuggestions: PropTypes.bool,
-  suggester: PropTypes.func,
-  asyncSuggester: PropTypes.func,
 };
 
 SuggestingWordAligner.defaultProps = { hasRenderedSuggestions: true };

@@ -1,48 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { MdRefresh, MdCheck, MdInfo, MdCancel } from 'react-icons/md';
-
-const Tooltip = ({
-  children, tooltip, location, type, effect, delayHide, delayShow,
-}) => (
-  <React.Fragment>
-    {/* The ReactTooltip api changed significantly, so I am passing for now on implementing it.
-        https://react-tooltip.com/docs/options  */}
-
-    {/* <span 
-      data-tooltip-place={location} 
-      data-effect={effect}
-      data-type={type}
-      data-class="selection-tooltip"
-      data-delay-show={delayShow}
-      data-delay-hide={delayHide}
-      >
-      {children}
-    </span>
-    <ReactTooltip content={tooltip} /> */}
-
-    {children}
-
-  </React.Fragment>
-);
-
-Tooltip.propTypes = {
-  children: PropTypes.any.isRequired,
-  tooltip: PropTypes.string,
-  location: PropTypes.string,
-  type: PropTypes.string,
-  effect: PropTypes.string,
-  delayHide: PropTypes.number,
-  delayShow: PropTypes.number,
-};
-Tooltip.defaultProps = {
-  location: 'bottom',
-  type: 'dark',
-  effect: 'solid',
-  delayHide: 100,
-  delayShow: 1000,
-};
+import ThemedTooltip from './ThemedTooltip';
+import { Box } from '@mui/material';
 
 /**
  * Renders a secondary styled button
@@ -52,21 +12,30 @@ Tooltip.defaultProps = {
  * @return {*}
  * @constructor
  */
-const SecondaryButton = ({
-  children, disabled, onClick, style,
-}) => (
-  <button className="btn-second"
-    style={style}
-    disabled={disabled}
-    onClick={onClick}>
-    {children}
-  </button>
-);
+const SecondaryButton = React.forwardRef((props, ref) => {
+  const { children, disabled, onClick, style, ...other } = props;
+
+  return (
+    <button
+      className="btn-second"
+      style={style}
+      disabled={disabled}
+      onClick={onClick}
+      ref={ref}
+      {...other}
+    >
+      {children}
+    </button>
+  );
+});
+
+SecondaryButton.displayName = 'SecondaryButton';
 
 SecondaryButton.propTypes = {
   children: PropTypes.any,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  style: PropTypes.object,
 };
 SecondaryButton.defaultProps = { disabled: false };
 
@@ -188,6 +157,7 @@ class MAPControls extends React.Component {
 
   render() {
     const {
+      disableClear,
       onRefresh,
       onAccept,
       onReject,
@@ -208,39 +178,57 @@ class MAPControls extends React.Component {
           {/* <MdInfo style={styles.icon}
             onClick={this._handleOnInfoClick}/>*/}
 
-          <Tooltip tooltip={translate('suggestions.refresh_suggestions')}>
-            <SecondaryButton style={styles.button}
-              onClick={onRefresh}>
-              <MdRefresh style={styles.buttonIcon}/>
-              {translate('suggestions.refresh')}
-            </SecondaryButton>
-          </Tooltip> 
+          <ThemedTooltip message={translate('suggestions.refresh_suggestions')}>
+            <Box component="span">
+              <SecondaryButton
+                style={styles.button}
+                onClick={onRefresh}
+              >
+                <MdRefresh style={styles.buttonIcon}/>
+                {translate('suggestions.refresh')}
+              </SecondaryButton>
+            </Box>
+          </ThemedTooltip>
 
-          <Tooltip tooltip={translate('suggestions.accept_suggestions')}>
-            <SecondaryButton style={styles.button}
-              onClick={onAccept}
-              disabled={!hasSuggestions}>
-              <MdCheck style={styles.buttonIcon}/>
-              {translate('suggestions.accept')}
-            </SecondaryButton>
-          </Tooltip>
+          <ThemedTooltip message={translate('suggestions.accept_suggestions')}>
+            <Box component="span">
+              <SecondaryButton
+                style={styles.button}
+                onClick={onAccept}
+                disabled={!hasSuggestions}
+              >
+                <MdCheck style={styles.buttonIcon}/>
+                {translate('suggestions.accept')}
+              </SecondaryButton>
+            </Box>
+          </ThemedTooltip>
 
-          <Tooltip tooltip={translate('suggestions.reject_suggestions')}>
-            <SecondaryButton style={styles.button}
-              onClick={onReject}
-              disabled={!hasSuggestions}>
-              <MdCancel style={styles.buttonIcon}/>
-              {translate('suggestions.reject')}
-            </SecondaryButton>
-          </Tooltip>
+          <ThemedTooltip message={translate('suggestions.reject_suggestions')}>
+            <Box component="span">
+              <SecondaryButton
+                style={styles.button}
+                onClick={onReject}
+                disabled={!hasSuggestions}
+              >
+                <MdCancel style={styles.buttonIcon}/>
+                {translate('suggestions.reject')}
+              </SecondaryButton>
+            </Box>
+          </ThemedTooltip>
 
-          <Tooltip tooltip={translate('alignments.clear_alignments')}>
-            <SecondaryButton style={styles.button}
-              onClick={onClear}>
-              <MdCancel style={styles.buttonIcon}/>
-              {translate('alignments.clear')}
-            </SecondaryButton>
-          </Tooltip>
+          { !disableClear &&
+            <ThemedTooltip message={translate('alignments.clear_alignments')}>
+              <Box component="span">
+                <SecondaryButton
+                  style={styles.button}
+                  onClick={onClear}
+                >
+                  <MdCancel style={styles.buttonIcon} />
+                  {translate('alignments.clear')}
+                </SecondaryButton>
+              </Box>
+            </ThemedTooltip>
+          }
         </div>
     );
   }
@@ -248,12 +236,13 @@ class MAPControls extends React.Component {
 
 MAPControls.propTypes = {
   hasSuggestions: PropTypes.bool,
-  showPopover: PropTypes.func.isRequired,
-  onRefresh: PropTypes.func.isRequired,
+  disableClear: PropTypes.bool,
   onAccept: PropTypes.func.isRequired,
-  onReject: PropTypes.func.isRequired,
-  translate: PropTypes.func.isRequired,
   onClear: PropTypes.func,
+  onRefresh: PropTypes.func.isRequired,
+  onReject: PropTypes.func.isRequired,
+  showPopover: PropTypes.func.isRequired,
+  translate: PropTypes.func.isRequired,
 };
 MAPControls.defaultProps = { hasSuggestions: true };
 export default MAPControls;
