@@ -392,7 +392,7 @@ const SuggestingWordAligner = ({
    lexiconCache = lexiconCache_,
    loadLexiconEntry,
    onChange,
-   removeClear,
+   suggestionsOnly,
    showPopover = null,
    sourceLanguage,
    sourceLanguageFont = '',
@@ -1150,7 +1150,7 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
         <MAPControls
-          removeClear={removeClear}
+          suggestionsOnly={suggestionsOnly}
           onAccept={handleAcceptSuggestions}
           hasSuggestions={hasRenderedSuggestions}
           showPopover={showPopover}
@@ -1168,7 +1168,7 @@ const SuggestingWordAligner = ({
 SuggestingWordAligner.propTypes = {
   asyncSuggester: PropTypes.func,
   contextId: PropTypes.object.isRequired,
-  removeClear: PropTypes.bool,
+  suggestionsOnly: PropTypes.bool,
   hasRenderedSuggestions: PropTypes.bool,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,

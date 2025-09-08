@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MdRefresh, MdCheck, MdInfo, MdCancel } from 'react-icons/md';
 import ThemedTooltip from './ThemedTooltip';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 /**
  * Renders a secondary styled button
@@ -71,6 +71,14 @@ const styles = {
     width: 30,
     height: 30,
     cursor: 'pointer',
+  },
+  suggestions: {
+    marginTop: '10px',
+    marginLeft: '5px',
+    marginRight: '5px',
+    marginBottom: '10px',
+    color: 'var(--accent-color-dark)',
+    fontWeight: 'bold'
   },
   toggle: {
     display: 'inline-block',
@@ -162,7 +170,7 @@ class MAPControls extends React.Component {
       onClear,
       onRefresh,
       onReject,
-      removeClear,
+      suggestionsOnly,
       translate,
     } = this.props;
 
@@ -177,6 +185,12 @@ class MAPControls extends React.Component {
             somewhere else.  Once this decision has been confirmed, this code can be removed. */}
           {/* <MdInfo style={styles.icon}
             onClick={this._handleOnInfoClick}/>*/}
+
+          { suggestionsOnly &&
+            <Box component="span">
+              <Typography component="label" style={styles.suggestions}>{translate('suggestions.title')}</Typography>
+            </Box>
+          }
 
           <ThemedTooltip message={translate('suggestions.refresh_suggestions')}>
             <Box component="span">
@@ -216,7 +230,7 @@ class MAPControls extends React.Component {
             </Box>
           </ThemedTooltip>
 
-          { !removeClear &&
+          { !suggestionsOnly &&
             <ThemedTooltip message={translate('alignments.clear_alignments')}>
               <Box component="span">
                 <SecondaryButton
@@ -236,7 +250,7 @@ class MAPControls extends React.Component {
 
 MAPControls.propTypes = {
   hasSuggestions: PropTypes.bool,
-  removeClear: PropTypes.bool,
+  suggestionsOnly: PropTypes.bool,
   onAccept: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   onRefresh: PropTypes.func.isRequired,
