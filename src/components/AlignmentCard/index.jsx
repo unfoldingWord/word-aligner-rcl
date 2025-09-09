@@ -126,7 +126,8 @@ class DroppableAlignmentCard extends Component {
         // console.log(`DraggableAlignmentCard.onDragOver() - fromWordBank`, { canDrop, fromWordBank})
       } else {
         const alignmentPositionDelta = this.props.alignmentIndex - item.alignmentIndex;
-        canDrop = alignmentPositionDelta !== 0 && !alignmentEmpty;
+        //allow drop of suggestion on the source tile as a to mark it as not a suggestion.
+        canDrop = (alignmentPositionDelta !== 0 || this.props.isSuggestion) && !alignmentEmpty;
         // console.log(`DraggableAlignmentCard.onDragOver() - not fromWordBank`, { canDrop, alignmentPositionDelta, alignmentEmpty})
       }
     } else if (item.type === types.PRIMARY_WORD) {
@@ -156,6 +157,7 @@ class DroppableAlignmentCard extends Component {
       sourceDirection,
       targetDirection,
       isSuggestion,
+      sourceSuggested,
       isHebrew,
       showPopover,
       loadLexiconEntry,
@@ -195,6 +197,7 @@ class DroppableAlignmentCard extends Component {
         token={token}
         direction={targetDirection}
         alignmentIndex={alignmentIndex}
+        isSuggestion={isSuggestion}
         onCancel={this._handleCancelSuggestion}
         onAccept={this._handleAcceptSuggestion}
         targetLanguageFontClassName={targetLanguageFontClassName}
@@ -216,6 +219,7 @@ class DroppableAlignmentCard extends Component {
             hoverBottom={hoverBottom}
             hoverTop={hoverTop}
             isSuggestion={isSuggestion}
+            sourceSuggested={sourceSuggested}
             acceptsTargetTokens={acceptsBottom}
             acceptsSourceTokens={acceptsTop}
             sourceTokenCards={topWordCards}/>
@@ -237,6 +241,7 @@ DroppableAlignmentCard.propTypes = {
   targetNgram: PropTypes.arrayOf(PropTypes.object).isRequired,
   alignmentIndex: PropTypes.number.isRequired,
   isSuggestion: PropTypes.bool,
+  sourceSuggested: PropTypes.number,
   onDrop: PropTypes.func.isRequired,
   lexicons: PropTypes.object.isRequired,
   sourceDirection: PropTypes.oneOf(['ltr', 'rtl']),
@@ -245,7 +250,7 @@ DroppableAlignmentCard.propTypes = {
   targetLanguageFontClassName: PropTypes.string,
   showPopover: PropTypes.func.isRequired,
   loadLexiconEntry: PropTypes.func.isRequired,
-  dragToken: PropTypes.oneOf([PropTypes.object, PropTypes.array]),
+  dragToken: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   setDragToken: PropTypes.func.isRequired,
   showAsDrop: PropTypes.bool,
 };

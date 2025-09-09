@@ -8,8 +8,8 @@ import Word from './WordCard';
 
 const internalStyle = {
   word: {
-    color: '#ffffff',
-    backgroundColor: '#333333',
+    color: '#ffffff', // white
+    backgroundColor: '#333333', // dark gray
   },
 };
 

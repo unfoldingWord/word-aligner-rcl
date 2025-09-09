@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 const makeStyles = (props) => {
   const {
     isSuggestion,
+    sourceSuggested,
     sourceTokenCards,
     hoverTop,
     hoverBottom,
@@ -37,7 +38,8 @@ const makeStyles = (props) => {
   const styles = {
     root: {
       padding: '7px',
-      backgroundColor: isSuggestion ? '#bedac2' : '#DCDCDC',
+      backgroundColor: isSuggestion ? '#bedac2' // dark green background
+        : '#DCDCDC', // light gray background
       margin: '0px 10px 10px 0px',
       minWidth: emptyAlignment ?
         `calc(${defaultAlignmentWidth}/2)` :
@@ -71,7 +73,10 @@ const makeStyles = (props) => {
       ...rowStyle,
       top: acceptsSourceTokens ? '7px' : 0,
       left: acceptsSourceTokens ? '7px' : 0,
-      opacity: hoverTop ? '0.8' : 1
+      opacity: hoverTop ? '0.8' : 1,
+      borderBottom: `6px solid rgb(255 154 68 / ${Math.round(sourceSuggested*100)}%)`
+      // Creates an orange bottom border with opacity that varies based on the 'sourceSuggested' value (0.0-1.0).
+      // Higher 'sourceSuggested' values make the border more visible, indicating stronger suggestion confidence.
     },
     bottomRow: {
       ...rowStyle,
@@ -125,6 +130,7 @@ class AlignmentCard extends Component {
 
 AlignmentCard.propTypes = {
   isSuggestion: PropTypes.bool,
+  sourceSuggested: PropTypes.number,
   sourceTokenCards: PropTypes.array.isRequired,
   targetTokenCards: PropTypes.array.isRequired,
   hoverBottom: PropTypes.bool,
@@ -135,6 +141,7 @@ AlignmentCard.propTypes = {
 };
 AlignmentCard.defaultProps = {
   isSuggestion: false,
+  sourceSuggested: 0,
   targetDirection: 'ltr'
 };
 

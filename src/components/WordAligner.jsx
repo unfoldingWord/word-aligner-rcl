@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'deep-equal'
-import WordList from './WordList/index';
+import WordList from './WordList';
 import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
@@ -519,6 +519,7 @@ const WordAligner = ({
         dest = {
           index: newPosition,
           isSuggestion: false,
+          sourceSuggested: 0,
           sourceNgram: [ primaryToken ],
           targetNgram: [],
         }

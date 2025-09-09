@@ -1,0 +1,104 @@
+Word Aligner Example:
+
+```js
+import {
+  addAlignmentsToVerseUSFM,
+  areAlgnmentsComplete,
+  parseUsfmToWordAlignerData
+} from "../utils/alignmentHelpers";
+import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
+import {NT_ORIG_LANG} from "../common/constants";
+
+// var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1.json');
+var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1_partial.json');
+var originalVerseJson = require('../__tests__/fixtures/alignments/grk_tit_1_1.json');
+const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
+
+const suggestionsOnly = true;  // set true to remove clear button and add suggestions label
+
+const translate = (key) => {
+  const lookup = {
+    "suggestions.refresh_suggestions": "Refresh suggestions.",
+    "suggestions.refresh"            : "Refresh",
+    "suggestions.accept_suggestions" : "Accept all suggestions.",
+    "suggestions.accept"             : "Accept",
+    "suggestions.reject_suggestions" : "Reject all suggestions.",
+    "suggestions.reject"             : "Reject",
+    "alignments.clear_alignments"    : "Clear all alignments.",
+    "alignments.clear"               : "Clear",
+    "suggestions.title"              : "Suggestions:",
+  };
+  if( !(key in lookup) ){
+    console.log(`translate(${key})`)
+  }else{
+    return lookup[key];
+  }
+};
+
+const targetVerseUSFM = alignedVerseJson.usfm;
+const sourceVerseUSFM = originalVerseJson.usfm;
+
+const {targetWords, verseAlignments} = parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
+
+const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
+
+const App = () => {
+  const targetLanguageFont = '';
+  const sourceLanguage = NT_ORIG_LANG;
+  const lexicons = {};
+  const contextId = {
+    "reference": {
+      "bookId": "tit",
+      "chapter": 1,
+      "verse": 1
+    },
+    "tool": "wordAlignment",
+    "groupId": "chapter_1"
+  };
+  const showPopover = (PopoverTitle, wordDetails, positionCoord, rawData) => {
+    console.log(`showPopover()`, rawData)
+    window.prompt(`User clicked on ${JSON.stringify(rawData)}`)
+  };
+  const loadLexiconEntry = (key) => {
+    console.log(`loadLexiconEntry(${key})`)
+    return LexiconData
+  };
+  const getLexiconData_ = (lexiconId, entryId) => {
+    console.log(`loadLexiconEntry(${lexiconId}, ${entryId})`)
+    const entryData = (LexiconData && LexiconData[lexiconId]) ? LexiconData[lexiconId][entryId] : null;
+    return {[lexiconId]: {[entryId]: entryData}};
+  };
+
+  function onChange(results) {
+    console.log(`SuggestingWordAligner() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
+    const {targetWords, verseAlignments} = results;
+    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
+    console.log(verseUsfm);
+    const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+    console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
+  }
+
+  return (
+    <div style={{height: '650px', width: '800px'}}>
+      <SuggestingWordAligner
+        contextId={contextId}
+        suggestionsOnly={suggestionsOnly}
+        getLexiconData={getLexiconData_}
+        lexicons={lexicons}
+        loadLexiconEntry={loadLexiconEntry}
+        onChange={onChange}
+        showPopover={showPopover}
+        sourceLanguage={sourceLanguage}
+        styles={{ maxHeight: '450px', overflowY: 'auto' }}
+        targetWords={targetWords}
+        translate={translate}
+        targetLanguageFont={targetLanguageFont}
+        verseAlignments={verseAlignments}
+      />
+    </div>
+  );
+};
+
+App();
+```

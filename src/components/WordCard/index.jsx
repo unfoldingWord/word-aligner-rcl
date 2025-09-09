@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ThemedTooltip from "../ThemedTooltip";
 import WordOccurrence from './WordOccurrence';
+import Controls from './Controls';
 
 /**
  * Generates the component styles
@@ -17,7 +19,7 @@ const makeStyles = (props) => {
 
   const styles = {
     root: {
-      [borderKey]: '5px solid #44C6FF',
+      [borderKey]: '5px solid #44C6FF', // bright blue border
       padding: '9px',
       backgroundColor: '#FFFFFF',
       boxShadow: '0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset',
@@ -35,13 +37,13 @@ const makeStyles = (props) => {
   };
 
   if (isSuggestion) {
-    styles.root[borderKey] = '5px solid #1b7729';
+    styles.root[borderKey] = '5px solid #1b7729'; // dark green border
   }
 
   if (disabled) {
     styles.root = {
       ...styles.root,
-      [borderKey]: '5px solid #868686',
+      [borderKey]: '5px solid #868686', // dark gray border
       opacity: 0.3,
       cursor: 'not-allowed',
       userSelect: 'none',
@@ -51,7 +53,7 @@ const makeStyles = (props) => {
   if (selected) {
     styles.root = {
       ...styles.root,
-      backgroundColor: '#44C6FF',
+      backgroundColor: '#44C6FF', // bright blue background
     };
   }
 
@@ -90,6 +92,9 @@ class WordCard extends React.Component {
   constructor(props) {
     super(props);
     this._handleClick = this._handleClick.bind(this);
+    this._handleCancelClick = this._handleCancelClick.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.wordRef = React.createRef();
     this.state = { tooltip: false };
   }
@@ -109,25 +114,58 @@ class WordCard extends React.Component {
     }
   }
 
+  /**
+   * Handles clicking the cancel button on suggestions
+   * @param e
+   * @private
+   */
+  _handleCancelClick(e) {
+    const { onCancel } = this.props;
+
+    if (typeof onCancel === 'function') {
+      e.stopPropagation();
+      onCancel(e);
+    }
+  }
+
+  handleMouseEnter() {
+    if (isOverflown(this.wordRef.current)) {
+      this.setState({ tooltip: true });
+    }
+  }
+
+  handleMouseLeave() {
+    if (this.state.tooltip) {
+      this.setState({ tooltip: false });
+    }
+  }
+
   render() {
     const {
       word,
       fontSize,
       isHebrew,
+      fontScale,
       occurrence,
       occurrences,
+      isSuggestion,
+      disableTooltip,
       targetLanguageFontClassName,
       disabled,
       onDragStart,
       onDragEnd,
     } = this.props;
     const styles = makeStyles(this.props);
+    const { tooltip } = this.state;
     return (
       <React.Fragment>
+        <ThemedTooltip message={word} disabled={!tooltip || disableTooltip} fontScale={fontScale} targetLanguageFontClassName={targetLanguageFontClassName}>
           <div style={{ flex: 1 }}
             draggable={!disabled}
             onDragStart={onDragStart}
             onDragEnd={onDragEnd}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
           >
             <div style={styles.root}>
               <span style={{
@@ -141,6 +179,10 @@ class WordCard extends React.Component {
                 >
                   {word}
                 </span>
+                {isSuggestion ? (
+                  <Controls onCancel={this._handleCancelClick}/>
+                ) : null}
+
               </span>
               <WordOccurrence
                 fontSize={fontSize}
@@ -150,6 +192,7 @@ class WordCard extends React.Component {
               />
             </div>
           </div>
+        </ThemedTooltip>
       </React.Fragment>
     );
   }

@@ -1,29 +1,170 @@
 
-# translation-helps-rcl
+# word-aligner-rcl
 
-[![Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/57413041-9de1-4d67-969e-3d5a2cd4225c/deploy-status)](https://app.netlify.com/sites/translation-helps-rcl/deploys)
-[![CI Status](https://github.com/unfoldingWord/translation-helps-rcl/workflows/CI/badge.svg)](https://github.com/unfoldingWord/translation-helps-rcl/actions)
-[![Current Verison](https://img.shields.io/github/tag/unfoldingWord/translation-helps-rcl.svg)](https://github.com/unfoldingWord/translation-helps-rcl/tags)
-[![View this project on NPM](https://img.shields.io/npm/v/translation-helps-rcl)](https://www.npmjs.com/package/translation-helps-rcl)
-[![Coverage Status](https://coveralls.io/repos/github/unfoldingWord/translation-helps-rcl/badge.svg?branch=main)](https://coveralls.io/github/unfoldingWord/translation-helps-rcl?branch=main)
+[word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl contains two react components: `SuggestingWordAligner` and `WordAligner`. UI components for aligning words in a verse.  See https://github.com/unfoldingWord-box3/enhanced-word-aligner-rcl for a more detailed example of using `SuggestingWordAligner` with alignment suggestions.
 
-A React Component Library for rendering and editing scripture translation resources.
+## Usage Difference SuggestingWordAligner over WordAligner
 
-## Updates
+`SuggestingWordAligner` has two additional properties in addition to those of `WordAligner`.
 
-- In version 1.0.0 converted to react 18
+ - `suggester`:  This is function call by which this component calls the model to make alignment suggestions.  The TypeScript type signature for this function is
+    ```
+    suggester: ((sourceSentence: string | Token[], targetSentence: string | Token[], maxSuggestions?: number, manuallyAligned?: Alignment[] ) => Suggestion[])|null
+    ```
+    The JavaScript type signature for this function is
+    ```
+    /**
+    * @callback SuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
+    * @param {string|array[Token]} source - source translation
+    * @param {string|array[Token]} target - target translation
+    * @param {number} maxSuggestions - max number of suggestions
+    * @param {array[Alignment]} manualAlignments - array manual alignments
+    * @return {array[Suggestion]} list of suggestions
+    */
+    ```
+    If the suggester is not available, pass in `null`.
+    The type signature for this function matches the signature of the [AbstractWordMapWrapper predict method](https://github.com/JEdward7777/wordmapbooster/blob/b2a65ec5d20423428178243907339420cca86f37/src/boostwordmap_tools.ts#L294) in the [wordmapbooster project](https://github.com/JEdward7777/wordmapbooster).
 
-## Peer Dependencies
+    Here is the description of the arguments.
 
-- [Material-UI Versions](https://material-ui.com/versions/)
+    - `sourceSentence`: The aligner component will pass in an array of [Token](https://github.com/unfoldingWord/wordMAP-lexer/blob/develop/src/Token.ts)s representing the source text such as Greek or Hebrew in the case of scripture.
+    - `targetSentence`: This will be an array of Tokens for the target text of whatever language is being aligned.
+    - `maxSuggestions`: This is the number of [Suggestion](https://github.com/unfoldingWord/wordMAP/blob/master/src/core/Suggestion.ts)s which should be returned.
 
-This package requires @material-ui v4 core, icons, and lab. [Material-UI Installation](https://material-ui.com/getting-started/installation/)
+    - `manuallyAligned`: This parameter contains existing [Alignment](https://github.com/unfoldingWord/wordMAP/blob/master/src/core/Alignment.ts) objects, so that the suggester can respect existing and partial alignments when making suggestions.
 
-- [Material-UI Styles](https://material-ui.com/styles/basics/)
+    - `return`: The suggester function should return an array of [Suggestion](https://github.com/unfoldingWord/wordMAP/blob/master/src/core/Suggestion.ts) objects which contain the suggested alignments made by the suggester.
+- `asyncSuggester`: This callback is supposed to take the same arguments as suggester but return the answer wrapped in a promise.  Either use this or the other but not both.
+    The JavaScript type signature for this function is
+   ```
+   /**
+   * @callback AsyncSuggesterCB Takes The source and target translation as well as manual alignments and returns a list of suggestions
+   * @param {string|array[Token]} source - source translation
+   * @param {string|array[Token]} target - target translation
+   * @param {number} maxSuggestions - max number of suggestions
+   * @param {array[Alignment]} manualAlignments - array manual alignments
+   * @return {Promise<array[Suggestion]>} list of suggestions
+   */
+    ```
 
-The CSS Styles implementation uses the updated version and is incompatible with v3.
+ - `hasRenderedSuggestions`: This is a boolean property to `SuggestingWordAligner` which indicates if there are any active suggestions going on.  If this property is false, then alignment related buttons become disabled.
 
-- [Material-UI Lab](https://material-ui.com/components/about-the-lab/)
+ ## Usage Similar to  WordAligner
 
-A few components use the Lab components such as the Skeleton for the infinite scrolling effect.
+ The following properties are left unchanged and are the same as `WordAligner`:
+
+ - `contextId`:  Current verse context. This is an object which identifies which book is being aligned.
+    ```
+    /**
+    * @typedef ContextID
+    * @param {object} details
+    * @property {string} book
+    * @property {string} chapter
+    * @property {string} verse
+    */
+    ```
+ - `lexiconCache`: Cache for lexicon data
+ - `loadLexiconEntry`: Callback to load lexicon for language and strong number
+    ```
+    /**
+    * @callback LoadLexiconEntryCB
+    * @param {string} lexiconId
+    * @param {string} entryId
+    */
+    ```
+ - `onChange`: Optional callback for whenever alignment changed.  Contains the specific operation performed as well as the latest state of the verse alignments and target words usage.
+    ```
+    /**
+    * @callback OnChangeCB
+    * @param {object} details - a change details object with the following fields:
+    * @param {string} details.type is type of alignment change (MERGE_ALIGNMENT_CARDS,
+    *      CREATE_NEW_ALIGNMENT_CARD, UNALIGN_TARGET_WORD, ALIGN_TARGET_WORD, or ALIGN_SOURCE_WORD)
+    * @param {string} details.source - source(s) of the word being changed (TARGET_WORD_BANK or GRID)
+    * @param {string} details.destination - destination of the word being changed  (TARGET_WORD_BANK or GRID)
+    * @param {array[AlignmentType]} details.verseAlignments - array of the latest verse alignments
+    * @param {array[TargetWordBankType]} details.targetWords - array of the latest target words
+    * @param {ContextID} details.contextId - context of current verse
+    */
+    ```
+ - `showPopover`: Callback function to display a popover
+    ```
+    /**
+    * @callback ShowPopOverCB
+    * @param {object} PopoverTitle - JSX to show on title of popover
+    * @param {object} wordDetails - JSX to show on body of popover
+    * @param {object} positionCoord - where to position to popover
+    * @param {object} rawData - where to position to popover
+    * @param {SourceWordType} rawData.token - where to position to popover
+    * @param {LexiconType} rawData.lexiconData - current lexicon data cache
+    */
+    ```
+ - `sourceLanguage`: ID of source language.
+ - `sourceLanguageFont`: Font to use for source.
+ - `sourceFontSizePercent`: Percentage size for font.
+ - `targetLanguage`: Details about the language.
+ - `targetLanguageFont`: Font to use for target.
+ - `targetFontSizePercent`: Percentage size for font.
+ - `translate`: Callback to look up localized text.
+    ```
+    /**
+    * @callback TranslateCB
+    * @param {string} key - key for locale string lookup
+    */
+    ```
+ - `verseAlignments`: Initial verse alignment.  An array of `AlignmentType`.
+    ```
+    /**
+    * @typedef AlignmentType
+    * @param {array[SourceWordType]} sourceNgram - list of the source words for an alignment
+    * @param {array[TargetWordType]} targetNgram - list of the target words for an alignment
+    */
+
+    /**
+    * @typedef SourceWordType
+    * @param {number} index - position in the list of words for the verse
+    * @property {number} occurrence - the specific occurrence of the word in verse
+    * @property {number} occurrences - total occurrences of the word in verse
+    * @property {string} text - text of the word itself
+    * @property {string} lemma - lemma for the word
+    * @property {string} morph - morph for the word
+    * @property {string} strong - strong for the word.  Could be multipart separated by colons such as `c:H4191`
+    */
+
+    /**
+    * @typedef TargetWordType
+    * @param {number} index - position in the list of words for the verse
+    * @property {number} occurrence - the specific occurrence of the word in verse
+    * @property {number} occurrences - total occurrences of the word in verse
+    * @property {string} text - text of the word itself
+    */
+    ```
+ - `targetWords`: List of target words for use in wordbank.
+    An array of `TargetWordBankType`
+    ```
+    /**
+    * @typedef TargetWordBankType
+    * @param {number} index - position in the list of words for the verse
+    * @property {number} occurrence - the specific occurrence of the word in verse
+    * @property {number} occurrences - total occurrences of the word in verse
+    * @property {string} text - text of the word itself
+    * @property {boolean} disabled - if true then word is already used in alignment
+    */
+    ```
+
+## Installation
+
+### npm
+```bash
+npm add suggesting-word-aligner-rcl
+```
+
+### yarn
+```bash
+yarn add suggesting-word-aligner-rcl
+```
+
+## Local Testing using StyleGuidist
+- first install dependencies with `yarn`
+- then run `yarn start`
+- open `http://localhost:6060/` in browser to view the styleguidist demo
+```
