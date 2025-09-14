@@ -388,17 +388,18 @@ const indexComparator = (a, b) => a.index - b.index;
 const SuggestingWordAligner = ({
    asyncSuggester = null,
    contextId,
+   handleInfoClick,
    hasRenderedSuggestions = true,
    lexiconCache = lexiconCache_,
    loadLexiconEntry,
    onChange,
-   suggestionsOnly,
    showPopover = null,
    sourceLanguage,
    sourceLanguageFont = '',
    sourceFontSizePercent = 100,
-   suggester = null,
    style: styles_ = {},
+   suggester = null,
+   suggestionsOnly,
    targetLanguage= {},
    targetLanguageFont = '',
    targetFontSizePercent = 100,
@@ -1150,14 +1151,15 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
         <MAPControls
-          suggestionsOnly={suggestionsOnly}
-          onAccept={handleAcceptSuggestions}
+          handleInfoClick={handleInfoClick}
           hasSuggestions={hasRenderedSuggestions}
-          showPopover={showPopover}
+          onAccept={handleAcceptSuggestions}
+          onClear={handleClearAlignments}
           onRefresh={handleRefreshSuggestions}
           onReject={handleRejectSuggestions}
+          showPopover={showPopover}
+          suggestionsOnly={suggestionsOnly}
           translate={translate}
-          onClear={handleClearAlignments}
         />
       </div>
     </div>
@@ -1168,7 +1170,7 @@ const SuggestingWordAligner = ({
 SuggestingWordAligner.propTypes = {
   asyncSuggester: PropTypes.func,
   contextId: PropTypes.object.isRequired,
-  suggestionsOnly: PropTypes.bool,
+  handleInfoClick: PropTypes.func,
   hasRenderedSuggestions: PropTypes.bool,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
@@ -1177,7 +1179,9 @@ SuggestingWordAligner.propTypes = {
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,
   sourceFontSizePercent: PropTypes.number,
+  style: PropTypes.object,
   suggester: PropTypes.func,
+  suggestionsOnly: PropTypes.bool,
   targetLanguageFont: PropTypes.string,
   targetFontSizePercent: PropTypes.number,
   targetWords: PropTypes.array.isRequired,

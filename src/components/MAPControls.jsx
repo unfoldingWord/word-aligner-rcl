@@ -166,6 +166,7 @@ class MAPControls extends React.Component {
   render() {
     const {
       hasSuggestions,
+      handleInfoClick,
       onAccept,
       onClear,
       onRefresh,
@@ -243,12 +244,20 @@ class MAPControls extends React.Component {
               </Box>
             </ThemedTooltip>
           }
+
+          {handleInfoClick &&
+            <MdInfo
+              style={styles.icon}
+              onClick={handleInfoClick}
+            />
+          }
         </div>
     );
   }
 }
 
 MAPControls.propTypes = {
+  handleInfoClick: PropTypes.func,
   hasSuggestions: PropTypes.bool,
   suggestionsOnly: PropTypes.bool,
   onAccept: PropTypes.func.isRequired,
