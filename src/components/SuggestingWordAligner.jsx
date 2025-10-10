@@ -518,7 +518,7 @@ const SuggestingWordAligner = ({
           });
 
 
-      }else{  //this is if there is no asyncSuggester or if the word being dragged is not a secondary word.
+      } else {  //this is if there is no asyncSuggester or if the word being dragged is not a secondary word.
         //clear out the suggestions when a source word is being dragged.
         setVerseAlignments( (oldVerseAlignments) => {
           const newVerseAlignments = oldVerseAlignments.map( alignment=> {
@@ -833,14 +833,18 @@ const SuggestingWordAligner = ({
       })
   }
 
-  const handleRefreshSuggestions = async () => {
+  const handleRefreshSuggestions = async (e) => {
 
     console.log( "handleRefreshSuggestions" );
 
     //Just return if asyncSuggester is null or undefined
     if( !asyncSuggester ){
       //pop up a dialog telling the user that the model is not trained.
-      alert( "Can not refresh suggestions. Model is not trained" );
+      showPopover(
+        <strong>{translate('warning')}</strong>,
+        translate("suggestions.no_data"),
+        e.target
+      );
       console.log( "suggester and asyncSuggester are null or undefined" );
       return;
     }
