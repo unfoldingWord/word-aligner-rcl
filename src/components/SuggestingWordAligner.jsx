@@ -842,7 +842,9 @@ const SuggestingWordAligner = ({
       //pop up a dialog telling the user that the model is not trained.
       showPopover(
         <strong>{translate('warning')}</strong>,
-        translate("suggestions.no_data"),
+        <div style={{ whiteSpace: 'pre-line' }}>
+          {translate("suggestions.no_data")}
+        </div>,
         e.target
       );
       console.log( "suggester and asyncSuggester are null or undefined" );
