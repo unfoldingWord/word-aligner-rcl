@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import isEqual from 'deep-equal'
 import WordList from './WordList';
@@ -413,7 +413,6 @@ const SuggestingWordAligner = ({
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
   const [targetWords_, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
-  const anchorRef = useRef(null);
 
 
   //if suggester is provided and not asyncSuggester, then wrap the suggester and set it in asyncSuggester.
@@ -834,7 +833,7 @@ const SuggestingWordAligner = ({
       })
   }
 
-  const handleRefreshSuggestions = async () => {
+  const handleRefreshSuggestions = async (e) => {
 
     console.log( "handleRefreshSuggestions" );
 
@@ -844,7 +843,7 @@ const SuggestingWordAligner = ({
       showPopover(
         <strong>{translate('instructions')}</strong>,
         translate("suggestions.no_data"),
-        anchorRef.current  // Use the ref's current value
+        e.target
       );
       console.log( "suggester and asyncSuggester are null or undefined" );
       return;
@@ -1113,7 +1112,7 @@ const SuggestingWordAligner = ({
   }
 
   return (
-    <div style={styles.container} ref={anchorRef}>
+    <div style={styles.container}>
       <div style={styles.wordListContainer}>
         <WordList
           styles={styles_}
