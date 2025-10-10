@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types';
 import isEqual from 'deep-equal'
 import WordList from './WordList';
@@ -413,6 +413,7 @@ const SuggestingWordAligner = ({
   const [verseAlignments_, setVerseAlignments] = useState(verseAlignments);
   const [targetWords_, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
+  const anchorRef = useRef(null);
 
 
   //if suggester is provided and not asyncSuggester, then wrap the suggester and set it in asyncSuggester.
@@ -518,7 +519,7 @@ const SuggestingWordAligner = ({
           });
 
 
-      }else{  //this is if there is no asyncSuggester or if the word being dragged is not a secondary word.
+      } else {  //this is if there is no asyncSuggester or if the word being dragged is not a secondary word.
         //clear out the suggestions when a source word is being dragged.
         setVerseAlignments( (oldVerseAlignments) => {
           const newVerseAlignments = oldVerseAlignments.map( alignment=> {
@@ -840,7 +841,11 @@ const SuggestingWordAligner = ({
     //Just return if asyncSuggester is null or undefined
     if( !asyncSuggester ){
       //pop up a dialog telling the user that the model is not trained.
-      alert( "Can not refresh suggestions. Model is not trained" );
+      showPopover(
+        <strong>{translate('instructions')}</strong>,
+        translate("suggestions.no_data"),
+        anchorRef.current  // Use the ref's current value
+      );
       console.log( "suggester and asyncSuggester are null or undefined" );
       return;
     }
@@ -1108,7 +1113,7 @@ const SuggestingWordAligner = ({
   }
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} ref={anchorRef}>
       <div style={styles.wordListContainer}>
         <WordList
           styles={styles_}
