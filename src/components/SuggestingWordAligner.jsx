@@ -841,7 +841,7 @@ const SuggestingWordAligner = ({
     if( !asyncSuggester ){
       //pop up a dialog telling the user that the model is not trained.
       showPopover(
-        <strong>{translate('instructions')}</strong>,
+        <strong>{translate('warning')}</strong>,
         translate("suggestions.no_data"),
         e.target
       );
