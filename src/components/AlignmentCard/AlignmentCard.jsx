@@ -38,7 +38,7 @@ const makeStyles = (props) => {
   const styles = {
     root: {
       padding: '7px',
-      backgroundColor: isSuggestion ? '#bedac2' // dark green background
+      backgroundColor: isSuggestion ? '#bedac2' // light green background
         : '#DCDCDC', // light gray background
       margin: '0px 10px 10px 0px',
       minWidth: emptyAlignment ?

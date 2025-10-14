@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import PropTypes from 'prop-types';
 import isEqual from 'deep-equal'
 import WordList from './WordList';
@@ -9,6 +9,7 @@ import * as types from '../common/WordCardTypes';
 import MAPControls from './MAPControls';
 import { Alignment, Ngram } from "wordmap";
 import {Token} from 'wordmap-lexer';
+import cloneDeep from 'lodash.clonedeep'
 
 // on alignment changes, identifies possible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
@@ -20,6 +21,8 @@ const CREATE_NEW_ALIGNMENT_CARD=`Alignment Grid - new alignment`;
 const UNALIGN_TARGET_WORD = `Unalign Target Word`;
 const ALIGN_TARGET_WORD = `Align Target Word`;
 const ALIGN_SOURCE_WORD = `Align Source Word`;
+const SUGGEST_ALIGNMENTS = `Suggest Alignments`;
+const REJECT_ALIGNMENTS = `Reject Alignments`;
 
 const lexiconCache_ = {};
 const styles = {
@@ -414,6 +417,34 @@ const SuggestingWordAligner = ({
   const [targetWords_, setTargetWords] = useState(targetWords);
   const [resetDrag, setResetDrag] = useState(false);
 
+  /**
+   * Updates the target words by marking them as suggestions if they are associated with suggested verse alignments.
+   *
+   * @param {Array} targetWords - An array of target word objects to be processed. Each object should represent a word with relevant properties.
+   * @param {Array} verseAlignments - An array of verse alignment objects. Each object may include a `isSuggestion` property and a `targetNgram` array mapping indices in `targetWords`.
+   * @return {Array} A new array of target word objects where the `isSuggestion` property is updated based on the provided verse alignments.
+   */
+  function tagSuggestedWords(targetWords, verseAlignments) {
+    const _targetWords = cloneDeep(targetWords);
+    _targetWords.forEach((word, i) => {
+      word.isSuggestion = false
+    })
+    for (let i = 0; i < verseAlignments.length; i++) {
+      let verseAlignment = verseAlignments[i]
+      if (verseAlignment?.isSuggestion) {
+        const targetNgram = verseAlignment?.targetNgram || []
+        for (let j = 0; j < targetNgram.length; j++) {
+          const index = targetNgram[j].index;
+          _targetWords[index].isSuggestion = true;
+        }
+      }
+    }
+    return _targetWords
+  }
+
+  const _targetWords = useMemo(() => {
+    return tagSuggestedWords(targetWords_, verseAlignments_)
+  }, [targetWords_, verseAlignments_]);
 
   //if suggester is provided and not asyncSuggester, then wrap the suggester and set it in asyncSuggester.
   if(suggester && !asyncSuggester) {
@@ -861,7 +892,7 @@ const SuggestingWordAligner = ({
 
     //obtain the suggestions
     const predictions = (await asyncSuggester( sourceWordObjects, targetWordObjects, 1, manualAlignmentObjects ))[0].predictions;
-
+    let newVerseAlignments = null
 
     //now transactionaly update the verseAlignments using a function so that it uses the most up to date information even if the asyncSuggester took a while
     //to get back to us.
@@ -1002,9 +1033,15 @@ const SuggestingWordAligner = ({
       //now filter out the undefined values and reindex.
       }).filter( alignment => alignment !== undefined ).map( (alignment, index) => ({...alignment, index}) );
 
-      const alignmentsStage5 = updateVerseAlignments( alignmentsStage4 );
-      return alignmentsStage5;
+      newVerseAlignments = updateVerseAlignments( alignmentsStage4 );
+      return newVerseAlignments;
     });
+
+    doChangeCallback({
+      type: SUGGEST_ALIGNMENTS,
+      source: GRID,
+      destination: GRID
+    }, newVerseAlignments);
   }
 
   const handleRejectSuggestions = () => {
@@ -1038,13 +1075,19 @@ const SuggestingWordAligner = ({
       setTargetWords( newTargetWords );
     }
 
-
     //Drop all target tokens from verseAlignments which are suggestions
     const clearedAlignments = verseAlignments_.map( alignment => {
       if( alignment.isSuggestion ) return {...alignment, isSuggestion: false, targetNgram: []};
       return alignment;
     });
-    setVerseAlignments(updateVerseAlignments( clearedAlignments ));
+    const newAlignments = updateVerseAlignments( clearedAlignments )
+    setVerseAlignments(newAlignments);
+
+    doChangeCallback({
+      type: REJECT_ALIGNMENTS,
+      source: GRID,
+      destination: GRID
+    }, newAlignments);
   }
 
   const handleClearAlignments = () => {
@@ -1118,7 +1161,7 @@ const SuggestingWordAligner = ({
       <div style={styles.wordListContainer}>
         <WordList
           styles={styles_}
-          words={targetWords_}
+          words={_targetWords}
           verse={contextId?.reference?.verse}
           isOver={over}
           chapter={contextId?.reference?.chapter}
