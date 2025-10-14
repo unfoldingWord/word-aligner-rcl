@@ -12,14 +12,14 @@ A React Component Library for doing translation checking - extracted from transl
 
 ## Running demo
 
-- using node v18:
+- using node v20:
   - from the command line cd to the folder containing the repo
   - then run `yarn` to install dependencies
   - then run `yarn start` to launch the demo
 
 ## Running tests
 
-- using node v18:
+- using node v20:
   - from the command line cd to the folder containing the repo
   - then run `yarn` to install dependencies
   - then run `yarn test` to run the unit tests
