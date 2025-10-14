@@ -106,7 +106,7 @@ class WordList extends React.Component {
             {words.map((token, index) => (
               <div
                 key={index}
-                style={{ padding: '5px 10px' }}>
+                style={{ padding: '5px 10px', backgroundColor: this.getBackgroundColor(token) }}>
                 <SecondaryToken
                   token={token}
                   fontScale={toolSettings.fontSize}
@@ -125,6 +125,18 @@ class WordList extends React.Component {
         </React.Fragment>
       );
     }
+  }
+
+  /**
+   * Determines the background color based on the provided token.
+   *
+   * @param {Object} token - The token object to evaluate.
+   * @param {boolean} token.isSuggestion - Indicates whether the token is a suggestion.
+   * @return {string} The background color as a string. Returns a light green color if the token is marked as a suggestion, otherwise returns a light gray color.
+   */
+  getBackgroundColor(token) {
+    return token.isSuggestion ? '#9ecab2' // green background
+      : '#DCDCDC' // light gray background
   }
 }
 
