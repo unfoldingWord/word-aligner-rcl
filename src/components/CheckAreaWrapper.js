@@ -1,13 +1,34 @@
+/**
+ * @file CheckAreaWrapper.js
+ *
+ * @synopsis
+ * A wrapper component for the CheckArea that provides a simplified interface for demonstration,
+ * testing, and documentation purposes in the checking-tool-rcl library.
+ *
+ * @description
+ * The CheckAreaWrapper component creates a self-contained environment for displaying and interacting
+ * with the CheckArea component, which is the core UI element for Bible translation checking.
+ *
+ * This wrapper:
+ * - Initializes all necessary mock data and handlers for the CheckArea
+ * - Provides a containerized view with appropriate styling
+ * - Sets up a complete checking context with sample verse text, selections, and Bible data
+ * - Allows the CheckArea to be demonstrated without the full Checker component infrastructure
+ *
+ * The component is primarily used in the component documentation (via Styleguidist) to showcase
+ * the CheckArea functionality in an isolated environment.
+ *
+ * @requirements
+ * - React 18.3.1+
+ * - Access to CheckArea component from tc_ui_toolkit
+ * - A translation function for UI strings
+ */
 // Used by styleguidist demo in CheckArea.md
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckArea from '../tc_ui_toolkit/VerseCheck/CheckArea'
 
-// const tc = require('../__tests__/fixtures/tc.json')
-// const toolApi = require('../__tests__/fixtures/toolApi.json')
-//
-// const lexiconCache_ = {};
-
+// Styling for the container layout
 const styles = {
   containerDiv:{
     display: 'flex',
@@ -31,33 +52,44 @@ const styles = {
 console.log('CheckArea.js - startup')
 const name = 'CheckArea'
 
+/**
+ * A component that wraps the CheckArea with mock data for demonstration purposes
+ *
+ * @param {Object} props - Component properties
+ * @param {Function} props.translate - Function for translating UI strings
+ * @returns {JSX.Element} Rendered component
+ */
 const Checker = ({
  translate,
 }) => {
-
-  const contextId =
-  {
+  // Sample contextId representing the current verse/check
+  const contextId = {
     "reference": {
-    "bookId": "1jn",
+      "bookId": "1jn",
       "chapter": 2,
       "verse": 17
-  },
+    },
     "tool": "translationWords",
     "groupId": "age",
     "quote": "αἰῶνα",
     "strong": [
-    "G01650"
-  ],
+      "G01650"
+    ],
     "lemma": [
-    "αἰών"
-  ],
+      "αἰών"
+    ],
     "occurrence": 1
   }
 
+  // Default checking mode (can be 'default', 'select', 'edit', or 'comment')
   const mode = 'default';
-  const tags = [];
-  const commentText = '';
+
+  // Various state and data needed for the CheckArea
+  const tags = []; // Stores tags for marking verses
+  const commentText = ''; // Current comment text
   const verseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!';
+
+  // Current text selections in the verse
   const selections = [
     {
       "text": "desire",
@@ -65,11 +97,16 @@ const Checker = ({
       "occurrences": 1
     }
   ];
-  const invalidated = false;
+
+  const invalidated = false; // Whether current selections are invalidated
+
+  // Current book information
   const bookDetails = {
     "id": "1jn",
     "name": "1 John"
   };
+
+  // Sample target Bible content (1 John in English)
   const targetBible = {
     "1": {
       "1": "{I, John, am writing to you} about {Jesus,} the Word {of God}, the one who gives life. He existed before there was anything else. We {apostles} listened to him {as he taught people}. We saw him personally. We looked at him and touched him. {So we can testify that he was a real human being.}",
@@ -198,6 +235,8 @@ const Checker = ({
       "description": "Target Language"
     }
   };
+
+  // Tool configuration settings
   const toolsSettings = {
     "ScripturePane": {
       "currentPaneSettings": [
@@ -227,6 +266,8 @@ const Checker = ({
       ]
     }
   };
+
+  // Working selections that can be modified by the user
   const newSelections = [
     {
       "text": "desire",
@@ -234,7 +275,11 @@ const Checker = ({
       "occurrences": 1
     }
   ];
+
+  // Gateway language text aligned with the original language
   const alignedGLText = 'eternity';
+
+  // Handler functions (mostly stubs that log actions)
   const handleComment = () => {
     console.log(`${name}-handleComment`)
   }
@@ -258,10 +303,15 @@ const Checker = ({
     console.log(`${name}-validateSelections`)
   }
   const targetLanguageFont = 'default'
+
+  // Unfiltered verse text with USFM markers
   const unfilteredVerseText = 'The people who do not honor God will disappear, along with all of the things that they desire. But the people who do what God wants them to do will live forever!\n\n\\ts\\*\n\\p'
+
   const checkIfVerseChanged = () => {
     console.log(`${name}-checkIfVerseChanged`)
   }
+
+  // Target language details
   const targetLanguageDetails = {
     "id": "en",
     "name": "English",
@@ -270,9 +320,11 @@ const Checker = ({
       "name": "1 John"
     }
   }
+
   const checkIfCommentChanged = () => {
     console.log(`${name}-checkIfCommentChanged`)
   }
+
   const changeSelectionsInLocalState = () => {
     console.log(`${name}-changeSelectionsInLocalState`)
   }
@@ -312,7 +364,6 @@ const Checker = ({
         />
       </div>
     </div>
-
   );
 };
 

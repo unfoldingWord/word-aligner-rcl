@@ -1,7 +1,7 @@
 # CheckArea.md
 
 ## Synopsis
-This file contains example code showing how to use the CheckAreaWrapper component for Bible translation checking. It demonstrates the minimal setup needed to render a functional CheckArea component in a standalone environment.
+This file contains example code showing how to use the CheckArea component for Bible translation checking (wrapped in CheckAreaWrapper). It demonstrates the minimal setup needed to render a functional CheckArea component in a standalone environment.
 
 ## Description
 The CheckArea component is a central part of the checking-tool-rcl library that displays the current verse being checked and allows users to:
