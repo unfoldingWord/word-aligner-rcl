@@ -779,6 +779,29 @@ const SuggestingWordAligner = ({
         dest.targetNgram = dest.targetNgram.concat(targets);
         dest.targetNgram = dest.targetNgram.sort(indexComparator)
       }
+
+      // make sure used words are disabled
+      const targetNgramNotDisabled = (dest.targetNgram || []).find(target => {
+        const index = target.index;
+        const wordListWord = targetWords_[index]
+        return !wordListWord.disabled
+      });
+      if (targetNgramNotDisabled) { // need to disable word from word list to show it's being used
+        console.log('handleAlignSourceToken - target not disabled', targetNgramNotDisabled);
+        const newTWords = cloneDeep(targetWords_)
+        const targetNgram = dest.targetNgram
+        targetNgram.forEach((target, pos) => {
+          const index = target.index;
+          const newWord = cloneDeep(newTWords[index]);
+          if ((target?.disabled !== true) || (newWord?.disabled !== true)) {
+            newWord.disabled = true;
+            targetNgram[pos] = newWord;
+            newTWords[index] = newWord;
+          }
+        })
+        setTargetWords(newTWords);
+      }
+
       const _verseAlignments = updateVerseAlignments(verseAlignments);
       doChangeCallback({
         type: ALIGN_SOURCE_WORD,
