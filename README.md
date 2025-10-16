@@ -10,19 +10,49 @@
 
 A React Component Library for doing translation checking - extracted from translationNotes and translationWords.
 
+## About
+
+The Checking Tool Resource Container Library (checking-tool-rcl) is a comprehensive React component library designed for Bible translation checking workflows. It provides reusable UI components and utilities that enable efficient and consistent translation verification processes across different applications.
+
+This library is built as a resource container library (RCL), making it easy to integrate into various React applications while maintaining a consistent user experience for translation checking activities.
+
+### Key Features
+
+- **Translation Notes (TN) Checking**: Components for reviewing and validating translation notes
+- **Translation Words (TW) Checking**: Tools for verifying key terms and concepts across translations
+- **Multi-pane Scripture Viewing**: Side-by-side display of original language, gateway language, and target language texts
+- **Verse Selection and Annotation**: Interface for selecting, highlighting, and annotating portions of verses
+- **Comment Management**: Tools for adding and tracking comments on translations
+- **Bookmark/Reminder System**: Ability to mark checks for later review
+- **Translation Helps Integration**: Display of contextual help documents and lexicon data
+- **Responsive Layout**: Adaptable UI that works across different screen sizes
+- **Customizable Styling**: Configurable appearance to match host application themes
+
+### Use Cases
+
+- Bible translation checking applications
+- Translation verification workflows
+- Multi-language scripture comparison tools
+- Translation quality assurance systems
+- Bible study applications with checking capabilities
+
 ## Running demo
 
-- using node v18:
+- using node v20:
   - from the command line cd to the folder containing the repo
   - then run `yarn` to install dependencies
   - then run `yarn start` to launch the demo
 
 ## Running tests
 
-- using node v18:
+- using node v20:
   - from the command line cd to the folder containing the repo
   - then run `yarn` to install dependencies
   - then run `yarn test` to run the unit tests
+
+## Integration
+
+The checking-tool-rcl can be easily integrated into React applications and provides a straightforward API for implementing translation checking functionality. The library includes detailed examples (CheckerTN.md and CheckerTW.md) that demonstrate proper configuration and usage.
 
 ## Updates
 
@@ -41,3 +71,11 @@ The CSS Styles implementation uses the updated version and is incompatible with 
 - [Material-UI Lab](https://material-ui.com/components/about-the-lab/)
 
 A few components use the Lab components such as the Skeleton for the infinite scrolling effect.
+
+## Contributing
+
+Contributions to the checking-tool-rcl are welcome! Whether you're fixing bugs, improving documentation, or proposing new features, your help makes this library better for everyone.
+
+## License
+
+This project is licensed under the terms specified in the LICENSE file in the repository.
