@@ -4,9 +4,8 @@ import {
   withStyles,
   createMuiTheme,
   ThemeProvider as MuiThemeProvider,
-} from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import RootRef from '@material-ui/core/RootRef';
+} from '@mui/material/styles';
+import List from '@mui/material/List';
 import memoize from 'memoize-one';
 import MenuItem from './MenuItem';
 import MenuGroup from './MenuGroup';
@@ -351,8 +350,8 @@ class Menu extends React.Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <RootRef rootRef={this.menuRef}>
           <List
+            ref={this.menuRef}
             component="nav"
             subheader={header}
             className={classes.root}
@@ -394,7 +393,6 @@ class Menu extends React.Component {
             <EmptyItem key="empty" label={emptyNotice}
               enabled={entries.length === 0}/>
           </List>
-        </RootRef>
       </MuiThemeProvider>
     );
   }

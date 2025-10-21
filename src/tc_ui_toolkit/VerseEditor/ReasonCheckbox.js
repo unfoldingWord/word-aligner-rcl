@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import { makeStyles } from '@mui/material/styles';
+import Checkbox from '@mui/material/Checkbox';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 
 const useStyles = makeStyles({
   formControlLabelRoot: { height: 30 },

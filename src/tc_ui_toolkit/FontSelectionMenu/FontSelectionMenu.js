@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextFieldsIcon from '@material-ui/icons/TextFields';
-import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import { makeStyles } from '@material-ui/core/styles';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { makeStyles } from '@mui/material/styles';
 
 const useStyles = makeStyles({
   menu: { margin: '47px 0px 0px 38px' },

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from '@mui/icons-material/Edit';
 import { isLTR } from '../ScripturePane/helpers/utils';
 import { getFontClassName } from '../common/fontUtils';
 // components

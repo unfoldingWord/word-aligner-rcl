@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'deep-equal';
-import Checkbox from '@material-ui/core/Checkbox';
-import { withStyles } from '@material-ui/core/styles';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InfoIcon from '@material-ui/icons/Info';
-import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Checkbox from '@mui/material/Checkbox';
+import { withStyles } from '@mui/material/styles';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import InfoIcon from '@mui/icons-material/Info';
+import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ReactTooltip from 'react-tooltip';
 // components
 import Bookmark from '../../Bookmark';

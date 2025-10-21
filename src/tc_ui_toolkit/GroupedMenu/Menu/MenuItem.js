@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import RootRef from '@material-ui/core/RootRef';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Tooltip from '@material-ui/core/Tooltip';
-import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@mui/material/styles';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Tooltip from '@mui/material/Tooltip';
+import Badge from '@mui/material/Badge';
 import memoize from 'memoize-one';
 import _ from 'lodash';
 import { getFontClassName } from '../../common/fontUtils';
@@ -275,8 +274,8 @@ class MenuItem extends React.Component {
         }}
       >
         {icon}
-        <RootRef rootRef={this.listItemTextRef}>
           <Tooltip
+            ref={this.listItemTextRef}
             enterDelay={300}
             arrow={true}
             title={
@@ -301,7 +300,6 @@ class MenuItem extends React.Component {
               primary={<span className={fontClass} ref={this.textRef}>{title}</span>}
             />
           </Tooltip>
-        </RootRef>
       </ListItem>
     );
   }

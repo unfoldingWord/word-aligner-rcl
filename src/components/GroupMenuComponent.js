@@ -2,11 +2,11 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BlockIcon from '@material-ui/icons/Block';
-import ModeCommentIcon from '@material-ui/icons/ModeComment';
-import CategoryIcon from '@material-ui/icons/Category';
-import EditIcon from '@material-ui/icons/Edit';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BlockIcon from '@mui/icons-material/Block';
+import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import CategoryIcon from '@mui/icons-material/Category';
+import EditIcon from '@mui/icons-material/Edit';
 import { generateItemId } from '../helpers/groupMenuHelpers';
 import CheckIcon from '../tc_ui_toolkit/icons/Check'
 import InvalidatedIcon from '../tc_ui_toolkit/icons/Invalidated'

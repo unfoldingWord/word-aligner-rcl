@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@mui/material/styles';
 import {
   FormGroup, FormControl,
 } from 'react-bootstrap';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import { moveCursorToEnd } from '../../VerseEditor/helpers/editHelpers';
 import { getFontClassName } from '../../common/fontUtils';
 

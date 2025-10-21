@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
 import FunnelIcon from '../../icons/Funnel';
 
 const styles = () => ({

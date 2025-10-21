@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import RemoveCircle from '@material-ui/icons/RemoveCircle';
+import RemoveCircle from '@mui/icons-material/RemoveCircle';
 import ThreeDotIcon from '../../ThreeDotIcon';
 import FontSizeSlider from '../../FontSizeSlider';
 import DropdownMenu, { MenuItem } from '../../DropdownMenu';

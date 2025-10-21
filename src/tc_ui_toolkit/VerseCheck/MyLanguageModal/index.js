@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Toolbar from '@mui/material/Toolbar';
+import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import MyTargetVerse from '../MyTargetVerse';
 

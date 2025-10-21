@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+import { withStyles } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 
 function PaperComponent(props) {

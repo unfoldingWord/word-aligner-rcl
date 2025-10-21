@@ -1,12 +1,12 @@
 
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
-import Popover from '@material-ui/core/Popover'
-import Divider from '@material-ui/core/Divider'
+import { makeStyles } from '@mui/material/styles'
+import Popover from '@mui/material/Popover'
+import Divider from '@mui/material/Divider'
 import { CgClose } from 'react-icons/cg'
 import useWindowEvent from '../helpers/useWindowEvent'
-import IconButton from '@material-ui/core/IconButton'
+import IconButton from '@mui/material/IconButton'
 
 const useStyles = makeStyles(() => ({
   popover: {

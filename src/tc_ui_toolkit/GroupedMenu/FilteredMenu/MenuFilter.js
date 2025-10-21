@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import Collapse from '@material-ui/core/Collapse';
-import ListItem from '@material-ui/core/ListItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Divider from '@material-ui/core/Divider';
-import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import ListItemText from '@material-ui/core/ListItemText';
-import Chip from '@material-ui/core/Chip';
+import { withStyles } from '@mui/material/styles';
+import List from '@mui/material/List';
+import Collapse from '@mui/material/Collapse';
+import ListItem from '@mui/material/ListItem';
+import ListSubheader from '@mui/material/ListSubheader';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Divider from '@mui/material/Divider';
+import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import ListItemText from '@mui/material/ListItemText';
+import Chip from '@mui/material/Chip';
 import MenuFilterIcon from './MenuFilterIcon';
 
 const styles = () => ({
