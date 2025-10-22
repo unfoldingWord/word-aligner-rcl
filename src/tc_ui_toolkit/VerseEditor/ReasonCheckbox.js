@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import Checkbox from '@mui/material/Checkbox';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import FormControlLabel from '@mui/material/FormControlLabel';

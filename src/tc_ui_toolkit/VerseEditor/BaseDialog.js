@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
-import { withStyles } from '@mui/material/styles';
+import { withStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 

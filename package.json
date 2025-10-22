@@ -46,10 +46,11 @@
     "webpack": "^5.76.0"
   },
   "dependencies": {
-    "@mui/material": "^6.1.5",
-    "@mui/icons-material": "6.5.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "6.5.0",
+    "@mui/material": "^6.1.5",
+    "@mui/styles": "^6.4.8",
     "bible-reference-range": "^1.1.0",
     "deep-equal": "^2.2.3",
     "file-loader": "^6.2.0",

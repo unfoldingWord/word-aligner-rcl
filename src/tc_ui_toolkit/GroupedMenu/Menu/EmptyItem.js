@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
-import { withStyles } from '@mui/material/styles';
+import { withStyles } from '@mui/styles';
 
 const styles = () => ({
   root: { borderBottom: 'solid #ffffff4d 1px' },

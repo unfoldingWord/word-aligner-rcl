@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'deep-equal';
 import Checkbox from '@mui/material/Checkbox';
-import { withStyles } from '@mui/material/styles';
+import { withStyles } from '@mui/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import InfoIcon from '@mui/icons-material/Info';
 import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';

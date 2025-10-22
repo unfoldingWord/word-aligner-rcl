@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { withStyles } from '@mui/material/styles';
+import { withStyles } from '@mui/styles';
 // components
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';

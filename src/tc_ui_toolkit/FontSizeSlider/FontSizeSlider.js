@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
 import Slider from '@mui/material/Slider';
-import { makeStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import { AiOutlineFontSize } from 'react-icons/ai'
 
 const useStyles = makeStyles({

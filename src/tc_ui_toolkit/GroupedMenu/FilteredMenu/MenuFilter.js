@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/material/styles';
+import { withStyles } from '@mui/styles';
 import List from '@mui/material/List';
 import Collapse from '@mui/material/Collapse';
 import ListItem from '@mui/material/ListItem';

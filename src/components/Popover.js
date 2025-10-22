@@ -1,7 +1,7 @@
 
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
 import Popover from '@mui/material/Popover'
 import Divider from '@mui/material/Divider'
 import { CgClose } from 'react-icons/cg'

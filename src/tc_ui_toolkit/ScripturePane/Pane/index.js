@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ContainerDimensions from 'react-container-dimensions';
+import React from 'react'
+import PropTypes from 'prop-types'
+// import ContainerDimensions from 'react-container-dimensions';
 import {
-  getTitleWithId, getTranslation, isLTR,
-} from '../helpers/utils';
-import Verse from '../Verse';
-import ThreeDotMenu from '../ThreeDotMenu';
-import './Pane.styles.css';
+  getTitleWithId, getTranslation, isLTR
+} from '../helpers/utils'
+import Verse from '../Verse'
+import ThreeDotMenu from '../ThreeDotMenu'
+import './Pane.styles.css'
 // constants
-const PANECHAR = 9;
+const PANECHAR = 9
 
 /**
  * create content for title container with selected overall justification
@@ -20,10 +20,12 @@ const PANECHAR = 9;
  * @return {*}
  */
 function getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle) {
-  const styles = { textAlign: isLTR ? 'left' : 'right' };
-  const paneTitleClassName = fontClass ? `pane-title-text ${fontClass}` : 'pane-title-text';
-  const headingClassName = fullTitle || headingText.length > 21 ? `${paneTitleClassName} hint--bottom hint--medium` : paneTitleClassName;
-  const paneSubtitleClassName = fontClass ? `pane-subtitle-text hint--bottom hint--medium ${fontClass}` : `pane-subtitle-text hint--bottom hint--medium`;
+  const styles = { textAlign: isLTR ? 'left' : 'right' }
+  const paneTitleClassName = fontClass ? `pane-title-text ${fontClass}` : 'pane-title-text'
+  const headingClassName = fullTitle || headingText.length > 21 ? `${paneTitleClassName} hint--bottom hint--medium` : paneTitleClassName
+  const paneSubtitleClassName = fontClass ? `pane-subtitle-text hint--bottom hint--medium ${fontClass}` : `pane-subtitle-text hint--bottom hint--medium`
+
+  const width = 250; // Hack to remove react-container-dimensions
 
   return (
     <div className="pane-title-container-content" style={styles}>
@@ -33,24 +35,18 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
         aria-label={fullTitle || headingText}>
         {headingText.length > 21 ? headingText.slice(0, 21) + '...' : headingText}
       </span>
-      <ContainerDimensions>
-        {
-          ({ width }) => (
-            <span
-              className={paneSubtitleClassName}
-              style={{ lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2, textAlign: isLTR ? 'left' : 'right' }}
-              aria-label={fullTitle || localizedDescription}>
+      <span
+        className={paneSubtitleClassName}
+        style={{ lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2, textAlign: isLTR ? 'left' : 'right' }}
+        aria-label={fullTitle || localizedDescription}>
               {
                 localizedDescription.length > width / PANECHAR ?
                   localizedDescription.slice(0, Math.round(width / PANECHAR)) + '...' :
                   localizedDescription
               }
             </span>
-          )
-        }
-      </ContainerDimensions>
     </div>
-  );
+  )
 }
 
 /**
@@ -64,26 +60,26 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
  * @return {*}
  */
 function TitleContainer({
-  font,
-  index,
-  isLTR,
-  fontSize,
-  isHebrew,
-  fontClass,
-  removePane,
-  headingText,
-  isTargetBible,
-  selectFontLabel,
-  changePaneFontSize,
-  changePaneFontType,
-  complexScriptFonts,
-  removeResourceLabel,
-  localizedDescription,
-  clickToRemoveResourceLabel,
-  addObjectPropertyToManifest,
-  fullTitle,
-  viewURL,
-}) {
+                          font,
+                          index,
+                          isLTR,
+                          fontSize,
+                          isHebrew,
+                          fontClass,
+                          removePane,
+                          headingText,
+                          isTargetBible,
+                          selectFontLabel,
+                          changePaneFontSize,
+                          changePaneFontType,
+                          complexScriptFonts,
+                          removeResourceLabel,
+                          localizedDescription,
+                          clickToRemoveResourceLabel,
+                          addObjectPropertyToManifest,
+                          fullTitle,
+                          viewURL
+                        }) {
   if (isLTR) {
     return <>
       {getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle)}
@@ -94,11 +90,11 @@ function TitleContainer({
         fontSize={fontSize}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'left'
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'left',
+          horizontal: 'left'
         }}
         removePane={removePane}
         isTargetBible={isTargetBible}
@@ -111,7 +107,7 @@ function TitleContainer({
         addObjectPropertyToManifest={addObjectPropertyToManifest}
         viewURL={viewURL}
       />
-    </>;
+    </>
   } else { // arrange rtl
     return <>
       <ThreeDotMenu
@@ -131,43 +127,43 @@ function TitleContainer({
         viewURL={viewURL}
       />
       {getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle)}
-    </>;
+    </>
   }
 }
 
 const Pane = ({
-  font,
-  index,
-  verse,
-  chapter,
-  bibleId,
-  fontSize,
-  fontClass,
-  direction,
-  translate,
-  removePane,
-  description,
-  languageName,
-  verseElements,
-  isTargetBible,
-  selectFontLabel,
-  changePaneFontSize,
-  changePaneFontType,
-  complexScriptFonts,
-  removeResourceLabel,
-  clickToRemoveResourceLabel,
-  addObjectPropertyToManifest,
-  fullTitle,
-  preRelease,
-}) => {
-  const isLTR_ = isLTR(direction);
-  const viewURL = bibleId === 'viewURL';
+                font,
+                index,
+                verse,
+                chapter,
+                bibleId,
+                fontSize,
+                fontClass,
+                direction,
+                translate,
+                removePane,
+                description,
+                languageName,
+                verseElements,
+                isTargetBible,
+                selectFontLabel,
+                changePaneFontSize,
+                changePaneFontType,
+                complexScriptFonts,
+                removeResourceLabel,
+                clickToRemoveResourceLabel,
+                addObjectPropertyToManifest,
+                fullTitle,
+                preRelease
+              }) => {
+  const isLTR_ = isLTR(direction)
+  const viewURL = bibleId === 'viewURL'
   const headingText = (bibleId !== 'targetBible') && !viewURL ?
     getTitleWithId(languageName, bibleId, undefined, preRelease)
-    : (languageName || '');
-  const localizedDescription = getTranslation(translate, `pane.${description}`, description);
-  const verseContainerStyle = fontSize ? { fontSize: `${fontSize}%` } : {};
-  const isHebrew = (bibleId === 'uhb');
+    : (languageName || '')
+  const localizedDescription = getTranslation(translate, `pane.${description}`, description)
+  const verseContainerStyle = fontSize ? { fontSize: `${fontSize}%` } : {}
+  const isHebrew = (bibleId === 'uhb')
 
   return (
     <div className="pane-container">
@@ -194,7 +190,8 @@ const Pane = ({
           viewURL={viewURL}
         />
       </div>
-      <div className={isLTR_ ? 'verse-content-container-ltr' : 'verse-content-container-rtl'} style={verseContainerStyle}>
+      <div className={isLTR_ ? 'verse-content-container-ltr' : 'verse-content-container-rtl'}
+           style={verseContainerStyle}>
         <Verse
           verse={verse}
           bibleId={bibleId}
@@ -206,8 +203,8 @@ const Pane = ({
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 Pane.propTypes = {
   fontSize: PropTypes.number,
@@ -234,12 +231,12 @@ Pane.propTypes = {
   verseElements: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.string,
-    PropTypes.array,
+    PropTypes.array
   ]).isRequired,
   preRelease: PropTypes.string,
-  viewURL: PropTypes.bool,
-};
+  viewURL: PropTypes.bool
+}
 
-Pane.defaultProps = { verseElements: [] };
+Pane.defaultProps = { verseElements: [] }
 
-export default Pane;
+export default Pane
