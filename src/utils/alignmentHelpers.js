@@ -267,19 +267,22 @@ export function  markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetWordL
 }
 
 /**
- * create wordbank of unused target words, transform alignments, and then merge alignments into target verse
- * @param {array} wordBankWords - list of all target words in word bank - the disabled flag indicates word is aligned
- * @param {array} verseAlignments
- * @param {string} targetVerseText - target verse to receive alignments
- * @return {string|null} target verse in USFM format
+ * Processes the given word bank and verse alignments to generate cleaned alignments
+ * with remapped word properties and filters disabled items from the word bank.
+ *
+ * @param {Array} wordBankWords - Array of words from the word bank, potentially containing disabled items.
+ * @param {Array} verseAlignments - Array of alignment data containing source and target ngrams with words and metadata.
+ * @return {Object} An object containing two properties:
+ *                  - `alignments`: The cleaned and remapped alignments of source and target words.
+ *                  - `wordBank`: The filtered and processed word bank with additional properties.
  */
-export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetVerseText) {
+function getCleanedAlignments(wordBankWords, verseAlignments) {
   let wordBank = wordBankWords.filter(item => (!item.disabled))
   wordBank = wordBank.map(item => ({
     ...item,
     word: item.word || item.text,
     occurrence: item.occurrence || item.occurrence,
-    occurrences: item.occurrences || item.occurrences,
+    occurrences: item.occurrences || item.occurrences
   }))
   // remap sourceNgram:topWords, targetNgram:bottomWords,
   const alignments_ = verseAlignments.map(item => ({
@@ -290,17 +293,29 @@ export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetV
       morph: item.morph,
       occurrence: item.occurrence,
       occurrences: item.occurrences,
-      word: item.word || item.text,
+      word: item.word || item.text
     })),
     bottomWords: item.targetNgram.map(item => ({
       ...item,
       word: item.word || item.text
-    })),
-  }));
+    }))
+  }))
   const alignments = {
     alignments: alignments_,
-    wordBank,
+    wordBank
   }
+  return alignments
+}
+
+/**
+ * create wordbank of unused target words, transform alignments, and then merge alignments into target verse
+ * @param {array} wordBankWords - list of all target words in word bank - the disabled flag indicates word is aligned
+ * @param {array} verseAlignments
+ * @param {string} targetVerseText - target verse to receive alignments
+ * @return {string|null} target verse in USFM format
+ */
+export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetVerseText) {
+  const alignments = getCleanedAlignments(wordBankWords, verseAlignments)
   const verseUsfm = addAlignmentsToTargetVerseUsingMerge(targetVerseText, alignments);
   return verseUsfm;
 }
@@ -459,26 +474,64 @@ function handleDeletedWords(verseAlignments, targetWordList, targetWords) {
 }
 
 /**
- * merge alignments into target verse
+ * Identifies words that were added or deleted between two arrays of words.
+ *
+ * @param {string[]} beforeWords - The array of words before changes.
+ * @param {string[]} afterWords - The array of words after changes.
+ * @return {{added: Object[], deleted: Object[]}} An object containing two arrays:
+ * `added` for newly added words and `deleted` for removed words, with word details and their respective positions.
+ */
+function findWordChanges(beforeWords, afterWords) {
+  const added = []
+  const deleted = []
+
+  let i = 0, j = 0
+
+  while (i < beforeWords.length || j < afterWords.length) {
+    if (beforeWords[i] === afterWords[j]) {
+      i++
+      j++
+    } else if (afterWords[j] && !beforeWords.includes(afterWords[j])) {
+      // Word added
+      added.push({ word: afterWords[j], position: j })
+      j++
+    } else if (beforeWords[i] && !afterWords.includes(beforeWords[i])) {
+      // Word deleted
+      deleted.push({ word: beforeWords[i], position: i })
+      i++
+    } else {
+      // Word changed or moved
+      added.push({ word: afterWords[j], position: j })
+      deleted.push({ word: beforeWords[i], position: i })
+      i++
+      j++
+    }
+  }
+
+  return { added, deleted }
+}
+
+/**
+ * merge alignments into new target verse
  * @return {string|null} target verse in USFM format
- * @param {object[]} targetVerseObjects
+ * @param {object[]} initialTargetVerseObjects
  * @param {string} newTargetVerse
  */
-export function updateAlignmentsToTargetVerse(targetVerseObjects, newTargetVerse) {
-  let targetVerseText = convertVerseDataToUSFM(targetVerseObjects);
-  let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseText, null);
+export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTargetVerse) {
+  let targetVerseUsfm = convertVerseDataToUSFM(initialTargetVerseObjects);
+  let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, null);
   const targetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   handleAddedWordsInNewText(targetTokens, targetWords, verseAlignments);
   handleDeletedWords(verseAlignments, targetTokens, targetWords);
-  targetVerseText = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
-  if (targetVerseText === null) {
+  targetVerseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
+  if (targetVerseUsfm === null) {
     console.warn(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
-    targetVerseText = newTargetVerse;
+    targetVerseUsfm = newTargetVerse;
   }
-  const alignedVerseObjects = usfmVerseToJson(targetVerseText)
+  const alignedVerseObjects = usfmVerseToJson(targetVerseUsfm)
   return {
     targetVerseObjects: alignedVerseObjects,
-    targetVerseText,
+    targetVerseText: targetVerseUsfm,
   };
 }
 
