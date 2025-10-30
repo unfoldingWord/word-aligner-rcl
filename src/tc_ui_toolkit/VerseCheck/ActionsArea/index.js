@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import InfoIcon from '@mui/icons-material/Info';
 import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import ReactTooltip from 'react-tooltip';
+import {Tooltip as ReactTooltip} from 'react-tooltip';
 // components
 import Bookmark from '../../Bookmark';
 // css

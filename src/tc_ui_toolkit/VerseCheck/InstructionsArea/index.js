@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTooltip from 'react-tooltip';
+import {Tooltip as ReactTooltip} from 'react-tooltip';
 // components
 import InstructionsAreaTextSelection, { SelectedText } from '../InstructionsAreaTextSelection';
 // css
