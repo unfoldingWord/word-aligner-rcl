@@ -555,7 +555,7 @@ function findWordChanges(beforeWords, afterWords) {
           insertWord = true
         } else if (beforeWord && (posBeforeWordInRemainingAfterWords > posAfterwordInRemainingBeforeWords)) {
           deleteWord = true
-        } else if (afterWord && (posBeforeWordInRemainingAfterWords < posAfterwordInRemainingBeforeWords)) {
+        } else if (afterWord && (posBeforeWordInRemainingAfterWords <= posAfterwordInRemainingBeforeWords)) {
           insertWord = true
         } else {
           // TODO
