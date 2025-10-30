@@ -575,7 +575,7 @@ function findWordChanges(beforeWords, afterWords) {
       }
       if (!insertWord && !deleteWord) {
         // TODO
-        console.log("OOps")
+        console.log("OOps2")
       }
     }
   }
@@ -594,6 +594,10 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, null);
   const newTargetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   const wordChanges = findWordChanges(targetWords, newTargetTokens)
+  const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
+  console.log('initialtext:\n', targetVerseString)
+  console.log('newText:\n', newTargetVerse)
+  console.log('changes: ', wordChanges)
   handleAddedWordsInNewText(newTargetTokens, targetWords, verseAlignments);
   handleDeletedWords(verseAlignments, newTargetTokens, targetWords);
   targetVerseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
