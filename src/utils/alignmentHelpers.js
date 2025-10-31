@@ -142,8 +142,8 @@ export function getWordListFromVerseObjects(verseObjects) {
  */
 export function extractAlignmentsFromTargetVerse(alignedTargetVerse, sourceVerse) {
   try {
-    const targetVerse = usfmVerseToJson(alignedTargetVerse);
-    const alignments = wordaligner.unmerge(targetVerse, sourceVerse);
+    const targetVerse = usfmVerseToJson(alignedTargetVerse) || [];
+    const alignments = wordaligner.unmerge(targetVerse, sourceVerse || []);
     const originalLangWordList = sourceVerse && getOriginalLanguageListForVerseData(sourceVerse);
     const alignmentsWordList = getAlignedWordListFromAlignments(alignments.alignment);
     const targetTokens = getWordListFromVerseObjects(targetVerse);
@@ -308,14 +308,79 @@ function getCleanedAlignments(wordBankWords, verseAlignments) {
 }
 
 /**
+ * Adjusts occurrence numbers in alignment target words based on word changes (insertions/deletions).
+ *
+ * When words are added or deleted from the target text, the occurrence numbers of subsequent instances
+ * of the same word need to be updated. For example, if the second occurrence of "the" is deleted,
+ * what was previously the third occurrence becomes the second occurrence.
+ *
+ * @param {Object} wordChanges - Object containing word change information with properties:
+ *   - `order`: Array of change operations in sequential order
+ *   - `added`: Array of added word details
+ *   - `deleted`: Array of deleted word details
+ * @param {Object} alignments - Alignments object containing:
+ *   - `alignments`: Array of alignment objects, each with `targetNgram` arrays
+ * @description Iterates through word changes in order, incrementing or decrementing occurrence numbers
+ *              for aligned target words that match the changed word and have occurrence numbers at or
+ *              above the change point.
+ */
+function adjustTargetOccurrences(wordChanges, alignments) {
+  // Tweak alignment target occurrences based on insertions and deletions
+  for (const orderItem of wordChanges.order) {
+    const isDeleted = orderItem.action === 'deleted'
+    let actionItem = null
+    let change = 0;
+
+    if (isDeleted) {
+      // Deleted item: decrement occurrence numbers for later instances
+      change = -1
+    } else {
+      // Added item: increment occurrence numbers for later instances
+      change = 1
+    }
+
+    // Get the specific added or deleted word details
+    actionItem = wordChanges[orderItem.action]?.[orderItem.position]
+    const occurrenceToChange = actionItem?.occurrenceToChange
+    const occurrences = actionItem?.occurrences
+
+    // Only process if we have valid occurrence data
+    if (occurrences && occurrenceToChange >= 0) {
+      const alignments_ = alignments?.alignments || [];
+
+      // Iterate through all alignments
+      for (const alignment of alignments_) {
+        // Check each target word in the alignment
+        for (const targetNgram of alignment.targetNgram) {
+          const occurrence = targetNgram.occurrence
+          const text = targetNgram.text
+
+          // If this target word matches the changed word
+          if (text === actionItem.word) {
+            // Update occurrence number if it's at or after the change point
+            if (occurrence >= occurrenceToChange) {
+              targetNgram.occurrence = occurrence + change
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
  * create wordbank of unused target words, transform alignments, and then merge alignments into target verse
  * @param {array} wordBankWords - list of all target words in word bank - the disabled flag indicates word is aligned
  * @param {array} verseAlignments
  * @param {string} targetVerseText - target verse to receive alignments
+ * @param {object} wordChanges - optional, details edit changes so that alignment target occurrences can be tweaked
  * @return {string|null} target verse in USFM format
  */
-export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetVerseText) {
+export function addAlignmentsToVerseUSFM(wordBankWords, verseAlignments, targetVerseText, wordChanges = null) {
   const alignments = getCleanedAlignments(wordBankWords, verseAlignments)
+  if (wordChanges?.order) {
+    adjustTargetOccurrences(wordChanges, alignments);
+  }
   const verseUsfm = addAlignmentsToTargetVerseUsingMerge(targetVerseText, alignments);
   return verseUsfm;
 }
@@ -473,12 +538,27 @@ function handleDeletedWords(verseAlignments, targetWordList, targetWords) {
   }
 }
 
-
+/**
+ * Searches for a specific text within an array of objects and returns the index of its first occurrence starting from a given position.
+ *
+ * @param {Array.<{text: string}>} wordObjectsArray - An array of objects, where each object contains a `text` property.
+ * @param {string} matchText - The text to search for within the `text` property of the objects.
+ * @param {number} [startPos=0] - The position in the array to start searching from, defaults to 0 if not provided.
+ * @return {number} The index of the first occurrence of the matching text starting from `startPos`, or -1 if not found.
+ */
 function findWordInObjects(wordObjectsArray, matchText, startPos=0) {
   const pos = wordObjectsArray.findIndex((w, pos) => ((pos >= startPos) && (w.text === matchText)))
   return pos
 }
 
+/**
+ * Counts the occurrences of a specific text within an array of objects that contain a 'text' property.
+ *
+ * @param {Array.<Object>} wordObjectsArray - An array of objects, where each object is expected to have a 'text' property.
+ * @param {string} matchText - The text to search for within the 'text' property of the objects in the array.
+ * @param {number} [startPos=0] - Optional starting index in the array from where the search begins. Defaults to 0.
+ * @return {number} - The count of objects in the array whose 'text' property matches the specified matchText.
+ */
 function countOccurrenceInObjects(wordObjectsArray, matchText, startPos=0) {
   let count = 0;
   for (let i = startPos; i < wordObjectsArray.length; i++) {
@@ -490,6 +570,16 @@ function countOccurrenceInObjects(wordObjectsArray, matchText, startPos=0) {
   return count;
 }
 
+/**
+ * Calculates the change in the count of a specific word or text between two collections of word objects.
+ *
+ * @param {Object[]} beforeWords - The collection of word objects before the change.
+ * @param {number} beforeStartPos - The starting position in the beforeWords collection to begin counting.
+ * @param {Object[]} afterWords - The collection of word objects after the change.
+ * @param {number} afterStartPos - The starting position in the afterWords collection to begin counting.
+ * @param {string} matchText - The word or text to count within the collections.
+ * @return {number} The difference in word counts for the specified text between the afterWords and beforeWords collections.
+ */
 function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterStartPos, matchText) {
   if (!matchText) {
     return 0
@@ -502,14 +592,39 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
 /**
  * Identifies words that were added or deleted between two arrays of words.
  *
- * @param {Object[]} beforeWords - The array of words before changes.
- * @param {Object[]} afterWords - The array of words after changes.
- * @return {{added: Object[], deleted: Object[]}} An object containing two arrays:
- * `added` for newly added words and `deleted` for removed words, with word details and their respective positions.
+ * This function performs a sequential comparison of two word arrays, tracking insertions and deletions
+ * while handling multiple occurrences of the same word. It uses a two-pointer algorithm to traverse
+ * both arrays and determines whether words were added, deleted, or remain unchanged.
+ *
+ * @param {Object[]} beforeWords - The array of words before changes. Each word object should have a 'text' property.
+ * @param {Object[]} afterWords - The array of words after changes. Each word object should have a 'text' property.
+ * @returns {{added: Object[], deleted: Object[], order: Object[]}} An object with three arrays:
+ *   - `added`: Words newly present in `afterWords` that were not in `beforeWords`, each containing:
+ *     - `word`: The text of the added word
+ *     - `token`: The complete word object from `afterWords`
+ *     - `occurrences`: Total count of this word in `afterWords`
+ *     - `occurrenceToChange`: The occurrence number to change in existing alignments (-1 if not applicable)
+ *     - `beforeWordPosition`: The position in `beforeWords` where the word was inserted
+ *     - `afterWordPosition`: The position in `afterWords` where the word was added
+ *   - `deleted`: Words present in `beforeWords` that are not in `afterWords`, each containing:
+ *     - `word`: The text of the deleted word
+ *     - `token`: The complete word object from `beforeWords`
+ *     - `occurrences`: Total count of this word in `afterWords`
+ *     - `occurrenceToChange`: The occurrence number to change in existing alignments (-1 if not applicable)
+ *     - `beforeWordPosition`: The position in `beforeWords` where the word was deleted
+ *     - `afterWordPosition`: The position in `afterWords` where the word would have been
+ *   - `order`: Sequential list of changes for maintaining proper order, each containing:
+ *     - `action`: Either "added" or "deleted"
+ *     - `position`: Index in the respective `added` or `deleted` array
+ * @description Compares two arrays of word objects to detect added and deleted words,
+ *              taking into account the order and multiple occurrences of words. The algorithm
+ *              uses lookahead to determine whether a word mismatch represents an insertion,
+ *              deletion, or replacement by examining remaining words in both arrays.
  */
 function findWordChanges(beforeWords, afterWords) {
   const added = []
   const deleted = []
+  const order = []
 
   let i = 0, j = 0
 
@@ -517,18 +632,20 @@ function findWordChanges(beforeWords, afterWords) {
     const beforeWord = beforeWords[i]
     const afterWord = afterWords[j]
 
-    // Check if words match (both text and occurrence)
+    // Check if current words match
     const beforeWordText = beforeWord?.text
     const afterWordText = afterWord?.text
     if (beforeWordText === afterWordText) {
       i++
       j++
     } else {
+      // Look ahead to see if current afterWord appears later in beforeWords
       const posAfterwordInRemainingBeforeWords = afterWord
         ? findWordInObjects(beforeWords, afterWord.text, i+1)
         : -1
       const isAfterwordInRemainingBeforeWords = posAfterwordInRemainingBeforeWords >= 0
 
+      // Look ahead to see if current beforeWord appears later in afterWords
       const posBeforeWordInRemainingAfterWords = beforeWord
         ? findWordInObjects(afterWords, beforeWord.text, j+1)
         : -1
@@ -538,49 +655,69 @@ function findWordChanges(beforeWords, afterWords) {
       let insertWord = false
 
       if (afterWord && (!isAfterwordInRemainingBeforeWords)) {
-        // Word added (this occurrence doesn't exist in before)
+        // afterWord is completely new - doesn't exist anywhere in remaining beforeWords
         insertWord = true
       } else if (beforeWord && !isBeforeWordInRemainingAfterWords) {
-        // Word deleted (this occurrence doesn't exist in after)
+        // beforeWord was completely removed - doesn't exist anywhere in remaining afterWords
         deleteWord = true
       } else {
-        // Word removed/inserted
+        // Both words exist somewhere in remaining arrays, need to determine order of operations
 
+        // Calculate net change in word counts from current positions forward
         const afterWordChange = getChangeInWordCounts(beforeWords, i, afterWords, j, afterWordText)
         const beforeWordChange = getChangeInWordCounts(beforeWords, i, afterWords, j, beforeWordText)
 
         if (beforeWord && (beforeWordChange < 0)) {
+          // beforeWord has fewer remaining occurrences in after - it was deleted
           deleteWord = true
         } else if (afterWord && (afterWordChange > 0)) {
+          // afterWord has more remaining occurrences in after - it was added
           insertWord = true
         } else if (beforeWord && (posBeforeWordInRemainingAfterWords > posAfterwordInRemainingBeforeWords)) {
+          // beforeWord appears further away than afterWord - delete beforeWord first
           deleteWord = true
         } else if (afterWord && (posBeforeWordInRemainingAfterWords <= posAfterwordInRemainingBeforeWords)) {
+          // afterWord appears closer or at same distance - insert afterWord first
           insertWord = true
         } else {
-          // TODO
-          console.log("OOps1")
+          // TODO fix - should not get into this state, so we just processing arbitrary word
+          console.warn("findWordChanges - unexpected situation, skipping word")
+          if (beforeWord) {
+            deleteWord = true
+          } else if (afterWord) {
+            insertWord = true
+          }
         }
       }
 
       if (insertWord) {
-        // Word added (this occurrence doesn't exist in before)
-        added.push({ word: afterWordText, position: j })
+        // Record the word insertion
+        const occurrences = countOccurrenceInObjects(afterWords, afterWordText, 0)
+        const startWord = findWordInObjects(beforeWords, afterWordText, i+1)
+        const occurrenceToChange = startWord >= 0 ? beforeWords[startWord].occurrence : -1
+        added.push({ word: afterWordText,  token: afterWord, occurrences, occurrenceToChange, beforeWordPosition: i, afterWordPosition: j })
         j++
+        order.push({action: "added", position: added.length-1})
       }
       if (deleteWord) {
-        // Word deleted (this occurrence doesn't exist in after)
-        deleted.push({ word: beforeWordText, position: i })
+        // Record the word deletion
+        const occurrences = countOccurrenceInObjects(afterWords, beforeWordText, 0)
+        const startWord = findWordInObjects(beforeWords, beforeWordText, i+1)
+        const occurrenceToChange = startWord >= 0 ? beforeWords[startWord].occurrence : -1
+        deleted.push({ word: beforeWordText, token: beforeWord, occurrences, occurrenceToChange, beforeWordPosition: i, afterWordPosition: j })
         i++
+        order.push({action: "deleted", position: deleted.length-1})
       }
       if (!insertWord && !deleteWord) {
-        // TODO
-        console.log("OOps2")
+        console.error("findWordChanges - unsupported situation, punt")
+        // Fallback: advance both pointers to avoid infinite loop
+        i++
+        j++
       }
     }
   }
 
-  return { added, deleted }
+  return { added, deleted, order }
 }
 
 /**
@@ -600,7 +737,7 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   console.log('changes: ', wordChanges)
   handleAddedWordsInNewText(newTargetTokens, targetWords, verseAlignments);
   handleDeletedWords(verseAlignments, newTargetTokens, targetWords);
-  targetVerseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse);
+  targetVerseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, newTargetVerse, wordChanges);
   if (targetVerseUsfm === null) {
     console.warn(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
     targetVerseUsfm = newTargetVerse;
