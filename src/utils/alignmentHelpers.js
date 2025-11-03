@@ -366,6 +366,55 @@ function adjustTargetOccurrences(wordChanges, alignments) {
       }
     }
   }
+
+  const alignments_ = alignments?.alignments || [];
+
+  // get occurrence counts for each word
+  const occurrencesMap = {};
+  const afterWords = wordChanges?.afterWords || [];
+  if (afterWords.length) { // if we have word list, count those words
+    for (const token of afterWords) {
+      const word = token.word || token.text
+      if (word) {
+        const currentCount = occurrencesMap[word] || 0;
+        occurrencesMap[word] = currentCount + 1
+      }
+    }
+  }
+
+  const alignedTargetWords = {}
+
+  // Iterate through all alignments and remove invalid target occurrences or duplicated occurrences
+  for (let j = 0; j < alignments_.length; j++) {
+    const alignment = alignments_[j]
+
+    // Check each target word in the alignment
+    for (let i = 0; i < alignment.targetNgram.length; i++) {
+      const targetNgram = alignment.targetNgram[i];
+      const occurrence = targetNgram.occurrence
+      const text = targetNgram.text
+      const key = `${text}_${occurrence}`
+      const wordOccurrences = occurrencesMap[text];
+      let removeTargetAlignment = !(occurrence > 0) || occurrence > wordOccurrences
+
+      if (!removeTargetAlignment) {
+        if (alignedTargetWords[key]) { // if this target occurrence already exists
+          console.log('removing duplicate occurrence', alignment.targetNgram[i])
+          console.log('at location', alignedTargetWords[key])
+          removeTargetAlignment = true
+        }
+      } else {
+        console.log('removing invalid occurrence', alignment.targetNgram[i])
+      }
+
+      if (removeTargetAlignment) {
+        console.log('removing invalid', alignment.targetNgram[i])
+        delete alignment.targetNgram[i];
+      } else {
+        alignedTargetWords[key] = `${j}:${i}` // mark target occurrence as already used and where
+      }
+    }
+  }
 }
 
 /**
@@ -620,6 +669,7 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
  *              taking into account the order and multiple occurrences of words. The algorithm
  *              uses lookahead to determine whether a word mismatch represents an insertion,
  *              deletion, or replacement by examining remaining words in both arrays.
+ *   - afterWords - The array of words after changes. Each word object should have a 'text' property.
  */
 function findWordChanges(beforeWords, afterWords) {
   const added = []
@@ -717,7 +767,7 @@ function findWordChanges(beforeWords, afterWords) {
     }
   }
 
-  return { added, deleted, order }
+  return { added, deleted, order, afterWords }
 }
 
 /**
