@@ -29,6 +29,7 @@ describe('testing edit of aligned target text', () => {
   for (const testName of testNames) {
     const test_ = tests[testName]
     test(`${testName}`, () => {
+      console.log('test', testName)
       let {
         initialAlignedUsfm,
         initialEditText,
@@ -41,7 +42,10 @@ describe('testing edit of aligned target text', () => {
       expect(initialEditText).toEqual(expectedInitialEditText)
       expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
 
-      for (const step of steps) {
+      for (let i = 0; i < steps.length; i++) {
+        const step = steps[i]
+        console.log(`step ${i} of '${testName}'`)
+
         ////////////
         // Given
 
@@ -85,13 +89,14 @@ describe('testing alignment operations', () => {
 
     // create a describe block for each testament
     const {name: testamentName, path: testamentPath} = testament
-    console.log(testamentName)
+    console.log(`testamentName: ${testamentName}`)
 
     describe(`${testamentName} edit tests with original language validation`, () => {
       const tests = fs.readJsonSync(testamentPath)
       const testNames = Object.keys(tests)
       // console.log(tests)
       for (const testName of testNames) {
+        console.log(`test '${testamentName}':'${testName}'`)
         const test_ = tests[testName]
 
         test(`${testName}`, () => {
@@ -110,7 +115,9 @@ describe('testing alignment operations', () => {
           expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
           const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
 
-          for (const step of steps) {
+          for (let i = 0; i < steps.length; i++) {
+            const step = steps[i]
+            console.log(`step ${i} of '${testamentName}':'${testName}'`)
 
             ////////////
             // Given
@@ -143,6 +150,7 @@ describe('testing alignment operations', () => {
 
       // create a test for each item in json file
       for (const testName of testNames) {
+        console.log(`test '${testamentName}':'${testName}'`)
         const test_ = tests[testName]
 
         test(`${testName}`, () => {
@@ -155,7 +163,9 @@ describe('testing alignment operations', () => {
           let currentVerseObjects = usfmVerseToJson(initialAlignedUsfm); // set initial test conditions
           const originalLanguageVerseObjects = usfmVerseToJson(originalLanguageUsfm); // set initial test conditions
 
-          for (const step of steps) {
+          for (let i = 0; i < steps.length; i++) {
+            const step = steps[i]
+            console.log(`step ${i} of '${testamentName}':'${testName}'`)
 
             ////////////
             // Given

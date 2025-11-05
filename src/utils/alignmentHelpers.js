@@ -385,33 +385,37 @@ function adjustTargetOccurrences(wordChanges, alignments) {
   const alignedTargetWords = {}
 
   // Iterate through all alignments and remove invalid target occurrences or duplicated occurrences
-  for (let j = 0; j < alignments_.length; j++) {
-    const alignment = alignments_[j]
+  for (let alignmentIndex = 0; alignmentIndex < alignments_.length; alignmentIndex++) {
+    let alignment = alignments_[alignmentIndex]
 
     // Check each target word in the alignment
-    for (let i = 0; i < alignment.targetNgram.length; i++) {
-      const targetNgram = alignment.targetNgram[i];
+    for (let targetIndex = 0; targetIndex < alignment.targetNgram.length; targetIndex++) {
+      const targetNgram = alignment.targetNgram[targetIndex];
       const occurrence = targetNgram.occurrence
       const text = targetNgram.text
       const key = `${text}_${occurrence}`
       const wordOccurrences = occurrencesMap[text];
       let removeTargetAlignment = !(occurrence > 0) || occurrence > wordOccurrences
+      let reason = ''
 
       if (!removeTargetAlignment) {
         if (alignedTargetWords[key]) { // if this target occurrence already exists
-          console.log('removing duplicate occurrence', alignment.targetNgram[i])
-          console.log('at location', alignedTargetWords[key])
+          // console.log('removing duplicate occurrence', targetNgram)
+          // console.log('at location', alignedTargetWords[key])
           removeTargetAlignment = true
+          reason = 'duplicate'
         }
       } else {
-        console.log('removing invalid occurrence', alignment.targetNgram[i])
+        // console.log('removing invalid occurrence', targetNgram)
+        reason = `invalid occurrence`
       }
 
       if (removeTargetAlignment) {
-        console.log('removing invalid', alignment.targetNgram[i])
-        delete alignment.targetNgram[i];
+        // console.log(`removing ${reason}`, targetNgram)
+        alignment.targetNgram.splice(targetIndex, 1)
+        targetIndex--; // backup to account for removed item
       } else {
-        alignedTargetWords[key] = `${j}:${i}` // mark target occurrence as already used and where
+        alignedTargetWords[key] = `${alignmentIndex}:${targetIndex}` // mark target occurrence as already used and where
       }
     }
   }
