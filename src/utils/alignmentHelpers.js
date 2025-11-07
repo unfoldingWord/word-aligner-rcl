@@ -351,7 +351,8 @@ function adjustTargetOccurrences(wordChanges, alignments) {
       // Iterate through all alignments
       for (const alignment of alignments_) {
         // Check each target word in the alignment
-        for (const targetNgram of alignment.targetNgram) {
+        for (let i = 0; i < alignment.targetNgram.length; i++) {
+          const targetNgram = alignment.targetNgram[i]
           const occurrence = targetNgram.occurrence
           const text = targetNgram.text
 
@@ -359,10 +360,20 @@ function adjustTargetOccurrences(wordChanges, alignments) {
           if (text === actionItem.word) {
             // Update occurrence number if it's at or after the change point
             if (occurrence >= occurrenceToChange) {
-              targetNgram.occurrence = occurrence + change
+              // find the new occurrence token
+              const occurrenceToMatch = occurrence + change
+              const newToken = wordChanges.afterWords.find((token) => (token.text === text && token.occurrence === occurrenceToMatch))
+              if (newToken) {
+                alignment.targetNgram[i] = newToken
+              }
             }
           }
         }
+      }
+
+      const wordBank_ = alignments?.wordBank || [];
+      if (wordBank_?.length) {
+        ??? // TODO find wordBank iTem
       }
     }
   }
@@ -676,7 +687,7 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
  *   - afterWords - The array of words after changes. Each word object should have a 'text' property.
  */
 function findWordChanges(beforeWords, afterWords) {
-  const added = []
+  let added = []
   const deleted = []
   const order = []
 
@@ -767,6 +778,55 @@ function findWordChanges(beforeWords, afterWords) {
         // Fallback: advance both pointers to avoid infinite loop
         i++
         j++
+      }
+    }
+  }
+
+  for (let i = 0; i < order.length; i++) {
+    const item = order[i]
+    if (item.action === "added") {
+      const currentToken = added[item.position]
+      // find end of added words contiguous sequence
+      let endStreakPos = i;
+      let lastToken = currentToken
+      let nextToken, nextItem;
+      for (let j = i + 1; j < order.length; j++) {
+        nextItem = order[j]
+        if (item.action !== "added") {
+          break;
+        }
+        nextToken = added[nextItem.position]
+        if (nextToken.beforeWordPosition !== nextToken.beforeWordPosition) {
+          break;
+        }
+        lastToken = nextToken
+        endStreakPos = j
+      }
+
+      // now that we have the sequence of added words
+      const lastWord = lastToken.word || lastToken.text
+      const previousPos = currentToken.beforeWordPosition - 1
+      if (previousPos >= 0) {
+        const previousToken = beforeWords[previousPos]
+        const previousWord = previousToken.word || previousToken.text
+        if (lastWord === previousWord) {
+          console.log('swap words')
+          const newBeforeWordPosition = lastToken.beforeWordPosition - 1;
+          const newAdded = cloneDeep(added)
+          const endStreak = newAdded[endStreakPos]
+          newAdded.splice(endStreakPos, 1)
+          endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
+          endStreak.occurrenceToChange = endStreak.token.occurrence
+          newAdded.splice(i, 0, endStreak)
+          const newAfterWordToken = afterWords[newBeforeWordPosition]
+          let newAfterWordPosition = newAfterWordToken.index
+          for (const addedItem of newAdded) {
+            addedItem.beforeWordPosition = newBeforeWordPosition
+            addedItem.afterWordPosition = newAfterWordPosition++
+          }
+          added = newAdded;
+          i = endStreakPos // skip over the section changed
+        }
       }
     }
   }
