@@ -833,10 +833,13 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   let { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, null);
   const newTargetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   const wordChanges = findWordChanges(targetWords, newTargetTokens)
-  const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
-  console.log('initialtext:\n', targetVerseString)
-  console.log('newText:\n', newTargetVerse)
-  console.log('changes: ', wordChanges)
+
+  // DEBUG
+  // const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
+  // console.log('initialtext:\n', targetVerseString)
+  // console.log('newText:\n', newTargetVerse)
+  // console.log('changes: ', wordChanges)
+
   try {
     adjustTargetOccurrences(wordChanges, verseAlignments)
     targetVerseUsfm = addAlignmentsToVerseUSFM(newTargetTokens, verseAlignments, newTargetVerse);
