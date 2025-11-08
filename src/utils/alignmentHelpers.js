@@ -601,6 +601,34 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
 }
 
 /**
+ * Swaps and modifies words occurrences marked as added.
+ *
+ * @param {Object} lastToken - The last token being processed, containing positional information.
+ * @param {Array} added - The current list of words to be modified.
+ * @param {number} endStreakPos - The ending position in the added list where changes occur.
+ * @param {Array} beforeWords - The list of words representing the initial state.
+ * @param {number} i - The index where the modified token should be inserted.
+ * @param {Array} afterWords - The list of words representing the final state.
+ * @return {Array} Returns the modified list of words after swapping and adjustments.
+ */
+function swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterWords) {
+  const newBeforeWordPosition = lastToken.beforeWordPosition - 1;
+  const newAdded = cloneDeep(added)
+  const endStreak = newAdded[endStreakPos]
+  newAdded.splice(endStreakPos, 1)
+  endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
+  endStreak.occurrenceToChange = endStreak.token.occurrence
+  newAdded.splice(i, 0, endStreak)
+  const newAfterWordToken = afterWords[newBeforeWordPosition]
+  let newAfterWordPosition = newAfterWordToken.index
+  for (const addedItem of newAdded) {
+    addedItem.beforeWordPosition = newBeforeWordPosition
+    addedItem.afterWordPosition = newAfterWordPosition++
+  }
+  return newAdded;
+}
+
+/**
  * Identifies words that were added or deleted between two arrays of words.
  *
  * This function performs a sequential comparison of two word arrays, tracking insertions and deletions
@@ -634,151 +662,158 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
  *   - afterWords - The array of words after changes. Each word object should have a 'text' property.
  */
 function findWordChanges(beforeWords, afterWords) {
-  let added = []
-  const deleted = []
-  const order = []
 
-  let beforeWordPosition = 0, afterWordPosition = 0
+  try {
+    let added = []
+    const deleted = []
+    const order = []
+    const _initialAfterWords = cloneDeep(afterWords)
 
-  while (beforeWordPosition < beforeWords.length || afterWordPosition < afterWords.length) {
-    const beforeWord = beforeWords[beforeWordPosition]
-    const afterWord = afterWords[afterWordPosition]
+    let beforeWordPosition = 0, afterWordPosition = 0
 
-    // Check if current words match
-    const beforeWordText = beforeWord?.text
-    const afterWordText = afterWord?.text
-    if (beforeWordText === afterWordText) {
-      beforeWordPosition++
-      afterWordPosition++
-    } else {
-      // Look ahead to see if current afterWord appears later in beforeWords
-      const posAfterwordInRemainingBeforeWords = afterWord
-        ? findWordInObjects(beforeWords, afterWord.text, beforeWordPosition+1)
-        : -1
-      const isAfterwordInRemainingBeforeWords = posAfterwordInRemainingBeforeWords >= 0
+    while (beforeWordPosition < beforeWords.length || afterWordPosition < afterWords.length) {
+      const beforeWord = beforeWords[beforeWordPosition]
+      const afterWord = afterWords[afterWordPosition]
 
-      // Look ahead to see if current beforeWord appears later in afterWords
-      const posBeforeWordInRemainingAfterWords = beforeWord
-        ? findWordInObjects(afterWords, beforeWord.text, afterWordPosition+1)
-        : -1
-      const isBeforeWordInRemainingAfterWords = posBeforeWordInRemainingAfterWords >= 0
-
-      let deleteWord = false
-      let insertWord = false
-
-      if (afterWord && (!isAfterwordInRemainingBeforeWords)) {
-        // afterWord is completely new - doesn't exist anywhere in remaining beforeWords
-        insertWord = true
-      } else if (beforeWord && !isBeforeWordInRemainingAfterWords) {
-        // beforeWord was completely removed - doesn't exist anywhere in remaining afterWords
-        deleteWord = true
+      // Check if current words match
+      const beforeWordText = beforeWord?.text
+      const afterWordText = afterWord?.text
+      if (beforeWordText === afterWordText) {
+        beforeWordPosition++
+        afterWordPosition++
       } else {
-        // Both words exist somewhere in remaining arrays, need to determine order of operations
+        // Look ahead to see if current afterWord appears later in beforeWords
+        const posAfterwordInRemainingBeforeWords = afterWord
+          ? findWordInObjects(beforeWords, afterWord.text, beforeWordPosition + 1)
+          : -1
+        const isAfterwordInRemainingBeforeWords = posAfterwordInRemainingBeforeWords >= 0
 
-        // Calculate net change in word counts from current positions forward
-        const afterWordChange = getChangeInWordCounts(beforeWords, beforeWordPosition, afterWords, afterWordPosition, afterWordText)
-        const beforeWordChange = getChangeInWordCounts(beforeWords, beforeWordPosition, afterWords, afterWordPosition, beforeWordText)
+        // Look ahead to see if current beforeWord appears later in afterWords
+        const posBeforeWordInRemainingAfterWords = beforeWord
+          ? findWordInObjects(afterWords, beforeWord.text, afterWordPosition + 1)
+          : -1
+        const isBeforeWordInRemainingAfterWords = posBeforeWordInRemainingAfterWords >= 0
 
-        if (beforeWord && (beforeWordChange < 0)) {
-          // beforeWord has fewer remaining occurrences in after - it was deleted
-          deleteWord = true
-        } else if (afterWord && (afterWordChange > 0)) {
-          // afterWord has more remaining occurrences in after - it was added
+        let deleteWord = false
+        let insertWord = false
+
+        if (afterWord && (!isAfterwordInRemainingBeforeWords)) {
+          // afterWord is completely new - doesn't exist anywhere in remaining beforeWords
           insertWord = true
-        } else if (beforeWord && (posBeforeWordInRemainingAfterWords > posAfterwordInRemainingBeforeWords)) {
-          // beforeWord appears further away than afterWord - delete beforeWord first
+        } else if (beforeWord && !isBeforeWordInRemainingAfterWords) {
+          // beforeWord was completely removed - doesn't exist anywhere in remaining afterWords
           deleteWord = true
-        } else if (afterWord && (posBeforeWordInRemainingAfterWords <= posAfterwordInRemainingBeforeWords)) {
-          // afterWord appears closer or at same distance - insert afterWord first
-          insertWord = true
         } else {
-          // TODO fix - should not get into this state, so we just processing arbitrary word
-          console.warn("findWordChanges - unexpected situation, skipping word")
-          if (beforeWord) {
+          // Both words exist somewhere in remaining arrays, need to determine order of operations
+
+          // Calculate net change in word counts from current positions forward
+          const afterWordChange = getChangeInWordCounts(beforeWords, beforeWordPosition, afterWords, afterWordPosition, afterWordText)
+          const beforeWordChange = getChangeInWordCounts(beforeWords, beforeWordPosition, afterWords, afterWordPosition, beforeWordText)
+
+          if (beforeWord && (beforeWordChange < 0)) {
+            // beforeWord has fewer remaining occurrences in after - it was deleted
             deleteWord = true
-          } else if (afterWord) {
+          } else if (afterWord && (afterWordChange > 0)) {
+            // afterWord has more remaining occurrences in after - it was added
             insertWord = true
+          } else if (beforeWord && (posBeforeWordInRemainingAfterWords > posAfterwordInRemainingBeforeWords)) {
+            // beforeWord appears further away than afterWord - delete beforeWord first
+            deleteWord = true
+          } else if (afterWord && (posBeforeWordInRemainingAfterWords <= posAfterwordInRemainingBeforeWords)) {
+            // afterWord appears closer or at same distance - insert afterWord first
+            insertWord = true
+          } else {
+            // TODO fix - should not get into this state, so we just processing arbitrary word
+            console.warn("findWordChanges - unexpected situation, skipping word")
+            if (beforeWord) {
+              deleteWord = true
+            } else if (afterWord) {
+              insertWord = true
+            }
           }
         }
-      }
 
-      if (insertWord) {
-        // Record the word insertion
-        const occurrences = countOccurrenceInObjects(afterWords, afterWordText, 0)
-        const startWord = findWordInObjects(beforeWords, afterWordText, beforeWordPosition+1)
-        const occurrenceToChange = startWord >= 0 ? beforeWords[startWord].occurrence : -1
-        added.push({ word: afterWordText,  token: afterWord, occurrences, occurrenceToChange, beforeWordPosition, afterWordPosition })
-        afterWordPosition++
-        order.push({action: "added", position: added.length-1})
-      }
-      if (deleteWord) {
-        // Record the word deletion
-        const occurrences = countOccurrenceInObjects(afterWords, beforeWordText, 0)
-        const startWord = findWordInObjects(beforeWords, beforeWordText, beforeWordPosition+1)
-        const occurrenceToChange = startWord >= 0 ? beforeWords[startWord].occurrence : -1
-        deleted.push({ word: beforeWordText, token: beforeWord, occurrences, occurrenceToChange, beforeWordPosition, afterWordPosition })
-        beforeWordPosition++
-        order.push({action: "deleted", position: deleted.length-1})
-      }
-      if (!insertWord && !deleteWord) {
-        console.error("findWordChanges - unsupported situation, punt")
-        // Fallback: advance both pointers to avoid infinite loop
-        beforeWordPosition++
-        afterWordPosition++
-      }
-    }
-  }
-
-  for (let i = 0; i < order.length; i++) {
-    const item = order[i]
-    if (item.action === "added") {
-      const currentToken = added[item.position]
-      // find end of added words contiguous sequence
-      let endStreakPos = i;
-      let lastToken = currentToken
-      let nextToken, nextItem;
-      for (let j = i + 1; j < order.length; j++) {
-        nextItem = order[j]
-        if (item.action !== "added") {
-          break;
+        if (insertWord) {
+          // Record the word insertion
+          const occurrences = countOccurrenceInObjects(afterWords, afterWordText, 0)
+          const startWord = findWordInObjects(beforeWords, afterWordText, beforeWordPosition + 1)
+          const occurrenceToChange = startWord >= 0 ? beforeWords[startWord].occurrence : -1
+          added.push({
+            word: afterWordText,
+            token: afterWord,
+            occurrences,
+            occurrenceToChange,
+            beforeWordPosition,
+            afterWordPosition
+          })
+          afterWordPosition++
+          order.push({action: "added", position: added.length - 1})
         }
-        nextToken = added[nextItem.position]
-        if (!nextToken || nextToken.beforeWordPosition !== nextToken.beforeWordPosition) {
-          break;
+        if (deleteWord) {
+          // Record the word deletion
+          const occurrences = countOccurrenceInObjects(afterWords, beforeWordText, 0)
+          const startWord = findWordInObjects(beforeWords, beforeWordText, beforeWordPosition + 1)
+          const occurrenceToChange = startWord >= 0 ? beforeWords[startWord].occurrence : -1
+          deleted.push({
+            word: beforeWordText,
+            token: beforeWord,
+            occurrences,
+            occurrenceToChange,
+            beforeWordPosition,
+            afterWordPosition
+          })
+          beforeWordPosition++
+          order.push({action: "deleted", position: deleted.length - 1})
         }
-        lastToken = nextToken
-        endStreakPos = j
-      }
-
-      // now that we have the sequence of added words
-      const lastWord = lastToken.word || lastToken.text
-      const previousPos = currentToken.beforeWordPosition - 1
-      if (previousPos >= 0) {
-        const previousToken = beforeWords[previousPos]
-        const previousWord = previousToken.word || previousToken.text
-        if (lastWord === previousWord) {
-          console.log('swap words')
-          const newBeforeWordPosition = lastToken.beforeWordPosition - 1;
-          const newAdded = cloneDeep(added)
-          const endStreak = newAdded[endStreakPos]
-          newAdded.splice(endStreakPos, 1)
-          endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
-          endStreak.occurrenceToChange = endStreak.token.occurrence
-          newAdded.splice(i, 0, endStreak)
-          const newAfterWordToken = afterWords[newBeforeWordPosition]
-          let newAfterWordPosition = newAfterWordToken.index
-          for (const addedItem of newAdded) {
-            addedItem.beforeWordPosition = newBeforeWordPosition
-            addedItem.afterWordPosition = newAfterWordPosition++
-          }
-          added = newAdded;
-          i = endStreakPos // skip over the section changed
+        if (!insertWord && !deleteWord) {
+          console.error("findWordChanges - unsupported situation, punt")
+          // Fallback: advance both pointers to avoid infinite loop
+          beforeWordPosition++
+          afterWordPosition++
         }
       }
     }
-  }
 
-  return { added, deleted, order, afterWords }
+    for (let i = 0; i < order.length; i++) {
+      const item = order[i]
+      if (item.action === "added") {
+        const currentToken = added[item.position]
+        // find end of added words contiguous sequence
+        let endStreakPos = i;
+        let lastToken = currentToken
+        let nextToken, nextItem;
+        for (let j = i + 1; j < order.length; j++) {
+          nextItem = order[j]
+          if (item.action !== "added") {
+            break;
+          }
+          nextToken = added[nextItem.position]
+          if (!nextToken || nextToken.beforeWordPosition !== nextToken.beforeWordPosition) {
+            break;
+          }
+          lastToken = nextToken
+          endStreakPos = j
+        }
+
+        // now that we have the sequence of added words
+        const lastWord = lastToken.word || lastToken.text
+        const previousPos = currentToken.beforeWordPosition - 1
+        if (previousPos >= 0) {
+          const previousToken = beforeWords[previousPos]
+          const previousWord = previousToken.word || previousToken.text
+          if (lastWord === previousWord) {
+            added = swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterWords);
+            i = endStreakPos // skip over the section changed
+          }
+        }
+      }
+    }
+
+    return {added, deleted, order, afterWords}
+  } catch (e) {
+    console.error(`findWordChanges - error thrown findind changes`, e)
+    return {added: [], deleted: [], order: [], afterWords: _initialAfterWords}
+  }
 }
 
 /**
@@ -796,11 +831,16 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   console.log('initialtext:\n', targetVerseString)
   console.log('newText:\n', newTargetVerse)
   console.log('changes: ', wordChanges)
-  adjustTargetOccurrences(wordChanges, verseAlignments)
-  targetVerseUsfm = addAlignmentsToVerseUSFM(newTargetTokens, verseAlignments, newTargetVerse);
-  if (targetVerseUsfm === null) {
-    console.warn(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
-    targetVerseUsfm = newTargetVerse;
+  try {
+    adjustTargetOccurrences(wordChanges, verseAlignments)
+    targetVerseUsfm = addAlignmentsToVerseUSFM(newTargetTokens, verseAlignments, newTargetVerse);
+    if (targetVerseUsfm === null) {
+      console.warn(`updateAlignmentsToTargetVerse() - alignment FAILED for ${newTargetVerse}, removing all alignments`);
+      targetVerseUsfm = newTargetVerse;
+    }
+  } catch (e) {
+    console.error(`updateAlignmentsToTargetVerse - error thrown finding changes, removing alignments`, e)
+    targetVerseUsfm = newTargetVerse
   }
   const alignedVerseObjects = usfmVerseToJson(targetVerseUsfm)
   return {
