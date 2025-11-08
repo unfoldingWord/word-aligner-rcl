@@ -375,31 +375,34 @@ function fixAlignmentOccurrences(wordChanges, alignments) {
 
     // Get the specific added or deleted word details
     actionItem = wordChanges[orderItem.action]?.[orderItem.position]
-    const occurrenceToChange = actionItem?.occurrenceToChange
-    const occurrences = actionItem?.occurrences
+    if (actionItem) { // sanity check
+      const occurrenceToChange = actionItem.occurrenceToChange
+      const occurrences = actionItem.occurrences
 
-    // Only process if we have valid occurrence data
-    if (occurrences && occurrenceToChange >= 0) {
-      const alignments_ = alignments || [];
+      // Only process if we have valid occurrence data
+      if (occurrences && occurrenceToChange >= 0) {
+        const alignments_ = alignments || [];
 
-      // Iterate through all alignments
-      for (const alignment of alignments_) {
-        // Check each target word in the alignment
-        for (let i = 0; i < alignment.targetNgram.length; i++) {
-          const targetNgram = alignment.targetNgram[i]
-          const occurrence = targetNgram.occurrence
-          const text = targetNgram.text
+        // Iterate through all alignments
+        for (const alignment of alignments_) {
+          // Check each target word in the alignment
+          const targetNgrams = alignment?.targetNgram || [];
+          for (let i = 0; i < targetNgrams.length; i++) {
+            const targetNgram = targetNgrams[i]
+            const occurrence = targetNgram.occurrence
+            const text = targetNgram.text
 
-          // If this target word matches the changed word
-          if (text === actionItem.word) {
-            // Update occurrence number if it's at or after the change point
-            if (occurrence >= occurrenceToChange) {
-              // find the new occurrence token
-              const occurrenceToMatch = occurrence + change
-              const findPos = findWordOccurrencePos(wordChanges.afterWords, text, occurrenceToMatch)
-              const newToken = findPos >= 0 ? wordChanges.afterWords[findPos] : null
-              if (newToken) {
-                alignment.targetNgram[i] = newToken
+            // If this target word matches the changed word
+            if (text === actionItem.word) {
+              // Update occurrence number if it's at or after the change point
+              if (occurrence >= occurrenceToChange) {
+                // find the new occurrence token
+                const occurrenceToMatch = occurrence + change
+                const findPos = findWordOccurrencePos(wordChanges.afterWords, text, occurrenceToMatch)
+                const newToken = findPos >= 0 ? wordChanges.afterWords[findPos] : null
+                if (newToken) {
+                  targetNgrams[i] = newToken
+                }
               }
             }
           }
@@ -426,8 +429,9 @@ function removeInvalidTargetAlignments(alignments_, occurrencesMap) {
     let alignment = alignments_[alignmentIndex]
 
     // Check each target word in the alignment
-    for (let targetIndex = 0; targetIndex < alignment.targetNgram.length; targetIndex++) {
-      const targetNgram = alignment.targetNgram[targetIndex];
+    const targetNgrams = alignment?.targetNgram || [];
+    for (let targetIndex = 0; targetIndex < targetNgrams.length; targetIndex++) {
+      const targetNgram = targetNgrams[targetIndex];
       const occurrence = targetNgram.occurrence
       const text = targetNgram.text
       const key = `${text}_${occurrence}`
@@ -449,7 +453,7 @@ function removeInvalidTargetAlignments(alignments_, occurrencesMap) {
 
       if (removeTargetAlignment) {
         // console.log(`removing ${reason}`, targetNgram)
-        alignment.targetNgram.splice(targetIndex, 1)
+        targetNgrams.splice(targetIndex, 1)
         targetIndex--; // backup to account for removed item
       } else {
         alignedTargetWords[key] = `${alignmentIndex}:${targetIndex}` // mark target occurrence as already used and where
@@ -615,15 +619,17 @@ function swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterW
   const newBeforeWordPosition = lastToken.beforeWordPosition - 1;
   const newAdded = cloneDeep(added)
   const endStreak = newAdded[endStreakPos]
-  newAdded.splice(endStreakPos, 1)
-  endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
-  endStreak.occurrenceToChange = endStreak.token.occurrence
-  newAdded.splice(i, 0, endStreak)
-  const newAfterWordToken = afterWords[newBeforeWordPosition]
-  let newAfterWordPosition = newAfterWordToken.index
-  for (const addedItem of newAdded) {
-    addedItem.beforeWordPosition = newBeforeWordPosition
-    addedItem.afterWordPosition = newAfterWordPosition++
+  if (endStreak) {
+    newAdded.splice(endStreakPos, 1)
+    endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
+    endStreak.occurrenceToChange = endStreak.token.occurrence
+    newAdded.splice(i, 0, endStreak)
+    const newAfterWordToken = afterWords[newBeforeWordPosition]
+    let newAfterWordPosition = newAfterWordToken.index
+    for (const addedItem of newAdded) {
+      addedItem.beforeWordPosition = newBeforeWordPosition
+      addedItem.afterWordPosition = newAfterWordPosition++
+    }
   }
   return newAdded;
 }
@@ -811,7 +817,7 @@ function findWordChanges(beforeWords, afterWords) {
 
     return {added, deleted, order, afterWords}
   } catch (e) {
-    console.error(`findWordChanges - error thrown findind changes`, e)
+    console.error(`findWordChanges - error thrown finding changes`, e)
     return {added: [], deleted: [], order: [], afterWords: _initialAfterWords}
   }
 }
