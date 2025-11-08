@@ -323,26 +323,15 @@ function findWordOccurrencePos(wordList, text, occurrenceToMatch) {
 }
 
 /**
- * Adjusts occurrence numbers in alignment target words based on word changes (insertions/deletions).
+ * Processes the given alignments and word changes to compute the occurrences of words.
  *
- * When words are added or deleted from the target text, the occurrence numbers of subsequent instances
- * of the same word need to be updated. For example, if the second occurrence of "the" is deleted,
- * what was previously the third occurrence becomes the second occurrence.
- *
- * @param {Object} wordChanges - Object containing details about word changes:
- *   - `order`: Array of {action, position} indicating sequence of changes
- *   - `added`: Array of {word, token, occurrences, occurrenceToChange} for added words
- *   - `deleted`: Array of {word, token, occurrences, occurrenceToChange} for deleted words
- *   - `afterWords`: Array of target text tokens after changes
- * @param {Object[]} alignments - Array of alignment objects, each containing:
- *   - `targetNgram`: Array of target word objects to be updated
- * @description Processes word changes sequentially to:
- *   1. Update occurrence numbers for target words after each deletion/addition
- *   2. Find and update tokens in afterWords that match changed words
- *   3. Handle invalid/duplicate target occurrences by removing them
- *   4. Track which target words have been aligned to avoid duplicates
+ * @param {Array} alignments - The alignments to be processed. Defaults to an empty array if not provided.
+ * @param {Object} wordChanges - The changes containing word information. May include an `afterWords` property which is an array of tokens (each token containing a `word` or `text` property).
+ * @return {Object} An object containing:
+ *                  - `alignments_`: The processed alignments.
+ *                  - `occurrencesMap`: A map where the keys are words and the values are their respective occurrence counts.
  */
-function adjustTargetOccurrences(wordChanges, alignments) {
+function getWordOccurrences(alignments, wordChanges) {
   const alignments_ = alignments || [];
 
   // get occurrence counts for each word
@@ -357,7 +346,19 @@ function adjustTargetOccurrences(wordChanges, alignments) {
       }
     }
   }
+  return {alignments_, occurrencesMap};
+}
 
+/**
+ * Adjusts alignment target occurrences based on word changes such as insertions and deletions.
+ *
+ * @param {Object} wordChanges - Represents the details of word changes, including the order of changes,
+ *                               details of added or deleted words, and a reference to all words post changes.
+ * @param {Array} alignments - An array of alignment objects where each object contains target n-grams
+ *                             that may potentially be adjusted based on word changes.
+ * @return {void} This method modifies the `alignments` parameter directly to reflect updated occurrences.
+ */
+function fixAlignmentOccurrences(wordChanges, alignments) {
   // Tweak alignment target occurrences based on insertions and deletions
   for (const orderItem of wordChanges.order) {
     const isDeleted = orderItem.action === 'deleted'
@@ -406,7 +407,18 @@ function adjustTargetOccurrences(wordChanges, alignments) {
       }
     }
   }
+}
 
+/**
+ * Removes invalid or duplicate target alignments from the provided alignments array based on the occurrence.
+ * Invalid alignments are those whose occurrences exceed the allowed number or are invalid.
+ * Duplicate alignments are also removed.
+ *
+ * @param {Array} alignments_ - Array of alignment objects, each containing a `targetNgram` property with target word details.
+ * @param {Object} occurrencesMap - An object mapping target words to their maximum allowed occurrences.
+ * @return {void} This function modifies the `alignments_` array in place and does not return a value.
+ */
+function removeInvalidTargetAlignments(alignments_, occurrencesMap) {
   const alignedTargetWords = {}
 
   // Iterate through all alignments and remove invalid target occurrences or duplicated occurrences
@@ -447,6 +459,32 @@ function adjustTargetOccurrences(wordChanges, alignments) {
       }
     }
   }
+}
+
+/**
+ * Adjusts occurrence numbers in alignment target words based on word changes (insertions/deletions).
+ *
+ * When words are added or deleted from the target text, the occurrence numbers of subsequent instances
+ * of the same word need to be updated. For example, if the second occurrence of "the" is deleted,
+ * what was previously the third occurrence becomes the second occurrence.
+ *
+ * @param {Object} wordChanges - Object containing details about word changes:
+ *   - `order`: Array of {action, position} indicating sequence of changes
+ *   - `added`: Array of {word, token, occurrences, occurrenceToChange} for added words
+ *   - `deleted`: Array of {word, token, occurrences, occurrenceToChange} for deleted words
+ *   - `afterWords`: Array of target text tokens after changes
+ * @param {Object[]} alignments - Array of alignment objects, each containing:
+ *   - `targetNgram`: Array of target word objects to be updated
+ * @description Processes word changes sequentially to:
+ *   1. Update occurrence numbers for target words after each deletion/addition
+ *   2. Find and update tokens in afterWords that match changed words
+ *   3. Handle invalid/duplicate target occurrences by removing them
+ *   4. Track which target words have been aligned to avoid duplicates
+ */
+function adjustTargetOccurrences(wordChanges, alignments) {
+  const {alignments_, occurrencesMap} = getWordOccurrences(alignments, wordChanges);
+  fixAlignmentOccurrences(wordChanges, alignments);
+  removeInvalidTargetAlignments(alignments_, occurrencesMap);
 }
 
 /**
