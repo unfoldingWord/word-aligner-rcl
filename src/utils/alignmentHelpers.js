@@ -835,10 +835,11 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   const wordChanges = findWordChanges(targetWords, newTargetTokens)
 
   // DEBUG
-  // const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
-  // console.log('initialtext:\n', targetVerseString)
-  // console.log('newText:\n', newTargetVerse)
-  // console.log('changes: ', wordChanges)
+  const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
+  console.log('initialtext:\n', targetVerseString)
+  console.log('newText:\n', newTargetVerse)
+  console.log('changes: ', wordChanges)
+  //
 
   try {
     adjustTargetOccurrences(wordChanges, verseAlignments)
