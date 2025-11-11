@@ -608,30 +608,30 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
  * Swaps and modifies words occurrences marked as added.
  *
  * @param {Object} lastToken - The last token being processed, containing positional information.
- * @param {Array} added - The current list of words to be modified.
+ * @param {Array} stack - The current list of words to be modified.
  * @param {number} endStreakPos - The ending position in the added list where changes occur.
  * @param {Array} beforeWords - The list of words representing the initial state.
  * @param {number} i - The index where the modified token should be inserted.
  * @param {Array} afterWords - The list of words representing the final state.
- * @return {Array} Returns the modified list of words after swapping and adjustments.
  */
-function swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterWords) {
+function swapChangedWords(lastToken, stack, endStreakPos, beforeWords, i, afterWords) {
   const newBeforeWordPosition = lastToken.beforeWordPosition - 1;
-  const newAdded = cloneDeep(added)
-  const endStreak = newAdded[endStreakPos]
+  const newStack = cloneDeep(stack)
+  const endStreak = newStack[endStreakPos]
   if (endStreak) {
-    newAdded.splice(endStreakPos, 1)
+    newStack.splice(endStreakPos, 1)
     endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
     endStreak.occurrenceToChange = endStreak.token.occurrence
-    newAdded.splice(i, 0, endStreak)
+    newStack.splice(i, 0, endStreak)
     const newAfterWordToken = afterWords[newBeforeWordPosition]
     let newAfterWordPosition = newAfterWordToken.index
-    for (const addedItem of newAdded) {
-      addedItem.beforeWordPosition = newBeforeWordPosition
-      addedItem.afterWordPosition = newAfterWordPosition++
+    for (let i = 0; i <newStack.length; i++) {
+      const item = newStack[i]
+      item.beforeWordPosition = newBeforeWordPosition
+      item.afterWordPosition = newAfterWordPosition++
+      stack[i] = item // replace original
     }
   }
-  return newAdded;
 }
 
 /**
@@ -780,35 +780,38 @@ function findWordChanges(beforeWords, afterWords) {
       }
     }
 
+    const operation = "added";
+    const stack = added;
     for (let i = 0; i < order.length; i++) {
       const item = order[i]
-      if (item.action === "added") {
-        const currentToken = added[item.position]
-        // find end of added words contiguous sequence
+      if (item.action === operation) {
+        const currentToken = stack[item.position]
+        // find end of stack words contiguous sequence
         let endStreakPos = i;
         let lastToken = currentToken
         let nextToken, nextItem;
         for (let j = i + 1; j < order.length; j++) {
           nextItem = order[j]
-          if (item.action !== "added") {
+          if (item.action !== operation) {
             break;
           }
-          nextToken = added[nextItem.position]
-          if (!nextToken || nextToken.beforeWordPosition !== nextToken.beforeWordPosition) {
+          nextToken = stack[nextItem.position]
+          if (!nextToken || currentToken.beforeWordPosition !== nextToken.beforeWordPosition) {
             break;
           }
           lastToken = nextToken
           endStreakPos = j
         }
 
-        // now that we have the sequence of added words
+        // now that we have the sequence of stack words
         const lastWord = lastToken.word || lastToken.text
+        // check if previous matching word
         const previousPos = currentToken.beforeWordPosition - 1
         if (previousPos >= 0) {
           const previousToken = beforeWords[previousPos]
           const previousWord = previousToken.word || previousToken.text
           if (lastWord === previousWord) {
-            added = swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterWords);
+            swapChangedWords(lastToken, stack, endStreakPos, beforeWords, i, afterWords);
             i = endStreakPos // skip over the section changed
           }
         }
