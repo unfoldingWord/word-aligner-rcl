@@ -3,6 +3,8 @@ import {describe, expect, test} from '@jest/globals'
 import {
   areAlgnmentsComplete,
   extractAlignmentsFromTargetVerse,
+  findWordChanges,
+  getWordListFromVerseObjects,
   parseUsfmToWordAlignerData,
   updateAlignmentsToTargetVerse,
   updateAlignmentsToTargetVerseWithOriginal,
@@ -14,6 +16,7 @@ import {convertVerseDataToUSFM, getUsfmForVerseContent} from "../utils/UsfmFileC
 import path from "path-extra";
 import fs from 'fs-extra';
 import cloneDeep from "lodash.clonedeep";
+import * as UsfmFileConversionHelpers from "../utils/UsfmFileConversionHelpers";
 
 jest.unmock('fs-extra');
 
@@ -44,7 +47,8 @@ describe('testing edit of aligned target text', () => {
 
       for (let i = 0; i < steps.length; i++) {
         const step = steps[i]
-        console.log(`step ${i} of '${testName}'`)
+        const stepName = `step ${i} of '${testName}'`;
+        console.log(stepName)
 
         ////////////
         // Given
@@ -59,6 +63,22 @@ describe('testing edit of aligned target text', () => {
 
         ////////////
         // Then
+
+        if (results.targetVerseText !== expectedFinalUsfm) { // if mismatch, pring debug data
+          console.warn(`TEST MISCOMPARE: ${stepName}:`)
+          const targetVerseUsfm = convertVerseDataToUSFM(currentVerseObjects);
+          const { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, null);
+          const newTargetTokens = getWordListFromVerseObjects(usfmVerseToJson(newEditText));
+          const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
+          const wordChanges = findWordChanges(targetWords, newTargetTokens)
+          console.log('initial text:\n', targetVerseString)
+          console.log('newText:\n', newEditText)
+          console.log('changes: ', wordChanges)
+          console.log('initial verse alignments:\n', verseAlignments)
+          const { targetWords: finalTargetWords, verseAlignments: finalVerseAlignments } = parseUsfmToWordAlignerData(results.targetVerseText, null);
+          console.log('final verse alignments:\n', finalVerseAlignments)
+          console.warn(`TEST MISCOMPARE: ${stepName}:`)
+        }
 
         expect(results.targetVerseText).toEqual(expectedFinalUsfm)
 

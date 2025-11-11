@@ -753,7 +753,7 @@ function fixStartPositionWhereRepeatedWord(order, operation, stack, beforeWords,
  *              deletion, or replacement by examining remaining words in both arrays.
  *   - afterWords - The array of words after changes. Each word object should have a 'text' property.
  */
-function findWordChanges(beforeWords, afterWords) {
+export function findWordChanges(beforeWords, afterWords) {
 
   try {
     let added = []
@@ -891,12 +891,12 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   const newTargetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   const wordChanges = findWordChanges(targetWords, newTargetTokens)
 
-  // DEBUG
-  const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
-  console.log('initialtext:\n', targetVerseString)
-  console.log('newText:\n', newTargetVerse)
-  console.log('changes: ', wordChanges)
-  //
+  // // DEBUG
+  // const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
+  // console.log('initialtext:\n', targetVerseString)
+  // console.log('newText:\n', newTargetVerse)
+  // console.log('changes: ', wordChanges)
+  // //
 
   try {
     adjustTargetOccurrences(wordChanges, verseAlignments)
