@@ -635,6 +635,54 @@ function swapChangedWords(lastToken, stack, endStreakPos, beforeWords, i, afterW
 }
 
 /**
+ * Adjusts the starting position within a contiguous sequence of operations where the last word matches the word before.
+ *
+ * @param {Array} order - An array of objects representing the sequence of operations where each object contains an action and a position.
+ * @param {string} operation - The specific operation to match with actions in the order array. (e.g. added or deleted)
+ * @param {Array} stack - An array representing the stack of tokens, each containing positional and word-related information.
+ * @param {Array} beforeWords - An array of tokens representing words processed before the current operation.
+ * @param {Array} afterWords - An array of tokens representing words processed after the current operation.
+ * @return {void} This function modifies the `stack` in-place without returning a value.
+ */
+function fixStartPositionWhereRepeatedWord(order, operation, stack, beforeWords, afterWords) {
+  for (let i = 0; i < order.length; i++) {
+    const item = order[i]
+    if (item.action === operation) {
+      const currentToken = stack[item.position]
+      // find end of stack words contiguous sequence
+      let endStreakPos = i;
+      let lastToken = currentToken
+      let nextToken, nextItem;
+      for (let j = i + 1; j < order.length; j++) {
+        nextItem = order[j]
+        if (item.action !== operation) {
+          break;
+        }
+        nextToken = stack[nextItem.position]
+        if (!nextToken || currentToken.beforeWordPosition !== nextToken.beforeWordPosition) {
+          break;
+        }
+        lastToken = nextToken
+        endStreakPos = j
+      }
+
+      // now that we have the sequence of stack words
+      const lastWord = lastToken.word || lastToken.text
+      // check if previous matching word
+      const previousPos = currentToken.beforeWordPosition - 1
+      if (previousPos >= 0) {
+        const previousToken = beforeWords[previousPos]
+        const previousWord = previousToken.word || previousToken.text
+        if (lastWord === previousWord) {
+          swapChangedWords(lastToken, stack, endStreakPos, beforeWords, i, afterWords);
+          i = endStreakPos // skip over the section changed
+        }
+      }
+    }
+  }
+}
+
+/**
  * Identifies words that were added or deleted between two arrays of words.
  *
  * This function performs a sequential comparison of two word arrays, tracking insertions and deletions
@@ -780,43 +828,11 @@ function findWordChanges(beforeWords, afterWords) {
       }
     }
 
-    const operation = "added";
-    const stack = added;
-    for (let i = 0; i < order.length; i++) {
-      const item = order[i]
-      if (item.action === operation) {
-        const currentToken = stack[item.position]
-        // find end of stack words contiguous sequence
-        let endStreakPos = i;
-        let lastToken = currentToken
-        let nextToken, nextItem;
-        for (let j = i + 1; j < order.length; j++) {
-          nextItem = order[j]
-          if (item.action !== operation) {
-            break;
-          }
-          nextToken = stack[nextItem.position]
-          if (!nextToken || currentToken.beforeWordPosition !== nextToken.beforeWordPosition) {
-            break;
-          }
-          lastToken = nextToken
-          endStreakPos = j
-        }
+    // fix sequence of added words
+    fixStartPositionWhereRepeatedWord(order, "added", added, beforeWords, afterWords);
 
-        // now that we have the sequence of stack words
-        const lastWord = lastToken.word || lastToken.text
-        // check if previous matching word
-        const previousPos = currentToken.beforeWordPosition - 1
-        if (previousPos >= 0) {
-          const previousToken = beforeWords[previousPos]
-          const previousWord = previousToken.word || previousToken.text
-          if (lastWord === previousWord) {
-            swapChangedWords(lastToken, stack, endStreakPos, beforeWords, i, afterWords);
-            i = endStreakPos // skip over the section changed
-          }
-        }
-      }
-    }
+    // fix sequence of deleted words
+    fixStartPositionWhereRepeatedWord(order, "deleted", deleted, beforeWords, afterWords);
 
     return {added, deleted, order, afterWords}
   } catch (e) {
