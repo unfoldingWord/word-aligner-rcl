@@ -608,30 +608,116 @@ function getChangeInWordCounts(beforeWords, beforeStartPos, afterWords, afterSta
  * Swaps and modifies words occurrences marked as added.
  *
  * @param {Object} lastToken - The last token being processed, containing positional information.
- * @param {Array} added - The current list of words to be modified.
+ * @param {Array} stack - The current list of words to be modified.
  * @param {number} endStreakPos - The ending position in the added list where changes occur.
  * @param {Array} beforeWords - The list of words representing the initial state.
- * @param {number} i - The index where the modified token should be inserted.
+ * @param {number} startStreakPos - The index where the modified token should be inserted.
  * @param {Array} afterWords - The list of words representing the final state.
- * @return {Array} Returns the modified list of words after swapping and adjustments.
  */
-function swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterWords) {
+function swapChangedAddedWords(lastToken, stack, endStreakPos, beforeWords, startStreakPos, afterWords) {
   const newBeforeWordPosition = lastToken.beforeWordPosition - 1;
-  const newAdded = cloneDeep(added)
-  const endStreak = newAdded[endStreakPos]
+  const newStack = cloneDeep(stack)
+  const endStreak = newStack[endStreakPos]
   if (endStreak) {
-    newAdded.splice(endStreakPos, 1)
+    newStack.splice(endStreakPos, 1)
     endStreak.token = beforeWords[newBeforeWordPosition] // use token from begining instance
     endStreak.occurrenceToChange = endStreak.token.occurrence
-    newAdded.splice(i, 0, endStreak)
-    const newAfterWordToken = afterWords[newBeforeWordPosition]
+    newStack.splice(startStreakPos, 0, endStreak)
+    const newAfterWordToken = beforeWords[newBeforeWordPosition]
     let newAfterWordPosition = newAfterWordToken.index
-    for (const addedItem of newAdded) {
-      addedItem.beforeWordPosition = newBeforeWordPosition
-      addedItem.afterWordPosition = newAfterWordPosition++
+    for (let i = startStreakPos; i <newStack.length; i++) {
+      const item = newStack[i]
+      item.beforeWordPosition = newBeforeWordPosition
+      item.afterWordPosition = newAfterWordPosition++
+      stack[i] = item // replace original
     }
   }
-  return newAdded;
+}
+
+/**
+ * Swaps and modifies words occurrences marked as deleted.
+ *
+ * @param {Object} lastToken - The last token being processed, containing positional information.
+ * @param {Array} stack - The current list of words to be modified.
+ * @param {number} endStreakPos - The ending position in the added list where changes occur.
+ * @param {Array} beforeWords - The list of words representing the initial state.
+ * @param {number} startStreakPos - The index where the modified token should be inserted.
+ * @param {Array} afterWords - The list of words representing the final state.
+ */
+function swapChangedDeletedWords(lastToken, stack, endStreakPos, beforeWords, startStreakPos, afterWords) {
+  const newAfterWordPosition = lastToken.afterWordPosition - 1;
+  const newStack = cloneDeep(stack)
+  const endStreak = newStack[endStreakPos]
+  if (endStreak) {
+    newStack.splice(endStreakPos, 1)
+    endStreak.token = afterWords[newAfterWordPosition] // use token from begining instance
+    endStreak.occurrenceToChange = endStreak.token.occurrence
+    newStack.splice(startStreakPos, 0, endStreak)
+    const newBeforeWordToken = afterWords[newAfterWordPosition]
+    let newBeforeWordPosition = newBeforeWordToken.index
+    for (let i = startStreakPos; i <newStack.length; i++) {
+      const item = newStack[i]
+      item.afterWordPosition = newAfterWordPosition
+      item.beforeWordPosition = newBeforeWordPosition++
+      stack[i] = item // replace original
+    }
+  }
+}
+
+/**
+ * Adjusts the starting position within a contiguous sequence of operations where the last word matches the word before.
+ *
+ * @param {Array} order - An array of objects representing the sequence of operations where each object contains an action and a position.
+ * @param {string} operation - The specific operation to match with actions in the order array. (e.g. added or deleted)
+ * @param {Array} stack - An array representing the stack of tokens, each containing positional and word-related information.
+ * @param {Array} beforeWords - An array of tokens representing words processed before the current operation.
+ * @param {Array} afterWords - An array of tokens representing words processed after the current operation.
+ * @return {void} This function modifies the `stack` in-place without returning a value.
+ */
+function fixStartPositionWhereRepeatedWord(order, operation, stack, beforeWords, afterWords) {
+  const ifAdding = operation === "added";
+  const fixedSequenceField = ifAdding ?  "beforeWordPosition" : "afterWordPosition"
+  const stackWords = ifAdding ?  beforeWords : afterWords
+
+  for (let i = 0; i < order.length; i++) {
+    const item = order[i]
+    if (item.action === operation) {
+      const currentToken = stack[item.position]
+      // find end of stack words contiguous sequence
+      let endStreakPos = i;
+      let lastToken = currentToken
+      let nextToken, nextItem;
+      for (let j = i + 1; j < order.length; j++) {
+        nextItem = order[j]
+        if (item.action !== operation) {
+          break;
+        }
+        nextToken = stack[nextItem.position]
+        if (!nextToken || currentToken[fixedSequenceField] !== nextToken[fixedSequenceField]) {
+          break;
+        }
+        lastToken = nextToken
+        endStreakPos = j
+      }
+
+      // now that we have the sequence of stack words
+      const lastWord = lastToken.word || lastToken.text
+      // check if previous matching word
+      const previousPos = currentToken[fixedSequenceField] - 1
+      if (previousPos >= 0) {
+        const previousToken = stackWords[previousPos]
+        const previousWord = previousToken.word || previousToken.text
+        if (lastWord === previousWord) {
+          if (ifAdding) {
+            swapChangedAddedWords(lastToken, stack, endStreakPos, beforeWords, i, afterWords);
+          } else {
+            swapChangedDeletedWords(lastToken, stack, endStreakPos, beforeWords, i, afterWords);
+          }
+          i = endStreakPos // skip over the section changed
+        }
+      }
+    }
+  }
 }
 
 /**
@@ -667,7 +753,7 @@ function swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterW
  *              deletion, or replacement by examining remaining words in both arrays.
  *   - afterWords - The array of words after changes. Each word object should have a 'text' property.
  */
-function findWordChanges(beforeWords, afterWords) {
+export function findWordChanges(beforeWords, afterWords) {
 
   try {
     let added = []
@@ -780,40 +866,11 @@ function findWordChanges(beforeWords, afterWords) {
       }
     }
 
-    for (let i = 0; i < order.length; i++) {
-      const item = order[i]
-      if (item.action === "added") {
-        const currentToken = added[item.position]
-        // find end of added words contiguous sequence
-        let endStreakPos = i;
-        let lastToken = currentToken
-        let nextToken, nextItem;
-        for (let j = i + 1; j < order.length; j++) {
-          nextItem = order[j]
-          if (item.action !== "added") {
-            break;
-          }
-          nextToken = added[nextItem.position]
-          if (!nextToken || nextToken.beforeWordPosition !== nextToken.beforeWordPosition) {
-            break;
-          }
-          lastToken = nextToken
-          endStreakPos = j
-        }
+    // fix sequence of added words
+    fixStartPositionWhereRepeatedWord(order, "added", added, beforeWords, afterWords);
 
-        // now that we have the sequence of added words
-        const lastWord = lastToken.word || lastToken.text
-        const previousPos = currentToken.beforeWordPosition - 1
-        if (previousPos >= 0) {
-          const previousToken = beforeWords[previousPos]
-          const previousWord = previousToken.word || previousToken.text
-          if (lastWord === previousWord) {
-            added = swapChangedWords(lastToken, added, endStreakPos, beforeWords, i, afterWords);
-            i = endStreakPos // skip over the section changed
-          }
-        }
-      }
-    }
+    // fix sequence of deleted words
+    fixStartPositionWhereRepeatedWord(order, "deleted", deleted, beforeWords, afterWords, "afterWordPosition");
 
     return {added, deleted, order, afterWords}
   } catch (e) {
@@ -834,11 +891,12 @@ export function updateAlignmentsToTargetVerse(initialTargetVerseObjects, newTarg
   const newTargetTokens = getWordListFromVerseObjects(usfmVerseToJson(newTargetVerse));
   const wordChanges = findWordChanges(targetWords, newTargetTokens)
 
-  // DEBUG
+  // // DEBUG
   // const targetVerseString = UsfmFileConversionHelpers.cleanAlignmentMarkersFromString(targetVerseUsfm);
   // console.log('initialtext:\n', targetVerseString)
   // console.log('newText:\n', newTargetVerse)
   // console.log('changes: ', wordChanges)
+  // //
 
   try {
     adjustTargetOccurrences(wordChanges, verseAlignments)
