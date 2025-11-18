@@ -47,6 +47,13 @@ const styles = {
     borderStyle: 'solid none none none',
     borderWidth: '2px',
     borderColor: 'var(--background-color-light)',
+
+    // keep controls visible while scrolling
+    position: 'fixed',
+    bottom: 0,
+    backgroundColor: '#ffffff',
+    zIndex: 10,
+    marginBottom: '35px',
   },
   button: {
     marginTop: 7,
