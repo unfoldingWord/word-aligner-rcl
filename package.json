@@ -30,7 +30,8 @@
   "peerDependencies": {
     "prop-types": "^15.x",
     "react": "^18.x",
-    "react-dom": "^18.x"
+    "react-dom": "^18.x",
+    "react-redux": "^7.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
@@ -49,7 +50,10 @@
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-redux": "9.2.0",
     "react-styleguidist": "^13.1.1",
+    "react-tooltip": "^5.30.0",
     "vite": "^5.2.11",
     "webpack": "^5.76.0"
   },
@@ -64,6 +68,7 @@
     "deep-equal": "^2.0.5",
     "file-loader": "^6.2.0",
     "lodash.clonedeep": "^4.5.0",
+    "memoize-one": "^5.1.1",
     "string-punctuation-tokenizer": "2.2.0",
     "usfm-js": "3.4.3",
     "word-aligner": "1.0.2",
