@@ -1,0 +1,7 @@
+.check-area {
+  min-height: 130px;
+  height: 100%;
+  display: flex;
+  font-size: 1.1em;
+  border-bottom: 1px solid var(--border-color);
+}

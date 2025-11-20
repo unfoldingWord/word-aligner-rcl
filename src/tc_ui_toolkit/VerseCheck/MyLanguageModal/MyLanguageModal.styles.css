@@ -1,0 +1,8 @@
+.verse-check-modal-title {
+  text-align: center;
+  color: var(--reverse-color);
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}

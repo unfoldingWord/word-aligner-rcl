@@ -1,0 +1,29 @@
+[
+  {
+    "type": "text",
+    "text": "We were glad to take him into the boat. As soon as "
+  },
+  {
+    "tag": "add",
+    "text": "we",
+    "endTag": "add*"
+  },
+  {
+    "type": "text",
+    "text": " did that, the boat reached the shore where "
+  },
+  {
+    "tag": "add",
+    "text": "we",
+    "endTag": "add*"
+  },
+  {
+    "type": "text",
+    "text": " were going!\n"
+  },
+  {
+    "tag": "p",
+    "nextChar": "\n",
+    "type": "paragraph"
+  }
+]

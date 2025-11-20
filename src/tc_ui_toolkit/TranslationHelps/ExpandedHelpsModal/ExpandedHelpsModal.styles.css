@@ -1,0 +1,32 @@
+.thelps-tool-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--reverse-color);
+  background-color: var(--accent-color-dark);
+  padding: 15px;
+  width: 100%;
+  position: relative;
+  cursor: move;
+}
+
+.tool-bar-title {
+  margin: auto;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.close-button {
+  margin-left: auto;
+}
+
+.dialog-content {
+  padding: 7px;
+}
+
+.dialog-actions {
+  height: 50px;
+  padding: 10px;
+  margin: 0px;
+  border-top: 1px solid var(--border-color);
+}

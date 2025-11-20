@@ -1,0 +1,7 @@
+.comment-area {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px 0 15px;
+  height: 100%;
+}
