@@ -48,7 +48,7 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     width: 'calc(100vw - 650px)',
-    height: '100%',
+    overflow: 'hidden',
   },
   scripturePaneWrapper: {
     minHeight: '250px',
@@ -1179,11 +1179,27 @@ const SuggestingWordAligner = ({
     });
   }
 
+  const containerStyle = { ...styles.container }
+  const alignmentGridStyle = { ...styles_ }
+  const alignmentContainerStyle = { ...styles.alignmentAreaContainer }
+  const wordListStyles = { ...styles_ }
+
+  // if maxHeight given for dialog, then tweak settings for children
+  if (styles_.maxHeight) {
+    containerStyle.maxHeight = styles_.maxHeight;
+    const heightAdjustment = 40 // in pixels
+    const maxHeight = parseInt(styles_.maxHeight, 10) - heightAdjustment;
+    const maxHeightPixels = `${maxHeight}px`
+    alignmentContainerStyle.maxHeight = maxHeightPixels;
+    wordListStyles.maxHeight = maxHeightPixels;
+    delete alignmentGridStyle.maxHeight;
+  }
+
   return (
-    <div style={styles.container}>
-      <div style={styles.wordListContainer}>
+    <div style={containerStyle}>
+      <div id='wordListContainier' style={styles.wordListContainer}>
         <WordList
-          styles={styles_}
+          styles={wordListStyles}
           words={_targetWords}
           verse={contextId?.reference?.verse}
           isOver={over}
@@ -1198,30 +1214,32 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
       </div>
-      <div style={styles.alignmentGridWrapper}>
-        <AlignmentGrid
-          styles={styles_}
-          sourceStyle={sourceStyle}
-          sourceDirection={sourceDirection}
-          targetDirection={targetDirection}
-          alignments={verseAlignments_}
-          translate={translate}
-          lexicons={lexiconCache}
-          reset={resetDrag}
-          toolsSettings={toolsSettings}
-          onDropTargetToken={handleAlignTargetToken}
-          onDropSourceToken={handleAlignSourceToken}
-          onCancelSuggestion={handleRemoveSuggestion}
-          onAcceptTokenSuggestion={handleAcceptTokenSuggestion}
-          contextId={contextId}
-          isHebrew={isHebrew}
-          showPopover={showPopover}
-          loadLexiconEntry={loadLexiconEntry}
-          targetLanguageFont={targetLanguageFont}
-          dragToken={dragToken}
-          dragItemType={dragItemType}
-          setDragToken={setDragToken}
-        />
+      <div id='alignmentAreaContainier' style={alignmentContainerStyle}>
+        <div style={styles.alignmentGridWrapper}>
+          <AlignmentGrid
+            styles={alignmentGridStyle}
+            sourceStyle={sourceStyle}
+            sourceDirection={sourceDirection}
+            targetDirection={targetDirection}
+            alignments={verseAlignments_}
+            translate={translate}
+            lexicons={lexiconCache}
+            reset={resetDrag}
+            toolsSettings={toolsSettings}
+            onDropTargetToken={handleAlignTargetToken}
+            onDropSourceToken={handleAlignSourceToken}
+            onCancelSuggestion={handleRemoveSuggestion}
+            onAcceptTokenSuggestion={handleAcceptTokenSuggestion}
+            contextId={contextId}
+            isHebrew={isHebrew}
+            showPopover={showPopover}
+            loadLexiconEntry={loadLexiconEntry}
+            targetLanguageFont={targetLanguageFont}
+            dragToken={dragToken}
+            dragItemType={dragItemType}
+            setDragToken={setDragToken}
+          />
+        </div>
         <MAPControls
           handleInfoClick={handleInfoClick}
           hasSuggestions={hasRenderedSuggestions}
@@ -1235,7 +1253,6 @@ const SuggestingWordAligner = ({
         />
       </div>
     </div>
-
   );
 };
 
