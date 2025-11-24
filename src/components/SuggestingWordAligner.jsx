@@ -64,6 +64,7 @@ const styles = {
     boxSizing: 'border-box',
     margin: '0 10px 6px 10px',
     boxShadow: '0 3px 10px var(--background-color)',
+    maxHeight: '88%',
   },
   wordStyle: {
     backgroundColor: 'lightblue',
