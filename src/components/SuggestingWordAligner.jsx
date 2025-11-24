@@ -49,6 +49,7 @@ const styles = {
     flexDirection: 'column',
     width: 'calc(100vw - 650px)',
     height: '100%',
+    overflow: 'hidden',
   },
   scripturePaneWrapper: {
     minHeight: '250px',
@@ -1198,30 +1199,32 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
       </div>
-      <div style={styles.alignmentGridWrapper}>
-        <AlignmentGrid
-          styles={styles_}
-          sourceStyle={sourceStyle}
-          sourceDirection={sourceDirection}
-          targetDirection={targetDirection}
-          alignments={verseAlignments_}
-          translate={translate}
-          lexicons={lexiconCache}
-          reset={resetDrag}
-          toolsSettings={toolsSettings}
-          onDropTargetToken={handleAlignTargetToken}
-          onDropSourceToken={handleAlignSourceToken}
-          onCancelSuggestion={handleRemoveSuggestion}
-          onAcceptTokenSuggestion={handleAcceptTokenSuggestion}
-          contextId={contextId}
-          isHebrew={isHebrew}
-          showPopover={showPopover}
-          loadLexiconEntry={loadLexiconEntry}
-          targetLanguageFont={targetLanguageFont}
-          dragToken={dragToken}
-          dragItemType={dragItemType}
-          setDragToken={setDragToken}
-        />
+      <div style={styles.alignmentAreaContainer}>
+        <div style={styles.alignmentGridWrapper}>
+          <AlignmentGrid
+            styles={styles_}
+            sourceStyle={sourceStyle}
+            sourceDirection={sourceDirection}
+            targetDirection={targetDirection}
+            alignments={verseAlignments_}
+            translate={translate}
+            lexicons={lexiconCache}
+            reset={resetDrag}
+            toolsSettings={toolsSettings}
+            onDropTargetToken={handleAlignTargetToken}
+            onDropSourceToken={handleAlignSourceToken}
+            onCancelSuggestion={handleRemoveSuggestion}
+            onAcceptTokenSuggestion={handleAcceptTokenSuggestion}
+            contextId={contextId}
+            isHebrew={isHebrew}
+            showPopover={showPopover}
+            loadLexiconEntry={loadLexiconEntry}
+            targetLanguageFont={targetLanguageFont}
+            dragToken={dragToken}
+            dragItemType={dragItemType}
+            setDragToken={setDragToken}
+          />
+        </div>
         <MAPControls
           handleInfoClick={handleInfoClick}
           hasSuggestions={hasRenderedSuggestions}
@@ -1235,7 +1238,6 @@ const SuggestingWordAligner = ({
         />
       </div>
     </div>
-
   );
 };
 
