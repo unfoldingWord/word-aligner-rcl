@@ -1187,7 +1187,8 @@ const SuggestingWordAligner = ({
   // if maxHeight given for dialog, then tweak settings for children
   if (styles_.maxHeight) {
     containerStyle.maxHeight = styles_.maxHeight;
-    const maxHeight = parseInt(styles_.maxHeight, 10) - 100;
+    const heightAdjustment = 40 // in pixels
+    const maxHeight = parseInt(styles_.maxHeight, 10) - heightAdjustment;
     const maxHeightPixels = `${maxHeight}px`
     alignmentContainerStyle.maxHeight = maxHeightPixels;
     wordListStyles.maxHeight = maxHeightPixels;
