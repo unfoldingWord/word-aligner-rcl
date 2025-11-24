@@ -48,7 +48,6 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     width: 'calc(100vw - 650px)',
-    height: '100%',
     overflow: 'hidden',
   },
   scripturePaneWrapper: {
@@ -64,7 +63,6 @@ const styles = {
     boxSizing: 'border-box',
     margin: '0 10px 6px 10px',
     boxShadow: '0 3px 10px var(--background-color)',
-    maxHeight: '88%',
   },
   wordStyle: {
     backgroundColor: 'lightblue',
@@ -1181,11 +1179,26 @@ const SuggestingWordAligner = ({
     });
   }
 
+  const containerStyle = { ...styles.container }
+  const alignmentGridStyle = { ...styles_ }
+  const alignmentContainerStyle = { ...styles.alignmentAreaContainer }
+  const wordListStyles = { ...styles_ }
+
+  // if maxHeight given for dialog, then tweak settings for children
+  if (styles_.maxHeight) {
+    containerStyle.maxHeight = styles_.maxHeight;
+    const maxHeight = parseInt(styles_.maxHeight, 10) - 100;
+    const maxHeightPixels = `${maxHeight}px`
+    alignmentContainerStyle.maxHeight = maxHeightPixels;
+    wordListStyles.maxHeight = maxHeightPixels;
+    delete alignmentGridStyle.maxHeight;
+  }
+
   return (
-    <div style={styles.container}>
-      <div style={styles.wordListContainer}>
+    <div style={containerStyle}>
+      <div id='wordListContainier' style={styles.wordListContainer}>
         <WordList
-          styles={styles_}
+          styles={wordListStyles}
           words={_targetWords}
           verse={contextId?.reference?.verse}
           isOver={over}
@@ -1200,10 +1213,10 @@ const SuggestingWordAligner = ({
           setDragToken={setDragToken}
         />
       </div>
-      <div style={styles.alignmentAreaContainer}>
+      <div id='alignmentAreaContainier' style={alignmentContainerStyle}>
         <div style={styles.alignmentGridWrapper}>
           <AlignmentGrid
-            styles={styles_}
+            styles={alignmentGridStyle}
             sourceStyle={sourceStyle}
             sourceDirection={sourceDirection}
             targetDirection={targetDirection}
