@@ -632,6 +632,7 @@ WordAligner.propTypes = {
   sourceFontSizePercent: PropTypes.number,
   styles: PropTypes.object,
   targetLanguageFont: PropTypes.string,
+  targetLanguage: PropTypes.object,
   targetFontSizePercent: PropTypes.number,
   translate: PropTypes.func.isRequired,
   verseAlignments: PropTypes.array.isRequired,

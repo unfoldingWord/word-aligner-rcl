@@ -1,14 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'deep-equal'
-import {OT_ORIG_LANG} from "../common/constants";
-import delay from "../utils/delay";
-import * as types from '../common/WordCardTypes';
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
+import { findNextCheck, findPreviousCheck } from '../helpers/twArticleHelpers'
+import { WordAligner } from '../index'
 
 const lexiconCache_ = {};
-const styles = {
+const localStyles = {
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -37,7 +35,26 @@ const styles = {
     marginBottom: '20px',
     maxHeight: '310px',
   },
-  alignmentGridWrapper: {
+  containerDiv:{
+    display: 'flex',
+    flexDirection: 'row',
+    width: '97vw',
+    height: '65vw',
+  },
+ centerDiv: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '85%',
+    overflowX: 'auto',
+    marginLeft: '10px',
+  },
+  scripturePaneDiv: {
+    display: 'flex',
+    flexShrink: '0',
+    height: '250px',
+    paddingBottom: '20px',
+  },
+    alignmentGridWrapper: {
     display: 'flex',
     flexDirection: 'column',
     flex: '1 1 auto',
@@ -79,8 +96,12 @@ const keyMap = {
 };
 
 const WordAlignerWithNavigation = ({
+  bibles,
+  bookName,
   contextId,
   getLexiconData,
+  groupsData,
+  groupsIndex,
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
   onChange,
@@ -97,10 +118,13 @@ const WordAlignerWithNavigation = ({
   styles: styles_ = {},
   }) => {
 
+  const [currentContextId, setCurrentContextId] = useState(contextId);
+
+  const targetDirection = targetLanguage?.direction || 'ltr';
   const readyToDisplayChecker = true;
-  const styleProps = styles || {}
+  const styleProps = localStyles || {}
   const _checkerStyles = {
-    ...styles.containerDiv,
+    ...localStyles.containerDiv,
     ...styleProps,
   }
 
@@ -130,23 +154,22 @@ const WordAlignerWithNavigation = ({
    */
   const changeCurrentCheck_ = (newContext, noCheck = false) => {
     const newContextId = newContext?.contextId
-    console.log(`${name}-changeCurrentContextId`, newContextId)
 
-    const selectionsUnchanged = isEqual(currentSelections, tempSelections)
-    if (noCheck || selectionsUnchanged) {
-      if (newContextId) {
-        let check = findCheck(groupsData, newContextId, false)
-        updateContext(newContext)
-        if (check) {
-          setLocalCheckingData(null)
-          setTempCheckingData(null)
-          updateModeForSelections(check.selections, check.nothingToSelect)
-        }
-      }
-    } else {
-      console.log('Checker.changeCurrentContextId - unsaved changes')
+    if (newContextId) {
+      const {
+        reference: {
+          bookId,
+          chapter,
+          verse,
+        },
+        tool,
+        groupId,
+      } = newContextId;
+      const refStr = `${tool} ${groupId} ${bookId} ${chapter}:${verse}`;
+      console.info(`changeCurrentCheck_() - setting new contextId to: ${refStr}`);
+
+      setCurrentContextId((newContextId))
     }
-    changedCurrentCheck && changedCurrentCheck(newContext)
   }
 
   return (
@@ -156,7 +179,7 @@ const WordAlignerWithNavigation = ({
           bookName={bookName}
           changeCurrentContextId={changeCurrentCheck_}
           contextId={currentContextId}
-          direction={direction}
+          direction={targetDirection}
           groupsData={groupsData}
           groupsIndex={groupsIndex}
           targetLanguageFont={targetLanguageFont}
@@ -188,19 +211,19 @@ const WordAlignerWithNavigation = ({
           }
           <div>
             <WordAligner
-              styles={styles}
-              verseAlignments={verseAlignments}
-              targetWords={targetWords}
-              translate={translate}
-              contextId={contextId}
-              targetLanguageFont={targetLanguageFont}
-              sourceLanguage={sourceLanguage}
-              showPopover={showPopover}
+              contextId={newContextId}
+              getLexiconData={getLexiconData}
               lexicons={lexicons}
               loadLexiconEntry={loadLexiconEntry}
               onChange={onChange}
-              getLexiconData={getLexiconData}
               resetAlignments={resetAlignments}
+              showPopover={showPopover}
+              sourceLanguage={sourceLanguage}
+              styles={styles}
+              targetLanguageFont={targetLanguageFont}
+              targetWords={targetWords}
+              translate={translate}
+              verseAlignments={verseAlignments}
             />
           </div>
         </div>
@@ -214,8 +237,12 @@ const WordAlignerWithNavigation = ({
 };
 
 WordAlignerWithNavigation.propTypes = {
+  bibles: PropTypes.array.isRequired,
+  bookName: PropTypes.string.isRequired,
   contextId: PropTypes.object.isRequired,
   getLexiconData: PropTypes.func,
+  groupData: PropTypes.object,
+  groupsIndex: PropTypes.array,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
@@ -224,10 +251,11 @@ WordAlignerWithNavigation.propTypes = {
   sourceLanguageFont: PropTypes.string,
   sourceFontSizePercent: PropTypes.number,
   styles: PropTypes.object,
-  targetLanguageFont: PropTypes.string,
   targetFontSizePercent: PropTypes.number,
+  targetLanguage: PropTypes.object,
+  targetLanguageFont: PropTypes.string,
+  targetWords: PropTypes.array.isRequired,
   translate: PropTypes.func.isRequired,
   verseAlignments: PropTypes.array.isRequired,
-  targetWords: PropTypes.array.isRequired,
 };
 export default WordAlignerWithNavigation;

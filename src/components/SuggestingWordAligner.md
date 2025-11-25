@@ -5,8 +5,8 @@ import {
   addAlignmentsToVerseUSFM,
   areAlgnmentsComplete,
   parseUsfmToWordAlignerData
-} from "../utils/alignmentHelpers";
-import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
+} from "../helpers/alignmentHelpers";
+import {convertVerseDataToUSFM} from "../helpers/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
 
 // var alignedVerseJson = require('../__tests__/fixtures/alignments/en_ult_tit_1_1.json');
