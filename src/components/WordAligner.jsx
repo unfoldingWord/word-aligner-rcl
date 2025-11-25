@@ -340,7 +340,7 @@ const WordAligner = ({
   translate,
   verseAlignments,
   targetWords,
-  style: styles_ = {},
+  styles: styles_ = {},
   }) => {
   const [dragToken, setDragToken_] = useState(null);
   const [dragItemType, setDragItemType] = useState(null);
@@ -630,6 +630,7 @@ WordAligner.propTypes = {
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,
   sourceFontSizePercent: PropTypes.number,
+  styles: PropTypes.object,
   targetLanguageFont: PropTypes.string,
   targetFontSizePercent: PropTypes.number,
   translate: PropTypes.func.isRequired,
