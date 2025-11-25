@@ -41,19 +41,13 @@ SecondaryButton.defaultProps = { disabled: false };
 
 const styles = {
   root: {
-    width: '100%',
     padding: '0 10px',
     textAlign: 'center',
     borderStyle: 'solid none none none',
     borderWidth: '2px',
     borderColor: 'var(--background-color-light)',
-
-    // keep controls visible while scrolling
-    position: 'fixed',
-    bottom: 0,
-    backgroundColor: '#ffffff',
-    zIndex: 10,
-    marginBottom: '35px',
+    marginLeft: '10px',
+    marginRight: '10px',
   },
   button: {
     marginTop: 7,
