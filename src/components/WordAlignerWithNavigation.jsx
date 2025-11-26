@@ -4,6 +4,7 @@ import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
 import { findNextCheck, findPreviousCheck } from '../helpers/twArticleHelpers'
 import { WordAligner } from '../index'
+import {resetAlignments} from "../helpers/alignmentHelpers";
 
 const lexiconCache_ = {};
 const localStyles = {
@@ -128,6 +129,8 @@ const WordAlignerWithNavigation = ({
     ...styleProps,
   }
 
+  const paneSettings = []
+
   /**
    * Navigates to the next check in the sequence
    */
@@ -198,7 +201,7 @@ const WordAlignerWithNavigation = ({
                 editTargetVerse={editTargetVerse}
                 expandedScripturePaneTitle={expandedScripturePaneTitle}
                 getAvailableScripturePaneSelections={null}
-                getLexiconData={getLexiconData_}
+                getLexiconData={getLexiconData}
                 makeSureBiblesLoadedForTool={null}
                 projectDetailsReducer={{ manifest }}
                 selections={currentSelections}
@@ -211,7 +214,7 @@ const WordAlignerWithNavigation = ({
           }
           <div>
             <WordAligner
-              contextId={newContextId}
+              contextId={currentContextId}
               getLexiconData={getLexiconData}
               lexicons={lexicons}
               loadLexiconEntry={loadLexiconEntry}
