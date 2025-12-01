@@ -16,8 +16,6 @@ import { getFontClassName } from '../../common/fontUtils';
 import { getBibleElement, getVerseDataFromBible } from '../helpers/verseHelpers';
 import ChapterView from './ChapterView';
 import BibleHeadingsRow from './ChapterView/BibleHeadingsRow';
-
-import './ExpandedScripturePaneModal.styles.css';
 import { GrClose } from 'react-icons/gr'
 
 function PaperComponent(props) {

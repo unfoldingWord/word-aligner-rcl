@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
-
-import './BibleHeadingsRow.styles.css';
 import { getBibleElement } from '../../../helpers/verseHelpers';
+
+const rowContainerStyles = {
+  display: 'flex',
+  height: '70px',
+  margin: 0,
+  marginRight: '12px',
+  backgroundColor: 'var(--reverse-color)',
+  minWidth: '500px',
+};
 
 const rowStyle = {
   display: 'flex',
@@ -67,7 +74,7 @@ class BibleHeadingsRow extends Component {
     }
 
     return (
-      <Row style={rowStyle}>
+      <Row style={{...rowContainerStyles, ...rowStyle}}>
         {bibleHeadings}
       </Row>
     );

@@ -8,9 +8,68 @@ import EditScreen from './EditScreen';
 import ReasonScreen from './ReasonScreen';
 import BaseDialog from './BaseDialog';
 
-import './VerseEditor.styles.css';
 import { LuUndo2 } from 'react-icons/lu'
 import { FaCheck } from 'react-icons/fa'
+
+const verseEditorStyles = {
+  editIcon: {
+    color: '#ffffff',
+    width: 25,
+    height: 25,
+    marginRight: 5,
+    marginBottom: 5,
+    verticalAlign: 'middle',
+  },
+  stepperBody: {
+    padding: 0,
+  },
+  screen: {
+    padding: '24px',
+  },
+  stepper: {
+    borderBottom: 'solid 1px #999',
+    height: '50px',
+  },
+  actions: {
+    padding: '0 24px',
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  doneIcon: {
+    color: '#ffffff',
+    width: 20,
+    height: 20,
+    marginRight: 5,
+    marginBottom: 5,
+    verticalAlign: 'middle',
+  },
+  reasonsScreen: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  reasonsScreenColumn: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  editScreen: {
+    width: '100%',
+    resize: 'none',
+    padding: '10px',
+    border: 'solid 1px var(--border-color)',
+    fontStyle: 'inherit',
+    fontVariant: 'inherit',
+    fontWeight: 'inherit',
+    fontStretch: 'inherit',
+    fontSize: 'inherit',
+    lineHeight: 'inherit',
+    fontFamily: 'inherit',
+    cursor: 'inherit',
+    outline: 'none',
+    backgroundColor: 'transparent',
+    WebkitAppearance: 'textfield',
+    color: 'rgba(0, 0, 0, 0.870588)',
+  },
+};
 
 const styles = {
   screen: {
@@ -131,7 +190,7 @@ class VerseEditor extends React.Component {
     const targetLanguageFontClassName = getFontClassName(targetLanguageFont);
     const title = (
       <span className={targetLanguageFontClassName}>
-        <EditIcon className='edit-icon' style={{ fontSize: '24px' }}/>
+        <EditIcon style={{ ...verseEditorStyles.editIcon, fontSize: '24px' }}/>
         {translate('edit_verse_title', { passage: verseTitle })}
       </span>
     );
@@ -152,7 +211,7 @@ class VerseEditor extends React.Component {
         onClose={this._handleCancel}
         actionsEnabled={false}
       >
-        <div className='screen' style={styles.screen}>
+        <div style={{ ...verseEditorStyles.screen, ...styles.screen }}>
           <div>
             { targetLanguage ? (
               <div style={headingStyle}>
@@ -181,7 +240,7 @@ class VerseEditor extends React.Component {
             />
           </div>
         </div>
-        <div className='actions'>
+        <div style={verseEditorStyles.actions}>
           <button className="btn-second"
             onClick={this._handleCancel}>
             {translate('buttons.cancel_button')}

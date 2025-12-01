@@ -6,9 +6,61 @@ import {
 } from '../helpers/utils'
 import Verse from '../Verse'
 import ThreeDotMenu from '../ThreeDotMenu'
-import './Pane.styles.css'
+
 // constants
 const PANECHAR = 9
+
+const paneStyles = {
+  container: {
+    minHeight: '130px',
+    flex: 1,
+    display: 'flex',
+    minWidth: '240px',
+    flexDirection: 'column',
+    borderRight: '1px solid var(--border-color)',
+  },
+  titleContainerLtr: {
+    flex: '0 0 35px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '5px 15px 5px 15px',
+  },
+  titleContainerRtl: {
+    flex: '0 0 35px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '5px 15px 5px 15px',
+  },
+  titleContainerContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+  },
+  titleText: {
+    fontWeight: 700,
+    fontSize: '1em',
+    marginBottom: '-5px',
+  },
+  subtitleText: {
+    color: 'var(--text-color-light)',
+    fontStyle: 'bold',
+    fontFamily: 'noto sans',
+  },
+  verseContentContainerLtr: {
+    overflowY: 'auto',
+    direction: 'ltr',
+    padding: '0 15px 10px',
+  },
+  verseContentContainerRtl: {
+    overflowY: 'auto',
+    direction: 'rtl',
+    padding: '0 15px 10px',
+  },
+  removeGlyphIcon: {
+    color: 'var(--text-color-light)',
+    cursor: 'pointer',
+  },
+};
 
 /**
  * create content for title container with selected overall justification
@@ -28,16 +80,24 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
   const width = 250; // Hack to remove react-container-dimensions
 
   return (
-    <div className="pane-title-container-content" style={styles}>
+    <div style={{ ...paneStyles.titleContainerContent, ...styles }}>
       <span
-        style={{ lineHeight: 1, padding: fontClass.includes('Awami') ? '0px 0px 6px' : '0px' }}
+        style={{
+          ...paneStyles.titleText,
+          lineHeight: 1,
+          padding: fontClass.includes('Awami') ? '0px 0px 6px' : '0px'
+        }}
         className={headingClassName}
         aria-label={fullTitle || headingText}>
         {headingText.length > 21 ? headingText.slice(0, 21) + '...' : headingText}
       </span>
       <span
+        style={{
+          ...paneStyles.subtitleText,
+          lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2,
+          textAlign: isLTR ? 'left' : 'right'
+        }}
         className={paneSubtitleClassName}
-        style={{ lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2, textAlign: isLTR ? 'left' : 'right' }}
         aria-label={fullTitle || localizedDescription}>
               {
                 localizedDescription.length > width / PANECHAR ?
@@ -166,8 +226,8 @@ const Pane = ({
   const isHebrew = (bibleId === 'uhb')
 
   return (
-    <div className="pane-container">
-      <div className={isLTR_ ? 'pane-title-container-rtl' : 'pane-title-container-ltr'}>
+    <div style={paneStyles.container}>
+      <div style={isLTR_ ? paneStyles.titleContainerRtl : paneStyles.titleContainerLtr}>
         <TitleContainer
           font={font}
           index={index}
@@ -190,8 +250,10 @@ const Pane = ({
           viewURL={viewURL}
         />
       </div>
-      <div className={isLTR_ ? 'verse-content-container-ltr' : 'verse-content-container-rtl'}
-           style={verseContainerStyle}>
+      <div style={{
+        ...(isLTR_ ? paneStyles.verseContentContainerLtr : paneStyles.verseContentContainerRtl),
+        ...verseContainerStyle
+      }}>
         <Verse
           verse={verse}
           bibleId={bibleId}

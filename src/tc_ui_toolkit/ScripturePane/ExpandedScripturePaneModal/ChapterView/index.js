@@ -5,14 +5,17 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import './ChapterView.styles.css';
-
 // components
 import { getReferenceStr, getTitleStr } from '../../helpers/utils';
 import VerseEditorDialog from '../../../VerseEditor';
 import { getBibleElement, getVerseDataFromBible } from '../../helpers/verseHelpers';
 import VerseRow from './VerseRow';
 import { UsfmFileConversionHelpers } from 'word-aligner-lib'
+
+const verseRowContainerStyles = {
+  // overflow-y: 'scroll',
+  // overflow-x: 'scroll'
+};
 
 class ChapterView extends Component {
   componentDidMount() {
@@ -133,7 +136,7 @@ class ChapterView extends Component {
 
     return (
       <div>
-        <div className="verse-row-container">
+        <div style={verseRowContainerStyles}>
           {verseRows}
         </div>
         <VerseEditorDialog

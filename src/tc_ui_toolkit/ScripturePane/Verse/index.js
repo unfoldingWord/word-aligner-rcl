@@ -4,7 +4,26 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import { getReferenceStr } from '../helpers/utils';
 
-import './Verse.styles.css';
+const verseStyles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  },
+  contentLtr: {
+    flex: 1,
+    direction: 'ltr',
+    padding: '0px 0px 15px',
+  },
+  contentRtl: {
+    flex: 1,
+    direction: 'rtl',
+    padding: '0px 0px 15px',
+  },
+  placeholderText: {
+    fontStyle: 'italic',
+  },
+};
 
 const styles = {
   edit_wrapper: { textAlign: 'right' },
@@ -54,7 +73,7 @@ class Verse extends Component {
 
     if (!verseElements) {
       verseSpan = (
-        <span className='placeholder-text'>
+        <span style={verseStyles.placeholderText}>
           {translate('pane.missing_verse_warning')}
         </span>
       );
@@ -72,11 +91,11 @@ class Verse extends Component {
       );
     }
 
-    const directionClassName = direction === 'ltr' ? 'verse-content-ltr' : 'verse-content-rtl';
+    const directionStyle = direction === 'ltr' ? verseStyles.contentLtr : verseStyles.contentRtl;
 
     return (
-      <div className="verse-container" style={verseContainerStyle}>
-        <div className={directionClassName}>
+      <div style={{ ...verseStyles.container, ...verseContainerStyle }}>
+        <div style={directionStyle}>
           {chapterVerse}
           <span>{verseSpan}</span>
         </div>

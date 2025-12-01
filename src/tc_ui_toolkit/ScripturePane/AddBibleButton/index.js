@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './AddBibleButton.styles.css';
+const addBibleButtonContainerStyles = {
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '130px',
+  minWidth: '240px',
+  flexDirection: 'column',
+  borderRight: '1px solid var(--border-color)'
+};
 
 const AddBibleSVG = ({ title }) => (
   <svg viewBox="-424 2130 45.573 45.724" width="100%" height="100%">
@@ -27,7 +36,7 @@ class AddBible extends React.Component {
   render() {
     let { showAddBibleModal, clickAddResource } = this.props;
     return (
-      <div className="add-bible-button-container">
+      <div style={addBibleButtonContainerStyles}>
         <div style={{
           height: '60px', width: '60px', cursor: 'pointer',
         }} title={clickAddResource} onClick={showAddBibleModal}>

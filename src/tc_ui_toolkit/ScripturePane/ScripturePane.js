@@ -8,11 +8,42 @@ import AddBibleButton from './AddBibleButton';
 import AddPaneModal from './AddPaneModal';
 import { getBibleElement } from './helpers/verseHelpers';
 
-import './ScripturePane.styles.css';
 import { BsArrowsFullscreen } from 'react-icons/bs'
 
 // constant
 const NAMESPACE = 'ScripturePane';
+
+const scripturePaneStyles = {
+  container: {
+    flex: 1,
+    height: '100%',
+    margin: '10px',
+    boxShadow: '0 3px 10px var(--background-color)',
+    borderRadius: '2px',
+    overflow: 'auto',
+  },
+  innerContainer: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  titleBar: {
+    flex: '0 0 40px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '10px',
+    color: 'var(--reverse-color)',
+    backgroundColor: 'var(--accent-color-dark)',
+    fontSize: '16px',
+    fontWeight: 'bold',
+  },
+  panesContainer: {
+    flex: 1,
+    display: 'flex',
+    overflowX: 'auto',
+  },
+};
 
 function ScripturePane({
   bibles,
@@ -222,9 +253,9 @@ function ScripturePane({
   });
 
   return (
-    <div className="scripture-pane-container">
-      <div className="inner-container">
-        <div className="title-bar">
+    <div style={scripturePaneStyles.container}>
+      <div style={scripturePaneStyles.innerContainer}>
+        <div style={scripturePaneStyles.titleBar}>
           <span>{translate('pane.title')}</span>
           <BsArrowsFullscreen
             onClick={openExpandedScripturePane}
@@ -232,7 +263,7 @@ function ScripturePane({
             title={translate('pane.expand_hover')}
           />
         </div>
-        <div className="panes-container">
+        <div style={scripturePaneStyles.panesContainer}>
           <Panes
             bibles={bibles}
             contextId={contextId}

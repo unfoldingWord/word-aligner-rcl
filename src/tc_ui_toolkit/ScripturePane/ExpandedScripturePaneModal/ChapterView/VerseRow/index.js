@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
-import './VerseRow.styles.css';
 // components
 import Verse from '../../../Verse';
 // helpers
@@ -13,6 +12,12 @@ import {
   verseArray,
 } from '../../../helpers/verseHelpers';
 import { getFontClassName } from '../../../../common/fontUtils';
+
+const rowContainerStyles = {
+  display: 'flex',
+  margin: 0,
+  color: 'var(--text-color-dark)',
+};
 
 class VerseRow extends Component {
   constructor(props) {
@@ -46,9 +51,7 @@ class VerseRow extends Component {
     let verseCells = [];
 
     let rowStyle = {
-      display: 'flex',
-      margin: '0',
-      color: 'var(--text-color-dark)',
+      ...rowContainerStyles,
       width: '100%',
     };
 

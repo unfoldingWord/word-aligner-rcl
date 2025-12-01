@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
-import { findNextCheck, findPreviousCheck } from '../helpers/twArticleHelpers'
+import { findNextCheck, findPreviousCheck } from '../tc_ui_toolkit/helpers/translationHelps/twArticleHelpers'
 import { WordAligner } from '../index'
 import {resetAlignments} from "../helpers/alignmentHelpers";
+import complexScriptFonts from '../common/complexScriptFonts'
 
 const lexiconCache_ = {};
 const localStyles = {
@@ -97,15 +98,19 @@ const keyMap = {
 };
 
 const WordAlignerWithNavigation = ({
+  addObjectPropertyToManifest,
   bibles,
   bookName,
   contextId,
+  editedTargetVerse,
   getLexiconData,
   groupsData,
   groupsIndex,
+  initialSettings,
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
   onChange,
+  setToolSettings,
   showPopover = null,
   sourceLanguage,
   sourceLanguageFont = '',
@@ -121,6 +126,19 @@ const WordAlignerWithNavigation = ({
 
   const [currentContextId, setCurrentContextId] = useState(contextId);
 
+  // Main settings state - includes pane configuration, tool settings, and manifest data
+  const [settings, _setSettings] = useState({
+    paneSettings: [],
+    paneKeySettings: {},
+    toolsSettings: {},
+    manifest: {}
+  })
+  const {
+    paneSettings,
+    paneKeySettings,
+    toolsSettings,
+    manifest
+  } = settings
   const targetDirection = targetLanguage?.direction || 'ltr';
   const readyToDisplayChecker = true;
   const styleProps = localStyles || {}
@@ -128,8 +146,59 @@ const WordAlignerWithNavigation = ({
     ...localStyles.containerDiv,
     ...styleProps,
   }
+  const expandedScripturePaneTitle = bookName;
 
-  const paneSettings = []
+  const currentSelections = [] // TODO not sure if selections are even used in word Aligner
+
+  /**
+   * Persists settings to storage after removing Bible data to reduce size
+   * Creates shallow copies to avoid modifying original objects
+   * @param {object} _settings - Settings object to save
+   * @private
+   */
+  function _saveSettings(_settings) {
+    if (saveSettings && _settings) {
+      const newSettings = { ..._settings }
+      delete newSettings.manifest
+      const _paneSettings = [ ...newSettings.paneSettings ]
+      for (let i = 0; i < _paneSettings.length; i++) {
+        const _paneSetting = {..._paneSettings[i]} // shallow copy
+        if (_paneSetting?.book) {
+          delete _paneSetting.book // remove all the book data before saving
+        }
+        _paneSettings[i] = _paneSetting
+      }
+      newSettings.paneSettings = _paneSettings
+
+      const _paneKeySettings = { ...newSettings.paneKeySettings }
+      const keys = Object.keys(_paneKeySettings)
+      for (const key of keys) {
+        const _paneSetting = {..._paneKeySettings[key]} // shallow copy
+        if (_paneSetting?.book) {
+          delete _paneSetting.book // remove all the book data before saving
+        }
+        _paneKeySettings[key] = _paneSetting
+      }
+      newSettings.paneKeySettings = _paneKeySettings
+
+      saveSettings(newSettings)
+    }
+  }
+
+  /**
+   * Updates settings state and optionally persists them
+   * @param {object} newSettings - New settings to merge
+   * @param {boolean} doSave - Whether to persist settings
+   */
+  function setSettings(newSettings, doSave = false) {
+    const _settings = {
+      ...settings,
+      ...newSettings
+    }
+
+    _setSettings(_settings)
+    doSave && _saveSettings(_settings)
+  }
 
   /**
    * Navigates to the next check in the sequence
@@ -198,14 +267,14 @@ const WordAlignerWithNavigation = ({
                 contextId={currentContextId}
                 currentPaneSettings={paneSettings}
                 editVerseRef={null}
-                editTargetVerse={editTargetVerse}
+                editTargetVerse={editedTargetVerse}
                 expandedScripturePaneTitle={expandedScripturePaneTitle}
                 getAvailableScripturePaneSelections={null}
                 getLexiconData={getLexiconData}
                 makeSureBiblesLoadedForTool={null}
                 projectDetailsReducer={{ manifest }}
                 selections={currentSelections}
-                setToolSettings={setToolSettingsScripture}
+                setToolSettings={setToolSettings}
                 showPopover={showPopover}
                 onExpandedScripturePaneShow={null}
                 translate={translate}
@@ -216,13 +285,13 @@ const WordAlignerWithNavigation = ({
             <WordAligner
               contextId={currentContextId}
               getLexiconData={getLexiconData}
-              lexicons={lexicons}
+              lexiconCache={lexiconCache}
               loadLexiconEntry={loadLexiconEntry}
               onChange={onChange}
               resetAlignments={resetAlignments}
               showPopover={showPopover}
               sourceLanguage={sourceLanguage}
-              styles={styles}
+              styles={{ }}
               targetLanguageFont={targetLanguageFont}
               targetWords={targetWords}
               translate={translate}
@@ -230,9 +299,6 @@ const WordAlignerWithNavigation = ({
             />
           </div>
         </div>
-        { popoverProps?.popoverVisibility &&
-          <PopoverContainer {...popoverProps} />
-        }
       </div>
       :
       'Waiting for Data'
@@ -240,15 +306,19 @@ const WordAlignerWithNavigation = ({
 };
 
 WordAlignerWithNavigation.propTypes = {
+  addObjectPropertyToManifest: PropTypes.func.isRequired,
   bibles: PropTypes.array.isRequired,
   bookName: PropTypes.string.isRequired,
   contextId: PropTypes.object.isRequired,
+  editedTargetVerse: PropTypes.func.isRequired,
   getLexiconData: PropTypes.func,
   groupData: PropTypes.object,
   groupsIndex: PropTypes.array,
+  initialSettings: PropTypes.object.isRequired,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
+  saveToolSettings: PropTypes.func.isRequired,
   showPopover: PropTypes.func.isRequired,
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,
@@ -261,4 +331,5 @@ WordAlignerWithNavigation.propTypes = {
   translate: PropTypes.func.isRequired,
   verseAlignments: PropTypes.array.isRequired,
 };
+
 export default WordAlignerWithNavigation;

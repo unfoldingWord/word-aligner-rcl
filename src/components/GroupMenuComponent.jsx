@@ -15,7 +15,7 @@ import {
   default as GroupedMenu,
 } from '../tc_ui_toolkit/GroupedMenu/FilteredMenu/';
 import { getReferenceStr } from '../tc_ui_toolkit/ScripturePane/helpers/utils'
-function GroupMenuComponent({
+export function GroupMenuComponent({
   translate,
   contextId,
   groupsData,

@@ -8,7 +8,7 @@ import { isObject } from 'util';
 //   tsvToObjects,
 // } from 'tsv-groupdata-parser';
 // helpers
-import * as resourcesHelpers from '../resourcesHelpers';
+// import * as resourcesHelpers from '../resourcesHelpers';
 // eslint-disable-next-line no-duplicate-imports
 // import {getResourceManifest} from '../resourcesHelpers';
 // constants
@@ -23,11 +23,11 @@ import * as tsvparser from 'uw-tsv-parser';
 import { cleanupReference } from 'bible-reference-range'
 import { verseHelpers } from 'word-aligner-lib'
 import { getWordOccurrencesForQuote } from './wordOccurrenceHelpers'
-import { hasEllipsis } from '../tsv-groupdata-parser/ellipsisHelpers'
-import { getVerseString } from '../tsv-groupdata-parser/verseHelpers'
-import { ELLIPSIS } from '../../common/constants'
+import { hasEllipsis } from '../../tsv-groupdata-parser/ellipsisHelpers'
+import { getVerseString } from '../../tsv-groupdata-parser/verseHelpers'
+import { ELLIPSIS } from '../../../common/constants'
 import { convertReference } from './tsvToGroupData'
-import { getAlignedText } from '../../tc_ui_toolkit/VerseCheck/helpers/checkAreaHelpers'
+import { getAlignedText } from '../../VerseCheck/helpers/checkAreaHelpers'
 import isEqual from 'deep-equal'
 // import { delay } from '../../utils/delay';
 

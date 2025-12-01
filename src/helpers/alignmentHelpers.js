@@ -14,7 +14,7 @@ import {
   updateAlignedWordsFromOriginalWordList
 } from "./migrateOriginalLanguageHelpers";
 import Lexer from "wordmap-lexer";
-import { getVerseSpanRange } from './verseObjects';
+import { getVerseSpanRange } from '../utils/verseObjects';
 
 /**
  * get all the alignments for verse from nested array (finds zaln objects)

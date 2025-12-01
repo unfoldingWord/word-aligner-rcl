@@ -6,8 +6,6 @@ import DialogContent from '@mui/material/DialogContent';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { FormControl } from 'react-bootstrap';
-
-import './AddPaneModal.styles.css';
 import { GrClose } from 'react-icons/gr'
 
 const styles = {
