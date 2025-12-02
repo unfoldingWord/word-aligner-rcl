@@ -10,7 +10,9 @@ import {
 import { NT_ORIG_LANG } from '../common/constants';
 import cloneDeep from 'lodash.clonedeep';
 import usfmjs from 'usfm-js';
+import { lookupTranslationForKey } from '../utils/translations'
 
+const translations = require('../locales/English-en_US.json')
 const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
 const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
 const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
@@ -44,8 +46,10 @@ const bibles = [
   }
 ]
 
-const translate = (key) => {
-  console.log(`translate(${key})`)
+const translate = (key, defaultValue) => {
+  // console.log(`translate(${key})`)
+  const translation = lookupTranslationForKey(translations, key)
+  return translation
 };
 
 const groupsData = groupDataHelpers.generateChapterGroupData(bookId, targetBible, toolName)
