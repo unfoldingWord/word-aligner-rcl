@@ -203,7 +203,7 @@ const App = () => {
           {"Reset Alignments"}
         </button>
       </div>
-      <div style={{ height: '650px', width: '800px' }}>
+      <div style={{ height: '800px', width: '800px', overflow: 'auto' }}>
         <WordAlignerWithNavigation
           addObjectPropertyToManifest={addObjectPropertyToManifest}
           bibles={bibles}

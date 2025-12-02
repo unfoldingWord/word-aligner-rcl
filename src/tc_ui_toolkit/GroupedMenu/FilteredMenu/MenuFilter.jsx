@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Chip from '@mui/material/Chip';
 import MenuFilterIcon from './MenuFilterIcon';
 
-const styles = () => ({
+const componentStyles = {
   root: {
     backgroundColor: '#19579E',
     zIndex: 10,
@@ -25,6 +25,7 @@ const styles = () => ({
     paddingTop: 4,
     paddingBottom: 4,
     minHeight: 'auto',
+    backgroundColor: '#19579E',
   },
   divider: { borderBottom: 'solid 1px #FFFFFF9e' },
   text: {
@@ -36,8 +37,14 @@ const styles = () => ({
     color: '#FFFFFF',
     fontWeight: 700,
     fontSize: 14,
+    paddingLeft: '5px',
   },
-  checkbox: { color: '#FFFFFF', fontSize: '22px' },
+  checkbox: {
+    color: '#FFFFFF',
+    fontSize: '22px',
+    minWidth: '0',
+    marginRight: '5px',
+  },
   chip: {
     color: '#19579E',
     margin: 5,
@@ -51,8 +58,16 @@ const styles = () => ({
     '&:hover': { color: '#19579E' },
   },
   hover: {},
-  listItemIconRoot: { minWidth: '0px' },
-});
+  header: {
+    backgroundColor: '#19579E',
+  },
+  listItemIconRoot: {
+    minWidth: '0px',
+    marginRight: '5px'
+  },
+  listSubHeader: { backgroundColor: '#19579E' }
+}
+const styles = () => componentStyles;
 
 /**
  * A list of filter controls
@@ -195,10 +210,12 @@ class MenuFilter extends React.Component {
     } = this.props;
     const { open } = this.state;
 
+    console.log('classes', classes)
+
     const filterCount = open ? 0 : selected.length;
 
     return (
-      <ListSubheader disableGutters className={classes.root}>
+      <ListSubheader disableGutters className={classes.root} sx={componentStyles.listSubHeader}>
         <ListItem button className={classes.header} onClick={this.handleOpen}>
           <ListItemText
             classes={{ primary: classes.text }}
@@ -217,7 +234,7 @@ class MenuFilter extends React.Component {
           </div>
         </Collapse>
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <Divider variant="middle" classes={{ middle: classes.divider }}/>
+          <Divider variant="middle" classes={{ middle: classes.divider }} sx={componentStyles.divider} />
           <List component="div" disablePadding>
             {filters.map((item, index) => (
               <ListItem
@@ -227,7 +244,7 @@ class MenuFilter extends React.Component {
                 disabled={!this.isEnabled(item)}
                 onClick={this.handleToggle(item)}
               >
-                <ListItemIcon classes={{ root: classes.listItemIconRoot }}>
+                <ListItemIcon classes={{ root: classes.listItemIconRoot }} sx={componentStyles.listItemIconRoot}>
                   {this.isChecked(item) ? (
                     <CheckBoxIcon className={classes.checkbox}/>
                   ) : (
@@ -240,6 +257,7 @@ class MenuFilter extends React.Component {
                 <ListItemText
                   classes={{ primary: classes.filterText }}
                   primary={item.label}
+                  sx={componentStyles.filterText}
                 />
               </ListItem>
             ))}

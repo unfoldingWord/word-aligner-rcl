@@ -1,5 +1,6 @@
 {
   "menu": {
+    "chapter": "Chapter",
     "no_results": "No results",
     "invalidated": "Invalidated",
     "bookmarks": "Bookmarks",
@@ -9,7 +10,10 @@
     "comments": "Comments",
     "menu": "Menu",
     "grouping": "Organize by Reference",
-    "chapter": "Chapter"
+    "completed": "Completed",
+    "incomplete": "Incomplete",
+    "menu_title": "Menu",
+    "unaligned": "Unaligned words"
   },
   "buttons": {
     "ok_button": "OK",

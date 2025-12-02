@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
 import { findNextCheck, findPreviousCheck } from '../tc_ui_toolkit/helpers/translationHelps/twArticleHelpers'
@@ -244,8 +245,12 @@ const WordAlignerWithNavigation = ({
     }
   }
 
+  // Create MUI theme
+  const theme = createTheme();
+
   return (
-    readyToDisplayChecker ?
+    <ThemeProvider theme={theme}>
+      {readyToDisplayChecker ?
       <div id='checker' style={_checkerStyles}>
         <GroupMenuComponent
           bookName={bookName}
@@ -301,7 +306,9 @@ const WordAlignerWithNavigation = ({
         </div>
       </div>
       :
-      'Waiting for Data'
+        'Waiting for Data'
+      }
+    </ThemeProvider>
   );
 };
 

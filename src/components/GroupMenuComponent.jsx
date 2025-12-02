@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BlockIcon from '@mui/icons-material/Block';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
-import CategoryIcon from '@mui/icons-material/Category';
+import UnalignedIcon from '@mui/icons-material/RemoveCircle';
 import EditIcon from '@mui/icons-material/Edit';
 import { generateItemId } from '../helpers/groupMenuHelpers';
 import CheckIcon from '../tc_ui_toolkit/icons/Check'
@@ -108,48 +108,42 @@ export function GroupMenuComponent({
   const filters = [
     {
       label: translate('menu.invalidated'),
-      key: 'invalidated',
-      icon: <InvalidatedIcon />,
+      key: 'invalid',
+      icon: <InvalidatedIcon/>,
     },
     {
       label: translate('menu.bookmarks'),
-      key: 'reminders',
-      icon: <BookmarkIcon />,
+      key: 'bookmarked',
+      icon: <BookmarkIcon/>,
     },
     {
-      label: translate('menu.selected'),
-      key: 'finished',
-      disables: ['not-finished'],
-      icon: <CheckIcon />,
+      label: translate('menu.completed'),
+      key: 'completed',
+      disables: ['incomplete'],
+      icon: <CheckIcon/>,
     },
     {
-      label: translate('no_selection_needed'),
-      key: 'nothingToSelect',
-      icon: <CheckIcon />,
-    },
-    {
-      label: translate('menu.no_selection'),
-      id: 'not-finished',
-      key: 'finished',
+      label: translate('menu.incomplete'),
+      id: 'incomplete',
+      key: 'completed',
       value: false,
-      disables: ['finished'],
-      icon: <BlockIcon />,
+      disables: ['completed'],
+      icon: <BlockIcon/>,
     },
     {
       label: translate('menu.verse_edit'),
       key: 'verseEdits',
-      icon: <EditIcon />,
+      icon: <EditIcon/>,
     },
     {
       label: translate('menu.comments'),
       key: 'comments',
-      icon: <ModeCommentIcon />,
+      icon: <ModeCommentIcon/>,
     },
     {
-      label: translate('menu.grouping'),
-      key: 'grouping',
-      icon: <CategoryIcon />,
-      nonFilter: true,
+      label: translate('menu.unaligned'),
+      key: 'unaligned',
+      icon: <UnalignedIcon/>,
     },
   ];
 
