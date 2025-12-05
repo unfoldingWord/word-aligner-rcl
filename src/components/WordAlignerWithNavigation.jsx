@@ -118,6 +118,8 @@ const WordAlignerWithNavigation = ({
   editedTargetVerse,
   gatewayBook,
   getLexiconData,
+  groupsData,
+  groupsIndex,
   initialSettings,
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
@@ -138,6 +140,7 @@ const WordAlignerWithNavigation = ({
 
   const [currentContextId, setCurrentContextId] = useState(contextId);
   const [alignmentData, setAlignmentData] = useState({ });
+  const [groupsMenuData, setGroupsMenuData] = useState({ });
 
   // Main settings state - includes pane configuration, tool settings, and manifest data
   const [settings, _setSettings] = useState({
@@ -157,7 +160,7 @@ const WordAlignerWithNavigation = ({
     verseAlignments
   } = alignmentData
   const targetDirection = targetLanguage?.direction || 'ltr';
-  const readyToDisplayChecker = bibles?.length && notEmptyObject(groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
+  const readyToDisplayChecker = bibles?.length && notEmptyObject(groupsMenuData.groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
   const styleProps = localStyles || {}
   const _checkerStyles = {
     ...localStyles.containerDiv,
@@ -203,7 +206,13 @@ const WordAlignerWithNavigation = ({
     if (!foundData) {
       setAlignmentData({})
     }
-  }, [readyToDisplayChecker, contextId, group])
+  }, [readyToDisplayChecker, contextId])
+
+  useEffect(() => { // detect change of source alignments
+    if (notEmptyObject(groupsData)) {
+      setGroupsMenuData({groupsIndex, groupsData})
+    }
+  }, [groupsIndex, groupsData])
 
   /**
    * Persists settings to storage after removing Bible data to reduce size
@@ -321,8 +330,8 @@ const WordAlignerWithNavigation = ({
           changeCurrentContextId={changeCurrentCheck_}
           contextId={currentContextId}
           direction={targetDirection}
-          groupsData={groupsData}
-          groupsIndex={groupsIndex}
+          groupsData={groupsMenuData.groupsData}
+          groupsIndex={groupsMenuData.groupsIndex}
           targetLanguageFont={targetLanguageFont}
           translate={translate}
         />
@@ -388,6 +397,8 @@ WordAlignerWithNavigation.propTypes = {
   editedTargetVerse: PropTypes.func.isRequired,
   gatewayBook: PropTypes.object,
   getLexiconData: PropTypes.func,
+  groupData: PropTypes.object,
+  groupsIndex: PropTypes.array,
   initialSettings: PropTypes.object.isRequired,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,

@@ -15,15 +15,24 @@ import {
   default as GroupedMenu,
 } from '../tc_ui_toolkit/GroupedMenu/FilteredMenu/';
 import { getReferenceStr } from '../tc_ui_toolkit/ScripturePane/helpers/utils'
+import {
+  BOOKMARKED_KEY,
+  COMMENT_KEY,
+  EDITED_KEY,
+  FINISHED_KEY,
+  INVALID_KEY,
+  UNALIGNED_KEY
+} from "../common/constants";
 export function GroupMenuComponent({
-  translate,
   contextId,
+  changeCurrentContextId,
   groupsData,
   groupsIndex,
-  targetLanguageFont,
-  changeCurrentContextId,
   direction,
-}) {
+  targetLanguageFont,
+  targetBook,
+  translate,
+                                   }) {
   const [orderHelpsByRef, setOrderHelpsByRef] = useState(false);
 
   /**
@@ -41,9 +50,14 @@ export function GroupMenuComponent({
    */
   function onProcessItem(item) {
     const { contextId } = item;
-    const { reference: { chapter, verse } } = contextId;
+    const { reference: { chapter, verse }, groupId } = contextId;
 
-    const itemState = toolApi.getVerseData(chapter, verse, contextId);
+    const groupItems = groupsData[groupId];
+    let itemState = groupItems?.find((item) => item.contextId?.reference?.verse == verse);
+    if (!itemState) {
+      console.warn(`onProcessItem() - group item not found for`, contextId)
+      itemState = {}
+    }
     const title = getReferenceStr(chapter, verse);
     return {
       ...item,
@@ -154,14 +168,14 @@ export function GroupMenuComponent({
 }
 
 GroupMenuComponent.propTypes = {
-  translate: PropTypes.func.isRequired,
-  groupsIndex: PropTypes.array.isRequired,
-  groupsData: PropTypes.object.isRequired,
-  contextId: PropTypes.object,
   bookName: PropTypes.string.isRequired,
-  targetLanguageFont: PropTypes.string,
   changeCurrentContextId: PropTypes.func.isRequired,
+  contextId: PropTypes.object,
   direction: PropTypes.oneOf(['ltr', 'rtl']),
+  groupsData: PropTypes.object.isRequired,
+  groupsIndex: PropTypes.array.isRequired,
+  targetLanguageFont: PropTypes.string,
+  translate: PropTypes.func.isRequired,
 };
 
 GroupMenuComponent.defaultProps = { direction: 'ltr' };

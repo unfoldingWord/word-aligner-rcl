@@ -23,6 +23,8 @@ console.log("starting WordAlignerWithNavigation demo")
 const bookName = 'Titus'
 const bookId = 'tit'
 const toolName = 'wordAligner'
+const gatewayBook = enGlBook;
+const sourceBook = ugntBook;
 
 // Bible data configuration for all scripture panes
 const bibles = [
@@ -33,17 +35,17 @@ const bibles = [
     owner: 'unfoldingWord'
   },
   {
-    book: enGlBook,
+    book: sourceBook,
+    languageId: 'el-x-koine',
+    bibleId: 'ugnt',
+    owner: 'unfoldingWord'
+  },
+  {
+    book: gatewayBook,
     languageId: 'en',
     bibleId: 'ult',
     owner: 'unfoldingWord'
   },
-  {
-    book: ugntBook,
-    languageId: 'el-x-koine',
-    bibleId: 'ugnt',
-    owner: 'unfoldingWord'
-  }
 ]
 
 const translate = (key, defaultValue) => {
@@ -52,10 +54,7 @@ const translate = (key, defaultValue) => {
   return translation
 };
 
-const gatewayBook = enGlBook;
-const sourceBook = ugntBook;
-
-const { groupsData, groupsData } = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
+const { groupsData, groupsIndex} = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
 
 const App = () => {
   const [toolSettings, _setToolSettings] = useState({}); // TODO: need to persist tools state, and read back state on startup
