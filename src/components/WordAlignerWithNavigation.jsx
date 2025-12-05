@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
 import { findNextCheck, findPreviousCheck } from '../tc_ui_toolkit/helpers/translationHelps/twArticleHelpers'
-import { WordAligner } from '../index'
+import { AlignmentHelpers, WordAligner } from '../index'
 import {resetAlignments} from "../helpers/alignmentHelpers";
 import complexScriptFonts from '../common/complexScriptFonts'
+import isEqual from 'deep-equal'
+import { getVerseUSFM } from '../helpers/groupDataHelpers'
 
 const lexiconCache_ = {};
 const localStyles = {
@@ -98,34 +100,44 @@ const keyMap = {
   EXPAND: os === 'mac' ? 'command+w' : 'ctrl+w',
 };
 
+/**
+ * Checks if the given object is not empty.
+ *
+ * @param {Object} dataObject - The object to check.
+ * @return {boolean} Returns true if the object is not empty, otherwise false.
+ */
+function notEmptyObject(dataObject) {
+  return dataObject && Object.keys(dataObject).length
+}
+
 const WordAlignerWithNavigation = ({
   addObjectPropertyToManifest,
   bibles,
   bookName,
   contextId,
   editedTargetVerse,
+  gatewayBook,
   getLexiconData,
-  groupsData,
-  groupsIndex,
   initialSettings,
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
   onChange,
   setToolSettings,
   showPopover = null,
+  sourceBook,
   sourceLanguage,
   sourceLanguageFont = '',
   sourceFontSizePercent = 100,
+  targetBook,
   targetLanguage= {},
   targetLanguageFont = '',
   targetFontSizePercent = 100,
   translate,
-  verseAlignments,
-  targetWords,
   styles: styles_ = {},
   }) => {
 
   const [currentContextId, setCurrentContextId] = useState(contextId);
+  const [alignmentData, setAlignmentData] = useState({ });
 
   // Main settings state - includes pane configuration, tool settings, and manifest data
   const [settings, _setSettings] = useState({
@@ -140,8 +152,12 @@ const WordAlignerWithNavigation = ({
     toolsSettings,
     manifest
   } = settings
+  const {
+    targetWords,
+    verseAlignments
+  } = alignmentData
   const targetDirection = targetLanguage?.direction || 'ltr';
-  const readyToDisplayChecker = true;
+  const readyToDisplayChecker = bibles?.length && notEmptyObject(groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
   const styleProps = localStyles || {}
   const _checkerStyles = {
     ...localStyles.containerDiv,
@@ -150,6 +166,44 @@ const WordAlignerWithNavigation = ({
   const expandedScripturePaneTitle = bookName;
 
   const currentSelections = [] // TODO not sure if selections are even used in word Aligner
+
+  function updateAlignmentData(_currentContextId) {
+    let targetVerse
+    let sourceVerse
+    const ref = _currentContextId?.reference
+    const targetVerseUSFM = getVerseUSFM(targetBook, ref.chapter, ref.verse)
+    const sourceVerseUSFM = getVerseUSFM(sourceBook, ref.chapter, ref.verse)
+    if (targetVerseUSFM && sourceVerseUSFM) {
+      const {
+        targetWords,
+        verseAlignments
+      } = AlignmentHelpers.parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM)
+
+      const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments)
+      console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`)
+      setAlignmentData({
+        targetWords,
+        verseAlignments
+      })
+      return true
+    }
+    return false
+  }
+
+  useEffect(() => { // detect change of source alignments
+    if (!isEqual(currentContextId, contextId)) {
+      setCurrentContextId(contextId)
+    }
+
+    let foundData = false
+    if (readyToDisplayChecker) {
+      foundData = updateAlignmentData(contextId)
+    }
+
+    if (!foundData) {
+      setAlignmentData({})
+    }
+  }, [readyToDisplayChecker, contextId, group])
 
   /**
    * Persists settings to storage after removing Bible data to reduce size
@@ -241,12 +295,22 @@ const WordAlignerWithNavigation = ({
       const refStr = `${tool} ${groupId} ${bookId} ${chapter}:${verse}`;
       console.info(`changeCurrentCheck_() - setting new contextId to: ${refStr}`);
 
-      setCurrentContextId((newContextId))
+      setCurrentContextId(newContextId)
+      updateAlignmentData(newContextId)
     }
   }
 
-  // Create MUI theme
-  const theme = createTheme();
+  function onReset() {
+    console.log("onReset() - reset Alignments")
+    const alignmentData = resetAlignments.resetAlignments(verseAlignments, targetWords)
+    setState({
+      verseAlignments: alignmentData.verseAlignments,
+      targetWords: alignmentData.targetWords,
+    })
+  }
+
+  const theme = createTheme(); // Create MUI theme
+  const haveVerseData = verseAlignments?.length && targetWords?.length
 
   return (
     <ThemeProvider theme={theme}>
@@ -287,21 +351,25 @@ const WordAlignerWithNavigation = ({
             </div>
           }
           <div>
-            <WordAligner
-              contextId={currentContextId}
-              getLexiconData={getLexiconData}
-              lexiconCache={lexiconCache}
-              loadLexiconEntry={loadLexiconEntry}
-              onChange={onChange}
-              resetAlignments={resetAlignments}
-              showPopover={showPopover}
-              sourceLanguage={sourceLanguage}
-              styles={{ }}
-              targetLanguageFont={targetLanguageFont}
-              targetWords={targetWords}
-              translate={translate}
-              verseAlignments={verseAlignments}
-            />
+            {haveVerseData ?
+              <WordAligner
+                contextId={currentContextId}
+                getLexiconData={getLexiconData}
+                lexiconCache={lexiconCache}
+                loadLexiconEntry={loadLexiconEntry}
+                onChange={onChange}
+                resetAlignments={resetAlignments}
+                showPopover={showPopover}
+                sourceLanguage={sourceLanguage}
+                styles={{}}
+                targetLanguageFont={targetLanguageFont}
+                targetWords={targetWords}
+                translate={translate}
+                verseAlignments={verseAlignments}
+              />
+            :
+              "no verse data"
+            }
           </div>
         </div>
       </div>
@@ -318,25 +386,24 @@ WordAlignerWithNavigation.propTypes = {
   bookName: PropTypes.string.isRequired,
   contextId: PropTypes.object.isRequired,
   editedTargetVerse: PropTypes.func.isRequired,
+  gatewayBook: PropTypes.object,
   getLexiconData: PropTypes.func,
-  groupData: PropTypes.object,
-  groupsIndex: PropTypes.array,
   initialSettings: PropTypes.object.isRequired,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
   onChange: PropTypes.func,
   saveToolSettings: PropTypes.func.isRequired,
   showPopover: PropTypes.func.isRequired,
+  sourceBook: PropTypes.object,
   sourceLanguage: PropTypes.string.isRequired,
   sourceLanguageFont: PropTypes.string,
   sourceFontSizePercent: PropTypes.number,
   styles: PropTypes.object,
+  targetBook: PropTypes.object,
   targetFontSizePercent: PropTypes.number,
   targetLanguage: PropTypes.object,
   targetLanguageFont: PropTypes.string,
-  targetWords: PropTypes.array.isRequired,
   translate: PropTypes.func.isRequired,
-  verseAlignments: PropTypes.array.isRequired,
 };
 
 export default WordAlignerWithNavigation;

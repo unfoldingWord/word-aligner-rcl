@@ -13,9 +13,9 @@ import usfmjs from 'usfm-js';
 import { lookupTranslationForKey } from '../utils/translations'
 
 const translations = require('../locales/English-en_US.json')
-const ugntBible = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
-const enGlBible = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
-const targetBible = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
+const ugntBook = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
+const enGlBook = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
+const targetBook = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 
 console.log("starting WordAlignerWithNavigation demo")
@@ -27,19 +27,19 @@ const toolName = 'wordAligner'
 // Bible data configuration for all scripture panes
 const bibles = [
   {
-    book: targetBible,
+    book: targetBook,
     languageId: 'targetLanguage',
     bibleId: 'targetBible',
     owner: 'unfoldingWord'
   },
   {
-    book: enGlBible,
+    book: enGlBook,
     languageId: 'en',
     bibleId: 'ult',
     owner: 'unfoldingWord'
   },
   {
-    book: ugntBible,
+    book: ugntBook,
     languageId: 'el-x-koine',
     bibleId: 'ugnt',
     owner: 'unfoldingWord'
@@ -52,24 +52,13 @@ const translate = (key, defaultValue) => {
   return translation
 };
 
-const groupsData = groupDataHelpers.generateChapterGroupData(bookId, targetBible, toolName)
-const groupsIndex = groupDataHelpers.generateChapterGroupIndex(translate, Object.keys(groupsData).length);
+const gatewayBook = enGlBook;
+const sourceBook = ugntBook;
 
-const targetVerseUSFM = usfmjs.toUSFM(targetBible, { forcedNewLines: true });
-const sourceVerseUSFM = usfmjs.toUSFM(ugntBible, { forcedNewLines: true });
-
-const {
-  targetWords: targetWords_,
-  verseAlignments: verseAlignments_
-} = AlignmentHelpers.parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM);
-
-const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords_, verseAlignments_);
-console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
+const { groupsData, groupsData } = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
 
 const App = () => {
-  const [state, setState] = useState({ targetWords: targetWords_, verseAlignments: verseAlignments_ });
-  const [toolSettings, _setToolSettings] = useState({ }); // TODO: need to persist tools state, and read back state on startup
-  const { targetWords, verseAlignments } = state;
+  const [toolSettings, _setToolSettings] = useState({}); // TODO: need to persist tools state, and read back state on startup
 
   const targetLanguageFont = '';
   const sourceLanguage = NT_ORIG_LANG;
@@ -105,15 +94,6 @@ const App = () => {
     console.log(verseUsfm);
     const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments);
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
-  }
-
-  function onReset() {
-    console.log("WordAligner() - reset Alignments")
-    const alignmentData = resetAlignments.resetAlignments(verseAlignments, targetWords)
-    setState({
-      verseAlignments: alignmentData.verseAlignments,
-      targetWords: alignmentData.targetWords,
-    })
   }
 
   /**
@@ -195,14 +175,6 @@ const App = () => {
 
   return (
     <>
-      <div>
-        <button
-          style={{ margin: '10px' }}
-          onClick={onReset}
-        >
-          {"Reset Alignments"}
-        </button>
-      </div>
       <div style={{ height: '800px', width: '800px', overflow: 'auto' }}>
         <WordAlignerWithNavigation
           addObjectPropertyToManifest={addObjectPropertyToManifest}
@@ -210,6 +182,7 @@ const App = () => {
           bookName={bookName}
           contextId={contextId}
           editedTargetVerse={editedTargetVerse}
+          gatewayBook={enGlBook}
           getLexiconData={getLexiconData_}
           groupsData={groupsData}
           groupsIndex={groupsIndex}
@@ -219,12 +192,12 @@ const App = () => {
           onChange={onChange}
           saveToolSettings={saveToolSettings}
           showPopover={showPopover}
+          sourceBook={sourceBook}
           sourceLanguage={sourceLanguage}
           styles={{ maxHeight: '450px', overflowY: 'auto' }}
           targetLanguageFont={targetLanguageFont}
-          targetWords={targetWords}
+          targetBook={targetBook}
           translate={translate}
-          verseAlignments={verseAlignments}
         />
       </div>
     </>

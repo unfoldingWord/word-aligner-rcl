@@ -37,72 +37,25 @@ export function GroupMenuComponent({
   /**
    * Preprocess a menu item
    * @param {object} item - an item in the groups data
-   * @param {boolean} sortingByRef - if true then we are ordering by reference
    * @returns {object} the updated item
    */
-  function onProcessItem(item, sortingByRef) {
-    const {
-      contextId: {
-        quote,
-        checkId,
-        occurrence,
-        reference: {
-          bookId, chapter, verse,
-        },
-        verseSpan,
-      },
-    } = item;
+  function onProcessItem(item) {
+    const { contextId } = item;
+    const { reference: { chapter, verse } } = contextId;
 
-    // build selection preview
-    let selectionText = '';
-
-    if (item.selections) {
-      selectionText = item.selections.map(s => s.text).join(' ');
-    }
-
-    // build passage title
-    const verseLabel = verseSpan || verse;
-    const refStr = getReferenceStr(chapter, verseLabel);
-    const groupName = sortingByRef ? item.groupName : refStr;
-    let title = groupName;
-
-    if (selectionText) {
-      title = `${groupName} ${selectionText}`;
-    }
-
+    const itemState = toolApi.getVerseData(chapter, verse, contextId);
+    const title = getReferenceStr(chapter, verse);
     return {
       ...item,
       title,
-      itemId: generateItemId(occurrence, bookId, chapter, verse, quote, checkId),
-      finished: (!!item.selections && !item.invalidated) || item.nothingToSelect,
-      nothingToSelect: !!item.nothingToSelect,
-      tooltip: selectionText,
+      direction: item.direction,
+      completed: itemState[FINISHED_KEY],
+      invalid: itemState[INVALID_KEY],
+      unaligned: itemState[UNALIGNED_KEY],
+      verseEdits: itemState[EDITED_KEY],
+      comments: itemState[COMMENT_KEY],
+      bookmarked: itemState[BOOKMARKED_KEY],
     };
-  }
-
-  function sortEntries(entries) {
-    return entries.sort((a, b) => {
-      const aName = (a.title || a.id).toLowerCase();
-      const bName = (b.title || b.id).toLowerCase();
-      return (aName < bName) ? -1 : (aName > bName) ? 1 : 0;
-    });
-  }
-
-  /**
-   * callback for when filters change
-   * @param {array} newFilters
-   */
-  function onFiltersChanged(newFilters) {
-    newFilters = newFilters || [];
-    let groupingOn = false;
-
-    for (let i = 0; i < newFilters.length; i++) {
-      if (newFilters[i].key === 'grouping') {
-        groupingOn = true;
-        break;
-      }
-    }
-    setOrderHelpsByRef(groupingOn);
   }
 
   const filters = [
@@ -177,41 +130,34 @@ export function GroupMenuComponent({
   const entries = generateMenuData(
     groupsIndex,
     groupsData,
-    'selections',
+    'completed',
     direction,
-    onProcessItem,
-    'nothingToSelect',
-    orderHelpsByRef
+    onProcessItem
   );
 
-  const activeEntry = generateMenuItem(
-    contextId,
-    direction,
-    onProcessItem,
-    orderHelpsByRef,
-  );
-  const sorted = orderHelpsByRef ? entries : sortEntries(entries);
-
-  return (
-    <GroupedMenu
-      entries={sorted}
-      filters={filters}
-      active={activeEntry}
-      statusIcons={statusIcons}
-      onItemClick={handleClick}
-      targetLanguageFont={targetLanguageFont}
-      title={translate('menu.menu')}
-      emptyNotice={translate('menu.no_results')}
-      onFiltersChanged={onFiltersChanged}
-    />
-  );
+  if (contextId) {
+    const activeEntry = generateMenuItem(contextId, direction, onProcessItem);
+    return (
+      <GroupedMenu
+        filters={filters}
+        entries={entries}
+        active={activeEntry}
+        statusIcons={statusIcons}
+        emptyNotice={translate('menu.no_results')}
+        title={translate('menu.menu_title')}
+        onItemClick={handleClick}
+      />
+    );
+  } else {
+    return null;
+  }
 }
 
 GroupMenuComponent.propTypes = {
   translate: PropTypes.func.isRequired,
   groupsIndex: PropTypes.array.isRequired,
   groupsData: PropTypes.object.isRequired,
-  contextId: PropTypes.object.isRequired,
+  contextId: PropTypes.object,
   bookName: PropTypes.string.isRequired,
   targetLanguageFont: PropTypes.string,
   changeCurrentContextId: PropTypes.func.isRequired,

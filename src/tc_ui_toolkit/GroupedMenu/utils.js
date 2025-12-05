@@ -234,7 +234,8 @@ function calculateProgress(data, progressKey, progressKey2) {
   let completed = 0;
 
   for (let i = 0, len = data.length; i < len; i ++) {
-    if (data[i][progressKey] || (progressKey2 && data[i][progressKey2])) {
+    const item = data[i]
+    if (item[progressKey] || (progressKey2 && item[progressKey2])) {
       completed++;
     }
   }

@@ -209,6 +209,19 @@ export const cleanAlignmentMarkersFromString = usfmData => {
 };
 
 /**
+ * converts verse from verse objects or string to USFM string
+ * @param verseData
+ * @return {string}
+ */
+export function convertVerseToUSFM(verseData) {
+  if (typeof verseData === 'string') { // if already text, then nothing to convert
+    return verseData;
+  }
+
+  return convertVerseDataToUSFM(verseData);
+}
+
+/**
  * converts verse from verse objects to USFM string
  * @param verseData
  * @return {string}

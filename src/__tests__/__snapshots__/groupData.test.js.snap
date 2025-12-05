@@ -20,18 +20,7 @@ exports[`testing groupData generation create groupData 1`] = `
         "reference": {
           "bookId": "1jn",
           "chapter": "1",
-          "verse": "2",
-        },
-        "tool": "wordAligner",
-      },
-    },
-    {
-      "contextId": {
-        "groupId": "chapter_1",
-        "reference": {
-          "bookId": "1jn",
-          "chapter": "1",
-          "verse": "3",
+          "verse": "2-3",
         },
         "tool": "wordAligner",
       },
@@ -640,7 +629,18 @@ exports[`testing groupData generation create groupData 1`] = `
         "reference": {
           "bookId": "1jn",
           "chapter": "3",
-          "verse": "19-20",
+          "verse": "19",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "20",
         },
         "tool": "wordAligner",
       },
@@ -1160,6 +1160,1294 @@ exports[`testing groupData generation create groupData 1`] = `
 `;
 
 exports[`testing groupData generation create groupIndex 1`] = `
+[
+  {
+    "id": "chapter_1",
+    "name": "Chapter 1",
+  },
+  {
+    "id": "chapter_2",
+    "name": "Chapter 2",
+  },
+  {
+    "id": "chapter_3",
+    "name": "Chapter 3",
+  },
+  {
+    "id": "chapter_4",
+    "name": "Chapter 4",
+  },
+  {
+    "id": "chapter_5",
+    "name": "Chapter 5",
+  },
+]
+`;
+
+exports[`testing groupData generation initialize groupData 1`] = `
+{
+  "chapter_1": [
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "1",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": false,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "2-3",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "4",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "5",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "6",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "7",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "8",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "9",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_1",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "1",
+          "verse": "10",
+        },
+        "tool": "wordAligner",
+      },
+    },
+  ],
+  "chapter_2": [
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "1",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "2",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "3",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": false,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "4",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "5",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "6",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "7",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "8",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "9",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "10",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "11",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "12",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "13",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "14",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "15",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "16",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "17",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "18",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "19",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "20",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "21",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "22",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "23",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "24",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "25",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "26",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "27",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "28",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_2",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "2",
+          "verse": "29",
+        },
+        "tool": "wordAligner",
+      },
+    },
+  ],
+  "chapter_3": [
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "1",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "2",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "3",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "4",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "5",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "6",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "7",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "8",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "9",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "10",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "11",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "12",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "13",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "14",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "15",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "16",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "17",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "18",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "19",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "20",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "21",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "22",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "23",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_3",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "3",
+          "verse": "24",
+        },
+        "tool": "wordAligner",
+      },
+    },
+  ],
+  "chapter_4": [
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "1",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "2",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "3",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "4",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "5",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "6",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "7",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "8",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "9",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "10",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "11",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "12",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "13",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "14",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "15",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "16",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "17",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "18",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "19",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": false,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "20",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_4",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "4",
+          "verse": "21",
+        },
+        "tool": "wordAligner",
+      },
+    },
+  ],
+  "chapter_5": [
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "1",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "2",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "3",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "4",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "5",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "6",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "7",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "8",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "9",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "10",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "11",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "12",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "13",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "14",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "15",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "16",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "17",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "18",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "19",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "20",
+        },
+        "tool": "wordAligner",
+      },
+    },
+    {
+      "completed": true,
+      "contextId": {
+        "groupId": "chapter_5",
+        "reference": {
+          "bookId": "1jn",
+          "chapter": "5",
+          "verse": "21",
+        },
+        "tool": "wordAligner",
+      },
+    },
+  ],
+}
+`;
+
+exports[`testing groupData generation initialize groupData 2`] = `
 [
   {
     "id": "chapter_1",

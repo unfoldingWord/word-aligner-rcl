@@ -27,6 +27,16 @@ describe('testing groupData generation', () => {
     const groupsIndex = groupDataHelpers.generateChapterGroupIndex(translate, Object.keys(groupsData).length);
     expect(groupsIndex).toMatchSnapshot()
   });
+
+  it('initialize groupData', () => {
+    const bookId = '1jn'
+    const targetBook = targetBible
+    const sourceBook = ugntBible
+    const toolName = 'wordAligner'
+    const { groupsData, groupsIndex } = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
+    expect(groupsData).toMatchSnapshot()
+    expect(groupsIndex).toMatchSnapshot()
+  });
 });
 
 //

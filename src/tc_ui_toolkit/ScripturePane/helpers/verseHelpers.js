@@ -448,7 +448,7 @@ export function getVerseData(bookData, chapter, verseList, createVerseMarker) {
         verseSpanData.push(createVerseMarker(label));
       }
 
-      if (typeof data === 'string') { // if data is stringtype , we need to wrap as a text verse object
+      if (typeof data === 'string') { // if data is string type, we need to wrap as a text verse object
         verseSpanData.push({
           type: 'text',
           text: data,
