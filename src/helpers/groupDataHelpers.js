@@ -5,6 +5,7 @@ import { removeUsfmMarkers } from './usfmHelpers'
 import { AlignmentHelpers } from '../index'
 import Lexer from 'wordmap-lexer'
 import { createVerseMarker, getVerseData as getVerseData_ } from '../tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
+import {COMPLETED_KEY, UNALIGNED_KEY} from "../common/constants";
 
 function createGroupItem(bookId, chapter, verse, toolName) {
   return {
@@ -85,7 +86,8 @@ export function initializeGroupData(groupsData, groupIndex, targetBook, sourceBo
           } = AlignmentHelpers.parseUsfmToWordAlignerData(targetVerseUSFM, sourceVerseUSFM)
           alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments);
         }
-        groupItem.completed = alignmentComplete
+        groupItem[COMPLETED_KEY] = alignmentComplete
+        groupItem[UNALIGNED_KEY] = !alignmentComplete
       }
     }
   } else {
