@@ -69,6 +69,40 @@ function getChapterId(chapter) {
   return 'chapter_' + chapter
 }
 
+/**
+ * Finds and returns a verse within the reference group data based on the provided chapter and verse.
+ *
+ * @param {Object} groupsData - The data structure containing grouped references.
+ * @param {Array} groupIndex - An array representing the index of groups to be iterated.
+ * @param {number} chapter - The chapter number to search for.
+ * @param {number} verse - The verse number to search for.
+ * @return {Object|null} The matching group item if found, otherwise null.
+ */
+export function findVerseInRefGroupData(groupsData, groupIndex, chapter, verse) {
+  if (groupsData && groupIndex) {
+    for (const catagory of groupIndex) {
+      const groupItems = groupsData[catagory.id]
+      for (const groupItem of groupItems) {
+        const ref = groupItem?.contextId?.reference
+        if ((ref?.chapter == chapter) && (ref?.verse == verse)) {
+          return groupItem;
+        }
+      }
+    }
+  }
+  return null
+}
+
+/**
+ * Initializes group data by processing groups and setting alignment completion
+ * status based on the comparison of USFM data from target and source books.
+ *
+ * @param {Object} groupsData - The data object containing group and corresponding item information.
+ * @param {Array} groupIndex - The array of categories or groups to be processed.
+ * @param {Object} targetBook - The target book data containing verse information in USFM format.
+ * @param {Object} sourceBook - The source book data containing verse information in USFM format.
+ * @return {void} This function does not return a value. Updates are made directly on group items within groupsData.
+ */
 export function initializeGroupData(groupsData, groupIndex, targetBook, sourceBook) {
   if (groupsData && groupIndex && targetBook && sourceBook) {
     for (const catagory of groupIndex) {

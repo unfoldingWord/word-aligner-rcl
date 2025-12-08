@@ -7,7 +7,7 @@ import {
   groupDataHelpers,
   UsfmFileConversionHelpers
 } from '../index'
-import { NT_ORIG_LANG } from '../common/constants';
+import { NT_ORIG_LANG, UNALIGNED_KEY } from '../common/constants';
 import cloneDeep from 'lodash.clonedeep';
 import usfmjs from 'usfm-js';
 import { lookupTranslationForKey } from '../utils/translations'
@@ -54,7 +54,11 @@ const translate = (key, defaultValue) => {
   return translation
 };
 
-const { groupsData, groupsIndex} = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
+const { groupsData, groupsIndex } = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
+const item = groupDataHelpers.findVerseInRefGroupData(groupsData, groupsIndex, 1, 4)
+if (item) {
+  item[UNALIGNED_KEY] = true
+}
 
 const App = () => {
   const [toolSettings, _setToolSettings] = useState({}); // TODO: need to persist tools state, and read back state on startup
