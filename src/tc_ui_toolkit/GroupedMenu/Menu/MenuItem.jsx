@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
@@ -11,18 +12,27 @@ import _ from 'lodash';
 import { getFontClassName } from '../../common/fontUtils';
 import { isLTR } from '../../ScripturePane/helpers/utils'
 
-/**
- * Utility to apply styles based on props
- */
-// const styledBy = (property, mapping) => props => mapping[props[property]];
-
 const styles = {
   root: {
+    padding: 0,
+  },
+  button: {
     'borderBottom': 'solid #333333 1px',
     'backgroundColor': '#747474',
-    '&$selected': {
+    'paddingTop': 6,
+    'paddingBottom': 6,
+    'paddingLeft': 10,
+    'paddingRight': 5,
+    'minHeight': 40,
+    '&.Mui-selected': {
       'backgroundColor': '#2196F3',
       '&:hover': { backgroundColor: '#2196F3' },
+    },
+    '&:hover': {
+      backgroundColor: '#747474',
+    },
+    '&.Mui-selected:hover': {
+      backgroundColor: '#2196F3',
     },
   },
   selected: {},
@@ -265,15 +275,24 @@ class MenuItem extends React.Component {
     return (
       <ListItem
         key={key}
-        disableGutters={false}
-        selected={selected}
-        onClick={this.handleClick}
+        disablePadding
         classes={{
           root: classes.root,
-          selected: classes.selected,
         }}
       >
-        {icon}
+        <ListItemButton
+          selected={selected}
+          onClick={this.handleClick}
+          className={classes.button}
+          sx={{
+            backgroundColor: selected ? '#2196F3 !important' : '#747474 !important',
+            borderBottom: 'solid #333333 1px !important',
+            '&:hover': {
+              backgroundColor: selected ? '#2196F3 !important' : '#747474 !important',
+            },
+          }}
+        >
+          {icon}
           <Tooltip
             ref={this.listItemTextRef}
             enterDelay={300}
@@ -300,8 +319,8 @@ class MenuItem extends React.Component {
               primary={<span className={fontClass} ref={this.textRef}>{title}</span>}
             />
           </Tooltip>
-      </ListItem>
-    );
+        </ListItemButton>
+      </ListItem>);
   }
 }
 

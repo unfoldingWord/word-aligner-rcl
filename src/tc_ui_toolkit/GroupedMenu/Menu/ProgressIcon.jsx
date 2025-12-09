@@ -14,14 +14,14 @@ const styles = () => ({
     position: 'absolute',
     left: 0,
     top: 0,
-    color: 'var(--completed-color)',
+    color: '#58c17a !important',
     zIndex: 2,
   },
   shadow: {
     position: 'absolute',
     left: 0,
     top: 0,
-    color: '#EEEEEE',
+    color: '#EEEEEE !important',
     zIndex: 1,
   },
 });
