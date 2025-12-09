@@ -59,6 +59,12 @@ const item = groupDataHelpers.findVerseInRefGroupData(groupsData, groupsIndex, 1
 if (item) {
   item[FINISHED_KEY] = false
 }
+for (let verse = 1; verse < 25; verse++) {
+  const item = groupDataHelpers.findVerseInRefGroupData(groupsData, groupsIndex, 2, verse)
+  if (item) {
+    item[FINISHED_KEY] = false
+  }
+}
 
 const App = () => {
   const [toolSettings, _setToolSettings] = useState({}); // TODO: need to persist tools state, and read back state on startup

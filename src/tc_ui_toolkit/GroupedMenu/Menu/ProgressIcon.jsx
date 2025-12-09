@@ -4,14 +4,25 @@ import { withStyles } from '@mui/styles';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const styles = () => ({
-  root: { position: 'relative' },
+  root: {
+    position: 'relative',
+    display: 'inline-flex',
+    width: 22,
+    height: 22,
+  },
   progress: {
-    postiion: 'absolute',
+    position: 'absolute',
+    left: 0,
+    top: 0,
     color: 'var(--completed-color)',
+    zIndex: 2,
   },
   shadow: {
     position: 'absolute',
+    left: 0,
+    top: 0,
     color: '#EEEEEE',
+    zIndex: 1,
   },
 });
 
@@ -23,16 +34,17 @@ const ProgressIcon = ({ classes, progress }) => (
   <div className={classes.root}>
     <CircularProgress
       className={classes.shadow}
+      color='#EEEEEE'
       size={22}
       thickness={6}
-      variant="static"
+      variant="determinate"
       value={100}
     />
     <CircularProgress
       className={classes.progress}
       size={22}
       thickness={7}
-      variant="static"
+      variant="determinate"
       value={progress}
     />
   </div>
