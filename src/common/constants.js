@@ -25,4 +25,3 @@ export const UNALIGNED_KEY = 'unaligned';
 export const EDITED_KEY = 'edited';
 export const BOOKMARKED_KEY = 'bookMarked';
 export const COMMENT_KEY = 'comment';
-export const COMPLETED_KEY = 'completed'
