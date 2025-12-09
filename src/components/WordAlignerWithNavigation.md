@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import {
   AlignmentHelpers,
   groupDataHelpers,
-  UsfmFileConversionHelpers
+  UsfmFileConversionHelpers,
+  verseHelpers,
 } from '../index'
 import { NT_ORIG_LANG, FINISHED_KEY } from '../common/constants';
 import cloneDeep from 'lodash.clonedeep';
@@ -54,7 +55,10 @@ const translate = (key, defaultValue) => {
   return translation
 };
 
-const { groupsData, groupsIndex } = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
+const {
+  groupsData,
+  groupsIndex
+} = groupDataHelpers.initializeGroupDataForScripture(bookId, targetBook, toolName, sourceBook, translate)
 const item = groupDataHelpers.findVerseInRefGroupData(groupsData, groupsIndex, 1, 4)
 if (item) {
   item[FINISHED_KEY] = false
@@ -66,8 +70,25 @@ for (let verse = 1; verse < 25; verse++) {
   }
 }
 
+const initialTooleSettings = {
+  paneSettings: bibles.map(bible => ({
+    bibleId: bible.bibleId,
+    font: null,
+    fontSize: 100,
+    languageId: bible.languageId,
+    owner: bible.owner,
+    actualLanguage: false,
+    isPreRelease: false,
+  })),
+  paneKeySettings: {},
+  toolsSettings: {},
+  manifest: {}
+}
+
+const biblesObject = verseHelpers.getBibleObject(bibles)
+
 const App = () => {
-  const [toolSettings, _setToolSettings] = useState({}); // TODO: need to persist tools state, and read back state on startup
+  const [toolSettings, _setToolSettings] = useState(initialTooleSettings); // TODO: need to persist tools state, and read back state on startup
 
   const targetLanguageFont = '';
   const sourceLanguage = NT_ORIG_LANG;
@@ -139,7 +160,10 @@ const App = () => {
     }
 
     moduleData[settingsPropertyName] = toolSettingsData
-    _setToolSettings(_toolSettings)
+    if (!isEqual(toolSettings, _toolSettings)) {
+      console.log(`new toolSettings`, _toolSettings)
+      _setToolSettings(_toolSettings)
+    }
   };
 
   /**
@@ -187,7 +211,7 @@ const App = () => {
       <div style={{ height: '800px', width: '800px', overflow: 'auto' }}>
         <WordAlignerWithNavigation
           addObjectPropertyToManifest={addObjectPropertyToManifest}
-          bibles={bibles}
+          bibles={biblesObject}
           bookName={bookName}
           contextId={contextId}
           editedTargetVerse={editedTargetVerse}

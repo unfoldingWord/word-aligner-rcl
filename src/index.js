@@ -6,6 +6,7 @@ import * as migrateOriginalLanguageHelpers from './helpers/migrateOriginalLangua
 import SuggestingWordAligner from './components/SuggestingWordAligner'
 import * as UsfmFileConversionHelpers from './helpers/UsfmFileConversionHelpers'
 import * as usfmHelpers from './helpers/usfmHelpers'
+import * as verseHelpers from './tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
 import WordAligner from './components/WordAligner'
 export {
   AlignmentHelpers,
@@ -16,5 +17,6 @@ export {
   SuggestingWordAligner,
   UsfmFileConversionHelpers,
   usfmHelpers,
+  verseHelpers,
   WordAligner,
 }

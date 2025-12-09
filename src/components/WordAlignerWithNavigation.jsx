@@ -142,25 +142,18 @@ const WordAlignerWithNavigation = ({
   const [alignmentData, setAlignmentData] = useState({ });
   const [groupsMenuData, setGroupsMenuData] = useState({ });
 
-  // Main settings state - includes pane configuration, tool settings, and manifest data
-  const [settings, _setSettings] = useState({
-    paneSettings: [],
-    paneKeySettings: {},
-    toolsSettings: {},
-    manifest: {}
-  })
   const {
     paneSettings,
     paneKeySettings,
     toolsSettings,
     manifest
-  } = settings
+  } = initialSettings
   const {
     targetWords,
     verseAlignments
   } = alignmentData
   const targetDirection = targetLanguage?.direction || 'ltr';
-  const readyToDisplayChecker = bibles?.length && notEmptyObject(groupsMenuData.groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
+  const readyToDisplayChecker = notEmptyObject(bibles) && notEmptyObject(groupsMenuData.groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
   const styleProps = localStyles || {}
   const _checkerStyles = {
     ...localStyles.containerDiv,
@@ -245,7 +238,7 @@ const WordAlignerWithNavigation = ({
       }
       newSettings.paneKeySettings = _paneKeySettings
 
-      saveSettings(newSettings)
+      setToolSettings(newSettings)
     }
   }
 
@@ -336,7 +329,7 @@ const WordAlignerWithNavigation = ({
           translate={translate}
         />
         <div style={localStyles.centerDiv}>
-          { bibles && Object.keys(bibles).length &&
+          { notEmptyObject(bibles) &&
             <div style={localStyles.scripturePaneDiv}>
               <ScripturePane
                 addObjectPropertyToManifest={addObjectPropertyToManifest}
@@ -352,7 +345,7 @@ const WordAlignerWithNavigation = ({
                 makeSureBiblesLoadedForTool={null}
                 projectDetailsReducer={{ manifest }}
                 selections={currentSelections}
-                setToolSettings={setToolSettings}
+                setToolSettings={setSettings}
                 showPopover={showPopover}
                 onExpandedScripturePaneShow={null}
                 translate={translate}
@@ -391,7 +384,7 @@ const WordAlignerWithNavigation = ({
 
 WordAlignerWithNavigation.propTypes = {
   addObjectPropertyToManifest: PropTypes.func.isRequired,
-  bibles: PropTypes.array.isRequired,
+  bibles: PropTypes.object.isRequired,
   bookName: PropTypes.string.isRequired,
   contextId: PropTypes.object.isRequired,
   editedTargetVerse: PropTypes.func.isRequired,

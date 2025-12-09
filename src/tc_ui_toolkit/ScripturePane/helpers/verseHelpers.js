@@ -307,6 +307,29 @@ export function getBibleElement(bibles, languageId, bibleId, owner = null) {
 }
 
 /**
+ * Converts a list of Bible objects into a structured object grouped by languageId and bibleId.
+ *
+ * @param {Array} bibleList - An array of Bible objects. Each object in the array should contain `languageId` and `bibleId` properties.
+ * @return {Object} An object where each key is a `languageId`, and the value is another object containing `bibleId` as keys and their corresponding Bible objects as values.
+ */
+export function getBibleObject(bibleList) {
+  const biblesObject = {};
+  for (let bible of bibleList) {
+    const { bibleId, languageId, owner } = bible;
+    const key = (owner && languageId !== 'targetLanguage') ? `${languageId}_${owner}` : languageId;
+    if (key && bibleId) {
+      let languageBibles = biblesObject[key];
+      if (!languageBibles) {
+        languageBibles = {}
+        biblesObject[key] = languageBibles;
+      }
+      languageBibles[bibleId] = bible
+    }
+  }
+  return biblesObject;
+}
+
+/**
  * try to find verse from chapter.  If not found look for verse spans
  * @param {object} bible
  * @param {string} chapter
