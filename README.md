@@ -1,7 +1,17 @@
 
 # word-aligner-rcl
 
-[word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl contains two react components: `SuggestingWordAligner` and `WordAligner`. UI components for aligning words in a verse.  See https://github.com/unfoldingWord-box3/enhanced-word-aligner-rcl for a more detailed example of using `SuggestingWordAligner` with alignment suggestions.
+[word-aligner-rcl](https://github.com/unfoldingWord/word-aligner-rcl).  word-aligner-rcl contains three react components: `WordAlignmentTool`, `SuggestingWordAligner` and `WordAligner`. UI components for aligning words in a verse.  See https://github.com/unfoldingWord-box3/enhanced-word-aligner-rcl for a more detailed example of using `SuggestingWordAligner` with alignment suggestions.
+
+**To test comparisons of the three react components:** see section `Local Testing using StyleGuidist` at the bottom of this document.
+
+## Usage Difference WordAlignmentTool over WordAligner
+
+`WordAlignmentTool` adds more components than just the `WordAligner`
+
+- It has a selector column on the left to select verses
+- It has Scripture panes at the top to show the verse in other bibles
+- it has action buttons at the bottom for alignment reset and saving alignment changes
 
 ## Usage Difference SuggestingWordAligner over WordAligner
 

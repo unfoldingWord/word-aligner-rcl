@@ -1,4 +1,4 @@
-Word Aligner Example with Navigation:
+Word Aligner Example with Verse Navigation and Scriptures Pane:
 
 ```js
 import React, { useState } from 'react';
@@ -7,6 +7,7 @@ import {
   groupDataHelpers,
   UsfmFileConversionHelpers,
   verseHelpers,
+  WordAlignmentTool,
 } from '../index'
 import { NT_ORIG_LANG, FINISHED_KEY } from '../common/constants';
 import cloneDeep from 'lodash.clonedeep';
@@ -19,7 +20,7 @@ const enGlBook = require('../__tests__/fixtures/bibles/1jn/enGlBible.json')
 const targetBook = require('../__tests__/fixtures/bibles/1jn/targetBible.json')
 const LexiconData = require("../__tests__/fixtures/lexicon/lexicons.json");
 
-console.log("starting WordAlignerWithNavigation demo")
+console.log("starting WordAlignmentTool demo")
 
 const bookName = 'Titus'
 const bookId = 'tit'
@@ -85,6 +86,7 @@ const initialTooleSettings = {
   manifest: {}
 }
 
+//convert list to bibleObjects used by aligner
 const biblesObject = verseHelpers.getBibleObject(bibles)
 
 const App = () => {
@@ -103,27 +105,68 @@ const App = () => {
     "groupId": "chapter_1"
   };
 
+
+  /**
+   * Displays a popover with word details when a user clicks on a word
+   * @param {Component} PopoverTitle - The component to use as the popover title
+   * @param {Object} wordDetails - Details about the clicked word
+   * @param {Object} positionCoord - Coordinates for positioning the popover
+   * @param {Object} rawData - Raw data about the clicked word
+   */
   const showPopover = (PopoverTitle, wordDetails, positionCoord, rawData) => {
     console.log(`showPopover()`, rawData)
     window.prompt(`User clicked on ${JSON.stringify(rawData)}`)
   };
+
+  /**
+   * Loads lexicon data for a specified lexicon ID
+   * @param {string} lexiconId - The ID of the lexicon to load
+   * @returns {Object} The loaded lexicon data
+   */
   const loadLexiconEntry = (lexiconId) => {
     console.log(`loadLexiconEntry(${lexiconId})`)
     return LexiconData
   };
+
+  /**
+   * Retrieves specific lexicon data for a given lexicon ID and entry ID
+   * @param {string} lexiconId - The ID of the lexicon
+   * @param {string} entryId - The ID of the specific entry within the lexicon
+   * @returns {Object} An object containing the requested lexicon entry data
+   */
   const getLexiconData_ = (lexiconId, entryId) => {
     console.log(`loadLexiconEntry(${lexiconId}, ${entryId})`)
     const entryData = (LexiconData && LexiconData[lexiconId]) ? LexiconData[lexiconId][entryId] : null;
     return { [lexiconId]: { [entryId]: entryData } };
   };
 
-  function onChange(results) {
-    console.log(`WordAligner() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
-    const { targetWords, verseAlignments } = results;
-    const verseUsfm = AlignmentHelpers.addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
-    console.log(verseUsfm);
-    const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments);
-    console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
+  /**
+   * Saves new alignments to the target book
+   * @param {Object} results - The alignment results to save
+   * @param {Object} results.contextId - Context information including reference
+   * @param {Array} results.targetVerseJSON - The verse data with updated alignments
+   */
+  function saveNewAlignments(results) {
+    const { contextId, targetVerseJSON } = results;
+    console.log(`WordAlignmentTool.saveNewAlignments() - alignment changed for `, contextId);// merge alignments into target verse and convert to USFM
+    const ref = contextId.reference
+    if (targetBook) {
+      const targetChapter = targetBook[ref.chapter]
+      if (targetChapter) {
+        const targetVerse = targetChapter[ref.verse]
+        if (targetVerse) {
+          const newChapter = { ...targetChapter }
+          newChapter[ref.verse] = { verseObjects: targetVerseJSON } // replace with new verse
+          targetBook[ref.chapter] = newChapter
+        } else {
+          console.error(`Invalid verse '${ref.chapter}:${ref.verse}'`)
+        }
+      } else {
+        console.error(`Invalid chapter  '${ref.chapter}'`)
+      }
+    } else {
+      console.error(`Missing book`, results)
+    }
   }
 
   /**
@@ -208,8 +251,8 @@ const App = () => {
 
   return (
     <>
-      <div style={{ height: '800px', width: '800px', overflow: 'auto' }}>
-        <WordAlignerWithNavigation
+      <div style={{ width: '1024px', overflow: 'auto' }}>
+        <WordAlignmentTool
           addObjectPropertyToManifest={addObjectPropertyToManifest}
           bibles={biblesObject}
           bookName={bookName}
@@ -222,12 +265,12 @@ const App = () => {
           initialSettings={toolSettings}
           lexiconCache={lexicons}
           loadLexiconEntry={loadLexiconEntry}
-          onChange={onChange}
+          saveNewAlignments={saveNewAlignments}
           saveToolSettings={saveToolSettings}
           showPopover={showPopover}
           sourceBook={sourceBook}
           sourceLanguage={sourceLanguage}
-          styles={{ maxHeight: '450px', overflowY: 'auto' }}
+          styles={{ maxHeight: '800px', overflowY: 'auto' }}
           targetLanguageFont={targetLanguageFont}
           targetBook={targetBook}
           translate={translate}

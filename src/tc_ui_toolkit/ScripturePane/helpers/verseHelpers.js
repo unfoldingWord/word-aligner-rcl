@@ -323,7 +323,7 @@ export function getBibleObject(bibleList) {
         languageBibles = {}
         biblesObject[key] = languageBibles;
       }
-      languageBibles[bibleId] = bible
+      languageBibles[bibleId] = bible.book;
     }
   }
   return biblesObject;

@@ -12,14 +12,16 @@ export function lookupTranslationForKey(translations, key, data = null, defaultS
   const translation = defaultStr || `translate(${key})` // set to default value
   const steps = (key || '').split('.') // each level delimted by period
   let current = translations
-  let newTranslation = null
+  let newTranslation = translations[key] // check for an exact match first
 
-  for (let step of steps ) { // drill down through each level
-    if (step && current) {
-      newTranslation = current[step]
-      current = newTranslation
-    } else { // not found
-      current = null
+  if (!newTranslation) { // if exact match not found
+    for (let step of steps) { // drill down through each level
+      if (step && current) {
+        newTranslation = current[step]
+        current = newTranslation
+      } else { // not found
+        current = null
+      }
     }
   }
 

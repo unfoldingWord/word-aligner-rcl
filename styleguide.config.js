@@ -11,7 +11,7 @@ module.exports = {
   theme,
   components: [
     'src/components/WordAligner.jsx',
-    'src/components/WordAlignerWithNavigation.jsx',
+    'src/components/WordAlignmentTool.jsx',
     'src/components/SuggestingWordAligner.jsx'
   ],
   webpackConfig: {

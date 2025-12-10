@@ -4,10 +4,12 @@ import GroupMenuComponent from './components/GroupMenuComponent';
 import * as groupDataHelpers from './helpers/groupDataHelpers';
 import * as migrateOriginalLanguageHelpers from './helpers/migrateOriginalLanguageHelpers'
 import SuggestingWordAligner from './components/SuggestingWordAligner'
+import * as Translations from './utils/translations'
 import * as UsfmFileConversionHelpers from './helpers/UsfmFileConversionHelpers'
 import * as usfmHelpers from './helpers/usfmHelpers'
 import * as verseHelpers from './tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
 import WordAligner from './components/WordAligner'
+import WordAlignmentTool from './components/WordAlignmentTool'
 export {
   AlignmentHelpers,
   bibleHelpers,
@@ -15,8 +17,10 @@ export {
   GroupMenuComponent,
   migrateOriginalLanguageHelpers,
   SuggestingWordAligner,
+  Translations,
   UsfmFileConversionHelpers,
   usfmHelpers,
   verseHelpers,
   WordAligner,
+  WordAlignmentTool
 }

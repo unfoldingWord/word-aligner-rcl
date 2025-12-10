@@ -157,7 +157,7 @@ class MAPControls extends React.Component {
   _handleOnInfoClick(e) {
     const { showPopover, translate } = this.props;
 
-    showPopover(
+    showPopover && showPopover(
       <strong>{translate('instructions')}</strong>,
       <InfoPopup translate={translate}/>,
       e.target
@@ -168,10 +168,13 @@ class MAPControls extends React.Component {
     const {
       hasSuggestions,
       handleInfoClick,
+      disableSuggestions,
       onAccept,
       onClear,
       onRefresh,
       onReject,
+      onSave,
+      showSaveOptions,
       suggestionsOnly,
       translate,
     } = this.props;
@@ -188,49 +191,53 @@ class MAPControls extends React.Component {
           {/* <MdInfo style={styles.icon}
             onClick={this._handleOnInfoClick}/>*/}
 
-          { suggestionsOnly &&
+          { suggestionsOnly && !disableSuggestions &&
             <Box component="span">
               <Typography component="label" style={styles.suggestions}>{translate('suggestions.title')}</Typography>
             </Box>
           }
 
-          <ThemedTooltip message={translate('suggestions.refresh_suggestions')}>
-            <Box component="span">
-              <SecondaryButton
-                style={styles.button}
-                onClick={onRefresh}
-              >
-                <MdRefresh style={styles.buttonIcon}/>
-                {translate('suggestions.refresh')}
-              </SecondaryButton>
-            </Box>
-          </ThemedTooltip>
+          { !disableSuggestions &&
+            <>
+              <ThemedTooltip message={translate('suggestions.refresh_suggestions')}>
+                <Box component="span">
+                  <SecondaryButton
+                    style={styles.button}
+                    onClick={onRefresh}
+                  >
+                    <MdRefresh style={styles.buttonIcon}/>
+                    {translate('suggestions.refresh')}
+                  </SecondaryButton>
+                </Box>
+              </ThemedTooltip>
 
-          <ThemedTooltip message={translate('suggestions.accept_suggestions')}>
-            <Box component="span">
-              <SecondaryButton
-                style={styles.button}
-                onClick={onAccept}
-                disabled={!hasSuggestions}
-              >
-                <MdCheck style={styles.buttonIcon}/>
-                {translate('suggestions.accept')}
-              </SecondaryButton>
-            </Box>
-          </ThemedTooltip>
+              <ThemedTooltip message={translate('suggestions.accept_suggestions')}>
+                <Box component="span">
+                  <SecondaryButton
+                    style={styles.button}
+                    onClick={onAccept}
+                    disabled={!hasSuggestions}
+                  >
+                    <MdCheck style={styles.buttonIcon}/>
+                    {translate('suggestions.accept')}
+                  </SecondaryButton>
+                </Box>
+              </ThemedTooltip>
 
-          <ThemedTooltip message={translate('suggestions.reject_suggestions')}>
-            <Box component="span">
-              <SecondaryButton
-                style={styles.button}
-                onClick={onReject}
-                disabled={!hasSuggestions}
-              >
-                <MdCancel style={styles.buttonIcon}/>
-                {translate('suggestions.reject')}
-              </SecondaryButton>
-            </Box>
-          </ThemedTooltip>
+              <ThemedTooltip message={translate('suggestions.reject_suggestions')}>
+                <Box component="span">
+                  <SecondaryButton
+                    style={styles.button}
+                    onClick={onReject}
+                    disabled={!hasSuggestions}
+                  >
+                    <MdCancel style={styles.buttonIcon}/>
+                    {translate('suggestions.reject')}
+                  </SecondaryButton>
+                </Box>
+              </ThemedTooltip>
+            </>
+          }
 
           { !suggestionsOnly &&
             <ThemedTooltip message={translate('alignments.clear_alignments')}>
@@ -241,6 +248,21 @@ class MAPControls extends React.Component {
                 >
                   <MdCancel style={styles.buttonIcon} />
                   {translate('alignments.clear')}
+                </SecondaryButton>
+              </Box>
+            </ThemedTooltip>
+          }
+
+          { showSaveOptions &&
+            <ThemedTooltip message={translate('buttons.save_button')}>
+              <Box component="span">
+                <SecondaryButton
+                  style={styles.button}
+                  onClick={onSave}
+                  disabled={false}
+                >
+                  <MdCheck style={styles.buttonIcon}/>
+                  {translate('buttons.save_button')}
                 </SecondaryButton>
               </Box>
             </ThemedTooltip>
@@ -260,13 +282,20 @@ class MAPControls extends React.Component {
 MAPControls.propTypes = {
   handleInfoClick: PropTypes.func,
   hasSuggestions: PropTypes.bool,
-  suggestionsOnly: PropTypes.bool,
-  onAccept: PropTypes.func.isRequired,
+  disableSuggestions: PropTypes.bool,
+  onAccept: PropTypes.func,
   onClear: PropTypes.func,
-  onRefresh: PropTypes.func.isRequired,
-  onReject: PropTypes.func.isRequired,
-  showPopover: PropTypes.func.isRequired,
+  onRefresh: PropTypes.func,
+  onReject: PropTypes.func,
+  onSave: PropTypes.func,
+  showPopover: PropTypes.func,
+  showSaveOptions: PropTypes.bool,
+  suggestionsOnly: PropTypes.bool,
   translate: PropTypes.func.isRequired,
 };
-MAPControls.defaultProps = { hasSuggestions: true };
+MAPControls.defaultProps = {
+  hasSuggestions: true,
+  disableSuggestions: false,
+  showSaveOptions: false,
+};
 export default MAPControls;

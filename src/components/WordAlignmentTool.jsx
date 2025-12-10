@@ -5,10 +5,12 @@ import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
 import { findNextCheck, findPreviousCheck } from '../tc_ui_toolkit/helpers/translationHelps/twArticleHelpers'
 import { AlignmentHelpers, WordAligner } from '../index'
-import {resetAlignments} from "../helpers/alignmentHelpers";
+import { addAlignmentsToVerseUSFM, resetAlignments } from '../helpers/alignmentHelpers'
 import complexScriptFonts from '../common/complexScriptFonts'
 import isEqual from 'deep-equal'
 import { getVerseUSFM } from '../helpers/groupDataHelpers'
+import MAPControls from './MAPControls'
+import { usfmVerseToJson } from '../helpers/usfmHelpers'
 
 const lexiconCache_ = {};
 const localStyles = {
@@ -110,7 +112,7 @@ function notEmptyObject(dataObject) {
   return dataObject && Object.keys(dataObject).length
 }
 
-const WordAlignerWithNavigation = ({
+const WordAlignmentTool = ({
   addObjectPropertyToManifest,
   bibles,
   bookName,
@@ -123,7 +125,7 @@ const WordAlignerWithNavigation = ({
   initialSettings,
   lexiconCache = lexiconCache_,
   loadLexiconEntry,
-  onChange,
+  saveNewAlignments,
   setToolSettings,
   showPopover = null,
   sourceBook,
@@ -154,18 +156,22 @@ const WordAlignerWithNavigation = ({
   } = alignmentData
   const targetDirection = targetLanguage?.direction || 'ltr';
   const readyToDisplayChecker = notEmptyObject(bibles) && notEmptyObject(groupsMenuData.groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
-  const styleProps = localStyles || {}
+  // const styleProps = localStyles || {}
   const _checkerStyles = {
     ...localStyles.containerDiv,
-    ...styleProps,
+    ...styles_,
   }
   const expandedScripturePaneTitle = bookName;
 
   const currentSelections = [] // TODO not sure if selections are even used in word Aligner
 
+  /**
+   * Updates the alignment data for the specified context ID by processing the target and source verses.
+   *
+   * @param {Object} _currentContextId - The current context ID containing a reference to the chapter and verse.
+   * @return {boolean} Returns true if the alignment data was successfully updated; otherwise, returns false.
+   */
   function updateAlignmentData(_currentContextId) {
-    let targetVerse
-    let sourceVerse
     const ref = _currentContextId?.reference
     const targetVerseUSFM = getVerseUSFM(targetBook, ref.chapter, ref.verse)
     const sourceVerseUSFM = getVerseUSFM(sourceBook, ref.chapter, ref.verse)
@@ -261,7 +267,7 @@ const WordAlignerWithNavigation = ({
    * Navigates to the next check in the sequence
    */
   function handleGoToNext() {
-    console.log(`${name}-handleGoToNext`)
+    console.log(`handleGoToNext`)
     const nextCheck = findNextCheck(groupsData, currentContextId, false)
     changeCurrentCheck_(nextCheck, true)
   }
@@ -270,9 +276,135 @@ const WordAlignerWithNavigation = ({
    * Navigates to the previous check in the sequence
    */
   function handleGoToPrevious() {
-    console.log(`${name}-handleGoToPrevious`)
+    console.log(`handleGoToPrevious`)
     const previousCheck = findPreviousCheck(groupsData, currentContextId, false)
     changeCurrentCheck_(previousCheck, true)
+  }
+
+  /**
+   * Handles changes in alignment data by processing the updated alignments
+   * and updating the target verse USFM content. It also determines if the
+   * alignments are complete.
+   *
+   * @param {Object} results - The alignment data containing target words and verse alignments.
+   * @param {Array} results.targetWords - The list of target words in the verse.
+   * @param {Array} results.verseAlignments - The alignment mappings for the target words.
+   * @return {void} This function does not return a value.
+   */
+  function handleAlignmentChange(results) {
+    console.log(`handleAlignmentChange() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
+    const {targetWords, verseAlignments} = results;
+    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
+    console.log(verseUsfm);
+    const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+    console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
+    setAlignmentData(results)
+  }
+
+  /**
+   * Handles the saving of Bible text alignments with updated data.
+   *
+   * This function prepares the updated aligned verse data in USFM and JSON formats
+   * and triggers a save operation using the provided `saveNewAlignments` handler.
+   * It uses the current context reference, retrieves the initial Bible text,
+   * updates alignments, and formats the aligned verse text appropriately.
+   *
+   * Dependencies:
+   * - Retrieves the initial Bible verse in USFM format using `getVerseUSFM`.
+   * - Updates the alignments of the target text using `addAlignmentsToVerseUSFM`.
+   * - Converts the updated USFM text into JSON format using `usfmVerseToJson`.
+   *
+   * Preconditions:
+   * - Requires `currentContextId` with a valid `reference` object containing
+   *   `chapter` and `verse`.
+   * - Expects `saveNewAlignments` to be defined for saving the processed alignments.
+   *
+   * @function
+   * @name handleSaveAlignments
+   * @param {Object} contextId - The current context ID containing verse reference details.
+   * @param {Array} targetWords - The list of words in the target language verse.
+   * @param {Array} verseAlignments - The list of alignment data to be applied.
+   * @param {Function} addAlignmentsToVerseUSFM - Function to add alignments to the verse text in USFM.
+   * @param {Function} getVerseUSFM - Function to retrieve the verse text in USFM.
+   * @param {Function} usfmVerseToJson - Function to convert USFM verse text to JSON format.
+   * @param {Function} saveNewAlignments - Callback function to save the new alignments.
+   */
+  const handleSaveAlignments = () => {
+    console.log( "handleSaveAlignments" );
+    const ref = currentContextId?.reference
+    // get initial bible text
+    const targetVerseUSFM_ = getVerseUSFM(targetBook, ref.chapter, ref.verse)
+    // apply new alignments to original verse text
+    const targetVerseUSFM = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM_);
+    const targetVerseJSON = usfmVerseToJson(targetVerseUSFM);
+    saveNewAlignments && saveNewAlignments({ contextId: currentContextId,  ...alignmentData, targetVerseUSFM, targetVerseJSON })
+  }
+
+  /**
+   * Removes all alignments and updates the relevant alignment state and data.
+   *
+   * This function clears all existing verse alignments and ensures all target words
+   * in the word bank are re-enabled if they were disabled due to prior alignments.
+   * Updating the state involves the following steps:
+   *
+   * 1. Iterating through all alignments in the verse and identifying target tokens
+   *    that need to be re-enabled in the word bank.
+   * 2. Re-enabling the identified target tokens in the target word list.
+   * 3. Clearing all alignments by setting `targetNgram` to an empty array and
+   *    marking them as no longer suggestions.
+   * 4. Updating the alignment data with the new cleared alignments and modified
+   *    target word states.
+   * 5. Invoking the change callback to notify listeners about the unalignment action.
+   *
+   * This function is intended to manage the reconciliation of alignment data and
+   * ensure that the UI and underlying data align correctly when all alignments
+   * are cleared.
+   */
+  const handleClearAlignments = () => {
+    console.log( "handleClearAlignments" );
+    const newAlignmentData = alignmentData || {}
+    //Make sure all words which were dropped are not disabled in the word list.
+    const targetTokensNeedingDisabled = verseAlignments
+      //Now reduce to target words.
+      .reduce( (acc, alignment) => {
+        alignment.targetNgram.forEach( targetToken => {
+          acc.push( targetToken );
+        });
+        return acc;
+      },[])
+      //now reduce these to target words which are still disabled in the wordbox.
+      .filter( targetToken => {
+        const found = findInWordList(targetWords_, targetToken);
+        if( found < 0 ) return false;
+        if( !targetWords_[found].disabled ) return false;
+        return true;
+      });
+
+    //if there are any of the target words needing to be disabled
+    if( targetTokensNeedingDisabled.length > 0 ) {
+      //Then map through creating new word objects which are disabled if they are in the targetTokensNeedingDisabled list.
+      const newTargetWords = targetWords_.map( targetWord => {
+        if( findInWordList( targetTokensNeedingDisabled, targetWord ) >= 0 ) return { ...targetWord, disabled: false };
+        return targetWord;
+      });
+      newAlignmentData.targetWords = newTargetWords;
+    }
+
+    //Drop all target tokens from verseAlignments
+    const clearedAlignments = verseAlignments_.map( alignment => {
+      return {...alignment, isSuggestion: false, targetNgram: []};
+    });
+
+    const updatedVerseAlignments = updateVerseAlignments( clearedAlignments )
+    newAlignmentData.verseAlignments = updatedVerseAlignments;
+
+    setAlignmentData(newAlignmentData)
+
+    doChangeCallback({
+      type: UNALIGN_TARGET_WORD,
+      source: GRID,
+      destination: TARGET_WORD_BANK
+    }, updatedVerseAlignments);
   }
 
   /**
@@ -302,10 +434,17 @@ const WordAlignerWithNavigation = ({
     }
   }
 
+  /**
+   * Resets the alignments by invoking the resetAlignments method and updates the alignment data with the reset values.
+   *
+   * This method logs the reset event, calls the resetAlignments function, and updates the state with the new alignment data.
+   *
+   * @return {void} No return value.
+   */
   function onReset() {
     console.log("onReset() - reset Alignments")
     const alignmentData = resetAlignments.resetAlignments(verseAlignments, targetWords)
-    setState({
+    setAlignmentData({
       verseAlignments: alignmentData.verseAlignments,
       targetWords: alignmentData.targetWords,
     })
@@ -359,7 +498,7 @@ const WordAlignerWithNavigation = ({
                 getLexiconData={getLexiconData}
                 lexiconCache={lexiconCache}
                 loadLexiconEntry={loadLexiconEntry}
-                onChange={onChange}
+                onChange={handleAlignmentChange}
                 resetAlignments={resetAlignments}
                 showPopover={showPopover}
                 sourceLanguage={sourceLanguage}
@@ -372,6 +511,15 @@ const WordAlignerWithNavigation = ({
             :
               "no verse data"
             }
+            <MAPControls
+              disableSuggestions={true}
+              hasSuggestions={false}
+              onClear={handleClearAlignments}
+              onSave={handleSaveAlignments}
+              showPopover={showPopover}
+              showSaveOptions={true}
+              translate={translate}
+            />
           </div>
         </div>
       </div>
@@ -382,7 +530,7 @@ const WordAlignerWithNavigation = ({
   );
 };
 
-WordAlignerWithNavigation.propTypes = {
+WordAlignmentTool.propTypes = {
   addObjectPropertyToManifest: PropTypes.func.isRequired,
   bibles: PropTypes.object.isRequired,
   bookName: PropTypes.string.isRequired,
@@ -395,7 +543,7 @@ WordAlignerWithNavigation.propTypes = {
   initialSettings: PropTypes.object.isRequired,
   lexiconCache: PropTypes.object,
   loadLexiconEntry: PropTypes.func.isRequired,
-  onChange: PropTypes.func,
+  saveNewAlignments: PropTypes.func,
   saveToolSettings: PropTypes.func.isRequired,
   showPopover: PropTypes.func.isRequired,
   sourceBook: PropTypes.object,
@@ -410,4 +558,4 @@ WordAlignerWithNavigation.propTypes = {
   translate: PropTypes.func.isRequired,
 };
 
-export default WordAlignerWithNavigation;
+export default WordAlignmentTool;
