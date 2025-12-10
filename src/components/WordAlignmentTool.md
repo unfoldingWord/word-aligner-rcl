@@ -12,7 +12,7 @@ import {
 import { NT_ORIG_LANG, FINISHED_KEY } from '../common/constants';
 import cloneDeep from 'lodash.clonedeep';
 import usfmjs from 'usfm-js';
-import { lookupTranslationForKey } from '../utils/translations'
+import { lookupTranslationForKey } from './translations'
 
 const translations = require('../locales/English-en_US.json')
 const ugntBook = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
