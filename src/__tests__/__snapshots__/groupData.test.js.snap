@@ -1188,7 +1188,6 @@ exports[`testing groupData generation initialize groupData 1`] = `
 {
   "chapter_1": [
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1198,9 +1197,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": false,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1210,9 +1210,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": false,
+      "unaligned": true,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1222,9 +1223,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1234,9 +1236,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1246,9 +1249,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1258,9 +1262,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1270,9 +1275,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1282,9 +1288,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_1",
         "reference": {
@@ -1294,11 +1301,12 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
   ],
   "chapter_2": [
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1308,9 +1316,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1320,9 +1329,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1332,9 +1342,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": false,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1344,9 +1355,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": false,
+      "unaligned": true,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1356,9 +1368,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1368,9 +1381,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1380,9 +1394,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1392,9 +1407,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1404,9 +1420,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1416,9 +1433,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1428,9 +1446,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1440,9 +1459,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1452,9 +1472,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1464,9 +1485,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1476,9 +1498,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1488,9 +1511,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1500,9 +1524,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1512,9 +1537,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1524,9 +1550,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1536,9 +1563,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1548,9 +1576,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1560,9 +1589,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1572,9 +1602,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1584,9 +1615,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1596,9 +1628,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1608,9 +1641,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1620,9 +1654,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1632,9 +1667,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_2",
         "reference": {
@@ -1644,11 +1680,12 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
   ],
   "chapter_3": [
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1658,9 +1695,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1670,9 +1708,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1682,9 +1721,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1694,9 +1734,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1706,9 +1747,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1718,9 +1760,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1730,9 +1773,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1742,9 +1786,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1754,9 +1799,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1766,9 +1812,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1778,9 +1825,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1790,9 +1838,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1802,9 +1851,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1814,9 +1864,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1826,9 +1877,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1838,9 +1890,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1850,9 +1903,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1862,9 +1916,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1874,9 +1929,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1886,9 +1942,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1898,9 +1955,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1910,9 +1968,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1922,9 +1981,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_3",
         "reference": {
@@ -1934,11 +1994,12 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
   ],
   "chapter_4": [
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -1948,9 +2009,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -1960,9 +2022,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -1972,9 +2035,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -1984,9 +2048,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -1996,9 +2061,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2008,9 +2074,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2020,9 +2087,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2032,9 +2100,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2044,9 +2113,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2056,9 +2126,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2068,9 +2139,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2080,9 +2152,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2092,9 +2165,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2104,9 +2178,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2116,9 +2191,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2128,9 +2204,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2140,9 +2217,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2152,9 +2230,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2164,9 +2243,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": false,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2176,9 +2256,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": false,
+      "unaligned": true,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_4",
         "reference": {
@@ -2188,11 +2269,12 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
   ],
   "chapter_5": [
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2202,9 +2284,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2214,9 +2297,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2226,9 +2310,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2238,9 +2323,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2250,9 +2336,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2262,9 +2349,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2274,9 +2362,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2286,9 +2375,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2298,9 +2388,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2310,9 +2401,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2322,9 +2414,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2334,9 +2427,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2346,9 +2440,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2358,9 +2453,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2370,9 +2466,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2382,9 +2479,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2394,9 +2492,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2406,9 +2505,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2418,9 +2518,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2430,9 +2531,10 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
     {
-      "completed": true,
       "contextId": {
         "groupId": "chapter_5",
         "reference": {
@@ -2442,6 +2544,8 @@ exports[`testing groupData generation initialize groupData 1`] = `
         },
         "tool": "wordAligner",
       },
+      "finished": true,
+      "unaligned": false,
     },
   ],
 }

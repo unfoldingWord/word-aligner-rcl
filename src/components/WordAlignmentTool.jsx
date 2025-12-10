@@ -72,35 +72,38 @@ const localStyles = {
   },
 };
 
-let platform = 'null';
-if ('platform' in navigator) {
-  platform = navigator.platform;
-  console.log(`Container: platform detected: ${platform}`, navigator);
-} else {
-  console.log(`Container: navigator does not support platform`, navigator);
-}
+//////////////////////////
+// TODO: connect up accelerator keys
 
-// Function to detect the operating system
-const getOS = () => {
-  if (platform.startsWith('Mac')) return 'mac';
-  if (platform.startsWith('Win')) return 'windows';
-  return 'other';
-};
-
-const os = getOS();
-console.log(`Container: os detected ${os}`);
-const isMacOS = (os === 'mac');
-
-// Define key combinations based on the operating system
-const keyMap = {
-  REFRESH: os === 'mac' ? 'command+f' : 'ctrl+f',
-  ACCEPT: os === 'mac' ? 'command+e' : 'ctrl+e',
-  REJECT: os === 'mac' ? 'command+j' : 'ctrl+j',
-  CLEAR: os === 'mac' ? 'command+k' : 'ctrl+k',
-  COMPLETE: os === 'mac' ? 'command+t' : 'ctrl+t',
-  NEXT: os === 'mac' ? 'command+n' : 'ctrl+n',
-  EXPAND: os === 'mac' ? 'command+w' : 'ctrl+w',
-};
+// let platform = 'null';
+// if ('platform' in navigator) {
+//   platform = navigator.platform;
+//   console.log(`Container: platform detected: ${platform}`, navigator);
+// } else {
+//   console.log(`Container: navigator does not support platform`, navigator);
+// }
+//
+// // Function to detect the operating system
+// const getOS = () => {
+//   if (platform.startsWith('Mac')) return 'mac';
+//   if (platform.startsWith('Win')) return 'windows';
+//   return 'other';
+// };
+//
+// const os = getOS();
+// console.log(`Container: os detected ${os}`);
+// const isMacOS = (os === 'mac');
+//
+// // Define key combinations based on the operating system
+// const keyMap = {
+//   REFRESH: os === 'mac' ? 'command+f' : 'ctrl+f',
+//   ACCEPT: os === 'mac' ? 'command+e' : 'ctrl+e',
+//   REJECT: os === 'mac' ? 'command+j' : 'ctrl+j',
+//   CLEAR: os === 'mac' ? 'command+k' : 'ctrl+k',
+//   COMPLETE: os === 'mac' ? 'command+t' : 'ctrl+t',
+//   NEXT: os === 'mac' ? 'command+n' : 'ctrl+n',
+//   EXPAND: os === 'mac' ? 'command+w' : 'ctrl+w',
+// };
 
 /**
  * Checks if the given object is not empty.
