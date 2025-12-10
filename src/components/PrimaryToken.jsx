@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { default as WordLexiconDetails } from './WordLexiconDetails';
-import { lookupStrongsNumbers } from '../utils/lexiconHelpers';
+import { lookupStrongsNumbers } from '../helpers/lexiconHelpers';
 import * as types from '../common/WordCardTypes';
 // components
 import Word from './WordCard';

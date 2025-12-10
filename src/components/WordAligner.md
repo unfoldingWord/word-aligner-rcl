@@ -7,8 +7,8 @@ import {
   areAlgnmentsComplete,
   parseUsfmToWordAlignerData,
   resetAlignments,
-} from "../utils/alignmentHelpers";
-import {convertVerseDataToUSFM} from "../utils/UsfmFileConversionHelpers";
+} from "../helpers/alignmentHelpers";
+import {convertVerseDataToUSFM} from "../helpers/UsfmFileConversionHelpers";
 import {NT_ORIG_LANG} from "../common/constants";
 
 // a fully aligned example
@@ -94,19 +94,18 @@ const App = () => {
       </div>
       <div style={{height: '650px', width: '800px'}}>
           <WordAligner
-            styles={{ maxHeight: '450px', overflowY: 'auto' }}
-            verseAlignments={verseAlignments}
-            targetWords={targetWords}
-            translate={translate}
             contextId={contextId}
-            targetLanguageFont={targetLanguageFont}
-            sourceLanguage={sourceLanguage}
-            showPopover={showPopover}
+            getLexiconData={getLexiconData_}
             lexicons={lexicons}
             loadLexiconEntry={loadLexiconEntry}
             onChange={onChange}
-            getLexiconData={getLexiconData_}
-            resetAlignments={resetAlignments}
+            showPopover={showPopover}
+            sourceLanguage={sourceLanguage}
+            styles={{ maxHeight: '450px', overflowY: 'auto' }}
+            targetLanguageFont={targetLanguageFont}
+            targetWords={targetWords}
+            translate={translate}
+            verseAlignments={verseAlignments}
           />
         </div>
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // helpers
-import * as lexiconHelpers from '../utils/lexiconHelpers';
+import * as lexiconHelpers from '../helpers/lexiconHelpers';
 
 /**
  * lookup translations and convert to morph description

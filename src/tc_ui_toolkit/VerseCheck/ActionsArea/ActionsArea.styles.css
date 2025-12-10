@@ -1,0 +1,16 @@
+.actions-area {
+  flex: 0 0 55px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.selection-actions-area {
+  flex: 0 0 55px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}

@@ -1,10 +1,10 @@
 /* eslint-disable array-callback-return */
-import {getParsedUSFM, usfmVerseToJson} from "../utils/usfmHelpers";
+import {getParsedUSFM, usfmVerseToJson} from "../helpers/usfmHelpers";
 import {
   convertAlignmentsFromVerseSpansToVerse,
   convertAlignmentFromVerseToVerseSpan,
-} from "../utils/alignmentHelpers";
-import {convertVerseDataToUSFM } from "../utils/UsfmFileConversionHelpers";
+} from "../helpers/alignmentHelpers";
+import {convertVerseDataToUSFM } from "../helpers/UsfmFileConversionHelpers";
 
 const en_ust_gal_2_data = require(`./fixtures/alignments/en_gal_2_data.json`);
 const en_ust_gal_2_usfm = en_ust_gal_2_data.ust_usfm;

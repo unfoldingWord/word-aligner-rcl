@@ -8,15 +8,15 @@ import {
   parseUsfmToWordAlignerData,
   updateAlignmentsToTargetVerse,
   updateAlignmentsToTargetVerseWithOriginal,
-} from "../utils/alignmentHelpers";
-import {removeUsfmMarkers, usfmVerseToJson} from "../utils/usfmHelpers";
+} from "../helpers/alignmentHelpers";
+import {removeUsfmMarkers, usfmVerseToJson} from "../helpers/usfmHelpers";
 import Lexer from "wordmap-lexer";
-import {migrateTargetAlignmentsToOriginal} from "../utils/migrateOriginalLanguageHelpers";
-import {convertVerseDataToUSFM, getUsfmForVerseContent} from "../utils/UsfmFileConversionHelpers";
+import {migrateTargetAlignmentsToOriginal} from "../helpers/migrateOriginalLanguageHelpers";
+import {convertVerseDataToUSFM, getUsfmForVerseContent} from "../helpers/UsfmFileConversionHelpers";
 import path from "path-extra";
 import fs from 'fs-extra';
 import cloneDeep from "lodash.clonedeep";
-import * as UsfmFileConversionHelpers from "../utils/UsfmFileConversionHelpers";
+import * as UsfmFileConversionHelpers from "../helpers/UsfmFileConversionHelpers";
 
 jest.unmock('fs-extra');
 

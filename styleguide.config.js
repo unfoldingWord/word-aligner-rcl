@@ -9,7 +9,11 @@ module.exports = {
   },
   styles,
   theme,
-  components: ['src/components/WordAligner.jsx','src/components/SuggestingWordAligner.jsx'],
+  components: [
+    'src/components/WordAligner.jsx',
+    'src/components/WordAlignmentTool.jsx',
+    'src/components/SuggestingWordAligner.jsx'
+  ],
   webpackConfig: {
     module: {
       rules: [
