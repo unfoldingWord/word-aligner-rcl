@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import {
   AlignmentHelpers,
   groupDataHelpers,
+  Translations,
   UsfmFileConversionHelpers,
   verseHelpers,
   WordAlignmentTool,
@@ -12,7 +13,6 @@ import {
 import { NT_ORIG_LANG, FINISHED_KEY } from '../common/constants';
 import cloneDeep from 'lodash.clonedeep';
 import usfmjs from 'usfm-js';
-import { lookupTranslationForKey } from './translations'
 
 const translations = require('../locales/English-en_US.json')
 const ugntBook = require('../__tests__/fixtures/bibles/1jn/ugntBible.json')
@@ -52,7 +52,7 @@ const bibles = [
 
 const translate = (key, defaultValue) => {
   // console.log(`translate(${key})`)
-  const translation = lookupTranslationForKey(translations, key)
+  const translation = Translations.lookupTranslationForKey(translations, key)
   return translation
 };
 
