@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`verseHelpers.verseArray should succeed with heb-12-27.el-x-koine 1`] = `
+exports[`verseArray should succeed with heb-12-27.el-x-koine 1`] = `
 [
   <span
     onClick={[Function]}
@@ -435,7 +435,7 @@ exports[`verseHelpers.verseArray should succeed with heb-12-27.el-x-koine 1`] = 
 ]
 `;
 
-exports[`verseHelpers.verseArray should succeed with heb-12-27.el-x-koine and tisch should not be clickable 1`] = `
+exports[`verseArray should succeed with heb-12-27.el-x-koine and tisch should not be clickable 1`] = `
 [
   <span>
     <span
@@ -765,7 +765,7 @@ exports[`verseHelpers.verseArray should succeed with heb-12-27.el-x-koine and ti
 ]
 `;
 
-exports[`verseHelpers.verseArray should succeed with jhn-6-21-en-t4t 1`] = `
+exports[`verseArray should succeed with jhn-6-21-en-t4t 1`] = `
 [
   <span>
     We were glad to take him into the boat. As soon as
@@ -830,7 +830,7 @@ exports[`verseHelpers.verseArray should succeed with jhn-6-21-en-t4t 1`] = `
 ]
 `;
 
-exports[`verseHelpers.verseArray should succeed with luke-22-30.ult 1`] = `
+exports[`verseArray should succeed with luke-22-30.ult 1`] = `
 [
   <span>
     <span
@@ -1357,7 +1357,7 @@ exports[`verseHelpers.verseArray should succeed with luke-22-30.ult 1`] = `
 ]
 `;
 
-exports[`verseHelpers.verseArray should succeed with mat-4-6 1`] = `
+exports[`verseArray should succeed with mat-4-6 1`] = `
 [
   <span>
     <span

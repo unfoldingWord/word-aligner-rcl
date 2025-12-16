@@ -8169,10 +8169,10 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-word-aligner-lib@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.0.0.tgz#9e44a00e05175cbaee9df9417ac8d876839babb0"
-  integrity sha512-S3eVSmeX6dRT1fEsLelaDrq5zp/yDGM72UFHpmyX3dVOLyYclrCtdN3nT1fcIp1she/zlRH1Lf7T22Dvav0E7g==
+word-aligner-lib@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.0.1.tgz#6992ac993d336ea5915e1b0cedb362a235c85cfc"
+  integrity sha512-3wOdnkESmVuZ/G51WiRvjM3xj6aGk/ebKdKDWhH/H7HF23gy3RTQbrOgvr1/fLLiHEqgG54AzCihdAaWpEfYBw==
   dependencies:
     deep-equal "^2.0.5"
     file-loader "^6.2.0"

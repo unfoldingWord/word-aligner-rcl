@@ -251,7 +251,7 @@ const App = () => {
 
   return (
     <>
-      <div style={{ width: '1024px', overflow: 'auto' }}>
+      <div style={{ width: '900px', overflow: 'auto' }}>
         <WordAlignmentTool
           addObjectPropertyToManifest={addObjectPropertyToManifest}
           bibles={biblesObject}

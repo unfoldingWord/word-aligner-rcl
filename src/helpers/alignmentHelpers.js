@@ -14,7 +14,8 @@ import {
   updateAlignedWordsFromOriginalWordList
 } from "./migrateOriginalLanguageHelpers";
 import Lexer from "wordmap-lexer";
-import { getVerseSpanRange } from '../utils/verseObjects';
+import * as wordALignerLib from 'word-aligner-lib'
+const verseHelpers_ = wordALignerLib.verseHelpers
 
 /**
  * get all the alignments for verse from nested array (finds zaln objects)
@@ -940,7 +941,7 @@ export function updateAlignmentsToTargetVerseWithOriginal(targetVerseObjects, ne
  * @return {{low, hi}} get range of verses in verse span
  */
 function getRawAlignmentsForVerseSpan(verseSpan, origLangChapterJson, blankVerseAlignments) {
-  const { low, high } = getVerseSpanRange(verseSpan);
+  const { low, high } = verseHelpers_.getVerseSpanRange(verseSpan);
 
   // generate raw alignment data for each verse in range
   for (let verse = low; verse <= high; verse++) {
