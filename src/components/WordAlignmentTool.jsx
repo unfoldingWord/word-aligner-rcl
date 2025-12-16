@@ -34,7 +34,7 @@ const localStyles = {
     display: 'flex',
     flex: 1,
     flexDirection: 'column',
-    width: 'calc(100vw - 650px)',
+    width: 'calc(100% - 450px)',
     height: '100%',
   },
   scripturePaneWrapper: {
@@ -160,10 +160,7 @@ const WordAlignmentTool = ({
   const targetDirection = targetLanguage?.direction || 'ltr';
   const readyToDisplayChecker = notEmptyObject(bibles) && notEmptyObject(groupsMenuData.groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
   // const styleProps = localStyles || {}
-  const _checkerStyles = {
-    ...localStyles.containerDiv,
-    ...styles_,
-  }
+
   const expandedScripturePaneTitle = bookName;
 
   const currentSelections = [] // TODO not sure if selections are even used in word Aligner
@@ -456,10 +453,15 @@ const WordAlignmentTool = ({
   const theme = createTheme(); // Create MUI theme
   const haveVerseData = verseAlignments?.length && targetWords?.length
 
+  const _checkerStyles = {
+    ...localStyles.containerDiv,
+    ...styles_,
+  }
+
   return (
     <ThemeProvider theme={theme}>
       {readyToDisplayChecker ?
-      <div id='checker' style={_checkerStyles}>
+      <div id='checker' style={localStyles.container}>
         <GroupMenuComponent
           bookName={bookName}
           changeCurrentContextId={changeCurrentCheck_}
@@ -470,7 +472,7 @@ const WordAlignmentTool = ({
           targetLanguageFont={targetLanguageFont}
           translate={translate}
         />
-        <div style={localStyles.centerDiv}>
+        <div style={localStyles.alignmentAreaContainer}>
           { notEmptyObject(bibles) &&
             <div style={localStyles.scripturePaneDiv}>
               <ScripturePane

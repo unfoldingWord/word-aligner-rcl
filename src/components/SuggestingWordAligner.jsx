@@ -10,6 +10,7 @@ import MAPControls from './MAPControls';
 import { Alignment, Ngram } from "wordmap";
 import {Token} from 'wordmap-lexer';
 import cloneDeep from 'lodash.clonedeep'
+import { getStyleMeasurement } from '../utils/cssUtils'
 
 // on alignment changes, identifies possible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
@@ -1185,13 +1186,13 @@ const SuggestingWordAligner = ({
   const wordListStyles = { ...styles_ }
 
   // if maxHeight given for dialog, then tweak settings for children
-  if (styles_.maxHeight) {
-    containerStyle.maxHeight = styles_.maxHeight;
+  const { value, intValue: maxHeight } = getStyleMeasurement(styles, 'maxHeight')
+  if (value) {
+    containerStyle.maxHeight = maxHeight; // container matches this height
     const heightAdjustment = 40 // in pixels
-    const maxHeight = parseInt(styles_.maxHeight, 10) - heightAdjustment;
-    const maxHeightPixels = `${maxHeight}px`
-    alignmentContainerStyle.maxHeight = maxHeightPixels;
-    wordListStyles.maxHeight = maxHeightPixels;
+    const adjustedMaxHeightPixels = `${maxHeight - heightAdjustment}px`
+    alignmentContainerStyle.maxHeight = adjustedMaxHeightPixels;
+    wordListStyles.maxHeight = adjustedMaxHeightPixels;
     delete alignmentGridStyle.maxHeight;
   }
 
