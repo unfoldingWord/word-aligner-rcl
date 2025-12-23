@@ -5,7 +5,11 @@ import ScripturePane from '../tc_ui_toolkit/ScripturePane'
 import { GroupMenuComponent } from './GroupMenuComponent'
 import { findNextCheck, findPreviousCheck } from '../tc_ui_toolkit/helpers/translationHelps/twArticleHelpers'
 import { AlignmentHelpers, WordAligner } from '../index'
-import { addAlignmentsToVerseUSFM, resetAlignments } from '../helpers/alignmentHelpers'
+import {
+  addAlignmentsToVerseUSFM,
+  findInWordList,
+  resetAlignments,
+} from '../helpers/alignmentHelpers'
 import complexScriptFonts from '../common/complexScriptFonts'
 import isEqual from 'deep-equal'
 import { getVerseUSFM } from '../helpers/groupDataHelpers'
@@ -13,6 +17,8 @@ import MAPControls from './MAPControls'
 import { usfmVerseToJson } from '../helpers/usfmHelpers'
 
 const lexiconCache_ = {};
+const theme = createTheme(); // Create MUI theme
+
 const localStyles = {
   container: {
     display: 'flex',
@@ -144,8 +150,14 @@ const WordAlignmentTool = ({
   }) => {
 
   const [currentContextId, setCurrentContextId] = useState(contextId);
-  const [alignmentData, setAlignmentData] = useState({ });
+  const [alignmentData, _setAlignmentData] = useState({ });
   const [groupsMenuData, setGroupsMenuData] = useState({ });
+
+  function setAlignmentData(alignmentData_) {
+    if (!isEqual(alignmentData, alignmentData_)) {
+      _setAlignmentData(alignmentData_)
+    }
+  }
 
   const {
     paneSettings,
@@ -159,10 +171,8 @@ const WordAlignmentTool = ({
   } = alignmentData
   const targetDirection = targetLanguage?.direction || 'ltr';
   const readyToDisplayChecker = notEmptyObject(bibles) && notEmptyObject(groupsMenuData.groupsData) && notEmptyObject(sourceBook) && notEmptyObject(targetBook);
-  // const styleProps = localStyles || {}
 
   const expandedScripturePaneTitle = bookName;
-
   const currentSelections = [] // TODO not sure if selections are even used in word Aligner
 
   /**
@@ -220,7 +230,7 @@ const WordAlignmentTool = ({
    * @private
    */
   function _saveSettings(_settings) {
-    if (saveSettings && _settings) {
+    if (setToolSettings && _settings) {
       const newSettings = { ..._settings }
       delete newSettings.manifest
       const _paneSettings = [ ...newSettings.paneSettings ]
@@ -255,11 +265,10 @@ const WordAlignmentTool = ({
    */
   function setSettings(newSettings, doSave = false) {
     const _settings = {
-      ...settings,
+      ...initialSettings,
       ...newSettings
     }
 
-    _setSettings(_settings)
     doSave && _saveSettings(_settings)
   }
 
@@ -294,9 +303,12 @@ const WordAlignmentTool = ({
   function handleAlignmentChange(results) {
     console.log(`handleAlignmentChange() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
     const {targetWords, verseAlignments} = results;
-    const verseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
+    // get initial bible text
+    const ref = currentContextId?.reference;
+    const targetVerseUSFM_ = getVerseUSFM(targetBook, ref.chapter, ref.verse)
+    const verseUsfm = AlignmentHelpers.addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM_);
     console.log(verseUsfm);
-    const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
+    const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments);
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
     setAlignmentData(results)
   }
@@ -321,13 +333,6 @@ const WordAlignmentTool = ({
    *
    * @function
    * @name handleSaveAlignments
-   * @param {Object} contextId - The current context ID containing verse reference details.
-   * @param {Array} targetWords - The list of words in the target language verse.
-   * @param {Array} verseAlignments - The list of alignment data to be applied.
-   * @param {Function} addAlignmentsToVerseUSFM - Function to add alignments to the verse text in USFM.
-   * @param {Function} getVerseUSFM - Function to retrieve the verse text in USFM.
-   * @param {Function} usfmVerseToJson - Function to convert USFM verse text to JSON format.
-   * @param {Function} saveNewAlignments - Callback function to save the new alignments.
    */
   const handleSaveAlignments = () => {
     console.log( "handleSaveAlignments" );
@@ -374,16 +379,16 @@ const WordAlignmentTool = ({
       },[])
       //now reduce these to target words which are still disabled in the wordbox.
       .filter( targetToken => {
-        const found = findInWordList(targetWords_, targetToken);
+        const found = AlignmentHelpers.findInWordList(targetWords, targetToken);
         if( found < 0 ) return false;
-        if( !targetWords_[found].disabled ) return false;
+        if( !targetWords[found].disabled ) return false;
         return true;
       });
 
     //if there are any of the target words needing to be disabled
     if( targetTokensNeedingDisabled.length > 0 ) {
       //Then map through creating new word objects which are disabled if they are in the targetTokensNeedingDisabled list.
-      const newTargetWords = targetWords_.map( targetWord => {
+      const newTargetWords = targetWords.map( targetWord => {
         if( findInWordList( targetTokensNeedingDisabled, targetWord ) >= 0 ) return { ...targetWord, disabled: false };
         return targetWord;
       });
@@ -391,20 +396,20 @@ const WordAlignmentTool = ({
     }
 
     //Drop all target tokens from verseAlignments
-    const clearedAlignments = verseAlignments_.map( alignment => {
+    const clearedAlignments = verseAlignments.map( alignment => {
       return {...alignment, isSuggestion: false, targetNgram: []};
     });
 
-    const updatedVerseAlignments = updateVerseAlignments( clearedAlignments )
+    const updatedVerseAlignments = AlignmentHelpers.updateVerseAlignments( clearedAlignments )
     newAlignmentData.verseAlignments = updatedVerseAlignments;
 
     setAlignmentData(newAlignmentData)
 
-    doChangeCallback({
-      type: UNALIGN_TARGET_WORD,
-      source: GRID,
-      destination: TARGET_WORD_BANK
-    }, updatedVerseAlignments);
+    // doChangeCallback({
+    //   type: UNALIGN_TARGET_WORD,
+    //   source: GRID,
+    //   destination: TARGET_WORD_BANK
+    // }, updatedVerseAlignments);
   }
 
   /**
@@ -450,7 +455,6 @@ const WordAlignmentTool = ({
     })
   }
 
-  const theme = createTheme(); // Create MUI theme
   const haveVerseData = verseAlignments?.length && targetWords?.length
 
   const _checkerStyles = {
@@ -504,7 +508,6 @@ const WordAlignmentTool = ({
                 lexiconCache={lexiconCache}
                 loadLexiconEntry={loadLexiconEntry}
                 onChange={handleAlignmentChange}
-                resetAlignments={resetAlignments}
                 showPopover={showPopover}
                 sourceLanguage={sourceLanguage}
                 styles={{}}
