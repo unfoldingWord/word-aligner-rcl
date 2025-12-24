@@ -7,9 +7,10 @@ import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
 import * as types from '../common/WordCardTypes';
 import {
+  alignmentCleanup,
   findAlignment,
   findInWordList,
-  findToken, updateVerseAlignments
+  findToken,
 } from '../helpers/alignmentHelpers'
 
 // on alignment changes, identifies possible source and destination
@@ -215,6 +216,17 @@ const WordAligner = ({
   const setToolSettings = () => {
     console.log('setToolSettings')
   };
+
+  /**
+   * does cleanup for new verse alignments before saving to state
+   * @param {array} verseAlignments
+   * @return cleaned up verseAlignments
+   */
+  function updateVerseAlignments(verseAlignments) {
+    const _verseAlignments = alignmentCleanup(verseAlignments);
+    setVerseAlignments(_verseAlignments);
+    return _verseAlignments;
+  }
 
   useEffect(() => { // detect change of source alignments
     const changedTW = !isEqual(targetWords, targetWords_);

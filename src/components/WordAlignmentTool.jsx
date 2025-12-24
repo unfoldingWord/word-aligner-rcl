@@ -7,6 +7,7 @@ import { findNextCheck, findPreviousCheck } from '../tc_ui_toolkit/helpers/trans
 import { AlignmentHelpers, WordAligner } from '../index'
 import {
   addAlignmentsToVerseUSFM,
+  alignmentCleanup,
   findInWordList,
   resetAlignments,
 } from '../helpers/alignmentHelpers'
@@ -15,6 +16,7 @@ import isEqual from 'deep-equal'
 import { getVerseUSFM } from '../helpers/groupDataHelpers'
 import MAPControls from './MAPControls'
 import { usfmVerseToJson } from '../helpers/usfmHelpers'
+import cloneDeep from 'lodash.clonedeep'
 
 const lexiconCache_ = {};
 const theme = createTheme(); // Create MUI theme
@@ -310,7 +312,10 @@ const WordAlignmentTool = ({
     console.log(verseUsfm);
     const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(targetWords, verseAlignments);
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
-    setAlignmentData(results)
+    setAlignmentData({
+      targetWords,
+      verseAlignments
+    })
   }
 
   /**
@@ -367,7 +372,7 @@ const WordAlignmentTool = ({
    */
   const handleClearAlignments = () => {
     console.log( "handleClearAlignments" );
-    const newAlignmentData = alignmentData || {}
+    const newAlignmentData = alignmentData ? cloneDeep(alignmentCleanup()) :  {}
     //Make sure all words which were dropped are not disabled in the word list.
     const targetTokensNeedingDisabled = verseAlignments
       //Now reduce to target words.
@@ -400,7 +405,7 @@ const WordAlignmentTool = ({
       return {...alignment, isSuggestion: false, targetNgram: []};
     });
 
-    const updatedVerseAlignments = AlignmentHelpers.updateVerseAlignments( clearedAlignments )
+    const updatedVerseAlignments = alignmentCleanup(clearedAlignments);
     newAlignmentData.verseAlignments = updatedVerseAlignments;
 
     setAlignmentData(newAlignmentData)

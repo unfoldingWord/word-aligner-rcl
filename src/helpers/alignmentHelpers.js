@@ -1207,14 +1207,3 @@ export const alignmentComparator = (a, b) => sortIndexForAlignment(a) - sortInde
  */
 export const indexComparator = (a, b) => a.index - b.index;
 
-/**
- * does cleanup for new verse alignments before saving to state
- * @param {array} verseAlignments
- * @return cleaned up verseAlignments
- */
-export function updateVerseAlignments(verseAlignments) {
-  const _verseAlignments = alignmentCleanup(verseAlignments);
-  setVerseAlignments(_verseAlignments);
-  return _verseAlignments;
-}
-

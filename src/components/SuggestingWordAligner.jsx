@@ -17,7 +17,7 @@ import {
   findAlignment,
   findInWordList,
   findToken,
-  indexComparator, updateVerseAlignments
+  indexComparator
 } from '../helpers/alignmentHelpers'
 
 // on alignment changes, identifies possible source and destination
@@ -325,6 +325,17 @@ const SuggestingWordAligner = ({
   const setToolSettings = () => {
     console.log('setToolSettings')
   };
+
+  /**
+   * does cleanup for new verse alignments before saving to state
+   * @param {array} verseAlignments
+   * @return cleaned up verseAlignments
+   */
+  function updateVerseAlignments(verseAlignments) {
+    const _verseAlignments = alignmentCleanup(verseAlignments);
+    setVerseAlignments(_verseAlignments);
+    return _verseAlignments;
+  }
 
   useEffect(() => { // detect change of source alignments
     const changedTW = !isEqual(targetWords, targetWords_);
