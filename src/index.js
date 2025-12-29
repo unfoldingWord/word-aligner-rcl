@@ -8,6 +8,7 @@ import MAPControls from './components/MAPControls';
 import * as migrateOriginalLanguageHelpers from './helpers/migrateOriginalLanguageHelpers'
 import ScripturePane from './tc_ui_toolkit/ScripturePane/ScripturePane';
 import SuggestingWordAligner from './components/SuggestingWordAligner'
+import ToolControls from './components/ToolControls';
 import * as Translations from './utils/translations'
 import * as twArticleHelpers from './tc_ui_toolkit/helpers/translationHelps/twArticleHelpers'
 import * as UsfmFileConversionHelpers from './helpers/UsfmFileConversionHelpers'
@@ -26,6 +27,7 @@ export {
   migrateOriginalLanguageHelpers,
   ScripturePane,
   SuggestingWordAligner,
+  ToolControls,
   Translations,
   twArticleHelpers,
   UsfmFileConversionHelpers,
