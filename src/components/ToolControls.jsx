@@ -135,7 +135,6 @@ function log( message ){
 class ToolControls extends React.Component {
   constructor(props) {
     super(props);
-    this._handleOnInfoClick = this._handleOnInfoClick.bind(this);
     this.state = { infoHovered: false };
   }
 
@@ -152,7 +151,6 @@ class ToolControls extends React.Component {
 
     return (
         <div style={styles.root}>
-
           <ThemedTooltip message={translate('alignments.revert_tip')}>
             <Box component="span">
               <SecondaryButton
