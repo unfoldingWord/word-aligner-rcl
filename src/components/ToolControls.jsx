@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  MdCheck,
+  MdCancel,
   MdSave,
   MdGTranslate,
-  MdUndo
+  MdUndo,
 } from 'react-icons/md'
 import ThemedTooltip from './ThemedTooltip';
 import { Box, Typography } from '@mui/material';
@@ -174,7 +174,7 @@ class ToolControls extends React.Component {
                 style={styles.button}
                 onClick={onClearClick}
               >
-                <MdCheck style={styles.buttonIcon}/>
+                <MdCancel style={styles.buttonIcon}/>
                 {translate('alignments.clear')}
               </SecondaryButton>
             </Box>
