@@ -1,8 +1,9 @@
 .yalc/
 .vscode/
 .idea/
-__tests__/
-src/
+src/__tests__/
+src/**/*.test.js
+src/**/*.test.jsx
 .editorconfig
 styleguide.config.js
 styleguide.styles.js

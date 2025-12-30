@@ -6,6 +6,12 @@ import AlignmentGrid from "./AlignmentGrid";
 import {OT_ORIG_LANG} from "../common/constants";
 import delay from "../utils/delay";
 import * as types from '../common/WordCardTypes';
+import {
+  alignmentCleanup,
+  findAlignment,
+  findInWordList,
+  findToken,
+} from '../helpers/alignmentHelpers'
 
 // on alignment changes, identifies possible source and destination
 const TARGET_WORD_BANK=`Target Word Bank`;
@@ -65,151 +71,6 @@ const styles = {
     fontSize: '40px'
   },
 };
-
-/**
- * search word list to find index of token
- * @param {array} wordList
- * @param {object} token
- * @return {number} - index of token or -1 if not found
- */
-function findInWordList(wordList, token) {
-  let found = -1;
-  for (let i = 0, l = wordList.length; i < l; i++) {
-    const item = wordList[i];
-    if (item.text === token.text &&
-      item.occurrence === token.occurrence) {
-      found = i;
-      break;
-    }
-  }
-  return found;
-}
-
-/**
- * search tokens array to find index of token
- * @param {array} tokens
- * @param {object} token
- * @return {number} - index of token or -1 if not found
- */
-function findToken(tokens, token) {
-  let found = -1;
-  for (let i = 0, l = tokens.length; i < l; i++) {
-    const item = tokens[i];
-    if (item.text === token.text &&
-      item.occurrence === token.occurrence) {
-      found = i;
-      break;
-    }
-  }
-  return found;
-}
-
-/**
- * search alignments array to find location of target token
- * @param {array} alignments
- * @param {object} token
- * @return {{tokenIndex: number, alignmentIndex: number}} - index of token in alignment and index of alignment, or -1 if not found
- */
-function findAlignment(alignments, token) {
-  let tokenIndex = -1;
-  let alignmentIndex = -1;
-  for (let i = 0, l = alignments.length; i < l; i++) {
-    const targets = alignments[i].targetNgram;
-    tokenIndex = findToken(targets, token)
-    if (tokenIndex >= 0) {
-      alignmentIndex = i;
-      break;
-    }
-  }
-  return { tokenIndex, alignmentIndex };
-}
-
-/**
- * convert from token format to format used by word alignment
- * @param {object} token
- * @return {*&{occurrences: *, suggestion: boolean, index: *, occurrence: *, text}}
- */
-function tokenToAlignment(token) {
-  return {
-    ...token,
-    suggestion: false,
-  }
-}
-
-/**
- * const from word alignment fromat to token format
- * @param {object} alignment
- * @return {*&{occurrence, occurrences, text, index}}
- */
-function alignmentToToken(alignment) {
-  return { // make shallow copy
-    ...alignment,
-  }
-}
-
-/**
- * clean up alignment data:
- *     - remove any alignments that have no words
- *     - sort the source and target words within each card
- *     - sort the alignment cards to by primary words
- * @param {array} alignments
- * @return {*[]}
- */
-function alignmentCleanup(alignments) {
-  let alignments_ = [...alignments]
-
-  // remove empty and sort words
-  for (let i = 0; i < alignments_.length; i++) {
-    const alignment = alignments_[i]
-    if (!alignment.targetNgram.length && !alignment.sourceNgram.length) {
-      alignments_.splice(i, 1);
-      i--; // backup to accommodate deleted item
-    } else { // order words in alignment
-      alignment.targetNgram = alignment.targetNgram.sort(indexComparator)
-      alignment.sourceNgram = alignment.sourceNgram.sort(indexComparator)
-    }
-  }
-
-  // alignment ordering by source words
-  alignments_ = alignments_.sort(alignmentComparator);
-
-  // update index and ordering
-  for (let i = 0; i < alignments_.length; i++) {
-    const alignment = alignments_[i]
-    alignment.index = i;
-  }
-
-  return alignments_;
-}
-
-/**
- * get the sort order for sorting alignments - uses the first word in the primary tokens
- * @param {object} alignment
- * @return {number|*}
- */
-function sortIndexForAlignment(alignment) {
-  if (alignment.sourceNgram.length) {
-    const index = alignment.sourceNgram[0].index;
-    return index
-  }
-  return -1
-}
-
-/**
- * sort comparator function for alignments
- * @param a
- * @param b
- * @return {number}
- */
-const alignmentComparator = (a, b) => sortIndexForAlignment(a) - sortIndexForAlignment(b);
-
-/**
- * sort comparator function for ngram arrays
- * @param a
- * @param b
- * @return {number}
-*/
-const indexComparator = (a, b) => a.index - b.index;
 
 /**
  * @callback LoadLexiconEntryCB
@@ -356,6 +217,17 @@ const WordAligner = ({
     console.log('setToolSettings')
   };
 
+  /**
+   * does cleanup for new verse alignments before saving to state
+   * @param {array} verseAlignments
+   * @return cleaned up verseAlignments
+   */
+  function updateVerseAlignments(verseAlignments) {
+    const _verseAlignments = alignmentCleanup(verseAlignments);
+    setVerseAlignments(_verseAlignments);
+    return _verseAlignments;
+  }
+
   useEffect(() => { // detect change of source alignments
     const changedTW = !isEqual(targetWords, targetWords_);
     const changedVA = !isEqual(verseAlignments, verseAlignments_);
@@ -391,17 +263,6 @@ const WordAligner = ({
       targetWords,
       contextId,
     });
-  }
-
-  /**
-   * does cleanup for new verse alignments before saving to state
-   * @param {array} verseAlignments
-   * @return cleaned up verseAlignments
-   */
-  function updateVerseAlignments(verseAlignments) {
-    const _verseAlignments = alignmentCleanup(verseAlignments);
-    setVerseAlignments(_verseAlignments);
-    return _verseAlignments;
   }
 
   /**
