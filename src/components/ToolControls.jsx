@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MdRefresh, MdCheck, MdInfo, MdCancel } from 'react-icons/md';
+import {
+  MdCheck,
+  MdSave,
+  MdGTranslate,
+  MdUndo
+} from 'react-icons/md'
 import ThemedTooltip from './ThemedTooltip';
 import { Box, Typography } from '@mui/material';
 
@@ -157,7 +162,7 @@ class ToolControls extends React.Component {
                 style={styles.button}
                 onClick={onRevertClick}
               >
-                <MdRefresh style={styles.buttonIcon}/>
+                <MdUndo style={styles.buttonIcon}/>
                 {translate('alignments.revert')}
               </SecondaryButton>
             </Box>
@@ -181,7 +186,7 @@ class ToolControls extends React.Component {
                 style={styles.button}
                 onClick={onSaveClick}
               >
-                <MdCancel style={styles.buttonIcon}/>
+                <MdSave style={styles.buttonIcon}/>
                 {translate('alignments.save')}
               </SecondaryButton>
             </Box>
@@ -193,7 +198,7 @@ class ToolControls extends React.Component {
                 style={styles.button}
                 onClick={onTrainingClick}
               >
-                <MdCancel style={styles.buttonIcon} />
+                <MdGTranslate style={styles.buttonIcon} />
                 {trainingButtonLabel}
               </SecondaryButton>
             </Box>
