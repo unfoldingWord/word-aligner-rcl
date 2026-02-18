@@ -240,7 +240,6 @@ const WordAlignmentTool = ({
     }
   }
 
-  console.log(groupsData)
   useEffect(() => {
     // detect change of source alignments
     if (!isEqual(currentContextId, contextId)) {

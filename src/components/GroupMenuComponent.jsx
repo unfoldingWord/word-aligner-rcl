@@ -59,7 +59,6 @@ export function GroupMenuComponent({
       itemState = {}
     }
     const title = getReferenceStr(chapter, verse);
-    console.log(itemState)
     return {
       ...item,
       title,

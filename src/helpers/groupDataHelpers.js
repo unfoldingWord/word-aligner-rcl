@@ -123,7 +123,6 @@ export function initializeGroupData(groupsData, groupIndex, targetBook, sourceBo
         groupItem[FINISHED_KEY] = alignmentComplete
         groupItem[UNALIGNED_KEY] = !alignmentComplete
       }
-          console.log(groupItems)
 
     }
   } else {
