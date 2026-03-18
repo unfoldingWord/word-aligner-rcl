@@ -1,0 +1,1131 @@
+{
+  "Hosea 7:1 migration": {
+    "targetVerseUsfm": "\\\\zaln-s |x-strong=\"k:H7495\" x-lemma=\"רָפָא\" x-morph=\"He,R:Vqc:Sp1cs\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"כְּ\u2060רָפְאִ֣\u2060י\"\\\\*\\\\w Whenever|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w I|x-occurrence=\"1\" x-occurrences=\"2\"\\\\w*\\n\\\\w want|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w to|x-occurrence=\"1\" x-occurrences=\"2\"\\\\w*\\n\\\\w restore|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\\\zaln-e\\\\*\\n\\\\zaln-s |x-strong=\"l:H3478\" x-lemma=\"יִשְׂרָאֵל\" x-morph=\"He,R:Np\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"לְ\u2060יִשְׂרָאֵ֗ל\"\\\\*\\\\w the|x-occurrence=\"1\" x-occurrences=\"5\"\\\\w*\\n\\\\w people|x-occurrence=\"1\" x-occurrences=\"4\"\\\\w*\\n\\\\w of|x-occurrence=\"1\" x-occurrences=\"6\"\\\\w*\\\\zaln-e\\\\*\\n\\\\w Israel|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*,\\n\\\\zaln-s |x-strong=\"c:H1540\" x-lemma=\"גָּלָה\" x-morph=\"He,C:VNp3ms\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"וְ\u2060נִגְלָ֞ה\"\\\\*\\\\zaln-s |x-strong=\"H5771\" x-lemma=\"עָוֺן\" x-morph=\"He,Ncbsc\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"עֲוֺ֤ן\"\\\\*\\\\w I|x-occurrence=\"2\" x-occurrences=\"2\"\\\\w*\\n\\\\w see|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w how|x-occurrence=\"1\" x-occurrences=\"2\"\\\\w*\\n\\\\w sinfully|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\n\\\\q2 \\\\zaln-s |x-strong=\"H0669\" x-lemma=\"אֶפְרַיִם\" x-morph=\"He,Np\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"אֶפְרַ֨יִם֙\"\\\\*\\\\w the|x-occurrence=\"2\" x-occurrences=\"5\"\\\\w*\\n\\\\w people|x-occurrence=\"2\" x-occurrences=\"4\"\\\\w*\\n\\\\w of|x-occurrence=\"2\" x-occurrences=\"6\"\\\\w*\\n\\\\w Ephraim|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\\\zaln-e\\\\*\\n\\\\w act|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*,\\n\\\\zaln-s |x-strong=\"c:H7451c\" x-lemma=\"רַע\" x-morph=\"He,C:Ncfpc\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"וְ\u2060רָע֣וֹת\"\\\\*\\\\zaln-s |x-strong=\"H8111\" x-lemma=\"שֹׁמְרוֹן\" x-morph=\"He,Np\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"שֹֽׁמְר֔וֹן\"\\\\*\\\\w and|x-occurrence=\"1\" x-occurrences=\"3\"\\\\w*\\n\\\\w how|x-occurrence=\"2\" x-occurrences=\"2\"\\\\w*\\n\\\\w the|x-occurrence=\"3\" x-occurrences=\"5\"\\\\w*\\n\\\\w people|x-occurrence=\"3\" x-occurrences=\"4\"\\\\w*\\n\\\\w of|x-occurrence=\"3\" x-occurrences=\"6\"\\\\w*\\n\\\\w the|x-occurrence=\"4\" x-occurrences=\"5\"\\\\w*\\n\\\\w city|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w of|x-occurrence=\"4\" x-occurrences=\"6\"\\\\w*\\n\\\\w Samaria|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w do|x-occurrence=\"1\" x-occurrences=\"2\"\\\\w*\\n\\\\w evil|x-occurrence=\"1\" x-occurrences=\"2\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\n\\\\w things|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*.\\n\\\\q1 \\\\zaln-s |x-strong=\"H3588a\" x-lemma=\"כִּי\" x-morph=\"He,C\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"כִּ֥י\"\\\\*\\\\zaln-s |x-strong=\"H6466\" x-lemma=\"פָּעַל\" x-morph=\"He,Vqp3cp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"פָעֲל֖וּ\"\\\\*\\\\zaln-s |x-strong=\"H8267\" x-lemma=\"שֶׁקֶר\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"שָׁ֑קֶר\"\\\\*\\\\w They|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w constantly|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w deceive|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\n\\\\w others|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*;\\n\\\\q2 \\\\zaln-s |x-strong=\"c:H1590\" x-lemma=\"גַּנָּב\" x-morph=\"He,C:Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"וְ\u2060גַנָּ֣ב\"\\\\*\\\\zaln-s |x-strong=\"H0935\" x-lemma=\"בּוֹא\" x-morph=\"He,Vqi3ms\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"יָב֔וֹא\"\\\\*\\\\w thieves|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w break|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w into|x-occurrence=\"1\" x-occurrences=\"2\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\n\\\\w houses|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*,\\n\\\\zaln-s |x-strong=\"H6584\" x-lemma=\"פָּשַׁט\" x-morph=\"He,Vqp3ms\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"פָּשַׁ֥ט\"\\\\*\\\\zaln-s |x-strong=\"H1416\" x-lemma=\"גְּדוּד\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"גְּד֖וּד\"\\\\*\\\\zaln-s |x-strong=\"b:H2351\" x-lemma=\"חוּץ\" x-morph=\"He,Rd:Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"בַּ\u2060חֽוּץ\"\\\\*\\\\w and|x-occurrence=\"2\" x-occurrences=\"3\"\\\\w*\\n\\\\w gangs|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w of|x-occurrence=\"5\" x-occurrences=\"6\"\\\\w*\\n\\\\w robbers|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w steal|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w from|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w people|x-occurrence=\"4\" x-occurrences=\"4\"\\\\w*\\n\\\\w in|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w the|x-occurrence=\"5\" x-occurrences=\"5\"\\\\w*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\\\zaln-e\\\\*\\n\\\\w streets|x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*.\\n\\n\\\\ts\\\\*\\n\\\\q1  ",
+    "originalVerseUsfm": "\\\\w כְּ\u2060רָפְאִ֣\u2060י|lemma=\"רָפָא\" strong=\"k:H7495\" x-morph=\"He,R:Vqc:Sp1cs\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w לְ\u2060יִשְׂרָאֵ֗ל|lemma=\"יִשְׂרָאֵל\" strong=\"l:H3478\" x-morph=\"He,R:Np\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w וְ\u2060נִגְלָ֞ה|lemma=\"גָּלָה\" strong=\"c:H1540\" x-morph=\"He,C:VNp3ms\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w עֲוֺ֤ן|lemma=\"עָוֺן\" strong=\"H5771\" x-morph=\"He,Ncbsc\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w אֶפְרַ֨יִם֙|lemma=\"אֶפְרַיִם\" strong=\"H0669\" x-morph=\"He,Np\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w וְ\u2060רָע֣וֹת|lemma=\"רַע\" strong=\"c:H7451c\" x-morph=\"He,C:Ncfpc\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w שֹֽׁמְר֔וֹן|lemma=\"שֹׁמְרוֹן\" strong=\"H8111\" x-morph=\"He,Np\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w כִּ֥י|lemma=\"כִּי\" strong=\"H3588a\" x-morph=\"He,C\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w פָעֲל֖וּ|lemma=\"פָּעַל\" strong=\"H6466\" x-morph=\"He,Vqp3cp\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w שָׁ֑קֶר|lemma=\"שֶׁקֶר\" strong=\"H8267\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w וְ\u2060גַנָּ֣ב|lemma=\"גַּנָּב\" strong=\"c:H1590\" x-morph=\"He,C:Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w יָב֔וֹא|lemma=\"בּוֹא\" strong=\"H0935\" x-morph=\"He,Vqi3ms\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w פָּשַׁ֥ט|lemma=\"פָּשַׁט\" strong=\"H6584\" x-morph=\"He,Vqp3ms\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w גְּד֖וּד|lemma=\"גְּדוּד\" strong=\"H1416\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*\\n\\\\w בַּ\u2060חֽוּץ|lemma=\"חוּץ\" strong=\"b:H2351\" x-morph=\"He,Rd:Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\"\\\\w*׃\\n\\n",
+    "expectedResults": {
+      "targetWords": [
+        {
+          "disabled": true,
+          "index": 0,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "Whenever"
+        },
+        {
+          "disabled": true,
+          "index": 1,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "I"
+        },
+        {
+          "disabled": true,
+          "index": 2,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "want"
+        },
+        {
+          "disabled": true,
+          "index": 3,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "to"
+        },
+        {
+          "disabled": true,
+          "index": 4,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "restore"
+        },
+        {
+          "disabled": true,
+          "index": 5,
+          "occurrence": 1,
+          "occurrences": 5,
+          "text": "the"
+        },
+        {
+          "disabled": true,
+          "index": 6,
+          "occurrence": 1,
+          "occurrences": 4,
+          "text": "people"
+        },
+        {
+          "disabled": true,
+          "index": 7,
+          "occurrence": 1,
+          "occurrences": 5,
+          "text": "of"
+        },
+        {
+          "disabled": false,
+          "index": 8,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "Israel"
+        },
+        {
+          "disabled": true,
+          "index": 9,
+          "occurrence": 2,
+          "occurrences": 2,
+          "text": "I"
+        },
+        {
+          "disabled": true,
+          "index": 10,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "see"
+        },
+        {
+          "disabled": true,
+          "index": 11,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "how"
+        },
+        {
+          "disabled": true,
+          "index": 12,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "sinfully"
+        },
+        {
+          "disabled": true,
+          "index": 13,
+          "occurrence": 2,
+          "occurrences": 5,
+          "text": "the"
+        },
+        {
+          "disabled": true,
+          "index": 14,
+          "occurrence": 2,
+          "occurrences": 4,
+          "text": "people"
+        },
+        {
+          "disabled": true,
+          "index": 15,
+          "occurrence": 2,
+          "occurrences": 5,
+          "text": "of"
+        },
+        {
+          "disabled": true,
+          "index": 16,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "Ephraim"
+        },
+        {
+          "disabled": false,
+          "index": 17,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "act"
+        },
+        {
+          "disabled": true,
+          "index": 18,
+          "occurrence": 1,
+          "occurrences": 2,
+          "text": "and"
+        },
+        {
+          "disabled": true,
+          "index": 19,
+          "occurrence": 2,
+          "occurrences": 2,
+          "text": "how"
+        },
+        {
+          "disabled": true,
+          "index": 20,
+          "occurrence": 3,
+          "occurrences": 5,
+          "text": "the"
+        },
+        {
+          "disabled": true,
+          "index": 21,
+          "occurrence": 3,
+          "occurrences": 4,
+          "text": "people"
+        },
+        {
+          "disabled": true,
+          "index": 22,
+          "occurrence": 3,
+          "occurrences": 5,
+          "text": "of"
+        },
+        {
+          "disabled": true,
+          "index": 23,
+          "occurrence": 4,
+          "occurrences": 5,
+          "text": "the"
+        },
+        {
+          "disabled": true,
+          "index": 24,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "city"
+        },
+        {
+          "disabled": true,
+          "index": 25,
+          "occurrence": 4,
+          "occurrences": 5,
+          "text": "of"
+        },
+        {
+          "disabled": true,
+          "index": 26,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "Samaria"
+        },
+        {
+          "disabled": true,
+          "index": 27,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "do"
+        },
+        {
+          "disabled": true,
+          "index": 28,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "evil"
+        },
+        {
+          "disabled": false,
+          "index": 29,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "things"
+        },
+        {
+          "disabled": true,
+          "index": 30,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "They"
+        },
+        {
+          "disabled": true,
+          "index": 31,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "constantly"
+        },
+        {
+          "disabled": true,
+          "index": 32,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "deceive"
+        },
+        {
+          "disabled": false,
+          "index": 33,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "others"
+        },
+        {
+          "disabled": true,
+          "index": 34,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "thieves"
+        },
+        {
+          "disabled": true,
+          "index": 35,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "break"
+        },
+        {
+          "disabled": true,
+          "index": 36,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "into"
+        },
+        {
+          "disabled": false,
+          "index": 37,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "houses"
+        },
+        {
+          "disabled": true,
+          "index": 38,
+          "occurrence": 2,
+          "occurrences": 2,
+          "text": "and"
+        },
+        {
+          "disabled": true,
+          "index": 39,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "gangs"
+        },
+        {
+          "disabled": true,
+          "index": 40,
+          "occurrence": 5,
+          "occurrences": 5,
+          "text": "of"
+        },
+        {
+          "disabled": true,
+          "index": 41,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "robbers"
+        },
+        {
+          "disabled": true,
+          "index": 42,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "steal"
+        },
+        {
+          "disabled": true,
+          "index": 43,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "from"
+        },
+        {
+          "disabled": true,
+          "index": 44,
+          "occurrence": 4,
+          "occurrences": 4,
+          "text": "people"
+        },
+        {
+          "disabled": true,
+          "index": 45,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "in"
+        },
+        {
+          "disabled": true,
+          "index": 46,
+          "occurrence": 5,
+          "occurrences": 5,
+          "text": "the"
+        },
+        {
+          "disabled": false,
+          "index": 47,
+          "occurrence": 1,
+          "occurrences": 1,
+          "text": "streets"
+        }
+      ],
+      "verseAlignments": [
+        {
+          "sourceNgram": [
+            {
+              "index": 0,
+              "lemma": "רָפָא",
+              "morph": "He,R:Vqc:Sp1cs",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "k:H7495",
+              "text": "כְּ⁠רָפְאִ֣⁠י"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": 0,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "Whenever"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 1,
+              "occurrence": 1,
+              "occurrences": 2,
+              "text": "I"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 2,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "want"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 3,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "to"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 4,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "restore"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 1,
+              "occurrence": 1,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 2,
+              "lemma": "יִשְׂרָאֵל",
+              "morph": "He,R:Np",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "l:H3478",
+              "text": "לְ⁠יִשְׂרָאֵ֗ל"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": 5,
+              "occurrence": 1,
+              "occurrences": 5,
+              "text": "the"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 6,
+              "occurrence": 1,
+              "occurrences": 4,
+              "text": "people"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 7,
+              "occurrence": 1,
+              "occurrences": 5,
+              "text": "of"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 3,
+              "occurrence": 2,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 4,
+              "lemma": "גָּלָה",
+              "morph": "He,C:VNp3ms",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "c:H1540",
+              "text": "וְ⁠נִגְלָ֞ה"
+            },
+            {
+              "index": 6,
+              "lemma": "עָוֺן",
+              "morph": "He,Ncbsc",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H5771",
+              "text": "עֲוֺ֤ן"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": -1,
+              "occurrence": 2,
+              "occurrences": 2,
+              "text": "I"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "see"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 2,
+              "text": "how"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "sinfully"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 5,
+              "occurrence": 3,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 7,
+              "occurrence": 4,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 8,
+              "lemma": "אֶפְרַיִם",
+              "morph": "He,Np",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H0669",
+              "text": "אֶפְרַ֨יִם֙"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": -1,
+              "occurrence": 2,
+              "occurrences": 5,
+              "text": "the"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 2,
+              "occurrences": 4,
+              "text": "people"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 2,
+              "occurrences": 5,
+              "text": "of"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 8,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "Ephraim"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 9,
+              "occurrence": 5,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 10,
+              "lemma": "רַע",
+              "morph": "He,C:Ncfpc",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "c:H7451c",
+              "text": "וְ⁠רָע֣וֹת"
+            },
+            {
+              "index": 12,
+              "lemma": "שֹׁמְרוֹן",
+              "morph": "He,Np",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H8111",
+              "text": "שֹֽׁמְר֔וֹן"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 2,
+              "text": "and"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 2,
+              "occurrences": 2,
+              "text": "how"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 3,
+              "occurrences": 5,
+              "text": "the"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 3,
+              "occurrences": 4,
+              "text": "people"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 3,
+              "occurrences": 5,
+              "text": "of"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 4,
+              "occurrences": 5,
+              "text": "the"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "city"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 4,
+              "occurrences": 5,
+              "text": "of"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "Samaria"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "do"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "evil"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 11,
+              "occurrence": 6,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 13,
+              "occurrence": 7,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 14,
+              "lemma": "כִּי",
+              "morph": "He,C",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H3588a",
+              "text": "כִּ֥י"
+            },
+            {
+              "index": 16,
+              "lemma": "פָּעַל",
+              "morph": "He,Vqp3cp",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H6466",
+              "text": "פָעֲל֖וּ"
+            },
+            {
+              "index": 18,
+              "lemma": "שֶׁקֶר",
+              "morph": "He,Ncmsa",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H8267",
+              "text": "שָׁ֑קֶר"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": 9,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "They"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 10,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "constantly"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 11,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "deceive"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 15,
+              "occurrence": 8,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 17,
+              "occurrence": 9,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 19,
+              "occurrence": 10,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 20,
+              "lemma": "גַּנָּב",
+              "morph": "He,C:Ncmsa",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "c:H1590",
+              "text": "וְ⁠גַנָּ֣ב"
+            },
+            {
+              "index": 22,
+              "lemma": "בּוֹא",
+              "morph": "He,Vqi3ms",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H0935",
+              "text": "יָב֔וֹא"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": 12,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "thieves"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 13,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "break"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": 14,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "into"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 21,
+              "occurrence": 11,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 23,
+              "occurrence": 12,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 24,
+              "lemma": "פָּשַׁט",
+              "morph": "He,Vqp3ms",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H6584",
+              "text": "פָּשַׁ֥ט"
+            },
+            {
+              "index": 26,
+              "lemma": "גְּדוּד",
+              "morph": "He,Ncmsa",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "H1416",
+              "text": "גְּד֖וּד"
+            },
+            {
+              "index": 28,
+              "lemma": "חוּץ",
+              "morph": "He,Rd:Ncmsa",
+              "occurrence": 1,
+              "occurrences": 1,
+              "strong": "b:H2351",
+              "text": "בַּ⁠חֽוּץ"
+            }
+          ],
+          "targetNgram": [
+            {
+              "index": -1,
+              "occurrence": 2,
+              "occurrences": 2,
+              "text": "and"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "gangs"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 5,
+              "occurrences": 5,
+              "text": "of"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "robbers"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "steal"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "from"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 4,
+              "occurrences": 4,
+              "text": "people"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "in"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            },
+            {
+              "index": -1,
+              "occurrence": 5,
+              "occurrences": 5,
+              "text": "the"
+            },
+            {
+              "index": -1,
+              "text": "*"
+            }
+          ]
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 25,
+              "occurrence": 13,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 27,
+              "occurrence": 14,
+              "occurrences": 14,
+              "text": "*",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        },
+        {
+          "sourceNgram": [
+            {
+              "index": 29,
+              "occurrence": 1,
+              "occurrences": 1,
+              "text": "*׃",
+              "unmatched": true
+            }
+          ],
+          "targetNgram": []
+        }
+      ]
+    }
+  }
+}

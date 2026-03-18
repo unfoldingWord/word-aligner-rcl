@@ -20,10 +20,31 @@ import * as UsfmFileConversionHelpers from "../helpers/UsfmFileConversionHelpers
 
 jest.unmock('fs-extra');
 
+const migrationTestsPath = path.join(__dirname, './fixtures/alignments/migrationTests.json');
 const simpleUpdatesPath = path.join(__dirname, './fixtures/alignments/simpleEditsTests.json');
 const otMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/otMigrationEditsTests.json');
 const ntMigrationUpdatesPath = path.join(__dirname, './fixtures/alignments/ntMigrationEditsTests.json');
 
+describe('testing alignment migrations', () => {
+  const tests = fs.readJsonSync(migrationTestsPath)
+  const testNames = Object.keys(tests)
+  // console.log(tests)
+  for (const testName of testNames) {
+    const test_ = tests[testName]
+    test(`${testName}`, () => {
+      console.log('test', testName)
+      let {
+        targetVerseUsfm,
+        originalVerseUsfm,
+        expectedResults,
+      } = test_
+
+      const { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, originalVerseUsfm);
+      const resultsPayload = { targetWords, verseAlignments }
+      expect(resultsPayload).toEqual(expectedResults)
+    })
+  }
+});
 
 describe('testing edit of aligned target text', () => {
   const tests = fs.readJsonSync(simpleUpdatesPath)

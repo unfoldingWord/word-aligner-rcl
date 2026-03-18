@@ -245,9 +245,12 @@ export function  markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetWordL
     for (const alignment of alignments) {
       for (const usedToken of alignment.targetNgram) {
         if (token.text.toString() === usedToken.text.toString()
-          && token.occurrence === usedToken.occurrence
-          && token.occurrences === usedToken.occurrences) {
+          && token.occurrence === usedToken.occurrence) {
           isUsed = true;
+          if (token.occurrences !== usedToken.occurrences) {
+            // fix up occurrences in alignments
+            usedToken.occurrences = token.occurrences;
+          }
           break;
         }
       }
