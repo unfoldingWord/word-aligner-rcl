@@ -74,7 +74,6 @@ const App = () => {
     console.log(`SuggestingWordAligner() - alignment changed, results`, results);// merge alignments into target verse and convert to USFM
     const {targetWords, verseAlignments} = results;
     const verseUsfm = addAlignmentsToVerseUSFM(targetWords, verseAlignments, targetVerseUSFM);
-    console.log(verseUsfm);
     const alignmentComplete = areAlgnmentsComplete(targetWords, verseAlignments);
     console.log(`Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`);
   }

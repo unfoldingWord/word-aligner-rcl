@@ -1,1 +1,1 @@
-export { default } from './VerseRow';
+export { default } from './ChapterView';

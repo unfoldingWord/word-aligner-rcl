@@ -1,31 +1,33 @@
 /* eslint-disable react/no-string-refs */
 /* eslint-disable react/no-find-dom-node */
 /* eslint-disable no-return-assign */
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
 // components
-import { getReferenceStr, getTitleStr } from '../../helpers/utils';
-import VerseEditorDialog from '../../../VerseEditor';
-import { getBibleElement, getVerseDataFromBible } from '../../helpers/verseHelpers';
-import VerseRow from './VerseRow';
+import { getReferenceStr, getTitleStr } from '../../helpers/utils'
+import VerseEditorDialog from '../../../VerseEditor'
+import {
+  getBibleElement,
+  getVerseDataFromBible,
+} from '../../helpers/verseHelpers'
+import VerseRow from './VerseRow'
 import { UsfmFileConversionHelpers } from 'word-aligner-lib'
 
 const verseRowContainerStyles = {
   // overflow-y: 'scroll',
   // overflow-x: 'scroll'
-};
+}
 
 class ChapterView extends Component {
   componentDidMount() {
-    let { chapter, verse } = this.props.contextId.reference;
-    let verseReference = ChapterView.makeRefKey(chapter, verse);
-    let currentVerse = this.verseRefs[verseReference];
-    let element = ReactDOM.findDOMNode(currentVerse);
-
+    let { chapter, verse } = this.props.contextId.reference
+    let verseReference = ChapterView.makeRefKey(chapter, verse)
+    let currentVerse = this.verseRefs[verseReference]
+    let element = ReactDOM.findDOMNode(currentVerse)
     if (element) {
-      element.scrollIntoView();
+      element.scrollIntoView()
     }
   }
 
@@ -36,11 +38,11 @@ class ChapterView extends Component {
    * @return {string}
    */
   static makeRefKey(chapter, verse) {
-    return `c${chapter.toString()}v${verse.toString()}`;
+    return `c${chapter.toString()}v${verse.toString()}`
   }
 
   componentWillUnmount() {
-    this.verseRefs = {};
+    this.verseRefs = {}
   }
 
   render() {
@@ -57,31 +59,56 @@ class ChapterView extends Component {
       projectDetailsReducer,
       handleEditTargetVerse,
       showTargetUsfm,
-    } = this.props;
+    } = this.props
 
-    const { chapter, verse } = contextId.reference;
-    const languageID = 'en';
-    const bookID = 'ult';
-    const bible = getBibleElement(bibles, languageID, bookID);
-    const verseNumbers = Object.keys(bible[chapter]);
-    const { manifest: projectManifest } = projectDetailsReducer;
-    const targetLanguageFont = projectManifest.projectFont || '';
-    this.verseRefs = {};
-    let verseRows = [];
+    const { chapter, verse } = contextId.reference
+
+    const languageID = 'en'
+    const bookID = 'ult'
+    let key
+    for (let [key2, value] of Object.entries(bibles)) {
+      if (Object.keys(value).some(e => e === 'targetBible')) {
+        key = key2
+        break
+      }
+    }
+
+    const bible = getBibleElement(bibles, key, 'targetBible')
+
+    const verseNumbers = Object.keys(bible[chapter])
+
+    const { manifest: projectManifest } = projectDetailsReducer
+    const targetLanguageFont = projectManifest.projectFont || ''
+    this.verseRefs = {}
+    let verseRows = []
 
     if (verseNumbers.length > 0) {
-      const frontIdx = verseNumbers.indexOf('front');
+      verseNumbers.sort((a, b) => {
+        // 1. "front" always first
+        if (a === 'front') return -1
+        if (b === 'front') return 1
 
-      if (frontIdx > 0) { // move front to top of verse list if not there
-        const front = verseNumbers[frontIdx];
-        verseNumbers.splice(frontIdx);
-        verseNumbers.unshift(front);
-      }
+        // 2. extract numeric start (handles "2-3", "10", etc.)
+        const getStart = v => {
+          const match = v.match(/^(\d+)/)
+          return match ? parseInt(match[1], 10) : Number.MAX_SAFE_INTEGER
+        }
 
+        return getStart(a) - getStart(b)
+      })
+
+      // const frontIdx = verseNumbers.indexOf('front')
+
+      // if (frontIdx > 0) {
+      //   // move front to top of verse list if not there
+      //   const front = verseNumbers[frontIdx]
+      //   verseNumbers.splice(frontIdx)
+      //   verseNumbers.unshift(front)
+      // }
       for (let i = 0, len = verseNumbers.length; i < len; i++) {
-        const verseNumber = verseNumbers[i];
-        const { verseLabel } = getVerseDataFromBible(bible, chapter, verse);
-        const refKey = ChapterView.makeRefKey(chapter, verseNumber);
+        const verseNumber = verseNumbers[i]
+        const { verseLabel } = getVerseDataFromBible(bible, chapter, verse)
+        const refKey = ChapterView.makeRefKey(chapter, verseNumber)
 
         verseRows.push(
           <VerseRow
@@ -99,46 +126,51 @@ class ChapterView extends Component {
             currentPaneSettings={currentPaneSettings}
             onEditTargetVerse={handleEditTargetVerse}
             evenVerse={i % 2 === 0}
-            ref={node => this.verseRefs[refKey] = node}
+            ref={node => (this.verseRefs[refKey] = node)}
             showTargetUsfm={showTargetUsfm}
-          />,
-        );
+          />
+        )
       }
     }
 
-    const { editVerse } = this.props;
-    const openEditor = editVerse !== null;
-    let verseTitle = '';
-    let verseText = '';
-    let fontSizePercent = 100; // default font size
-    const direction = projectManifest.target_language && projectManifest.target_language.direction || 'ltr';
+    const { editVerse } = this.props
+    const openEditor = editVerse !== null
+    let verseTitle = ''
+    let verseText = ''
+    let fontSizePercent = 100 // default font size
+    const direction =
+      (projectManifest.target_language &&
+        projectManifest.target_language.direction) ||
+      'ltr'
 
     if (openEditor) {
-      let bookName = projectManifest?.target_language?.book?.name;
+      let bookName = projectManifest?.target_language?.book?.name
 
       if (!bookName) {
-        console.warn('The localized book name could not be found. This is likely a bug in tC.');
-        bookName = projectManifest?.project?.name || bookID;
+        console.warn(
+          'The localized book name could not be found. This is likely a bug in tC.'
+        )
+        bookName = projectManifest?.project?.name || bookID
       }
 
-      const refStr = getReferenceStr(editVerse.chapter, editVerse.verse);
-      verseTitle = getTitleStr(bookName, refStr, direction);
-      verseText = editVerse.verseText || '';
+      const refStr = getReferenceStr(editVerse.chapter, editVerse.verse)
+      verseTitle = getTitleStr(bookName, refStr, direction)
+      verseText = editVerse.verseText || ''
       if (typeof verseText !== 'string') {
         verseText = UsfmFileConversionHelpers.getUsfmForVerseContent(verseText)
       }
-      const targetConfig = currentPaneSettings.find(pane => (pane.languageId === 'targetLanguage'));
+      const targetConfig = currentPaneSettings.find(
+        pane => pane.languageId === 'targetLanguage'
+      )
 
       if (targetConfig) {
-        fontSizePercent = targetConfig.fontSize;
+        fontSizePercent = targetConfig.fontSize
       }
     }
 
     return (
       <div>
-        <div style={verseRowContainerStyles}>
-          {verseRows}
-        </div>
+        <div style={verseRowContainerStyles}>{verseRows}</div>
         <VerseEditorDialog
           open={openEditor}
           translate={translate}
@@ -151,7 +183,7 @@ class ChapterView extends Component {
           direction={direction}
         />
       </div>
-    );
+    )
   }
 }
 
@@ -170,6 +202,6 @@ ChapterView.propTypes = {
   handleEditorSubmit: PropTypes.func.isRequired,
   handleEditorCancel: PropTypes.func.isRequired,
   showTargetUsfm: PropTypes.bool,
-};
+}
 
-export default ChapterView;
+export default ChapterView

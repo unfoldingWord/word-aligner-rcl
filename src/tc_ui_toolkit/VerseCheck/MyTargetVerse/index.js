@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 import { Col } from 'react-bootstrap';
 import { getReferenceStr } from '../../ScripturePane/helpers/utils'
+import { Typography } from '@mui/material';
 
 const MyTargetVerse = ({
   chapter,
@@ -17,7 +18,7 @@ const MyTargetVerse = ({
     <Col md={12} sm={12} xs={12} lg={12} style={styles}>
       <div style={{ direction: dir }}>
         <b>{chapterVerse}</b>
-        <span className={targetLanguageFontClassName}>{verseText}</span>
+        <Typography component='span' className={targetLanguageFontClassName}>{verseText}</Typography>
       </div>
     </Col>
   );

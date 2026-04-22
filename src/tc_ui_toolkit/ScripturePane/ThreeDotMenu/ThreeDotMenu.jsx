@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import RemoveCircle from '@mui/icons-material/RemoveCircle';
-import ThreeDotIcon from '../../ThreeDotIcon';
-import FontSizeSlider from '../../FontSizeSlider';
-import DropdownMenu, { MenuItem } from '../../DropdownMenu';
-import FontSelectionMenu from '../../FontSelectionMenu';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import RemoveCircle from '@mui/icons-material/RemoveCircle'
+import ThreeDotIcon from '../../ThreeDotIcon'
+import FontSizeSlider from '../../FontSizeSlider'
+import DropdownMenu, { MenuItem } from '../../DropdownMenu'
+import FontSelectionMenu from '../../FontSelectionMenu'
 
 function ThreeDotMenu({
   font,
@@ -23,25 +23,26 @@ function ThreeDotMenu({
   clickToRemoveResourceLabel,
   addObjectPropertyToManifest,
   viewURL,
+  disableFontMenu,
 }) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState(null)
+  const open = Boolean(anchorEl)
 
   const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
-  const handleFontSizeChange = (fontSize) => {
-    changePaneFontSize(index, fontSize);
-  };
+  const handleFontSizeChange = fontSize => {
+    changePaneFontSize(index, fontSize)
+  }
 
   return (
     <>
-      <ThreeDotIcon onClick={handleClick} style={{ margin: '0 0 0 10px' }}/>
+      <ThreeDotIcon onClick={handleClick} style={{ margin: '0 0 0 10px' }} />
       <DropdownMenu
         open={open}
         anchorEl={anchorEl}
@@ -50,25 +51,30 @@ function ThreeDotMenu({
         transformOrigin={transformOrigin}
         style={{ margin: '-15px 0px 0px' }}
       >
-        {!viewURL && <MenuItem
-          divider
-          onClick={() => {
-            removePane(index);
-            handleClose();
-          }}
-          title={clickToRemoveResourceLabel}
-          style={{
-            display: 'flex', justifyContent: 'flex-start', alignItems: 'center',
-          }}
-        >
-          <RemoveCircle style={{ fontSize: '20px' }}/>
-          <div style={{ margin: '0px 10px', color: '#000000' }}>
-            {removeResourceLabel}
-          </div>
-        </MenuItem>}
+        {!viewURL && (
+          <MenuItem
+            divider
+            onClick={() => {
+              removePane(index)
+              handleClose()
+            }}
+            title={clickToRemoveResourceLabel}
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+            }}
+          >
+            <RemoveCircle style={{ fontSize: '20px' }} />
+            <div style={{ margin: '0px 10px', color: '#000000' }}>
+              {removeResourceLabel}
+            </div>
+          </MenuItem>
+        )}
         <MenuItem disableOnClick divider>
-          <FontSizeSlider value={fontSize} onChange={handleFontSizeChange}/>
+          <FontSizeSlider value={fontSize} onChange={handleFontSizeChange} />
         </MenuItem>
+        {!disableFontMenu &&
         <MenuItem
           disableOnClick
           title={selectFontLabel}
@@ -85,16 +91,16 @@ function ThreeDotMenu({
             addObjectPropertyToManifest={addObjectPropertyToManifest}
             complexScriptFonts={complexScriptFonts}
           />
-        </MenuItem>
+        </MenuItem>}
       </DropdownMenu>
     </>
-  );
+  )
 }
 
 ThreeDotMenu.defaultProps = {
   anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
   transformOrigin: { vertical: 'top', horizontal: 'right' },
-};
+}
 
 ThreeDotMenu.propTypes = {
   fontSize: PropTypes.number,
@@ -113,6 +119,8 @@ ThreeDotMenu.propTypes = {
   addObjectPropertyToManifest: PropTypes.func.isRequired,
   clickToRemoveResourceLabel: PropTypes.string.isRequired,
   viewURL: PropTypes.bool,
-};
+  disableFontMenu: PropTypes.bool,
 
-export default ThreeDotMenu;
+}
+
+export default ThreeDotMenu

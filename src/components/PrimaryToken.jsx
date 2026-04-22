@@ -142,7 +142,7 @@ class PrimaryToken extends Component {
     const positionCoord = e.target;
     const fontSize = isHebrew ? '1.7em' : '1.2em';
     const PopoverTitle = (
-      <strong style={{ fontSize }}>{token.text}</strong>
+      <Typography component='strong' sx={{ fontSize }}>{token.text}</Typography>
     );
     const wordDetails = (
       <WordLexiconDetails lexiconData={lexiconData} wordObject={token} translate={translate}

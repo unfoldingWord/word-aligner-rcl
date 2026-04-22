@@ -116,7 +116,7 @@ export function GroupMenuComponent({
 
   const statusIcons = [
     {
-      key: 'invalidated',
+      key: 'invalid',
       icon: <InvalidatedIcon style={{ color: 'white' }} />,
     },
     {

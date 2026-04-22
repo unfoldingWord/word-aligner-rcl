@@ -13,6 +13,8 @@ import {
 } from '../../ScripturePane/helpers/utils';
 // styling
 import '../VerseCheck.styles.css';
+import { Typography } from '@mui/material';
+
 const NAMESPACE = 'CheckArea';
 
 class DefaultArea extends React.Component {
@@ -28,7 +30,7 @@ class DefaultArea extends React.Component {
     const { validateSelections } = this.props;
     // normalize whitespace for text rendering in order to display highlights with more than one space since html selections show one space
     verseText = normalizeString(verseText);
-    let verseTextSpans = <span className={targetLanguageFontClassName}>{verseText}</span>;
+    let verseTextSpans = <Typography component='span' className={targetLanguageFontClassName}>{verseText}</Typography>;
 
     if (selections && selections.length > 0) {
       let _selectionArray = selectionArray(verseText, selections);
@@ -54,9 +56,9 @@ class DefaultArea extends React.Component {
         let style = selection.selected ? { backgroundColor: 'var(--highlight-color)' } : {};
 
         verseTextSpans.push(
-          <span key={index} className={targetLanguageFontClassName} style={style}>
+          <Typography component='span' key={index} className={targetLanguageFontClassName} sx={style}>
             {selection.text}
-          </span>,
+          </Typography>,
         );
       }
     }
@@ -129,12 +131,12 @@ class DefaultArea extends React.Component {
               />
           }
           <div className='pane' style={style}>
-            <span className={verseTitleClassName} style={lineHeightStyle}>
+            <Typography component='span' className={verseTitleClassName} sx={lineHeightStyle}>
               {languageStr}
-            </span>
-            <span className={verseSubtitleClassName} style={lineHeightStyle}>
+            </Typography>
+            <Typography component='span' className={verseSubtitleClassName} sx={lineHeightStyle}>
               {title}
-            </span>
+            </Typography>
           </div>
           {/* put icon here if LTR */}
           {
