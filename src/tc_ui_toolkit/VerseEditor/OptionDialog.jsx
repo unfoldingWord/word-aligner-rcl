@@ -5,6 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Toolbar from '@mui/material/Toolbar';
 import { GrClose } from 'react-icons/gr'
+import { Typography } from '@mui/material';
 
 const OptionDialog = ({
   isOpen,
@@ -36,7 +37,7 @@ const OptionDialog = ({
     <div style={{
       display: 'flex', justifyContent: 'space-between', width:'100%', marginLeft:20, marginRight:20,
     }}>
-      <span style={{ color: 'var(--reverse-color)' }}>{headerTitleText}</span>
+      <Typography component='span' sx={{ color: 'var(--reverse-color)' }}>{headerTitleText}</Typography>
       <GrClose
         onClick={handleClose}
         style={{

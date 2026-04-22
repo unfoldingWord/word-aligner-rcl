@@ -10,6 +10,8 @@ import {
 import { AlignmentHelpers, WordAligner } from '../index'
 import {
   addAlignmentsToVerseUSFM,
+  alignmentCleanup,
+  findInWordList,
   resetAlignments,
 } from '../helpers/alignmentHelpers'
 import complexScriptFonts from '../common/complexScriptFonts'
@@ -17,8 +19,11 @@ import isEqual from 'deep-equal'
 import { getVerseUSFM } from '../helpers/groupDataHelpers'
 import MAPControls from './MAPControls'
 import { usfmVerseToJson } from '../helpers/usfmHelpers'
+import cloneDeep from 'lodash.clonedeep'
 import PopoverContainer from '../containers/PopoverContainer'
 const lexiconCache_ = {}
+const theme = createTheme() // Create MUI theme
+
 const localStyles = {
   container: {
     display: 'flex',
@@ -40,7 +45,7 @@ const localStyles = {
     display: 'flex',
     flex: 1,
     flexDirection: 'column',
-    width: 'calc(100vw - 650px)',
+    width: 'calc(100% - 450px)',
     height: '100%',
   },
   scripturePaneWrapper: {
@@ -146,10 +151,16 @@ const WordAlignmentTool = ({
   targetFontSizePercent = 100,
   translate,
   styles: styles_ = {},
+  disableFontMenu = false,
 }) => {
   const [currentContextId, setCurrentContextId] = useState(contextId)
-  const [alignmentData, setAlignmentData] = useState({})
+  const [alignmentData, _setAlignmentData] = useState({})
   const [groupsMenuData, setGroupsMenuData] = useState({})
+  function setAlignmentData(alignmentData_) {
+    if (!isEqual(alignmentData, alignmentData_)) {
+      _setAlignmentData(alignmentData_)
+    }
+  }
   const [state, setState] = useState({})
   const { popoverProps } = state
   const showPopover = (title, bodyText, positionCoord) => {
@@ -270,7 +281,7 @@ const WordAlignmentTool = ({
    * @private
    */
   function _saveSettings(_settings) {
-    if (saveSettings && _settings) {
+    if (setToolSettings && _settings) {
       const newSettings = { ..._settings }
       delete newSettings.manifest
       const _paneSettings = [...newSettings.paneSettings]
@@ -305,11 +316,10 @@ const WordAlignmentTool = ({
    */
   function setSettings(newSettings, doSave = false) {
     const _settings = {
-      ...settings,
+      ...initialSettings,
       ...newSettings,
     }
 
-    _setSettings(_settings)
     doSave && _saveSettings(_settings)
   }
 
@@ -344,13 +354,15 @@ const WordAlignmentTool = ({
   function handleAlignmentChange(results) {
     console.log(`handleAlignmentChange() - alignment changed, results`, results) // merge alignments into target verse and convert to USFM
     const { targetWords, verseAlignments } = results
+    // get initial bible text
     const ref = currentContextId?.reference
-    const targetVerseUSFM = getVerseUSFM(targetBook, ref.chapter, ref.verse)
-    const verseUsfm = addAlignmentsToVerseUSFM(
+    const targetVerseUSFM_ = getVerseUSFM(targetBook, ref.chapter, ref.verse)
+    const verseUsfm = AlignmentHelpers.addAlignmentsToVerseUSFM(
       targetWords,
       verseAlignments,
-      targetVerseUSFM
+      targetVerseUSFM_
     )
+    console.log(verseUsfm)
     const alignmentComplete = AlignmentHelpers.areAlgnmentsComplete(
       targetWords,
       verseAlignments
@@ -358,7 +370,10 @@ const WordAlignmentTool = ({
     console.log(
       `Alignments are ${alignmentComplete ? 'COMPLETE!' : 'incomplete'}`
     )
-    setAlignmentData(results)
+    setAlignmentData({
+      targetWords,
+      verseAlignments,
+    })
   }
 
   /**
@@ -381,13 +396,6 @@ const WordAlignmentTool = ({
    *
    * @function
    * @name handleSaveAlignments
-   * @param {Object} contextId - The current context ID containing verse reference details.
-   * @param {Array} targetWords - The list of words in the target language verse.
-   * @param {Array} verseAlignments - The list of alignment data to be applied.
-   * @param {Function} addAlignmentsToVerseUSFM - Function to add alignments to the verse text in USFM.
-   * @param {Function} getVerseUSFM - Function to retrieve the verse text in USFM.
-   * @param {Function} usfmVerseToJson - Function to convert USFM verse text to JSON format.
-   * @param {Function} saveNewAlignments - Callback function to save the new alignments.
    */
   const handleSaveAlignments = () => {
     console.log('handleSaveAlignments')
@@ -432,7 +440,7 @@ const WordAlignmentTool = ({
    */
   const handleClearAlignments = () => {
     console.log('handleClearAlignments')
-    const newAlignmentData = alignmentData || {}
+    const newAlignmentData = alignmentData ? cloneDeep(alignmentCleanup()) : {}
     //Make sure all words which were dropped are not disabled in the word list.
     const targetTokensNeedingDisabled = verseAlignments
       //Now reduce to target words.
@@ -462,23 +470,20 @@ const WordAlignmentTool = ({
     }
 
     //Drop all target tokens from verseAlignments
-    const clearedAlignments = verseAlignments_.map(alignment => {
+    const clearedAlignments = verseAlignments.map(alignment => {
       return { ...alignment, isSuggestion: false, targetNgram: [] }
     })
 
-    const updatedVerseAlignments = updateVerseAlignments(clearedAlignments)
+    const updatedVerseAlignments = alignmentCleanup(clearedAlignments)
     newAlignmentData.verseAlignments = updatedVerseAlignments
 
     setAlignmentData(newAlignmentData)
 
-    doChangeCallback(
-      {
-        type: UNALIGN_TARGET_WORD,
-        source: GRID,
-        destination: TARGET_WORD_BANK,
-      },
-      updatedVerseAlignments
-    )
+    // doChangeCallback({
+    //   type: UNALIGN_TARGET_WORD,
+    //   source: GRID,
+    //   destination: TARGET_WORD_BANK
+    // }, updatedVerseAlignments);
   }
 
   /**
@@ -531,7 +536,7 @@ const WordAlignmentTool = ({
   return (
     <ThemeProvider theme={theme}>
       {readyToDisplayChecker ? (
-        <div id='checker' style={_checkerStyles}>
+        <div id='checker' style={localStyles.container}>
           <GroupMenuComponent
             bookName={bookName}
             changeCurrentContextId={changeCurrentCheck_}
@@ -542,7 +547,7 @@ const WordAlignmentTool = ({
             targetLanguageFont={targetLanguageFont}
             translate={translate}
           />
-          <div style={localStyles.centerDiv}>
+          <div style={localStyles.alignmentAreaContainer}>
             {notEmptyObject(bibles) && (
               <div style={localStyles.scripturePaneDiv}>
                 <ScripturePane
@@ -563,6 +568,7 @@ const WordAlignmentTool = ({
                   showPopover={showPopover}
                   onExpandedScripturePaneShow={null}
                   translate={translate}
+                  disableFontMenu={disableFontMenu}
                 />
               </div>
             )}
@@ -574,7 +580,6 @@ const WordAlignmentTool = ({
                   lexiconCache={lexiconCache}
                   loadLexiconEntry={loadLexiconEntry}
                   onChange={handleAlignmentChange}
-                  resetAlignments={resetAlignments}
                   showPopover={showPopover}
                   sourceLanguage={sourceLanguage}
                   styles={{}}
@@ -597,9 +602,6 @@ const WordAlignmentTool = ({
               />
             </div>
           </div>
-          {popoverProps?.popoverVisibility && (
-            <PopoverContainer {...popoverProps} />
-          )}
         </div>
       ) : (
         'Waiting for Data'
@@ -633,6 +635,7 @@ WordAlignmentTool.propTypes = {
   targetLanguage: PropTypes.object,
   targetLanguageFont: PropTypes.string,
   translate: PropTypes.func.isRequired,
+  disableFontMenu: PropTypes.bool,
 }
 
 export default WordAlignmentTool

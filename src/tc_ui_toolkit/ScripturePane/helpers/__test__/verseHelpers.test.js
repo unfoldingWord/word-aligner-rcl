@@ -2,7 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import React from 'react';
 import isEqual from 'deep-equal';
-import * as verseHelpers from '../verseHelpers';
+import * as wordALignerLib from 'word-aligner-lib'
+const verseHelpers_ = wordALignerLib.verseHelpers
+import {
+  createVerseMarker,
+  getVerseData,
+  isVerseInSpan,
+  verseArray,
+} from '../verseHelpers'
 
 function createMarker(verse) {
   return {
@@ -11,7 +18,7 @@ function createMarker(verse) {
   };
 }
 
-describe('verseHelpers.getVerseData', () => {
+describe('getVerseData', () => {
   it('test multiple cases without verse spans in data', () => {
     const chapter1 = {
       '1': 'v1-Content',
@@ -46,7 +53,7 @@ describe('verseHelpers.getVerseData', () => {
       let {
         chapter, verse, expected,
       } = test;
-      const results = verseHelpers.getVerseData(bibleData, chapter, verse, createMarker);
+      const results = getVerseData(bibleData, chapter, verse, createMarker);
 
       const results_ = { verseData: results.verseData, verseLabel: results.verseLabel };
 
@@ -99,7 +106,7 @@ describe('verseHelpers.getVerseData', () => {
       let {
         chapter, verse, expected,
       } = test;
-      const results = verseHelpers.getVerseData(bibleData, chapter, verse, createMarker);
+      const results = getVerseData(bibleData, chapter, verse, createMarker);
 
       const results_ = { verseData: results.verseData, verseLabel: results.verseLabel };
 
@@ -111,7 +118,7 @@ describe('verseHelpers.getVerseData', () => {
   });
 });
 
-describe('verseHelpers.verseArray', () => {
+describe('verseArray', () => {
   it('should succeed with heb-12-27.el-x-koine', () => {
     generateTest('heb-12-27.el-x-koine', 'ugnt');
   });
@@ -168,7 +175,7 @@ describe('verseHelpers.verseArray', () => {
   });
 });
 
-describe('verseHelpers.isVerseInSpan', () => {
+describe('isVerseInSpan', () => {
   it('should return false if verseLabel not span', () => {
     // given
     const verseLabel = '1';
@@ -176,7 +183,7 @@ describe('verseHelpers.isVerseInSpan', () => {
     const expect_isVerseSpan = false;
 
     // when
-    const results = verseHelpers.isVerseInSpan(verseLabel, verse);
+    const results = isVerseInSpan(verseLabel, verse);
 
     // then
     expect(results.isVerseSpan).toEqual(expect_isVerseSpan);
@@ -189,7 +196,7 @@ describe('verseHelpers.isVerseInSpan', () => {
     const expect_isVerseSpan = false;
 
     // when
-    const results = verseHelpers.isVerseInSpan(verseLabel, verse);
+    const results = isVerseInSpan(verseLabel, verse);
 
     // then
     expect(results.isVerseSpan).toEqual(expect_isVerseSpan);
@@ -202,7 +209,7 @@ describe('verseHelpers.isVerseInSpan', () => {
     const expect_isVerseSpan = false;
 
     // when
-    const results = verseHelpers.isVerseInSpan(verseLabel, verse);
+    const results = isVerseInSpan(verseLabel, verse);
 
     // then
     expect(results.isVerseSpan).toEqual(expect_isVerseSpan);
@@ -216,7 +223,7 @@ describe('verseHelpers.isVerseInSpan', () => {
     const expect_isFirstVerse = true;
 
     // when
-    const results = verseHelpers.isVerseInSpan(verseLabel, verse);
+    const results = isVerseInSpan(verseLabel, verse);
 
     // then
     expect(results.isVerseSpan).toEqual(expect_isVerseSpan);
@@ -231,7 +238,7 @@ describe('verseHelpers.isVerseInSpan', () => {
     const expect_isFirstVerse = true;
 
     // when
-    const results = verseHelpers.isVerseInSpan(verseLabel, verse);
+    const results = isVerseInSpan(verseLabel, verse);
 
     // then
     expect(results.isVerseSpan).toEqual(expect_isVerseSpan);
@@ -246,7 +253,7 @@ describe('verseHelpers.isVerseInSpan', () => {
     const expect_isFirstVerse = false;
 
     // when
-    const results = verseHelpers.isVerseInSpan(verseLabel, verse);
+    const results = isVerseInSpan(verseLabel, verse);
 
     // then
     expect(results.isVerseSpan).toEqual(expect_isVerseSpan);
@@ -254,14 +261,14 @@ describe('verseHelpers.isVerseInSpan', () => {
   });
 });
 
-describe('verseHelpers.getVerseSpanRange', () => {
+describe('getVerseSpanRange', () => {
   it('should return no range if single verse', () => {
     // given
     const verseIndex = '1';
     const expect_range = {};
 
     // when
-    const results = verseHelpers.getVerseSpanRange(verseIndex);
+    const results = verseHelpers_.getVerseSpanRange(verseIndex);
 
     // then
     expect(results).toEqual(expect_range);
@@ -273,7 +280,7 @@ describe('verseHelpers.getVerseSpanRange', () => {
     const expect_range = {};
 
     // when
-    const results = verseHelpers.getVerseSpanRange(verseIndex);
+    const results = verseHelpers_.getVerseSpanRange(verseIndex);
 
     // then
     expect(results).toEqual(expect_range);
@@ -285,7 +292,7 @@ describe('verseHelpers.getVerseSpanRange', () => {
     const expect_range = {};
 
     // when
-    const results = verseHelpers.getVerseSpanRange(verseIndex);
+    const results = verseHelpers_.getVerseSpanRange(verseIndex);
 
     // then
     expect(results).toEqual(expect_range);
@@ -297,7 +304,7 @@ describe('verseHelpers.getVerseSpanRange', () => {
     const expect_range = {};
 
     // when
-    const results = verseHelpers.getVerseSpanRange(verseIndex);
+    const results = verseHelpers_.getVerseSpanRange(verseIndex);
 
     // then
     expect(results).toEqual(expect_range);
@@ -312,14 +319,14 @@ describe('verseHelpers.getVerseSpanRange', () => {
     };
 
     // when
-    const results = verseHelpers.getVerseSpanRange(verseIndex);
+    const results = verseHelpers_.getVerseSpanRange(verseIndex);
 
     // then
     expect(results).toEqual(expect_range);
   });
 });
 
-describe('verseHelpers.createVerseMarker', () => {
+describe('createVerseMarker', () => {
   it('should succeed with string verse', () => {
     // given
     const verse = '1';
@@ -331,7 +338,7 @@ describe('verseHelpers.createVerseMarker', () => {
     };
 
     // when
-    const results = verseHelpers.createVerseMarker(verse);
+    const results = createVerseMarker(verse);
 
     // then
     expect(results).toEqual(expected_results);
@@ -348,7 +355,7 @@ describe('verseHelpers.createVerseMarker', () => {
     };
 
     // when
-    const results = verseHelpers.createVerseMarker(verse);
+    const results = createVerseMarker(verse);
 
     // then
     expect(results).toEqual(expected_results);
@@ -390,6 +397,6 @@ const generateTest = (name, bibleId, contextId='') => {
   // const expectedBaseName = expectedName ? expectedName : name;
   // const expected = readUSFM(`${expectedBaseName}.usfm`);
   // expect(expected).toBeTruthy();
-  const output = verseHelpers.verseArray(input, bibleId, contextId);
+  const output = verseArray(input, bibleId, contextId);
   expect(output).toMatchSnapshot();
 };

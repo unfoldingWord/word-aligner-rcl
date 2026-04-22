@@ -12,6 +12,8 @@ import {
 } from '../../ScripturePane/helpers/utils';
 import { getFontClassName } from '../../common/fontUtils';
 import '../VerseCheck.styles.css';
+import { Typography } from '@mui/material';
+
 const NAMESPACE = 'CheckArea';
 
 const SelectionArea = ({
@@ -75,12 +77,12 @@ const SelectionArea = ({
             />
         }
         <div className='pane' style={style}>
-          <span className={verseTitleClassName} style={lineHeightStyle}>
+          <Typography component='span' className={verseTitleClassName} sx={lineHeightStyle}>
             {languageStr}
-          </span>
-          <span className={verseSubtitleClassName} style={lineHeightStyle}>
+          </Typography>
+          <Typography component='span' className={verseSubtitleClassName} sx={lineHeightStyle}>
             {title}
-          </span>
+          </Typography>
         </div>
         {/* put icon here if LTR */}
         {

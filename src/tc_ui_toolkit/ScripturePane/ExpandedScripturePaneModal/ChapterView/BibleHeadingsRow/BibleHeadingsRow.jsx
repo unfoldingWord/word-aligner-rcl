@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 import { getBibleElement } from '../../../helpers/verseHelpers';
+import { Typography } from '@mui/material';
 
 
 const rowStyle = {
@@ -68,7 +69,7 @@ class BibleHeadingsRow extends Component {
 
       bibleHeadings.push(
         <Col key={index} md={4} sm={4} xs={4} lg={4} style={colStyle} >
-          <span>{headingText}</span>
+          <Typography component='span'>{headingText}</Typography>
         </Col>,
       );
     }

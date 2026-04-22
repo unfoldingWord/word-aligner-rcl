@@ -6,6 +6,7 @@ import {
 } from '../helpers/utils'
 import Verse from '../Verse'
 import ThreeDotMenu from '../ThreeDotMenu'
+import { Typography } from '@mui/material';
 
 // constants
 const PANECHAR = 9
@@ -81,8 +82,8 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
 
   return (
     <div style={{ ...paneStyles.titleContainerContent, ...styles }}>
-      <span
-        style={{
+      <Typography component='span'
+        sx={{
           ...paneStyles.titleText,
           lineHeight: 1,
           padding: fontClass.includes('Awami') ? '0px 0px 6px' : '0px'
@@ -90,9 +91,9 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
         className={headingClassName}
         aria-label={fullTitle || headingText}>
         {headingText.length > 21 ? headingText.slice(0, 21) + '...' : headingText}
-      </span>
-      <span
-        style={{
+      </Typography>
+      <Typography component='span'
+        sx={{
           ...paneStyles.subtitleText,
           lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2,
           textAlign: isLTR ? 'left' : 'right'
@@ -104,7 +105,7 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
                   localizedDescription.slice(0, Math.round(width / PANECHAR)) + '...' :
                   localizedDescription
               }
-            </span>
+            </Typography>
     </div>
   )
 }
@@ -138,7 +139,8 @@ function TitleContainer({
                           clickToRemoveResourceLabel,
                           addObjectPropertyToManifest,
                           fullTitle,
-                          viewURL
+                          viewURL,
+                          disableFontMenu
                         }) {
   if (isLTR) {
     return <>
@@ -166,6 +168,8 @@ function TitleContainer({
         clickToRemoveResourceLabel={clickToRemoveResourceLabel}
         addObjectPropertyToManifest={addObjectPropertyToManifest}
         viewURL={viewURL}
+        disableFontMenu={disableFontMenu}
+
       />
     </>
   } else { // arrange rtl
@@ -185,6 +189,8 @@ function TitleContainer({
         clickToRemoveResourceLabel={clickToRemoveResourceLabel}
         addObjectPropertyToManifest={addObjectPropertyToManifest}
         viewURL={viewURL}
+        disableFontMenu={disableFontMenu}
+
       />
       {getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle)}
     </>
@@ -214,7 +220,8 @@ const Pane = ({
                 clickToRemoveResourceLabel,
                 addObjectPropertyToManifest,
                 fullTitle,
-                preRelease
+                preRelease,
+                disableFontMenu
               }) => {
   const isLTR_ = isLTR(direction)
   const viewURL = bibleId === 'viewURL'
@@ -248,6 +255,8 @@ const Pane = ({
           addObjectPropertyToManifest={addObjectPropertyToManifest}
           fullTitle={fullTitle}
           viewURL={viewURL}
+          disableFontMenu={disableFontMenu}
+
         />
       </div>
       <div style={{
@@ -296,7 +305,9 @@ Pane.propTypes = {
     PropTypes.array
   ]).isRequired,
   preRelease: PropTypes.string,
-  viewURL: PropTypes.bool
+  viewURL: PropTypes.bool,
+  disableFontMenu: PropTypes.bool,
+
 }
 
 Pane.defaultProps = { verseElements: [] }

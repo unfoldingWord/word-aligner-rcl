@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider'
 import { CgClose } from 'react-icons/cg'
 import useWindowEvent from '../helpers/useWindowEvent'
 import IconButton from '@mui/material/IconButton'
+import { Typography } from '@mui/material'
 
 const useStyles = makeStyles(() => ({
   popover: {
@@ -44,11 +45,11 @@ const PopoverComponent = ({
         <div style={{
           display: 'flex', alignItems:'top', padding: 0,
         }}>
-          <span style={{
+          <Typography component='span' sx={{
             fontSize: '1.2em', fontWeight: 'bold', marginBottom: 10, marginTop: 0, paddingTop: 0,
           }}>
             {title}
-          </span>
+          </Typography>
           <IconButton
             key='lexicon-close-button'
             onClick={onClosePopover}
@@ -65,9 +66,9 @@ const PopoverComponent = ({
           </IconButton>
         </div>
         <Divider />
-        <span style={{ padding: '10px 0 15px 0' }}>
+        <Typography component='span' sx={{ padding: '10px 0 15px 0' }}>
           {bodyText}
-        </span>
+        </Typography>
       </Popover>
     </div>
   );

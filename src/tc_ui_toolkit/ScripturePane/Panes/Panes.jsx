@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 // components
-import Pane from '../Pane';
+import Pane from '../Pane'
 // helpers
-import { getFontClassName } from '../../common/fontUtils';
+import { getFontClassName } from '../../common/fontUtils'
 import {
   createVerseMarker,
   getBibleElement,
   getVerseData,
   verseString,
   verseArray,
-} from '../helpers/verseHelpers';
-import { getTitleWithId } from '../helpers/utils';
+} from '../helpers/verseHelpers'
+import { getTitleWithId } from '../helpers/utils'
 
 function Panes({
   bibles,
@@ -27,12 +27,13 @@ function Panes({
   changePaneFontType,
   currentPaneSettings,
   addObjectPropertyToManifest,
+  disableFontMenu,
 }) {
-  const panes = [];
+  const panes = []
 
   for (let i = 0, len = currentPaneSettings.length; i < len; i++) {
-    const paneSettings = currentPaneSettings[i];
-    const index = i;
+    const paneSettings = currentPaneSettings[i]
+    const index = i
 
     try {
       let {
@@ -43,66 +44,100 @@ function Panes({
         owner,
         actualLanguage,
         isPreRelease,
-      } = paneSettings;
-      const bible = getBibleElement(bibles, languageId, bibleId, owner);
-      const { manifest } = bible;
-      let language_name = manifest.language_name;
-      const targetLanguageFont = projectManifest.projectFont || '';
-      const { chapter, verse } = contextId.reference;
-      let {
-        verseData,
-        verseLabel,
-        verseWordCounts,
-      } = getVerseData(bible, chapter, verse, createVerseMarker);
+      } = paneSettings
+      const bible = getBibleElement(bibles, languageId, bibleId, owner)
+      const { manifest } = bible
+      let language_name = manifest.language_name
+      const targetLanguageFont = projectManifest.projectFont || ''
+      const { chapter, verse } = contextId.reference
+      let { verseData, verseLabel, verseWordCounts } = getVerseData(
+        bible,
+        chapter,
+        verse,
+        createVerseMarker
+      )
 
-      let verseElements = [];
+      let verseElements = []
 
-      if (actualLanguage || ((languageId === 'targetLanguage') && (bibleId === 'targetBible'))) { // if target bible/language, pull up actual name
-        language_name = getTitleWithId(manifest.language_name, manifest.language_id);
+      if (
+        actualLanguage ||
+        (languageId === 'targetLanguage' && bibleId === 'targetBible')
+      ) {
+        // if target bible/language, pull up actual name
+        language_name = getTitleWithId(
+          manifest.language_name,
+          manifest.language_id
+        )
       }
 
-      let description = manifest.description;
+      let description = manifest.description
 
       if (languageId === 'originalLanguage') {
-        description = 'original_language';
+        description = 'original_language'
       }
 
-      const isTargetBible = bibleId === 'targetBible';
-      let fontClass = '';
-      let fullTitle = '';
+      const isTargetBible = bibleId === 'targetBible'
+      let fontClass = ''
+      let fullTitle = ''
 
       if (isTargetBible) {
-        fullTitle = `${language_name} (${translate('pane.target_language')})\n(${translate('pane.current_project')})`;
-        font = targetLanguageFont;
-        fontClass = getFontClassName(targetLanguageFont);
+        fullTitle = `${language_name} (${translate(
+          'pane.target_language'
+        )})\n(${translate('pane.current_project')})`
+        font = targetLanguageFont
+        fontClass = getFontClassName(targetLanguageFont)
       } else {
-        let languageId_ = (languageId !== 'originalLanguage') ? languageId : translate('pane.original_language');
+        let languageId_ =
+          languageId !== 'originalLanguage'
+            ? languageId
+            : translate('pane.original_language')
 
         if (actualLanguage) {
-          fullTitle = language_name;
+          fullTitle = language_name
         } else {
-          fullTitle = `${language_name} (${languageId_})\n(${manifest.resource_title || ''})`;
+          fullTitle = `${language_name} (${languageId_})\n(${
+            manifest.resource_title || ''
+          })`
         }
 
         if (manifest?.view_url) {
-          fullTitle += ` (${manifest?.view_url})`;
+          fullTitle += ` (${manifest?.view_url})`
         } else if (owner) {
-          fullTitle += ` (${owner})`;
+          fullTitle += ` (${owner})`
         }
 
         if (isPreRelease) {
-          fullTitle = `[${fullTitle}] - ${isPreRelease}`;
+          fullTitle = `[${fullTitle}] - ${isPreRelease}`
         }
 
         if (font) {
-          fontClass = getFontClassName(font);
+          fontClass = getFontClassName(font)
         }
       }
 
-      if (typeof verseData === 'string') { // if the verse content is string.
-        verseElements = verseString(verseData, selections, translate, {}, isTargetBible, fontClass);
-      } else if (verseData) { // else the verse content is an array of verse objects.
-        verseElements = verseArray(verseData, bibleId, contextId, getLexiconData, showPopover, translate, {}, fontClass, verseWordCounts);
+      if (typeof verseData === 'string') {
+        // if the verse content is string.
+        verseElements = verseString(
+          verseData,
+          selections,
+          translate,
+          {},
+          isTargetBible,
+          fontClass
+        )
+      } else if (verseData) {
+        // else the verse content is an array of verse objects.
+        verseElements = verseArray(
+          verseData,
+          bibleId,
+          contextId,
+          getLexiconData,
+          showPopover,
+          translate,
+          {},
+          fontClass,
+          verseWordCounts
+        )
       }
 
       panes.push(
@@ -131,14 +166,15 @@ function Panes({
           clickToRemoveResourceLabel={translate('pane.remove_resource')}
           fullTitle={fullTitle}
           preRelease={isPreRelease}
-        />,
-      );
+          disableFontMenu={disableFontMenu}
+        />
+      )
     } catch (err) {
-      console.warn(err);
+      console.warn(err)
     }
   }
 
-  return panes;
+  return panes
 }
 
 Panes.propTypes = {
@@ -155,6 +191,7 @@ Panes.propTypes = {
   complexScriptFonts: PropTypes.object.isRequired,
   currentPaneSettings: PropTypes.array.isRequired,
   addObjectPropertyToManifest: PropTypes.func.isRequired,
-};
+  disableFontMenu: PropTypes.bool,
+}
 
-export default Panes;
+export default Panes

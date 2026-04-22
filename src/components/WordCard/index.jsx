@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ThemedTooltip from "../ThemedTooltip";
 import WordOccurrence from './WordOccurrence';
 import Controls from './Controls';
-
+import { Typography } from '@mui/material';
 /**
  * Generates the component styles
  * @param props
@@ -168,22 +168,22 @@ class WordCard extends React.Component {
             onMouseLeave={this.handleMouseLeave}
           >
             <div style={styles.root}>
-              <span style={{
+              <Typography component='span' sx={{
                 flex: 1, display: 'flex', overflow: 'hidden',
               }}>
-                <span
+                <Typography component='span'
                   ref={this.wordRef}
-                  style={styles.word}
+                  sx={styles.word}
                   onClick={this._handleClick}
                   className={targetLanguageFontClassName}
                 >
                   {word}
-                </span>
+                </Typography>
                 {isSuggestion ? (
                   <Controls onCancel={this._handleCancelClick}/>
                 ) : null}
 
-              </span>
+              </Typography>
               <WordOccurrence
                 fontSize={fontSize}
                 isHebrew={isHebrew}

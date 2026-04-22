@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import Tooltip from '@mui/material/Tooltip';
-
+import { Typography } from '@mui/material';
 const styles = {
   arrow: {
     'fontSize': 16,
@@ -59,11 +59,11 @@ class ThemedTooltip extends React.Component {
         enterDelay={400}
         leaveDelay={200}
         title={
-          <span style={{fontSize: `${fontScale}%`}}>
-            <span className={targetLanguageFontClassName}>
+          <Typography component='span' sx={{fontSize: `${fontScale}%`}}>
+            <Typography component='span' className={targetLanguageFontClassName}>
               {message}
-            </span>
-          </span>
+            </Typography>
+          </Typography>
         }
         classes={{
           tooltip: classes.bootstrapTooltip,

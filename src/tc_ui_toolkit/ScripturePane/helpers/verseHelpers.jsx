@@ -1,10 +1,13 @@
-'use strict'
-import React from 'react'
-import isEqual from 'deep-equal'
-import * as stringTokenizer from 'string-punctuation-tokenizer'
-import { VerseObjectUtils } from 'word-aligner'
-import { getVerses } from 'bible-reference-range'
+'use strict';
+import React from 'react';
+import isEqual from 'deep-equal';
+import * as stringTokenizer from 'string-punctuation-tokenizer';
+import { VerseObjectUtils } from 'word-aligner';
+import * as wordALignerLib from 'word-aligner-lib'
+const verseHelpers_ = wordALignerLib.verseHelpers
+import { getVerses } from 'bible-reference-range';
 // helpers
+import { Typography } from '@mui/material';
 import * as highlightHelpers from './highlightHelpers'
 import {
   createHighlightedSpan,
@@ -78,7 +81,7 @@ export const verseString = (
   }
 
   let verseTextSpans = (
-    <span className={fontClass}>{textToHtml(newVerseText, showUsfm)}</span>
+    <Typography component='span' className={fontClass}>{textToHtml(newVerseText, showUsfm)}</Typography>
   )
 
   if (!showUsfm && selections && selections.length > 0) {
@@ -103,9 +106,9 @@ export const verseString = (
         }
       }
       verseTextSpans.push(
-        <span key={index} className={fontClass} style={spanStyle}>
+        <Typography component='span' key={index} className={fontClass} sx={spanStyle}>
           {selection.text}
-        </span>
+        </Typography>
       )
     }
   }
@@ -146,9 +149,9 @@ export function verseArray(
   if (verseText.verseObjects && textIsEmptyInVerseObject(verseText, bibleId)) {
     // if empty verse string.
     verseSpan.push(
-      <span key={translate('pane.missing_verse_warning')}>
+      <Typography component='span' key={translate('pane.missing_verse_warning')}>
         {translate('pane.missing_verse_warning')}
-      </span>
+      </Typography>
     )
   } else {
     const isHebrew = bibleId === 'uhb'
@@ -221,7 +224,7 @@ export function verseArray(
             }
           }
           verseSpan.push(
-            <span
+            <Typography component='span'
               key={index.toString()}
               onClick={e =>
                 onWordClick(
@@ -233,15 +236,15 @@ export function verseArray(
                   isHebrew
                 )
               }
-              style={{ cursor: 'pointer' }}
+              sx={{ cursor: 'pointer' }}
             >
-              <span className={fontClass} style={paddingSpanStyle}>
+              <Typography component='span' className={fontClass} sx={paddingSpanStyle}>
                 {padding}
-              </span>
-              <span className={fontClass} style={spanStyle}>
+              </Typography>
+              <Typography component='span' className={fontClass} sx={spanStyle}>
                 {removeMarker(text)}
-              </span>
-            </span>
+              </Typography>
+            </Typography>
           )
         } else {
           verseSpan.push(
@@ -474,7 +477,7 @@ export function getVerseDataFromBible(bible, chapter, verse) {
           }
         } else {
           for (let verseIndex in chapterData) {
-            if (isVerseSpan(verseIndex)) {
+            if (verseHelpers_isVerseSpan(verseIndex)) {
               const { low, high } = getVerseSpanRange(verseIndex)
 
               if (verseVal >= low && verseVal <= high) {

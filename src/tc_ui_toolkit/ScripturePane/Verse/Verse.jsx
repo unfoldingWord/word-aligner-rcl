@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import { getReferenceStr } from '../helpers/utils';
+import { Typography } from '@mui/material';
 
 const verseStyles = {
   container: {
@@ -62,7 +63,7 @@ class Verse extends Component {
       verseElements,
     } = this.props;
     const chapterVerseContent = getReferenceStr(chapter, verse) + ' ';
-    const chapterVerse = <strong className={fontClass}>{chapterVerseContent}</strong>;
+    const chapterVerse = <Typography component='strong' sx={fontClass}>{chapterVerseContent}</Typography>;
     const isEditable = bibleId === 'targetBible';
     let verseSpan = verseElements;
     let verseContainerStyle = {};
@@ -73,9 +74,9 @@ class Verse extends Component {
 
     if (!verseElements) {
       verseSpan = (
-        <span style={verseStyles.placeholderText}>
+        <Typography component='span' sx={verseStyles.placeholderText}>
           {translate('pane.missing_verse_warning')}
-        </span>
+        </Typography>
       );
     }
 
@@ -97,7 +98,7 @@ class Verse extends Component {
       <div style={{ ...verseStyles.container, ...verseContainerStyle }}>
         <div style={directionStyle}>
           {chapterVerse}
-          <span>{verseSpan}</span>
+          <Typography component='span'>{verseSpan}</Typography>
         </div>
         {edit}
       </div>
