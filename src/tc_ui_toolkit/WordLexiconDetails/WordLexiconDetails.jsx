@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // helpers
 import * as lexiconHelpers from '../ScripturePane/helpers/lexiconHelpers';
+import { Typography } from '@mui/material';
 
 /**
  * lookup translations and convert to morph description
@@ -35,7 +36,7 @@ function getWordParts(morph, translate) {
  */
 function getFormatted(html) {
   const props = { dangerouslySetInnerHTML: { __html: html } };
-  return <span {...props}></span>;
+  return <Typography component='span' {...props}></Typography>;
 }
 
 /**
@@ -48,9 +49,9 @@ function getFormatted(html) {
  */
 function generateDataSegment(label, text, isFormatted = false, fontSize = '1.0em') {
   return (isFormatted ?
-    <span><strong>{label}</strong> <span style={{ fontSize }}>{(text && getFormatted(text)) || ''}</span></span>
+    <Typography component='span'><Typography component='strong'>{label}</Typography> <Typography component='span' sx={{ fontSize }}>{(text && getFormatted(text)) || ''}</Typography></Typography>
     :
-    <span><strong>{label}</strong> <span style={{ fontSize }}>{text}</span></span>
+    <Typography component='span'><Typography component='strong'>{label}</Typography> <Typography component='span' sx={{ fontSize }}>{text}</Typography></Typography>
   );
 }
 
@@ -77,7 +78,7 @@ function generateLine(pos) {
 function generateWordEntry(multipart, word, fontSize = '1.2em') {
   return multipart ?
     <div style={{ margin: '0', padding: '0' }}>
-      <strong style={{ fontSize }}>{word}</strong>
+      <Typography component='strong' sx={{ fontSize }}>{word}</Typography>
       <br/>
     </div>
     : '';

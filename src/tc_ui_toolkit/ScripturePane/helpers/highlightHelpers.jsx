@@ -3,6 +3,7 @@ import React from 'react';
 import isEqual from 'lodash/isEqual';
 import { isWord, punctuationWordSpacing } from './stringHelpers';
 import { removeMarker } from './usfmHelpers';
+import { Typography } from '@mui/material';
 
 /**
  * check if occurrence is correct match.  Corrects occurrence by adding word count from previous verse
@@ -215,14 +216,14 @@ export function getWordsFromNestedMilestone(nestedWords, contextId, index, previ
       const paddingSpanStyle = { backgroundColor: isBetweenHighlightedWord ? 'var(--highlight-color)' : 'transparent' };
 
       wordSpans.push(
-        <span key={nestedWordSpanIndex.toString()}>
-          <span style={paddingSpanStyle}>
+        <Typography component='span' key={nestedWordSpanIndex.toString()}>
+          <Typography component='span' sx={paddingSpanStyle}>
             {padding}
-          </span>
-          <span className={fontClass} style={{ backgroundColor: isHighlightedWord ? 'var(--highlight-color)' : '' }}>
+          </Typography>
+          <Typography component='span' className={fontClass} sx={{ backgroundColor: isHighlightedWord ? 'var(--highlight-color)' : '' }}>
             {removeMarker(nestedWord.text)}
-          </span>
-        </span>,
+          </Typography>
+        </Typography>,
       );
     } else if (nestedWord.text) {
       nestedWordSpacing = punctuationWordSpacing(nestedWord); // spacing before words
@@ -230,15 +231,15 @@ export function getWordsFromNestedMilestone(nestedWords, contextId, index, previ
 
       if (isPunctuationHighlighted(nestedPreviousWord, nestedNextWord, contextId, verseWordCounts)) {
         wordSpans.push(
-          <span key={nestedWordSpanIndex} className={fontClass} style={{ backgroundColor: 'var(--highlight-color)' }}>
+          <Typography component='span' key={nestedWordSpanIndex} className={fontClass} sx={{ backgroundColor: 'var(--highlight-color)' }}>
             {text}
-          </span>,
+          </Typography>,
         );
       } else {
         wordSpans.push(
-          <span className={fontClass} key={nestedWordSpanIndex}>
+          <Typography component='span' className={fontClass} key={nestedWordSpanIndex}>
             {text}
-          </span>,
+          </Typography>,
         );
       }
     }
@@ -331,8 +332,8 @@ let spaceCounter = 0;
  */
 export function addSpace(verseSpan, fontClass) {
   verseSpan.push(
-    <span key={'space_' +(++spaceCounter)} className={fontClass} style={{ backgroundColor: 'transparent' }}>
+    <Typography component='span' key={'space_' +(++spaceCounter)} className={fontClass} sx={{ backgroundColor: 'transparent' }}>
       {' '}
-    </span>,
+    </Typography>,
   );
 }

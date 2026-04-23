@@ -5,13 +5,14 @@ import {Tooltip as ReactTooltip} from 'react-tooltip';
 import InstructionsAreaTextSelection, { SelectedText } from '../InstructionsAreaTextSelection';
 // css
 import './InstructionsArea.styles.css';
+import { Typography } from '@mui/material';
 
 function getSelectionString(invalidated, translate) {
   if (invalidated) {
     return (
       <div>
-        <span>{translate('selection_invalidated')}
-          <strong
+        <Typography component='span'>{translate('selection_invalidated')}
+          <Typography component='strong'
             data-tip={translate('invalidated_tooltip')}
             data-place="top"
             data-effect="float"
@@ -20,8 +21,8 @@ function getSelectionString(invalidated, translate) {
             data-delay-hide="100"
             style={{ verticalAlign: 'super', fontSize: '0.8em' }}>
             1
-          </strong>
-        </span>
+          </Typography>
+        </Typography>
         <ReactTooltip />
       </div>
     );
@@ -43,7 +44,7 @@ const InstructionsArea = ({
   if (!verseText) {
     return (
       <div className='instructions-area'>
-        <span>{translate('empty_verse')}</span><br />
+        <Typography component='span'>{translate('empty_verse')}</Typography><br />
       </div>
     );
   }
@@ -51,11 +52,11 @@ const InstructionsArea = ({
   if (nothingToSelect) { // if nothingToSelect is true
     return (
       <div className='instructions-area'>
-        <span>{translate('no_selection_needed_description')}</span><br />
+        <Typography component='span'>{translate('no_selection_needed_description')}</Typography><br />
         <SelectedText>
-          <strong className="no-selection-needed">
+          <Typography component='strong' className="no-selection-needed">
             {translate('no_selection_needed')}
-          </strong>
+          </Typography>
         </SelectedText>
       </div>
     );
@@ -64,7 +65,7 @@ const InstructionsArea = ({
   if (selections.length === 0 && dontShowTranslation && !invalidated) { // if invalidated we had previous selection
     return (
       <div className='instructions-area'>
-        <span>{translate('no_selection')}</span><br />
+        <Typography component='span'>{translate('no_selection')}</Typography><br />
       </div>
     );
   }
@@ -73,32 +74,32 @@ const InstructionsArea = ({
     return (
       <div className='instructions-area'>
         {getSelectionString(invalidated, translate)}
-        <span>{translate('please_select')}</span><br />
-        <span>
-          <strong style={{ color: 'var(--accent-color)' }}>
+        <Typography component='span'>{translate('please_select')}</Typography><br />
+        <Typography component='span'>
+          <Typography component='strong' sx={{ color: 'var(--accent-color)' }}>
             {`${alignedGLText}`}
-          </strong>
-        </span><br />
+          </Typography>
+        </Typography><br />
       </div>
     );
   }
 
   return (
     <div className='instructions-area'>
-      <span>
-        <strong style={{ color: 'var(--accent-color)' }}>
+      <Typography component='span'>
+        <Typography component='strong' sx={{ color: 'var(--accent-color)' }}>
           {`${alignedGLText}`}
-        </strong>
-      </span><br />
-      <span style={{ lineHeight: 2 }}>{translate('translated_as')}</span><br />
-      <span>
+        </Typography>
+      </Typography><br />
+      <Typography component='span' sx={{ lineHeight: 2 }}>{translate('translated_as')}</Typography><br />
+      <Typography component='span'>
         <InstructionsAreaTextSelection
           selections={selections}
           verseText={verseText}
           targetLanguageFont={targetLanguageFont}
           languageDirection={targetLanguageDirection}
         />
-      </span>
+      </Typography>
     </div>
   );
 };

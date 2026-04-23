@@ -5,7 +5,7 @@ import { removeUsfmMarkers } from './usfmHelpers'
 import { AlignmentHelpers } from '../index'
 import Lexer from 'wordmap-lexer'
 import { createVerseMarker, getVerseData as getVerseData_ } from '../tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
-import {FINISHED_KEY, UNALIGNED_KEY} from "../common/constants";
+import {FINISHED_KEY, INVALID_KEY, UNALIGNED_KEY} from "../common/constants";
 
 function createGroupItem(bookId, chapter, verse, toolName) {
   return {
@@ -123,6 +123,7 @@ export function initializeGroupData(groupsData, groupIndex, targetBook, sourceBo
         groupItem[FINISHED_KEY] = alignmentComplete
         groupItem[UNALIGNED_KEY] = !alignmentComplete
       }
+
     }
   } else {
     console.warn(`initializeGroupData() - data missing for book`)

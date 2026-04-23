@@ -158,7 +158,7 @@ class MAPControls extends React.Component {
     const { showPopover, translate } = this.props;
 
     showPopover && showPopover(
-      <strong>{translate('instructions')}</strong>,
+      <Typography component='strong'>{translate('instructions')}</Typography>,
       <InfoPopup translate={translate}/>,
       e.target
     );
@@ -193,7 +193,7 @@ class MAPControls extends React.Component {
 
           { suggestionsOnly && !disableSuggestions &&
             <Box component="span">
-              <Typography component="label" style={styles.suggestions}>{translate('suggestions.title')}</Typography>
+              <Typography component="label" sx={styles.suggestions}>{translate('suggestions.title')}</Typography>
             </Box>
           }
 

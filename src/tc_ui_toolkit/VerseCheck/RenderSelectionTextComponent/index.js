@@ -5,6 +5,7 @@ import isEqual from 'deep-equal';
 import * as windowSelectionHelpers from '../helpers/windowSelectionHelpers';
 import * as selectionHelpers from '../helpers/selectionHelpers';
 import * as stringHelpers from '../helpers/stringHelpers';
+import { Typography } from '@mui/material';
 
 const DBL_CLK_TIME = 1500; // time in ms
 const DBL_CLK_DISTANCE = 10; // in pixels
@@ -124,9 +125,9 @@ class RenderSelectionTextComponent extends Component {
       const { targetLanguageFontClassName } = this.props;
 
       return (
-        <span key={index} className={targetLanguageFontClassName} style={style} onClick={callback}>
+        <Typography component='span' key={index} className={targetLanguageFontClassName} sx={style} onClick={callback}>
           {stringSplice.text}
-        </span>
+        </Typography>
       );
     });
     return verseTextSpans;
@@ -138,7 +139,7 @@ class RenderSelectionTextComponent extends Component {
     } = this.props;
     // normalize whitespace for text rendering in order to display highlights with more than one space since html selections show one space
     verseText = stringHelpers.normalizeString(verseText);
-    let verseTextSpans = <span className={targetLanguageFontClassName}>{verseText}</span>;
+    let verseTextSpans = <Typography className={targetLanguageFontClassName}>{verseText}</Typography>;
 
     if (selections && selections.length > 0) {
       verseTextSpans = this.verseTextSpans(selections, verseText);

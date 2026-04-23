@@ -7,7 +7,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 
 const styles = () => ({
   root: {
-    backgroundColor: '#19579E',
+    backgroundColor: 'var(--accent-color-dark)',
     color: '#FFFFFF',
     zIndex: 10,
     paddingTop: 5,

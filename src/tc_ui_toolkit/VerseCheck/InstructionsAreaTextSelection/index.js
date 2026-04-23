@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as windowSelectionHelpers from '../helpers/windowSelectionHelpers';
 import { getFontClassName } from '../../common/fontUtils';
+import { Typography } from '@mui/material';
 
 const BREAK_CHAR = '&';
 
-export const SelectedText = ({ children }) => <strong style={{ color: 'var(--accent-color)' }}>{children}</strong>;
+export const SelectedText = ({ children }) => <Typography component='strong' sx={{ color: 'var(--accent-color)' }}>{children}</Typography>;
 
 SelectedText.propTypes = { children: PropTypes.node.isRequired };
 
@@ -18,12 +19,12 @@ const getSelectionSpans = (selections, targetLanguageFont) => {
     const index = i;
 
     results.push(
-      <span key={index} >
-        <strong style={{ color: 'var(--accent-color)' }} className={fontClass}>
+      <Typography component='span' key={index} >
+        <Typography component='strong' sx={{ color: 'var(--accent-color)' }} className={fontClass}>
           {`${selection.text.trim()}`}
-        </strong>
-        {selections[index + 1] ? <span>{' '}</span> : null}
-      </span>,
+        </Typography>
+        {selections[index + 1] ? <Typography component='span'>{' '}</Typography> : null}
+      </Typography>,
     );
   }
 
@@ -41,11 +42,11 @@ const InstructionsAreaTextSelection = ({
   if (windowSelectionHelpers.shouldRenderBreak(selections, verseText)) {
     return (
       <div style={{ color: 'var(--accent-color)', direction: languageDirection }}>
-        <span className={fontClass}>{selections[0].text.trim()}</span>
-        <strong className={fontClass} style={{ color: 'var(--accent-color)' }}>
+        <Typography component='span' className={fontClass}>{selections[0].text.trim()}</Typography>
+        <Typography component='strong' className={fontClass} sx={{ color: 'var(--accent-color)' }}>
           {` ${BREAK_CHAR} `}
-        </strong>
-        <span className={fontClass}>{selections[selections.length - 1].text.trim()}</span>
+        </Typography>
+        <Typography component='span' className={fontClass}>{selections[selections.length - 1].text.trim()}</Typography>
       </div>
     );
   } else {

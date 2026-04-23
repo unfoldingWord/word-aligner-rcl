@@ -1,150 +1,124 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// helpers
+import { Typography, Box, Stack } from '@mui/material';
 import * as lexiconHelpers from '../helpers/lexiconHelpers';
 
 /**
- * lookup translations and convert to morph description
- * @param {string} morph - morph code to convert
- * @param {Function} translate
- * @return {Array} morph description for each part
+ * Lookup translations and convert to morph description
  */
 function getWordParts(morph, translate) {
   const morphKeysForParts = lexiconHelpers.getMorphKeys(morph);
   const morphStrs = [];
 
   morphKeysForParts.forEach(morphKeys => {
-    const translatedMorphs = [];
-
-    morphKeys.forEach(key => {
-      if (key.startsWith('*')) {
-        translatedMorphs.push(key.substr(1));
-      } else {
-        translatedMorphs.push(translate(key));
-      }
-    });
+    const translatedMorphs = morphKeys.map(key =>
+      key.startsWith('*') ? key.substr(1) : translate(key)
+    );
     morphStrs.push(translatedMorphs.join(', '));
   });
+
   return morphStrs;
 }
 
 /**
- * creates span with formatted html
- * @param html
- * @return {*}
+ * Render formatted HTML inside Typography
  */
 function getFormatted(html) {
-  const props = { dangerouslySetInnerHTML: { __html: html } };
-  return <span {...props}></span>;
+  return <Typography component="span" dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 /**
- * creates a data line with label, text and optionally text can be formatted html
- * @param {string} label
- * @param {string} text
- * @param {boolean} isFormatted - if true then text contains html formatting
- * @param {string} fontSize - font size to use for text
- * @return {*}
+ * Render a data segment with label and value
  */
-function generateDataSegment(label, text, isFormatted = false, fontSize = '1.0em') {
-  return (isFormatted ?
-    <span><strong>{label}</strong> <span style={{ fontSize }}>{(text && getFormatted(text)) || ''}</span></span>
-    :
-    <span><strong>{label}</strong> <span style={{ fontSize }}>{text}</span></span>
+function generateDataSegment(label, text, isFormatted = false, fontSize = '1rem') {
+  return (
+    <Box sx={{ display: 'flex', gap: 1 }}>
+      <Typography component="span" fontWeight="bold">
+        {label}
+      </Typography>
+      <Typography component="span" sx={{ fontSize }}>
+        {isFormatted ? (text && getFormatted(text)) : text}
+      </Typography>
+    </Box>
   );
 }
 
 /**
- * draws line between word parts
- * @param {Number} pos - order of part on screen (0 is top)
- * @return {*}
+ * Draw a separator line
  */
 function generateLine(pos) {
-  return (pos > 0) ?
-    <hr style={{
-      'height': '6px', 'borderBottom': '1px solid gray', 'marginBottom': '5px', 'marginTop': '0px',
-    }}/>
-    : '';
+  if (pos === 0) return null;
+  return <Box sx={{ borderBottom: '1px solid gray', height: 6, mb: 1 }} />;
 }
 
 /**
- * creates an html word
- * @param {boolean} multipart - if true then this is a multipart word
- * @param {string} word
- * @param {string} fontSize - font size to use for word
- * @return {*}
+ * Render a word entry
  */
-function generateWordEntry(multipart, word, fontSize = '1.2em') {
-  return multipart ?
-    <div style={{ margin: '0', padding: '0' }}>
-      <strong style={{ fontSize }}>{word}</strong>
-      <br/>
-    </div>
-    : '';
+function generateWordEntry(multipart, word, fontSize = '1.2rem') {
+  if (!multipart) return null;
+  return (
+    <Typography variant="h6" fontWeight="bold" sx={{ fontSize }}>
+      {word}
+    </Typography>
+  );
 }
 
 /**
- * creates an entry for a word part
- * @param {function} translate
- * @param {string} lemma
- * @param {string} morphStr
- * @param {Number} strongsNum
- * @param {string} strongs
- * @param {string} lexicon
- * @param {string} word
- * @param {Number} itemNum - number of part in word
- * @param {Number} pos - order of part on screen (0 is top)
- * @param {Number} count - total number of parts to show
- * @param {boolean} isHebrew - if true then we adjust font size for Original language
- * @return {*}
+ * Render a single word part
  */
-function generateWordPart(translate, lemma, morphStr, strongsNum, strongs, lexicon, word, itemNum, pos, count,
-  isHebrew = false) {
+function generateWordPart(
+  translate,
+  lemma,
+  morphStr,
+  strongsNum,
+  strongs,
+  lexicon,
+  word,
+  itemNum,
+  pos,
+  count,
+  isHebrew = false
+) {
   morphStr = morphStr || translate('morph_missing');
   const multipart = count > 1;
-  const key = 'lexicon_details_' + pos;
-  const origLangFontSize = isHebrew ? '1.7em' : '1.2em';
+  const key = `lexicon_details_${pos}`;
+  const origLangFontSize = isHebrew ? '1.7rem' : '1.2rem';
 
-  if (strongsNum) {
-    return <div key={key} style={{ margin: '0px 10px 0px 10px', maxWidth: '400px' }}>
+  return (
+    <Box key={key} sx={{ mx: 1, maxWidth: 400 }}>
       {generateLine(pos)}
       {generateWordEntry(multipart, word, origLangFontSize)}
-      {generateDataSegment(translate('lemma'), lemma, false, origLangFontSize)}<br/>
-      {generateDataSegment(translate('morphology'), morphStr)}<br/>
-      {generateDataSegment(translate('strongs'), strongs)}<br/>
-      {generateDataSegment(translate('lexicon'), lexicon, true)}<br/>
-    </div>;
-  } else { // not main word
-    return <div key={key} style={{ margin: '0px 0px 0px 10px', maxWidth: '400px' }}>
-      {generateLine(pos)}
-      {generateWordEntry(multipart, word, origLangFontSize)}
-      {generateDataSegment(translate('morphology'), morphStr)}<br/>
-    </div>;
-  }
+      {strongsNum ? (
+        <Stack spacing={0.5}>
+          {generateDataSegment(translate('lemma'), lemma, false, origLangFontSize)}
+          {generateDataSegment(translate('morphology'), morphStr)}
+          {generateDataSegment(translate('strongs'), strongs)}
+          {generateDataSegment(translate('lexicon'), lexicon, true)}
+        </Stack>
+      ) : (
+        generateDataSegment(translate('morphology'), morphStr)
+      )}
+    </Box>
+  );
 }
 
 /**
- * find the major part of the word and move to top
- * @param {Number} partCount - actual part count
- * @param {Array} wordParts - word split into parts
- * @return {number[]}
+ * Move the longest word part to top
  */
 function movePrimaryWordToTop(partCount, wordParts) {
   let majorHighest = 0;
   let majorPos = 0;
-  let indices = Array.from({ length: partCount }).map((u, i) => i);
+  const indices = Array.from({ length: partCount }, (_, i) => i);
 
   indices.forEach(i => {
-    // sort by part length, longest first
-    const partLen = ((wordParts && (wordParts.length > i) && wordParts[i]) || '').length;
-
+    const partLen = (wordParts[i] || '').length;
     if (partLen > majorHighest) {
       majorHighest = partLen;
       majorPos = i;
     }
   });
 
-  if (majorPos > 0) { // move
+  if (majorPos > 0) {
     indices.splice(majorPos, 1);
     indices.unshift(majorPos);
   }
@@ -152,81 +126,70 @@ function movePrimaryWordToTop(partCount, wordParts) {
 }
 
 /**
- * get the strongs and lexicon for position
- * checks for formats such as `c:d:H0776` or 'H123:H7225' and extracts the actual strongs number(s)
- * @param {String} strong - parse the strongs numbers for part
- * @param {Object} lexiconData
- * @param {number} pos - position of part to get strongs and lexicon
- * @return {strongNumber, lexicon}
+ * Extract strongs and lexicon
  */
 function getStrongsAndLexicon(strong, lexiconData, pos) {
   let lexicon = '';
   let strongNumber = 0;
   const strongsParts = lexiconHelpers.getStrongsParts(strong);
 
-  if (strongsParts.length > pos) {
-    strong = strongsParts[pos];
-  } else {
-    strong = '';
-  }
+  if (strongsParts.length > pos) strong = strongsParts[pos];
+  else strong = '';
 
   const lexiconId = lexiconHelpers.lexiconIdFromStrongs(strong);
   strongNumber = lexiconHelpers.lexiconEntryIdFromStrongs(strong);
 
-  if (lexiconData && lexiconData[lexiconId] && lexiconData[lexiconId][strongNumber]) {
+  if (lexiconData?.[lexiconId]?.[strongNumber]) {
     lexicon = lexiconData[lexiconId][strongNumber].long;
   }
-  return {
-    strongNumber, lexicon, strong,
-  };
+
+  return { strongNumber, lexicon, strong };
 }
 
 /**
- *
- * @param {Object} wordObject - word to display in lexicon
- * @param {String} lexiconData - contains lexicon for strongs
- * @param {Function} translate
- * @param {Function} generateWordPart
- * @param {boolean} isHebrew - if true then we adjust font size for Original language
- * @return {*[]}
+ * Generate all word lexicon details
  */
 export function generateWordLexiconDetails(wordObject, lexiconData, translate, generateWordPart, isHebrew) {
-  let wordLexiconDetails;
   const wordParts = lexiconHelpers.getWordParts(wordObject.text);
   const morphStrs = getWordParts(wordObject.morph, translate);
   const strongsParts = lexiconHelpers.getStrongsParts(wordObject.strong);
-  const partCount = Math.max(morphStrs.length, strongsParts.length, wordParts.length); // since there may be inconsistancies, use largest count
+  const partCount = Math.max(morphStrs.length, strongsParts.length, wordParts.length);
 
   if (partCount < 2) {
-    const {
-      strongNumber, lexicon, strong: strongs,
-    } = getStrongsAndLexicon(wordObject.strong, lexiconData, 0);
-    wordLexiconDetails = generateWordPart(translate, wordObject.lemma, morphStrs[0], strongNumber, strongs, lexicon, wordParts[0], 0, 0, partCount, isHebrew);
-  } else {
-    const indices = movePrimaryWordToTop(partCount, wordParts);
-
-    wordLexiconDetails = indices.map((pos, index) => {
-      const morphStr = ((morphStrs.length > pos) && morphStrs[pos]) || '';
-      const word = ((wordParts.length > pos) && wordParts[pos]) || '';
-      const {
-        strongNumber, lexicon, strong: strongs,
-      } = getStrongsAndLexicon(wordObject.strong, lexiconData, pos);
-      const lemmaStr = (index === 0) ? wordObject.lemma : '';
-      return (
-        generateWordPart(translate, lemmaStr, morphStr, strongNumber, strongs, lexicon, word, pos, index, partCount, isHebrew)
-      );
-    });
+    const { strongNumber, lexicon, strong } = getStrongsAndLexicon(wordObject.strong, lexiconData, 0);
+    return generateWordPart(
+      translate,
+      wordObject.lemma,
+      morphStrs[0],
+      strongNumber,
+      strong,
+      lexicon,
+      wordParts[0],
+      0,
+      0,
+      partCount,
+      isHebrew
+    );
   }
-  return wordLexiconDetails;
+
+  const indices = movePrimaryWordToTop(partCount, wordParts);
+  return indices.map((pos, index) => {
+    const morphStr = morphStrs[pos] || '';
+    const word = wordParts[pos] || '';
+    const { strongNumber, lexicon, strong } = getStrongsAndLexicon(wordObject.strong, lexiconData, pos);
+    const lemmaStr = index === 0 ? wordObject.lemma : '';
+    return generateWordPart(translate, lemmaStr, morphStr, strongNumber, strong, lexicon, word, pos, index, partCount, isHebrew);
+  });
 }
 
+/**
+ * React component
+ */
 class WordLexiconDetails extends React.Component {
   render() {
-    const {
-      wordObject, translate, lexiconData, isHebrew,
-    } = this.props;
-    let wordLexiconDetails = generateWordLexiconDetails(wordObject, lexiconData, translate, generateWordPart, isHebrew);
-    return wordLexiconDetails;
+    const { wordObject, translate, lexiconData, isHebrew } = this.props;
+    const wordLexiconDetails = generateWordLexiconDetails(wordObject, lexiconData, translate, generateWordPart, isHebrew);
+    return <Stack spacing={1}>{wordLexiconDetails}</Stack>;
   }
 }
 

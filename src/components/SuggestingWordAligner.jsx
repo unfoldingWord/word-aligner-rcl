@@ -760,7 +760,7 @@ const SuggestingWordAligner = ({
     if( !asyncSuggester ){
       //pop up a dialog telling the user that the model is not trained.
       showPopover(
-        <strong>{translate('warning')}</strong>,
+        <Typography component='strong'>{translate('warning')}</Typography>,
         <div style={{ whiteSpace: 'pre-line' }}>
           {translate("suggestions.no_data")}
         </div>,

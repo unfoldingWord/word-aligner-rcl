@@ -15,7 +15,7 @@ import MenuFilterIcon from './MenuFilterIcon';
 
 const componentStyles = {
   root: {
-    backgroundColor: '#19579E',
+    backgroundColor: 'var(--accent-color-dark)',
     zIndex: 10,
     color: '#FFFFFF',
     paddingTop: 5,
@@ -25,7 +25,7 @@ const componentStyles = {
     paddingTop: 4,
     paddingBottom: 4,
     minHeight: 'auto',
-    backgroundColor: '#19579E',
+    backgroundColor: 'var(--accent-color-dark)',
   },
   divider: { borderBottom: 'solid 1px #FFFFFF9e' },
   text: {
@@ -46,7 +46,7 @@ const componentStyles = {
     marginRight: '5px',
   },
   chip: {
-    color: '#19579E',
+    color: 'var(--accent-color-dark)',
     margin: 5,
   },
   chipLabel: {
@@ -55,17 +55,17 @@ const componentStyles = {
   },
   chipDeleteIcon: {
     'color': '#19579E99',
-    '&:hover': { color: '#19579E' },
+    '&:hover': { color: 'var(--accent-color-dark)' },
   },
   hover: {},
   header: {
-    backgroundColor: '#19579E',
+    backgroundColor: 'var(--accent-color-dark)',
   },
   listItemIconRoot: {
     minWidth: '0px',
     marginRight: '5px'
   },
-  listSubHeader: { backgroundColor: '#19579E' }
+  listSubHeader: { backgroundColor: 'var(--accent-color-dark)' }
 }
 const styles = () => componentStyles;
 

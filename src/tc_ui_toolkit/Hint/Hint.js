@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Typography } from '@mui/material';
 
 class Hint extends Component {
   render() {
@@ -23,17 +24,17 @@ class Hint extends Component {
 
     if (enable===true) {
       return (
-        <span
+        <Typography component='span'
           className={className}
           aria-label={label}>
           {this.props.children}
-        </span>
+        </Typography>
       );
     } else {
       return (
-        <span>
+        <Typography component='span'>
           {this.props.children}
-        </span>
+        </Typography>
       );
     }
   }
