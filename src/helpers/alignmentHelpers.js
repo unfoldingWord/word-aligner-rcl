@@ -245,9 +245,12 @@ export function  markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetWordL
     for (const alignment of alignments) {
       for (const usedToken of alignment.targetNgram) {
         if (token.text.toString() === usedToken.text.toString()
-          && token.occurrence === usedToken.occurrence
-          && token.occurrences === usedToken.occurrences) {
+          && token.occurrence === usedToken.occurrence) {
           isUsed = true;
+          if (token.occurrences !== usedToken.occurrences) {
+            // fix up occurrences in alignments
+            usedToken.occurrences = token.occurrences;
+          }
           break;
         }
       }
@@ -278,13 +281,27 @@ export function  markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetWordL
  *                  - `wordBank`: The filtered and processed word bank with additional properties.
  */
 function getCleanedAlignments(wordBankWords, verseAlignments) {
-  let wordBank = wordBankWords.filter(item => (!item.disabled))
+  const targetWordsCount = {}
+  let wordBank = wordBankWords.filter(item => {
+    const word = item.word || item.text
+
+    // keep track of word occurrences
+    if (!targetWordsCount[word]) {
+      targetWordsCount[word] = 1
+    } else {
+      targetWordsCount[word]++
+    }
+
+    return !item.disabled
+  })
+
   wordBank = wordBank.map(item => ({
     ...item,
     word: item.word || item.text,
     occurrence: item.occurrence,
     occurrences: item.occurrences
   }))
+
   // remap sourceNgram:topWords, targetNgram:bottomWords,
   const alignments_ = verseAlignments.map(item => ({
     ...item,
@@ -296,11 +313,22 @@ function getCleanedAlignments(wordBankWords, verseAlignments) {
       occurrences: item.occurrences,
       word: item.word || item.text
     })),
-    bottomWords: item.targetNgram.map(item => ({
-      ...item,
-      word: item.word || item.text
-    }))
-  }))
+    bottomWords: item.targetNgram.map(item => {
+      const word = item.word || item.text
+      const newItem = {
+        ...item,
+        word
+      }
+
+      // make sure occurrences matches actual count
+      const actualOccurrences = targetWordsCount[word] || 0
+      if (newItem.occurrences !== actualOccurrences) {
+        newItem.occurrences = actualOccurrences
+      }
+      return newItem
+    })
+  })
+  )
   const alignments = {
     alignments: alignments_,
     wordBank
