@@ -1,9 +1,9 @@
 {
-  "name": "@gabrielaillet/word-aligner-rcl",
-  "version": "1.3.20",
+  "name": "word-aligner-rcl",
+  "version": "1.3.7",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
-  "repository": "https://github.com/gabrielaillet/word-aligner-rcl-pankosmia.git",
+  "repository": "https://github.com/unfoldingWord/word-aligner-rcl.git",
   "author": "",
   "license": "MIT",
   "publishConfig": {
