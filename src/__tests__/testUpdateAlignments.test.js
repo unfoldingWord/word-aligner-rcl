@@ -56,10 +56,14 @@ describe('testing edit of aligned target text', () => {
       console.log('test', testName)
       let {
         initialAlignedUsfm,
+        initialAlignedObject,
         initialEditText,
         steps,
       } = test_
 
+      if (!initialAlignedUsfm) {
+        initialAlignedUsfm = convertVerseDataToUSFM(initialAlignedObject);
+      }
       const initialVerseObjects = usfmVerseToJson(initialAlignedUsfm);
       let currentVerseObjects = cloneDeep(initialVerseObjects); // set initial test conditions
       const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
