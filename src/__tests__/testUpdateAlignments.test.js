@@ -66,8 +66,8 @@ describe('testing edit of aligned target text', () => {
       }
       const initialVerseObjects = usfmVerseToJson(initialAlignedUsfm);
       let currentVerseObjects = cloneDeep(initialVerseObjects); // set initial test conditions
-      const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
-      expect(initialEditText).toEqual(expectedInitialEditText)
+      const expectedInitialEditTextFromUsfm = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
+      expect(initialEditText).toEqual(expectedInitialEditTextFromUsfm)
       expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
 
       for (let i = 0; i < steps.length; i++) {
@@ -105,7 +105,7 @@ describe('testing edit of aligned target text', () => {
           console.warn(`TEST MISCOMPARE: ${stepName}:`)
         }
 
-        expect(results.targetVerseText).toEqual(expectedFinalUsfm)
+        expect(expectedFinalUsfm).toEqual(results.targetVerseText)
 
         const initialWords = Lexer.tokenize(removeUsfmMarkers(newEditText))
         const { targetWords: targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null)
