@@ -66,8 +66,13 @@ describe('testing edit of aligned target text', () => {
       }
       const initialVerseObjects = usfmVerseToJson(initialAlignedUsfm);
       let currentVerseObjects = cloneDeep(initialVerseObjects); // set initial test conditions
-      const expectedInitialEditTextFromUsfm = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
-      expect(initialEditText).toEqual(expectedInitialEditTextFromUsfm)
+      const textGeneratedFromInitialEditUsfm = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
+
+      if (initialEditText !== textGeneratedFromInitialEditUsfm) { // see if test case usfm fails conversion
+        console.warn(`Text generated from initialAlignedUsfm (${textGeneratedFromInitialEditUsfm}) does not match initialEditText (${initialEditText}) for test '${testName}'`)
+      }
+
+      expect(textGeneratedFromInitialEditUsfm).toEqual(initialEditText)
       expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
 
       for (let i = 0; i < steps.length; i++) {
@@ -89,7 +94,7 @@ describe('testing edit of aligned target text', () => {
         ////////////
         // Then
 
-        if (results.targetVerseText !== expectedFinalUsfm) { // if mismatch, pring debug data
+        if (results.targetVerseText !== expectedFinalUsfm) { // if mismatch, print debug data
           console.warn(`TEST MISCOMPARE: ${stepName}:`)
           const targetVerseUsfm = convertVerseDataToUSFM(currentVerseObjects);
           const { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, null);
@@ -105,7 +110,7 @@ describe('testing edit of aligned target text', () => {
           console.warn(`TEST MISCOMPARE: ${stepName}:`)
         }
 
-        expect(expectedFinalUsfm).toEqual(results.targetVerseText)
+        expect(results.targetVerseText).toEqual(expectedFinalUsfm)
 
         const initialWords = Lexer.tokenize(removeUsfmMarkers(newEditText))
         const { targetWords: targetWords } = parseUsfmToWordAlignerData(results.targetVerseText, null)

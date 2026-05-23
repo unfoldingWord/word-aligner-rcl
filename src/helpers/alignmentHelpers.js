@@ -88,7 +88,7 @@ function parseStrToNumber(value) {
  * @param {object} item
  * @returns {object} - new word with occurrence(s) converted to numbers
  */
-function convertOccurrencesInWord(item) {
+export function convertOccurrencesInWord(item) {
   const occurrence = parseStrToNumber(item.occurrence);
   const occurrences = parseStrToNumber(item.occurrences);
   if (
@@ -110,7 +110,7 @@ function convertOccurrencesInWord(item) {
  * @param {array} wordlist
  * @returns {array}
  */
-function convertOccurrences(wordlist) {
+export function convertOccurrences(wordlist) {
   const wordlist_ = wordlist.map(item => {
     return convertOccurrencesInWord(item);
   })
@@ -280,7 +280,7 @@ export function  markTargetWordsAsDisabledIfAlreadyUsedForAlignments(targetWordL
  *                  - `alignments`: The cleaned and remapped alignments of source and target words.
  *                  - `wordBank`: The filtered and processed word bank with additional properties.
  */
-function getCleanedAlignments(wordBankWords, verseAlignments) {
+export function getCleanedAlignments(wordBankWords, verseAlignments) {
   const targetWordsCount = {}
   let wordBank = wordBankWords.filter(item => {
     const word = item.word || item.text
