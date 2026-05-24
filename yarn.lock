@@ -8128,10 +8128,10 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-word-aligner-lib@1.1.0-beta.2:
-  version "1.1.0-beta.2"
-  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.1.0-beta.2.tgz#3d288a84b89f25fb6167e091dcc61fa714207a79"
-  integrity sha512-Q/k8h8OpM3+Br1QbsMa0oRUrg2CXPOPlcpZqtV5391Cib0qkTzwHca2LWj7ruoN1YqFo+AH/lVU86qGNjLfjsA==
+word-aligner-lib@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.1.1.tgz#1f5cecf4ab28ac9175d1f1e2dab0da7d175e3fb0"
+  integrity sha512-gez1XTGxHofn2prJG1qe2TypID+GJiL2u/bwwru9nxT6MUgby/d3N41GdMu+LWUcHbr1d2I+/t9TSjvNJYyYOw==
   dependencies:
     deep-equal "^2.0.5"
     file-loader "^6.2.0"
@@ -8139,23 +8139,13 @@ word-aligner-lib@1.1.0-beta.2:
     string-punctuation-tokenizer "2.2.0"
     tc-strings "^0.1.6"
     usfm-js "3.5.0"
-    word-aligner "1.1.0"
+    word-aligner "1.1.1"
     wordmap-lexer "^0.3.6"
 
-word-aligner@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.0.tgz#451d2969f2fcc5cba4b2b41538617bf6519bfc36"
-  integrity sha512-60johMeSspiUY5v1p6D6SKq3HGPDHkGCzz8+87zkg8twJfkr/tg/MkTsFYNAuZYuTUz669ApKb8U8b7jfC7Qjg==
-  dependencies:
-    babel-runtime "^6.26.0"
-    lodash "^4.17.11"
-    string-punctuation-tokenizer "2.0.0"
-    transform-runtime "0.0.0"
-
-word-aligner@1.1.1-beta.2:
-  version "1.1.1-beta.2"
-  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.1-beta.2.tgz#d5f9d8781cd6e2977698c6c6c8f9cc3c3f15e195"
-  integrity sha512-4tWI7TdOJoHXQLuUP7zTJ1QOLoHjkcRSarmpoMHaAfCfWxiqs1kplnAMlQQciITMqc1ZHYDJLQ7urbaNd6pi+g==
+word-aligner@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.1.tgz#909c2b10d44614b73db07674837be482ae809535"
+  integrity sha512-aS5ubmtDzwmXUQKLbXdTpEsZ42T+3CShezyJsREViEFT6166VczIOODfXxRI6KU4lAUbJ+mpmRGCy9JvQkfruA==
   dependencies:
     babel-runtime "^6.26.0"
     lodash "^4.17.11"
