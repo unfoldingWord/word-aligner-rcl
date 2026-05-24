@@ -8152,6 +8152,16 @@ word-aligner@1.1.0:
     string-punctuation-tokenizer "2.0.0"
     transform-runtime "0.0.0"
 
+word-aligner@1.1.1-beta.2:
+  version "1.1.1-beta.2"
+  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.1-beta.2.tgz#d5f9d8781cd6e2977698c6c6c8f9cc3c3f15e195"
+  integrity sha512-4tWI7TdOJoHXQLuUP7zTJ1QOLoHjkcRSarmpoMHaAfCfWxiqs1kplnAMlQQciITMqc1ZHYDJLQ7urbaNd6pi+g==
+  dependencies:
+    babel-runtime "^6.26.0"
+    lodash "^4.17.11"
+    string-punctuation-tokenizer "2.0.0"
+    transform-runtime "0.0.0"
+
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.3.tgz"
