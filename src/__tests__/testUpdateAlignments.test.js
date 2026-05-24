@@ -56,14 +56,23 @@ describe('testing edit of aligned target text', () => {
       console.log('test', testName)
       let {
         initialAlignedUsfm,
+        initialAlignedObject,
         initialEditText,
         steps,
       } = test_
 
+      if (!initialAlignedUsfm) {
+        initialAlignedUsfm = convertVerseDataToUSFM(initialAlignedObject);
+      }
       const initialVerseObjects = usfmVerseToJson(initialAlignedUsfm);
       let currentVerseObjects = cloneDeep(initialVerseObjects); // set initial test conditions
-      const expectedInitialEditText = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
-      expect(initialEditText).toEqual(expectedInitialEditText)
+      const textGeneratedFromInitialEditUsfm = getUsfmForVerseContent({ verseObjects: currentVerseObjects })
+
+      if (initialEditText !== textGeneratedFromInitialEditUsfm) { // see if test case usfm fails conversion
+        console.warn(`Text generated from initialAlignedUsfm (${textGeneratedFromInitialEditUsfm}) does not match initialEditText (${initialEditText}) for test '${testName}'`)
+      }
+
+      expect(textGeneratedFromInitialEditUsfm).toEqual(initialEditText)
       expect(currentVerseObjects).toEqual(initialVerseObjects) // check for object mod
 
       for (let i = 0; i < steps.length; i++) {
@@ -85,7 +94,7 @@ describe('testing edit of aligned target text', () => {
         ////////////
         // Then
 
-        if (results.targetVerseText !== expectedFinalUsfm) { // if mismatch, pring debug data
+        if (results.targetVerseText !== expectedFinalUsfm) { // if mismatch, print debug data
           console.warn(`TEST MISCOMPARE: ${stepName}:`)
           const targetVerseUsfm = convertVerseDataToUSFM(currentVerseObjects);
           const { targetWords, verseAlignments } = parseUsfmToWordAlignerData(targetVerseUsfm, null);

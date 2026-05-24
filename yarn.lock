@@ -4121,15 +4121,6 @@ fresh@0.5.2:
   resolved "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
   integrity sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==
 
-fs-extra@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-6.0.1.tgz"
-  integrity sha512-GnyIkKhhzXZUWFCaJzvyDLEEgDkPfb4/TPvJCJVuS8MWZgoSsErf++QpiAlDnKFcqhRlm+tIOcencCjyJE6ZCA==
-  dependencies:
-    graceful-fs "^4.1.2"
-    jsonfile "^4.0.0"
-    universalify "^0.1.0"
-
 fs-extra@^11.1.0:
   version "11.1.0"
   resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-11.1.0.tgz"
@@ -5406,13 +5397,6 @@ json5@^2.1.2, json5@^2.2.2, json5@^2.2.3:
   resolved "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
-jsonfile@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz"
-  integrity sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==
-  optionalDependencies:
-    graceful-fs "^4.1.6"
-
 jsonfile@^6.0.1:
   version "6.1.0"
   resolved "https://registry.npmjs.org/jsonfile/-/jsonfile-6.1.0.tgz"
@@ -6207,7 +6191,7 @@ path-exists@^4.0.0:
   resolved "https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz"
   integrity sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==
 
-path-extra@^4.2.1, path-extra@^4.3.0:
+path-extra@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/path-extra/-/path-extra-4.3.0.tgz"
   integrity sha512-ZzYeovxrO9rxKHJ27kFjF8oKnN4U7y463Y4WH7PC3wH5GzEPVdX32Z2ayy3lwMIM2iGKkq6XuufeSRblgHNnhQ==
@@ -6249,14 +6233,6 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
-
-path@0.12.7:
-  version "0.12.7"
-  resolved "https://registry.npmjs.org/path/-/path-0.12.7.tgz"
-  integrity sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==
-  dependencies:
-    process "^0.11.1"
-    util "^0.10.3"
 
 picocolors@^1.0.0:
   version "1.0.0"
@@ -6361,11 +6337,6 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
-
-process@^0.11.1:
-  version "0.11.10"
-  resolved "https://registry.npmjs.org/process/-/process-0.11.10.tgz"
-  integrity sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==
 
 prompts@^2.0.1, prompts@^2.4.2:
   version "2.4.2"
@@ -6737,7 +6708,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@18.3.1:
+react@18.3.1, react@^18.3.1:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
@@ -7831,11 +7802,6 @@ unist-util-visit@^2.0.0:
     unist-util-is "^4.0.0"
     unist-util-visit-parents "^3.0.0"
 
-universalify@^0.1.0:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz"
-  integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
-
 universalify@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/universalify/-/universalify-2.0.0.tgz"
@@ -7879,10 +7845,10 @@ use-sync-external-store@^1.4.0:
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.6.0.tgz#b174bfa65cb2b526732d9f2ac0a408027876f32d"
   integrity sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==
 
-usfm-js@3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/usfm-js/-/usfm-js-3.4.3.tgz#dffa5a00cdbf7c02df89f6e876136df6aa532361"
-  integrity sha512-c5d2dzmSnEfFSPfMXnnycIPwdw8ryBsb2r2CUEwiXpsUMm+gDmhFz5GGOufYP5rGGVwAssHdSM8oOkcaHz+Hwg==
+usfm-js@3.5.0, usfm-js@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/usfm-js/-/usfm-js-3.5.0.tgz#fd209825e091af5069bf85dce89c7a2dde63724d"
+  integrity sha512-gfSaqcxnWX0ZOInwZcyXUbn0qkVopQd3JWsZgEEfVjntb2yN8ojy6tyCqg+6AIv6MB6LZKwvuAT7nooexeUjDw==
   dependencies:
     lodash.clonedeep "^4.5.0"
 
@@ -7897,13 +7863,6 @@ util@0.10.3:
   integrity sha512-5KiHfsmkqacuKjkRkdV7SsfDJ2EGiPsK92s2MhNSY0craxjTdKTtqKsJaCWp4LW33ZZ0OPUv1WO/TFvNQRiQxQ==
   dependencies:
     inherits "2.0.1"
-
-util@^0.10.3:
-  version "0.10.4"
-  resolved "https://registry.npmjs.org/util/-/util-0.10.4.tgz"
-  integrity sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==
-  dependencies:
-    inherits "2.0.3"
 
 utils-merge@1.0.1:
   version "1.0.1"
@@ -8169,38 +8128,24 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-word-aligner-lib@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.0.1.tgz#6992ac993d336ea5915e1b0cedb362a235c85cfc"
-  integrity sha512-3wOdnkESmVuZ/G51WiRvjM3xj6aGk/ebKdKDWhH/H7HF23gy3RTQbrOgvr1/fLLiHEqgG54AzCihdAaWpEfYBw==
+word-aligner-lib@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.1.1.tgz#1f5cecf4ab28ac9175d1f1e2dab0da7d175e3fb0"
+  integrity sha512-gez1XTGxHofn2prJG1qe2TypID+GJiL2u/bwwru9nxT6MUgby/d3N41GdMu+LWUcHbr1d2I+/t9TSjvNJYyYOw==
   dependencies:
     deep-equal "^2.0.5"
     file-loader "^6.2.0"
     lodash.clonedeep "^4.5.0"
     string-punctuation-tokenizer "2.2.0"
     tc-strings "^0.1.6"
-    usfm-js "3.4.3"
-    word-aligner "1.0.3"
+    usfm-js "3.5.0"
+    word-aligner "1.1.1"
     wordmap-lexer "^0.3.6"
 
-word-aligner@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/word-aligner/-/word-aligner-1.0.2.tgz"
-  integrity sha512-alc0TltIlBhFB2kEG3tvWVeH/FdD4i0h/fBAJ1kDdlcHcNW4wdbYDGriCW7ikDQYicKtvCJBIG6II8IXjbHTww==
-  dependencies:
-    babel-runtime "^6.26.0"
-    fs-extra "6.0.1"
-    lodash "^4.17.11"
-    path "0.12.7"
-    path-extra "^4.2.1"
-    rimraf "^2.6.2"
-    string-punctuation-tokenizer "2.0.0"
-    transform-runtime "0.0.0"
-
-word-aligner@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.0.3.tgz#fc99c795263aca39cd05e6499a74a3d3a926aaf4"
-  integrity sha512-Nzg/iBZWmOMGsdnptWelPZ/EnTuFnbkb/61x8dUKM6+T9PmUt0078Ui6WO0SKkUPtNDTRYcRXVgM2opYmTi+Fw==
+word-aligner@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.1.tgz#909c2b10d44614b73db07674837be482ae809535"
+  integrity sha512-aS5ubmtDzwmXUQKLbXdTpEsZ42T+3CShezyJsREViEFT6166VczIOODfXxRI6KU4lAUbJ+mpmRGCy9JvQkfruA==
   dependencies:
     babel-runtime "^6.26.0"
     lodash "^4.17.11"
