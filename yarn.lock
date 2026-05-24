@@ -7845,10 +7845,10 @@ use-sync-external-store@^1.4.0:
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.6.0.tgz#b174bfa65cb2b526732d9f2ac0a408027876f32d"
   integrity sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==
 
-usfm-js@3.4.3, usfm-js@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/usfm-js/-/usfm-js-3.4.3.tgz#dffa5a00cdbf7c02df89f6e876136df6aa532361"
-  integrity sha512-c5d2dzmSnEfFSPfMXnnycIPwdw8ryBsb2r2CUEwiXpsUMm+gDmhFz5GGOufYP5rGGVwAssHdSM8oOkcaHz+Hwg==
+usfm-js@3.5.0, usfm-js@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/usfm-js/-/usfm-js-3.5.0.tgz#fd209825e091af5069bf85dce89c7a2dde63724d"
+  integrity sha512-gfSaqcxnWX0ZOInwZcyXUbn0qkVopQd3JWsZgEEfVjntb2yN8ojy6tyCqg+6AIv6MB6LZKwvuAT7nooexeUjDw==
   dependencies:
     lodash.clonedeep "^4.5.0"
 
@@ -8128,34 +8128,24 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
-word-aligner-lib@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.0.1.tgz#6992ac993d336ea5915e1b0cedb362a235c85cfc"
-  integrity sha512-3wOdnkESmVuZ/G51WiRvjM3xj6aGk/ebKdKDWhH/H7HF23gy3RTQbrOgvr1/fLLiHEqgG54AzCihdAaWpEfYBw==
+word-aligner-lib@1.1.0-beta.2:
+  version "1.1.0-beta.2"
+  resolved "https://registry.yarnpkg.com/word-aligner-lib/-/word-aligner-lib-1.1.0-beta.2.tgz#3d288a84b89f25fb6167e091dcc61fa714207a79"
+  integrity sha512-Q/k8h8OpM3+Br1QbsMa0oRUrg2CXPOPlcpZqtV5391Cib0qkTzwHca2LWj7ruoN1YqFo+AH/lVU86qGNjLfjsA==
   dependencies:
     deep-equal "^2.0.5"
     file-loader "^6.2.0"
     lodash.clonedeep "^4.5.0"
     string-punctuation-tokenizer "2.2.0"
     tc-strings "^0.1.6"
-    usfm-js "3.4.3"
-    word-aligner "1.0.3"
+    usfm-js "3.5.0"
+    word-aligner "1.1.0"
     wordmap-lexer "^0.3.6"
 
-word-aligner@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.0.3.tgz#fc99c795263aca39cd05e6499a74a3d3a926aaf4"
-  integrity sha512-Nzg/iBZWmOMGsdnptWelPZ/EnTuFnbkb/61x8dUKM6+T9PmUt0078Ui6WO0SKkUPtNDTRYcRXVgM2opYmTi+Fw==
-  dependencies:
-    babel-runtime "^6.26.0"
-    lodash "^4.17.11"
-    string-punctuation-tokenizer "2.0.0"
-    transform-runtime "0.0.0"
-
-word-aligner@1.1.0-beta.2:
-  version "1.1.0-beta.2"
-  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.0-beta.2.tgz#dd792d20ca638a17ea5ad9ef6b0e21e749eef409"
-  integrity sha512-FTe4vVURPeQwyISq6YtyaZ45Me7RcHJlUHEnvy4+hl39w5n46XLajCUI9VTLBc/a+8dMCbELD6eg0W/8ladbuA==
+word-aligner@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/word-aligner/-/word-aligner-1.1.0.tgz#451d2969f2fcc5cba4b2b41538617bf6519bfc36"
+  integrity sha512-60johMeSspiUY5v1p6D6SKq3HGPDHkGCzz8+87zkg8twJfkr/tg/MkTsFYNAuZYuTUz669ApKb8U8b7jfC7Qjg==
   dependencies:
     babel-runtime "^6.26.0"
     lodash "^4.17.11"
